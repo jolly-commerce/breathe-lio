@@ -1,0 +1,14 @@
+name: Build Shopify Theme
+
+on:
+  push:
+    branches: [ "*" ]
+  pull_request:
+    branches: [ "*" ]
+
+jobs:
+  build:
+    uses: jolly-commerce/shopify-theme-builder/.github/workflows/build-optimized.yml@main
+    secrets:
+      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      CHANNEL_ID: ${{ secrets.CHANNEL_ID }} 

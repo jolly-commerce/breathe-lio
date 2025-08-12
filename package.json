@@ -1,0 +1,36 @@
+{
+  "name": "jolly_template",
+  "version": "1.0.0",
+  "description": "[![Build status](https://github.com/shopify/dawn/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Shopify/dawn/actions/workflows/ci.yml?query=branch%3Amain) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?color=informational)](/.github/CONTRIBUTING.md)",
+  "main": "index.js",
+  "scripts": {
+    "dev1": "concurrently \"vite build --watch\"",
+    "dev2": "shopify theme dev --store=jolly-commerce.myshopify.com",
+    "dev3": "shopify theme dev --store=jolly-commerce.myshopify.com --theme-editor-sync",
+    "build": "vite build",
+    "setup:pull": "shopify theme pull --store=jolly-commerce.myshopify.com -n",
+    "theme:check": "shopify theme check",
+    "prepush": "npm run theme:check",
+    "postinstall": "./.jolly/postinstall.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shopify/dawn.git"
+  },
+  "author": "Jolly Commerce",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shopify/dawn/issues"
+  },
+  "homepage": "https://github.com/Shopify/dawn#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^7.6.0",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17",
+    "vite": "^4.1.1"
+  },
+  "dependencies": {
+    "swiper": "^11.0.5"
+  }
+}

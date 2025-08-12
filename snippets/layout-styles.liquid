@@ -1,0 +1,45 @@
+{% # Fonts %}
+<link rel="preload" href="{{ 'fonts.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link
+    rel="stylesheet"
+    href="{{ 'fonts.css' | asset_url }}"
+  >
+</noscript>
+
+<link
+  rel="stylesheet"
+  href="{{ 'main.css' | asset_url }}"
+>
+
+{% # Css for different pages %}
+
+{% comment %}
+  {%- if request.page_type == 'product' -%}
+    <link
+      rel="stylesheet"
+      href="{{ 'product.css' | asset_url }}"
+    >
+  {%- endif -%}
+
+  {%- if request.page_type == 'collection' -%}
+    <link
+      rel="stylesheet"
+      href="{{ 'collection.css' | asset_url }}"
+    >
+  {%- endif -%}
+
+  {%- if request.path contains 'account' -%}
+    <link
+      rel="stylesheet"
+      href="{{ 'customer.css' | asset_url }}"
+    >
+  {%- endif -%}
+
+  {%- if template contains 'blog' or template contains 'article' -%}
+  <link
+    rel="stylesheet"
+    href="{{ 'blog.css' | asset_url }}"
+  >
+  {%- endif -%}
+{% endcomment %}

@@ -1,0 +1,9 @@
+{
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/*.log": true,
+      "**/*jc-bundle-*.js": true
+    }
+  }
+  

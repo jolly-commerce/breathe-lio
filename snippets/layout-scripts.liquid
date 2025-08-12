@@ -1,0 +1,37 @@
+{% render 'g-js-variables' %}
+<script src="{{ 'lazysizes.min.js' | asset_url }}" defer="defer" type="module"></script>
+<script src="{{ 'jc-bundle-main.js' | asset_url }}" defer="defer" type="module"></script>
+
+{% # JS for different pages %}
+
+{% comment %} {%- if request.page_type == 'product' -%}
+  <script
+  src="{{ 'jc-bundle-product.js' | asset_url }}"
+  defer="defer"
+  type="module"
+  ></script>
+{%- endif -%}
+
+{%- if request.page_type == 'collection' -%}
+  <script
+  src="{{ 'jc-bundle-collection.js' | asset_url }}"
+  defer="defer"
+  type="module"
+  ></script>
+{%- endif -%}
+
+{%- if request.path contains 'account' -%}
+<script
+  src="{{ 'jc-bundle-customer.js' | asset_url }}"
+  defer="defer"
+  type="module"
+></script>
+{%- endif -%}
+
+{%- if request.path contains 'blogs' -%}
+<script
+  src="{{ 'jc-bundle-blog.js' | asset_url }}"
+  defer="defer"
+  type="module"
+></script>
+{%- endif -%} {% endcomment %}
