@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "Stránka sa nenašla",
+      "continue_shopping": "Pokračovať v nákupe"
+    }
+  },
   "general": {
     "page": "Strana {{ page }}",
     "home": "Domovská stránka",
@@ -95,15 +92,22 @@
       "view_in_space": "Zobraziť vo vašom priestore",
       "taxes_included": "Vrátane dane.",
       "taxes_excluded": "Bez dane.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Doprava sa vypočíta<\/a> pri pokladni",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Doprava sa vypočíta</a> pri pokladni",
       "size_chart": "Tabuľka veľkostí",
       "available_colors_count": {
-        "zero": "{{ count }} farieb k dispozícii",
         "one": "{{ count }} farba k dispozícii",
-        "few": "{{ count }} farby k dispozícii",
-        "many": "{{ count }} farieb k dispozícii",
         "other": "{{ count }} farieb k dispozícii"
-      }
+      },
+      "single": "Kus",
+      "packs": "Balíky",
+      "adding": "Pridávanie...",
+      "added": "Pridané!",
+      "error": "Chyba",
+      "select_variant": "Vyberte variant",
+      "no_pack_variants": "Žiadne varianty balíkov nie sú k dispozícii",
+      "up_to_weeks": "až {{ weeks }} týždňov",
+      "weeks": "týždne",
+      "discount": "zľava"
     },
     "gallery": {
       "close": "Zatvoriť galériu",
@@ -131,8 +135,6 @@
     "rating_count": {
       "zero": "Zatiaľ žiadne hodnotenia",
       "one": "{{ count }} hodnotenie",
-      "few": "{{ count }} hodnotenia",
-      "many": "{{ count }} hodnotení",
       "other": "{{ count }} hodnotení"
     },
     "inventory": {
@@ -141,8 +143,6 @@
       "incoming_stock": "Doplnenie zásob {{ next_incoming_date }}",
       "low_stock_with_quantity_count": {
         "one": "Zostáva už len {{count}} položka",
-        "few": "Zostávajú už len {{count}} položky",
-        "many": "Zostávajú už len {{count}} položiek",
         "other": "Zostávajú už len {{count}} položiek"
       }
     },
@@ -165,8 +165,6 @@
     "products_count": {
       "zero": "{{ count }} produktov",
       "one": "{{ count }} produkt",
-      "few": "{{ count }} produkty",
-      "many": "{{ count }} produktov",
       "other": "{{ count }} produktov"
     },
     "faceting": {
@@ -210,8 +208,6 @@
       "count": {
         "zero": "{{ count }} komentárov",
         "one": "{{ count }} komentár",
-        "few": "{{ count }} komentáre",
-        "many": "{{ count }} komentárov",
         "other": "{{ count }} komentárov"
       }
     }
@@ -328,25 +324,25 @@
       "title": "Košík",
       "empty": "Váš košík je prázdny",
       "item_count": {
+        "zero": "{{ count }} items",
         "one": "{{ count }} položka",
-        "few": "{{ count }} položky",
         "other": "{{ count }} položiek"
       },
       "continue_shopping": "Pokračovať v nákupe",
       "weight": "Hmotnosť",
       "subtotal": "Medzisúčet",
       "total": "Celkom",
+      "taxes_and_shipping_policy_at_checkout_html": "Dane a <a href=\"{{ link }}\" class=\"link\">doprava</a> sa vypočítajú pri pokladni",
+      "taxes_included_but_shipping_at_checkout": "Vrátane dane a dopravy vypočítanej pri pokladni",
+      "taxes_included_and_shipping_policy_html": "Vrátane dane. <a href=\"{{ link }}\" class=\"link\">Doprava</a> sa vypočíta pri pokladni.",
+      "taxes_and_shipping_at_checkout": "Dane a doprava sa vypočítajú pri pokladni",
       "add_order_note": "Pridať poznámku k objednávke",
       "edit_order_note": "Upraviť poznámku k objednávke",
       "order_note": "Poznámka k objednávke",
       "save_note": "Uložiť",
       "view_cart": "Zobraziť košík",
       "checkout": "Zaplatiť",
-      "we_accept": "Prijímame",
-      "taxes_and_shipping_policy_at_checkout_html": "Dane a <a href=\"{{ link }}\" class=\"link\">doprava<\/a> sa vypočítajú pri pokladni",
-      "taxes_included_but_shipping_at_checkout": "Vrátane dane a dopravy vypočítanej pri pokladni",
-      "taxes_included_and_shipping_policy_html": "Vrátane dane. <a href=\"{{ link }}\" class=\"link\">Doprava<\/a> sa vypočíta pri pokladni.",
-      "taxes_and_shipping_at_checkout": "Dane a doprava sa vypočítajú pri pokladni"
+      "we_accept": "Prijímame"
     },
     "order": {
       "product": "Produkt",
@@ -374,12 +370,6 @@
       "error": "Pri načítavaní prepravných sadzieb došlo k jednej alebo viacerým chybám:"
     }
   },
-  "404": {
-    "general": {
-      "title": "Stránka sa nenašla",
-      "continue_shopping": "Pokračovať v nákupe"
-    }
-  },
   "search": {
     "general": {
       "title": "Vyhľadávanie",
@@ -398,8 +388,6 @@
     "results_count": {
       "zero": "{{ count }} výsledkov pre „{{ terms }}“",
       "one": "{{ count }} výsledok pre „{{ terms }}“",
-      "few": "{{ count }} výsledky pre „{{ terms }}“",
-      "many": "{{ count }} výsledkov pre „{{ terms }}“",
       "other": "{{ count }} výsledkov pre „{{ terms }}“"
     }
   },

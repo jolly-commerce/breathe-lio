@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "Nie znaleziono strony",
+      "continue_shopping": "Kontynuuj zakupy"
+    }
+  },
   "general": {
     "page": "Strona {{ page }}",
     "home": "Strona główna",
@@ -99,10 +96,18 @@
       "size_chart": "Tabela rozmiarów",
       "available_colors_count": {
         "one": "{{ count }} dostępny kolor",
-        "few": "{{ count }} dostępne kolory",
-        "many": "{{ count }} dostępnych kolorów",
         "other": "{{ count }} dostępne kolorów"
-      }
+      },
+      "single": "Sztuka",
+      "packs": "Zestawy",
+      "adding": "Dodawanie...",
+      "added": "Dodano!",
+      "error": "Błąd",
+      "select_variant": "Wybierz wariant",
+      "no_pack_variants": "Brak dostępnych wariantów pakietu",
+      "up_to_weeks": "do {{ weeks }} tygodni",
+      "weeks": "tygodnie",
+      "discount": "zniżka"
     },
     "gallery": {
       "close": "Zamknij galerię",
@@ -130,8 +135,6 @@
     "rating_count": {
       "zero": "Brak opinii",
       "one": "{{ count }} opinia",
-      "few": "{{ count }} opinie",
-      "many": "{{ count }} opinii",
       "other": "{{ count }} opinie"
     },
     "inventory": {
@@ -140,8 +143,7 @@
       "incoming_stock": "Dostępne od {{ next_incoming_date }}",
       "low_stock_with_quantity_count": {
         "one": "Została tylko {{ count }} sztuka",
-        "few": "Zostały tylko {{ count }} sztuki",
-        "many": "Zostało tylko {{ count }} sztuk"
+        "other": "Only {{count}} units left"
       }
     },
     "store_availability": {
@@ -161,9 +163,8 @@
       "continue_shopping": "Kontynuuj zakupy"
     },
     "products_count": {
+      "zero": "0 products",
       "one": "{{ count }} produkt",
-      "few": "{{ count }} produkty",
-      "many": "{{ count }} produktów",
       "other": "{{ count }} produktów"
     },
     "faceting": {
@@ -207,8 +208,7 @@
       "count": {
         "zero": "{{ count }} komentarzy",
         "one": "{{ count }} komentarz",
-        "few": "{{ count }} komentarze",
-        "many": "{{ count }} komentarzy"
+        "other": "{{ count }} comments"
       }
     }
   },
@@ -324,9 +324,8 @@
       "title": "Koszyk",
       "empty": "Twój koszyk jest pusty",
       "item_count": {
+        "zero": "{{ count }} items",
         "one": "{{ count }} przedmiot",
-        "few": "{{ count }} przedmioty",
-        "many": "{{ count }} przedmiotów",
         "other": "{{ count }} przedmiotu"
       },
       "continue_shopping": "Kontynuuj zakupy",
@@ -371,12 +370,6 @@
       "error": "Wystąpił co najmniej jeden błąd podczas pobierania metod dostawy:"
     }
   },
-  "404": {
-    "general": {
-      "title": "Nie znaleziono strony",
-      "continue_shopping": "Kontynuuj zakupy"
-    }
-  },
   "search": {
     "general": {
       "title": "Szukaj",
@@ -395,8 +388,6 @@
     "results_count": {
       "zero": "0 wyników dla \"{{ terms }}\"",
       "one": "1 wynik dla \"{{ terms }}\"",
-      "few": "{{ count }} wyniki dla \"{{ terms }}\"",
-      "many": "{{ count }} wyników dla \"{{ terms }}\"",
       "other": "{{ count }} wyników dla \"{{ terms }}\""
     }
   },
@@ -447,8 +438,6 @@
       "review_count": {
         "zero": "Ten produkt nie ma jeszcze opinii.",
         "one": "Ma {{ count }} opinii.",
-        "few": "Ma {{ count }} opinie.",
-        "many": "Ma {{ count }} opinii",
         "other": "Ma {{ count }} opinii."
       }
     }

@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "Η σελίδα δεν βρέθηκε",
+      "continue_shopping": "Συνεχίστε τις αγορές σας"
+    }
+  },
   "general": {
     "page": "Σελίδα {{ page }}",
     "home": "Αρχική",
@@ -95,12 +92,22 @@
       "view_in_space": "Προβολή στον χώρο σας",
       "taxes_included": "Συμπεριλαμβάνονται φόροι.",
       "taxes_excluded": "Δεν συμπεριλαμβάνονται οι φόροι.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Τα έξοδα αποστολής υπολογίζονται<\/a> στο ταμείο",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Τα έξοδα αποστολής υπολογίζονται</a> στο ταμείο",
       "size_chart": "Πίνακας μεγεθών",
       "available_colors_count": {
         "one": "{{ count }} χρώμα διαθέσιμο",
         "other": "{{ count }} διαθέσιμα χρώματα"
-      }
+      },
+      "single": "Μονάδα",
+      "packs": "Πακέτα",
+      "adding": "Προσθήκη...",
+      "added": "Προστέθηκε!",
+      "error": "Σφάλμα",
+      "select_variant": "Επιλέξτε παραλλαγή",
+      "no_pack_variants": "Δεν υπάρχουν διαθέσιμες παραλλαγές πακέτου",
+      "up_to_weeks": "έως {{ weeks }} εβδομάδες",
+      "weeks": "εβδομάδες",
+      "discount": "έκπτωση"
     },
     "gallery": {
       "close": "Κλείσιμο γκαλερί",
@@ -317,6 +324,7 @@
       "title": "Καλάθι",
       "empty": "Το καλάθι σας είναι άδειο",
       "item_count": {
+        "zero": "{{ count }} items",
         "one": "{{ count }} αντικείμενο",
         "other": "{{ count }} αντικείμενα"
       },
@@ -324,17 +332,17 @@
       "weight": "Βάρος",
       "subtotal": "Υποσύνολο",
       "total": "Σύνολο",
+      "taxes_and_shipping_policy_at_checkout_html": "Οι φόροι και τα <a href=\"{{ link }}\" class=\"link\">έξοδα αποστολής</a> υπολογίζονται στο ταμείο",
+      "taxes_included_but_shipping_at_checkout": "Ο φόρος περιλαμβάνεται και τα έξοδα αποστολής υπολογίζονται στο ταμείο",
+      "taxes_included_and_shipping_policy_html": "Ο φόρος περιλαμβάνεται. <a href=\"{{ link }}}\" class=\"link\">Τα έξοδα αποστολής</a> υπολογίζονται στο ταμείο.",
+      "taxes_and_shipping_at_checkout": "Οι φόροι και τα έξοδα αποστολής υπολογίζονται στο ταμείο",
       "add_order_note": "Προσθήκη σημείωσης παραγγελίας",
       "edit_order_note": "Επεξεργασία σημείωσης παραγγελίας",
       "order_note": "Σημειώσεις παραγγελίας",
       "save_note": "Αποθήκευση",
       "view_cart": "Προβολή καλαθιού",
       "checkout": "Ταμείο",
-      "we_accept": "Δεχόμαστε",
-      "taxes_and_shipping_policy_at_checkout_html": "Οι φόροι και τα <a href=\"{{ link }}\" class=\"link\">έξοδα αποστολής<\/a> υπολογίζονται στο ταμείο",
-      "taxes_included_but_shipping_at_checkout": "Ο φόρος περιλαμβάνεται και τα έξοδα αποστολής υπολογίζονται στο ταμείο",
-      "taxes_included_and_shipping_policy_html": "Ο φόρος περιλαμβάνεται. <a href=\"{{ link }}}\" class=\"link\">Τα έξοδα αποστολής<\/a> υπολογίζονται στο ταμείο.",
-      "taxes_and_shipping_at_checkout": "Οι φόροι και τα έξοδα αποστολής υπολογίζονται στο ταμείο"
+      "we_accept": "Δεχόμαστε"
     },
     "order": {
       "product": "Προϊόν",
@@ -360,12 +368,6 @@
       "one_result": "Υπάρχει μία χρέωση αποστολής για τη διεύθυνσή σας:",
       "multiple_results": "Υπάρχουν διάφορες χρεώσεις αποστολής για τη διεύθυνσή σας:",
       "error": "Παρουσιάστηκαν ένα ή περισσότερα σφάλματα κατά την ανάκτηση των χρεώσεων αποστολής:"
-    }
-  },
-  "404": {
-    "general": {
-      "title": "Η σελίδα δεν βρέθηκε",
-      "continue_shopping": "Συνεχίστε τις αγορές σας"
     }
   },
   "search": {

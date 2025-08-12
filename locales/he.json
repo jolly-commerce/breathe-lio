@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "הדף לא נמצא",
+      "continue_shopping": "המשך בקניות"
+    }
+  },
   "general": {
     "page": "עמוד {{ page }}",
     "home": "ראשי",
@@ -95,12 +92,22 @@
       "view_in_space": "View in your space",
       "taxes_included": "כולל מס.",
       "taxes_excluded": "לא כולל מס.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">דמי משלוח יחושבו<\/a> בעת התשלום",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">דמי משלוח יחושבו</a> בעת התשלום",
       "size_chart": "טבלת מידות",
       "available_colors_count": {
         "one": "צבע {{ count }} זמין",
         "other": "{{ count }} צבעים זמינים"
-      }
+      },
+      "single": "יחידה",
+      "packs": "חבילות",
+      "adding": "מוסיף...",
+      "added": "נוסף!",
+      "error": "שגיאה",
+      "select_variant": "בחרו וריאנט",
+      "no_pack_variants": "אין וריאציות לחבילה זמינות",
+      "up_to_weeks": "עד {{ weeks }} שבועות",
+      "weeks": "שבועות",
+      "discount": "הנחה"
     },
     "gallery": {
       "close": "סגירת גלריה",
@@ -216,7 +223,7 @@
   },
   "customer": {
     "account": {
-      "welcome": "ברוך\/ה הבא\/ה, {{first_name}}",
+      "welcome": "ברוך/ה הבא/ה, {{first_name}}",
       "tagline": "הצג את כל ההזמנות שלך ונהל את פרטי חשבונך.",
       "orders": "הזמנות",
       "addresses": "כתובות",
@@ -317,6 +324,7 @@
       "title": "עגלת קניות",
       "empty": "עגלת הקניות שלך ריקה",
       "item_count": {
+        "zero": "{{ count }} items",
         "one": "{{ count }} פריט",
         "other": "{{ count }} פריטים"
       },
@@ -324,17 +332,17 @@
       "weight": "משקל",
       "subtotal": "סכום ביניים",
       "total": "סה\"כ",
+      "taxes_and_shipping_policy_at_checkout_html": "מסים ו<a href=\"{{ link }}\" class=\"link\">דמי משלוח</a> יחושבו בעת התשלום",
+      "taxes_included_but_shipping_at_checkout": "המסים הכלולים ודמי משלוח יחושבו בעת התשלום",
+      "taxes_included_and_shipping_policy_html": "המס כלול. <a href=\"{{ link }}\" class=\"link\">דמי משלוח</a> יחושבו בעת התשלום.",
+      "taxes_and_shipping_at_checkout": "המסים ודמי משלוח יחושבו בעת התשלום",
       "add_order_note": "הוספת הערה להזמנה",
       "edit_order_note": "עריכת הערה להזמנה",
       "order_note": "הערה להזמנה",
       "save_note": "שמירה",
       "view_cart": "הצג עגלת קניות",
       "checkout": "לתשלום",
-      "we_accept": "אנחנו מקבלים",
-      "taxes_and_shipping_policy_at_checkout_html": "מסים ו<a href=\"{{ link }}\" class=\"link\">דמי משלוח<\/a> יחושבו בעת התשלום",
-      "taxes_included_but_shipping_at_checkout": "המסים הכלולים ודמי משלוח יחושבו בעת התשלום",
-      "taxes_included_and_shipping_policy_html": "המס כלול. <a href=\"{{ link }}\" class=\"link\">דמי משלוח<\/a> יחושבו בעת התשלום.",
-      "taxes_and_shipping_at_checkout": "המסים ודמי משלוח יחושבו בעת התשלום"
+      "we_accept": "אנחנו מקבלים"
     },
     "order": {
       "product": "מוצר",
@@ -348,7 +356,7 @@
     },
     "free_shipping_bar": {
       "limit_unreached_html": "קנה בעוד {{ remaining_amount }} ותיהנה ממשלוח חינם!",
-      "limit_reached_html": "את\/ה זכאי\/ת לקבל משלוח חינם."
+      "limit_reached_html": "את/ה זכאי/ת לקבל משלוח חינם."
     },
     "shipping_estimator": {
       "estimate_shipping": "שיערוך המשלוח",
@@ -360,12 +368,6 @@
       "one_result": "יש תעריף משלוח אחד עבור הכתובת שלך:",
       "multiple_results": "יש כמה תעריפי משלוח עבור הכתובת שלך:",
       "error": "אירעה שגיאה אחת או יותר בעת אחזור תעריפי המשלוח:"
-    }
-  },
-  "404": {
-    "general": {
-      "title": "הדף לא נמצא",
-      "continue_shopping": "המשך בקניות"
     }
   },
   "search": {
@@ -416,7 +418,7 @@
   },
   "password": {
     "general": {
-      "follow_us": "עקוב\/עקבי אחרינו",
+      "follow_us": "עקוב/עקבי אחרינו",
       "powered_by": "חנות זו מופעלת על-ידי",
       "store_owner": "בעל החנות?",
       "login": "כניסה"

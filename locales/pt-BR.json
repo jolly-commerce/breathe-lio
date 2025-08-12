@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "Página não encontrada",
+      "continue_shopping": "Continuar comprando"
+    }
+  },
   "general": {
     "page": "Página {{ page }}",
     "home": "Início",
@@ -95,12 +92,22 @@
       "view_in_space": "Veja em seu ambiente",
       "taxes_included": "Tributo incluído.",
       "taxes_excluded": "Tributo excluído.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Frete<\/a> calculado no checkout",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Frete</a> calculado no checkout",
       "size_chart": "Guia de medidas",
       "available_colors_count": {
         "one": "{{ count }} cor disponível",
         "other": "{{ count }} cores disponíveis"
-      }
+      },
+      "single": "Unitário",
+      "packs": "Pacotes",
+      "adding": "Adicionando...",
+      "added": "Adicionado!",
+      "error": "Erro",
+      "select_variant": "Selecione uma variação",
+      "no_pack_variants": "Nenhuma variação de pacote disponível",
+      "up_to_weeks": "até {{ weeks }} semanas",
+      "weeks": "semanas",
+      "discount": "desconto"
     },
     "gallery": {
       "close": "Fechar galeria",
@@ -317,6 +324,7 @@
       "title": "Carrinho",
       "empty": "Seu carrinho está vazio",
       "item_count": {
+        "zero": "{{ count }} items",
         "one": "{{ count }} item",
         "other": "{{ count }} itens"
       },
@@ -360,12 +368,6 @@
       "one_result": "Temos um método de envio para o seu endereço:",
       "multiple_results": "Temos diversos métodos de envio para o seu endereço:",
       "error": "Um ou mais erros aconteceram durante a estimativa de frete:"
-    }
-  },
-  "404": {
-    "general": {
-      "title": "Página não encontrada",
-      "continue_shopping": "Continuar comprando"
     }
   },
   "search": {

@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "ページが見つかりませんでした",
+      "continue_shopping": "ショッピングを開始する"
+    }
+  },
   "general": {
     "page": "ページ {{ page }}",
     "home": "ホーム",
@@ -95,12 +92,22 @@
       "view_in_space": "自分のスペースで見る",
       "taxes_included": "税込み価格",
       "taxes_excluded": "税抜き価格",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">配送料<\/a>は購入手続き時に計算されます。",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">配送料</a>は購入手続き時に計算されます。",
       "size_chart": "サイズ表",
       "available_colors_count": {
         "one": "{{ count }} カラー対応",
         "other": "{{ count }} カラー対応"
-      }
+      },
+      "single": "単品",
+      "packs": "セット",
+      "adding": "追加中...",
+      "added": "追加しました！",
+      "error": "エラー",
+      "select_variant": "バリエーションを選択",
+      "no_pack_variants": "パックのバリエーションはありません",
+      "up_to_weeks": "最長 {{ weeks }} 週間",
+      "weeks": "週間",
+      "discount": "割引"
     },
     "gallery": {
       "close": "閉じる",
@@ -317,6 +324,8 @@
       "title": "カート",
       "empty": "カートが空です",
       "item_count": {
+        "zero": "{{ count }} items",
+        "one": "{{ count }} item",
         "other": "{{ count }}個のアイテム"
       },
       "continue_shopping": "ショッピングを開始する",
@@ -359,12 +368,6 @@
       "one_result": "お客様のご住所には1つの配送料金が適用されます:",
       "multiple_results": "お客様のご住所に合わせて、複数の配送料金が選択できます:",
       "error": "配送料金の取得中に1つ以上のエラーが発生しました:"
-    }
-  },
-  "404": {
-    "general": {
-      "title": "ページが見つかりませんでした",
-      "continue_shopping": "ショッピングを開始する"
     }
   },
   "search": {

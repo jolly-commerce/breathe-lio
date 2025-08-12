@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "Page not found",
+      "continue_shopping": "Continue shopping"
+    }
+  },
   "general": {
     "page": "Page {{ page }}",
     "home": "Home",
@@ -371,12 +368,6 @@
       "one_result": "There is one shipping rate for your address:",
       "multiple_results": "There are several shipping rates for your address:",
       "error": "One or more error occurred while retrieving shipping rates:"
-    }
-  },
-  "404": {
-    "general": {
-      "title": "Page not found",
-      "continue_shopping": "Continue shopping"
     }
   },
   "search": {

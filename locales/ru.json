@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "Страница не найдена",
+      "continue_shopping": "Продолжить покупки"
+    }
+  },
   "general": {
     "page": "Стр. {{ page }}",
     "home": "Главная",
@@ -95,12 +92,22 @@
       "view_in_space": "Просматривайте в реальных условиях",
       "taxes_included": "Цена указана с учетом налогов.",
       "taxes_excluded": "Цена указана без учета налогов.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Стоимость доставки рассчитывается<\/a> при оформлении заказа",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Стоимость доставки рассчитывается</a> при оформлении заказа",
       "size_chart": "Размерная сетка",
       "available_colors_count": {
         "one": "{{ count }} цвет доступен",
         "other": "Доступно цветов: {{ count }}"
-      }
+      },
+      "single": "Одна штука",
+      "packs": "Наборы",
+      "adding": "Добавляем...",
+      "added": "Добавлено!",
+      "error": "Ошибка",
+      "select_variant": "Выберите вариант",
+      "no_pack_variants": "Варианты наборов недоступны",
+      "up_to_weeks": "до {{ weeks }} недель",
+      "weeks": "недели",
+      "discount": "скидка"
     },
     "gallery": {
       "close": "Закрыть галерею",
@@ -317,26 +324,25 @@
       "title": "Корзина",
       "empty": "Корзина пуста",
       "item_count": {
+        "zero": "{{ count }} items",
         "one": "{{ count }} предмет",
-        "few": "{{ count }} предмета",
-        "many": "{{ count }} предметов",
         "other": "{{ count }} предмет"
       },
       "continue_shopping": "Продолжить покупки",
       "weight": "Вес",
       "subtotal": "Промежуточный итог",
       "total": "Итого",
+      "taxes_and_shipping_policy_at_checkout_html": "Налоги и <a href=\"{{ link }}\" class=\"link\">стоимость доставки</a> рассчитываются при оформлении заказа",
+      "taxes_included_but_shipping_at_checkout": "Включенные в цену налоги и стоимость доставки рассчитываются при оформлении заказа",
+      "taxes_included_and_shipping_policy_html": "Налог включен в цену. <a href=\"{{ link }}\" class=\"link\">Стоимость доставки</a> рассчитывается при оформлении заказа.",
+      "taxes_and_shipping_at_checkout": "Налоги и стоимость доставки рассчитываются при оформлении доставки",
       "add_order_note": "Добавить примечание к заказу",
       "edit_order_note": "Изменить примечание к заказу",
       "order_note": "Примечание к заказу",
       "save_note": "Сохранить",
       "view_cart": "Просмотреть корзину",
       "checkout": "Оформить заказ",
-      "we_accept": "Мы принимаем следующие виды оплаты:",
-      "taxes_and_shipping_policy_at_checkout_html": "Налоги и <a href=\"{{ link }}\" class=\"link\">стоимость доставки<\/a> рассчитываются при оформлении заказа",
-      "taxes_included_but_shipping_at_checkout": "Включенные в цену налоги и стоимость доставки рассчитываются при оформлении заказа",
-      "taxes_included_and_shipping_policy_html": "Налог включен в цену. <a href=\"{{ link }}\" class=\"link\">Стоимость доставки<\/a> рассчитывается при оформлении заказа.",
-      "taxes_and_shipping_at_checkout": "Налоги и стоимость доставки рассчитываются при оформлении доставки"
+      "we_accept": "Мы принимаем следующие виды оплаты:"
     },
     "order": {
       "product": "Товар",
@@ -362,12 +368,6 @@
       "one_result": "Для вашего адреса действует один тариф на доставку:",
       "multiple_results": "Для вашего адреса действует несколько тарифов на доставку:",
       "error": "При расчете тарифов на доставку возникли ошибки:"
-    }
-  },
-  "404": {
-    "general": {
-      "title": "Страница не найдена",
-      "continue_shopping": "Продолжить покупки"
     }
   },
   "search": {

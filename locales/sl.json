@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "Strani ni mogoče najti",
+      "continue_shopping": "Nadaljuj z nakupovanjem"
+    }
+  },
   "general": {
     "page": "Stran {{ page }}",
     "home": "Domov",
@@ -95,14 +92,22 @@
       "view_in_space": "Ogled v vašem prostoru",
       "taxes_included": "Z davkom.",
       "taxes_excluded": "Brez davka.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Stroški pošiljanja<\/a> bodo izračunani v košarici",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Stroški pošiljanja</a> bodo izračunani v košarici",
       "size_chart": "Tabela velikosti",
       "available_colors_count": {
         "one": "{{ count }} razpoložljiva barva",
-        "two": "{{ count }} razpoložljivi barvi",
-        "few": "{{ count }} razpoložljive barve",
         "other": "{{ count }} razpoložljivih barv"
-      }
+      },
+      "single": "Kos",
+      "packs": "Paketi",
+      "adding": "Dodajanje...",
+      "added": "Dodano!",
+      "error": "Napaka",
+      "select_variant": "Izberite različico",
+      "no_pack_variants": "Različice paketov niso na voljo",
+      "up_to_weeks": "do {{ weeks }} tednov",
+      "weeks": "tednov",
+      "discount": "popust"
     },
     "gallery": {
       "close": "Zapri galerijo",
@@ -130,8 +135,6 @@
     "rating_count": {
       "zero": "Ni mnenj",
       "one": "{{ count }} mnenje",
-      "two": "{{ count }} mnenji",
-      "few": "{{ count }} mnenja",
       "other": "{{ count }} mnenj"
     },
     "inventory": {
@@ -140,8 +143,6 @@
       "incoming_stock": "Na zalogi znova {{ next_incoming_date }}",
       "low_stock_with_quantity_count": {
         "one": "Samo še {{count}} kos na zalogi",
-        "two": "Samo še {{count}} kosa na zalogi",
-        "few": "Samo še {{count}} kosi na zalogi",
         "other": "Samo še {{count}} kosov na zalogi"
       }
     },
@@ -164,8 +165,6 @@
     "products_count": {
       "zero": "{{ count }} izdelkov",
       "one": "{{ count }} izdelek",
-      "two": "{{ count }} izdelka",
-      "few": "{{ count }} izdelki",
       "other": "{{ count }} izdelkov"
     },
     "faceting": {
@@ -209,8 +208,6 @@
       "count": {
         "zero": "{{ count }} komentarjev",
         "one": "{{ count }} komentar",
-        "two": "{{ count }} komentarja",
-        "few": "{{ count }} komentarji",
         "other": "{{ count }} komentarjev"
       }
     }
@@ -327,26 +324,25 @@
       "title": "Košarica",
       "empty": "Vaša košarica je prazna",
       "item_count": {
+        "zero": "{{ count }} items",
         "one": "{{ count }} izdelek",
-        "two": "{{ count }} izdelka",
-        "few": "{{ count }} izdelki",
         "other": "{{ count }} izdelkov"
       },
       "continue_shopping": "Nadaljuj z nakupovanjem",
       "weight": "Teža",
       "subtotal": "Vmesna vsota",
       "total": "Skupaj",
+      "taxes_and_shipping_policy_at_checkout_html": "Davki in <a href=\"{{ link }}\" class=\"link\">stroški pošiljanja</a> bodo izračunani v košarici",
+      "taxes_included_but_shipping_at_checkout": "Davki in stroški pošiljanja bodo izračunani v košarici",
+      "taxes_included_and_shipping_policy_html": "Davki so vključeni. <a href=\"{{ link }}\" class=\"link\">Stroški pošiljanja</a> bodo izračunani v košarici.",
+      "taxes_and_shipping_at_checkout": "Davki in stroški pošiljanja bodo izračunani v košarici",
       "add_order_note": "Dodaj opombo k naročilu",
       "edit_order_note": "Uredi opombo k naročilu",
       "order_note": "Opomba za naročilo",
       "save_note": "Shrani",
       "view_cart": "Ogled košarice",
       "checkout": "Dokončanje nakupa",
-      "we_accept": "Načini plačila",
-      "taxes_and_shipping_policy_at_checkout_html": "Davki in <a href=\"{{ link }}\" class=\"link\">stroški pošiljanja<\/a> bodo izračunani v košarici",
-      "taxes_included_but_shipping_at_checkout": "Davki in stroški pošiljanja bodo izračunani v košarici",
-      "taxes_included_and_shipping_policy_html": "Davki so vključeni. <a href=\"{{ link }}\" class=\"link\">Stroški pošiljanja<\/a> bodo izračunani v košarici.",
-      "taxes_and_shipping_at_checkout": "Davki in stroški pošiljanja bodo izračunani v košarici"
+      "we_accept": "Načini plačila"
     },
     "order": {
       "product": "Izdelek",
@@ -374,12 +370,6 @@
       "error": "Napaka med pridobivanjem tarif za pošiljanje:"
     }
   },
-  "404": {
-    "general": {
-      "title": "Strani ni mogoče najti",
-      "continue_shopping": "Nadaljuj z nakupovanjem"
-    }
-  },
   "search": {
     "general": {
       "title": "Iskanje",
@@ -398,8 +388,6 @@
     "results_count": {
       "zero": "{{ count }} rezultatov iskanja za »{{ terms }}«",
       "one": "{{ count }} rezultat iskanja za »{{ terms }}«",
-      "two": "{{ count }} rezultata iskanja za »{{ terms }}«",
-      "few": "{{ count }} rezultati iskanja za »{{ terms }}«",
       "other": "{{ count }} rezultatov iskanja za »{{ terms }}«"
     }
   },

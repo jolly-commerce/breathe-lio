@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "Сторінку не знайдено",
+      "continue_shopping": "Продовжити покупки"
+    }
+  },
   "general": {
     "page": "Сторінка {{ page }}",
     "home": "Головна",
@@ -95,12 +92,22 @@
       "view_in_space": "Переглянути у своєму просторі",
       "taxes_included": "Податок враховано.",
       "taxes_excluded": "Податок не враховано.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Вартість доставки<\/a> обчислюється під час оформлення замовлення",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Вартість доставки</a> обчислюється під час оформлення замовлення",
       "size_chart": "Таблиця розмірів",
       "available_colors_count": {
         "one": "Доступно кольорів: {{ count }}",
         "other": "Доступно кольорів: {{ count }}"
-      }
+      },
+      "single": "Одна штука",
+      "packs": "Набори",
+      "adding": "Додаємо...",
+      "added": "Додано!",
+      "error": "Помилка",
+      "select_variant": "Оберіть варіант",
+      "no_pack_variants": "Варіанти наборів недоступні",
+      "up_to_weeks": "до {{ weeks }} тижнів",
+      "weeks": "тижні",
+      "discount": "знижка"
     },
     "gallery": {
       "close": "Закрити галерею",
@@ -317,26 +324,25 @@
       "title": "Кошик",
       "empty": "Ваш кошик пустий",
       "item_count": {
+        "zero": "{{ count }} items",
         "one": "{{ count }} предмет",
-        "few": "{{ count }} предмети",
-        "many": "{{ count }} предметів",
         "other": "{{ count }} предмет"
       },
       "continue_shopping": "Продовжити покупки",
       "weight": "Вага",
       "subtotal": "Проміжний підсумок",
       "total": "Усього",
+      "taxes_and_shipping_policy_at_checkout_html": "Податки й <a href=\"{{ link }}\" class=\"link\">вартість доставки</a> обчислюються під час оформлення замовлення",
+      "taxes_included_but_shipping_at_checkout": "Податок враховано, і вартість доставки обчислюється під час оформлення замовлення",
+      "taxes_included_and_shipping_policy_html": "Податок враховано. <a href=\"{{ link }}\" class=\"link\">Вартість доставки</a> обчислюється під час оформлення замовлення.",
+      "taxes_and_shipping_at_checkout": "Податки та вартість доставки обчислюються під час оформлення замовлення",
       "add_order_note": "Додати примітку до замовлення",
       "edit_order_note": "Редагувати примітку до замовлення",
       "order_note": "Примітка до замовлення",
       "save_note": "Зберегти",
       "view_cart": "Переглянути кошик",
       "checkout": "Оформити замовлення",
-      "we_accept": "Ми приймаємо",
-      "taxes_and_shipping_policy_at_checkout_html": "Податки й <a href=\"{{ link }}\" class=\"link\">вартість доставки<\/a> обчислюються під час оформлення замовлення",
-      "taxes_included_but_shipping_at_checkout": "Податок враховано, і вартість доставки обчислюється під час оформлення замовлення",
-      "taxes_included_and_shipping_policy_html": "Податок враховано. <a href=\"{{ link }}\" class=\"link\">Вартість доставки<\/a> обчислюється під час оформлення замовлення.",
-      "taxes_and_shipping_at_checkout": "Податки та вартість доставки обчислюються під час оформлення замовлення"
+      "we_accept": "Ми приймаємо"
     },
     "order": {
       "product": "Товар",
@@ -362,12 +368,6 @@
       "one_result": "Для вашої адреси є один тариф на доставку:",
       "multiple_results": "Для вашої адреси є кілька тарифів на доставку:",
       "error": "Під час отримання тарифів на доставку сталась одна або кілька помилок:"
-    }
-  },
-  "404": {
-    "general": {
-      "title": "Сторінку не знайдено",
-      "continue_shopping": "Продовжити покупки"
     }
   },
   "search": {

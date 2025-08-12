@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "Sidan kan inte hittas",
+      "continue_shopping": "Fortsätt handla"
+    }
+  },
   "general": {
     "page": "Sida {{ page }}",
     "home": "Hem",
@@ -100,7 +97,17 @@
       "available_colors_count": {
         "one": "{{ count }} färg tillgänglig",
         "other": "{{ count }} färger tillgängliga"
-      }
+      },
+      "single": "Styck",
+      "packs": "Förpackningar",
+      "adding": "Lägger till...",
+      "added": "Tillagt!",
+      "error": "Fel",
+      "select_variant": "Välj en variant",
+      "no_pack_variants": "Inga paketvarianter tillgängliga",
+      "up_to_weeks": "upp till {{ weeks }} veckor",
+      "weeks": "veckor",
+      "discount": "rabatt"
     },
     "gallery": {
       "close": "Stäng bildgalleriet",
@@ -317,6 +324,7 @@
       "title": "Varukorg",
       "empty": "Din varukorg är tom",
       "item_count": {
+        "zero": "{{ count }} items",
         "one": "{{ count }} artikel",
         "other": "{{ count }} artiklar"
       },
@@ -360,12 +368,6 @@
       "one_result": "Det finns en fraktkostnad för din adress:",
       "multiple_results": "Det finns flera fraktpriser för din adress:",
       "error": "Ett eller flera fel uppstod vid hämtning av fraktpriser:"
-    }
-  },
-  "404": {
-    "general": {
-      "title": "Sidan kan inte hittas",
-      "continue_shopping": "Fortsätt handla"
     }
   },
   "search": {

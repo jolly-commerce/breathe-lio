@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "Stránka nebyla nalezena",
+      "continue_shopping": "Pokračovat v nákupu"
+    }
+  },
   "general": {
     "page": "Strana {{ page }}",
     "home": "Domovská stránka",
@@ -95,14 +92,22 @@
       "view_in_space": "Zobrazit ve vašem prostoru",
       "taxes_included": "Včetně DPH.",
       "taxes_excluded": "Bez DPH.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Poštovné<\/a> se vypočítá při dokončení objednávky",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Poštovné</a> se vypočítá při dokončení objednávky",
       "size_chart": "Tabulka velikostí",
       "available_colors_count": {
         "one": "Dostupné v {{ count }} barvě",
-        "few": "Dostupné v {{ count }} barvách",
-        "many": "Dostupné v {{ count }} barvách",
         "other": "Dostupné v {{ count }} barvách"
-      }
+      },
+      "single": "Kus",
+      "packs": "Balíčky",
+      "adding": "Přidávání...",
+      "added": "Přidáno!",
+      "error": "Chyba",
+      "select_variant": "Vyberte variantu",
+      "no_pack_variants": "Žádné varianty balíčků nejsou k dispozici",
+      "up_to_weeks": "až {{ weeks }} týdnů",
+      "weeks": "týdny",
+      "discount": "sleva"
     },
     "gallery": {
       "close": "Zavřít galerii",
@@ -130,8 +135,6 @@
     "rating_count": {
       "zero": "Žádné recenze",
       "one": "{{ count }} recenze",
-      "few": "{{ count }}  recenze",
-      "many": "{{ count }} recenzí",
       "other": "{{ count }} recenzí"
     },
     "inventory": {
@@ -140,8 +143,6 @@
       "incoming_stock": "Bude naskladněno {{ next_incoming_date }}",
       "low_stock_with_quantity_count": {
         "one": "Zbývá pouze {{count}} kus",
-        "few": "Zbývá pouze {{count}} kusy",
-        "many": "Zbývá pouze {{count}} kusů",
         "other": "Zbývá pouze {{count}} kusů"
       }
     },
@@ -164,8 +165,6 @@
     "products_count": {
       "zero": "0 produktů",
       "one": "1 produkt",
-      "few": "{{ count }} produkty",
-      "many": "{{ count }} produktů",
       "other": "{{ count }} produktů"
     },
     "faceting": {
@@ -209,8 +208,6 @@
       "count": {
         "zero": "{{ count }} komentářů",
         "one": "{{ count }} komentář",
-        "few": "{{ count }} komentáře",
-        "many": "{{ count }} komentářů",
         "other": "{{ count }} komentářů"
       }
     }
@@ -327,25 +324,25 @@
       "title": "Košík",
       "empty": "Váš košík je prázdný",
       "item_count": {
+        "zero": "{{ count }} items",
         "one": "{{ count }} položka",
-        "few": "{{ count }} položky",
         "other": "{{ count }} položek"
       },
       "continue_shopping": "Pokračovat v nákupu",
       "weight": "Hmotnost",
       "subtotal": "Mezisoučet",
       "total": "Celkem",
+      "taxes_and_shipping_policy_at_checkout_html": "Daně a <a href=\"{{ link }}\" class=\"link\">poštovné</a> se vypočítají při placení",
+      "taxes_included_but_shipping_at_checkout": "Daň je zahrnuta v ceně, poštovné se vypočítá při placení",
+      "taxes_included_and_shipping_policy_html": "Daň je zahrnuta v ceně. <a href=\"{{ link }}\" class=\"link\">Poštovné</a> se vypočítá při placení.",
+      "taxes_and_shipping_at_checkout": "Daň a poštovné se vypočítají při placení",
       "add_order_note": "Vložit poznámku k objednávce",
       "edit_order_note": "Upravit poznámku k objednávce",
       "order_note": "Poznámka k objednávce",
       "save_note": "Uložit",
       "view_cart": "Zobrazit košík",
       "checkout": "Přejít k placení",
-      "we_accept": "Přijímáme",
-      "taxes_and_shipping_policy_at_checkout_html": "Daně a <a href=\"{{ link }}\" class=\"link\">poštovné<\/a> se vypočítají při placení",
-      "taxes_included_but_shipping_at_checkout": "Daň je zahrnuta v ceně, poštovné se vypočítá při placení",
-      "taxes_included_and_shipping_policy_html": "Daň je zahrnuta v ceně. <a href=\"{{ link }}\" class=\"link\">Poštovné<\/a> se vypočítá při placení.",
-      "taxes_and_shipping_at_checkout": "Daň a poštovné se vypočítají při placení"
+      "we_accept": "Přijímáme"
     },
     "order": {
       "product": "Produkt",
@@ -373,12 +370,6 @@
       "error": "Při načítání přepravních sazeb došlo k jedné nebo více chyb:"
     }
   },
-  "404": {
-    "general": {
-      "title": "Stránka nebyla nalezena",
-      "continue_shopping": "Pokračovat v nákupu"
-    }
-  },
   "search": {
     "general": {
       "title": "Hledat",
@@ -397,8 +388,6 @@
     "results_count": {
       "zero": "0 výsledků pro „{{ terms }}“",
       "one": "1 výsledek pro „{{ terms }}“",
-      "few": "{{ count }} výsledky pro „{{ terms }}“",
-      "many": "{{ count }} výsledků pro „{{ terms }}“",
       "other": "{{ count }} výsledků pro „{{ terms }}“"
     }
   },
@@ -449,8 +438,6 @@
       "review_count": {
         "zero": "Tento produkt zatím nemá žádné recenze.",
         "one": "Podívejte se na {{ count }} recenzi tohoto produktu.",
-        "few": "Podívejte se na {{ count }} recenze tohoto produktu.",
-        "many": "Podívejte se na {{ count }} recenzi tohoto produktu.",
         "other": "Podívejte se na {{ count }} recenzi tohoto produktu."
       }
     }

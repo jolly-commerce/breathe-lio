@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "Fant ikke side",
+      "continue_shopping": "Fortsett shoppingen"
+    }
+  },
   "general": {
     "page": "Side {{ page }}",
     "home": "Hjem",
@@ -95,12 +92,22 @@
       "view_in_space": "Vis lokalt",
       "taxes_included": "Inklusiv avgifter.",
       "taxes_excluded": "Eksklusiv avgifter.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Frakt beregnes<\/a> i kassen",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Frakt beregnes</a> i kassen",
       "size_chart": "Størrelsestabell",
       "available_colors_count": {
         "one": "{{ count }} farge tilgjengelig",
         "other": "{{ count }} farger tilgjengelig"
-      }
+      },
+      "single": "Enkel",
+      "packs": "Pakker",
+      "adding": "Legger til...",
+      "added": "Lagt til!",
+      "error": "Feil",
+      "select_variant": "Velg en variant",
+      "no_pack_variants": "Ingen pakkevarianter tilgjengelig",
+      "up_to_weeks": "opptil {{ weeks }} uker",
+      "weeks": "uker",
+      "discount": "rabatt"
     },
     "gallery": {
       "close": "Lukk galleri",
@@ -317,6 +324,7 @@
       "title": "Handlekurv",
       "empty": "Handlekurven din er tom",
       "item_count": {
+        "zero": "{{ count }} items",
         "one": "{{ count }} vare",
         "other": "{{ count }} varer"
       },
@@ -324,17 +332,17 @@
       "weight": "Vekt",
       "subtotal": "Nettobeløp",
       "total": "Totalt",
+      "taxes_and_shipping_policy_at_checkout_html": "Avgifter og <a href=\"{{ link }}\" class=\"link\">frakt</a> beregnes i kassen",
+      "taxes_included_but_shipping_at_checkout": "Inklusiv avgifter og frakt beregnes i kassen",
+      "taxes_included_and_shipping_policy_html": "Inklusiv avgifter. <a href=\"{{ link }}\" class=\"link\">Frakt</a> beregnes i kassen.",
+      "taxes_and_shipping_at_checkout": "Avgifter og frakt beregnes i kassen",
       "add_order_note": "Legg til merknad i bestilling",
       "edit_order_note": "Rediger merknad i bestilling",
       "order_note": "Merknad i bestilling",
       "save_note": "Lagre",
       "view_cart": "Vis handlekurv",
       "checkout": "Gå til kasse",
-      "we_accept": "Vi aksepterer",
-      "taxes_and_shipping_policy_at_checkout_html": "Avgifter og <a href=\"{{ link }}\" class=\"link\">frakt<\/a> beregnes i kassen",
-      "taxes_included_but_shipping_at_checkout": "Inklusiv avgifter og frakt beregnes i kassen",
-      "taxes_included_and_shipping_policy_html": "Inklusiv avgifter. <a href=\"{{ link }}\" class=\"link\">Frakt<\/a> beregnes i kassen.",
-      "taxes_and_shipping_at_checkout": "Avgifter og frakt beregnes i kassen"
+      "we_accept": "Vi aksepterer"
     },
     "order": {
       "product": "Produkt",
@@ -360,12 +368,6 @@
       "one_result": "Det er en fraktpris til din adresse:",
       "multiple_results": "Det er flere fraktpriser til din adresse:",
       "error": "Én eller flere feil oppstod under innhenting av fraktpriser:"
-    }
-  },
-  "404": {
-    "general": {
-      "title": "Fant ikke side",
-      "continue_shopping": "Fortsett shoppingen"
     }
   },
   "search": {

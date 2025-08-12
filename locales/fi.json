@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "Sivua ei löydy",
+      "continue_shopping": "Jatka ostoksia"
+    }
+  },
   "general": {
     "page": "Sivu {{ page }}",
     "home": "Etusivu",
@@ -16,7 +13,7 @@
       "pagination": "Sivutuksen navigointi",
       "go_to_page": "Siirry sivulle {{ index }}",
       "go_to_item": "Siirry kohteeseen {{ index }}",
-      "item_nth_of_count": "Kohde {{ index }}\/{{ count }}",
+      "item_nth_of_count": "Kohde {{ index }}/{{ count }}",
       "drag": "Vedä",
       "close": "Sulje",
       "next": "Seuraava",
@@ -36,7 +33,7 @@
       "share_email": "Jaa sähköpostitse"
     },
     "rating": {
-      "info": "{{ rating_value }}\/{{ rating_max }} tähteä"
+      "info": "{{ rating_value }}/{{ rating_max }} tähteä"
     },
     "newsletter": {
       "email": "Sähköposti",
@@ -95,12 +92,22 @@
       "view_in_space": "Näytä tilassasi",
       "taxes_included": "Sisältää verot.",
       "taxes_excluded": "Ei sisällä veroja.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Toimituskulut lasketaan<\/a> maksun yhteydessä",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Toimituskulut lasketaan</a> maksun yhteydessä",
       "size_chart": "Kokotaulukko",
       "available_colors_count": {
         "one": "{{ count }} väri saatavilla",
         "other": "{{ count }} väriä saatavilla"
-      }
+      },
+      "single": "Yksittäin",
+      "packs": "Pakkaukset",
+      "adding": "Lisätään...",
+      "added": "Lisätty!",
+      "error": "Virhe",
+      "select_variant": "Valitse vaihtoehto",
+      "no_pack_variants": "Pakettivaihtoehtoja ei saatavilla",
+      "up_to_weeks": "jopa {{ weeks }} viikkoa",
+      "weeks": "viikkoa",
+      "discount": "alennus"
     },
     "gallery": {
       "close": "Sulje galleria",
@@ -317,6 +324,7 @@
       "title": "Ostoskori",
       "empty": "Ostoskorisi on tyhjä",
       "item_count": {
+        "zero": "{{ count }} items",
         "one": "{{ count }} tuote",
         "other": "{{ count }} tuotetta"
       },
@@ -324,17 +332,17 @@
       "weight": "Paino",
       "subtotal": "Välisumma",
       "total": "Yhteensä",
+      "taxes_and_shipping_policy_at_checkout_html": "Verot ja <a href=\"{{ link }}\" class=\"link\">toimituskulut</a> lasketaan maksun yhteydessä",
+      "taxes_included_but_shipping_at_checkout": "Sisältyvät verot ja toimituskululut lasketaan maksun yhteydessä",
+      "taxes_included_and_shipping_policy_html": "Verot sisältyvät hintaan. <a href=\"{{ link }}\" class=\"link\">Toimituskulut</a> lasketaan maksun yhteydessä.",
+      "taxes_and_shipping_at_checkout": "Verot ja toimituskululut lasketaan maksun yhteydessä",
       "add_order_note": "Lisää tilauksen kommentti",
       "edit_order_note": "Muokkaa tilauksen kommenttia",
       "order_note": "Tilauksen kommentti",
       "save_note": "Tallenna",
       "view_cart": "Näytä ostoskori",
       "checkout": "Kassalle",
-      "we_accept": "Maksutavat",
-      "taxes_and_shipping_policy_at_checkout_html": "Verot ja <a href=\"{{ link }}\" class=\"link\">toimituskulut<\/a> lasketaan maksun yhteydessä",
-      "taxes_included_but_shipping_at_checkout": "Sisältyvät verot ja toimituskululut lasketaan maksun yhteydessä",
-      "taxes_included_and_shipping_policy_html": "Verot sisältyvät hintaan. <a href=\"{{ link }}\" class=\"link\">Toimituskulut<\/a> lasketaan maksun yhteydessä.",
-      "taxes_and_shipping_at_checkout": "Verot ja toimituskululut lasketaan maksun yhteydessä"
+      "we_accept": "Maksutavat"
     },
     "order": {
       "product": "Tuote",
@@ -360,12 +368,6 @@
       "one_result": "Osoitteeseesi on yksi toimituskulu:",
       "multiple_results": "Osoitteeseesi on useita toimituskuluja:",
       "error": "Virhe noudettaessa toimituskuluja:"
-    }
-  },
-  "404": {
-    "general": {
-      "title": "Sivua ei löydy",
-      "continue_shopping": "Jatka ostoksia"
     }
   },
   "search": {
@@ -399,7 +401,7 @@
     },
     "issued": {
       "remaining_amount": "Jäljellä oleva summa",
-      "out_of_html": "\/ {{ initial_value }}",
+      "out_of_html": "/ {{ initial_value }}",
       "redeem_instructions": "Lunasta lahjakorttisi maksun yhteydessä käyttämällä tätä koodia:",
       "code": "Lahjakortin koodi",
       "expires_on": "Vanhenee: {{ expires_on }}",
@@ -431,7 +433,7 @@
   },
   "apps": {
     "shopify_reviews": {
-      "review_info": "Tämä tuote on saanut arvioksi {{ rating_value }}\/{{ rating_max }} tähteä.",
+      "review_info": "Tämä tuote on saanut arvioksi {{ rating_value }}/{{ rating_max }} tähteä.",
       "leave_review": "Jätä arvio",
       "review_count": {
         "zero": "Tällä tuotteella ei ole vielä arvioita.",

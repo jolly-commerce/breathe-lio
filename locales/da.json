@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "Siden blev ikke fundet",
+      "continue_shopping": "Fortsæt med at handle"
+    }
+  },
   "general": {
     "page": "Side {{ page }}",
     "home": "Startside",
@@ -95,12 +92,22 @@
       "view_in_space": "Se den i dit område",
       "taxes_included": "Inkl. moms.",
       "taxes_excluded": "Ekskl. moms.",
-      "shipping_policy_html": "Moms og <a href=\"{{ link }}\" class=\"link\">levering beregnes<\/a> ved kassen",
+      "shipping_policy_html": "Moms og <a href=\"{{ link }}\" class=\"link\">levering beregnes</a> ved kassen",
       "size_chart": "Størrelsesoversigt",
       "available_colors_count": {
         "one": "{{ count }} farve tilgængelig",
         "other": "{{ count }} farver tilgængelig"
-      }
+      },
+      "single": "Enkelt",
+      "packs": "Pakker",
+      "adding": "Tilføjer...",
+      "added": "Tilføjet!",
+      "error": "Fejl",
+      "select_variant": "Vælg en variant",
+      "no_pack_variants": "Ingen pakkevarianter tilgængelige",
+      "up_to_weeks": "op til {{ weeks }} uger",
+      "weeks": "uger",
+      "discount": "rabat"
     },
     "gallery": {
       "close": "Luk gallery",
@@ -317,6 +324,7 @@
       "title": "Indkøbskurv",
       "empty": "Din indkøbskurv er tom",
       "item_count": {
+        "zero": "{{ count }} items",
         "one": "{{ count }} vare",
         "other": "{{ count }} varer"
       },
@@ -324,17 +332,17 @@
       "weight": "Vægt",
       "subtotal": "Subtotal",
       "total": "I alt",
+      "taxes_and_shipping_policy_at_checkout_html": "Moms og <a href=\"{{ link }}\" class=\"link\">levering</a> beregnes ved kassen",
+      "taxes_included_but_shipping_at_checkout": "Inkl. moms og levering beregnes ved kassen",
+      "taxes_included_and_shipping_policy_html": "Moms inkluderet. <a href=\"{{ link }}\" class=\"link\">Levering</a> beregnes ved kassen.",
+      "taxes_and_shipping_at_checkout": "Moms og levering beregnes ved kassen",
       "add_order_note": "Tilføj bemærkning til ordre",
       "edit_order_note": "Rediger bemærkning til ordre",
       "order_note": "Bemærkning til ordre",
       "save_note": "Gem",
       "view_cart": "Vis indkøbskurv",
       "checkout": "Gå til kasse",
-      "we_accept": "Vi accepterer",
-      "taxes_and_shipping_policy_at_checkout_html": "Moms og <a href=\"{{ link }}\" class=\"link\">levering<\/a> beregnes ved kassen",
-      "taxes_included_but_shipping_at_checkout": "Inkl. moms og levering beregnes ved kassen",
-      "taxes_included_and_shipping_policy_html": "Moms inkluderet. <a href=\"{{ link }}\" class=\"link\">Levering<\/a> beregnes ved kassen.",
-      "taxes_and_shipping_at_checkout": "Moms og levering beregnes ved kassen"
+      "we_accept": "Vi accepterer"
     },
     "order": {
       "product": "Produkt",
@@ -360,12 +368,6 @@
       "one_result": "Der er én leveringspris for din adresse:",
       "multiple_results": "Der er flere leveringspriser for din adresse:",
       "error": "Der opstod en eller flere fejl under hentning af leveringspriser:"
-    }
-  },
-  "404": {
-    "general": {
-      "title": "Siden blev ikke fundet",
-      "continue_shopping": "Fortsæt med at handle"
     }
   },
   "search": {

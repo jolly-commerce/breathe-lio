@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "未找到页面",
+      "continue_shopping": "继续购物"
+    }
+  },
   "general": {
     "page": "第 {{ page }} 页",
     "home": "首页",
@@ -36,7 +33,7 @@
       "share_email": "通过电子邮件分享"
     },
     "rating": {
-      "info": "{{ rating_value }} \/ {{ rating_max }} 颗星"
+      "info": "{{ rating_value }} / {{ rating_max }} 颗星"
     },
     "newsletter": {
       "email": "电子邮件",
@@ -45,7 +42,7 @@
       "subscribed_successfully": "您已订阅我们的新闻通讯。"
     },
     "localization": {
-      "country": "国家\/地区",
+      "country": "国家/地区",
       "language": "语言",
       "change_country_accessibility_text": "更改国家或货币",
       "change_language_accessibility_text": "更改语言"
@@ -95,12 +92,22 @@
       "view_in_space": "在您的空间中查看",
       "taxes_included": "含税。",
       "taxes_excluded": "不含税。",
-      "shipping_policy_html": "结账时<a href=\"{{ link }}\" class=\"link\">计算运费<\/a>",
+      "shipping_policy_html": "结账时<a href=\"{{ link }}\" class=\"link\">计算运费</a>",
       "size_chart": "尺码表",
       "available_colors_count": {
         "one": "{{ count }} 种颜色可选",
         "other": "{{ count }} 种颜色可选"
-      }
+      },
+      "single": "单件",
+      "packs": "套装",
+      "adding": "正在添加...",
+      "added": "已添加！",
+      "error": "错误",
+      "select_variant": "请选择款式",
+      "no_pack_variants": "无可用的套装款式",
+      "up_to_weeks": "最长 {{ weeks }} 周",
+      "weeks": "周",
+      "discount": "折扣"
     },
     "gallery": {
       "close": "关闭图库",
@@ -307,8 +314,8 @@
       "address2": "地址行 2",
       "city": "城市",
       "zip": "邮编",
-      "country": "国家\/地区",
-      "province": "省\/直辖市\/自治区",
+      "country": "国家/地区",
+      "province": "省/直辖市/自治区",
       "set_default": "设为默认地址"
     }
   },
@@ -317,23 +324,25 @@
       "title": "购物车",
       "empty": "您的购物车为空",
       "item_count": {
+        "zero": "{{ count }} items",
+        "one": "{{ count }} item",
         "other": "{{ count }} 件商品"
       },
       "continue_shopping": "继续购物",
       "weight": "重量",
       "subtotal": "小计",
       "total": "合计",
+      "taxes_and_shipping_policy_at_checkout_html": "结账时计算税费和<a href=\"{{ link }}\" class=\"link\">运费</a>",
+      "taxes_included_but_shipping_at_checkout": "含税并在结账时计算运费",
+      "taxes_included_and_shipping_policy_html": "含税。在结账时计算<a href=\"{{ link }}\" class=\"link\">运费</a>。",
+      "taxes_and_shipping_at_checkout": "结账时计算税费和运费",
       "add_order_note": "添加订单备注",
       "edit_order_note": "编辑订单备注",
       "order_note": "订单备注",
       "save_note": "保存",
       "view_cart": "查看购物车",
       "checkout": "结账",
-      "we_accept": "我们接受",
-      "taxes_and_shipping_policy_at_checkout_html": "结账时计算税费和<a href=\"{{ link }}\" class=\"link\">运费<\/a>",
-      "taxes_included_but_shipping_at_checkout": "含税并在结账时计算运费",
-      "taxes_included_and_shipping_policy_html": "含税。在结账时计算<a href=\"{{ link }}\" class=\"link\">运费<\/a>。",
-      "taxes_and_shipping_at_checkout": "结账时计算税费和运费"
+      "we_accept": "我们接受"
     },
     "order": {
       "product": "产品",
@@ -351,20 +360,14 @@
     },
     "shipping_estimator": {
       "estimate_shipping": "预估运费",
-      "country": "国家\/地区",
-      "province": "省\/直辖市\/自治区",
+      "country": "国家/地区",
+      "province": "省/直辖市/自治区",
       "zip": "邮编",
       "estimate": "预估",
       "no_results": "抱歉，我们无法为您的地址提供配送。",
       "one_result": "您的地址有一种运费：",
       "multiple_results": "您的地址有多种运费：",
       "error": "检索运费时出现一个或多个错误："
-    }
-  },
-  "404": {
-    "general": {
-      "title": "未找到页面",
-      "continue_shopping": "继续购物"
     }
   },
   "search": {
@@ -398,7 +401,7 @@
     },
     "issued": {
       "remaining_amount": "剩余金额",
-      "out_of_html": "\/ {{ initial_value }}",
+      "out_of_html": "/ {{ initial_value }}",
       "redeem_instructions": "在结账时使用此代码兑换礼品卡：",
       "code": "礼品卡代码",
       "expires_on": "有效期至：{{ expires_on }}",
@@ -430,7 +433,7 @@
   },
   "apps": {
     "shopify_reviews": {
-      "review_info": "此产品的评分为 {{ rating_value }} \/ {{ rating_max }} 颗星。",
+      "review_info": "此产品的评分为 {{ rating_value }} / {{ rating_max }} 颗星。",
       "leave_review": "发表评价",
       "review_count": {
         "zero": "此产品尚无评价。",

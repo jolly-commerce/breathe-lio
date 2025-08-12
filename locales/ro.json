@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "Pagina nu a fost găsită",
+      "continue_shopping": "Continuă cumpărăturile"
+    }
+  },
   "general": {
     "page": "Pagina {{ page }}",
     "home": "Pagina principală",
@@ -95,12 +92,22 @@
       "view_in_space": "Vizualizați în spațiul dvs.",
       "taxes_included": "Taxă inclusă.",
       "taxes_excluded": "Fără taxă.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Costul de livrare este calculat<\/a> la finalizarea comenzii",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Costul de livrare este calculat</a> la finalizarea comenzii",
       "size_chart": "Tabel de mărimi",
       "available_colors_count": {
         "one": "{{ count }} culoare disponibilă",
         "other": "{{ count }} culori disponibile"
-      }
+      },
+      "single": "Bucată",
+      "packs": "Pachete",
+      "adding": "Se adaugă...",
+      "added": "Adăugat!",
+      "error": "Eroare",
+      "select_variant": "Selectați o variantă",
+      "no_pack_variants": "Nu există variante de pachet disponibile",
+      "up_to_weeks": "până la {{ weeks }} săptămâni",
+      "weeks": "săptămâni",
+      "discount": "reducere"
     },
     "gallery": {
       "close": "Închide galeria",
@@ -317,25 +324,25 @@
       "title": "Coș",
       "empty": "Coșul tău este gol",
       "item_count": {
+        "zero": "{{ count }} items",
         "one": "{{ count }} articol",
-        "few": "{{ count }} articole",
         "other": "{{ count }} articole"
       },
       "continue_shopping": "Continuă cumpărăturile",
       "weight": "Greutate",
       "subtotal": "Subtotal",
       "total": "Total",
+      "taxes_and_shipping_policy_at_checkout_html": "Taxele și <a href=\"{{ link }}\" class=\"link\">costul de livrare</a> sunt calculate la finalizarea comenzii",
+      "taxes_included_but_shipping_at_checkout": "Taxa este inclusă și costul de livrare este calculat la finalizarea comenzii",
+      "taxes_included_and_shipping_policy_html": "Taxa este inclusă. <a href=\"{{ link }}\" class=\"link\">Costul de livrare</a> este calculat la finalizarea comenzii.",
+      "taxes_and_shipping_at_checkout": "Taxele și costul de livrare sunt calculate la finalizarea comenzii",
       "add_order_note": "Adaugă observații la comandă",
       "edit_order_note": "Editează observațiile la comandă",
       "order_note": "Observații la comandă",
       "save_note": "Salvează",
       "view_cart": "Vezi coșul",
       "checkout": "Finalizează comanda",
-      "we_accept": "Acceptăm",
-      "taxes_and_shipping_policy_at_checkout_html": "Taxele și <a href=\"{{ link }}\" class=\"link\">costul de livrare<\/a> sunt calculate la finalizarea comenzii",
-      "taxes_included_but_shipping_at_checkout": "Taxa este inclusă și costul de livrare este calculat la finalizarea comenzii",
-      "taxes_included_and_shipping_policy_html": "Taxa este inclusă. <a href=\"{{ link }}\" class=\"link\">Costul de livrare<\/a> este calculat la finalizarea comenzii.",
-      "taxes_and_shipping_at_checkout": "Taxele și costul de livrare sunt calculate la finalizarea comenzii"
+      "we_accept": "Acceptăm"
     },
     "order": {
       "product": "Produs",
@@ -361,12 +368,6 @@
       "one_result": "Există un singur tarif de livrare pentru adresa ta:",
       "multiple_results": "Există mai multe tarife de livrare pentru adresa ta:",
       "error": "La preluarea tarifelor de livrare au survenit una sau mai multe erori:"
-    }
-  },
-  "404": {
-    "general": {
-      "title": "Pagina nu a fost găsită",
-      "continue_shopping": "Continuă cumpărăturile"
     }
   },
   "search": {

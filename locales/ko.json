@@ -1,13 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
+  "404": {
+    "general": {
+      "title": "페이지를 찾을 수 없습니다",
+      "continue_shopping": "쇼핑 계속하기"
+    }
+  },
   "general": {
     "page": "페이지 {{ page }}",
     "home": "홈",
@@ -16,7 +13,7 @@
       "pagination": "페이지 매김 탐색",
       "go_to_page": "페이지 {{ index }}(으)로 이동",
       "go_to_item": "아이템 {{ index }}(으)로 이동",
-      "item_nth_of_count": "아이템 {{ index }}\/{{ count }}",
+      "item_nth_of_count": "아이템 {{ index }}/{{ count }}",
       "drag": "끌기",
       "close": "닫기",
       "next": "다음",
@@ -36,7 +33,7 @@
       "share_email": "이메일로 공유"
     },
     "rating": {
-      "info": "별점 {{ rating_value }}\/{{ rating_max }}"
+      "info": "별점 {{ rating_value }}/{{ rating_max }}"
     },
     "newsletter": {
       "email": "이메일",
@@ -95,16 +92,26 @@
       "view_in_space": "사용자 공간에서 보기",
       "taxes_included": "세금 포함.",
       "taxes_excluded": "세금 별도.",
-      "shipping_policy_html": "체크아웃 시 <a href=\"{{ link }}\" class=\"link\">배송료 계산<\/a>",
+      "shipping_policy_html": "체크아웃 시 <a href=\"{{ link }}\" class=\"link\">배송료 계산</a>",
       "size_chart": "사이즈 차트",
       "available_colors_count": {
         "one": "{{ count }}개 색상 가능",
         "other": "{{ count }}개 색상 가능"
-      }
+      },
+      "single": "단품",
+      "packs": "세트",
+      "adding": "추가하는 중...",
+      "added": "추가됨!",
+      "error": "오류",
+      "select_variant": "옵션을 선택하세요",
+      "no_pack_variants": "사용 가능한 패키지 옵션이 없습니다",
+      "up_to_weeks": "최대 {{ weeks }}주",
+      "weeks": "주",
+      "discount": "할인"
     },
     "gallery": {
       "close": "갤러리 닫기",
-      "zoom": "확대\/축소",
+      "zoom": "확대/축소",
       "error": "사진을 불러 올 수 없습니다"
     },
     "price": {
@@ -305,7 +312,7 @@
       "phone": "전화번호",
       "address1": "주소 1",
       "address2": "주소 2",
-      "city": "시\/군\/구",
+      "city": "시/군/구",
       "zip": "우편번호",
       "country": "국가",
       "province": "도",
@@ -317,23 +324,25 @@
       "title": "장바구니",
       "empty": "장바구니가 비어있습니다",
       "item_count": {
+        "zero": "{{ count }} items",
+        "one": "{{ count }} item",
         "other": "{{ count }} 개 항목"
       },
       "continue_shopping": "쇼핑 계속하기",
       "weight": "무게",
       "subtotal": "소계",
       "total": "합계",
+      "taxes_and_shipping_policy_at_checkout_html": "체크아웃 시 세금과 <a href=\"{{ link }}\" class=\"link\">배송료</a> 계산",
+      "taxes_included_but_shipping_at_checkout": "세금 포함 및 체크아웃 시 배송료 계산",
+      "taxes_included_and_shipping_policy_html": "세금 포함. 체크아웃 시 <a href=\"{{ link }}\" class=\"link\">배송료</a> 계산.",
+      "taxes_and_shipping_at_checkout": "체크아웃 시 세금과 배송료 계산",
       "add_order_note": "주문 메모 추가",
       "edit_order_note": "주문 메모 편집",
       "order_note": "주문 메모",
       "save_note": "저장",
       "view_cart": "장바구니 보기",
       "checkout": "체크아웃",
-      "we_accept": "결제 방법:",
-      "taxes_and_shipping_policy_at_checkout_html": "체크아웃 시 세금과 <a href=\"{{ link }}\" class=\"link\">배송료<\/a> 계산",
-      "taxes_included_but_shipping_at_checkout": "세금 포함 및 체크아웃 시 배송료 계산",
-      "taxes_included_and_shipping_policy_html": "세금 포함. 체크아웃 시 <a href=\"{{ link }}\" class=\"link\">배송료<\/a> 계산.",
-      "taxes_and_shipping_at_checkout": "체크아웃 시 세금과 배송료 계산"
+      "we_accept": "결제 방법:"
     },
     "order": {
       "product": "상품 ",
@@ -359,12 +368,6 @@
       "one_result": "귀하의 주소에는 한 가지 배송 옵션이 있습니다:",
       "multiple_results": "귀하의 주소에는 여러 개의 배송 옵션이 있습니다:",
       "error": "배송 옵션을 불러오던 중 한 개 이상의 오류가 발생했습니다:"
-    }
-  },
-  "404": {
-    "general": {
-      "title": "페이지를 찾을 수 없습니다",
-      "continue_shopping": "쇼핑 계속하기"
     }
   },
   "search": {
@@ -398,7 +401,7 @@
     },
     "issued": {
       "remaining_amount": "남은 금액",
-      "out_of_html": "\/{{ initial_value }}",
+      "out_of_html": "/{{ initial_value }}",
       "redeem_instructions": "이 코드로 체크아웃 시 기프트 카드 사용:",
       "code": "기프트 카드 코드",
       "expires_on": "만료: {{ expires_on }}",
@@ -430,7 +433,7 @@
   },
   "apps": {
     "shopify_reviews": {
-      "review_info": "이 상품의 평점은 별점 {{ rating_value }}\/{{ rating_max }}입니다.",
+      "review_info": "이 상품의 평점은 별점 {{ rating_value }}/{{ rating_max }}입니다.",
       "leave_review": "리뷰 남기기",
       "review_count": {
         "zero": "이 상품은 아직 리뷰가 없습니다.",
