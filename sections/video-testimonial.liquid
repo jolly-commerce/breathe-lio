@@ -1,0 +1,265 @@
+<style>
+  .mySwiper1{
+    overflow : hidden;
+    padding : 30px 50px 50px 50px;
+    position : relative;
+    margin-bottom : 20px;
+    
+  }
+  .mySwiper1 .swiper-slide{
+    height : 430px;
+    width : 300px;
+    overflow : hidden;
+    transition : all 0.7s ease;
+     position : relative;
+   
+  }
+  .mySwiper1 .swiper-slide video{
+    width : 100%;
+    height : 100%;
+    object-fit : cover;
+    cursor : pointer;
+     border-radius : 20px;
+   
+  }
+   .mySwiper1 .swiper-slide.swiper-slide-active{
+     transform : scale(1.15);
+      padding : 0px 10px;
+   }
+  .swiper-scrollbar-ugc {
+    position: absolute;
+    bottom: 20px;
+   width: calc(40% - 100px );
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    background: var(--lio-white);
+  }
+.swiper-scrollbar-ugc .swiper-scrollbar-drag {
+    background: black;
+    height: 3px;
+    display: block !important;
+}
+  .play-button-svg{
+    position : absolute;
+    top : 50%;
+    left : 50%;
+    transform : translate(-50%,-50%);
+      pointer-events: none;
+  }
+  
+   h2.trust-swap-heading {
+    text-align: center;
+    margin: 75px auto;
+    margin-top: 100px;
+    font-size: 55px;
+    width: fit-content;
+    position: relative;
+}
+h2.trust-swap-heading span{
+  color : var(--lio-light-green);
+}
+
+  .swiper-button-prev-ugc.swiper-button-disabled,  .swiper-button-next-ugc.swiper-button-disabled {
+    opacity: 0;
+}
+  .swiper-button-prev-ugc,  .swiper-button-next-ugc{
+     position: absolute;
+    top: 44%;
+    transform: translateY(-50%);
+    z-index: 1;
+     cursor : pointer;
+  transition : 0.3s all ease;
+  }
+.swiper-button-prev-ugc {  
+    left: 80px;
+}
+  .swiper-button-next-ugc {
+    right: 80px;
+}
+  h2.trust-swap-heading::after {
+    content: "";
+    position: absolute;
+    right: -40px;
+    bottom: -10px;
+    width: 90px;
+    height: 20px;
+    background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Squiggle_Mini_9f.svg?v=1747824794");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 767px){
+h2.trust-swap-heading {
+    text-align: center;
+    max-width: 320px;
+    margin: 50px auto 50px auto;
+    font-size: 35px;
+    line-height: 1;
+}
+  h2.trust-swap-heading::after {
+    right: 40px;
+}
+  
+  .mySwiper1 .swiper-slide{
+    height : 380px;
+  }
+  .mySwiper1 .swiper-slide video{
+    border-radius : 20px;
+  }
+ 
+  .mySwiper1{
+    overflow : hidden;
+    padding : 30px 20px 50px 20px;
+    position : relative;
+    margin-bottom : 20px;
+  }
+  .swiper-scrollbar-ugc {
+
+    bottom: 30px;
+    width: calc(100% - 40px );
+
+}
+  .swiper-button-prev-ugc {  
+    left: 20px;
+    display : none;
+}
+  .swiper-button-next-ugc {
+    right: 20px;
+     display : none;
+}
+}
+</style>
+ <h2 class=" h2 trust-swap-heading"> {{ section.settings.heading }} <span> {{ section.settings.heading-2 }}</span></h2>
+
+<div class="swiper-container mySwiper1">
+      <div class="swiper-wrapper">
+         {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'infinite-video' %}
+      {% assign sources = block.settings.video.sources %}
+{% if sources.size > 1 %}
+  {% assign video_src = sources[1].url %}
+{% elsif sources.size > 0 %}
+  {% assign video_src = sources[0].url %}
+{% else %}
+  {% assign video_src = '' %}
+{% endif %}
+
+        
+        <div class="swiper-slide"> 
+          <video
+  class="caraousel-video"
+  src="{{ video_src }}"
+  loop
+  muted
+  preload="auto"
+  playsinline
+  webkit-playsinline
+  poster="{{ block.settings.video.preview_image | image_url: width: 1000 }}"
+></video>
+
+        <img class="play-button-svg" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/yellow-pl-btn.svg?v=1747943568" />
+        </div>
+         {% endcase %}
+      {% endfor %}
+      </div>
+    <!-- <div class="swiper-button-prev-ugc"><img src="https://cdn.shopify.com/s/files/1/0690/6354/0925/files/left-ing-btn.svg?v=1746367950"/></div>
+  <div class="swiper-button-next-ugc"><img src="https://cdn.shopify.com/s/files/1/0690/6354/0925/files/right-ing-btn.svg?v=1746367950"/></div>
+ -->
+    <!-- <div class="swiper-scrollbar-ugc"></div> -->
+    </div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+ 
+
+ const videoSlides = document.querySelectorAll('.mySwiper1 .swiper-slide');
+
+  videoSlides.forEach((slide) => {
+    const video = slide.querySelector('video');
+    const playBtn = slide.querySelector('.play-button-svg');
+
+    if (!video) return;
+
+    video.addEventListener('click', async (e) => {
+      e.stopPropagation(); // stop Swiper from hijacking click
+
+      // Pause all other videos
+      document.querySelectorAll('.mySwiper1 .caraousel-video').forEach(v => {
+        if (v !== video && !v.paused) {
+          v.pause();
+          v.muted = true;
+          const btn = v.parentElement.querySelector('.play-button-svg');
+          if (btn) btn.style.display = 'block';
+        }
+      });
+
+      try {
+        if (video.paused) {
+          await video.play();
+          video.muted = false;
+          if (playBtn) playBtn.style.display = 'none';
+        } else {
+          video.pause();
+          video.muted = true;
+          if (playBtn) playBtn.style.display = 'block';
+        }
+      } catch (err) {
+        console.warn('Playback error:', err);
+      }
+    });
+  });
+
+  // Auto pause out-of-view videos
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        const video = entry.target.querySelector('video');
+        const playBtn = entry.target.querySelector('.play-button-svg');
+        if (video && !video.paused) {
+          video.pause();
+          video.muted = true;
+          if (playBtn) playBtn.style.display = 'block';
+        }
+      }
+    });
+  }, { threshold: 0.3 });
+
+  videoSlides.forEach(slide => observer.observe(slide));
+});
+</script>
+{% schema %}
+  {
+    "name": "video testimonial",
+    "settings": [
+   {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading Text"
+      },
+          
+       {
+        "type": "text",
+        "id": "heading-2",
+        "label": "Heading after"
+      },
+    ],
+     "blocks": [
+    {
+      "type": "infinite-video",
+      "name": "auto scroll video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        }
+       
+      ]
+    }
+  ],
+    "presets" : [{
+      "name" : "video testimonial"
+    }]
+  }
+{% endschema %}

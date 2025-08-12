@@ -1,0 +1,148 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "rich_text_DBT7NN": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_zbDaaR": {
+          "type": "heading",
+          "settings": {
+            "text": "the Most Sustainable Way",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "heading_JUTFjr": {
+          "type": "heading",
+          "settings": {
+            "text": "to Quit Smoking",
+            "heading_tag": "h2",
+            "text_color": "#00b67a",
+            "gradient": ""
+          }
+        },
+        "richtext_adURxV": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>At Lio, we believe quitting smoking should not only improve your health—it can also help restore the planet. Sustainability is at the heart of everything we do. Lio is not just a natural, nicotine-free way to quit smoking, it’s a product that is designed with the environment in mind. Here's how choosing Lio makes a difference for both you and the planet.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zbDaaR",
+        "heading_JUTFjr",
+        "richtext_adURxV"
+      ],
+      "custom_css": [
+        "p.h2.hyphenate {font-size: 42px; margin: 0px; margin-top: -5px;}",
+        "@media screen and (max-width: 1024px) {p.h2.hyphenate {font-size: 35px; margin-top: 0px; } .custom-rich-text {margin-top: 10px; }}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "medium",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "sustain_blocks_HFXNPc": {
+      "type": "sustain-blocks",
+      "blocks": {
+        "slide_TCKxJH": {
+          "type": "Slide",
+          "settings": {
+            "main-image": "shopify://shop_images/fv.jpg",
+            "text": "<p>Every year, billions of cigarette butts and vape devices are discarded, polluting our oceans, landfills, and ecosystems. These disposable products contribute to plastic pollution and toxic chemical waste. But Lio offers an alternative: a refillable, sustainable device designed to reduce waste while helping you break free from nicotine.<br/><br/><br/><strong>How Lio is Different :<br/></strong><br/>• 100% Natural, No Chemicals: Unlike traditional cigarettes and vapes, Lio doesn’t contain harmful chemicals or nicotine, offering a cleaner alternative to smoking.  <br/><br/>• Eco-Friendly Materials: Lio’s refillable cores are made from sustainable materials, ensuring that the product itself has minimal environmental impact over its lifespan.  <br/><br/>• Minimal Waste: By using refillable cores, Lio drastically reduces the amount of single-use plastic and other waste associated with cigarettes and vapes.  <br/><br/><br/></p>",
+            "title": "A Cleaner, Greener Habit"
+          }
+        },
+        "slide_9KJwVj": {
+          "type": "Slide",
+          "settings": {
+            "main-image": "shopify://shop_images/fv.jpg",
+            "text": "<p><strong>Cigarettes :</strong><br/><br/>• <strong>Waste :</strong> There are 5.6 trillion cigarette butts discarded worldwide every year. These are non-biodegradable and leach toxic chemicals into the environment, affecting our soil, water, and wildlife.  <br/><br/><br/>• <strong>Carbon Footprint : </strong>The manufacturing and distribution of cigarettes produces a massive carbon footprint. The tobacco industry’s emissions account for approximately 84 million metric tons of CO2 each year.  <br/><br/><strong>Vapes :<br/><br/></strong>• <strong>Plastic Waste :</strong> Disposable vapes and vape cores generate significant plastic waste. These products often end up in landfills, where they take decades to decompose.  <br/><br/>• <strong>Battery and Chemical Waste :</strong> Lithium-ion batteries from disposable vapes contribute to pollution when not disposed of properly, and vape cores often contain toxic chemicals that contaminate the environment.<br/></p>",
+            "title": "The Environmental Toll of Cigarettes and Vapes"
+          }
+        },
+        "slide_eP9nbV": {
+          "type": "Slide",
+          "settings": {
+            "main-image": "shopify://shop_images/fv.jpg",
+            "text": "<p>Lio’s sustainable design offers a responsible way to quit smoking without adding to the environmental burden that comes with traditional smoking or vaping products. Here's how Lio stands out:<br/><br/><strong>• Refillable Cores :</strong>  <br/>The Lio diffuser uses refillable cores, meaning users don’t need to throw away disposable pods or single-use cartridges. This drastically cuts down on plastic waste compared to disposable vapes or cigarette butts.  <br/><strong><br/>• Eco-Friendly Materials : </strong> <br/>Lio is made from sustainable, recyclable materials, ensuring that it’s designed to last longer than typical smoking devices. The cores are refillable, eliminating the need for single-use plastic containers.  <br/><br/><strong>• Sustainable Production :</strong>  We prioritize sustainable manufacturing practices and use eco-friendly materials for packaging to ensure that the entire product lifecycle has minimal environmental impact.  </p>",
+            "title": "How Lio Helps Reduce Waste"
+          }
+        },
+        "slide_kCDznc": {
+          "type": "Slide",
+          "settings": {
+            "main-image": "shopify://shop_images/fv.jpg",
+            "text": "<p><strong>Cigarettes :<br/><br/>• </strong>Plastic Waste: Cigarettes produce billions of non-biodegradable butts each year that harm the environment. <br/><br/><strong>• </strong>Chemicals: Cigarette butts contain toxic chemicals that leach into the environment, affecting both wildlife and ecosystems.  <br/><br/><strong>• </strong>Environmental Impact: The cigarette industry has a massive carbon footprint and contributes significantly to pollution.  <br/><br/><strong>Vapes :<br/><br/>• </strong>Disposable Vapes: Disposable vapes are single-use and create significant plastic waste, which isn’t easily recyclable.<br/><br/><strong>• </strong>Chemical Waste: The vape cores contain chemicals and are not biodegradable, contributing to chemical contamination in the environment.  <br/><br/><strong>Lio :</strong><br/><br/><strong>• </strong>Refillable and Sustainable: Lio’s refillable cores and modular design create minimal waste, reducing plastic pollution.  <br/><br/>Eco-Friendly Production: Lio’s diffuser is made from sustainable materials, and we aim to reduce our carbon footprint through eco-friendly practices.</p>",
+            "title": "Lio vs. Cigarettes and Vapes: A Clear Environmental Advantag"
+          }
+        },
+        "slide_dMgNUK": {
+          "type": "Slide",
+          "settings": {
+            "main-image": "shopify://shop_images/fv.jpg",
+            "text": "<p>At Lio, sustainability is more than just a buzzword—it’s a core value. Here’s how we’re reducing our environmental impact :<br/><br/><strong>1. Sustainable Design : </strong>We use recyclable materials in every component of the Lio device, ensuring that it’s built to last and doesn’t add to the growing landfill problem. We also aim to use eco-friendly materials for our future products.  <br/><br/><strong>2. Minimal Carbon Footprint :</strong>  Lio is designed with energy efficiency in mind, reducing carbon emissions during production. We continue to explore ways to make our manufacturing processes even more sustainable.  <br/><br/><strong>3. Eco-Friendly Packaging :</strong> Our packaging is designed to be minimalistic, with an emphasis on recyclability. We’re working to reduce packaging waste and improve sustainability across the board. <br/><br/></p>",
+            "title": "Our Commitment to Sustainability"
+          }
+        }
+      },
+      "block_order": [
+        "slide_TCKxJH",
+        "slide_9KJwVj",
+        "slide_eP9nbV",
+        "slide_kCDznc",
+        "slide_dMgNUK"
+      ],
+      "name": "sustain-blocks",
+      "settings": {}
+    },
+    "join_movement_RBygUR": {
+      "type": "join-movement",
+      "blocks": {
+        "quote_d3eyNh": {
+          "type": "quote",
+          "settings": {
+            "text": "Lio Helps You Quit. Lio Helps the Planet."
+          }
+        }
+      },
+      "block_order": [
+        "quote_d3eyNh"
+      ],
+      "name": "join-movement",
+      "settings": {
+        "text": "<h2>Join the Movement for a Cleaner Future</h2>",
+        "founder": "When you choose Lio, you're not just making a healthy choice for yourself—you're also making a positive impact on the planet. By quitting smoking with Lio, you are part of a larger movement towards a greener future, where products are designed to be as sustainable as possible.",
+        "button-url": "shopify://products/new-lio-journey-pack",
+        "button-text": "start your journey"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_DBT7NN",
+    "sustain_blocks_HFXNPc",
+    "join_movement_RBygUR"
+  ]
+}

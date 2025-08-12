@@ -1,0 +1,215 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h2"
+          }
+        },
+        "badges": {
+          "type": "badges",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {
+            "show_empty": false
+          }
+        },
+        "payment_terms": {
+          "type": "payment_terms",
+          "settings": {}
+        },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "collapse_content": false
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "badges",
+        "price",
+        "rating",
+        "payment_terms",
+        "separator",
+        "description",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "show_fixed_add_to_cart": true,
+        "desktop_media_width": 55,
+        "desktop_media_layout": "carousel_thumbnails_left",
+        "mobile_media_size": "expanded",
+        "mobile_carousel_control": "floating_dots",
+        "enable_video_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
+      }
+    },
+    "instant_qjlqm_li_ps_dlt_ng29_XEGyyx": {
+      "type": "instant-QJLQMLiPsDltNG29",
+      "settings": {
+        "text_4G5MAoPK7Y4pjB5t": "<p><strong>3 to 6 days delivery</strong></p>",
+        "text_bIsU3NoIWMpJ23q6": "<p><strong>FREE WORLDWIDE SHIPPING</strong></p>",
+        "text_tPnt1J8sWuIU2yoE": "<p><strong>30-day money-back guarantee</strong></p>",
+        "text_CRWAnH1V8QMLXgVw": "<p>50.000+ Happy customers</p>",
+        "product_VnE8CZKV1nlxFf5N": "lio®-classic-cores",
+        "text_9OSfMcvBoHXDQjal": "<p>50K+ Happy Customers</p>",
+        "text_FAnJ4Qtwk3sT6zr9": "<p>4.5</p>",
+        "text_Dn3RggRXLzVDIRak": "<h3>Lio® FLAVOUR CORES</h3>",
+        "text_fM1ncGwoVmVDYQgZ": "<p>92% Succesrate</p>",
+        "text_jcVCmVlZc9J7GqFo": "<p>No Nicotine</p>",
+        "text_HxiHdaIELOiK5cv1": "<p>100% Natural</p>",
+        "text_6RTEE1wRHiRkGkvT": "<p><strong>\"The Simplest Way to Break Bad Habits\"</strong></p>",
+        "text_z6u4p9h3rQ8iEuQZ": "<p>Nicotine-free, natural flavoured air designed to help you break free effortlessly and build better habits.</p>",
+        "text_L6gVwF2uoIe7RZOj": "<p>Cores Version:</p>",
+        "text_SXXZ4vCHhzKpXpRL": "<p>Classic</p>",
+        "text_VYxAtc4UhCjrGpt7": "<p>Gen 2</p>",
+        "text_xRcp9tsGKCxDW8UB": "<p>Most Popular</p>",
+        "text_gQqYsNy6gofeO1MX": "<h3>Original</h3>",
+        "text_xrOHJyjUmpWubjpI": "<p>You save </p>",
+        "text_6xDTeL0AdFgprNsY": "<p>6 bags of</p>",
+        "text_r3mTSt0tcL6zZ2da": "<h3>Minty</h3>",
+        "text_PFwzajIfi8Sl4ZhZ": "<p>You save </p>",
+        "text_MVA6CuiKjfQSnDAj": "<p>6 bags of</p>",
+        "text_jQfR5FEYDMvrwlDQ": "<h3>Fruity</h3>",
+        "text_ss72r4DmIcndkAJr": "<p>You save </p>",
+        "text_UoeCsCU3vwFk1MST": "<p>6 bags of</p>",
+        "text_rIMubUCvDFhO5auc": "<p>ADD TO CART</p>",
+        "text_5HdeGlLv5m8FunBr": "<p>Free Worldwide Shipping</p>",
+        "text_F1za81s7SMAxz47t": "<p>Money-Back Guarantee </p>",
+        "text_BOpzVsRxV03nVfj4": "<p>🌳 Your order = One tree planted 🌳</p>",
+        "text_DFilUTbd9kfYcpW0": "<p><strong>Product Description</strong></p>",
+        "text_XEpfMQ0wrK6eHAo1": "<p>Lio offers <strong>nicotine-free</strong>,<strong> natural flavoured air</strong> to help you quit bad habits effortlessly. With a <strong>92% success rate</strong>, it’s 100% natural, with <strong>no nicotine or chemicals</strong>, making it the easiest choice for a healthier life.</p><p></p><ul><li><strong>Keeps the hand-to-mouth habit</strong> for an easy transition</li><li><strong>90% cheaper</strong> than your bad habit</li><li>No vape, smoke, or nicotine—just clean, natural air</li><li>Trusted by <strong>50,000+ happy customers</strong> worldwide</li><li>Backed by a <strong>30-day money-back guarantee</strong></li></ul>",
+        "text_pcqwISmqCREK0mtI": "<p><strong>Shipping & Refunds</strong></p>",
+        "text_MDROzP0xOfP7qknO": "<p><strong>Worldwide shipping - For Free</strong></p><p>We ship worldwide from the Netherlands with free shipping on all orders. Delivery takes 2-3 days within Europe, 4-8 days outside Europe, and next-day delivery in the Middle East (from Dubai).</p><p></p><p><strong>The Money Back Guarantee</strong></p><p>If you’ve used Lio™, commit to a 30 days to experience its benefits. After completing the 30-day journey, you have 7 days to request a refund if you’re not satisfied. This ensures you have enough time to fully explore its impact before making a decision.</p>",
+        "text_UUqCIMG5foJ5GBbX": "<p><strong>What’s Included?</strong></p>",
+        "text_vn3uiCdExe4io6Cv": "<p><strong>The Journey Pack has everything you need: </strong></p><p></p><ul><li><strong>Lio Diffuser</strong>: Handcrafted in olive or walnut wood.</li><li><strong>6 Flavour Core Bags</strong>: Lasts 60 days for natural relief.</li><li><strong>Lio Carry Case</strong>: Portable and stylish for on-the-go use.</li></ul><p></p><p><strong>Quit Together with the Lio Together Pack</strong> Includes 2 Lio diffusers, 12 flavour core bags, and 2 carry cases—perfect for you and a partner. Double the support for better results!</p>",
+        "text_aVyNFlocjO7yWdd8": "<p><strong>How To Use Lio? </strong></p>",
+        "text_wbbE9c4nkK19eAWo": "<p><strong>Using Your Lio Is Simple—Just 3 Steps</strong></p><ol><li><strong>Fray</strong> your preferred flavour core.</li><li><strong>Slide</strong> the core into the Lio.</li><li><strong>Relief</strong> your cravings and stress with every breath.</li></ol>",
+        "text_b0m6CvfT3qdf6Qgc": "<p><strong>Safe & Secure Payments</strong></p>",
+        "text_mnbxjJy28FifgFEu": "<p>Need your order shipped today?</p>",
+        "text_aTjmeDvjwBmM8Bi8": "<p>Hours</p>",
+        "text_sx2dLi5IbPB3Infb": "<p>Minutes</p>",
+        "text_uHxjROsyVF0xZTwk": "<p>Seconds</p>",
+        "text_jKQ7aRnVkzdVAPAg": "<h3>FLAVOURED</h3>",
+        "text_Jm9xcQB5HUGxg8uu": "<h3>AIR DIFFUSER</h3>",
+        "text_RXVbxC7QJRzbNXzz": "<h3>World's first</h3>",
+        "text_uTd9ERuKYtWlO1Fs": "<h3>Flavoured</h3>",
+        "text_SrJRmsv1KqBE3mkp": "<h3>air diffuser</h3>",
+        "text_nhKIcM5JLCooFHWI": "<h3>All Natural</h3>",
+        "text_K69FNW9RqqUw5J3g": "<h3>100% natural</h3><h3>flavours that satisfy</h3><h3>oral fixation</h3>",
+        "text_fvB6TC9Bn3WQWuqd": "<h3>Keep The Habit</h3>",
+        "text_tW1CBlUtWghSbXUK": "<h3>Mimics the familiar </h3><h3>hand-to-mouth </h3><h3>habit.</h3>",
+        "text_Podgmlg0T6DESpC7": "<h3>90% Cheaper</h3>",
+        "text_egUeog559n16vCCc": "<h3>Safe thousands </h3><h3>every year.</h3>",
+        "text_4jbVjbEXZhHhDYR1": "<h3>Use Anywhere</h3>",
+        "text_ko3kO0VDErku2KvU": "<h3>No smoke, use </h3><h3>anywhere you want.</h3>",
+        "url_ZBJOdeIpGV033oSS": "https://breathelio.com/products/lio%C2%AE-journey-pack",
+        "text_S3C8S375L1qqdTEe": "<p>Order Journey Pack</p>",
+        "text_yNDxDbR9Z9thzr9a": "<p>30-Day Money Back Guarantee</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "17335065552e535109": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_dynamic_section_URWEjC": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "only_photos": false,
+            "aggregated": true,
+            "limit": 20,
+            "hide_thumbnails": true,
+            "maxwidth": 1360,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_dynamic_section_URWEjC"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": false,
+        "background": "#f3fff9",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "instant_qjlqm_li_ps_dlt_ng29_XEGyyx",
+    "17335065552e535109"
+  ]
+}

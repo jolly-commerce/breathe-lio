@@ -1,0 +1,78 @@
+{%- if link.links.size > 0 -%}
+  <style>
+    @media screen and (min-width: 1150px) {
+      #mega-menu-{{ mega_menu_block.id }} {
+        --mega-menu-nav-column-max-width: {% if mega_menu_block.settings.submenu_style == 'bold_text' %}{% if link.links.size <= 2 %}240px{% else %}200px{% endif %}{% else %}{% if link.links.size <= 2 %}180px{% else %}160px{% endif %}{% endif %};
+        --mega-menu-justify-content: {% if link.links.size == 0 or mega_menu_block.settings.layout == 'horizontal_center' and mega_menu_block.settings.stretch_promo == false %}center{% else %}space-between{% endif %};
+        --mega-menu-nav-gap: {% if mega_menu_block.settings.stretch_promo %}var(--spacing-12){% else %}var(--spacing-8){% endif %};
+
+        {% if link.links.size > 3 %}
+          --column-list-max-width: 75%;
+        {% endif %}
+      }
+    }
+
+    @media screen and (min-width: 1400px) {
+      #mega-menu-{{ mega_menu_block.id }} {
+        --mega-menu-nav-column-max-width: {% if mega_menu_block.settings.submenu_style == 'bold_text' %}{% if link.links.size == 1 %}260px{% elsif link.links.size == 2 %}240px{% else %}210px{% endif %}{% else %}{% if link.links.size == 1 %}220px{% elsif link.links.size == 2 %}200px{% else %}180px{% endif %}{% endif %};
+        --mega-menu-nav-gap: {% if mega_menu_block.settings.layout == 'horizontal_center' %}var(--spacing-12){% else %}var(--spacing-16){% endif %};
+
+        {% if link.links.size > 4 %}
+          --column-list-max-width: 75%;
+        {% else %}
+          --column-list-max-width: max-content;
+        {% endif %}
+      }
+    }
+
+    @media screen and (min-width: 1600px) {
+      #mega-menu-{{ mega_menu_block.id }} {
+        --mega-menu-nav-gap: var(--spacing-16);
+      }
+    }
+
+    @media screen and (min-width: 1800px) {
+      #mega-menu-{{ mega_menu_block.id }} {
+        --mega-menu-nav-gap: var(--spacing-20);
+      }
+    }
+  </style>
+{%- endif -%}
+
+<div id="mega-menu-{{ mega_menu_block.id }}" class="mega-menu {% if link.links.size == 0 %}justify-center{% endif %}">
+  <div class="mega-menu-link-box">
+    <div class="mega-menu-left-links">
+        <p class="menu-name">{{ mega_menu_block.settings.menu-name-1 }}</p>
+  {% for block in section.blocks %}
+ {% case block.type %}
+        {% when 'menu-link' %}
+   <a class="mega-menu-link-new" href="{{ block.settings.url }}"><h2 class="h2">{{ block.settings.text }} <span>{{ block.settings.high-text }}</span></h2> <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/arrow-right.svg?v=1747749096" /> </a>
+   {% endcase %}
+{% endfor %}
+</div>
+     <div class="mega-menu-right-links">
+         <p class="menu-name">{{ mega_menu_block.settings.menu-name-2 }}</p>
+  {% for block in section.blocks %}
+ {% case block.type %}
+        {% when 'menu-link-2' %}
+   <a class="mega-menu-link-new" href="{{ block.settings.url }}"><h2 class="h2">{{ block.settings.text }} <span>{{ block.settings.high-text }}</span></h2>  </a>
+   {% endcase %}
+{% endfor %}
+</div>
+</div>
+  <div class="mega-menu-right-box">
+  
+    <div class="mega-menu-nav-single-box">
+      <img src="{{ mega_menu_block.settings.image_1 | image_url: width: 1000 }}" />
+     <h3 class="h3">{{- mega_menu_block.settings.image_heading_1 | escape -}}</h3>
+            <p>{{- mega_menu_block.settings.image_sub_heading_1 | escape -}}</p>
+           <a href="{{ mega_menu_block.settings.image_link_1 }}" class="gradient-button">{{ mega_menu_block.settings.image_url_text_1 }}</a>
+    </div>
+     <div class="mega-menu-nav-single-box">
+      <img src="{{ mega_menu_block.settings.image_2 | image_url: width: 1000 }}" />
+     <h3 class="h3">{{- mega_menu_block.settings.image_heading_2 | escape -}}</h3>
+            <p>{{- mega_menu_block.settings.image_sub_heading_2 | escape -}}</p>
+           <a href="{{ mega_menu_block.settings.image_link_2 }}" class="gradient-button">{{ mega_menu_block.settings.image_url_text_2 }}</a>
+    </div>
+  </div>
+</div>

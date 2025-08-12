@@ -1,0 +1,212 @@
+<style>
+ .key-ingredients{
+   width : 100%;
+   max-width : 1140px;
+   margin : auto;
+   padding : 100px 20px 200px 20px;
+ } 
+
+  .key-ingredients h2 {
+    font-size: 34px;
+    font-weight: 500;
+    display: inline;
+    letter-spacing: -0.9px;
+    color : #302F2F;
+    padding-right : 25px;
+    position : relative;
+}
+  .key-ingredients h2::after {
+    content: "";
+    position: absolute;
+    right: -40px;
+    bottom: -10px;
+    width: 90px;
+    height: 20px;
+    background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Squiggle_Mini_9f.svg?v=1747824794");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+  .inline-ing-box{
+    display : inline;
+    position : relative;
+  }
+  .ing-name{
+    transition : all 0.3s ease;
+    font-size : 27px;
+    color : var(--lio-light-green);
+    font-family : Sigum;
+    text-transform : uppercase;
+    cursor : pointer;
+     user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  }
+  .ing-name:hover{
+    color : black;
+  }
+.ing-card {
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    min-width: 270px;
+    width: 270px;
+    border-radius: 20px;
+    border: 2px solid #005128;
+    background: #F9F5E9;
+    overflow: hidden;
+    opacity: 0;
+    z-index: 1;
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+  
+    .ing-name:hover ~ .ing-card, .ing-card:hover{
+      opacity : 1;
+          transform : scale(1);
+    }
+   .ing-card:hover ~ .ing-name{
+         color : black;
+   }
+  .ing-card-below{
+    padding : 20px;
+  }
+  .ing-card-below h4{
+    font-size : 18px;
+    font-weight : 600;
+    margin-bottom : 10px;
+  }
+  .ing-card-below p{
+    font-size : 14px;
+  }
+  
+  .ing-info-name{
+    display : flex;
+    flex-direction : column;
+    gap : 0px;
+        margin-top : 30px;
+  }
+  .ing-info-name p{
+     position: relative;
+    font-weight : 600 !important;
+  }
+
+.ing-info-name p::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5em;                  
+  width: 1em;
+  height: 1em;
+  background-image: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/tick-griddd.svg?v=1748255166");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+  .ing-info-name span{
+    font-size : 12px;
+  }
+  .ing-card img{
+    height : 150px;
+    width : 100%;
+    object-fit : cover;
+  }
+ @media screen and (max-width: 990px){
+   .key-ingredients {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+   .inline-ing-box {
+    display: inline;
+    position: relative;
+    margin-top: 30px;
+}
+   .ing-card {
+    position: absolute;
+    right: 50%;
+    transform: translateY(-50%);
+    top: -100px;
+    transform: scale(0) translateX(50%) !important;
+    transition: all 0.3s ease;
+}
+   .ing-name:hover ~ .ing-card, .ing-card:hover {
+    opacity: 1;
+    transform: scale(1)  translateX(50%) !important;
+}
+ }
+  
+</style>
+
+<div class="key-ingredients">
+  <h2>{{ section.settings.heading }}</h2>
+  {% for block in section.blocks %}
+  <div class="inline-ing-box">
+    <span class="ing-name">{{ block.settings.name }}, </span>
+    <div class="ing-card">
+    <img src="{{ block.settings.image | image_url: width: 1000 }}" />
+      <div class="ing-card-below">
+      <h4>{{ block.settings.name }}</h4>
+      <p>{{ block.settings.description }}</p>
+      <div class="ing-info-name">
+        <p>{{ block.settings.author-name }}</p>
+        <span>{{ block.settings.designation }}</span>
+      </div>
+        </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "key-ingredients",
+    "settings": [
+       {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text",
+         "default" : "Key ingredients"
+        },
+    ],
+     "blocks": [
+     {
+    "type": "ingredient",
+    "name": "ingredient",
+    "settings":
+    [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "image"
+      },
+      {
+    "type": "text",
+    "id": "name",
+    "label": "name"
+      },
+       
+      {
+    "type": "richtext",
+    "id": "description",
+    "label": "description"
+      },
+      {
+    "type": "text",
+    "id": "author-name",
+    "label": "author-name"
+      },
+       {
+    "type": "text",
+    "id": "designation",
+    "label": "designation"
+      },
+       
+    ]
+  }
+  ],
+    "presets": [{
+      "name": "key-ingredients"
+    }]
+  }
+{% endschema %}

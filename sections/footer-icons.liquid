@@ -1,0 +1,125 @@
+<style>
+  .f-footer-icons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    max-width: 1400px;
+    width : 100%;
+    margin  : auto;
+    padding : 0px 30px;
+    gap : 80px;
+    margin-top : 30px;
+  }
+
+ .f-icon-inner {
+    display: flex;
+    padding: 30px 10px;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+}
+ 
+
+  .f-icon-image {
+    height: 70px;
+    width: auto;
+  }
+.f-footer-icons h3.h3 {
+    font-size: 32px;
+    line-height: 0.9;
+    max-width: 250px;
+    margin-top: 5px;
+}
+
+  .f-footer-icons p {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.2px;
+    line-height: 1.2;
+}
+
+  /* Mobile Styles */
+  @media only screen and (max-width: 999px) {
+  .f-footer-icons {
+    grid-template-columns: 1fr 1fr;
+    padding: 30px 20px;
+    gap: 40px 20px;
+    margin-top: 0px;
+}
+
+   .f-icon-inner {
+    width: 100%;
+    padding: 0px;
+}
+
+   .f-icon-inner p {
+    max-width: 240px;
+    font-size: 16px;
+}
+.f-footer-icons h3.h3 {
+    font-size: 24px;
+    line-height: 0.9;
+    max-width: 250px;
+    margin-top: 5px;
+}
+
+  
+    .f-icon-image {
+    height: 60px;
+    width: auto;
+}
+  }
+   @media only screen and (min-width: 1000px){
+     .f-icon-inner {
+    padding: 10px 10px 50px 10px;
+   
+}
+   }
+</style>
+<div id="footer-icons" class="f-footer-icons">
+  {% for block in section.blocks %}
+    <div class="f-icon-inner">
+      {% if block.settings.image_icon != blank  %}
+      <img class="f-icon-image" src="{{ block.settings.image_icon | image_url: width: 300 }}" />
+      {% endif %}
+    <h3 class="h3">{{ block.settings.text }}</h3>
+      <p>{{ block.settings.sub-text }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "footer-icons",
+    "settings": [],
+     "blocks": [
+       {
+      "type": "icon",
+        "name" : "icon",
+      "settings": [
+        {
+        "type": "image_picker",
+        "id": "image_icon",
+        "label": "icon"
+      },
+         {
+        "type": "text",
+        "id": "text",
+        "label": "heading text"
+     },
+     {
+        "type": "text",
+        "id": "sub-text",
+        "label": "sub heading text"
+     }
+       
+        
+        
+      ]
+    }
+    ],
+    "presets": [{
+      "name": "footer-icons"
+    }]
+  }
+{% endschema %}

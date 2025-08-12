@@ -1,0 +1,1753 @@
+ <style>
+            .benfits-section{
+              display : flex;
+              flex-direction : column;
+              gap : 10px;
+              margin-top : 25px;
+            }  
+            .benfits-section h2 {
+                font-size: 55px;
+                text-align: center;
+                width: fit-content;
+                margin: auto;
+              position : relative;
+            }
+              .benfits-section h2::after {
+                content: "";
+                position: absolute;
+                right: -40px;
+                bottom: -10px;
+                width: 90px;
+                height: 20px;
+                background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Squiggle_Mini_9f.svg?v=1747824794");
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+              .benfits-section h2 span{
+                color : var(--lio-light-green);
+              }
+             .benfits-section p.ben-para{
+                text-align : center;
+                 max-width : 480px;
+               margin : auto;
+               
+              }
+             
+            .cl-toggle-switch {
+             position: relative;
+            }
+            
+         
+.cl-switch {
+             position: relative;
+             display: inline-block;
+   width: 50px;
+  height: 30px;
+   touch-action: manipulation;       
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+            }
+            /* Input */
+            .cl-switch > input {
+             appearance: none;
+             -moz-appearance: none;
+             -webkit-appearance: none;
+             z-index: -1;
+             position: absolute;
+             right: 6px;
+             top: -8px;
+             display: block;
+             margin: 0;
+             border-radius: 50%;
+             width: 50px;
+             height: 30px;
+             background-color: #00B67A50;
+             outline: none;
+             opacity: 0;
+             transform: scale(1);
+             pointer-events: none;
+             transition: opacity 0.3s 0.1s, transform 0.2s 0.1s;
+            }
+
+  
+
+   .cl-switch > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+            /* Track */
+            .cl-switch > span::before {
+             content: "";
+             float: right;
+             display: inline-block;
+             margin: 5px 0 5px 10px;
+             border-radius: 7px;
+             width: 50px;
+             height: 14px;
+             background-color: #00B67A50;
+             vertical-align: top;
+             transition: background-color 0.2s, opacity 0.2s;
+            }
+            /* Thumb */
+            .cl-switch > span::after {
+             content: "";
+             position: absolute;
+             top: 2px;
+             right: 30px;
+             border-radius: 50%;
+             width: 20px;
+             height: 20px;
+             background-color: #00B67A;
+             box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+             transition: background-color 0.2s, transform 0.2s;
+            }
+            /* Checked */
+            .cl-switch > input:checked {
+             right: 0px;
+             background-color: #00B67A50;
+            }
+            
+            .cl-switch > input:checked + span::before {
+             background-color: #00B67A50;
+            }
+            
+            .cl-switch > input:checked + span::after {
+             background-color: #00B67A;
+             transform: translateX(30px);
+            }
+            /* Hover, Focus */
+            .cl-switch:hover > input {
+             opacity: 0.04;
+            }
+            
+            .cl-switch > input:focus {
+             opacity: 0.12;
+            }
+            
+            .cl-switch:hover > input:focus {
+             opacity: 0.16;
+            }
+            /* Active */
+            .cl-switch > input:active {
+  opacity: 1;   
+  transform: none;
+  transition: none;
+}
+            
+            .cl-switch > input:active + span::before {
+             background-color: #00B67A;
+            }
+            
+            .cl-switch > input:checked:active + span::before {
+             background-color: #00B67A;
+            }
+            /* Disabled */
+            .cl-switch > input:disabled {
+             opacity: 0;
+            }
+            
+            .cl-switch > input:disabled + span::before {
+             background-color: #00B67A;
+            }
+            
+            .cl-switch > input:checked:disabled + span::before {
+             background-color: #00B67A;
+            }
+            
+            .cl-switch > input:checked:disabled + span::after {
+             background-color: #00B67A;
+            }
+            
+            
+             
+              span.switch-name1,  span.switch-name2 {
+                font-size: 17px;
+                color: #302F2F;
+                font-weight: 600;
+                margin-top : -2px;
+            }
+
+              .switch-outer-box {
+                display: flex;
+                gap: 15px;
+                padding-top : 15px;
+                align-items: flex-start;
+                justify-content : center;
+            }
+            
+            .main-benefit-box{
+              width : 100%;
+              position : relative;
+               min-height : 600px;
+            }
+            .benfit-absolute-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 1;
+    display: flex;
+    transition: all 0.3s ease;
+    justify-content: space-between;
+}
+              .main-benefit-video{
+                width : 50%;
+                height : 80%;
+                position : absolute;
+                left : 50%;
+                top : 50%;
+                transform : translate(-50%,-50%);
+              }
+              .main-benefit-video video{
+                height : 100%;
+                width : 100%;
+                object-fit : contain;
+              }
+               .benfit-absolute-box.main-hidden {
+                opacity: 0;
+                  z-index : 0;
+              }
+              .left-ben-usp, .right-ben-usp {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+            }
+              .single-ben-usp {
+                position: relative;
+                max-width: 460px;
+            }
+              
+              .single-ben-usp p{
+                text-wrap : balance;
+              }
+            .single-ben-usp svg {
+               
+            }
+            .positioning-usp-right svg{
+                position: absolute;
+                right: 50px;
+                top: 20px;
+                width: 100%;
+              z-index : 0;
+              overflow : visible;
+            }
+           
+            .positioning-usp-left svg{
+                position: absolute;
+                left: 50px;
+                top: 20px;
+                width: 100%;
+              z-index : 0;
+              overflow : visible;
+            }
+
+            .single-ben-usp.right-top-usp svg{
+                transform: scaleX(-1);
+                right : 50px !important;
+            }
+            .single-ben-usp.center-right-usp svg{
+                transform: scaleX(-1);
+                right : 50px !important;
+            }
+            .single-ben-usp.bottom-right-usp svg{
+                transform: scaleX(-1) scaleY(-1);
+                right : 50px !important;
+                transform-origin: top;
+            }
+              
+            .single-ben-usp.bottom-left-usp svg {
+                transform: scaleY(-1);
+                transform-origin: top;
+            }
+            
+              .upper-usp-sec {
+                display: flex;
+                gap: 7px;
+                background: var(--lio-dark-green);
+                padding: 7px 20px;
+                color: var(--lio-white);
+                border-radius: 15px;
+                width: fit-content;
+                margin-bottom : 10px;
+                position : relative;
+                  z-index : 1;
+            }
+              .single-ben-usp.positioning-usp-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+@media screen and (min-width: 991px){
+   .desktop-hidden-ben{
+    display: none !important;
+   } 
+}
+
+@media screen and (max-width: 990px){
+.mobile-hidden-ben{
+    display : none !important;
+}
+  .benfits-section h2::after {
+    right: 40px;
+}
+ .benfits-section h2 {
+    font-size: 35px; 
+    line-height: 0.95;
+    padding-bottom: 10px;
+}
+  .benfits-section h2::after {
+    right: 45%;
+    transform: translateX(50%);
+}
+  .first-wrapper-slider, .second-wrapper-slider{
+    overflow : hidden;
+    position : relative;
+  }
+ svg.first-svg-mob {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    overflow: visible;
+    transform-origin: top;
+    transform: scale(0.8);
+}
+svg.second-svg-mob {
+    position: absolute;
+    left: 10px;
+    bottom: 55px;
+    overflow: visible;
+    transform-origin: center;
+    transform: scale(0.8) scaleX(-1) scaleY(-1);
+}
+ .inner-slide-ben {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+  .single-ben-usp p {
+    font-size: 12px;
+    max-width: 230px;
+    text-wrap: balance;
+    transform : translateY(20px);
+    transition : 0.3s all ease;
+    opacity : 0;
+}
+  .swiper-slide.swiper-slide-active .single-ben-usp p{
+    opacity : 1;
+    transform : translateY(0px);
+  }
+ .single-ben-usp {
+    min-height: 90px;
+}
+ .benfit-absolute-box img.image-abs-container {
+    position: absolute;
+    left: 50%;
+    top: calc(50% - 10px );
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    transform: translate(-50%,-50%);
+}
+  .main-benefit-box {
+    width: 100%;
+    position: relative;
+    min-height: 550px;
+}
+
+.left-btn-benefit, .right-btn-benefit{
+  width : 50px;
+  position : absolute;
+  top : 50%;
+  transform : translateY(-50%);
+  z-index : 1;
+   transition : all 0.3s ease;
+}
+  .left-btn-benefit{
+    left : 15px;
+  }
+  .left-btn-benefit.swiper-button-disabled, .right-btn-benefit.swiper-button-disabled {
+opacity : 0.5;
+}
+  .right-btn-benefit{
+    right : 15px;
+  }
+  
+
+}
+            </style>
+
+   <div class="benfits-section width-wrapper">
+            <h2 class="h2">{{ section.settings.heading }} <span>{{ section.settings.highlighted-heading }}</span></h2>
+            <p class="ben-para">{{ section.settings.sub-text }}</p>
+            <div class="switch-outer-box">
+              <span class="switch-name1">lio Classic</span>
+          <div class="cl-toggle-switch">
+            <label class="cl-switch">
+              <input type="checkbox" id="myCheckbox" >
+              <span></span>
+            </label>
+          </div>
+              <span class="switch-name2">lio gen 2</span>
+              </div>
+
+     <div class="desktop-hidden-ben main-benefit-box">
+<div id="mob-one-select" class="benfit-absolute-box">
+  <img class="image-abs-container" src="{{ section.settings.image-1 | img_url: 'master' }}" alt="Lio benefit image"  />
+  {% comment %}
+  <video loading="lazy" src="{{section.settings.video-1.sources[1].url}}" autoplay muted loop playsinline webkit-playsinline></video>
+  {% endcomment %}
+  <div class="first-wrapper-slider">
+  <svg
+            class="draw-svg first-svg-mob"
+            width="354" height="156"
+            viewBox="0 0 354 156"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <!-- Mask path: exact same geometry as your lines -->
+              <mask id="mask-path" maskUnits="userSpaceOnUse">
+                <path
+                  d="M0 0.75 L350 0.75 L349.75 147"
+                  stroke="#fff"
+                  stroke-width="1"
+                  fill="none"
+                  style="stroke-dasharray: 690; stroke-dashoffset: 690;"
+                />
+              </mask>
+            </defs>
+          
+            <!-- Under the mask, your original dashed lines + circle -->
+            <g mask="url(#mask-path)">
+              <line
+                x1="0" y1="0.75"
+                x2="350" y2="0.75"
+                stroke="#005128"
+                stroke-width="1"
+                stroke-dasharray="7 7"
+              />
+              <line
+                x1="349.75" y1="147"
+                x2="349.75" y2="1"
+                stroke="#005128"
+                stroke-width="1"
+                stroke-dasharray="7 7"
+              />
+              <circle
+                cx="349.5" cy="151.5" r="4.5"
+                fill="#005128"
+              />
+            </g>
+          
+            <!-- Dot that travels the mask path -->
+            <circle cx="0" cy="0" r="5" fill="#005128">
+              <animateMotion
+                dur="1.5s"
+                fill="freeze"
+                begin="indefinite"
+                path="M0 0.75 L350 0.75 L349.75 147"
+              />
+            </circle>
+          </svg>
+       
+                
+                <svg
+            class="draw-svg second-svg-mob"
+            width="354" height="156"
+            viewBox="0 0 354 156"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <!-- Mask path: exact same geometry as your lines -->
+              <mask id="mask-path" maskUnits="userSpaceOnUse">
+                <path
+                  d="M0 0.75 L350 0.75 L349.75 147"
+                  stroke="#fff"
+                  stroke-width="1"
+                  fill="none"
+                  style="stroke-dasharray: 690; stroke-dashoffset: 690;"
+                />
+              </mask>
+            </defs>
+          
+            <!-- Under the mask, your original dashed lines + circle -->
+            <g mask="url(#mask-path)">
+              <line
+                x1="0" y1="0.75"
+                x2="350" y2="0.75"
+                stroke="#005128"
+                stroke-width="1"
+                stroke-dasharray="7 7"
+              />
+              <line
+                x1="349.75" y1="147"
+                x2="349.75" y2="1"
+                stroke="#005128"
+                stroke-width="1"
+                stroke-dasharray="7 7"
+              />
+              <circle
+                cx="349.5" cy="151.5" r="4.5"
+                fill="#005128"
+              />
+            </g>
+          
+            <!-- Dot that travels the mask path -->
+            <circle cx="0" cy="0" r="5" fill="#005128">
+              <animateMotion
+                dur="1.5s"
+                fill="freeze"
+                begin="indefinite"
+                path="M0 0.75 L350 0.75 L349.75 147"
+              />
+            </circle>
+          </svg>
+      
+  
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="inner-slide-ben">
+           <div class="single-ben-usp">
+                <div class="upper-usp-sec">
+                <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                <span>{{ section.settings.usp1-title }}</span>
+                  </div>
+                <p>{{ section.settings.usp1-text }}</p>
+              </div>
+          <div class="single-ben-usp positioning-usp-right">
+                <div class="upper-usp-sec">
+                <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                <span>{{ section.settings.usp2-title }}</span>
+                  </div>
+                <p>{{ section.settings.usp2-text }}</p>
+              </div>
+        </div>
+      </div>
+       <div class="swiper-slide">
+        <div class="inner-slide-ben">
+           <div class="single-ben-usp">
+                <div class="upper-usp-sec">
+                <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                <span>{{ section.settings.usp3-title }}</span>
+                  </div>
+                <p>{{ section.settings.usp3-text }}</p>
+              </div>
+          <div class="single-ben-usp positioning-usp-right">
+                <div class="upper-usp-sec">
+                <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                <span>{{ section.settings.usp4-title }}</span>
+                  </div>
+                <p>{{ section.settings.usp4-text }}</p>
+              </div>
+        </div>
+      </div>
+       <div class="swiper-slide">
+        <div class="inner-slide-ben">
+           <div class="single-ben-usp">
+                <div class="upper-usp-sec">
+                <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                <span>{{ section.settings.usp5-title }}</span>
+                  </div>
+                <p>{{ section.settings.usp5-text }}</p>
+              </div>
+          <div class="single-ben-usp positioning-usp-right">
+                <div class="upper-usp-sec">
+                <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                <span>{{ section.settings.usp6-title }}</span>
+                  </div>
+                <p>{{ section.settings.usp6-text }}</p>
+              </div>
+        </div>
+      </div>
+    </div>
+    <div class="left-btn-benefit prev-ben-1"><img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/left-btn-svg.svg?v=1747858194" /></div>
+    <div class="right-btn-benefit next-ben-1"><img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/right-btn-svg.svg?v=1747858194" /></div>            
+  </div>
+</div>
+<div id="mob-second-select" class="main-hidden benfit-absolute-box">
+{% comment %}
+   <video loading="lazy" src="{{section.settings.video-2.sources[1].url}}" autoplay muted loop playsinline webkit-playsinline></video>
+  {% endcomment %}
+  <img class="image-abs-container" src="{{ section.settings.image-2 | img_url: 'master' }}" alt="Lio benefit image"  />
+   <div class="second-wrapper-slider">
+  <svg
+            class="draw-svg first-svg-mob"
+            width="354" height="156"
+            viewBox="0 0 354 156"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <!-- Mask path: exact same geometry as your lines -->
+              <mask id="mask-path" maskUnits="userSpaceOnUse">
+                <path
+                  d="M0 0.75 L350 0.75 L349.75 147"
+                  stroke="#fff"
+                  stroke-width="1"
+                  fill="none"
+                  style="stroke-dasharray: 690; stroke-dashoffset: 690;"
+                />
+              </mask>
+            </defs>
+          
+            <!-- Under the mask, your original dashed lines + circle -->
+            <g mask="url(#mask-path)">
+              <line
+                x1="0" y1="0.75"
+                x2="350" y2="0.75"
+                stroke="#005128"
+                stroke-width="1"
+                stroke-dasharray="7 7"
+              />
+              <line
+                x1="349.75" y1="147"
+                x2="349.75" y2="1"
+                stroke="#005128"
+                stroke-width="1"
+                stroke-dasharray="7 7"
+              />
+              <circle
+                cx="349.5" cy="151.5" r="4.5"
+                fill="#005128"
+              />
+            </g>
+          
+            <!-- Dot that travels the mask path -->
+            <circle cx="0" cy="0" r="5" fill="#005128">
+              <animateMotion
+                dur="1.5s"
+                fill="freeze"
+                begin="indefinite"
+                path="M0 0.75 L350 0.75 L349.75 147"
+              />
+            </circle>
+          </svg>
+       
+                
+                <svg
+            class="draw-svg second-svg-mob"
+            width="354" height="156"
+            viewBox="0 0 354 156"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <!-- Mask path: exact same geometry as your lines -->
+              <mask id="mask-path" maskUnits="userSpaceOnUse">
+                <path
+                  d="M0 0.75 L350 0.75 L349.75 147"
+                  stroke="#fff"
+                  stroke-width="1"
+                  fill="none"
+                  style="stroke-dasharray: 690; stroke-dashoffset: 690;"
+                />
+              </mask>
+            </defs>
+          
+            <!-- Under the mask, your original dashed lines + circle -->
+            <g mask="url(#mask-path)">
+              <line
+                x1="0" y1="0.75"
+                x2="350" y2="0.75"
+                stroke="#005128"
+                stroke-width="1"
+                stroke-dasharray="7 7"
+              />
+              <line
+                x1="349.75" y1="147"
+                x2="349.75" y2="1"
+                stroke="#005128"
+                stroke-width="1"
+                stroke-dasharray="7 7"
+              />
+              <circle
+                cx="349.5" cy="151.5" r="4.5"
+                fill="#005128"
+              />
+            </g>
+          
+            <!-- Dot that travels the mask path -->
+            <circle cx="0" cy="0" r="5" fill="#005128">
+              <animateMotion
+                dur="1.5s"
+                fill="freeze"
+                begin="indefinite"
+                path="M0 0.75 L350 0.75 L349.75 147"
+              />
+            </circle>
+          </svg>
+      
+  
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="inner-slide-ben">
+           <div class="single-ben-usp">
+                <div class="upper-usp-sec">
+                <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                <span>{{ section.settings.gen-usp1-title }}</span>
+                  </div>
+                <p>{{ section.settings.gen-usp1-text }}</p>
+              </div>
+          <div class="single-ben-usp positioning-usp-right">
+                <div class="upper-usp-sec">
+                <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                <span>{{ section.settings.gen-usp2-title }}</span>
+                  </div>
+                <p>{{ section.settings.gen-usp2-text }}</p>
+              </div>
+        </div>
+      </div>
+       <div class="swiper-slide">
+        <div class="inner-slide-ben">
+           <div class="single-ben-usp">
+                <div class="upper-usp-sec">
+                <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                <span>{{ section.settings.gen-usp3-title }}</span>
+                  </div>
+                <p>{{ section.settings.gen-usp3-text }}</p>
+              </div>
+          <div class="single-ben-usp positioning-usp-right">
+                <div class="upper-usp-sec">
+                <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                <span>{{ section.settings.gen-usp4-title }}</span>
+                  </div>
+                <p>{{ section.settings.gen-usp4-text }}</p>
+              </div>
+        </div>
+      </div>
+       <div class="swiper-slide">
+        <div class="inner-slide-ben">
+           <div class="single-ben-usp">
+                <div class="upper-usp-sec">
+                <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                <span>{{ section.settings.gen-usp5-title }}</span>
+                  </div>
+                <p>{{ section.settings.gen-usp5-text }}</p>
+              </div>
+          <div class="single-ben-usp positioning-usp-right">
+                <div class="upper-usp-sec">
+                <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                <span>{{ section.settings.gen-usp6-title }}</span>
+                  </div>
+                <p>{{ section.settings.gen-usp6-text }}</p>
+              </div>
+        </div>
+      </div>
+    </div>
+                 <div class="left-btn-benefit prev-ben-2"><img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/left-btn-svg.svg?v=1747858194" /></div>
+    <div class="right-btn-benefit next-ben-2"><img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/right-btn-svg.svg?v=1747858194" /></div> 
+  </div>
+</div>
+          </div>
+     
+            <div class="mobile-hidden-ben main-benefit-box">
+          <div id="one-select" class="benfit-absolute-box"> 
+           <div class="main-benefit-video">
+  <img src="{{ section.settings.image-1 | img_url: 'master' }}" alt="Lio benefit image" style="width:100%; height:100%; object-fit:contain;" />
+</div>
+
+            <div class="left-ben-usp">
+              <div class="single-ben-usp positioning-usp-left">
+                <div class="upper-usp-sec">
+                <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                <span>{{ section.settings.usp1-title }}</span>
+                  </div>
+                <p>{{ section.settings.usp1-text }}</p>
+             <!-- 1) The animated SVG -->
+          <svg
+            class="draw-svg"
+            width="354" height="156"
+            viewBox="0 0 354 156"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <!-- Mask path: exact same geometry as your lines -->
+              <mask id="mask-path" maskUnits="userSpaceOnUse">
+                <path
+                  d="M0 0.75 L350 0.75 L349.75 147"
+                  stroke="#fff"
+                  stroke-width="1"
+                  fill="none"
+                  style="stroke-dasharray: 690; stroke-dashoffset: 690;"
+                />
+              </mask>
+            </defs>
+          
+            <!-- Under the mask, your original dashed lines + circle -->
+            <g mask="url(#mask-path)">
+              <line
+                x1="0" y1="0.75"
+                x2="350" y2="0.75"
+                stroke="#005128"
+                stroke-width="1"
+                stroke-dasharray="7 7"
+              />
+              <line
+                x1="349.75" y1="147"
+                x2="349.75" y2="1"
+                stroke="#005128"
+                stroke-width="1"
+                stroke-dasharray="7 7"
+              />
+              <circle
+                cx="349.5" cy="151.5" r="4.5"
+                fill="#005128"
+              />
+            </g>
+          
+            <!-- Dot that travels the mask path -->
+            <circle cx="0" cy="0" r="5" fill="#005128">
+              <animateMotion
+                dur="1.5s"
+                fill="freeze"
+                begin="indefinite"
+                path="M0 0.75 L350 0.75 L349.75 147"
+              />
+            </circle>
+          </svg>
+          
+          
+              </div>
+          
+             <div class="single-ben-usp positioning-usp-left center-left-usp">
+                <div class="upper-usp-sec">
+                <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+              <span>{{ section.settings.usp2-title }}</span>
+                  </div>
+                <p>{{ section.settings.usp2-text }}</p>
+          <svg
+            class="draw-svg"
+            width="343" height="9"
+            viewBox="0 0 343 9"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <!-- mask path at y=4.5 -->
+              <mask id="mask-path" maskUnits="userSpaceOnUse">
+                <path
+                  d="M0 4.5 H334"
+                  stroke="#fff"
+                  stroke-width="1"
+                  fill="none"
+                  style="stroke-dasharray: 334; stroke-dashoffset: 334;"
+                />
+              </mask>
+            </defs>
+          
+            <!-- dashed line + static end-circle under the mask -->
+            <g mask="url(#mask-path)">
+              <line
+                x1="0" y1="4.5"
+                x2="334" y2="4.5"
+                stroke="#005128"
+                stroke-width="1"
+                stroke-dasharray="7 7"
+              />
+              <circle
+                cx="338.5" cy="1.5" r="4.5"
+                fill="#005128"
+              />
+            </g>
+          
+            <!-- moving dot, centered at the same y=4.5 -->
+            <circle cx="0" cy="1.5" r="4.5" fill="#005128">
+              <animateMotion
+                dur="1.5s"
+                fill="freeze"
+                begin="indefinite"
+                path="M0 4.5 L334 4.5"
+              />
+            </circle>
+          </svg>
+          
+          
+              </div>
+             <div class="single-ben-usp positioning-usp-left bottom-left-usp">
+                <div class="upper-usp-sec">
+                <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+               <span>{{ section.settings.usp3-title }}</span>
+                  </div>
+                <p>{{ section.settings.usp3-text }}</p>
+           <svg
+            class="draw-svg"
+            width="354" height="156"
+            viewBox="0 0 354 156"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <!-- Mask path: exact same geometry as your lines -->
+              <mask id="mask-path" maskUnits="userSpaceOnUse">
+                <path
+                  d="M0 0.75 L350 0.75 L349.75 147"
+                  stroke="#fff"
+                  stroke-width="1"
+                  fill="none"
+                  style="stroke-dasharray: 690; stroke-dashoffset: 690;"
+                />
+              </mask>
+            </defs>
+          
+            <!-- Under the mask, your original dashed lines + circle -->
+            <g mask="url(#mask-path)">
+              <line
+                x1="0" y1="0.75"
+                x2="350" y2="0.75"
+                stroke="#005128"
+                stroke-width="1"
+                stroke-dasharray="7 7"
+              />
+              <line
+                x1="349.75" y1="147"
+                x2="349.75" y2="1"
+                stroke="#005128"
+                stroke-width="1"
+                stroke-dasharray="7 7"
+              />
+              <circle
+                cx="349.5" cy="151.5" r="4.5"
+                fill="#005128"
+              />
+            </g>
+          
+            <!-- Dot that travels the mask path -->
+            <circle cx="0" cy="0" r="5" fill="#005128">
+              <animateMotion
+                dur="1.5s"
+                fill="freeze"
+                begin="indefinite"
+                path="M0 0.75 L350 0.75 L349.75 147"
+              />
+            </circle>
+          </svg>
+          
+          
+          
+              </div>
+            </div>
+              <div class="right-ben-usp">
+                <div class="single-ben-usp positioning-usp-right right-top-usp">
+                    <div class="upper-usp-sec">
+                    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                    <span>{{ section.settings.usp4-title }}</span>
+                  </div>
+                <p>{{ section.settings.usp4-text }}</p>
+                 <!-- 1) The animated SVG -->
+              <svg
+                class="draw-svg"
+                width="354" height="156"
+                viewBox="0 0 354 156"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <!-- Mask path: exact same geometry as your lines -->
+                  <mask id="mask-path" maskUnits="userSpaceOnUse">
+                    <path
+                      d="M0 0.75 L350 0.75 L349.75 147"
+                      stroke="#fff"
+                      stroke-width="1"
+                      fill="none"
+                      style="stroke-dasharray: 690; stroke-dashoffset: 690;"
+                    />
+                  </mask>
+                </defs>
+              
+                <!-- Under the mask, your original dashed lines + circle -->
+                <g mask="url(#mask-path)">
+                  <line
+                    x1="0" y1="0.75"
+                    x2="350" y2="0.75"
+                    stroke="#005128"
+                    stroke-width="1"
+                    stroke-dasharray="7 7"
+                  />
+                  <line
+                    x1="349.75" y1="147"
+                    x2="349.75" y2="1"
+                    stroke="#005128"
+                    stroke-width="1"
+                    stroke-dasharray="7 7"
+                  />
+                  <circle
+                    cx="349.5" cy="151.5" r="4.5"
+                    fill="#005128"
+                  />
+                </g>
+              
+                <!-- Dot that travels the mask path -->
+                <circle cx="0" cy="0" r="5" fill="#005128">
+                  <animateMotion
+                    dur="1.5s"
+                    fill="freeze"
+                    begin="indefinite"
+                    path="M0 0.75 L350 0.75 L349.75 147"
+                  />
+                </circle>
+              </svg>
+              
+              
+                  </div>
+                  <div class="single-ben-usp positioning-usp-right center-right-usp">
+                    <div class="upper-usp-sec">
+                    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                   <span>{{ section.settings.usp5-title }}</span>
+                  </div>
+                <p>{{ section.settings.usp5-text }}</p>
+              <svg
+                class="draw-svg"
+                width="343" height="9"
+                viewBox="0 0 343 9"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <!-- mask path at y=4.5 -->
+                  <mask id="mask-path" maskUnits="userSpaceOnUse">
+                    <path
+                      d="M0 4.5 H334"
+                      stroke="#fff"
+                      stroke-width="1"
+                      fill="none"
+                      style="stroke-dasharray: 334; stroke-dashoffset: 334;"
+                    />
+                  </mask>
+                </defs>
+              
+                <!-- dashed line + static end-circle under the mask -->
+                <g mask="url(#mask-path)">
+                  <line
+                    x1="0" y1="4.5"
+                    x2="334" y2="4.5"
+                    stroke="#005128"
+                    stroke-width="1"
+                    stroke-dasharray="7 7"
+                  />
+                  <circle
+                    cx="338.5" cy="1.5" r="4.5"
+                    fill="#005128"
+                  />
+                </g>
+              
+                <!-- moving dot, centered at the same y=4.5 -->
+                <circle cx="0" cy="1.5" r="4.5" fill="#005128">
+                  <animateMotion
+                    dur="1.5s"
+                    fill="freeze"
+                    begin="indefinite"
+                    path="M0 4.5 L334 4.5"
+                  />
+                </circle>
+              </svg>
+              
+              
+                  </div>
+                  <div class="single-ben-usp positioning-usp-right  bottom-right-usp">
+                    <div class="upper-usp-sec">
+                    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                    <span>{{ section.settings.usp6-title }}</span>
+                  </div>
+                <p>{{ section.settings.usp6-text }}</p>
+               <svg
+                class="draw-svg"
+                width="354" height="156"
+                viewBox="0 0 354 156"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <!-- Mask path: exact same geometry as your lines -->
+                  <mask id="mask-path" maskUnits="userSpaceOnUse">
+                    <path
+                      d="M0 0.75 L350 0.75 L349.75 147"
+                      stroke="#fff"
+                      stroke-width="1"
+                      fill="none"
+                      style="stroke-dasharray: 690; stroke-dashoffset: 690;"
+                    />
+                  </mask>
+                </defs>
+              
+                <!-- Under the mask, your original dashed lines + circle -->
+                <g mask="url(#mask-path)">
+                  <line
+                    x1="0" y1="0.75"
+                    x2="350" y2="0.75"
+                    stroke="#005128"
+                    stroke-width="1"
+                    stroke-dasharray="7 7"
+                  />
+                  <line
+                    x1="349.75" y1="147"
+                    x2="349.75" y2="1"
+                    stroke="#005128"
+                    stroke-width="1"
+                    stroke-dasharray="7 7"
+                  />
+                  <circle
+                    cx="349.5" cy="151.5" r="4.5"
+                    fill="#005128"
+                  />
+                </g>
+              
+                <!-- Dot that travels the mask path -->
+                <circle cx="0" cy="0" r="5" fill="#005128">
+                  <animateMotion
+                    dur="1.5s"
+                    fill="freeze"
+                    begin="indefinite"
+                    path="M0 0.75 L350 0.75 L349.75 147"
+                  />
+                </circle>
+              </svg>
+              
+              
+              
+                  </div>
+              </div>
+          </div>
+           <div id="second-select" class="main-hidden benfit-absolute-box">
+            <div class="main-benefit-video">
+<img src="{{ section.settings.image-2 | img_url: 'master' }}" alt="Lio benefit image" style="width:100%; height:100%; object-fit:contain;" />
+                
+  
+  
+                </div>
+              <div class="left-ben-usp">
+                <div class="single-ben-usp positioning-usp-left">
+                  <div class="upper-usp-sec">
+                  <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                  <span>{{ section.settings.gen-usp1-title }}</span>
+                    </div>
+                  <p>{{ section.settings.gen-usp1-text }}</p>
+               <!-- 1) The animated SVG -->
+            <svg
+              class="draw-svg"
+              width="354" height="156"
+              viewBox="0 0 354 156"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <!-- Mask path: exact same geometry as your lines -->
+                <mask id="mask-path" maskUnits="userSpaceOnUse">
+                  <path
+                    d="M0 0.75 L350 0.75 L349.75 147"
+                    stroke="#fff"
+                    stroke-width="1"
+                    fill="none"
+                    style="stroke-dasharray: 690; stroke-dashoffset: 690;"
+                  />
+                </mask>
+              </defs>
+            
+              <!-- Under the mask, your original dashed lines + circle -->
+              <g mask="url(#mask-path)">
+                <line
+                  x1="0" y1="0.75"
+                  x2="350" y2="0.75"
+                  stroke="#005128"
+                  stroke-width="1"
+                  stroke-dasharray="7 7"
+                />
+                <line
+                  x1="349.75" y1="147"
+                  x2="349.75" y2="1"
+                  stroke="#005128"
+                  stroke-width="1"
+                  stroke-dasharray="7 7"
+                />
+                <circle
+                  cx="349.5" cy="151.5" r="4.5"
+                  fill="#005128"
+                />
+              </g>
+            
+              <!-- Dot that travels the mask path -->
+              <circle cx="0" cy="0" r="5" fill="#005128">
+                <animateMotion
+                  dur="1.5s"
+                  fill="freeze"
+                  begin="indefinite"
+                  path="M0 0.75 L350 0.75 L349.75 147"
+                />
+              </circle>
+            </svg>
+            
+            
+                </div>
+            
+               <div class="single-ben-usp positioning-usp-left center-left-usp">
+                  <div class="upper-usp-sec">
+                  <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                <span>{{ section.settings.gen-usp2-title }}</span>
+                    </div>
+                  <p>{{ section.settings.gen-usp2-text }}</p>
+            <svg
+              class="draw-svg"
+              width="343" height="9"
+              viewBox="0 0 343 9"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <!-- mask path at y=4.5 -->
+                <mask id="mask-path" maskUnits="userSpaceOnUse">
+                  <path
+                    d="M0 4.5 H334"
+                    stroke="#fff"
+                    stroke-width="1"
+                    fill="none"
+                    style="stroke-dasharray: 334; stroke-dashoffset: 334;"
+                  />
+                </mask>
+              </defs>
+            
+              <!-- dashed line + static end-circle under the mask -->
+              <g mask="url(#mask-path)">
+                <line
+                  x1="0" y1="4.5"
+                  x2="334" y2="4.5"
+                  stroke="#005128"
+                  stroke-width="1"
+                  stroke-dasharray="7 7"
+                />
+                <circle
+                  cx="338.5" cy="1.5" r="4.5"
+                  fill="#005128"
+                />
+              </g>
+            
+              <!-- moving dot, centered at the same y=4.5 -->
+              <circle cx="0" cy="1.5" r="4.5" fill="#005128">
+                <animateMotion
+                  dur="1.5s"
+                  fill="freeze"
+                  begin="indefinite"
+                  path="M0 4.5 L334 4.5"
+                />
+              </circle>
+            </svg>
+            
+            
+                </div>
+               <div class="single-ben-usp positioning-usp-left bottom-left-usp">
+                  <div class="upper-usp-sec">
+                  <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                 <span>{{ section.settings.gen-usp3-title }}</span>
+                    </div>
+                  <p>{{ section.settings.gen-usp3-text }}</p>
+             <svg
+              class="draw-svg"
+              width="354" height="156"
+              viewBox="0 0 354 156"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <!-- Mask path: exact same geometry as your lines -->
+                <mask id="mask-path" maskUnits="userSpaceOnUse">
+                  <path
+                    d="M0 0.75 L350 0.75 L349.75 147"
+                    stroke="#fff"
+                    stroke-width="1"
+                    fill="none"
+                    style="stroke-dasharray: 690; stroke-dashoffset: 690;"
+                  />
+                </mask>
+              </defs>
+            
+              <!-- Under the mask, your original dashed lines + circle -->
+              <g mask="url(#mask-path)">
+                <line
+                  x1="0" y1="0.75"
+                  x2="350" y2="0.75"
+                  stroke="#005128"
+                  stroke-width="1"
+                  stroke-dasharray="7 7"
+                />
+                <line
+                  x1="349.75" y1="147"
+                  x2="349.75" y2="1"
+                  stroke="#005128"
+                  stroke-width="1"
+                  stroke-dasharray="7 7"
+                />
+                <circle
+                  cx="349.5" cy="151.5" r="4.5"
+                  fill="#005128"
+                />
+              </g>
+            
+              <!-- Dot that travels the mask path -->
+              <circle cx="0" cy="0" r="5" fill="#005128">
+                <animateMotion
+                  dur="1.5s"
+                  fill="freeze"
+                  begin="indefinite"
+                  path="M0 0.75 L350 0.75 L349.75 147"
+                />
+              </circle>
+            </svg>
+            
+            
+            
+                </div>
+              </div>
+                <div class="right-ben-usp">
+                  <div class="single-ben-usp positioning-usp-right right-top-usp">
+                      <div class="upper-usp-sec">
+                      <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                      <span>{{ section.settings.gen-usp4-title }}</span>
+                    </div>
+                  <p>{{ section.settings.gen-usp4-text }}</p>
+                   <!-- 1) The animated SVG -->
+                <svg
+                  class="draw-svg"
+                  width="354" height="156"
+                  viewBox="0 0 354 156"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <!-- Mask path: exact same geometry as your lines -->
+                    <mask id="mask-path" maskUnits="userSpaceOnUse">
+                      <path
+                        d="M0 0.75 L350 0.75 L349.75 147"
+                        stroke="#fff"
+                        stroke-width="1"
+                        fill="none"
+                        style="stroke-dasharray: 690; stroke-dashoffset: 690;"
+                      />
+                    </mask>
+                  </defs>
+                
+                  <!-- Under the mask, your original dashed lines + circle -->
+                  <g mask="url(#mask-path)">
+                    <line
+                      x1="0" y1="0.75"
+                      x2="350" y2="0.75"
+                      stroke="#005128"
+                      stroke-width="1"
+                      stroke-dasharray="7 7"
+                    />
+                    <line
+                      x1="349.75" y1="147"
+                      x2="349.75" y2="1"
+                      stroke="#005128"
+                      stroke-width="1"
+                      stroke-dasharray="7 7"
+                    />
+                    <circle
+                      cx="349.5" cy="151.5" r="4.5"
+                      fill="#005128"
+                    />
+                  </g>
+                
+                  <!-- Dot that travels the mask path -->
+                  <circle cx="0" cy="0" r="5" fill="#005128">
+                    <animateMotion
+                      dur="1.5s"
+                      fill="freeze"
+                      begin="indefinite"
+                      path="M0 0.75 L350 0.75 L349.75 147"
+                    />
+                  </circle>
+                </svg>
+                
+                
+                    </div>
+                    <div class="single-ben-usp positioning-usp-right center-right-usp">
+                      <div class="upper-usp-sec">
+                      <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                     <span>{{ section.settings.gen-usp5-title }}</span>
+                    </div>
+                  <p>{{ section.settings.gen-usp5-text }}</p>
+                <svg
+                  class="draw-svg"
+                  width="343" height="9"
+                  viewBox="0 0 343 9"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <!-- mask path at y=4.5 -->
+                    <mask id="mask-path" maskUnits="userSpaceOnUse">
+                      <path
+                        d="M0 4.5 H334"
+                        stroke="#fff"
+                        stroke-width="1"
+                        fill="none"
+                        style="stroke-dasharray: 334; stroke-dashoffset: 334;"
+                      />
+                    </mask>
+                  </defs>
+                
+                  <!-- dashed line + static end-circle under the mask -->
+                  <g mask="url(#mask-path)">
+                    <line
+                      x1="0" y1="4.5"
+                      x2="334" y2="4.5"
+                      stroke="#005128"
+                      stroke-width="1"
+                      stroke-dasharray="7 7"
+                    />
+                    <circle
+                      cx="338.5" cy="1.5" r="4.5"
+                      fill="#005128"
+                    />
+                  </g>
+                
+                  <!-- moving dot, centered at the same y=4.5 -->
+                  <circle cx="0" cy="1.5" r="4.5" fill="#005128">
+                    <animateMotion
+                      dur="1.5s"
+                      fill="freeze"
+                      begin="indefinite"
+                      path="M0 4.5 L334 4.5"
+                    />
+                  </circle>
+                </svg>
+                
+                
+                    </div>
+                    <div class="single-ben-usp positioning-usp-right  bottom-right-usp">
+                      <div class="upper-usp-sec">
+                      <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vectorgv.svg?v=1747834945" />
+                      <span>{{ section.settings.gen-usp6-title }}</span>
+                    </div>
+                  <p>{{ section.settings.gen-usp6-text }}</p>
+                 <svg
+                  class="draw-svg"
+                  width="354" height="156"
+                  viewBox="0 0 354 156"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <!-- Mask path: exact same geometry as your lines -->
+                    <mask id="mask-path" maskUnits="userSpaceOnUse">
+                      <path
+                        d="M0 0.75 L350 0.75 L349.75 147"
+                        stroke="#fff"
+                        stroke-width="1"
+                        fill="none"
+                        style="stroke-dasharray: 690; stroke-dashoffset: 690;"
+                      />
+                    </mask>
+                  </defs>
+                
+                  <!-- Under the mask, your original dashed lines + circle -->
+                  <g mask="url(#mask-path)">
+                    <line
+                      x1="0" y1="0.75"
+                      x2="350" y2="0.75"
+                      stroke="#005128"
+                      stroke-width="1"
+                      stroke-dasharray="7 7"
+                    />
+                    <line
+                      x1="349.75" y1="147"
+                      x2="349.75" y2="1"
+                      stroke="#005128"
+                      stroke-width="1"
+                      stroke-dasharray="7 7"
+                    />
+                    <circle
+                      cx="349.5" cy="151.5" r="4.5"
+                      fill="#005128"
+                    />
+                  </g>
+                
+                  <!-- Dot that travels the mask path -->
+                  <circle cx="0" cy="0" r="5" fill="#005128">
+                    <animateMotion
+                      dur="1.5s"
+                      fill="freeze"
+                      begin="indefinite"
+                      path="M0 0.75 L350 0.75 L349.75 147"
+                    />
+                  </circle>
+                </svg>
+                
+                
+                
+                    </div>
+                </div>
+        </div>
+          </div>
+         
+          </div>
+         
+          
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const checkbox   = document.getElementById('myCheckbox');
+
+  // desktop containers
+  const one        = document.getElementById('one-select');
+  const second     = document.getElementById('second-select');
+  // mobile containers
+  const mobone     = document.getElementById('mob-one-select');
+  const mobsecond  = document.getElementById('mob-second-select');
+
+  function initSvgAnimations(container) {
+    if (!container) return;
+    container.querySelectorAll('.draw-svg').forEach((svg) => {
+      const maskPath = svg.querySelector('mask path');
+      if (!maskPath) return;
+
+      // 1) generate a fresh, unique mask ID
+      const uniq = `mask-path-${Math.random().toString(36).substr(2, 9)}`;
+
+      // 2) rename the mask itself
+      const maskEl = maskPath.closest('mask');
+      maskEl.setAttribute('id', uniq);
+
+      // 3) repoint the <g> to use the new mask
+      const gEl = svg.querySelector('g[mask]');
+      gEl.setAttribute('mask', `url(#${uniq})`);
+
+      // 4) repoint the <mpath> so animateMotion follows the correct mask
+      const mpath = svg.querySelector('mpath');
+      if (mpath) {
+        mpath.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', `#${uniq}`);
+      }
+
+      // reset & animate the dash‐offset on the mask path
+      const len = maskPath.getTotalLength();
+      maskPath.style.transition       = 'none';
+      maskPath.style.strokeDasharray  = len;
+      maskPath.style.strokeDashoffset = len;
+      maskPath.getBoundingClientRect(); // force reflow
+
+      requestAnimationFrame(() => {
+        maskPath.style.transition       = 'stroke-dashoffset 1.5s ease-out';
+        maskPath.style.strokeDashoffset = 0;
+      });
+
+      // kick off the moving dot
+      const motion = svg.querySelector('animateMotion');
+      if (motion) motion.beginElement();
+    });
+  }
+
+  function observeSvgOnScroll(container) {
+    if (!container) return;
+    container.querySelectorAll('.draw-svg').forEach((svg) => {
+      const maskPath = svg.querySelector('mask path');
+      if (!maskPath) return;
+
+      // generate a fresh mask ID
+      const uniq = `mask-path-${Math.random().toString(36).substr(2, 9)}`;
+      const maskEl = maskPath.closest('mask');
+      maskEl.setAttribute('id', uniq);
+
+      // repoint the <g> to this mask
+      const gEl = svg.querySelector('g[mask]');
+      gEl.setAttribute('mask', `url(#${uniq})`);
+
+      // repoint the <mpath> too
+      const mpath = svg.querySelector('mpath');
+      if (mpath) {
+        mpath.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', `#${uniq}`);
+      }
+
+      // prepare for animation
+      const motion = svg.querySelector('animateMotion');
+      const len    = maskPath.getTotalLength();
+      maskPath.style.strokeDasharray  = len;
+      maskPath.style.strokeDashoffset = len;
+
+      // observe when in view
+      const io = new IntersectionObserver((entries, obs) => {
+        if (entries[0].isIntersecting) {
+          maskPath.getBoundingClientRect();
+          maskPath.style.transition       = 'stroke-dashoffset 1.5s ease-out';
+          maskPath.style.strokeDashoffset = 0;
+          if (motion) motion.beginElement();
+          obs.unobserve(svg);
+        }
+      }, { threshold: 0.1 });
+
+      io.observe(svg);
+    });
+  }
+
+  // run scroll-based observers on all four containers
+  [ one, second, mobone, mobsecond ].forEach(el => {
+    observeSvgOnScroll(el);
+  });
+
+  // toggle handler: show/hide and animate both desktop + mobile
+  checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+      one.classList.add('main-hidden');
+      mobone.classList.add('main-hidden');
+      second.classList.remove('main-hidden');
+      mobsecond.classList.remove('main-hidden');
+      initSvgAnimations(second);
+      initSvgAnimations(mobsecond);
+    } else {
+      second.classList.add('main-hidden');
+      mobsecond.classList.add('main-hidden');
+      one.classList.remove('main-hidden');
+      mobone.classList.remove('main-hidden');
+      initSvgAnimations(one);
+      initSvgAnimations(mobone);
+    }
+  });
+});
+</script>
+
+
+{% schema %}
+  {
+    "name": "benefits-section",
+    "settings": [
+       {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text"
+        },
+        {
+          "type": "text",
+          "id": "highlighted-heading",
+          "label": "highlighted-heading"
+        },
+       {
+          "type": "text",
+          "id": "sub-text",
+          "label": "sub text"
+        },
+      {
+  "type": "image_picker",
+  "id": "image-1",
+  "label": "lio-classic-image"
+},
+      {
+  "type": "image_picker",
+  "id": "image-2",
+  "label": "lio-classic-image"
+      },
+            {
+        "type": "text",
+        "id": "usp1-title",
+        "label": "USP 1 Title"
+      },
+      {
+        "type": "text",
+        "id": "usp1-text",
+        "label": "USP 1 Subtext"
+      },
+      {
+        "type": "text",
+        "id": "usp2-title",
+        "label": "USP 2 Title"
+      },
+      {
+        "type": "text",
+        "id": "usp2-text",
+        "label": "USP 2 Subtext"
+      },
+      {
+        "type": "text",
+        "id": "usp3-title",
+        "label": "USP 3 Title"
+      },
+      {
+        "type": "text",
+        "id": "usp3-text",
+        "label": "USP 3 Subtext"
+      },
+      {
+        "type": "text",
+        "id": "usp4-title",
+        "label": "USP 4 Title"
+      },
+      {
+        "type": "text",
+        "id": "usp4-text",
+        "label": "USP 4 Subtext"
+      },
+      {
+        "type": "text",
+        "id": "usp5-title",
+        "label": "USP 5 Title"
+      },
+      {
+        "type": "text",
+        "id": "usp5-text",
+        "label": "USP 5 Subtext"
+      },
+      {
+        "type": "text",
+        "id": "usp6-title",
+        "label": "USP 6 Title"
+      },
+      {
+        "type": "text",
+        "id": "usp6-text",
+        "label": "USP 6 Subtext"
+      },
+          {
+      "type": "text",
+      "id": "gen-usp1-title",
+      "label": "Gen USP 1 Title"
+      },
+      {
+      "type": "text",
+      "id": "gen-usp1-text",
+      "label": "Gen USP 1 Subtext"
+      },
+      {
+      "type": "text",
+      "id": "gen-usp2-title",
+      "label": "Gen USP 2 Title"
+      },
+      {
+      "type": "text",
+      "id": "gen-usp2-text",
+      "label": "Gen USP 2 Subtext"
+      },
+      {
+      "type": "text",
+      "id": "gen-usp3-title",
+      "label": "Gen USP 3 Title"
+      },
+      {
+      "type": "text",
+      "id": "gen-usp3-text",
+      "label": "Gen USP 3 Subtext"
+      },
+      {
+      "type": "text",
+      "id": "gen-usp4-title",
+      "label": "Gen USP 4 Title"
+      },
+      {
+      "type": "text",
+      "id": "gen-usp4-text",
+      "label": "Gen USP 4 Subtext"
+      },
+      {
+      "type": "text",
+      "id": "gen-usp5-title",
+      "label": "Gen USP 5 Title"
+      },
+      {
+      "type": "text",
+      "id": "gen-usp5-text",
+      "label": "Gen USP 5 Subtext"
+      },
+      {
+      "type": "text",
+      "id": "gen-usp6-title",
+      "label": "Gen USP 6 Title"
+      },
+      {
+      "type": "text",
+      "id": "gen-usp6-text",
+      "label": "Gen USP 6 Subtext"
+      }
+
+
+    ],
+    "presets": [{
+      "name": "benefits-section"
+    }]
+  }
+{% endschema %}

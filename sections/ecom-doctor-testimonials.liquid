@@ -1,0 +1,264 @@
+{% comment %} Doctor Testimonials Section | PDP_010 {% endcomment %}
+{{ 'doctor-testimonials.css' | asset_url | stylesheet_tag }}
+
+<section class="doctor-testimonials" id="doctor-testimonials-{{ section.id }}">
+  <div class="container">
+    {% if section.settings.heading != blank %}
+      <div class="section-header">
+        <h2 class="section-title">{{ section.settings.heading }}</h2>
+        {% if section.settings.heading_link != blank %}
+          <a href="{{ section.settings.heading_link_url }}" class="section-link">{{ section.settings.heading_link }}</a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <!-- Doctor Images Preview Swiper -->
+      <div class="doctor-images-preview">
+        <div class="swiper preview-swiper">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'testimonial' %}
+                  {% if block.settings.doctor_image != blank %}
+                    <div class="swiper-slide">
+                      <div class="doctor-preview-item">
+                        <img
+                          src="{{ block.settings.doctor_image | img_url: '1000x1000' }}"
+                          alt="{{ block.settings.doctor_name }}"
+                          width="1000"
+                          height="1000"
+                          loading="lazy"
+                        >
+                      </div>
+                    </div>
+                  {% endif %}
+              {% endcase %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Doctor Images Thumbnails Swiper -->
+      <div class="doctor-images-thumbnails">
+        <div class="swiper thumbnails-swiper">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'testimonial' %}
+                  {% if block.settings.doctor_image != blank %}
+                    <div class="swiper-slide">
+                      <div class="doctor-thumbnail-item">
+                        <img
+                          src="{{ block.settings.doctor_image | img_url: '300x300' }}"
+                          alt="{{ block.settings.doctor_name }}"
+                          width="300"
+                          height="300"
+                          loading="lazy"
+                        >
+                      </div>
+                    </div>
+                  {% endif %}
+              {% endcase %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonials-swiper">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'testimonial' %}
+                  <div class="swiper-slide" {{ block.shopify_attributes }}>
+                    <div class="testimonial-item">
+                      <div class="doctor-info">
+                        {% if block.settings.doctor_name != blank %}
+                          <p class="doctor-name">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                            >
+                              <path d="M8 16C6.89583 16 5.85938 15.7917 4.89062 15.375C3.91146 14.9583 3.0599 14.388 2.33594 13.6641C1.61198 12.9401 1.04167 12.0885 0.625 11.1094C0.208333 10.1406 0 9.10417 0 8C0 6.89583 0.208333 5.85938 0.625 4.89062C1.04167 3.91146 1.61198 3.0599 2.33594 2.33594C3.0599 1.61198 3.91146 1.04167 4.89062 0.625C5.85938 0.208333 6.89583 0 8 0C9.10417 0 10.1406 0.208333 11.1094 0.625C12.0885 1.04167 12.9401 1.61198 13.6641 2.33594C14.388 3.0599 14.9583 3.91146 15.375 4.89062C15.7917 5.85938 16 6.89583 16 8C16 9.10417 15.7917 10.1406 15.375 11.1094C14.9583 12.0885 14.388 12.9401 13.6641 13.6641C12.9401 14.388 12.0885 14.9583 11.1094 15.375C10.1406 15.7917 9.10417 16 8 16ZM11.4531 4.42188L6.71875 9.14062L4.46875 6.90625L3 8.375L6.71875 12.0781L12.9219 5.89062L11.4531 4.42188Z" fill="#268DEC"/>
+                            </svg>
+                            {{ block.settings.doctor_name }}
+                          </p>
+                        {% endif %}
+
+                        {% if block.settings.doctor_title != blank %}
+                          <p class="doctor-title">{{ block.settings.doctor_title }}</p>
+                        {% endif %}
+                      </div>
+
+                      <div class="testimonial-content">
+                        {% if block.settings.testimonial_text != blank %}
+                          <blockquote class="testimonial-quote">"{{ block.settings.testimonial_text }}"</blockquote>
+                        {% endif %}
+                      </div>
+
+                      {% if block.settings.cta_text != blank %}
+                        <a href="{{ block.settings.cta_url }}" class="cta-button">{{ block.settings.cta_text }}</a>
+                      {% endif %}
+                    </div>
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-wrapper">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <p>Add doctor testimonials in the theme editor</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const sectionId = '#doctor-testimonials-{{ section.id }}';
+    
+    // Initialize thumbnails swiper
+    const thumbnailsSwiper = new Swiper(sectionId + ' .thumbnails-swiper', {
+      slidesPerView: 3,
+      spaceBetween: 6,
+      speed: 700,
+      loop: true,
+      watchSlidesProgress: true,
+    });
+
+    // Initialize preview swiper (parent swiper)
+    const previewSwiper = new Swiper(sectionId + ' .preview-swiper', {
+      slidesPerView: 4.33,
+      spaceBetween: 11,
+      speed: 700,
+      loop: true,
+      allowTouchMove: false,
+      breakpoints: {
+        830: {
+          slidesPerView: 1          
+        },
+      },
+      thumbs: {
+        swiper: thumbnailsSwiper,
+      },
+    });
+
+    // Initialize main testimonials swiper
+    const mainSwiper = new Swiper(sectionId + ' .testimonials-swiper .swiper', {
+      slidesPerView: 1,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'progressbar',
+      },
+      speed: 700,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        830: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+      },
+      on: {
+        slideChange: function () {
+          // Sync preview swiper with main swiper
+          previewSwiper.slideToLoop(this.realIndex);
+        },
+      },
+    });
+
+    // Sync preview swiper changes with main swiper
+    previewSwiper.on('slideChange', function() {
+      mainSwiper.slideToLoop(this.realIndex);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "[ECT] Doctor Testimonials",
+  "tag": "section",
+  "class": "section-doctor-testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "What Doctors Say"
+    },
+    {
+      "type": "textarea",
+      "id": "heading_link",
+      "label": "Heading Link",
+      "info": "Heading Link Text"
+    },
+    {
+      "type": "url",
+      "id": "heading_link_url",
+      "label": "Heading Link URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Doctor Testimonial",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "doctor_image",
+          "label": "Doctor Photo"
+        },
+        {
+          "type": "text",
+          "id": "doctor_name",
+          "label": "Doctor Name",
+          "placeholder": "Dr. John Smith"
+        },
+        {
+          "type": "text",
+          "id": "doctor_title",
+          "label": "Doctor Title",
+          "placeholder": "Cardiologist"
+        },
+        {
+          "type": "textarea",
+          "id": "testimonial_text",
+          "label": "Testimonial Text",
+          "placeholder": "Enter the doctor's testimonial here..."
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text",
+          "placeholder": "Read Study"
+        },
+        {
+          "type": "url",
+          "id": "cta_url",
+          "label": "CTA URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Doctor Testimonials"
+    }
+  ]
+}
+{% endschema %}

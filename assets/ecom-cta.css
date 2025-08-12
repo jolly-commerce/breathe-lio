@@ -1,0 +1,37 @@
+.ecom-cta {
+  border-radius: 16px;
+  border: 1px solid #EDED5E;
+  background: transparent;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.ecom-cta__box {
+  transform: translate(5px, -5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 16px;
+  background: #eded5e;
+  padding: 16px 48px;
+  width: 100%;
+  color: #005128;
+  font-family: Poppins;
+  font-size: 16px;
+  white-space: nowrap;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+  text-transform: lowercase;
+  transition: all 0.4s ease;
+}
+.ecom-cta__box:active, .ecom-cta__box:focus, .ecom-cta__box:hover {
+  transform: translate(0);
+  background: #00B67A;
+  color: #F8F5E8;
+  transition: all 0.4s ease;
+}
+.ecom-cta:active, .ecom-cta:focus, .ecom-cta:hover {
+  background: #00B67A;
+  border-color: #00B67A;
+}

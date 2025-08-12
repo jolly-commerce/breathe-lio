@@ -1,0 +1,96 @@
+<style>
+ 
+.how-hero {
+  min-height : 350px;
+   background-image: url('{{ section.settings.image | img_url: 'master' }}');
+  width : 100%;
+   background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    overflow : hidden;
+  padding : 50px;
+  display: flex;
+    flex-direction: column;
+  justify-content : center;
+}
+ 
+ .how-hero h2.h2 {
+    font-size: 40px;
+    color : #F9F5E9;
+   max-width : 650px;
+}
+  .how-hero h2.h2 span{
+    color : var(--lio-yellow);
+  }
+  .number-locations-con{
+    display : flex;
+    gap : 10px;
+    align-items : center;
+    margin-top : 10px;
+  }
+   .number-locations-con p{
+     font-weight : 700;
+     color : #F9F5E9;
+   }
+  
+@media (max-width: 768px) {
+  .how-hero{
+     min-height : 250px;
+   background-image: url('{{ section.settings.image-mobile | img_url: 'master' }}');
+  width : 100%;
+   background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    overflow : hidden;
+  padding : 20px;
+  }
+  .how-hero h2.h2 {
+    font-size: 26px;
+    max-width: 250px;
+}
+
+}  
+</style>
+<div class="how-hero">
+   <h2 class="h2">{{ section.settings.heading }} <span>{{ section.settings.highlighted-heading }} </span>  {{ section.settings.pre-text }}</h2>
+</div>
+{% schema %}
+  {
+    "name": "how hero",
+    "settings": [
+       {
+        "type": "image_picker",
+        "id": "image",
+        "label": "image"
+      },
+{
+        "type": "image_picker",
+        "id": "image-mobile",
+        "label": "image mobile"
+      },
+
+    
+      {
+          "type": "text",
+          "id": "heading",
+          "label": "How Lio® Works: The Natural Way to"
+        },
+        {
+          "type": "text",
+          "id": "highlighted-heading",
+          "label": "highlighted-heading",
+          "default" : "Quit Smoking"
+        },
+        {
+          "type": "text",
+          "id": "pre-text",
+          "label": "pre-text",
+         
+      },
+    
+    ],
+    "presets": [{
+      "name": "how hero"
+    }]
+  }
+{% endschema %}

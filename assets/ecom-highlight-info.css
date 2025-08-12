@@ -1,0 +1,107 @@
+.ecom-highlight-info {
+  padding: 24px 16px;
+  background: #EDED5E;
+}
+
+.ecom-highlight-info__container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 !important;
+}
+
+.ecom-highlight-info__headings {
+  display: flex;
+  flex-direction: column;
+}
+
+.ecom-highlight-info__check--desktop,
+.ecom-highlight-info__title--desktop,
+.ecom-highlight-info__reviews-text--desktop {
+  display: none;
+}
+
+.ecom-highlight-info__headings-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ecom-highlight-info__reviews-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #005128;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px; 
+}
+
+.ecom-highlight-info__title {
+  color: #005128;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.ecom-highlight-info__description {
+  color: #005128;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+}
+
+.ecom-highlight-info__check--mobile svg {
+  width: 24px;
+  height: 24px;
+}
+
+@media (min-width: 1000px) {
+  .ecom-highlight-info__container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .ecom-highlight-info__container > * {
+    width: 48%;
+  }
+
+  .ecom-highlight-info__headings {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+  }
+  .ecom-highlight-info__headings-content {
+    gap: 0px;
+  }
+
+  .ecom-highlight-info__reviews-text {
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .ecom-highlight-info__title {
+    font-size: 24px;
+    line-height: 26px;
+  }
+
+  .ecom-highlight-info__description {
+    text-align: right;
+    line-height: 24px;
+  } 
+
+  .ecom-highlight-info__check--desktop,
+  .ecom-highlight-info__title--desktop,
+  .ecom-highlight-info__reviews-text--desktop {
+    display: block;
+  }
+  .ecom-highlight-info__check--desktop svg {
+    width: 32px;
+    height: 32px;
+  }
+  .ecom-highlight-info__check--mobile,
+  .ecom-highlight-info__title--mobile,
+  .ecom-highlight-info__reviews-text--mobile {
+    display: none;
+  }
+}

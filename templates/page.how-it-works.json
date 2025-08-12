@@ -1,0 +1,291 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "how_hero_QNJT3G": {
+      "type": "how-hero",
+      "name": "how hero",
+      "settings": {
+        "image": "shopify://shop_images/lio-her.jpg",
+        "image-mobile": "shopify://shop_images/liomon.jpg",
+        "heading": "How Lio® Works: The Natural Way to",
+        "highlighted-heading": "quit your bad habit",
+        "pre-text": ""
+      }
+    },
+    "team_lio_sec_gRU7QU": {
+      "type": "team-lio-sec",
+      "name": "team-lio-sec",
+      "settings": {
+        "text": "<p>At Lio®, we’re here to make <strong>quitting</strong> <strong>simple</strong>, <strong>natural</strong>, and actually <strong>enjoyable</strong>.</p><p></p><p>No nicotine, no chemicals, no junk, just plant-based goodness that helps you bring in the good and breathe out the bad.</p>",
+        "founder": "Team Lio"
+      }
+    },
+    "new_image_text_JzRhpT": {
+      "type": "new-image-text",
+      "blocks": {
+        "quote_YbjKfi": {
+          "type": "quote",
+          "settings": {
+            "text": "“Keep the habit you know, just without the smoke and poison.”"
+          }
+        }
+      },
+      "block_order": [
+        "quote_YbjKfi"
+      ],
+      "name": "New image text",
+      "settings": {
+        "text-right": false,
+        "main-image": "shopify://shop_images/J55A4835.jpg",
+        "main-image-mob": "shopify://shop_images/J55A4835.jpg",
+        "heading-before": "1. It replaces the",
+        "high-heading": "Hand-to-Mouth Habit",
+        "heading-after": "",
+        "sub-heading": "<p>Quitting isn’t just about fighting nicotine, it’s about breaking a powerful habit loop. Your hands, your mouth, the feeling of breathing something in. Lio keeps that ritual alive, so you don’t feel like something’s missing. That makes sticking to it way easier.</p>"
+      }
+    },
+    "new_image_text_dgPXhY": {
+      "type": "new-image-text",
+      "blocks": {
+        "quote_jK7FAx": {
+          "type": "quote",
+          "settings": {
+            "text": "“Natural, science-backed relief that calms cravings fast.”"
+          }
+        }
+      },
+      "block_order": [
+        "quote_jK7FAx"
+      ],
+      "name": "New image text",
+      "settings": {
+        "text-right": true,
+        "main-image": "shopify://shop_images/Screenshot_2025-06-28_at_5.14.01_PM.webp",
+        "main-image-mob": "shopify://shop_images/Screenshot_2025-06-28_at_5.14.01_PM.webp",
+        "heading-before": "2. Natural scents",
+        "high-heading": "reduce cravings.",
+        "heading-after": "",
+        "sub-heading": "<p>Research shows certain plant-based aromas, like black pepper and angelica, help curb cravings and ease withdrawal. Lio packs these into its flavors, so every inhale does double duty: satisfying the ritual and calming your brain’s urge to reach for something worse.</p>"
+      }
+    },
+    "new_image_text_idWBkB": {
+      "type": "new-image-text",
+      "blocks": {
+        "quote_thR8XU": {
+          "type": "quote",
+          "settings": {
+            "text": "“No nicotine, no chemicals, just freedom and clean air.”"
+          }
+        }
+      },
+      "block_order": [
+        "quote_thR8XU"
+      ],
+      "name": "New image text",
+      "settings": {
+        "text-right": false,
+        "main-image": "shopify://shop_images/Rectangle_6872.png",
+        "main-image-mob": "shopify://shop_images/Rectangle_6872.png",
+        "heading-before": "3: Zero chemicals,",
+        "high-heading": "NO nicotine.",
+        "heading-after": "",
+        "sub-heading": "<p>Most so-called solutions, patches, vapes, gums, still keep you hooked on nicotine, just swapping delivery methods. Lio is different. No nicotine, no vapor, no chemicals. You’re actually breaking free rather than trading one habit for another.</p><p><br/></p>"
+      }
+    },
+    "new_image_text_QgL7kC": {
+      "type": "new-image-text",
+      "blocks": {
+        "quote_YNgR7H": {
+          "type": "quote",
+          "settings": {
+            "text": "“Feels familiar and safe, so quitting doesn’t feel hard.”"
+          }
+        }
+      },
+      "block_order": [
+        "quote_YNgR7H"
+      ],
+      "name": "New image text",
+      "settings": {
+        "text-right": true,
+        "main-image": "shopify://shop_images/521A2779_2_2.webp",
+        "main-image-mob": "shopify://shop_images/521A2779_2_2.webp",
+        "heading-before": "Feels Familiar,",
+        "high-heading": "but 100% Safe",
+        "heading-after": "",
+        "sub-heading": "<p>Lio feels familiar in the hand and mouth, making the switch seamless. But instead of toxic smoke or addictive vapor, you’re just breathing natural, plant-based flavors, giving your brain and body time to adapt without the health risks.</p>"
+      }
+    },
+    "new_image_text_bnJ8TD": {
+      "type": "new-image-text",
+      "blocks": {
+        "quote_mY3q4n": {
+          "type": "quote",
+          "settings": {
+            "text": "“Proven by thousands who quit and never looked back.”"
+          }
+        }
+      },
+      "block_order": [
+        "quote_mY3q4n"
+      ],
+      "name": "New image text",
+      "settings": {
+        "text-right": false,
+        "main-image": "shopify://shop_images/Copy_of_521A5659_67e56cb0-691d-4084-9e7e-a80c211413ad.jpg",
+        "main-image-mob": "shopify://shop_images/Copy_of_521A5659_67e56cb0-691d-4084-9e7e-a80c211413ad.jpg",
+        "heading-before": "Proven by",
+        "high-heading": "80.000 people",
+        "heading-after": "like you",
+        "sub-heading": "<p>Trusted by over 80,000 people who switched, quit for good, and found freedom, without the smoke, the vape, or the struggle.</p>"
+      }
+    },
+    "new_image_text_4ahNTJ": {
+      "type": "new-image-text",
+      "name": "New image text",
+      "settings": {
+        "text-right": true,
+        "main-image": "shopify://shop_images/J55A4617_3.webp",
+        "main-image-mob": "shopify://shop_images/J55A4617_3.webp",
+        "heading-before": "What’s Inside",
+        "high-heading": "flavour cores?",
+        "heading-after": "",
+        "sub-heading": "<p>Lio’s Flavour Cores use medical-grade fiber infused with plant-based essential oils, no nicotine, no chemicals. They deliver clean, natural flavors that satisfy the habit and help cut cravings, without smoke or vapor.</p>"
+      }
+    },
+    "ecom_faq_drpiVm": {
+      "type": "ecom-faq",
+      "blocks": {
+        "question_HaTidW": {
+          "type": "question",
+          "settings": {
+            "title": "What are the ingredients?",
+            "content": "<p>Lio® Flavour Cores are crafted with 100% natural ingredients, offering a nicotine-free solution to help break harmful habits. Delivering clean, flavoured air without smoke, vapor, or chemicals, ensuring a safe, effective, and satisfying alternative for relieving cravings.</p>"
+          }
+        },
+        "question_MpEYAg": {
+          "type": "question",
+          "settings": {
+            "title": "What does flavored air taste like?",
+            "content": "<p>If you’re used to vapor, Lio might feel lighter at first—but it’s designed for a healthier future. Think of Lio as herbal tea compared to the sticky soda of vapor: less intense, more natural, and far better for you.</p>"
+          }
+        },
+        "question_nrtTFe": {
+          "type": "question",
+          "settings": {
+            "title": "What are cores made of?",
+            "content": "<p>Each Core fiber is medical grade polyester, infused in the fiber is our unique plant blend of pure essential oils from amazing farms we've partnered with around the world.</p>"
+          }
+        },
+        "question_kQJD9B": {
+          "type": "question",
+          "settings": {
+            "title": "How long do the Lio Cores last?",
+            "content": "<p>Each Lio Core lasts 2-4 days, depending on your usage. Heavy users may need to replace the cores more frequently, but they are designed to provide lasting flavor and a satisfying experience.</p>"
+          }
+        },
+        "question_3exYTi": {
+          "type": "question",
+          "settings": {
+            "title": "How often can I use Lio?",
+            "content": "<p>Use Lio as often as you like. If you experience any discomfort, please discontinue use and consult your physician.</p>"
+          }
+        },
+        "question_NJJfXY": {
+          "type": "question",
+          "settings": {
+            "title": "Is Lio safe to use?",
+            "content": "<p>Lio is made with 100% natural ingredients and is completely free from nicotine, smoke, and harmful chemicals, making it a safe and healthier alternative for people trying to quit smoking or vaping.</p>"
+          }
+        },
+        "question_MXCdFz": {
+          "type": "question",
+          "settings": {
+            "title": "Shipping & Refunds",
+            "content": "<p><strong>Worldwide shipping - For Free<br/></strong>We ship worldwide from the Netherlands with free shipping on all orders. Delivery takes 2-3 days within Europe, 4-8 days outside Europe, and next-day delivery in the Middle East (from Dubai).<br/><br/><strong>The Money Back Guarantee</strong><br/>If you’ve used Lio™, commit to a 30 days to experience its benefits. After completing the 30-day journey, you have 7 days to request a refund if you’re not satisfied. This ensures you have enough time to fully explore its impact before making a decision.</p>"
+          }
+        },
+        "question_icAdpE": {
+          "type": "question",
+          "settings": {
+            "title": "How does Lio work?",
+            "content": "<p>Lio works by replacing the hand-to-mouth fixation with naturally infused air, offering calming, refreshing flavors without nicotine, smoke, or chemicals. This action helps reduce the psychological need for smoking or vaping while keeping you engaged with familiar habits.</p>"
+          }
+        },
+        "question_Uy3m7w": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use Lio anywhere?",
+            "content": "<p>Yes! Lio produces no smoke, vapor, or harmful chemicals, so it can be used in most places where smoking or vaping are not allowed. Its discreet and clean design makes it a convenient, portable option to carry and use anywhere, whether you’re at home, work, or on the go.</p>"
+          }
+        },
+        "question_JT76Yr": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use Lio anywhere?",
+            "content": "<p>Yes! Lio produces no smoke, vapor, or harmful chemicals, so it can be used in most places where smoking or vaping are not allowed. Its discreet and clean design makes it a convenient, portable option to carry and use anywhere, whether you’re at home, work, or on the go.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_HaTidW",
+        "question_MpEYAg",
+        "question_nrtTFe",
+        "question_kQJD9B",
+        "question_3exYTi",
+        "question_NJJfXY",
+        "question_MXCdFz",
+        "question_icAdpE",
+        "question_Uy3m7w",
+        "question_JT76Yr"
+      ],
+      "name": "Ecom FAQ",
+      "settings": {
+        "padding_top": 32,
+        "padding_top_desktop": 40,
+        "padding_bottom": 32,
+        "padding_bottom_desktop": 40,
+        "title": "You asked we",
+        "high-title": "answered"
+      }
+    },
+    "join_movement_qayeam": {
+      "type": "join-movement",
+      "name": "join-movement",
+      "settings": {
+        "text": "<h2>Join the Movement for a Cleaner Future</h2>",
+        "founder": "Choosing Lio® isn’t just about quitting smoking—it’s about choosing a healthier, sustainable way to live. Every step you take toward quitting smoking is a step toward a cleaner planet.",
+        "button-url": "shopify://products/new-lio-journey-pack",
+        "button-text": "start your journey"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "how_hero_QNJT3G",
+    "team_lio_sec_gRU7QU",
+    "new_image_text_JzRhpT",
+    "new_image_text_dgPXhY",
+    "new_image_text_idWBkB",
+    "new_image_text_QgL7kC",
+    "new_image_text_bnJ8TD",
+    "new_image_text_4ahNTJ",
+    "ecom_faq_drpiVm",
+    "join_movement_qayeam"
+  ]
+}

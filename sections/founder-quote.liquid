@@ -1,0 +1,110 @@
+<style>
+  #footer-icons{
+    display : none;
+  }
+.founder-quote {
+    background: #005128;
+    padding: 50px 20px;
+    color: #F9F5E9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+ .founder-quote h2.h3 {
+    text-align: center;
+    max-width: 830px;
+    margin: auto;
+    margin-bottom: 25px;
+    color: #F9F5E9;
+    font-size: 30px;
+    text-wrap: balance;
+}
+  .founder-quote h2.h3 span{
+   color : var(--lio-light-green);
+  }
+  .founder-quote img{
+    width : 150px;
+    margin : 0px auto;
+  }
+  .founder-quote p.founder-name {
+    margin: 15px auto 4px;
+    font-size: 18px;
+    max-width: fit-content;
+    font-weight: 700;
+}
+     .founder-quote p.designation{
+    margin : 0px auto ;
+    font-size : 11px ;
+       max-width : fit-content;
+    font-weight  : 400;
+  }
+  @media screen and (max-width: 1024px){
+   .founder-quote h2.h3 {
+    text-align: center;
+    max-width: 350px;
+    margin: auto;
+    margin-bottom: 25px;
+    color: #F9F5E9;
+    font-size: 25px;
+    text-wrap: balance;
+}
+  }
+</style>
+
+<div class="founder-quote">
+   <h2 class="h3">
+        {{ section.settings['heading-before'] -}}
+        {% if section.settings['high-heading'] != blank %}
+          <span class="">{{ section.settings['high-heading'] }}</span>
+        {% endif %}
+         {{ section.settings['heading-after'] -}}
+      </h2>
+  
+  {% if  section.settings.image != blank  %}
+  <img src="{{ section.settings.image | img_url: 'master' }}" alt="Graphics">
+  {% endif %}
+  <p class="founder-name">{{ section.settings.founder }}</p>
+  <p class="designation">{{ section.settings.designation }}</p>
+</div>
+
+{% schema %}
+  {
+    "name": "founder-quote",
+    "settings": [
+       {
+    "type": "text",
+    "id": "heading-before",
+    "label": "Heading Before"
+      },
+     {
+    "type": "text",
+    "id": "high-heading",
+    "label": "Heighlighted heading"
+      },
+     {
+    "type": "text",
+    "id": "heading-after",
+    "label": "Heading After"
+      },
+       {
+     "type": "image_picker",
+     "id": "image",
+     "label": "Sign image"
+      },
+        {
+    "type": "text",
+    "id": "founder",
+    "label": "founder name"
+      },
+       {
+    "type": "text",
+    "id": "designation",
+    "label": "designation"
+      },
+    ],
+    "presets": [{
+      "name": "founder-quote"
+    }]
+  }
+{% endschema %}

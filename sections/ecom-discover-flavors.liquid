@@ -1,0 +1,252 @@
+{{ 'ecom-discover-flavors.css' | asset_url | stylesheet_tag: preload: true }}
+
+
+<style>
+  .ecom-discover-flavors {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    @media (min-width: 1280px) {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+</style>
+
+<div class="ecom-discover-flavors">
+  <div class="container">
+    <h2 class="ecom-discover-flavors__title--mobile">{{ section.settings.title }}</h2>
+
+    <div class="ecom-discover-flavors__wrapper">
+      <div class="ecom-discover-flavors__media">
+        {% if section.settings.image != blank and section.settings.img_description != blank %}
+          <div class="ecom-discover-flavors__media-item">
+            {{ section.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', width: 180, height: 180 }}
+            <p class="ecom-discover-flavors__media-description">{{ section.settings.img_description }}</p>
+          </div> 
+        {% endif %}
+
+        {% if section.settings.image_1 != blank and section.settings.img_description_1 != blank %}
+          <div class="ecom-discover-flavors__media-item">
+            {{ section.settings.image_1 | image_url: width: 400 | image_tag: loading: 'lazy', width: 180, height: 180 }}
+            <p class="ecom-discover-flavors__media-description">{{ section.settings.img_description_1 }}</p>
+          </div> 
+        {% endif %}
+
+        {% if section.settings.image_2 != blank and section.settings.img_description_2 != blank %}
+          <div class="ecom-discover-flavors__media-item">
+            {{ section.settings.image_2 | image_url: width: 400 | image_tag: loading: 'lazy', width: 180, height: 180 }}
+            <p class="ecom-discover-flavors__media-description">{{ section.settings.img_description_2 }}</p>
+          </div> 
+        {% endif %}
+
+        {% if section.settings.image_3 != blank and section.settings.img_description_3 != blank %}
+          <div class="ecom-discover-flavors__media-item">
+            {{ section.settings.image_3 | image_url: width: 400 | image_tag: loading: 'lazy', width: 180, height: 180 }}
+            <p class="ecom-discover-flavors__media-description">{{ section.settings.img_description_3 }}</p>
+          </div> 
+        {% endif %}
+
+        {% if section.settings.image_4 != blank and section.settings.img_description_4 != blank %}
+          <div class="ecom-discover-flavors__media-item">
+            {{ section.settings.image_4 | image_url: width: 400 | image_tag: loading: 'lazy', width: 180, height: 180 }}
+            <p class="ecom-discover-flavors__media-description">{{ section.settings.img_description_4 }}</p>
+          </div> 
+        {% endif %}
+
+        {% if section.settings.image_5 != blank and section.settings.img_description_5 != blank %}
+          <div class="ecom-discover-flavors__media-item">
+            {{ section.settings.image_5 | image_url: width: 400 | image_tag: loading: 'lazy', width: 180, height: 180 }}
+            <p class="ecom-discover-flavors__media-description">{{ section.settings.img_description_5 }}</p>
+          </div> 
+        {% endif %}
+
+        {% if section.settings.image_6 != blank and section.settings.img_description_6 != blank %}
+          <div class="ecom-discover-flavors__media-item">
+            {{ section.settings.image_6 | image_url: width: 400 | image_tag: loading: 'lazy', width: 180, height: 180 }}
+            <p class="ecom-discover-flavors__media-description">{{ section.settings.img_description_6 }}</p>
+          </div> 
+        {% endif %}
+      </div>
+  
+      <div class="ecom-discover-flavors__faq">
+        <h2 class="ecom-discover-flavors__title--desktop">{{ section.settings.title }}</h2>
+  
+        <div class="ecom-discover-flavors__questions-wrapper">
+          <div>
+            {% for block in section.blocks %}
+              {% assign middle = forloop.index | modulo: 2 %}
+              {% if middle == 1 %}
+                <div class="ecom-discover-flavors__question">
+                  {%- render 'ecom-accordion', title: block.settings.title, content: block.settings.content, class: 'ecom-discover-flavors__accordion', block: block -%}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div>
+            {% for block in section.blocks %}
+              {% assign middle = forloop.index | modulo: 2 %}
+              {% if middle == 0 %}
+                <div class="ecom-discover-flavors__question">
+                  {%- render 'ecom-accordion', title: block.settings.title, content: block.settings.content, class: 'ecom-discover-flavors__accordion', block: block -%}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ecom Discover Flavors",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Paddings",
+      "info": "Paddings for the testimonials section"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Flavor image"
+    },
+    {
+      "type": "text",
+      "id": "img_description",
+      "label": "Flavor short description"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Flavor 1 image"
+    },
+    {
+      "type": "text",
+      "id": "img_description_1",
+      "label": "Flavor 1 short description"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Flavor 2 image"
+    },
+    {
+      "type": "text",
+      "id": "img_description_2",
+      "label": "Flavor 2 short description"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Flavor 3 image"
+    },
+    {
+      "type": "text",
+      "id": "img_description_3",
+      "label": "Flavor 3 short description"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Flavor 4 image"
+    },
+    {
+      "type": "text",
+      "id": "img_description_4",
+      "label": "Flavor 4 short description"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_5",
+      "label": "Flavor 5 image"
+    },
+    {
+      "type": "text",
+      "id": "img_description_5",
+      "label": "Flavor 5 short description"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_6",
+      "label": "Flavor 6 image"
+    },
+    {
+      "type": "text",
+      "id": "img_description_6",
+      "label": "Flavor 6 short description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Answer",
+          "default": "<p>Share some content to your customers about your products.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ecom Discover Flavors",
+    }
+  ]
+}
+{% endschema %}

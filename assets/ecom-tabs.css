@@ -1,0 +1,215 @@
+.ecom-tabs {
+  margin: 28px 0 0 0;
+}
+.ecom-tabs__header {
+  display: flex;
+}
+.ecom-tabs__button {
+  flex: 1;
+  padding: 10px !important;
+  background: none !important;
+  border: none !important;
+  cursor: pointer;
+  font-size: 16px !important;
+  color: rgba(0, 0, 0, 0.3) !important;
+  line-height: 140% !important; /* 22.4px */
+  letter-spacing: 1.28px !important;
+  text-transform: capitalize !important;
+  font-weight: bold !important;
+  position: relative;
+  transition: color 0.3s !important;
+  text-align: center !important;
+}
+.ecom-tabs__button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: #DBDDE1 !important;
+}
+.ecom-tabs__button.active {
+  color: #000 !important;
+}
+.ecom-tabs__button.active:after {
+  background-color: #000 !important;
+}
+.ecom-tabs__tab {
+  display: none;
+  padding: 10px 0px;
+}
+.ecom-tabs__tab.active {
+  display: block;
+}
+.ecom-tabs .included-swiper, .ecom-tabs .reviews-swiper {
+  padding: 0 30px;
+}
+.ecom-tabs .product-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.ecom-tabs .product-item__image {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+.ecom-tabs .product-item__image img {
+  width: 90px;
+  height: 90px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+.ecom-tabs .product-item__image .check-icon {
+  position: absolute;
+  top: 8px;
+  right: 0px;
+  width: 22px;
+  height: 22px;
+}
+.ecom-tabs .product-item h3 {
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 20.4px */
+  text-transform: capitalize;
+}
+.ecom-tabs .product-item p {
+  color: rgba(0, 0, 0, 0.69);
+  text-align: center;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 15.6px */
+  text-transform: capitalize;
+}
+@media (max-width: 699px) {
+  .ecom-tabs .product-item p {
+    display: none;
+  }
+}
+.ecom-tabs .swiper-button-prev::after, .ecom-tabs .swiper-button-prev::before, .ecom-tabs .swiper-button-next::after, .ecom-tabs .swiper-button-next::before {
+  display: none;
+}
+.ecom-tabs .swiper-button-prev svg, .ecom-tabs .swiper-button-next svg {
+  width: 12px;
+  height: 25px;
+}
+.ecom-tabs .swiper-button-prev {
+  left: 0px;
+  top: 0;
+  bottom: 0;
+  transform: translateY(0);
+  width: 30px;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #fff;
+  margin: 0;
+}
+.ecom-tabs .swiper-button-next {
+  right: 0px;
+  top: 0;
+  bottom: 0;
+  transform: translateY(0);
+  width: 30px;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #fff;
+  margin: 0;
+}
+.ecom-tabs .swiper-scrollbar {
+  position: relative !important;
+  bottom: 0 !important;
+  height: 2px !important;
+  background-color: #DBDDE1 !important;
+  margin-top: 15px !important;
+}
+.ecom-tabs .swiper-scrollbar-drag {
+  background-color: #00B67C !important;
+  border-radius: 10px;
+}
+.ecom-tabs .ingredient-content {
+  text-align: center;
+  padding: 20px 0;
+}
+.ecom-tabs .ingredient-content h3 {
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20.7px;
+  margin-bottom: 8px;
+}
+.ecom-tabs .ingredient-content p {
+  color: rgba(0, 0, 0, 0.69);
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 14.4px */
+}
+.ecom-tabs .ingredient-icon {
+  margin-bottom: 15px;
+}
+.ecom-tabs .ingredient-icon img {
+  margin: 0 auto;
+  display: block;
+}
+.ecom-tabs .review-item {
+  padding: 12px;
+}
+.ecom-tabs .review-item .rating {
+  margin-bottom: 12px;
+}
+.ecom-tabs .review-item .review-text {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 140%; /* 22.4px */
+  letter-spacing: -0.227px;
+  margin-bottom: 12px;
+  color: #101828;
+  font-family: Poppins;
+}
+.ecom-tabs .review-item .name {
+  color: #101828;
+  font-family: Poppins;
+  font-size: 11.339px;
+  line-height: 14.741px; /* 130% */
+  letter-spacing: -0.227px;
+  margin-bottom: 5px;
+}
+.ecom-tabs .review-item .age {
+  color: #101828;
+  font-family: Poppins;
+  font-size: 11.339px;
+  line-height: 14.741px; /* 130% */
+  letter-spacing: -0.227px;
+}
+
+.iLh0xXZeCwRu20905, .iCMw4qpF9AXDJorDl {
+  display: none !important;
+}
+
+.isXB60xhUPQDZ5ZB3:has(.iqEA1YOYk6KZKwJA3[data-instant-state=active]) .diff-walnut, .isXB60xhUPQDZ5ZB3:has(.iqEA1YOYk6KZKwJA3[data-instant-state=active]) .flavor-12 {
+  display: none !important;
+}
+
+.isXB60xhUPQDZ5ZB3:has(.i6suT9smLIsvBurrZ[data-instant-state=active]) .diff-wood, .isXB60xhUPQDZ5ZB3:has(.i6suT9smLIsvBurrZ[data-instant-state=active]) .flavor-12 {
+  display: none !important;
+}
+
+.isXB60xhUPQDZ5ZB3:has(.iqqqfoStgaeCNjAlJ[data-instant-state=active]) .flavor-6 {
+  display: none !important;
+  width: 0 !important;
+}

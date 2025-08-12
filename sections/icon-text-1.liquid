@@ -1,0 +1,155 @@
+<style>
+
+  .icon-text-1 {
+    display: flex;
+    padding: 40px;
+    background: var(--lio-white);
+
+    margin: auto;
+    width: fit-content;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+ .icon-text-1 h2.h2 {
+  font-size: 55px;
+  color: var(--lio-dark-green);
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+  .icon-text-1 h2.h2::after {
+    content: "";
+    position: absolute;
+    right: -20px;
+    bottom: 5px;
+    width: 50px;
+    height: 60px;
+    background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/cross-arrow.svg?v=1747771071");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+   .icon-text-1 h2.h2 span{
+     color : var(--lio-light-green);
+   }
+  .usp-icon-blocks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 55px;
+}
+  .usp-icon-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    
+}
+   .usp-icon-blocks img{
+     width : 80px;
+     height : 80px;
+     object-fit : contain;
+   }
+.usp-icon-blocks p {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+}
+
+  @media (max-width: 990px){
+
+ .icon-text-1 {
+    display: flex;
+   background: var(--lio-white);
+
+    padding: 30px 30px;
+width : 100%;
+}
+     .usp-icon-blocks img{
+     width : 70px;
+     height : 70px;
+   }
+    .usp-icon-blocks p {
+    font-size: 14px;
+}
+    
+   .usp-icon-blocks {
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.icon-text-1 h2.h2 {
+  font-size: 30px;
+  max-width: 320px;
+}
+
+}
+    .icon-text-1 h2.h2::after {
+    right: -10px;
+    bottom: -18px;
+    width: 40px;
+}
+  }
+  
+</style>
+<div class="icon-text-1">
+    <h2 class="h2">{{ section.settings.heading }} <span>{{ section.settings.highlighted-heading }}</span></h2>
+  <div class="usp-icon-blocks">
+    {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'usp' %}
+            <div class="usp-icon-block">
+         {% if block.settings.icon != blank %}
+            <img 
+                  src="{{ block.settings.icon | image_url: width: 400 }}"
+                >
+          {% endif %}
+           <p>{{ block.settings.title }}</p>
+            </div>
+        {% endcase %}
+      {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "icon-text-1",
+    "settings": [
+       {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text"
+        },
+        {
+          "type": "text",
+          "id": "highlighted-heading",
+          "label": "highlighted-heading"
+        },
+    ],
+     "blocks": [
+     {
+    "type": "usp",
+    "name": "usp",
+    "settings":
+    [
+      {
+    "type": "text",
+    "id": "title",
+    "label": "usp text"
+      },
+      {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "icon"
+      }
+    ]
+  }
+  ],
+    "presets": [{
+      "name": "icon-text-1"
+    }]
+  }
+{% endschema %}

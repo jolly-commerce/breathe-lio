@@ -1,0 +1,23 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "product.new-journey-pack.json",
+  "context": {
+    "market": "7a040a7a-bc3b-4136-81cd-f9f2269f2d5b"
+  },
+  "sections": {
+    "instant_sro_kx_rj_k_quw_ms37d_JcA7Jr": {
+      "settings": {
+        "text_HPZnxoK5eaKH7RQt-1": "<p>4,7/5 op basis van 1000+ reviews</p>",
+        "text_vx6GnqilCy0byfgt-1": "<p>Stap 1: Kies je Lio</p>"
+      }
+    }
+  }
+}

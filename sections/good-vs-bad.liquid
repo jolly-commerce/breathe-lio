@@ -1,0 +1,377 @@
+<style>
+ .good-vs-bad{
+   width : 100%;
+   background : var(--lio-white);
+     background-color: var(--lio-white);
+
+   border-radius : 40px;
+   border : 1px solid #00512840;
+   display : flex;
+   
+   padding : 30px 40px;
+ } 
+.gb-left {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-start;
+    width: 30%;
+    justify-content: center;
+}
+
+  .gb-left h2.h1 {
+    font-size: 55px;
+    line-height: 0.9;
+    text-wrap: balance;
+}
+   .gb-left h2.h1 span{
+     color : var(--lio-light-green);
+     position : relative;
+   }
+  .gb-left h2.h1 span::after {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    width: 120%;
+    height: 120%;
+    background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/path50.svg?v=1747946940");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+  .gb-left p{
+    margin-top : -5px;
+  }
+  .gb-center-inner{
+    width : 100%;
+    overflow : hidden;
+  }
+  .gb-comp-slide{
+    width : 100%;
+    
+  }
+  .gb-comp-slide img{
+    width : 100%;
+    height : 460px;
+    object-fit : contain;
+    
+  }
+ .gb-comp-slide .bottom-gb-row {
+    display: flex;
+    width: 100%;
+    margin-top: -10px;
+    justify-content: space-between;
+}
+  .gb-comp-slide .bottom-gb-row p{
+    font-family : var(--heading-font-family);
+    font-size : 15px;
+    text-transform : uppercase;
+    line-height : 1.1;
+    text-align : center;
+    max-width : 180px;
+    text-wrap : balance;
+  }
+  .gb-comp-slide .bottom-gb-row p span{
+    color : var(--lio-light-green);
+  }
+  .gb-center {
+    width: 40%;
+    position : relative;
+}
+  
+  .gb-right {
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+  .gb-table {
+    border: 1px solid var(--lio-dark-green);
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    margin-left: 50px;
+    height: fit-content;
+}
+  .gb-table .gb-top {
+    background: var(--lio-dark-green);
+    padding: 10px;
+    text-align: center;
+}
+   .gb-table .gb-top span{
+     font-family : var(--heading-font-family);
+     text-transform  : uppercase;
+     text-align : center;
+     color : #F9F5E9;
+   }
+  .gb-table-bottom{
+    padding : 7px 13px;
+  }
+  .gb-table-single{
+    display : flex;
+    align-items : center;
+    gap : 10px;
+    padding : 13px 0px;
+    border-bottom : 1px solid #00512840;
+  }
+  .gb-table-bottom  .gb-table-single:last-child{
+     border-bottom : 0px solid #00512840;
+  }
+   .gb-table-single p{
+     font-size : 14px;
+     font-weight : 500;
+   }
+  .prev-gb-1{
+    position : absolute;
+    left : 70px;
+    top : 45%;
+     display: flex;
+    width: 55px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 1000px;
+    background: #19613B;
+    cursor: pointer;
+    z-index : 1;
+  }
+   .next-gb-1{
+    position : absolute;
+    right : 70px;
+    top : 45%;
+     display: flex;
+    width: 55px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 1000px;
+    background: #19613B;
+    cursor: pointer;
+      z-index : 1;
+  }
+  .next-gb-1.swiper-button-disabled , .prev-gb-1.swiper-button-disabled {
+    opacity: 0.6;
+}
+   @media screen and (max-width: 990px){
+     .good-vs-bad {
+    width: 100%;
+  background-color: var(--lio-white);
+    border-radius: 0px;
+    border: 0px solid #00512840;
+        border-top: 1px solid #00512840;
+         border-bottom: 1px solid #00512840;
+    display: flex;
+    padding: 30px 20px;
+       flex-direction : column;
+}
+     .good-vs-bad-outer.width-wrapper {
+    padding: 10px 0px;
+}
+    .gb-left {
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+    .gb-left h2.h1 {
+    font-size: 35px;
+    text-align: center;
+    max-width: 280px;
+    text-wrap: balance;
+}
+     .gb-left p {
+    margin-top: -5px;
+    text-align: center;
+    max-width: 330px;
+}
+     .gb-center {
+    width: 100%;
+    position: relative;
+}
+    .gb-right {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px 0px 20px;
+}
+     .gb-table {
+    margin-left: 0px;
+}
+   .gb-right  .gradient-button {
+    padding: 11px 60px;
+    font-size: 17px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+     .gb-comp-slide img {
+    width: 100%;
+    height: 310px;
+    object-fit: contain;
+}
+     .prev-gb-1{
+       left : 40px;
+     }
+      .next-gb-1{
+       right : 40px;
+     }
+   }
+</style>
+
+<div class="good-vs-bad-outer width-wrapper">
+  <div class="good-vs-bad">
+    <div class="gb-left">
+      <h2 class="h1">{{ section.settings.heading }} <span>{{ section.settings.highlighted-heading }}</span></h2>
+      <p>{{ section.settings.sub-text }}</p>
+       {% if section.settings['button-text'] != blank %}
+            <a class="gradient-button hidden sm:block" href="{{ section.settings.button-url }}">{{ section.settings['button-text'] }}</a>
+    
+          {% endif %}
+    </div>
+    <div class="gb-center">
+      <div class="gb-center-inner">
+        <div class="swiper-wrapper">
+           {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'compare' %}
+          <div class="swiper-slide">
+            <div class="gb-comp-slide">
+             <img src="{{ block.settings.image | image_url: width: 1000 }}" />
+              <div class="bottom-gb-row">
+               <p>{{ block.settings.text-1 }} <span>{{ block.settings.text-2 }}</span> </p>
+                 <p>{{ block.settings.text-3 }} <span>{{ block.settings.text-4 }}</span> </p>
+              </div>
+            </div>
+          </div>
+          {% endcase %}
+          {% endfor %}
+        </div>
+         
+      <div class="prev-gb-1">
+    {{ 'yellow-arrow-left.svg' | inline_asset_content }}
+  </div>
+          <div class="next-gb-1">
+         {{ 'yellow-arrow-right.svg' | inline_asset_content }}
+      </div>
+      </div>
+    </div>
+    <div class="gb-right">
+      <div class="gb-table">
+        <div class="gb-top"><span>{{ section.settings.table-text }}</span></div>
+        <div class="gb-table-bottom">
+            {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'info' %}
+          <div class="gb-table-single">
+            <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/tick-dark-green.svg?v=1747990521" />
+            <p>{{ block.settings.text }}</p>
+          </div>
+          {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+       {% if section.settings['button-text'] != blank %}
+            <a class="gradient-button sm:hidden" href="{{ section.settings.button-url }}">{{ section.settings['button-text'] }}</a>
+    
+          {% endif %}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "good-vs-bad",
+    "settings": [
+       {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text",
+         "default" : "The Good vs The"
+        },
+        {
+          "type": "text",
+          "id": "highlighted-heading",
+          "label": "highlighted-heading",
+          "default" : "Bad"
+          },
+       {
+          "type": "text",
+          "id": "sub-text",
+          "label": "sub-text",
+          "default" : "sub"
+        },
+      {
+          "type": "url",
+          "id": "button-url",
+          "label": "Button URL"
+        },
+        {
+          "type": "text",
+          "id": "button-text",
+          "label": "Button Text",
+          "default" : "Start Your Journey"
+        },
+        {
+          "type": "text",
+          "id": "table-text",
+          "label": "table-text",
+          "default" : "Breathe In. Break Free."
+        },
+    ],
+    "blocks": [
+     {
+    "type": "compare",
+    "name": "compare",
+    "settings":
+    [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "image"
+      },
+      {
+    "type": "text",
+    "id": "text-1",
+    "label": "text-1"
+      },
+       {
+    "type": "text",
+    "id": "text-2",
+    "label": "text-2"
+      },
+      {
+    "type": "text",
+    "id": "text-3",
+    "label": "text-3"
+      },
+       {
+    "type": "text",
+    "id": "text-4",
+    "label": "text-4"
+      },
+    ]
+  },
+       {
+    "type": "info",
+    "name": "info",
+    "settings":
+    [
+      
+       {
+    "type": "text",
+    "id": "text",
+    "label": "text"
+      },
+    ]
+  }
+  ],
+    "presets": [{
+      "name": "good-vs-bad"
+    }]
+  }
+{% endschema %}

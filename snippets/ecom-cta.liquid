@@ -1,0 +1,9 @@
+{{ 'ecom-cta.css' | asset_url | stylesheet_tag: preload: true }}
+
+<div class="ecom-cta {{ button_class }}">
+  {% if link %}
+    <a href="{{ link }}" class="ecom-cta__box" role="button">{{ text }}</a>
+  {% else %}
+    <button class="ecom-cta__box" role="button">{{ text }}</button>
+  {% endif %}
+</div>

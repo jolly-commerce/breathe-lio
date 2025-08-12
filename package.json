@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev1": "concurrently \"vite build --watch\"",
-    "dev2": "shopify theme dev --store=jolly-commerce.myshopify.com",
-    "dev3": "shopify theme dev --store=jolly-commerce.myshopify.com --theme-editor-sync",
+    "dev2": "shopify theme dev --store=idrawyoureye.myshopify.com",
+    "dev3": "shopify theme dev --store=idrawyoureye.myshopify.com --theme-editor-sync",
     "build": "vite build",
-    "setup:pull": "shopify theme pull --store=jolly-commerce.myshopify.com -n",
+    "setup:pull": "shopify theme pull --store=idrawyoureye.myshopify.com -n",
     "theme:check": "shopify theme check",
     "prepush": "npm run theme:check",
-    "postinstall": "./.jolly/postinstall.sh"
+    "postinstall": "bash ./.jolly/postinstall.sh"
   },
   "repository": {
     "type": "git",

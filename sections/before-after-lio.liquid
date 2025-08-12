@@ -1,0 +1,374 @@
+<style>
+.before-after-lio {
+    display: flex;
+    gap: 80px;
+    padding : 50px;
+  
+    max-width: 1350px;
+    align-items: flex-end;
+}
+  .left-bf-af{
+    display : flex;
+    width : 45%;
+    flex-direction : column;
+    gap : 10px;
+  }
+  .right-bf-af{
+    width : 55%;
+    position : relative;
+  }
+  .rev-inner{
+    padding :25px;
+    width : 100%;
+    border-radius : 20px;
+    border : 1px solid #005128;
+    background : var(--lio-white);
+    display :flex;
+    flex-direction : column;
+    gap : 15px;
+    margin-right : 5px;
+  }
+ .left-bf-af  .rev-inner p{
+     font-size : 16px;
+     font-weight : 500;
+   }
+  .rev-inner-top{
+      display :flex;
+   align-items : center;
+    gap : 10px;
+  }
+   .rev-inner-top img{
+     width : 17px;
+   }
+  img.rev-trust{
+    width : 100px;
+  }
+ .truspilot-block-rev {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+  .left-bf-af p{
+    font-size : 15px;
+    line-height : 1.3;
+  }
+ .left-bf-af .truspilot-block-rev p {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: -2px;
+    line-height: 1.6;
+}
+  .rev-inner-top span{
+    font-weight : 700;
+    font-size : 19px;
+  }
+  .left-bf-af h2.h1{
+    font-size : 55px;
+  }
+   .left-bf-af h2.h1 span{
+     color : var(--lio-light-green);
+   }
+ .wrapper-review-slider {
+    overflow: hidden;
+    padding-right: 3px;
+    margin-top: 10px;
+   padding-bottom : 30px;
+   position : relative;
+}
+  .review-scrollbar {
+    position: absolute;
+    bottom: 5px;
+    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    background: var(--lio-white);
+}
+  .review-scrollbar .swiper-scrollbar-drag{
+   background: linear-gradient(270deg, #EDED5E 0.01%, #004E55 57.58%, #004E55 115.15%);
+  }
+  .bf-af-headings {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom : 20px;
+}
+  .before-heading {
+    width: 50%;
+    text-align: center;
+    position: relative;
+}
+   .bf-af-headings h3{
+    font-size : 27px;
+  }
+  .before-heading::after{
+      content: "";
+    position: absolute;
+    left: 50%;
+    transform : translateX(-50%);
+    bottom: -15px;
+    width: 90px;
+    height: 20px;
+    background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Squiggle_Mini_9f.svg?v=1747824794");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .after-heading {
+    width: 50%;
+    text-align: center;
+     position: relative;
+}
+  .after-heading::after{
+      content: "";
+    position: absolute;
+    right: 80px;
+    bottom: -20px;
+    width: 28px;
+    height: 45px;
+    background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/elem.svg?v=1747825149");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .after-heading h3{
+     transform : translateX(-25px);
+  }
+  .lio-compare-block{
+    display : flex;
+     justify-content: space-between;
+    padding : 25px 0px;
+    border-bottom : 2px solid #00512880;
+  }
+  .lio-compare-block .lio-before-comapre,   .lio-compare-block .lio-after-comapre{
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    gap : 12px;
+    width : 50%;
+  }
+  .lio-compare-block span {
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.3px;
+}
+  .separate-line-bf-af{
+    position : absolute;
+    bottom : 0px;
+    left : 50%;
+    transform : translateX(-50%);
+    background : var(--lio-white);
+    width : 1.5px;
+    height : calc( 100% - 20px );
+  }
+    @media screen and (max-width: 990px){
+       .before-after-lio {
+    gap: 40px;
+         font-size: 40px;
+         padding : 30px 5px;
+    width: 100%;
+    flex-direction: column;
+}
+     .left-bf-af {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+      .truspilot-block-rev {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    justify-content: center;
+}
+      .left-bf-af h2.h1 {
+    font-size: 35px;
+    text-align: center;
+}
+      .left-bf-af p {
+    font-size: 15px;
+    line-height: 1.3;
+    text-align: center;
+}
+      .left-bf-af  .rev-inner p {
+    font-size: 12px;
+    font-weight: 500;
+    text-align: left;
+}
+      .right-bf-af {
+    width: 100%;
+    position: relative;
+}
+      .bf-af-headings h3 {
+    font-size: 24px;
+}
+      .before-heading::after {
+    width: 80px;
+    bottom: -20px;
+}
+      .after-heading::after {
+   
+    right: 20px;
+    bottom: -20px;
+}
+      .after-heading h3 {
+    transform: translateX(-10px);
+}
+      .lio-compare-block span {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.1;
+    text-align: center;
+    letter-spacing: -0.3px;
+}
+    .lio-before-comapre {
+    max-width: 130px;
+    margin: auto;
+    text-wrap: balance;
+}  
+      .bf-af-headings {
+    padding-bottom: 15px;
+}
+    }
+</style>
+<div class="before-after-lio width-wrapper">
+  <div class="left-bf-af">
+      <div class="truspilot-block-rev">
+            <img
+              class="trustpilot-rating"
+              src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Group_64621_c4ce74c2-53f4-41a6-a626-a037336fbb8e.svg?v=1747822266"
+            >
+            <p>
+              {{ section.settings['trust-text'] }}
+            </p>
+          </div>
+     <h2 class="h1">{{ section.settings.heading }} <span>{{ section.settings.highlighted-heading }}</span></h2>
+     {% if section.settings['sub-text'] != blank %}
+            <p>
+              {{ section.settings['sub-text'] }}
+            </p>
+          {% endif %}
+<div class="wrapper-review-slider">
+  <div class="swiper-wrapper">
+ {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'review' %}
+          <div class="swiper-slide">
+            <div class="rev-inner">
+              <div class="rev-inner-top">
+                <img class="rev-verified" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ticko.svg?v=1747821467" />
+                <span>{{ block.settings.name }}</span>
+              </div>
+            {{ block.settings.review }}
+          <img class="rev-trust" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/pricng.svg?v=1747755904" />
+            </div>
+          </div>
+            {% endcase %}
+      {% endfor %}
+  </div>
+  <div class="review-scrollbar"></div>
+  </div>
+  </div>
+  <div class="right-bf-af">
+    <div class="separate-line-bf-af"></div>
+    <div class="bf-af-headings">
+      <div class="before-heading">
+        <h3 class="h3">{{ section.settings.before-lio }}</h3>
+      </div>
+            <div class="after-heading">
+               <h3 class="h3">{{ section.settings.after-lio }}</h3>
+            </div>
+    </div>
+    {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'compare' %}
+          <div class="lio-compare-block">
+            <div class="lio-before-comapre">
+              <span>{{ block.settings.before-lio }}</span>
+            </div>
+              <div class="lio-after-comapre">
+                <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vector-lio-tick.svg?v=1747824331" />
+              <span>{{ block.settings.after-lio }}</span>
+            </div>
+          </div>
+            {% endcase %}
+      {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "before-after-lio",
+    "settings": [
+       {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text"
+        },
+        {
+          "type": "text",
+          "id": "highlighted-heading",
+          "label": "highlighted-heading"
+        },
+       {
+          "type": "text",
+          "id": "sub-text",
+          "label": "sub text"
+        },
+        {
+          "type": "text",
+          "id": "trust-text",
+          "label": "trust text"
+        },
+       {
+    "type": "text",
+    "id": "before-lio",
+    "label": "before-lio"
+      },
+      {
+    "type": "text",
+    "id": "after-lio",
+    "label": "after-lio"
+      },
+    ],
+    "blocks": [
+     {
+    "type": "review",
+    "name": "review",
+    "settings":
+    [
+      {
+    "type": "text",
+    "id": "name",
+    "label": "name"
+      },
+      {
+    "type": "richtext",
+    "id": "review",
+    "label": "review"
+      },
+    ]
+  },
+      {
+    "type": "compare",
+    "name": "compare",
+    "settings":
+    [
+      {
+    "type": "text",
+    "id": "before-lio",
+    "label": "before-lio"
+      },
+      {
+    "type": "text",
+    "id": "after-lio",
+    "label": "after-lio"
+      },
+     
+    ]
+  }
+  ],
+    "presets": [{
+      "name": "before-after-lio"
+    }]
+  }
+{% endschema %}

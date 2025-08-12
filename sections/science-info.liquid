@@ -1,0 +1,115 @@
+<style>
+  .science-info{
+    background : var(--lio-dark-green);
+    color : #F9F5E9;
+    padding : 50px 20px;
+  }
+   .science-info h2.h2{
+     text-align : center;
+     margin : auto;
+      margin-bottom: 25px;
+   }
+  p.science-info-para{
+     margin: auto;
+    margin-bottom: 25px;
+      text-align: center;
+    max-width : 600px;
+  }
+  .science-info h2.h2 span{
+     color : var(--lio-light-green);
+  }
+  .usp-science-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+  .usp-science-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+  .usp-science-text img{
+    width : 22px;
+  }
+ .usp-science-text p {
+    font-weight: 700;
+    text-align: center;
+    max-width: 150px;
+    text-wrap: balance;
+}
+   @media (max-width: 990px){
+   .usp-science-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap: 20px;
+    max-width: 320px;
+    margin: auto;
+}
+     .science-info h2.h2 {  
+    font-size: 35px;
+    max-width: 350px;
+}
+     p.science-info-para {
+    max-width: 340px;
+}
+   }
+</style>
+
+<div class="science-info">
+   <h2 class="h2">{{ section.settings.heading }} <span>{{ section.settings.highlighted-heading }}</span></h2>
+  <p class="science-info-para">{{ section.settings.text }}</p>
+   <div class="usp-science-info">
+    {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'usp' %}
+            <div class="usp-science-text">  
+          <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/science-circle.svg?v=1749142555" />
+           <p>{{ block.settings.title }}</p>
+            </div>
+        {% endcase %}
+      {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "science-info",
+    "settings": [
+       {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text"
+        },
+        {
+          "type": "text",
+          "id": "highlighted-heading",
+          "label": "highlighted-heading"
+        },
+      {
+         "type": "text",
+          "id": "text",
+          "label": "text",
+        "default" : "Backed by behavior science and trusted by wellness experts, Lio delivers a plant-powered breath that supports craving control, focus, and calm—designed for everyday use, with zero toxins or vapor."
+      }
+    ],
+    "blocks": [
+     {
+    "type": "usp",
+    "name": "usp",
+    "settings":
+    [
+      {
+    "type": "text",
+    "id": "title",
+    "label": "usp text"
+      }
+    ]
+  }
+  ],
+    "presets": [{
+      "name": "science-info"
+    }]
+  }
+{% endschema %}

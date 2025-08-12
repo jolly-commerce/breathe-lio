@@ -1,0 +1,36 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "store_locatior_widget_YrrwtA": {
+      "type": "store-locatior-widget",
+      "name": "store-locator-widget",
+      "settings": {
+        "image": "shopify://shop_images/switch-to-lio.png",
+        "image-mobile": "shopify://shop_images/mobingg.jpg",
+        "heading": "SWITCH TO",
+        "highlighted-heading": "LIO",
+        "pre-text": "SMARTLY",
+        "loc-text": "Available at 1,300+ locations"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "store_locatior_widget_YrrwtA"
+  ]
+}

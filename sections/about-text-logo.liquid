@@ -1,0 +1,175 @@
+<style>
+  .about-text-logo {
+    border-top: 1px solid #00000040;
+    border-bottom: 1px solid #00000040;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .about-text-logo h2.h3 {
+    max-width: 760px;
+    margin: auto;
+   
+    color: #302F2F;
+    text-align: center;
+  }
+
+  .about-text-logo h2.h3 span {
+    color: var(--lio-light-green);
+  }
+
+  .logo-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+     margin-top: 25px;
+
+  }
+
+ .logo-buttons img {
+    max-width: 120px;
+    cursor: pointer;
+    object-fit: contain;
+    transition: all 0.3s ease;
+   opacity : 0.4;
+}
+
+ 
+.logo-buttons img.lg-active {
+ opacity : 1;
+}
+.block-heading {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+  pointer-events: none;
+  height: 0;
+  transform : translateY(10px);
+  overflow: hidden;
+}
+
+.block-heading.visible {
+  opacity: 1;
+  visibility: visible;
+  transform : translateY(0px);
+  pointer-events: auto;
+  height: auto;
+}
+
+  @media screen and (max-width: 1023px) {
+    .about-text-logo h2.h3 {
+      font-size: 27px;
+      max-width: 350px !important;
+    }
+.logo-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+    .logo-buttons img {
+      max-width: 70px;
+    }
+  }
+</style>
+
+<div class="about-text-logo">
+
+
+  <div class="headings-container">
+    {% for block in section.blocks %}
+     <h2 class="h3 block-heading{% if forloop.first %} visible{% endif %}" id="heading-{{ block.id }}">
+        {{ block.settings.heading_before }} 
+        <span>{{ block.settings.highlight_heading }}</span> 
+        {{ block.settings.heading_after }}
+      </h2>
+    {% endfor %}
+  </div>
+    <div class="logo-buttons">
+    {% for block in section.blocks %}
+      <img 
+        class="{% if forloop.first %} lg-active {% endif %} "
+        src="{{ block.settings.image | image_url: width: 300 }}"
+        alt="Logo"
+        onclick="showHeading('{{ block.id }}')" />
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  function showHeading(blockId) {
+    // Hide all headings
+    document.querySelectorAll('.block-heading').forEach(heading => {
+      heading.classList.remove('visible');
+    });
+
+    // Show the selected heading
+    const target = document.getElementById(`heading-${blockId}`);
+    if (target) {
+      target.classList.add('visible');
+    }
+
+    // Update logo active state
+    document.querySelectorAll('.logo-buttons img').forEach(img => {
+      img.classList.remove('lg-active');
+    });
+
+    const activeLogo = Array.from(document.querySelectorAll('.logo-buttons img')).find(img => {
+      return img.getAttribute('onclick').includes(blockId);
+    });
+
+    if (activeLogo) {
+      activeLogo.classList.add('lg-active');
+    }
+  }
+</script>
+
+
+
+{% schema %}
+{
+  "name": "About Text Logo",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "logo_heading",
+      "name": "Logo + Heading",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "heading_before",
+          "label": "Heading Before"
+        },
+        {
+          "type": "text",
+          "id": "highlight_heading",
+          "label": "Highlighted Heading"
+        },
+        {
+          "type": "text",
+          "id": "heading_after",
+          "label": "Heading After"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Text Logo",
+      "blocks": [
+        { "type": "logo_heading" },
+        { "type": "logo_heading" },
+        { "type": "logo_heading" },
+        { "type": "logo_heading" }
+      ]
+    }
+  ]
+}
+{% endschema %}

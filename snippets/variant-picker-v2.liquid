@@ -1,0 +1,310 @@
+{%- comment -%}
+  ----------------------------------------------------------------------------------------------------------------------
+  VARIANT PICKER V2
+  ----------------------------------------------------------------------------------------------------------------------
+
+  New variant picker with tab-based structure: Single and Packs tabs.
+
+  ********************************************
+  Supported variables
+  ********************************************
+
+  * product: the product for which to render the selector (required)
+  * form_id: the ID of the form to which the variant picker belongs (required)
+  * update_url: if set to true, the URL is updated when the variant changes (usually used for product page)
+  * hide_sold_out_variants: if set to true, the sold out or unavailable variants are hidden
+  * default_variant_id: the variant ID to preselect (optional)
+  * block: the block itself, for theme-specific options
+{%- endcomment -%}
+
+{%- unless product.has_only_default_variant -%}
+  {%- assign first_variant = product.variants.first -%}
+  {%- assign pack_variants = product.variants | slice: 1, product.variants.size -%}
+  {%- if hide_sold_out_variants -%}
+    {%- assign pack_variants = pack_variants | where: 'available' -%}
+  {%- endif -%}
+
+  {%- comment -%} Default to first variant (single) for control group {%- endcomment -%}
+  {%- assign selected_variant = first_variant -%}
+  {%- assign default_pack_variant = null -%}
+
+  {%- comment -%} Find pack variants for potential use (but don't select by default) {%- endcomment -%}
+  {%- for variant in pack_variants -%}
+    {%- if variant.title contains '6' and variant.available -%}
+      {%- assign default_pack_variant = variant -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if default_pack_variant == null and pack_variants.size > 0 -%}
+    {%- assign default_pack_variant = pack_variants.first -%}
+  {%- endif -%}
+
+  {%- if default_variant_id -%}
+    {%- for variant in product.variants -%}
+      {%- if variant.id == default_variant_id -%}
+        {%- assign selected_variant = variant -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+
+  {%- assign cheapest_pack_price = null -%}
+  {%- assign max_weeks = null -%}
+  {%- if pack_variants.size > 0 -%}
+    {%- for variant in pack_variants -%}
+      {%- if variant.available -%}
+        {%- if cheapest_pack_price == null or variant.price < cheapest_pack_price -%}
+          {%- assign cheapest_pack_price = variant.price -%}
+          {%- assign cheapest_pack_price = cheapest_pack_price | money -%}
+        {%- endif -%}
+        {%- if variant.metafields.custom.core_weeks -%}
+          {%- assign variant_weeks = variant.metafields.custom.core_weeks | plus: 0 -%}
+          {%- if max_weeks == null or variant_weeks > max_weeks -%}
+            {%- assign max_weeks = variant_weeks -%}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+
+  <div
+    class="variant-picker-v2"
+    data-form-id="{{ form_id }}"
+    data-default-variant="{{ selected_variant.id }}"
+    data-default-variant-name="{{ selected_variant.title }}"
+  >
+    <div class="variant-picker-v2__tabs">
+      <button
+        type="button"
+        class="variant-picker-v2__tab"
+        data-tab="packs"
+      >
+        <div class="variant-picker-v2__tab-content">
+          <div class="variant-picker-v2__tab-text">{{ 'product.general.packs' | t }}</div>
+          <div class="variant-picker-v2__tab-price">
+            {%- if cheapest_pack_price -%}
+              {{ 'product.price.from_price_html' | t: price_min: cheapest_pack_price }}
+            {%- endif -%}
+          </div>
+        </div>
+        <div class="variant-picker-v2__tab-label">
+          {%- if max_weeks -%}
+            {{ 'product.general.up_to_weeks' | t: weeks: max_weeks }}
+          {%- endif -%}
+        </div>
+      </button>
+      <button
+        type="button"
+        class="variant-picker-v2__tab variant-picker-v2__tab--active"
+        data-tab="single"
+      >
+        <div class="variant-picker-v2__tab-content">
+          <div class="variant-picker-v2__tab-text">{{ 'product.general.single' | t }}</div>
+          <div class="variant-picker-v2__tab-price">
+            {{ product.first_available_variant.price | money }}
+          </div>
+        </div>
+      </button>
+    </div>
+
+    <div class="variant-picker-v2__content">
+      <div class="variant-picker-v2__tab-panel variant-picker-v2__tab-panel--active" data-panel="single"></div>
+
+      <div class="variant-picker-v2__tab-panel" data-panel="packs">
+        <div class="variant-picker-v2__packs-content">
+          {%- if pack_variants.size > 0 -%}
+            <div class="variant-picker-v2__pack-options">
+              {%- for variant in pack_variants -%}
+                {%- unless hide_sold_out_variants == true and variant.available == false -%}
+                  {%- assign is_selected = false -%}
+                  {%- if selected_variant.id == variant.id -%}
+                    {%- assign is_selected = true -%}
+                  {%- endif -%}
+
+                  <label
+                    class="variant-picker-v2__pack-option {% if is_selected %}selected{% endif %}"
+                    for="variant-{{ variant.id }}-{{ form_id }}"
+                  >
+                    {%- if variant.compare_at_price and variant.compare_at_price > variant.price -%}
+                      {%- assign savings_amount = variant.compare_at_price | minus: variant.price -%}
+                      {%- assign savings_percentage = savings_amount
+                        | times: 100.0
+                        | divided_by: variant.compare_at_price
+                        | round
+                      -%}
+                      <div class="variant-picker-v2__pack-option-discount">
+                        <div class="variant-picker-v2__pack-option-discount-text">
+                          <span class="variant-picker-v2__pack-option-discount-text-label">
+                            {{ savings_percentage }}%
+                            <span class="variant-picker-v2__pack-option-discount-text-label-text">
+                              {{ 'product.general.discount' | t }}
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    {%- endif -%}
+                    <input
+                      type="radio"
+                      class="variant-picker-v2__pack-input sr-only"
+                      id="variant-{{ variant.id }}-{{ form_id }}"
+                      name="{{ form_id }}-variant-selection"
+                      value="{{ variant.id }}"
+                      data-variant-id="{{ variant.id }}"
+                      data-option-position="1"
+                      form="{{ form_id }}"
+                      {% if is_selected %}
+                        checked
+                      {% endif %}
+                      {% unless variant.available %}
+                        disabled
+                      {% endunless %}
+                    >
+
+                    <div class="variant-picker-v2__pack-option-content">
+                      <div class="variant-picker-v2__pack-info">
+                        <div class="variant-picker-v2__pack-content">
+                          <div class="variant-picker-v2__pack-title">{{ variant.title }}</div>
+                          <div class="variant-picker-v2__pack-price">
+                            <div class="variant-picker-v2__pack-status">
+                              {%- if variant.available -%}
+                                {%- render 'price-list', variant: variant, size: 'sm' -%}
+                              {%- else -%}
+                                {{ 'product.general.sold_out_button' | t }}
+                              {%- endif -%}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="variant-picker-v2__pack-label">
+                          {{ variant.metafields.custom.core_weeks }} {{ 'product.general.weeks' | t }}
+                        </div>
+                      </div>
+                    </div>
+                  </label>
+                {%- endunless -%}
+              {%- endfor -%}
+            </div>
+
+          {%- else -%}
+            <div class="variant-picker-v2__no-packs">
+              <p>{{ 'product.general.no_pack_variants' | t }}</p>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const variantPicker = document.querySelector('.variant-picker-v2[data-form-id="{{ form_id }}"]');
+      if (!variantPicker) return;
+
+      const tabs = variantPicker.querySelectorAll('.variant-picker-v2__tab');
+      const panels = variantPicker.querySelectorAll('.variant-picker-v2__tab-panel');
+      const packInputs = variantPicker.querySelectorAll('.variant-picker-v2__pack-input');
+      const form = document.forms['{{ form_id }}'];
+
+      // Set initial variant to first variant (single)
+      function updateVariant(variantId) {
+        if (form && form.id) {
+          const previousVariantId = form.id.value;
+          form.id.value = variantId;
+
+          // Dispatch change event on the form input (like original variant picker)
+          form.id.dispatchEvent(new Event('change', { bubbles: true }));
+
+          // Dispatch variant:change event on the form (like original variant picker)
+          form.dispatchEvent(
+            new CustomEvent('variant:change', {
+              bubbles: true,
+              detail: {
+                formId: form.id,
+                variant: { id: parseInt(variantId) },
+                previousVariant: { id: parseInt(previousVariantId) },
+              },
+            })
+          );
+        }
+      }
+
+      // Initialize with first variant (single) as default
+      console.log(
+        'Initializing with single variant:',
+        '{{ first_variant.title }}',
+        '(ID: {{ first_variant.id }})'
+      );
+      updateVariant('{{ first_variant.id }}');
+
+      // Tab switching function
+      function handleTabClick(targetTab, targetPanel) {
+        // Update tab states
+        tabs.forEach((t) => t.classList.remove('variant-picker-v2__tab--active'));
+        targetTab.classList.add('variant-picker-v2__tab--active');
+
+        // Update panel states
+        panels.forEach((p) => p.classList.remove('variant-picker-v2__tab-panel--active'));
+        variantPicker
+          .querySelector(`[data-panel="${targetPanel}"]`)
+          .classList.add('variant-picker-v2__tab-panel--active');
+
+        // Update form based on selected tab
+        if (targetPanel === 'single') {
+          updateVariant('{{ first_variant.id }}');
+        } else if (targetPanel === 'packs') {
+          // Check if any pack variant is selected
+          const selectedPackInput = variantPicker.querySelector('.variant-picker-v2__pack-input:checked');
+          if (selectedPackInput) {
+            updateVariant(selectedPackInput.value);
+          } else {
+            // If no pack variant selected, use the default selected variant
+            updateVariant('{{ selected_variant.id }}');
+          }
+        }
+      }
+
+      // Tab switching
+      tabs.forEach((tab) => {
+        // Handle both click and touch events for mobile compatibility
+        ['click', 'touchend'].forEach((eventType) => {
+          tab.addEventListener(eventType, function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            handleTabClick(this, this.dataset.tab);
+          }, { passive: false });
+        });
+      });
+
+      // Make tab switching globally available for onclick handlers
+      window.switchVariantTab = function (tabElement, targetPanel) {
+        handleTabClick(tabElement, targetPanel);
+      };
+
+      // Pack variant selection
+      packInputs.forEach((input) => {
+        input.addEventListener('change', function () {
+          if (this.checked) {
+            // Update pack options visual state
+            variantPicker.querySelectorAll('.variant-picker-v2__pack-option').forEach((option) => {
+              option.classList.remove('selected');
+            });
+            this.closest('.variant-picker-v2__pack-option').classList.add('selected');
+
+            // Update form with proper events
+            updateVariant(this.value);
+          }
+        });
+      });
+
+      // Initialize default selection for packs if variant is preselected
+      // Since packs tab is active by default, ensure the right variant is selected
+      const checkedInput = variantPicker.querySelector('.variant-picker-v2__pack-input:checked');
+      if (checkedInput) {
+        // Trigger the change event to ensure proper visual state
+        checkedInput.dispatchEvent(new Event('change'));
+      }
+    });
+  </script>
+
+  {{ 'variant-picker-v2.css' | asset_url | stylesheet_tag }}
+{%- endunless -%}

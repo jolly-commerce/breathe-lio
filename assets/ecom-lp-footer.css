@@ -1,0 +1,58 @@
+.ecom-lp-footer {
+  background-color: #005128;
+  color: #F8F5E8;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Neometric";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22.4px;
+}
+.ecom-lp-footer__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 45px;
+  margin-bottom: 16px;
+}
+@media (min-width: 1150px) {
+  .ecom-lp-footer__nav {
+    gap: 16px;
+    flex-direction: column;
+  }
+}
+.ecom-lp-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.ecom-lp-footer__copyright-and-payment-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media (min-width: 1150px) {
+  .ecom-lp-footer__copyright-and-payment-icons {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+.ecom-lp-footer__copyright-and-payment-icons svg {
+  width: 24px;
+}
+@media (min-width: 1150px) {
+  .ecom-lp-footer__copyright-and-payment-icons svg {
+    width: 32px;
+  }
+}
+.ecom-lp-footer__payment-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+@media (min-width: 1150px) {
+  .ecom-lp-footer__payment-icons {
+    gap: 7px;
+  }
+}

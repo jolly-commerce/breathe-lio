@@ -1,0 +1,126 @@
+<style>
+  #shopify-section-{{section.id}} .width-wrapper {
+    padding: 20px 30px;
+}
+    .auto-icon-usp{
+      --durationusp: 30s;
+        display: flex;
+        overflow: hidden;
+        user-select: none;
+        gap: 0px;
+      max-width : 1400px;
+      margin : auto;
+      border-radius : 30px;
+      background : var(--lio-dark-green);
+    }
+    .auto-icon-usp-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 0;
+      width: max-content;
+      animation: scrollNewUsp var(--durationusp) linear infinite;
+  }
+     @keyframes scrollNewUsp {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(calc(-100%));
+        }
+    }
+  .box-text-usp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 8px 20px;
+      width: max-content;
+      height: 100%;
+  }
+    .box-text-usp img{
+      height : auto;
+    }
+ .box-text-usp p {
+    font-weight: 500;
+    color: #F3F3F3;
+    font-size: 17px;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+}
+
+
+   @media screen and (max-width: 990px){
+     #shopify-section-{{section.id}}{
+    padding : 20px 15px;
+  }
+       .box-text-usp {
+      padding: 7px 15px;
+  }
+      #shopify-section-{{section.id}} .width-wrapper {
+    padding: 0px;
+}
+   }
+</style>
+<div class="width-wrapper">
+<div class="auto-icon-usp {{ section.settings.custom-class }}">
+  {% for i in (1..4) %}
+    <div class="auto-icon-usp-group">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'usp' %}
+            <div class="box-text-usp">
+         {% if block.settings.icon != blank %}
+            <img
+                  src="{{ block.settings.icon | image_url: width: 700 }}"
+                >
+              {% else %}
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0856/1046/3574/files/new-tick.svg?v=1738050042"
+                >
+          {% endif %}
+              <p>{{ block.settings.title }}</p>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>
+</div>
+{% schema %}
+{
+  "name": "usp-auto-icons",
+  "settings": [
+    {
+    "type": "text",
+    "id": "custom-class",
+    "label": "custom class"
+      }
+  ],
+   "blocks": [
+     {
+    "type": "usp",
+    "name": "usp",
+    "settings":
+    [
+      {
+    "type": "text",
+    "id": "title",
+    "label": "usp text"
+      },
+      {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "icon"
+      }
+    ]
+  }
+  ],
+   "presets": [
+  {
+    "name": "usp-auto-icons"
+  }
+]
+}
+{% endschema %}

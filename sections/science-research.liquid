@@ -1,0 +1,204 @@
+{{ 'science-research.css' | asset_url | stylesheet_tag }}
+
+<div class="width-wrapper">
+  <div class="science-research-header">
+    <h2 class="science-research-header-title">{{ section.settings.heading }}</h2>
+    <div class="science-research-navigation">
+      <div class="science-research-navigation-prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="13" viewBox="0 0 24 13" fill="none">
+          <path d="M6.99925 0.390137L7.98605 1.36465L3.59481 5.70107H23.0771V7.07925H3.59481L7.98605 11.4156L6.99925 12.3901L0.923302 6.39011L6.99925 0.390137Z" fill="white"/>
+        </svg>
+      </div>
+      <div class="science-research-navigation-next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="13" viewBox="0 0 24 13" fill="none">
+          <path d="M17.0007 12.3901L16.0139 11.4156L20.4052 7.07921L0.922852 7.07921L0.922852 5.70102L20.4052 5.70102L16.0139 1.36465L17.0007 0.390138L23.0767 6.39016L17.0007 12.3901Z" fill="white"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="science-research-container">
+    {% if section.blocks.size > 0 %}
+      <div class="swiper science-research-swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'research' %}
+                <div class="swiper-slide" {{ block.shopify_attributes }}>
+                  <div class="science-research-item">
+                    <div class="science-research-item-header">
+                      <div class="science-research-item-content-conclusion">
+                        {{ block.settings.conclusion }}
+                      </div>
+                      <div class="science-research-item-image">
+                        <img
+                          src="{{ block.settings.image | image_url: width: 1000 }}"
+                          alt="{{ block.settings.name }}"
+                          width="1000"
+                          height="600"
+                          loading="lazy"
+                        >
+                      </div>
+                    </div>
+                    <div class="science-research-item-content">
+                      <div class="science-research-item-content-review">{{ block.settings.review }}</div>
+                      <p class="science-research-item-content-source">{{ block.settings.source }}</p>
+                    </div>
+                    <div class="science-research-item-footer">
+                      <h3 class="science-research-item-footer-name">{{ block.settings.name }}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="11" viewBox="0 0 10 11" fill="none">
+                          <path d="M5 10.8901C4.3099 10.8901 3.66211 10.7599 3.05664 10.4995C2.44466 10.2391 1.91243 9.88265 1.45996 9.43018C1.00749 8.9777 0.651042 8.44548 0.390625 7.8335C0.130208 7.22803 0 6.58024 0 5.89014C0 5.20003 0.130208 4.55225 0.390625 3.94678C0.651042 3.3348 1.00749 2.80257 1.45996 2.3501C1.91243 1.89762 2.44466 1.54118 3.05664 1.28076C3.66211 1.02034 4.3099 0.890137 5 0.890137C5.6901 0.890137 6.33789 1.02034 6.94336 1.28076C7.55534 1.54118 8.08757 1.89762 8.54004 2.3501C8.99251 2.80257 9.34896 3.3348 9.60938 3.94678C9.86979 4.55225 10 5.20003 10 5.89014C10 6.58024 9.86979 7.22803 9.60938 7.8335C9.34896 8.44548 8.99251 8.9777 8.54004 9.43018C8.08757 9.88265 7.55534 10.2391 6.94336 10.4995C6.33789 10.7599 5.6901 10.8901 5 10.8901ZM7.1582 3.65381L4.19922 6.60303L2.79297 5.20654L1.875 6.12451L4.19922 8.43896L8.07617 4.57178L7.1582 3.65381Z" fill="#00B67C"/>
+                        </svg>
+                      </h3>
+                      <p class="science-research-item-footer-designation">{{ block.settings.designation }}</p>
+                    </div>
+                  </div>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination science-research-pagination"></div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Wait a bit for the DOM to be fully ready
+    setTimeout(function() {
+      initScienceResearchSwiper();
+    }, 100);
+  });
+
+  // Also initialize when the page is fully loaded
+  window.addEventListener('load', function() {
+    initScienceResearchSwiper();
+  });
+
+  function initScienceResearchSwiper() {
+    const swiperContainer = document.querySelector('.science-research-swiper');
+    if (!swiperContainer) return;
+
+    // Destroy existing swiper if it exists
+    if (swiperContainer.swiper) {
+      swiperContainer.swiper.destroy(true, true);
+    }
+
+    const scienceResearchSwiper = new Swiper('.science-research-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      loop: false,
+      watchOverflow: true,
+      observer: true,
+      observeParents: true,
+      navigation: {
+        nextEl: '.science-research-navigation-next',
+        prevEl: '.science-research-navigation-prev',
+      },
+      pagination: {
+        el: '.science-research-pagination',
+        clickable: true,
+        type: 'bullets',
+        renderBullet: function (index, className) {
+          return '<span class="' + className + '"></span>';
+        }
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          pagination: {
+            el: '.science-research-pagination',
+            clickable: true,
+            type: 'progressbar',
+            renderProgressbar: function (progressbarFillClass) {
+              return '<span class="' + progressbarFillClass + '"></span>';
+            }
+          },
+        },
+        1280: {
+          slidesPerView: 2.5,
+          pagination: {
+            el: '.science-research-pagination',
+            clickable: true,
+            type: 'progressbar',
+            renderProgressbar: function (progressbarFillClass) {
+              return '<span class="' + progressbarFillClass + '"></span>';
+            }
+          }
+        },
+      },
+      on: {
+        init: function() {
+          console.log('Science Research Swiper initialized');
+        },
+        resize: function() {
+          this.update();
+        }
+      }
+    });
+
+    // Force update after initialization
+    setTimeout(function() {
+      scienceResearchSwiper.update();
+    }, 200);
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Science Research",
+  "tag": "section",
+  "class": "science-research",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Science research"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "research",
+      "name": "research",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "name"
+        },
+        {
+          "type": "textarea",
+          "id": "source",
+          "label": "source"
+        },
+        {
+          "type": "richtext",
+          "id": "review",
+          "label": "review"
+        },
+        {
+          "type": "text",
+          "id": "designation",
+          "label": "designation"
+        },
+        {
+          "type": "richtext",
+          "id": "conclusion",
+          "label": "conclusion"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Science Research"
+    }
+  ]
+}
+{% endschema %}

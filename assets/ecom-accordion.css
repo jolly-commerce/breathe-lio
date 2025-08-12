@@ -1,0 +1,70 @@
+.ecom-accordion {
+  border-radius: 16px;
+  border: 1.5px solid rgba(0, 81, 40, 0.1);
+  padding: 24px;
+  width: 100%;
+}
+.ecom-accordion__toggle {
+  width: 100%;
+  padding: 16px 0;
+  background: transparent;
+  border: none;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  gap: 30px;
+  color: #005128;
+}
+.ecom-accordion__toggle-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.ecom-accordion__title {
+  color: #005128;
+  font-family: "Sigum";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: -0.32px;
+  text-transform: uppercase;
+}
+@media (min-width: 1000px) {
+  .ecom-accordion__title {
+    font-size: 20px;
+    letter-spacing: -0.4px;
+  }
+}
+.ecom-accordion__divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 81, 40, 0.1);
+  margin: 16px 0;
+}
+.ecom-accordion__content {
+  color: #464646;
+  font-family: "Poppins";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 155%;
+  letter-spacing: -0.14px;
+}
+.ecom-accordion__plus-icon {
+  display: block;
+}
+.ecom-accordion__minus-icon {
+  display: none;
+}
+.ecom-accordion__toggle[aria-expanded=true] .ecom-accordion__plus-icon {
+  display: none;
+}
+.ecom-accordion__toggle[aria-expanded=true] .ecom-accordion__minus-icon {
+  display: block;
+}
+.ecom-accordion__icon svg {
+  transition: transform 0.3s ease;
+}

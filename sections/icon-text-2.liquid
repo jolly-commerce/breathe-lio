@@ -1,0 +1,148 @@
+<style>
+  .icon-text-1 {
+    display: flex;
+    padding: 30px;
+    margin: auto;
+    width: fit-content;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+ .icon-text-1 h2.h2 {
+    color: var(--lio-dark-green);
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 15px;
+   position : relative;
+}
+ 
+   .icon-text-1 h2.h2 span{
+     color : var(--lio-light-green);
+   }
+  p.icono-para{
+     margin: auto;
+    margin-bottom: 25px;
+      text-align: center;
+    max-width : 300px;
+  }
+  .usp-icon-blocks {
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 55px;
+}
+  .usp-icon-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 13px;
+    
+}
+   .usp-icon-blocks img{
+     width : 80px;
+     height : 80px;
+     object-fit : contain;
+   }
+.usp-icon-blocks p {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+}
+
+  @media (max-width: 990px){
+
+ .icon-text-1 {
+    display: flex;
+    padding: 30px 20px;
+width : 100%;
+}
+     .usp-icon-blocks img{
+     width : 70px;
+     height : 70px;
+   }
+    .usp-icon-blocks p {
+    font-size: 14px;
+}
+    
+   .usp-icon-blocks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.icon-text-1 h2.h2 {
+    max-width: 280px;
+    font-size: 30px;
+}
+p.icono-para {
+    max-width: 280px;
+}
+  }
+  
+</style>
+<div class="icon-text-1">
+    <h2 class="h2">{{ section.settings.heading }} <span>{{ section.settings.highlighted-heading }}</span></h2>
+  <p class="icono-para">{{ section.settings.text }}</p>
+  <div class="usp-icon-blocks">
+    {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'usp' %}
+            <div class="usp-icon-block">
+         {% if block.settings.icon != blank %}
+            <img 
+                  src="{{ block.settings.icon | image_url: width: 400 }}"
+                >
+          {% endif %}
+           <p>{{ block.settings.title }}</p>
+            </div>
+        {% endcase %}
+      {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "icon-text-1",
+    "settings": [
+       {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text"
+        },
+        {
+          "type": "text",
+          "id": "highlighted-heading",
+          "label": "highlighted-heading"
+        },
+      {
+         "type": "text",
+          "id": "text",
+          "label": "text",
+        "default" : "Lio® is looking for partners in the following industries :"
+      }
+    ],
+     "blocks": [
+     {
+    "type": "usp",
+    "name": "usp",
+    "settings":
+    [
+      {
+    "type": "text",
+    "id": "title",
+    "label": "usp text"
+      },
+      {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "icon"
+      }
+    ]
+  }
+  ],
+    "presets": [{
+      "name": "icon-text-2"
+    }]
+  }
+{% endschema %}

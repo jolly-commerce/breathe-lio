@@ -1,0 +1,100 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "allow_transparent_header": false,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "collection_title_size": "h0",
+        "image_size": "auto",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "featured_product": "",
+        "featured_product_heading": "Featured product",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 24,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 3,
+        "filter_layout": "sidebar",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_filter_group_name": false,
+        "show_filter_values_count": true,
+        "open_first_filter_group": false
+      }
+    },
+    "custom_product_listing_cAcXgk": {
+      "type": "custom-product-listing",
+      "name": "custom-product-listing",
+      "settings": {
+        "anchor": "bundles",
+        "collection_1": "new-bundles",
+        "collection_1_title": "",
+        "collection_2": "",
+        "collection_2_title": "",
+        "heading": "OUR",
+        "heading_2": "BESTSELLERS",
+        "text": "Discover what everyone’s loving. No more guessing."
+      }
+    },
+    "custom_product_listing_GttnKh": {
+      "type": "custom-product-listing",
+      "name": "custom-product-listing",
+      "settings": {
+        "anchor": "cores",
+        "collection_1": "classic-cores",
+        "collection_1_title": "classic",
+        "collection_1_image": "shopify://shop_images/classic-core.png",
+        "collection_2": "v2-cores",
+        "collection_2_title": "gen 2",
+        "collection_2_image": "shopify://shop_images/v2-cores.png",
+        "heading": " Flavor",
+        "heading_2": "Cores",
+        "text": "Intensify your journey with natural flavor bursts"
+      }
+    },
+    "custom_product_listing_ffPd4w": {
+      "type": "custom-product-listing",
+      "name": "custom-product-listing",
+      "settings": {
+        "anchor": "diffusers",
+        "collection_1": "diffusers",
+        "collection_1_title": "",
+        "collection_2": "",
+        "collection_2_title": "",
+        "heading": "Aroma",
+        "heading_2": "Diffusers",
+        "text": "Transform your space with pure scent magic"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "main",
+    "custom_product_listing_cAcXgk",
+    "custom_product_listing_GttnKh",
+    "custom_product_listing_ffPd4w"
+  ]
+}

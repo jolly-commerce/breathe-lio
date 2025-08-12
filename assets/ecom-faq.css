@@ -1,0 +1,64 @@
+.ecom-faq {
+  background-color: var(--lio-white);
+}
+.ecom-faq__title {
+    color: #005128;
+    font-family: Sigum;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 90%;
+    letter-spacing: -.8px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    text-wrap: balance;
+    max-width: 290px;
+}
+.ecom-faq__title span{
+  color : var(--lio-light-green);
+  position : relative;
+}
+.ecom-faq__title span::after {
+    content: "";
+    position: absolute;
+    right: -40px;
+    bottom: -10px;
+    width: 90px;
+    height: 20px;
+    background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/f-g.svg?v=1747996418");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.ecom-faq__questions-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1000px) {
+  .ecom-faq__questions-wrapper {
+    flex-direction: row;
+    gap: 40px;
+  }
+  .ecom-faq__title {
+    font-size : 40px;
+  }
+}
+.ecom-faq__questions-wrapper > div {
+  width: 100%;
+}
+@media (min-width: 1000px) {
+  .ecom-faq__questions-wrapper > div {
+    width: calc(50% - 20px);
+  }
+}
+.ecom-faq__question {
+  margin-bottom: 8px;
+}
+@media (min-width: 1000px) {
+  .ecom-faq__question {
+    margin-bottom: 16px;
+  }
+}
+.ecom-faq__question:last-child {
+  margin-bottom: 0;
+}

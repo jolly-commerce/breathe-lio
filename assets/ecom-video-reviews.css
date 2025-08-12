@@ -1,0 +1,281 @@
+.ecom-video-reviews {
+  background-color: #F8F5E8;
+}
+.ecom-video-reviews__wrapper {
+  background-color: #005128;
+  padding: 64px 16px;
+}
+@media (max-width: 999px) {
+  .ecom-video-reviews__wrapper {
+    margin: 0;
+  }
+}
+@media (min-width: 1000px) {
+  .ecom-video-reviews__wrapper {
+    padding: 64px;
+    border-radius: 16px;
+  }
+}
+@media (min-width: 1150px) {
+  .ecom-video-reviews__wrapper {
+    padding: 80px;
+  }
+}
+.ecom-video-reviews__trustpilot-wrapper {
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(249, 245, 233, 0.12);
+}
+.ecom-video-reviews__trustpilot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.ecom-video-reviews__trustpilot--desktop {
+  display: none;
+}
+.ecom-video-reviews__trustpilot-text {
+  color: #F8F5E8;
+  font-family: "Poppins";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: -0.42px;
+  text-transform: capitalize;
+}
+.ecom-video-reviews__trustpilot-text--desktop {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.ecom-video-reviews__trustpilot-text--desktop .ecom-video-reviews__trustpilot-text {
+  margin-top: 5px;
+}
+.ecom-video-reviews__trustpilot svg {
+  min-width: 82px;
+  height: 20px;
+}
+.ecom-video-reviews__trustpilot img {
+  width: 79px;
+  height: auto;
+}
+@media (min-width: 1000px) {
+  .ecom-video-reviews__trustpilot {
+    justify-content: space-between;
+  }
+  .ecom-video-reviews__trustpilot--mobile {
+    display: none;
+  }
+  .ecom-video-reviews__trustpilot--desktop {
+    display: flex;
+  }
+  .ecom-video-reviews__trustpilot-text {
+    font-size: 16px;
+    letter-spacing: -0.48px;
+  }
+  .ecom-video-reviews__trustpilot svg {
+    width: 98px;
+    height: 24px;
+  }
+  .ecom-video-reviews__trustpilot img {
+    width: 160px;
+    height: auto;
+  }
+}
+.ecom-video-reviews__content {
+  padding-top: 24px;
+}
+.ecom-video-reviews h2 {
+  color: #F8F5E8;
+  text-align: center;
+  font-family: "Sigum";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 90%;
+  letter-spacing: -0.96px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+@media (min-width: 1000px) {
+  .ecom-video-reviews h2 {
+    font-size: 64px;
+    letter-spacing: -1.28px;
+    text-align: left;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.ecom-video-reviews__list {
+  display: flex;
+  padding-bottom: 24px;
+}
+.ecom-video-reviews__item {
+  background-color: rgba(255, 255, 255, 0.0588235294);
+  overflow: hidden;
+  border-radius: 12px;
+}
+@media (min-width: 1000px) {
+  .ecom-video-reviews__item {
+    border-radius: 16px;
+  }
+}
+.ecom-video-reviews__video {
+  position: relative;
+}
+.ecom-video-reviews__video-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.ecom-video-reviews__video-wrapper[data-aspect-ratio="16:9"] {
+  padding-bottom: 56.25%; /* 9/16 = 0.5625 */
+}
+.ecom-video-reviews__video-wrapper[data-aspect-ratio="4:3"] {
+  padding-bottom: 75%; /* 3/4 = 0.75 */
+}
+.ecom-video-reviews__video-wrapper[data-aspect-ratio="1:1"] {
+  padding-bottom: 100%;
+}
+.ecom-video-reviews__video-wrapper[data-aspect-ratio="9:13"] {
+  padding-bottom: 146%;
+}
+.ecom-video-reviews__video-wrapper[data-aspect-ratio="9:16"] {
+  padding-bottom: 177.78%; /* 16/9 = 1.7778 */
+}
+.ecom-video-reviews__video-element {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.ecom-video-reviews__play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background-color 0.2s ease;
+}
+.ecom-video-reviews__play-button:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.ecom-video-reviews__play-button svg {
+  width: 24px;
+  height: 24px;
+  fill: #F8F5E8;
+}
+@media (min-width: 1000px) {
+  .ecom-video-reviews__play-button {
+    width: 80px;
+    height: 80px;
+  }
+  .ecom-video-reviews__play-button svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+.ecom-video-reviews__overlay-label {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background-color: #EDED5E;
+  padding: 4px 12px;
+  border-radius: 20px;
+  color: #005128;
+  font-family: "Poppins";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+  letter-spacing: -0.3px;
+  text-transform: uppercase;
+}
+@media (min-width: 1000px) {
+  .ecom-video-reviews__overlay-label {
+    padding: 4px 16px;
+    border-radius: 16px;
+    font-size: 14px;
+    letter-spacing: -0.42px;
+  }
+}
+.ecom-video-reviews__text {
+  padding: 20px;
+}
+@media (min-width: 1000px) {
+  .ecom-video-reviews__text {
+    padding: 32px 24px;
+  }
+}
+.ecom-video-reviews__review-text {
+  color: #F8F5E8;
+  font-family: "Poppins";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: -0.42px;
+  margin-top: 12px;
+}
+@media (min-width: 1000px) {
+  .ecom-video-reviews__review-text {
+    font-size: 16px;
+    letter-spacing: -0.48px;
+    margin-top: 16px;
+  }
+}
+.ecom-video-reviews__progressbar {
+  background: rgba(248, 245, 232, 0.12) !important;
+  height: 3px !important;
+  border-radius: 100px !important;
+  top: unset !important;
+  bottom: 0 !important;
+}
+.ecom-video-reviews__progressbar .swiper-pagination-progressbar-fill {
+  background-color: #F8F5E8 !important;
+  border-radius: 100px !important;
+}
+.ecom-video-reviews__navigation {
+  margin: 24px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.ecom-video-reviews__navigation--desktop {
+  display: none;
+}
+@media (min-width: 1000px) {
+  .ecom-video-reviews__navigation {
+    margin: 0;
+  }
+  .ecom-video-reviews__navigation--mobile {
+    display: none;
+  }
+  .ecom-video-reviews__navigation--desktop {
+    display: flex;
+  }
+}
+.ecom-video-reviews__navigation button {
+  color: #F8F5E8;
+  background-color: rgba(255, 255, 255, 0.0588235294);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 49px;
+  border-radius: 1000px;
+}

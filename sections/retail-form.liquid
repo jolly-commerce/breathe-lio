@@ -1,0 +1,90 @@
+<style>
+  .retail-form-box{
+    display : grid;
+    grid-template-columns : 0.7fr 1.3fr;
+    max-width : 1200px;
+    margin  : auto;
+    padding : 30px;
+  }
+    .left-retail  {
+      padding-top : 40px;
+    }
+  .left-retail  h2.h2{
+    max-width : 300px;
+    margin-botttom : 10px;
+  }
+.left-retail  h2.h2 span{
+  color : var(--lio-light-green);
+}
+   .left-retail p {
+    max-width: 340px;
+    margin-top: 10px;
+    text-wrap: balance;
+}
+  .panels {
+    font-family: 'Sigum' !important;
+    text-transform: uppercase;
+    font-weight : 400;
+}
+ .panels select {
+   color : #302F2F !Important;
+    text-transform: uppercase !important;
+}
+  .globo-form-app{
+    z-index : 0 !Important;
+  }
+  button.action.next.submit.line-button.wizard__submit {
+    box-shadow: none;
+    border-radius: 10px;
+    padding: 0px 50px;
+     box-shadow: -3px 4px 0 0 var(--lio-dark-green),-4px 5px 0 0 var(--lio-yellow);
+    -webkit-box-shadow: -3px 4px 0px 0px var(--lio-dark-green),-4px 5px 0px 0px var(--lio-yellow);
+    -moz-box-shadow: -3px 4px 0px 0px var(--lio-dark-green),-4px 5px 0px 0px var(--lio-yellow);
+}
+ 
+    @media (max-width: 990px){
+      .retail-form-box{
+          display : grid;
+    grid-template-columns : 1fr;
+      gap : 10px;
+        }
+          .left-retail  {
+      padding-top : 0px;
+    }
+    }
+</style>
+<div class="retail-form-box">
+<div class="left-retail">
+   <h2 class="h2">{{ section.settings.heading }} <span>{{ section.settings.highlighted-heading }}</span></h2>
+  <p>{{ section.settings.text }}</p>
+</div>
+<div class="right-retail">
+  <div class="globo-formbuilder" data-id="OTM1NTE="></div>
+</div>
+</div>
+{% schema %}
+  {
+    "name": "retail-form",
+    "settings": [
+       {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text"
+        },
+        {
+          "type": "text",
+          "id": "highlighted-heading",
+          "label": "highlighted-heading"
+        },
+       {
+         "type": "text",
+          "id": "text",
+          "label": "text",
+        "default" : "Fill out the form to apply and learn more about becoming a retail partner:"
+      }
+    ],
+    "presets": [{
+      "name": "retail-form"
+    }]
+  }
+{% endschema %}

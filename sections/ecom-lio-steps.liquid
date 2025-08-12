@@ -1,0 +1,140 @@
+{{ 'ecom-lio-steps.css' | asset_url | stylesheet_tag: preload: true }}
+
+<style>
+  .ecom-lio-steps {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    @media (min-width: 1150px) {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+
+  .ecom-lio-steps__wrapper {
+    background-image: url({{ section.settings.background_image | image_url: width: 1000 }});
+
+    @media (min-width: 1000px) {
+      background-image: url({{ section.settings.background_image_desktop | image_url: width: 1920 }});
+    }
+  }
+</style>
+
+<div class="ecom-lio-steps">
+  <div class="ecom-lio-steps__wrapper container">
+    <h2 class="ecom-lio-steps__title">
+      {{ section.settings.title }}
+    </h2>
+
+    <div class="ecom-lio-steps__items">
+      {% for block in section.blocks %}
+        {% if block.settings.title != blank %}
+          <div class="ecom-lio-steps__item">
+            {% if block.settings.icon != blank %}
+              <div class="ecom-lio-steps__item-icon">
+                {{ block.settings.icon | image_url: width: 250 | image_tag: loading: 'lazy', width: 180, height: 180, class: 'ecom-lio-steps__item-icon-image'  }}
+                <span class="ecom-lio-steps__item-icon-count">
+                  {{ forloop.index }}
+                </span>
+              </div>
+            {% endif %}
+
+            <h4 class="ecom-lio-steps__item-title">
+              {{ block.settings.title }}
+            </h4>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Ecom Lio Steps",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Paddings",
+        "info": "Paddings for section"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Padding Top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 32
+      },
+      {
+        "type": "range",
+        "id": "padding_top_desktop",
+        "label": "Padding Top Desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Padding Bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 32
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_desktop",
+        "label": "Padding Bottom Desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 40
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "just 3 simple steps:"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image_desktop",
+        "label": "Background Image Desktop"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "step",
+        "name": "Step",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Ecom Lio Steps"
+      }
+    ]
+  } 
+{% endschema %}

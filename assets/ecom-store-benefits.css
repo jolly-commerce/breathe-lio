@@ -1,0 +1,82 @@
+.ecom-store-benefits {
+  background-color: #F8F5E8;
+}
+.ecom-store-benefits__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+@media (min-width: 1000px) {
+  .ecom-store-benefits__wrapper {
+    gap: 32px;
+    justify-content: space-between;
+  }
+}
+.ecom-store-benefits__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 16px;
+  width: calc(50% - 8px);
+}
+@media (min-width: 1000px) {
+  .ecom-store-benefits__item {
+    max-width: 190px;
+  }
+}
+@media (min-width: 1280px) {
+  .ecom-store-benefits__item {
+    max-width: 260px;
+  }
+}
+.ecom-store-benefits__item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin-bottom: 24px;
+}
+@media (min-width: 1000px) {
+  .ecom-store-benefits__item-icon {
+    width: 72px;
+    height: 72px;
+  }
+}
+.ecom-store-benefits__item-title {
+  color: #005128;
+  font-family: "Sigum";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 80%;
+  letter-spacing: -0.48px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+@media (min-width: 1000px) {
+  .ecom-store-benefits__item-title {
+    font-size: 32px;
+    letter-spacing: -0.64px;
+  }
+}
+.ecom-store-benefits__item-description {
+  color: #005128;
+  font-family: "Poppins";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -0.28px;
+}
+
+.bg-custom, 
+.shopify-section--apps  {
+  background: #F8F5E8 !important;
+}
+
+.footer {
+  display: none !important;
+}

@@ -1,0 +1,288 @@
+{{ 'ecom-video-reviews.css' | asset_url | stylesheet_tag: preload: true }}
+
+<style>
+  .ecom-video-reviews {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    @media (min-width: 1150px) {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+</style>
+
+<div class="ecom-video-reviews">
+  <div class="ecom-video-reviews__wrapper container">
+    <div class="ecom-video-reviews__trustpilot-wrapper">
+      <div class="ecom-video-reviews__trustpilot ecom-video-reviews__trustpilot--mobile">
+        {% render 'icon', icon: 'trustpilot-logo', width: 99, height: 24 %}
+      
+        {% if section.settings.trustpilot_avatars != blank %}
+          <div class="ecom-video-reviews__trustpilot-avatars ecom-video-reviews__trustpilot-avatars--mobile">
+            <img src="{{ section.settings.trustpilot_avatars | image_url: width: 400 }}" alt="Trustpilot users avatars" width="133" height="auto">
+          </div>
+        {% endif %}
+        
+        {% if section.settings.trustpilot_text != blank %}
+          <span class="ecom-video-reviews__trustpilot-text">{{ section.settings.trustpilot_text }}</span>
+        {% endif %}
+      </div>
+
+      <div class="ecom-video-reviews__trustpilot ecom-video-reviews__trustpilot--desktop">
+        <div class="ecom-video-reviews__trustpilot-text--desktop">
+          {% render 'icon', icon: 'trustpilot-logo', width: 99, height: 24 %}
+          {% if section.settings.trustpilot_text != blank %}
+            <span class="ecom-video-reviews__trustpilot-text">{{ section.settings.trustpilot_text }}</span>
+          {% endif %}
+        </div>
+
+        <div class="ecom-video-reviews__trustpilot-avatars ecom-video-reviews__trustpilot-avatars--left-desktop">
+          <img src="{{ section.settings.trustpilot_avatars | image_url: width: 400 }}" alt="Trustpilot users avatars" width="133" height="auto">
+        </div>
+      </div>
+    </div>
+
+    <div class="ecom-video-reviews__content">
+      <h2 class="ecom-video-reviews__title">
+        {{ section.settings.title }}
+        <div class="ecom-video-reviews__navigation ecom-video-reviews__navigation--desktop">
+          <button class="ecom-video-reviews__prev">
+            {% render 'icon' , icon: 'arrow-left', width: 24, height: 24 %}
+          </button>
+          <button class="ecom-video-reviews__next">
+            {% render 'icon' , icon: 'arrow-right', width: 24, height: 24 %}
+          </button>
+        </div>
+      </h2>
+      
+      <div class="swiper ecom-video-reviews-swiper">
+        <ul class="swiper-wrapper ecom-video-reviews__list">
+          {% for block in section.blocks %}
+            <li class="swiper-slide ecom-video-reviews__item">
+              <div class="ecom-video-reviews__video">
+                <div class="ecom-video-reviews__video-wrapper" data-aspect-ratio="{{ block.settings.aspect_ratio | default: '9:13' }}">
+                  {% assign poster_url = block.settings.poster | image_url %}
+                  {{- block.settings.video | video_tag: playslinline: true, controls: false, muted: false, loop: false, preload: 'metadata', poster: poster_url, class: 'ecom-video-reviews__video-element' -}}
+                  <button class="ecom-video-reviews__play-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <polygon points="5,3 19,12 5,21" fill="currentColor"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="ecom-video-reviews__overlay-label">{{ block.settings.label }}</div>
+              </div>
+  
+              <div class="ecom-video-reviews__text">
+                {% render 'icon' , icon: 'trustpilot-stars', width: 86, height: 16 %}
+                <p class="ecom-video-reviews__review-text">{{ block.settings.review_text }}</p>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+        <div class="ecom-video-reviews__progressbar"></div>
+      </div>
+      <div class="ecom-video-reviews__navigation ecom-video-reviews__navigation--mobile">
+        <button class="ecom-video-reviews__prev">
+          {% render 'icon' , icon: 'arrow-left', width: 24, height: 24 %}
+        </button>
+        <button class="ecom-video-reviews__next">
+          {% render 'icon' , icon: 'arrow-right', width: 24, height: 24 %}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Set up video play functionality
+    const playButtons = document.querySelectorAll('.ecom-video-reviews__play-button');
+    playButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const videoWrapper = this.closest('.ecom-video-reviews__video-wrapper');
+        const video = videoWrapper.querySelector('video');
+        
+        // Hide play button and play the video
+        this.style.display = 'none';
+        video.play();
+        
+        // Show button again when video ends
+        video.addEventListener('ended', function() {
+          button.style.display = 'flex';
+        });
+      });
+    });
+    
+    // Add click handler to videos to toggle play/pause
+    const videos = document.querySelectorAll('.ecom-video-reviews__video-element');
+    videos.forEach(video => {
+      video.addEventListener('click', function() {
+        const videoWrapper = this.closest('.ecom-video-reviews__video-wrapper');
+        const playButton = videoWrapper.querySelector('.ecom-video-reviews__play-button');
+        
+        if (this.paused) {
+          this.play();
+          playButton.style.display = 'none';
+        } else {
+          this.pause();
+          playButton.style.display = 'flex';
+        }
+      });
+    });
+    
+    var videoReviewsSlider = new Swiper('.ecom-video-reviews-swiper', {
+      slidesPerView: 1.5,
+      spaceBetween: 20,
+      loop: false,
+      pagination: {
+        el: '.ecom-video-reviews__progressbar',
+        type: 'progressbar',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.ecom-video-reviews__next',
+        prevEl: '.ecom-video-reviews__prev',
+      },
+      breakpoints: {
+        700: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3.3,
+          spaceBetween: 24,
+        }
+      }
+    });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Ecom Video Reviews",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Paddings",
+        "info": "Paddings for section"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Padding Top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 32
+      },
+      {
+        "type": "range",
+        "id": "padding_top_desktop",
+        "label": "Padding Top Desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Padding Bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 32
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_desktop",
+        "label": "Padding Bottom Desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 40
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Video Reviews"
+      },
+      {
+        "type": "text",
+        "id": "trustpilot_text",
+        "label": "Trustpilot Text",
+        "default": "Trustpilot"
+      },
+      {
+        "type": "image_picker",
+        "id": "trustpilot_avatars",
+        "label": "Trustpilot Avatars"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "video",
+        "name": "Video",
+        "settings": [
+          {
+            "type": "video",
+            "id": "video",
+            "label": "Video"
+          },
+          {
+            "type": "image_picker",
+            "id": "poster",
+            "label": "Video Thumbnail (Poster)"
+          },
+          {
+            "type": "select",
+            "id": "aspect_ratio",
+            "label": "Aspect Ratio",
+            "options": [
+              {
+                "value": "16:9",
+                "label": "16:9"
+              },
+              {
+                "value": "4:3",
+                "label": "4:3"
+              },
+              {
+                "value": "1:1",
+                "label": "1:1 (Square)"
+              },
+              {
+                "value": "9:13",
+                "label": "9:13 (Vertical)"
+              },
+              {
+                "value": "9:16",
+                "label": "9:16 (Vertical)"
+              }
+            ],
+            "default": "9:13"
+          },
+          {
+            "type": "text",
+            "id": "label",
+            "label": "Label"
+          },
+          {
+            "type": "text",
+            "id": "review_text",
+            "label": "Review Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Ecom Video Reviews"
+      }
+    ]
+  }
+{% endschema %}

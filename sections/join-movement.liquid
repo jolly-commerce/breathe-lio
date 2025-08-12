@@ -1,0 +1,126 @@
+<style>
+ 
+.join-movement {
+  background-image : url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/filminh.png?v=1749562826");
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+   border-top : 1px solid var(--lio-dark-green);
+   border-bottom : 1px solid var(--lio-dark-green);
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+ .join-movement .msg-box {
+    text-align: center;
+    max-width: 830px;
+    margin: auto;
+    margin-bottom: 25px;
+    text-wrap: balance;
+   font-size : 40px;
+   letter-spacing : -0.8px;
+   font-family : var(--heading-font-family);
+   text-transform : uppercase;
+   line-height : 1;
+}
+
+  p.text-mov{
+    font-weight : 400;
+    margin : auto;
+margin-bottom : 20px;
+    font-size : 16px;
+    max-width : 540px;
+    text-align : center;
+  }
+.join-movement .gradient-button {
+    border: 1px solid var(--lio-dark-green);
+    width: 300px;
+    padding: 8px 15px;
+    text-align: center;
+  font-size : 17px;
+}
+  .quote-block-msg{
+     font-weight : 700;
+  font-size : 14px;
+    width : 300px;
+  text-align : center;
+  padding : 12px 15px;
+  line-height : 1.1;
+  width : fit-content;
+  border : 1px solid var(--lio-dark-green);
+  border-radius : 10px;
+    box-shadow: -3px 4px 0 0 var(--lio-dark-green);
+    -webkit-box-shadow: -3px 4px 0px 0px var(--lio-dark-green);
+    -moz-box-shadow: -3px 4px 0px 0px var(--lio-dark-green);
+    margin-bottom : 15px;
+  }
+  @media screen and (max-width: 1024px){
+   .join-movement .msg-box{
+     font-size : 35px;
+   }
+  }
+</style>
+
+<div class="join-movement">
+  <div class="msg-box">
+  {{ section.settings.text }}
+  </div>
+
+  <p class="text-mov">{{ section.settings.founder }}</p>
+   {% for block in section.blocks %}
+     
+          <span class="quote-block-msg">{{ block.settings.text }}</span>
+       
+        {% endfor %}
+  <a class="gradient-button " href="{{ section.settings.button-url }}">{{ section.settings['button-text'] }}</a>
+</div>
+
+{% schema %}
+  {
+    "name": "join-movement",
+    "settings": [
+       {
+    "type": "richtext",
+    "id": "text",
+    "label": "text"
+      },
+    
+        {
+    "type": "text",
+    "id": "founder",
+    "label": "name"
+      },
+      {
+          "type": "url",
+          "id": "button-url",
+          "label": "Button URL"
+        },
+        {
+          "type": "text",
+          "id": "button-text",
+          "label": "Button Text"
+        },
+    ],
+      "blocks": [
+    {
+      "type": "quote",
+      "name": "quote",
+      "settings": [
+          
+         {
+          "type": "text",
+          "id": "text",
+          "label": "text",
+           "default" : "Lio Helps You Quit. Lio Helps the Planet."
+        }
+      
+      ]
+    }
+    ],
+    "presets": [{
+      "name": "join-movement"
+    }]
+  }
+{% endschema %}

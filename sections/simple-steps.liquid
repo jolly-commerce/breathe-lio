@@ -1,0 +1,182 @@
+<style>
+  .simple-steps{
+    width : 100%;
+    background : var(--lio-white);
+
+    border-radius : 20px;
+  }
+ .simple-steps-inner {
+  background: var(--lio-white);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 300px;
+    padding: 64px 80px;
+}
+  .simple-steps-inner h2.h2{
+    text-align : center;
+    color : var(--lio-dark-green);
+  }
+  .s-steps-inner {
+    display: flex;
+    padding: 0px 40px;
+    align-items: center;
+    align-self: stretch;
+    justify-content: center;
+}
+.s-steps-inner .s-steps {
+    display: flex;
+    padding: 0px 50px;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    align-self: stretch;
+    flex-direction: column;
+ 
+}
+      .s-steps-inner .s-steps img{
+        width : 210px;
+      }
+
+.s-step-number {
+    display: flex;
+    width: 56px;
+    height: 56px;
+            color: var(--lio-white);
+
+    padding: 10px 10px 5px 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 10000px;
+    background: var(--lio-light-green);
+    font-family: 'Sigum';
+    font-size: 24px;
+    margin-top: -60px;
+}
+.s-steps p{
+   font-family: 'Sigum';
+    font-size: 16px;
+   color: var(--lio-dark-green);
+  text-align : center;
+  text-transform : uppercase;
+  margin-top  : 15px;
+}
+    @media only screen and (max-width: 999px){
+.simple-steps-inner h2.h2 {
+    font-size: 38px;
+}
+   .simple-steps-inner {
+    background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/dvg.png?v=1748094868");
+      background-size: cover;
+    background-repeat: no-repeat;
+    padding: 40px 20px;
+}   
+    .s-steps-inner {
+    display: flex;
+    padding: 0px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+      .s-steps-inner .s-steps {
+
+    padding: 0px;
+}
+      .s-steps-inner .s-steps img {
+    width: 125px;
+}
+      .s-step-number {
+    width: 46px;
+    height: 46px;
+    padding: 10px 10px 5px 10px;
+    font-size: 20px;
+                  color: var(--lio-white);
+
+    margin-top: -40px;
+}
+   .width-wrapper.outer-simple-steps {
+    padding: 30px 15px;
+}  
+    }
+</style>
+
+<div class="width-wrapper outer-simple-steps">
+  <div class="simple-steps">
+  <div class="simple-steps-inner">
+      <h2 class="h2">{{ section.settings.heading }}</h2>
+<div class="s-steps-inner">
+  <div class="s-steps s-step-1">
+    <img src="{{ section.settings.icon-1 | image_url: width: 1000 }}" />
+    <span class="s-step-number">1</span>
+    <p>{{ section.settings.text-1 }}</p>
+  </div>
+  <div class="s-steps s-step-2">
+    <img src="{{ section.settings.icon-2 | image_url: width: 1000 }}" />
+    <span class="s-step-number">2</span>
+    <p>{{ section.settings.text-2 }}</p>
+  </div>
+  <div class="s-steps s-step-3">
+    <img src="{{ section.settings.icon-3 | image_url: width: 1000 }}" />
+    <span class="s-step-number">3</span>
+    <p>{{ section.settings.text-3 }}</p>
+  </div>
+</div>
+
+  </div>
+</div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Simple-steps",
+    "settings": [
+             {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text",
+         "default" : "just 3 simple steps:"
+        },
+              {
+        "type": "image_picker",
+        "id": "icon-1",
+        "label": "icon-1"
+      },
+         {
+        "type": "text",
+        "id": "text-1",
+        "label": "text-1"
+     },
+                    {
+        "type": "image_picker",
+        "id": "icon-2",
+        "label": "icon-2"
+      },
+         {
+        "type": "text",
+        "id": "text-2",
+        "label": "text-2"
+     },
+                    {
+        "type": "image_picker",
+        "id": "icon-3",
+        "label": "icon-3"
+      },
+         {
+        "type": "text",
+        "id": "text-3",
+        "label": "text-3"
+     },
+    ],
+        "presets": [{
+      "name": "Simple-steps"
+    }]
+  }
+{% endschema %}

@@ -1,0 +1,241 @@
+<style>
+.custom-newsletter{
+  max-width : 1500px;
+  width : 100%;
+  margin : auto;
+    display : flex;
+  padding-top : 20px;
+}  
+  .custom-form-submit{
+    display : flex;
+    flex-direction : column;
+    gap : 10px;
+  }
+  .custom-form-submit input.custom_signup-email{
+    border-radius: 12px;
+    border: 1px solid #00512850;
+    background: transparent;
+    width: 100%;
+    color: black;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    height: 50px;
+    padding-left: 25px;
+}
+  .custom-form-submit input.custom_signup-email:focus{
+    outline : none !Important;
+    
+  }
+   .custom-form-submit .gradient-button{
+     width : 100%;
+     text-align : center;
+     font-size : 18px;
+   }
+  .left-newsletter {
+    width: 45%;
+    padding-left: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    justify-content: center;
+    text-wrap : balance;
+}
+  .left-newsletter h2.h2 {
+    max-width: 400px;
+    position : relative;
+}
+
+ .left-newsletter h2.h2::after {
+    content: "";
+    position: absolute;
+    right: -40px;
+    bottom: -10px;
+    width: 90px;
+    height: 20px;
+    background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Squiggle_Mini_9f.svg?v=1747824794");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+  .right-newsletter{
+    width : 55%;
+    position : relative;
+  }
+  .right-newsletter img.f-image{
+    width : 100%;
+    z-index : 1;
+    position : relative;
+  }
+  .left-newsletter .banner--success {
+    --banner-background: transparent;
+    --banner-color: black;
+    padding: 0;
+}
+p.warn-text{
+  font-size : 10px;
+  margin-top  : -10px;
+}
+  img.abs-img-1,  img.abs-img-2,  img.abs-img-3{
+    position : absolute;
+    width : 50px;
+  }
+   img.abs-img-1{
+     left : 30px;
+     top : 30px;
+     transform : rotate(30deg);
+         width : 20px !important;
+   }
+  img.abs-img-2{
+     right : 30px;
+     top : 10px;
+   }
+  img.abs-img-3{
+     left : 40px;
+     bottom : 110px;
+   }
+ @media screen and (max-width: 990px){
+   .custom-newsletter {
+    max-width: 1500px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    padding-top: 20px;
+    flex-direction: column;
+}
+   .left-newsletter {
+    width: calc(100% - 20px );
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    justify-content: center;
+    text-wrap: balance;
+}
+   .right-newsletter {
+    width: 100%;
+    position: relative;
+}
+    img.abs-img-1,  img.abs-img-2,  img.abs-img-3{
+    position : absolute;
+    width : 20px;
+  }
+   .left-newsletter h2.h2 {
+    max-width: 300px;
+    position: relative;
+}
+   .left-newsletter h2.h2::after {
+    right: 20px;
+   
+}
+   p.warn-text {
+    font-size: 10px;
+    margin-top: -10px;
+    text-wrap: auto;
+    padding-right: 100px;
+}
+ }
+
+  
+</style>
+
+<div class="custom-newsletter">
+  <div class="left-newsletter">
+     <h2 class="h2">{{ section.settings.heading }} <span>{{ section.settings.highlighted-heading }}</span></h2>
+     <p> {{ section.settings.sub-text }}</p>
+    <div class="box-newsletter">
+        {%- assign newsletter_form_id = 'newsletter-form-' | append: section.id -%}
+
+    {%- form 'customer', id: newsletter_form_id, class: 'form' -%}
+      {%- if form.posted_successfully? -%}
+        {%- assign success_message = 'general.newsletter.subscribed_successfully' | t -%}
+        {%- render 'banner', content: success_message, status: 'success' -%}
+      {%- else -%}
+        {%- if form.errors -%}
+          {%- capture error_message -%}{{ form.errors.translated_fields['email'] }} {{ form.errors.messages['email'] }}{%- endcapture -%}
+          {%- render 'banner', content: error_message, status: 'error' -%}
+        {%- endif -%}
+
+        <input type="hidden" name="contact[tags]" value="newsletter">
+
+        <div class="custom-form-submit">
+        
+         <input type="email" placeholder="{{ section.settings.input_text }}" class="custom_signup-email" value="" name="contact[email]"  required>
+         <button class="custom_signup-btn gradient-button" type="submit">{{ section.settings.button_text }}</button>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.subtext != blank -%}
+        <p class="warn-text">{{ section.settings.subtext | escape }}</p>
+      {%- endif -%}
+    {%- endform -%}
+    </div>
+  </div>
+  <div class="right-newsletter">
+     <img class="f-image hidden sm:block" src="{{ section.settings.image | image_url: width: 1000 }}" />
+    <img class="f-image sm:hidden" src="{{ section.settings.image-mobile | image_url: width: 1000 }}" />
+    <img class="abs-img-1" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/preyy.svg?v=1748009350" />
+     <img class="abs-img-2" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/preyy.svg?v=1748009350" />
+     <img class="abs-img-3" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/preyy.svg?v=1748009350" />
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "custom newsletter",
+    "settings": [
+      {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text",
+         "default" : "Unlock Your Exclusive Lio Deal"
+        },
+        {
+          "type": "text",
+          "id": "highlighted-heading",
+          "label": "highlighted-heading"
+          },
+       {
+          "type": "text",
+          "id": "sub-text",
+          "label": "sub-text",
+          "default" : "Sign up to get al the updates"
+        },
+      {
+          "type": "text",
+          "id": "button_text",
+          "label": "button_text",
+          
+        },
+       {
+          "type": "text",
+          "id": "input_text",
+          "label": "input-text",
+          
+        },
+      {
+          "type": "text",
+          "id": "subtext",
+          "label": "below input text",
+        "default" : "*By joining, you'll receive our wellness insights and can unsubscribe anytime."
+          
+        },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "image"
+      },
+        {
+        "type": "image_picker",
+        "id": "image-mobile",
+        "label": "image-mobile"
+      },
+    ],
+    "presets": [{
+      "name": "custom newsletter"
+    }]
+  }
+{% endschema %}

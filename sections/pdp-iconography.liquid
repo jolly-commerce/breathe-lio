@@ -1,0 +1,198 @@
+<style>
+.pdp-iconography {
+   position: relative;
+   border-top: 0.2px solid #00512850;
+     border-bottom: 0.2px solid #00512850;
+   background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/bg-lio-icono.png?v=1748084090");
+   background-size: cover;
+   background-repeat: no-repeat;
+   overflow: hidden; /* Optional: prevents overlay from spilling */
+}
+
+.pdp-iconography::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: #F9F5E980; /* Change alpha for more or less opacity */
+   z-index: 0;
+}
+
+.pdp-iconography > * {
+   position: relative;
+   z-index: 1;
+}
+.pdp-iconography{
+  width : 100%;
+}
+.pdp-icono-top {
+    display: flex;
+    align-items: center;
+}
+.pdp-icono-top h2 {
+    color: #00512850;
+    max-width: 500px;
+    line-height: 0.9;
+}
+.pdp-icono-top h2 span {
+    color: #005128;
+    margin-left: 70px;
+}
+.pdp-icono-top img {
+    max-width: 800px;
+}
+  .pdp-icono-bottom{
+    display: flex;
+align-items: flex-start;
+gap: 80px;
+align-self: stretch;
+  }
+  .pdp-icon-inner{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 16px;
+flex: 1 0 0;
+  }
+  .pdp-icon-inner img{
+    width : 80px;
+  }
+
+ @media screen and (max-width: 990px){
+   .pdp-icono-top {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+   .pdp-icono-top img {
+    width: 100%;
+    max-width: 100%;
+}
+   .pdp-icono-top h2 {
+    color: #00512850;
+    max-width: 100%;
+    line-height: 0.9;
+    width: 100%;
+     margin-bottom : 30px;
+     padding-left : 20px;
+}
+.pdp-icono-bottom {
+    gap: 20px;
+  padding-left : 20px;
+  padding-right : 20px;
+  padding-bottom : 30px;
+  position : relative;
+}
+   .pdp-icon-inner {
+width : 100%;
+}
+  .pdp-iconography .width-wrapper{
+     padding : 30px 0px 50px;
+   }
+     .pdp-icon-inner img{
+    width : 64px;
+  }
+   .icon-scrollbar {
+    position: absolute;
+    bottom: 0px;
+    width: calc(100% - 40px);
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    background: #B6C6BE;
+}
+   .icon-scrollbar .swiper-scrollbar-drag {
+    background: black;
+}
+ }
+
+  
+</style>
+
+<div class="pdp-iconography">
+  <div class="width-wrapper">
+  <div class="pdp-icono-top">
+     <h2 class="h1">{{ section.settings.heading }} <br/> <span>{{ section.settings.highlighted-heading }}</span></h2>
+    <img src="{{ section.settings.image | image_url: width: 1000 }}" />
+    
+  </div>
+
+  <div class="pdp-icono-bottom  mobile-hidden">
+    {% for block in section.blocks %}
+    <div class="pdp-icon-inner">
+      {% if block.settings.image_icon != blank  %}
+      <img class="pdp-icon-image" src="{{ block.settings.image_icon | image_url: width: 400 }}" />
+      {% endif %}
+      <p>{{ block.settings.sub-text }}</p>
+    </div>
+  {% endfor %}
+  </div>
+        <div class="pdp-icono-bottom hidden desktop-hidden swipe-icon">
+  <div class="swiper-wrapper" id="pdp-swiper-wrapper">
+    {% for block in section.blocks %}
+      <div class="swiper-slide">
+        <div class="pdp-icon-inner">
+          {% if block.settings.image_icon != blank %}
+            <img class="pdp-icon-image" src="{{ block.settings.image_icon | image_url: width: 400 }}" />
+          {% endif %}
+          <p>{{ block.settings.sub-text }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+          <div class="icon-scrollbar"></div>
+</div>
+
+</div>
+</div>
+{% schema %}
+  {
+    "name": "pdp-iconography",
+    "settings": [
+       {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text",
+         "default" : "The Good vs The"
+        },
+        {
+          "type": "text",
+          "id": "highlighted-heading",
+          "label": "highlighted-heading",
+          "default" : "Bad"
+          },
+            {
+        "type": "image_picker",
+        "id": "image",
+        "label": "image"
+      },
+    ],
+    "blocks": [
+       {
+      "type": "icon",
+        "name" : "icon",
+      "settings": [
+        {
+        "type": "image_picker",
+        "id": "image_icon",
+        "label": "icon"
+      },
+     {
+        "type": "text",
+        "id": "sub-text",
+        "label": "sub heading text"
+     }
+       
+        
+        
+      ]
+    }
+    ],
+    "presets": [{
+      "name": "pdp-iconography"
+    }]
+  }
+{% endschema %}

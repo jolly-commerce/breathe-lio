@@ -1,0 +1,378 @@
+<style>
+.join-the-movement {
+    width: 100%;
+    background: var(--lio-dark-green);
+    padding: 50px 50px;
+    border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+align-items: flex-start;
+gap: 30px;
+}
+ 
+.join-top{
+  width : 100%;
+  display : flex;
+  justify-content : space-between;
+  align-items : center;
+  padding : 8px 0px;
+  border-bottom: 1px solid rgba(249, 245, 233, 0.12);
+}  
+ .join-top-left {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+  
+   .join-top-left img{
+     width : 100px;
+   }
+  .join-top-left p{
+    color : var(--lio-white);
+    font-weight : 600;
+  }
+  .join-top img.join-peoples{
+    width : 160px;
+  }
+  .join-mid{
+    display: flex;
+justify-content: space-between;
+align-items: flex-end;
+align-self: stretch;
+  }
+  .join-mid h2.h1{
+    font-size : 50px;
+    color : var(--lio-white);
+
+  }
+ .join-bottom {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding-bottom: 30px;
+}
+  .mov-slide-inner{
+    width : 100%;
+    overflow : hidden;
+    border-radius : 16px;
+  }
+   .mov-slide-inner .mov-video-container{
+     width : 100%;
+     height : 430px;
+     position : relative;
+   }
+   .mov-slide-inner .mov-video-container video{
+     width : 100%;
+     height : 100%;
+     object-fit : cover;
+   }
+  .mov-play-button-svg{
+    position : absolute;
+    left : 50%;
+    top : 50%;
+    transform : translate(-50%,-50%);
+    width : 55px;
+  }
+   .mov-slide-inner .mov-video-container span{
+     position: absolute;
+right: 16px;
+bottom: 16px;
+     display: flex;
+padding: 4px 16px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+     border-radius: 1000px;
+background: #EDED5E;
+     color: #005128;
+     text-transform : uppercase;
+     font-weight : 700;
+   }
+
+  .mov-slide-bottom{
+    display: flex;
+padding: 32px 24px;
+flex-direction: column;
+align-items: flex-start;
+gap: 16px;
+align-self: stretch;
+background: rgba(255, 255, 255, 0.06);
+  }
+.mov-slide-bottom p{
+  color : #F8F5E8;
+}
+  .mov-slide-bottom img{
+    width : 85px;
+  }
+  .mov-button-container {
+    display: flex;
+    gap: 10px;
+}
+  .mov-button-container div{
+    display: flex;
+width: 80px;
+height: 49px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+    border-radius: 1000px;
+background: #19613B;
+    cursor : pointer;
+  }
+ .movement-scrollbar {
+    position: absolute;
+    bottom: 0px;
+   width: 100%;
+    height: 2px;
+   border-radius: 100px;
+background: rgba(248, 245, 232, 0.12);
+  }
+.movement-scrollbar .swiper-scrollbar-drag {
+    background: black;
+    height: 3px;
+    display: block !important;
+  border-radius: 100px;
+background: #F8F5E8;
+}
+  @media screen and (max-width: 990px){
+    .join-top-left {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+   #shopify-section-{{section.id}} .width-wrapper {
+    padding: 0px;
+}
+    .join-the-movement {
+    padding: 30px 15px 150px ;
+    border-radius: 0px;
+    gap: 20px;
+}
+    .join-top img.join-peoples {
+    width: 80px;
+}
+    .join-top-left img {
+    width: 80px;
+}
+    .join-top-left p {
+    font-size: 13px;
+    color: #F8F5E8;
+    font-weight: 500;
+}
+    .join-mid {
+      display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+    .join-mid h2.h1 {
+    font-size: 35px;
+    text-align: center;
+    line-height: 0.9;
+}
+    .mov-slide-inner .mov-video-container {
+    width: 100%;
+    height: 350px;
+    position: relative;
+}
+    .mov-button-container {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+  } 
+</style>
+
+
+<div class="width-wrapper">
+  <div class="join-the-movement">
+    <div class="join-top">
+      <div class="join-top-left">
+        <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/green-stars.svg" />
+        <img class="join-peoples sm:hidden" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/peoplesss.png?v=1747912492" />
+        <p>{{ section.settings.trust-text }}</p>
+      </div>
+<img class="join-peoples sm:block hidden" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/peoplesss.png?v=1747912492" />
+    </div>
+    <div class="join-mid">
+      <h2 class="h1">{{ section.settings.heading }} <span>{{ section.settings.highlighted-heading }}</span></h2>
+      <div class="mov-button-container">
+         
+  <div class="prev-mov-1">
+    {{ 'arrow-left.svg' | inline_asset_content }}
+  </div>
+          <div class="next-mov-1">
+         {{ 'arrow-right.svg' | inline_asset_content }}
+  </div>
+      </div>
+    </div>
+    <div class="join-bottom">
+      <div class="swiper-wrapper">
+         {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'infinite-video' %}
+      {% assign sources = block.settings.video.sources %}
+{% if sources.size > 1 %}
+  {% assign video_src = sources[1].url %}
+{% elsif sources.size > 0 %}
+  {% assign video_src = sources[0].url %}
+{% else %}
+  {% assign video_src = '' %}
+{% endif %}
+
+        
+        <div class="swiper-slide"> 
+          <div class="mov-slide-inner">
+            <div class="mov-video-container">
+          <video
+  class="mov-video"
+  src="{{ video_src }}"
+  loop
+  muted
+  preload="auto"
+  playsinline
+  webkit-playsinline
+  poster="{{ block.settings.video.preview_image | image_url: width: 1000 }}"
+></video>
+<img class="mov-play-button-svg" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/white-btn.svg?v=1747915287" />
+              <span>{{ section.settings.age-text }}: {{ block.settings.age }}</span>
+              </div>
+            <div class="mov-slide-bottom">
+              <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/pricng.svg?v=1747755904" />
+              <p>{{ block.settings.review }}</p>
+            </div>
+</div>
+      
+        </div>
+         {% endcase %}
+      {% endfor %}
+      </div>
+     <div class="movement-scrollbar"></div>
+
+  </div>
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const movContainers = Array.from(document.querySelectorAll('.mov-video-container'));
+  let movCurrentVideo = null;
+
+  movContainers.forEach(movContainer => {
+    const movVideo = movContainer.querySelector('video');
+    const movPlayBtn = movContainer.querySelector('.mov-play-button-svg');
+
+   
+    movVideo.muted = true; 
+    movVideo.volume = 1;
+
+    movContainer.style.cursor = 'pointer';
+    movContainer.addEventListener('click', () => {
+      if (movVideo.paused) {
+        // Pause any other video
+        if (movCurrentVideo && movCurrentVideo !== movVideo) {
+          movPauseVideo(movCurrentVideo);
+        }
+        movPlayVideo(movVideo, movPlayBtn);
+        movCurrentVideo = movVideo;
+      } else {
+        movPauseVideo(movVideo);
+      }
+    });
+  });
+
+  function movPlayVideo(movVideo, movBtn) {
+    // Unmute on user play
+    movVideo.muted = false;
+    movVideo.play();
+    if (movBtn) movBtn.style.display = 'none';
+  }
+
+  function movPauseVideo(movVideo) {
+    movVideo.pause();
+    // Re-mute so the next click will re-trigger user-gesture play
+    movVideo.muted = true;
+    const movBtn = movVideo.parentElement.querySelector('.mov-play-button-svg');
+    if (movBtn) movBtn.style.display = '';
+    if (movCurrentVideo === movVideo) movCurrentVideo = null;
+  }
+
+  // Pause when scrolled out of view
+  const movObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const movVid = entry.target;
+      if (!entry.isIntersecting && !movVid.paused) {
+        movPauseVideo(movVid);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  movContainers.forEach(movContainer => {
+    const movVideo = movContainer.querySelector('video');
+    movObserver.observe(movVideo);
+  });
+});
+</script>
+
+
+{% schema %}
+  {
+    "name": "join-the-movement",
+    "settings": [
+       {
+        "type": "text",
+        "id": "trust-text",
+        "label": "trust-text",
+         "default" : "Trusted by 50,000+ people"
+      },
+       {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text",
+         "default" : "Join the movement"
+        },
+        {
+          "type": "text",
+          "id": "highlighted-heading",
+          "label": "highlighted-heading"
+          },
+       {
+          "type": "text",
+          "id": "age-text",
+          "label": "age-text",
+          "default" : "age"
+        },
+    ],
+     "blocks": [
+    {
+      "type": "infinite-video",
+      "name": "auto scroll video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+       
+        {
+          "type": "text",
+          "id": "age",
+          "label": "age"
+        },
+        {
+          "type": "text",
+          "id": "review",
+          "label": "review"
+        },
+      ]
+    }
+  ],
+    "presets": [{
+      "name": "join-the-movement"
+    }]
+  }
+{% endschema %}

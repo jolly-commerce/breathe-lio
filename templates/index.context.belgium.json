@@ -1,0 +1,23 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "index.json",
+  "context": {
+    "market": "belgium"
+  },
+  "sections": {
+    "instant_q_xz_qdr_ck_ki_cae_gkq_bEd4yt": {
+      "settings": {
+        "video_bWObCp9nkSvq5757": "shopify://files/videos/efec3f81-a95d-43be-973a-1890dc7fb743 (1).mp4"
+      },
+      "blocks": {}
+    }
+  }
+}

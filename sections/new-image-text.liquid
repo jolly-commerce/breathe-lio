@@ -1,0 +1,204 @@
+<style>
+  /* Base styles for the image-text section */
+  #shopify-section-{{section.id}} .new-img-text {
+    width: 100%; /* Ensures full width */
+    display: flex;
+    align-items: stretch;
+  }
+
+  /* Styling for the left content block (text) */
+  .img-left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items : center;
+  }
+
+  /* Styling for the right content block (image) */
+  .img-right {
+    width: 100%;
+  }
+
+  /* Heading styling */
+  .img-left h2.h2 {
+    font-size: 45px;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  .img-left h2 span {
+  
+    color : var(--lio-light-green);
+  }
+.sub-heading-img {
+    font-size: 15px;
+}
+
+  .img-right img {
+    width: 100%;
+  }
+.c-inner-center{
+   display: flex;
+    flex-direction: column;
+    gap: 30px;
+  width : 100%;
+  max-width : 500px;
+   text-wrap: balance;
+  font-weight : 500;
+}
+.quote-block-in{
+  font-weight : 700;
+  font-size : 14px;
+  padding : 8px 15px;
+  line-height : 1.1;
+  width : fit-content;
+  border : 1px solid var(--lio-dark-green);
+  border-radius : 10px;
+    box-shadow: -3px 4px 0 0 var(--lio-dark-green);
+    -webkit-box-shadow: -3px 4px 0px 0px var(--lio-dark-green);
+    -moz-box-shadow: -3px 4px 0px 0px var(--lio-dark-green);
+}
+  .help-button-links .btn-secondary {
+    background: #F9F5E9;
+    border: 1px solid var(--lio-dark-green);
+  
+}
+  /* Desktop specific styles (min-width: 1025px) */
+  @media screen and (min-width: 1025px) {
+    /* Reverse layout if text-right setting is enabled */
+    {% if section.settings.text-right %}
+      #shopify-section-{{section.id}} .new-img-text {
+        flex-direction: row-reverse;
+      }
+    {% endif %}
+
+.img-left{
+  border-bottom : 1px solid var(--lio-dark-green);
+}
+  }
+
+  /* Mobile specific styles (max-width: 1024px) */
+  @media screen and (max-width: 1024px) {
+    /* Stack content vertically on mobile */
+    #shopify-section-{{section.id}} .new-img-text {
+      flex-direction: column;
+      gap: 30px;
+      padding: 30px 0px 0px 0px; /* Adjusted padding for mobile */
+    }
+.c-inner-center {
+    padding: 0px 20px;
+  gap: 20px;
+}
+
+    .img-left {
+      gap: 20px;
+    }
+.quote-block-in{
+  width : 300px;
+}
+    /* Heading font size for mobile */
+    .img-left h2.h2 {
+      font-size: 35px;
+      letter-spacing: -1.0px;
+    }
+  }
+</style>
+
+<div class="new-img-text">
+  <div class="img-left">
+    <div class="c-inner-center">
+    <h2 class="h2">
+      {{ section.settings['heading-before'] -}}
+      {% if section.settings['high-heading'] != blank %}
+        <span class="">{{ section.settings['high-heading'] }}</span>
+      {% endif %}
+      {{ section.settings['heading-after'] -}}
+    </h2>
+    <div class="sub-heading-img">{{ section.settings.sub-heading }}</div>
+      {% for block in section.blocks %}
+     
+          <span class="quote-block-in">{{ block.settings.text }}</span>
+       
+        {% endfor %}
+   </div>
+  </div>
+  <div class="img-right">
+    <picture class="left-image">
+      {% if section.settings.main-image-mob !=blank %}
+        <source srcset="{{ section.settings.main-image-mob | img_url: 'master' }}" media="(max-width: 700px)">
+      {% else %}
+        <source srcset="{{ section.settings.main-image | img_url: 'master' }}" media="(max-width: 700px)">
+      {% endif %}
+      <img src="{{ section.settings.main-image | img_url: 'master' }}" alt="Graphics">
+    </picture>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "New image text",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "text-right",
+        "label": "text on right",
+        "info": "check to place text right on desktop"
+      },
+      {
+        "type": "image_picker",
+        "id": "main-image",
+        "label": "Right Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "main-image-mob",
+        "label": "Right Image mobile"
+      },
+      {
+        "type": "text",
+        "id": "heading-before",
+        "label": "Heading Before"
+      },
+      {
+        "type": "text",
+        "id": "high-heading",
+        "label": "Heighlighted heading"
+      },
+      {
+        "type": "text",
+        "id": "heading-after",
+        "label": "Heading After"
+      },
+      {
+        "type": "richtext",
+        "id": "sub-heading",
+        "label": "sub-heading"
+      },
+     
+    ],
+     "blocks": [
+    {
+      "type": "quote",
+      "name": "quote",
+      "settings": [
+          
+         {
+          "type": "text",
+          "id": "text",
+          "label": "text",
+           "default" : "No smoke. No vape. No nicotine. Just clean, fresh air."
+        }
+      
+      ]
+    }
+    ],
+    "presets": [
+      {
+        "name": "New image text"
+      }
+    ]
+  }
+{% endschema %}

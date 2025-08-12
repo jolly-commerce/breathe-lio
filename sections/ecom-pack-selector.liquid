@@ -1,0 +1,827 @@
+{{ 'ecom-pack-selector.css' | asset_url | stylesheet_tag: preload: true }}
+
+{% assign journey_pack = all_products['journey-pack-1'] %}
+
+<style>
+  .ecom-pack-selector {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    @media (min-width: 1150px) {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+</style>
+
+<section class="ecom-pack-selector" id="ecom-pack-selector">
+  <div class="ecom-pack-selector__container container">
+    <div class="ecom-pack-selector__heading">
+      <div class="ecom-pack-selector__benefits">
+        {% if section.settings.benefit_1 != blank %}
+          <span class="ecom-pack-selector__benefit">{{ section.settings.benefit_1 }}</span>
+        {% endif %}
+
+        {% if section.settings.benefit_2 != blank %}
+          <span class="ecom-pack-selector__benefit">{{ section.settings.benefit_2 }}</span>
+        {% endif %}
+
+        {% if section.settings.benefit_3 != blank %}
+          <span class="ecom-pack-selector__benefit">{{ section.settings.benefit_3 }}</span>
+        {% endif %}
+      </div>
+
+      <h2 class="ecom-pack-selector__title">{{ section.settings.title }}</h2>
+      <div class="ecom-pack-selector__discount-label">{{ section.settings.discount_label }}</div>
+    </div>
+
+    <div class="ecom-pack-selector__inner">
+      <div class="ecom-pack-selector__content-note ecom-pack-selector__content-note--mobile">
+        <h4>{{ section.settings.note_title }}</h4>
+        <p>{{ section.settings.note_text }}</p>
+      </div>
+
+      <div class="ecom-pack-selector__media">
+        <div class="swiper ecom-pack-selector__swiper">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% if block.type == 'image' %}
+                <div class="swiper-slide ecom-pack-selector__media-image-wrapper">
+                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', width: 800, height: 800, class: 'ecom-pack-selector__media-image'  }}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="ecom-pack-selector__progressbar swiper-pagination"></div>
+        </div>
+        
+        <div class="ecom-pack-selector__navigation">
+          <button class="ecom-pack-selector__prev">
+            {% render 'icon' , icon: 'arrow-left', width: 24, height: 24 %}
+          </button>
+          <button class="ecom-pack-selector__next">
+            {% render 'icon' , icon: 'arrow-right', width: 24, height: 24 %}
+          </button>
+        </div>
+
+        <div class="ecom-pack-selector__media-card">
+          {% assign default_variant_option = '' %}
+          {% for variant in journey_pack.variants %}
+            {% if variant.metafields.custom.featured_icon != blank %}
+              {% if default_variant_option == blank %}
+                {% assign default_variant_option = variant.options[0] %}
+                {% assign default_variant = variant %}
+              {% endif %}
+
+              <div 
+                class="ecom-pack-selector__media-card-item {% if variant.options[0] == default_variant_option %}ecom-pack-selector__media-card-item--selected{% endif %}" 
+                data-variant-id="{{ variant.id }}" 
+                data-variant-type="{{ variant.options[0] | handleize }}"
+              >
+                {{ variant.metafields.custom.featured_icon | image_url: width: 300 | image_tag: alt: "Featured Icon", width: 300, height: 300, class: "ecom-pack-selector__media-card-icon" }}
+                <span class="ecom-pack-selector__media-card-title">{{ variant.options[0] }}</span>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="ecom-pack-selector__content">
+        <div class="ecom-pack-selector__content-note ecom-pack-selector__content-note--desktop">
+          <h4>{{ section.settings.note_title }}</h4>
+          <p>{{ section.settings.note_text }}</p>
+        </div>
+
+
+        <div class="ecom-pack-selector__lio-selector">
+          <h4 class="ecom-pack-selector__lio-selector-title">
+            <span>{{ section.settings.lio_selector_title }}</span>
+            <button class="ecom-pack-selector__lio-selector__title-info-button">
+              {% render 'icon' , icon: 'info', width: 14, height: 14 %}
+            </button>
+          </h4>
+          <div class="ecom-pack-selector__lio-selector__options-wrapper">
+            <ul class="ecom-pack-selector__lio-selector-options">
+              {% for variant in journey_pack.variants %}
+                {% if variant.metafields.custom.featured_icon != blank %}
+                  <li 
+                    class="ecom-pack-selector__lio-option {% if variant.options[0] == default_variant_option %}ecom-pack-selector__lio-option--selected{% endif %}" 
+                    data-variant-id="{{ variant.id }}" 
+                    data-variant-type="{{ variant.options[0] | handleize }}"
+                  >
+                    <div class="ecom-pack-selector__lio-option-content">
+                      <div class="ecom-pack-selector__lio-option-image-wrapper">
+                        {{ variant.metafields.custom.featured_icon_horizontal | image_url: width: 300 | image_tag: alt: "Lio Icon", width: 300, height: 300, class: "ecom-pack-selector__lio-option-image" }}
+                      </div>
+    
+                      <span class="ecom-pack-selector__lio-option-title">
+                        {% case variant.options[0] %}
+                          {% when section.settings.option_handle_1 %}
+                            {{ section.settings.lio_selector_option_1 }}
+                          {% when section.settings.option_handle_2 %}
+                            {{ section.settings.lio_selector_option_2 }}
+                          {% when section.settings.option_handle_3 %}
+                            {{ section.settings.lio_selector_option_3 }}
+                          {% when section.settings.option_handle_4 %}
+                            {{ section.settings.lio_selector_option_4 }}
+                          {% when section.settings.option_handle_5 %}
+                            {{ section.settings.lio_selector_option_5 }}
+                          {% when section.settings.option_handle_6 %}
+                            {{ section.settings.lio_selector_option_6 }}
+                          {% when section.settings.option_handle_7 %}
+                            {{ section.settings.lio_selector_option_7 }}
+                          {% when section.settings.option_handle_8 %}
+                            {{ section.settings.lio_selector_option_8 }}
+                        {% endcase %}
+                      </span>
+                    </div>
+  
+                    <div class="ecom-pack-selector__lio-option-price-and-toggle-btn">
+                      <span class="ecom-pack-selector__lio-option-price-label">{{ section.settings.lio_selector_price_label }}</span>
+                      <span class="ecom-pack-selector__lio-option-price">{{ variant.price | money }}</span>
+                      {% render 'icon' , icon: 'chevron-down-thin', width: 24, height: 24 %}
+                    </div>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <div class="ecom-pack-selector__pack-selector">
+          <h4 class="ecom-pack-selector__pack-selector-title">{{ section.settings.pack_selector_title }}</h4>
+
+          <div class="ecom-pack-selector__pack-selector-options">
+            {% for variant in journey_pack.variants %}
+              {% assign show_pack_option = '' %}
+              {% assign pack_variant_id_1 = '' %}
+              {% assign pack_variant_id_2 = '' %}
+              {% assign current_variant_option_0 = variant.options[0] %}
+
+              {% if variant.options[0] == default_variant_option %}
+                {% assign show_pack_option = 'true' %}
+              {% endif %}
+
+              {% if variant.metafields.custom.pack_option_toggle != blank %}
+                {% if variant.id == default_variant.id %}
+                  {% assign show_pack_option = 'true' %}
+                {% else %}
+                  {% assign show_pack_option = '' %}
+                {% endif %}
+
+                {% if variant.options[1] == section.settings.pack_selector_toggle_1 %}
+                  {% assign pack_variant_id_1 = variant.id %}
+                {% endif %}
+                {% if variant.options[1] == section.settings.pack_selector_toggle_2 %}
+                  {% assign pack_variant_id_2 = variant.id %}
+                {% endif %}
+  
+                {% if pack_variant_id_1 == blank %}
+                  {% assign filtered_variants_1 = journey_pack.variants | where: "options[0]", current_variant_option_0 %}
+                  {% assign pack_variant_1 = filtered_variants_1 | where: "options[1]", section.settings.pack_selector_toggle_1 %}
+  
+                  {% if pack_variant_1.size > 0 %}
+                    {% assign pack_variant_id_1 = pack_variant_1.first.id %}
+                  {% else %}
+                    {% assign pack_variant_id_1 = '' %}
+                  {% endif %}
+                {% endif %}
+  
+                {% if pack_variant_id_2 == blank %}
+                  {% assign filtered_variants_2 = journey_pack.variants | where: "option1", current_variant_option_0 %}
+                  {% assign pack_variant_2 = filtered_variants_2 | where: "option2", section.settings.pack_selector_toggle_2 %}
+  
+                  {% if pack_variant_2.size > 0 %}
+                    {% assign pack_variant_id_2 = pack_variant_2.first.id %}
+                  {% else %}
+                    {% assign pack_variant_id_2 = '' %}
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+
+
+              <div
+                class="ecom-pack-selector__pack-option {% if show_pack_option == 'true' %}ecom-pack-selector__pack-option--show{% endif %} {% if variant.id == default_variant.id %}ecom-pack-selector__pack-option--selected{% endif %}"
+                data-variant-id="{{ variant.id }}"
+                data-variant-type="{{ variant.options[0] | handleize }}"
+                data-default-toggle-variant-id="{{ pack_variant_id_1 }}"
+                data-is-toggle-variant="{{ variant.metafields.custom.pack_option_toggle }}"
+              > 
+                {% assign pack_option_title = variant.metafields.custom.pack_option_title | default: variant.title %}
+                <div class="ecom-pack-selector__pack-option__text-content">
+                  <h6 class="ecom-pack-selector__pack-option__title">{{ pack_option_title }}</h6>
+                  {% if variant.metafields.custom.pack_option_description != blank %}
+                    <p class="ecom-pack-selector__pack-option__description">{{ variant.metafields.custom.pack_option_description | newline_to_br }}</p>
+                  {% endif %}
+                </div>
+
+                {% if variant.featured_image != blank %}
+                  {{ variant.featured_image | image_url: width: 500 | image_tag: alt: "Pack Option Image", width: 500, height: 500, class: "ecom-pack-selector__pack-option__image" }}
+                {% endif %}
+
+                <div class="ecom-pack-selector__pack-option__info-content">
+                  {% if variant.metafields.custom.pack_option_badge != blank or variant.metafields.custom.pack_option_badge_two != blank %}
+                    {% assign pack_option_badge = variant.metafields.custom.pack_option_badge %}
+                    {% if pack_option_badge == blank %}
+                      {% assign pack_option_badge = variant.metafields.custom.pack_option_badge_two %}
+                    {% endif %}
+  
+                    <div class="ecom-pack-selector__pack-option__badge {% if variant.metafields.custom.pack_option_badge_two != blank %}ecom-pack-selector__pack-option__badge--two{% endif %}">{{ pack_option_badge }}</div>
+                  {% endif %}
+  
+                  {% if variant.metafields.custom.pack_option_toggle != blank %}
+                    <div class="ecom-pack-selector__pack-option__toggles">
+                      <span 
+                        class="ecom-pack-selector__pack-option__toggle {% if variant.id == pack_variant_id_1 %}ecom-pack-selector__pack-option__toggle--active{% endif %}"
+                        data-variant-id="{{ pack_variant_id_1 }}"
+                        data-option-variant-id="{{ pack_variant_id_2 }}"
+                      >{{ section.settings.pack_selector_toggle_1 }}</span>
+                      <div 
+                        class="ecom-pack-selector__pack-option__toggler-wrapper"
+                        data-selected-variant-id="{{ pack_variant_id_1 }}"
+                        data-option-variant-id="{{ pack_variant_id_2 }}"
+                      >
+                        <div class="ecom-pack-selector__pack-option__toggler"></div>
+                      </div>
+                      <span 
+                        class="ecom-pack-selector__pack-option__toggle {% if variant.id == pack_variant_id_2 %}ecom-pack-selector__pack-option__toggle--active{% endif %}"
+                        data-variant-id="{{ pack_variant_id_2 }}"
+                        data-option-variant-id="{{ pack_variant_id_1 }}"
+                      >{{ section.settings.pack_selector_toggle_2 }}</span>
+                    </div>
+                  {% endif %}
+  
+                  <div class="ecom-pack-selector__pack-option__prices">
+                    <span class="ecom-pack-selector__pack-option__compare-price">{{ variant.compare_at_price | money }}</span>
+                    <span class="ecom-pack-selector__pack-option__price">{{ variant.price | money }}</span>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="ecom-pack-selector__cta-and-order-benefits-wrapper">
+          {% render 'ecom-cta', text: section.settings.pack_selector_cta_text, button_class: 'ecom-pack-selector__cta' %}
+
+          <ul class="ecom-pack-selector__payment-icons--mobile">
+            {%- for type in shop.enabled_payment_types -%}
+              <li class="contents">{{ type | payment_type_svg_tag }}</li>
+            {%- endfor -%}
+          </ul>
+          
+          <div class="ecom-pack-selector__order-benefits">
+            {% if section.settings.order_benefit_1 != blank %}
+              <p class="ecom-pack-selector__order-benefit">
+                {% if section.settings.order_benefit_1_icon != blank %}
+                  {{ section.settings.order_benefit_1_icon | image_url: width: 16 | image_tag: alt: "Order Benefit 1 Icon", width: 16, height: 16 }} 
+                {% endif %}
+                <span>{{ section.settings.order_benefit_1 }}</span>
+              </p>
+            {% endif %}
+            {% if section.settings.order_benefit_2 != blank %}
+              <p class="ecom-pack-selector__order-benefit">
+                {% if section.settings.order_benefit_2_icon != blank %}
+                  {{ section.settings.order_benefit_2_icon | image_url: width: 16 | image_tag: alt: "Order Benefit 2 Icon", width: 16, height: 16 }} 
+                {% endif %}
+                <span>{{ section.settings.order_benefit_2 }}</span>
+              </p>
+            {% endif %}
+          </div>
+        </div>
+        <ul class="ecom-pack-selector__payment-icons--desktop">
+          {%- for type in shop.enabled_payment_types -%}
+            <li class="contents">{{ type | payment_type_svg_tag }}</li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="ecom-pack-selector__info-modal" style="display: none;">
+    <div class="ecom-pack-selector__info-modal-overlay"></div>
+    <div class="ecom-pack-selector__info-modal-content">
+      <button class="ecom-pack-selector__info-modal-content--close">
+        {% render 'icon' , icon: 'close', width: 14, height: 14 %}
+      </button>
+      <h4>{{ section.settings.info_modal_title }}</h4>
+      <p>{{ section.settings.info_modal_text | newline_to_br }}</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const packSelector = new Swiper('.ecom-pack-selector__swiper', {
+      loop: false,
+      slidesPerView: 1.1,
+      spaceBetween: 8,
+      breakpoints: {
+        1150: {
+          slidesPerView: 1,
+          spaceBetween: 0,
+        }
+      },
+      pagination: {
+        el: '.ecom-pack-selector__progressbar',
+        type: 'progressbar',
+      },
+      navigation: {
+        nextEl: '.ecom-pack-selector__next',
+        prevEl: '.ecom-pack-selector__prev',
+      }
+    });
+
+    // Variant selection and cart functionality
+    const packSelectorComponent = document.querySelector('.ecom-pack-selector');
+    if (!packSelectorComponent) return;
+
+    // Elements
+    const lioOptions = packSelectorComponent.querySelectorAll('.ecom-pack-selector__lio-option');
+    const lioMediaCards = packSelectorComponent.querySelectorAll('.ecom-pack-selector__media-card-item');
+    const packOptions = packSelectorComponent.querySelectorAll('.ecom-pack-selector__pack-option');
+    const addToCartBtn = packSelectorComponent.querySelector('.ecom-pack-selector__cta');
+    const lioSelectorOptions = packSelectorComponent.querySelector('.ecom-pack-selector__lio-selector-options');
+    const lioToggleBtns = packSelectorComponent.querySelectorAll('.ecom-pack-selector__lio-option-toggle-btn');
+
+    const packOptionTogglers = packSelectorComponent.querySelectorAll('.ecom-pack-selector__pack-option__toggler-wrapper');
+    
+    // Get default selected variant ID
+    let selectedVariantId = '';
+    const defaultPackOption = packSelectorComponent.querySelector('.ecom-pack-selector__pack-option--selected');
+    if (defaultPackOption) {
+      selectedVariantId = defaultPackOption.getAttribute('data-variant-id');
+    }
+
+    // Handle Lio option selection
+    lioOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        const variantType = this.getAttribute('data-variant-type');
+        
+        // Update Lio option selection
+        lioOptions.forEach(opt => opt.classList.remove('ecom-pack-selector__lio-option--selected'));
+        this.classList.add('ecom-pack-selector__lio-option--selected');
+        
+        // Toggle dropdown class
+        lioSelectorOptions.classList.toggle('ecom-pack-selector__lio-selector-options--open');
+        
+        // Move selected option to the beginning of parent element
+        const parent = this.parentElement;
+        parent.insertBefore(this, parent.firstChild);
+        
+        // Show/hide all options based on dropdown state
+        lioOptions.forEach(opt => {
+          opt.style.display = lioSelectorOptions.classList.contains('ecom-pack-selector__lio-selector-options--open') ? 'flex' : '';
+        });
+        
+        // Update media card selection
+        lioMediaCards.forEach(card => {
+          card.classList.remove('ecom-pack-selector__media-card-item--selected');
+          if (card.getAttribute('data-variant-type') === variantType) {
+            card.classList.add('ecom-pack-selector__media-card-item--selected');
+          }
+        });
+        
+        // Show/hide pack options based on variant type
+        packOptions.forEach(packOpt => {
+          packOpt.classList.remove('ecom-pack-selector__pack-option--show', 'ecom-pack-selector__pack-option--selected');
+          if (packOpt.getAttribute('data-variant-type') === variantType) {
+            if (( packOpt.getAttribute('data-default-toggle-variant-id') != packOpt.getAttribute('data-variant-id') && packOpt.getAttribute('data-is-toggle-variant'))) return;
+
+            packOpt.classList.add('ecom-pack-selector__pack-option--show');
+      
+            // Select the first matching pack option
+            if (!selectedVariantId) {
+              packOpt.classList.add('ecom-pack-selector__pack-option--selected');
+              selectedVariantId = packOpt.getAttribute('data-variant-id');
+            }
+          }
+        });
+        
+        // Select first matching pack option
+        const firstMatchingPackOption = packSelectorComponent.querySelector(`.ecom-pack-selector__pack-option[data-variant-type="${variantType}"]`);
+        if (firstMatchingPackOption) {
+          firstMatchingPackOption.classList.add('ecom-pack-selector__pack-option--selected');
+          selectedVariantId = firstMatchingPackOption.getAttribute('data-variant-id');
+        }
+      });
+    });
+
+    // Handle Lio toggle buttons
+    lioToggleBtns.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        lioSelectorOptions.classList.toggle('ecom-pack-selector__lio-selector-options--open');
+        
+        // Show/hide all options when dropdown is open
+        lioOptions.forEach(opt => {
+          opt.style.display = lioSelectorOptions.classList.contains('ecom-pack-selector__lio-selector-options--open') ? 'flex' : '';
+        });
+      });
+    });
+
+    // Handle pack option selection
+    packOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        // Update pack option selection
+        packOptions.forEach(opt => {
+          if (opt.classList.contains('ecom-pack-selector__pack-option--show')) {
+            opt.classList.remove('ecom-pack-selector__pack-option--selected');
+          }
+        });
+        this.classList.add('ecom-pack-selector__pack-option--selected');
+        selectedVariantId = this.getAttribute('data-variant-id');
+      });
+    });
+
+    packOptionTogglers.forEach(toggler => {
+      toggler.addEventListener('click', function(e) {
+        e.stopPropagation();
+        let targetVariantId = this.getAttribute('data-selected-variant-id');
+        let optionVariantId = this.getAttribute('data-option-variant-id');
+
+        selectedVariantId = optionVariantId;
+
+        let selectedOption;
+        let optionVariant;
+
+        packOptions.forEach(opt => {
+          if (opt.getAttribute('data-variant-id') == targetVariantId) {
+            selectedOption = opt;
+          }
+          if (opt.getAttribute('data-variant-id') == optionVariantId) {
+            optionVariant = opt;
+          }
+        });
+
+        const optToggler = optionVariant.querySelector('.ecom-pack-selector__pack-option__toggler-wrapper');
+
+        optToggler.setAttribute('data-selected-variant-id', optionVariantId);
+        optToggler.setAttribute('data-option-variant-id', targetVariantId);
+        toggler.classList.toggle('ecom-pack-selector__pack-option__toggler-wrapper--reverse');
+        optToggler.classList.toggle('ecom-pack-selector__pack-option__toggler-wrapper--reverse');
+
+        selectedOption.classList.remove('ecom-pack-selector__pack-option--selected');
+        selectedOption.classList.remove('ecom-pack-selector__pack-option--show');
+        
+        optionVariant.classList.add('ecom-pack-selector__pack-option--selected');
+        optionVariant.classList.add('ecom-pack-selector__pack-option--show');
+      });
+    });
+
+    // Handle add to cart
+    if (addToCartBtn) {
+      addToCartBtn.addEventListener('click', function() {
+        if (!selectedVariantId) {
+          console.error('No variant selected');
+          return;
+        }
+
+        // Add loading state
+        addToCartBtn.setAttribute('disabled', true);
+        addToCartBtn.textContent = 'Adding...';
+
+        // Add to cart using Shopify AJAX API
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            items: [{
+              id: selectedVariantId,
+              quantity: 1
+            }]
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Redirect to cart page or update cart drawer
+          addToCartBtn.textContent = 'Added!';
+        })
+        .catch(error => {
+          console.error('Error adding to cart:', error);
+          addToCartBtn.textContent = 'Error - Try Again';
+        })
+        .finally(() => {
+          setTimeout(() => {
+            addToCartBtn.removeAttribute('disabled');
+            addToCartBtn.textContent = 'Add to cart';
+          }, 2000);
+        });
+      });
+    }
+
+    // Info modal functionality
+    const infoModal = document.querySelector('.ecom-pack-selector__info-modal');
+    const infoButton = document.querySelector('.ecom-pack-selector__lio-selector__title-info-button');
+    const closeButton = document.querySelector('.ecom-pack-selector__info-modal-content--close');
+    const modalOverlay = document.querySelector('.ecom-pack-selector__info-modal-overlay');
+    
+    // Open modal when info button is clicked
+    if (infoButton && infoModal) {
+      infoButton.addEventListener('click', function() {
+        infoModal.style.display = 'block';
+      });
+    }
+    
+    // Close modal when close button is clicked
+    if (closeButton && infoModal) {
+      closeButton.addEventListener('click', function() {
+        infoModal.style.display = 'none';
+      });
+    }
+    
+    // Close modal when overlay is clicked
+    if (modalOverlay && infoModal) {
+      modalOverlay.addEventListener('click', function() {
+        infoModal.style.display = 'none';
+      });
+    }
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Ecom Pack Selector",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Paddings",
+        "info": "Paddings for section"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Padding Top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 32
+      },
+      {
+        "type": "range",
+        "id": "padding_top_desktop",
+        "label": "Padding Top Desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Padding Bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 32
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_desktop",
+        "label": "Padding Bottom Desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 40
+      },
+      {
+        "type": "header",
+        "content": "Benefits",
+        "info": "Benefits above the title"
+      },
+      {
+        "type": "text",
+        "id": "benefit_1",
+        "label": "Benefit 1"
+      },
+      {
+        "type": "text",
+        "id": "benefit_2",
+        "label": "Benefit 2"
+      },
+      {
+        "type": "text",
+        "id": "benefit_3",
+        "label": "Benefit 3"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "discount_label",
+        "label": "Discount Label"
+      },
+      {
+        "type": "text",
+        "id": "note_title",
+        "label": "Note Title",
+        "default": "Lio is a natural, nicotine-free ritual to help you break free from smoking or vaping."
+      },
+      {
+        "type": "textarea",
+        "id": "note_text",
+        "label": "Note Text",
+        "default": "Designed to satisfy the hand-to-mouth habit with calming, plant-based aromas — no vapor, no batteries, just pure relief."
+      },
+      {
+        "type": "header",
+        "content": "Step 1 options (Lio)",
+        "info": "Content and Options for step 1"
+      },
+      {
+        "type": "text",
+        "id": "lio_selector_title",
+        "label": "Selector Title Step 1",
+        "default": "Step 1: Choose Your Lio"
+      },
+      {
+        "type": "text",
+        "id": "info_modal_title",
+        "label": "Info Modal Title",
+        "default": "Lio types"
+      },
+      {
+        "type": "textarea",
+        "id": "info_modal_text",
+        "label": "Info Modal Text",
+      },
+      {
+        "type": "text",
+        "id": "lio_selector_price_label",
+        "label": "Lio Selector Price Label",
+        "default": "From"
+      },
+      {
+        "type": "text",
+        "id": "option_handle_1",
+        "label": "Lio Selector Option Handle 1",
+        "default": "Olive"
+      },
+      {
+        "type": "text",
+        "id": "lio_selector_option_1",
+        "label": "Lio Selector Option 1",
+        "default": "Olive Wood"
+      },
+      {
+        "type": "text",
+        "id": "option_handle_2",
+        "label": "Lio Selector Option Handle 2",
+        "default": "Walnut"
+      },
+      {
+        "type": "text",
+        "id": "lio_selector_option_2",
+        "label": "Lio Selector Option 2",
+        "default": "Walnut Wood"
+      },
+      {
+        "type": "text",
+        "id": "option_handle_3",
+        "label": "Lio Selector Option Handle 3",
+        "default": "Black"
+      },
+      {
+        "type": "text",
+        "id": "lio_selector_option_3",
+        "label": "Lio Selector Option 3",
+        "default": "Black Aluminium"
+      },
+      {
+        "type": "text",
+        "id": "option_handle_4",
+        "label": "Lio Selector Option Handle 4",
+        "default": "Silver"
+      },
+      {
+        "type": "text",
+        "id": "lio_selector_option_4",
+        "label": "Lio Selector Option 4",
+        "default": "Silver Aluminium"
+      },
+      {
+        "type": "text",
+        "id": "option_handle_5",
+        "label": "Lio Selector Option Handle 5",
+        "default": "Silver Gen 2"
+      },
+      {
+        "type": "text",
+        "id": "lio_selector_option_5",
+        "label": "Lio Selector Option 5",
+        "default": "Black Stainless Steel"
+      },
+      {
+        "type": "text",
+        "id": "option_handle_6",
+        "label": "Lio Selector Option Handle 6",
+        "default": "Black Gen 2"
+      },
+      {
+        "type": "text",
+        "id": "lio_selector_option_6",
+        "label": "Lio Selector Option 6",
+        "default": "Black Stainless Steel"
+      },
+      {
+        "type": "text",
+        "id": "option_handle_7",
+        "label": "Lio Selector Option Handle 7",
+        "default": "Silver Gen 2"
+      },
+      {
+        "type": "text",
+        "id": "lio_selector_option_7",
+        "label": "Lio Selector Option 7",
+        "default": "Silver Stainless Steel"
+      },
+      {
+        "type": "text",
+        "id": "option_handle_8",
+        "label": "Lio Selector Option Handle 8",
+        "default": "Silver Gen 2"
+      },
+      {
+        "type": "text",
+        "id": "lio_selector_option_8",
+        "label": "Lio Selector Option 8"
+      },
+      {
+        "type": "header",
+        "content": "Step 2 pack options",
+        "info": "Title and Options for step 2"
+      },
+      {
+        "type": "text",
+        "id": "pack_selector_title",
+        "label": "Pack Selector Title",
+        "default": "Step 2: Choose Your Pack"
+      },
+      {
+        "type": "text",
+        "id": "pack_selector_toggle_1",
+        "label": "Pack Selector Toggle Option 1",
+        "default": "Minty"
+      },
+      {
+        "type": "text",
+        "id": "pack_selector_toggle_2",
+        "label": "Pack Selector Toggle Option 2",
+        "default": "Fruity"
+      },
+      {
+        "type": "text",
+        "id": "pack_selector_cta_text",
+        "label": "Pack Selector CTA Text",
+        "default": "Order with discount"
+      },
+      {
+        "type": "text",
+        "id": "order_benefit_1",
+        "label": "Order Benefit 1",
+        "default": "30 Days Money Back"
+      },
+      {
+        "type": "image_picker",
+        "id": "order_benefit_1_icon",
+        "label": "Order Benefit 1 Icon"
+      },
+      {
+        "type": "text",
+        "id": "order_benefit_2",
+        "label": "Order Benefit 2",
+        "default": "Free UK Delivery (2–3 Days)"
+      },
+      {
+        "type": "image_picker",
+        "id": "order_benefit_2_icon",
+        "label": "Order Benefit 2 Icon"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Ecom Pack Selector"
+      }
+    ]
+  }
+{% endschema %}

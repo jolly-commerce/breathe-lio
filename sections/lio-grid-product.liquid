@@ -1,0 +1,219 @@
+<style>
+
+  
+  .lio-grid-product{
+    display : grid;
+    grid-template-columns : 1fr 1fr;
+    gap : 15px;
+    padding-top : 20px !Important;
+  }
+  .left-grid-full{
+    
+  }
+ .grid-container-half {
+    display: flex;
+    position: relative;
+    border-radius: 20px;
+    width: 100%;
+    overflow: hidden;
+    padding: 25px 20px 20px;
+    flex-direction: column;
+    align-items: center;
+    min-height: 300px;
+   gap :5px;
+}
+  .grid-container-half * {
+    z-index: 1;
+}
+ .grid-container-half img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    z-index: 0!important;
+}
+   .grid-container-half  .h3 {
+    color: var(--lio-white);
+    font-size: 50px;
+    text-align: center;
+    position: relative;
+}
+    .grid-container-half .h3:after {
+    content: "";
+    position: absolute;
+    right: -50px;
+    bottom: -5px;
+    width: 110px;
+    height: 15px;
+    background: url(/cdn/shop/files/Squiggle_Mini_9.svg?v=1747756615);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+   .grid-container-half p {
+    color: var(--lio-white);
+    text-align: center;
+    font-size: 19px;
+    margin-bottom: 12px;
+    line-height: 1.25;
+}
+  .right-grid-half{
+    display : flex;
+    flex-direction : column;
+    gap : 15px;
+
+  
+  }
+.grid-container-half .gradient-button {
+    font-size: 19px;
+    padding: 9px 0px;
+    max-width: 260px;
+    width: 100%;
+    text-align: center;
+}
+    @media (max-width: 990px){
+      .lio-grid-product {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 15px;
+}
+      .grid-container-half  .h3 {
+    font-size: 30px;
+}
+      .left-grid-full.grid-container-half {
+    min-height: 300px;
+}
+
+      
+      .grid-container-half{
+         min-height: 250px;
+      }
+      .grid-container-half p {
+    font-size: 15px;
+        
+}
+      .grid-container-half .gradient-button {
+    font-size: 14px;
+    max-width: 220px;
+
+        
+}
+    }
+</style>
+<div class="width-wrapper lio-grid-product">
+  <div class="left-grid-full grid-container-half">
+      <img src="{{ section.settings.image_1 | image_url: width: 1000 }}">
+     <h3 class="h3">{{ section.settings.image_heading_1 }}</h3>
+            <p>{{ section.settings.image_sub_heading_1 }}</p>
+           <a href="{{ section.settings.image_link_1 }}" class="gradient-button">{{ section.settings.image_url_text_1 }}</a>
+  </div>
+   <div class="right-grid-half">
+    <div class="righ-inner-half grid-container-half">
+      <img src="{{ section.settings.image_2 | image_url: width: 1000 }}">
+     <h3 class="h3">{{ section.settings.image_heading_2 }}</h3>
+            <p>{{ section.settings.image_sub_heading_2 }}</p>
+           <a href="{{ section.settings.image_link_2 }}" class="gradient-button">{{ section.settings.image_url_text_2 }}</a>
+    </div>
+     <div class="righ-inner-half grid-container-half">
+      <img src="{{ section.settings.image_3 | image_url: width: 1000 }}">
+     <h3 class="h3">{{ section.settings.image_heading_3 }}</h3>
+            <p>{{ section.settings.image_sub_heading_3 }}</p>
+           <a href="{{ section.settings.image_link_3 }}" class="gradient-button">{{ section.settings.image_url_text_3 }}</a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "lio-grid-product",
+    "settings": [
+       {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image",
+          "info": "1200 x 1200px .jpg recommended"
+        },
+        {
+          "type": "text",
+          "id": "image_heading_1",
+          "label": "Heading"
+        },
+         {
+          "type": "text",
+          "id": "image_sub_heading_1",
+          "label": "sub Heading"
+        },
+        {
+          "type": "url",
+          "id": "image_link_1",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "image_url_text_1",
+          "label": "image_url_text",
+          "default" : "Shop Our Cores"
+        },
+      {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image",
+          "info": "1200 x 1200px .jpg recommended"
+        },
+        {
+          "type": "text",
+          "id": "image_heading_2",
+          "label": "Heading"
+        },
+         {
+          "type": "text",
+          "id": "image_sub_heading_2",
+          "label": "sub Heading"
+        },
+        {
+          "type": "url",
+          "id": "image_link_2",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "image_url_text_2",
+          "label": "image_url_text",
+          "default" : "Shop Our Cores"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image",
+          "info": "1200 x 1200px .jpg recommended"
+        },
+        {
+          "type": "text",
+          "id": "image_heading_3",
+          "label": "Heading"
+        },
+         {
+          "type": "text",
+          "id": "image_sub_heading_3",
+          "label": "sub Heading"
+        },
+        {
+          "type": "url",
+          "id": "image_link_3",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "image_url_text_3",
+          "label": "image_url_text",
+          "default" : "Shop Our Cores"
+        },
+    ],
+    "presets": [{
+      "name": "lio-grid-product"
+    }]
+  }
+{% endschema %}

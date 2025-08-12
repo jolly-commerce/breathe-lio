@@ -1,0 +1,485 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "instant-KjMYnShO8DUADAef": {
+      "type": "instant-KjMYnShO8DUADAef",
+      "settings": {}
+    },
+    "ss_video_slider_E8XUdU": {
+      "type": "ss-video-slider",
+      "blocks": {
+        "slide_fKNBgh": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/1724386284_V1.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_MckV7D": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/WhatsApp_Video_2024_08_05_at_12_53_05_PM_2_V5.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_fTAcc7": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/default_8_mp4_V4.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_kNhawj": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/default_8_mp4_V8.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_cePBCn": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/1734082081_V2.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_dBjgaQ": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/default_8_mp4_V11.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_YKezdm": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/1733840798_2_mov_V1.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_DqPBtJ": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/56fe3510_52aa_4b2c_a59d_248d451b578a_2_MP4_V1_7dfde71d-ec79-4c00-8fe0-d491fa1d0e2c.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_KDj46A": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/56fe3510_52aa_4b2c_a59d_248d451b578a_2_MP4_V12.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_WAQACX": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/copy_800A28DE-4635-43A8-BC90-018B55CD6006 2 (1).mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_HzKWEp": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/WhatsApp_Video_2024_08_05_at_12_53_05_PM_2_V6.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_9JfFLn": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/WhatsApp_Video_2024_08_05_at_12_53_05_PM_2_V7.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_PbJFHf": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/bfeb179a_cc7c_474a_8492_a9fcdf2408ac_1_1_3_V1.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_hWh9Nj": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/default_8_mp4_V6.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_86PiFx": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/default_8_mp4_V7.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        },
+        "slide_fDTVkr": {
+          "type": "slide",
+          "settings": {
+            "video": "shopify://files/videos/default_8_mp4_V10.mp4",
+            "video_url": "",
+            "title": "",
+            "stars_count": 5
+          }
+        }
+      },
+      "block_order": [
+        "slide_fKNBgh",
+        "slide_MckV7D",
+        "slide_fTAcc7",
+        "slide_kNhawj",
+        "slide_cePBCn",
+        "slide_dBjgaQ",
+        "slide_YKezdm",
+        "slide_DqPBtJ",
+        "slide_KDj46A",
+        "slide_WAQACX",
+        "slide_HzKWEp",
+        "slide_9JfFLn",
+        "slide_PbJFHf",
+        "slide_hWh9Nj",
+        "slide_86PiFx",
+        "slide_fDTVkr"
+      ],
+      "settings": {
+        "slider_view": 5,
+        "slider_view_mobile": 2,
+        "slider_gap": 10,
+        "slider_gap_mobile": 10,
+        "slider_rotate": 0,
+        "card_padding_vertical": 20,
+        "card_padding_vertical_mobile": 20,
+        "card_padding_horizontal": 20,
+        "card_padding_horizontal_mobile": 20,
+        "card_radius": 16,
+        "card_border_thickness": 0,
+        "card_shadow": false,
+        "card_ratio": "portrait",
+        "card_ratio_mobile": "portrait",
+        "card_overlay": 0.2,
+        "content_horizontal_position": "center",
+        "content_horizontal_position_mobile": "center",
+        "content_vertical_position": "end",
+        "content_vertical_position_mobile": "end",
+        "title_custom": false,
+        "title_font": "josefin_sans_n4",
+        "title_size": 16,
+        "title_size_mobile": 16,
+        "title_height": 100,
+        "stars_size": 16,
+        "stars_size_mobile": 16,
+        "stars_mt": 16,
+        "stars_mt_mobile": 16,
+        "hide_stars": false,
+        "use_action": true,
+        "action_size": 40,
+        "action_size_mobile": 40,
+        "action_icon_size": 24,
+        "action_icon_size_mobile": 24,
+        "action_border_thickness": 0,
+        "use_sound": true,
+        "sound_size": 40,
+        "sound_size_mobile": 40,
+        "sound_icon_size": 24,
+        "sound_icon_size_mobile": 24,
+        "sound_border_thickness": 0,
+        "arrow_size": 48,
+        "arrow_size_mobile": 48,
+        "arrow_icon_size": 8,
+        "arrow_icon_size_mobile": 8,
+        "arrow_border_thickness": 0,
+        "arrow_radius": 100,
+        "arrow_hover_effect": "color",
+        "arrow_show_desktop": true,
+        "arrow_show_mobile": false,
+        "card_border_color": "#000000",
+        "card_shadow_color": "#000000",
+        "card_overlay_color": "#000000",
+        "title_color": "#ffffff",
+        "stars_color": "#ffffff",
+        "action_color": "#ffffff",
+        "action_hover_color": "#ffffff",
+        "action_bg_color": "#ffffff",
+        "action_bg_hover_color": "#ffffff",
+        "action_border_color": "#ffffff",
+        "action_border_hover_color": "#ffffff",
+        "arrow_color": "#ffffff",
+        "arrow_hover_color": "#434343",
+        "arrow_bg_color": "#434343",
+        "arrow_bg_hover_color": "#ffffff",
+        "arrow_border_color": "#000000",
+        "arrow_border_hover_color": "#000000",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 0,
+        "padding_horizontal_mobile": 0,
+        "full_width": false,
+        "content_width": 120,
+        "border_thickness": 0,
+        "lazy": true
+      }
+    },
+    "ss_feature_15_jzUnx8": {
+      "type": "ss-feature-15",
+      "blocks": {
+        "item_9GJzr6": {
+          "type": "item",
+          "settings": {
+            "icon": "atc",
+            "custom_icon": "shopify://shop_images/habit-icon-vector-image-can-be-used-lifestyles_120816-219924-Photoroom_3.webp",
+            "heading": "Keep the familiair hand-to-mouth habit",
+            "text": "<p>Designed to <strong>mimic the physical action of smoking and vaping</strong>, Lio helps users transition effortlessly while breaking free from harmful habits.</p><p></p>",
+            "image": "shopify://shop_images/DSCF8769-Enhanced-NR_1_2_8fc847a8-1a4b-47e3-9957-8365fb421f21.jpg"
+          }
+        },
+        "item_ebCQLH": {
+          "type": "item",
+          "settings": {
+            "icon": "atc",
+            "custom_icon": "shopify://shop_images/habit-icon-vector-image-can-be-used-lifestyles_120816-219924-Photoroom_1.webp",
+            "heading": "100% Natural & Chemical-Free",
+            "text": "<p>Lio offers a <strong>pure, plant-based solution</strong> for cravings—no nicotine, no smoke, no vapor, no chemicals. Just natural ingredients for a clean, guilt-free experience.</p>",
+            "image": "shopify://shop_images/CHY_3074_1_-min.png"
+          }
+        },
+        "item_pqA76P": {
+          "type": "item",
+          "settings": {
+            "icon": "atc",
+            "custom_icon": "shopify://shop_images/habit-icon-vector-image-can-be-used-lifestyles_120816-219924-Photoroom_2.webp",
+            "heading": "Cost-Effective Alternative",
+            "text": "<p>Lio is <strong>90% cheaper than your bad habit</strong>, making it an affordable long-term solution for those looking to quit.</p><p></p>",
+            "image": "shopify://shop_images/foto_slide_9_8.webp"
+          }
+        },
+        "item_g8B8DN": {
+          "type": "item",
+          "settings": {
+            "icon": "atc",
+            "custom_icon": "shopify://shop_images/habit-icon-vector-image-can-be-used-lifestyles_120816-219924-Photoroom_1.png",
+            "heading": "Scientifically Proven to Be Effective & Safe",
+            "text": "<p>Lio is backed by <strong>science and research</strong> as a <strong>safe</strong> and <strong>effective</strong> method to break free from nicotine and vaping addiction—without harmful chemicals, smoke, or vapor.</p>",
+            "image": "shopify://shop_images/Screenshot_2025-01-27_at_15.22.25.webp"
+          }
+        }
+      },
+      "block_order": [
+        "item_9GJzr6",
+        "item_ebCQLH",
+        "item_pqA76P",
+        "item_g8B8DN"
+      ],
+      "settings": {
+        "heading": "<h2>What makes Lio different?</h2>",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 54,
+        "heading_size_mobile": 30,
+        "heading_height": 130,
+        "heading_align_mobile": "center",
+        "tabs_radius": 6,
+        "tabs_border_thickness": 0,
+        "tabs_mt_mobile": 24,
+        "tab_padding_vertical": 10,
+        "tab_padding_vertical_mobile": 10,
+        "tab_padding_horizontal": 14,
+        "tab_padding_horizontal_mobile": 14,
+        "tab_icon_size": 24,
+        "tab_icon_size_mobile": 24,
+        "tab_custom": false,
+        "tab_font": "josefin_sans_n4",
+        "tab_size": 14,
+        "tab_height": 100,
+        "slider_mt": 40,
+        "slider_mt_mobile": 40,
+        "slide_gap": 32,
+        "content_horizontal_align": "start",
+        "content_horizontal_align_mobile": "center",
+        "sub_heading_custom": false,
+        "sub_heading_font": "josefin_sans_n4",
+        "sub_heading_size": 32,
+        "sub_heading_size_mobile": 30,
+        "sub_heading_height": 130,
+        "sub_heading_mt": 20,
+        "text_custom": false,
+        "text_font": "josefin_sans_n4",
+        "text_size": 18,
+        "text_size_mobile": 18,
+        "text_height": 150,
+        "text_mt": 16,
+        "text_mt_mobile": 16,
+        "list_item_icon_size": 16,
+        "list_item_icon_size_mobile": 16,
+        "slide_image_position": "right",
+        "slide_image_radius": 12,
+        "slide_image_border_thickness": 0,
+        "slide_image_mt_mobile": 20,
+        "slide_image_ratio": "square",
+        "slide_image_ratio_mobile": "square",
+        "arrow_size": 48,
+        "arrow_size_mobile": 48,
+        "arrow_icon_size": 8,
+        "arrow_icon_size_mobile": 8,
+        "arrow_border_thickness": 1,
+        "arrow_hover_effect": "arrow",
+        "arrow_show_desktop": true,
+        "arrow_show_mobile": true,
+        "tabs_border_color": "#000000",
+        "tab_color": "#000000",
+        "tab_hover_color": "#000000",
+        "tab_active_color": "#000000",
+        "tab_bg_color": "#f9f6f1",
+        "tab_bg_hover_color": "#ede6db",
+        "tab_bg_active_color": "#fbb163",
+        "slide_image_border_color": "#000000",
+        "sub_heading_color": "#000000",
+        "text_color": "#000000",
+        "arrow_color": "#000000",
+        "arrow_hover_color": "#000000",
+        "arrow_bg_color": "",
+        "arrow_bg_hover_color": "",
+        "arrow_border_color": "#000000",
+        "arrow_border_hover_color": "#000000",
+        "heading_color": "#000000",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 10,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": false,
+        "content_width": 120,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
+    "instant_z_h_ay_atp_fvnl7a6_ss_G43wXJ": {
+      "type": "instant-zHAyAtpFvnl7a6SS",
+      "settings": {
+        "text_FId9aQ8LoYnMc9CX": "<h3>ALL DELICIOUS</h3>",
+        "text_K3IPhfeUmPHR6os4": "<h3>FLAVOURs</h3>",
+        "text_q0OovOvlZaEVt3kN": "<h3>you need</h3>",
+        "text_CRwKFDU8jmrNkIlz": "<h3>MONEY BACK</h3>",
+        "text_WBQcaAakVrWbslG8": "<h3>GUARANTEE</h3>",
+        "text_17aVzgm46l2kTrjB": "<h3>We’re so confident in Lio, that if it didn&apos;t work,  </h3><h3>you’ll get your money back.</h3>",
+        "text_9voC8MfaLYCwGWNT": "<h3>Less than 1% claim their money back </h3>",
+        "product_ick0L9Q1HTFzpo42": "lio®-journey-pack",
+        "text_taMHouX99Al5Ejq4": "<h3>THE ONLY</h3>",
+        "text_1l1bFy30Sc48w8HG": "<h3><strong>ALTERNATIVE</strong></h3>",
+        "text_QFlSEeHL5mSx9pag": "<h3><strong>\"Why is quitting so hard?\"</strong></h3>",
+        "text_3o3Z7EFASA4zjpq5": "<p><strong>Because most quitting methods rely on nicotine, keeping you stuck in the cycle of addiction. </strong></p><p></p><p>Lio, is different—no nicotine, no chemicals, just natural flavoured air that curbs cravings while keeping the familiar hand-to-mouth motion.</p>",
+        "text_sJ3uFfH9IeAfkJHq": "<h3>World&apos;s first</h3>",
+        "text_B0bekbyolWAc2aHR": "<h3>Flavoured</h3>",
+        "text_cMKLPX7KcfzWpKDl": "<h3><strong>AIR DIFFUSER</strong></h3>",
+        "text_HwXvBwZeAEPJ20pX": "<h3>World&apos;s first</h3>",
+        "text_TUKLYQgcpDxsTmqA": "<h3>FLAVOURED</h3>",
+        "text_GYBGPNOWEGFpEWGj": "<h3>AIR DIFFUSER</h3>",
+        "text_ySbOKxchWp0xBRwh": "<h3>\"The diffuser that’s transforming the way people quit smoking &amp; vaping for good.\"</h3>",
+        "text_fndkDmtYI7SYB7le": "<p>Quitting smoking or vaping isn’t easy, but Lio simplifies it by focusing on what truly works.</p><p></p><p>Unlike other solutions that rely on nicotine or chemicals, Lio helps you <strong>curb cravings naturally</strong> while preserving the familiar<strong> hand-to-mouth habit</strong>.</p><p></p><p>No need for cold turkey or frustration with methods that fall short.</p><p></p><p>With Lio, you get a <strong>natural</strong>, <strong>stress-free way</strong> to break free—without side effects.</p><p></p><p>It’s a tool designed to support your journey, making quitting feel achievable and empowering every step of the way.</p>",
+        "text_1tTgxMEEPKTq07jB": "<p>Start My Journey</p>",
+        "url_NwIDJBLhypho2nL8": "#i7ruGs3H0LLIY53mK",
+        "text_AB9O9d1tYWmIYell": "<p>Start My Journey</p>",
+        "text_aIIWMMcYJa0Znrrj": "<p>Didn&apos;t quit in 30 Days? Money Back!</p>",
+        "text_XmFM1sAMOKsSFscQ": "<p>Rated 4.7/5 out of 400+ reviews</p>",
+        "text_ZAbDwRUOlJoRbiYZ": "<h3>what our customers say</h3>",
+        "text_O1KvkfZNtECFE9Y6": "<p>Discover the incredible </p><p>success stories our customers.</p>",
+        "text_Wkv7bJK4zqUyVala": "<p>Verified Buyer </p>",
+        "text_y4Po3H4Aw8zqKkfO": "<p>Simple &amp; Effective</p>",
+        "text_sHfLsDkB9bZRY9vt": "<p>\"After a week of using Lio, I already feel the difference. No smoke, no nicotine—just something to keep my hands busy guilt-free. A true lifesaver!\"</p>",
+        "text_6cuFsa8bGnApogiG": "<p>Zakaria Ernst</p><p>(9 Days Ago)</p>",
+        "text_Nt5zXOQijW5moYCi": "<p>Verified Buyer </p>",
+        "text_9uhwWWGzx9P7bTyD": "<p>Helps me stay off cigs!</p>",
+        "text_dgqskPMsuT3ZQPz7": "<p>\"Lio has been an excellent replacement to curb my cravings. Lost my device, but they quickly sent a replacement—great product and service!\"</p>",
+        "text_hTae24fd1HCrUcuL": "<p>Josje Laan</p><p>(18 Days Ago)</p>",
+        "text_Zn4zcPTKuyeYsG3u": "<p>Verified Buyer </p>",
+        "text_Tswlw00IhhtvvZJb": "<p>Absolute game-changer!</p>",
+        "text_EWAwMd6LhCmaG4CH": "<p>\"3 months nicotine-free thanks to Lio! The customer service was exceptional. I&apos;m grateful for this product on my journey to quit smoking💪\"</p>",
+        "text_Z6ugpuv9nna6nlbH": "<p>Sofie Povis</p><p>(5 Days Ago)</p>",
+        "text_BthNYz1JjmK1hYOl": "<p>Verified Buyer </p>",
+        "text_rRB5KgDB7bDMrbuA": "<p>I quit after 35 years</p>",
+        "text_ROU1d2KEiuPpXZbs": "<p>\"After seeing my colleague with his Lio, I took the plunge. I had been a smoker for 35 years and quitting was hell. With Lio it goes without saying, although I don&apos;t leave my house without it.\"</p>",
+        "text_MDhN5LIV4vn3czO6": "<p>Koen Bakker</p><p>(16 Days Ago)</p>",
+        "text_aKeTVk3C3TnuDaKh": "<p>Verified Buyer </p>",
+        "text_sODzkRXnkXWFq6Q6": "<p>Lio saved my life</p>",
+        "text_rbUXjcGK7liDbvK9": "<p>I was smoking almost 20 cigarettes per day. I tried lots of expensive ways to quit smoking but unfortunately without results. I decided to try Lio and in 2 weeks I&apos;m only using this. Without anxiety crisis.</p>",
+        "text_p3nCEpzNsuKA3lMU": "<p>Pedro Kawal</p><p>(18 Days Ago)</p>",
+        "url_eq6hMM4xuOsZdW9A": "#i7ruGs3H0LLIY53mK",
+        "text_SJXUTIhYRFMSMM5v": "<p>Start My Journey</p>",
+        "text_rKd1akfB4mWMNBKL": "<h3>THE LIO DIFFUSER</h3>",
+        "text_fO0Ii1BFAvcqI18v": "<h3>EXPLAINED</h3>",
+        "text_WOk0IL9ejrxEXObb": "<h3><strong>\"Using Lio is as simple as it gets—designed for ease and effectiveness.\"</strong></h3>",
+        "text_BKcwaEKEfNx3BPRv": "<h3>Not complicated—just 3 simple steps:</h3>",
+        "text_yCD7cNT23PGY9Gbt": "<h3>Not complicated—just 3 simple steps:</h3>",
+        "text_zfnO39gDWAq8Ovxa": "<h3><strong>1:</strong> Fray </h3><h3>the Core</h3>",
+        "text_gPjpJ0kkIrJ0a3pS": "<h3><strong>3:</strong> Relief</h3><h3>cravings</h3>",
+        "text_H8o8VBCjGCK6nNCR": "<h3><strong>2:</strong> Insert</h3><h3>the Core</h3>",
+        "url_yQOSNkONzbgFNT6n": "#i7ruGs3H0LLIY53mK",
+        "text_feUMBawQoVlgNou5": "<p>Start My Journey</p>",
+        "text_Irjs7cqw8yIjhTAU": "<p>Rated 4.7/5 out of 400+ reviews</p>",
+        "text_iPGUTbwOwo4hK9Y9": "<h3>Real stories from </h3><h3>people like you.</h3>",
+        "text_Q9CTo1FDBwbhwjaX": "<p>Our customers say..</p>",
+        "text_4W5QnalED0BMyeo9": "<p>Great Taste</p>",
+        "text_fHe1TWQSWpTbD1JH": "<p>Replaced Hand to Mouth Habit</p>",
+        "text_nTA4CsWSeeZbLUp5": "<p>No Nicotine Intake</p>",
+        "text_wusbnD2wCMaNQOv2": "<p>Most Effective Alternative</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "instant-KjMYnShO8DUADAef",
+    "ss_video_slider_E8XUdU",
+    "ss_feature_15_jzUnx8",
+    "instant_z_h_ay_atp_fvnl7a6_ss_G43wXJ"
+  ]
+}

@@ -1,0 +1,294 @@
+<style>
+  /* ------------------------------
+     ABOUT STATS SECTION
+     Text (left) + Image (right) layout
+  ------------------------------ */
+  .about-stats {
+  
+  }
+
+  .about-stats__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  /* LEFT COLUMN (stats) */
+  .about-stats__text {
+    flex: 1 1 50%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ .about-stats__stat {
+    margin-bottom: 60px;
+    width: 70%;
+}
+
+  .about-stats__stat:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .about-stats__number {
+    font-size: 95px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+    font-family: 'Sigum';
+    color : #302F2F;
+}
+
+ .about-stats__description {
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    border-bottom: 1px solid #BEBBBB;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    color: #302F2F;
+}
+div#Stat-stat_iRxVxq .about-stats__number {
+    color: var(--lio-light-green);
+}
+  .about-stats__footnote {
+    font-size: 13px;
+    color: #434343;
+    line-height: 1.35;
+    font-weight : 500;
+  }
+
+  /* RIGHT COLUMN (image) */
+  .about-stats__image {
+    flex: 1 1 50%;
+    text-align: center;
+  }
+
+  .about-stats__image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* RESPONSIVE */
+  @media screen and (max-width: 768px) {
+   .about-stats__wrapper {
+    flex-direction: column-reverse;
+}
+    .about-stats__text,
+    .about-stats__image {
+      flex: 1 1 100%;
+      padding: 0;
+    }
+    .about-stats__text {
+    margin-bottom: 30px;
+    padding: 20px;
+}
+    .about-stats__stat {
+    margin-bottom: 40px;
+    width: 100%;
+}
+    .about-stats__number {
+    font-size: 70px;
+}
+    .about-stats__description {
+    font-size: 15px;
+    letter-spacing: -0.2px;
+}
+    .about-stats__footnote {
+    font-size: 10px;
+}
+  }
+</style>
+
+<section class="about-stats">
+  <div class="about-stats__wrapper">
+    <div class="about-stats__text">
+      {% for block in section.blocks %}
+        <div id="Stat-{{ block.id }}" class="about-stats__stat">
+          {% if block.settings.stat_number != blank %}
+            <div class="about-stats__number">
+              {% assign raw = block.settings.stat_number %}
+              <span class="count" data-target="{{ raw }}">
+                1{{ raw | remove: '1' }}
+              </span>
+            </div>
+          {% endif %}
+
+          {% if block.settings.stat_description != blank %}
+            <div class="about-stats__description">
+              {{ block.settings.stat_description }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.stat_footnote != blank %}
+            <div class="about-stats__footnote">
+              {{ block.settings.stat_footnote }}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="about-stats__image">
+      {% if section.settings.image != blank %}
+        <img
+          src="{{ section.settings.image | img_url: 'master' }}"
+          alt="alternae"
+        >
+      {% endif %}
+    </div>
+  </div>
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  var counters = document.querySelectorAll('.about-stats__number .count');
+  var animationSpeed = 200; // higher = slower (more frames)
+
+  var observerOptions = {
+    root: null,
+    threshold: 0.3
+  };
+
+  var observer = new IntersectionObserver(function(entries, obs) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  counters.forEach(function(counter) {
+    observer.observe(counter);
+  });
+
+  function animateCounter(el) {
+    var fullString = el.getAttribute('data-target').trim();
+    // 1. Match the part that’s digits or commas (e.g. “3,945,880”)
+    var match = fullString.match(/[\d,]+/);
+    if (!match) {
+     
+      el.innerText = fullString;
+      return;
+    }
+
+    var numericStringWithCommas = match[0];
+    // 2. Strip commas to parse an integer
+    var numericPart = parseInt(numericStringWithCommas.replace(/,/g, ''), 10);
+    if (isNaN(numericPart)) {
+      el.innerText = fullString;
+      return;
+    }
+
+  
+    var suffix = fullString.replace(numericStringWithCommas, '');
+
+    // Helper: format with commas as thousands separators
+    function formatNumber(num) {
+      return num.toLocaleString('en-US');
+    }
+
+   
+    var startValue = 1;
+    el.innerText = formatNumber(startValue) + suffix;
+
+    
+    var increment = Math.ceil(numericPart / animationSpeed);
+
+    function updateCount() {
+      // Read the currently displayed number (strip non-digits again)
+      var displayed = parseInt(el.innerText.replace(/\D/g, ''), 10) || 0;
+      if (displayed < numericPart) {
+        var nextValue = displayed + increment;
+        if (nextValue > numericPart) nextValue = numericPart;
+        el.innerText = formatNumber(nextValue) + suffix;
+        setTimeout(updateCount, 10); // ~10ms per frame
+      } else {
+       
+        el.innerText = fullString;
+      }
+    }
+
+    updateCount();
+  }
+});
+
+</script>
+
+{% schema %}
+{
+  "name": "About Stats",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right-side image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Statistic",
+      "settings": [
+        {
+          "type": "text",
+          "id": "stat_number",
+          "label": "Number (e.g. 82%)",
+          "default": "82%"
+        },
+        {
+          "type": "textarea",
+          "id": "stat_description",
+          "label": "Description",
+          "default": "Less waste produced by Lio cores, compared to disposable vape cartridges in the market"
+        },
+        {
+          "type": "text",
+          "id": "stat_footnote",
+          "label": "Footnote (optional)",
+          "default": "Based on internal analysis comparing material breakdown and usage rates across product lifespan."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "About Stats",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "stat_number": "82%",
+            "stat_description": "Less waste produced by Lio cores, compared to disposable vape cartridges in the market",
+            "stat_footnote": "Based on internal analysis comparing material breakdown and usage rates across product lifespan."
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "stat_number": "3,945,880",
+            "stat_description": "Plastic devices avoided since 2021 by choosing Lio’s reusable, refillable diffuser",
+            "stat_footnote": ""
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "stat_number": "100%",
+            "stat_description": "Renewable energy used to power core flavor production and lab testing in 2023",
+            "stat_footnote": "Verified through third-party certification and supplier disclosures."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

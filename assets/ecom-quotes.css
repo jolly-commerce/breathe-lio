@@ -1,0 +1,72 @@
+.ecom-quotes {
+  padding-top: 32px;
+  background-color: #F8F5E8;
+  overflow: hidden;
+}
+@media (min-width: 1280px) {
+  .ecom-quotes {
+    border-bottom: 1.5px solid rgba(0, 81, 40, 0.2);
+  }
+}
+.ecom-quotes__swiper {
+  padding: 0 0 32px !important;
+}
+.ecom-quotes__slide {
+  height: auto;
+}
+.ecom-quotes__quote {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.ecom-quotes__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.ecom-quotes__avatar img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.ecom-quotes__text {
+  color: #005128;
+  width: calc(100% - 48px);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  letter-spacing: -0.48px;
+}
+.ecom-quotes__navigation {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  pointer-events: none;
+  padding: 0 10px;
+}
+@media (min-width: 1000px) {
+  .ecom-quotes__navigation {
+    padding: 0 15px;
+  }
+}
+.ecom-quotes__progressbar {
+  background: rgba(0, 81, 40, 0.1215686275) !important;
+  height: 3px !important;
+  border-radius: 100px !important;
+  top: unset !important;
+  bottom: 0 !important;
+}
+.ecom-quotes__progressbar .swiper-pagination-progressbar-fill {
+  background-color: #005128 !important;
+  border-radius: 100px !important;
+}

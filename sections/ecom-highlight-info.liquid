@@ -1,0 +1,79 @@
+{{ 'ecom-highlight-info.css' | asset_url | stylesheet_tag: preload: true }}
+
+<div class="ecom-highlight-info">
+  <div class="ecom-highlight-info__container width-wrapper">
+    <div class="ecom-highlight-info__headings">
+      {% if section.settings.show_check %}
+        <span class="ecom-highlight-info__check--desktop">
+          {% render 'icon' with 'check-circle-curved' %}
+        </span>
+      {% endif %}
+      <div class="ecom-highlight-info__headings-content">
+        {% if section.settings.reviews_text != blank %}
+          <p class="ecom-highlight-info__reviews-text">
+            {% if section.settings.show_check %}
+              <span class="ecom-highlight-info__check--mobile">
+              {% render 'icon' with 'check-circle-curved' %}
+            </span>
+            {% endif %}
+            <span class="ecom-highlight-info__reviews-text--desktop">{{ section.settings.reviews_text }}</span>
+            <span class="ecom-highlight-info__reviews-text--mobile">{{ section.settings.reviews_text | newline_to_br }}</span>
+          </p>
+        {% endif %}
+        {% if section.settings.title != blank and section.settings.title_desktop != blank %}
+          <div class="ecom-highlight-info__title ecom-highlight-info__title--mobile">{{ section.settings.title | newline_to_br }}</div>
+          <div class="ecom-highlight-info__title ecom-highlight-info__title--desktop">{{ section.settings.title_desktop | newline_to_br }}</div>
+        {% endif %}
+      </div>
+    </div>
+  
+    {% if section.settings.description != blank %}
+      <div class="ecom-highlight-info__description">
+        {{ section.settings.description | newline_to_br }}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ecom Highlight Info",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_check",
+      "label": "Show Check",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "reviews_text",
+      "label": "Reviews Text",
+      "default": "Verification based on 50,000+ reviews & testing"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title (mobile)",
+      "default": "No nicotine, \no chemicals.\nJust results."
+    },
+    {
+      "type": "textarea",
+      "id": "title_desktop",
+      "label": "Title (desktop)",
+      "default": "No nicotine, no chemicals. Just results."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Lio ranks #1 in customer success rate and long-term quitting impact.\nAlso, the guarantee is something that gives this a 100% reason to try it."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ecom Highlight Info"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,104 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "ss_header_1_BYg7tx": {
+      "type": "ss-header-1",
+      "settings": {
+        "show_type": "always",
+        "transparent_bg": "home",
+        "body_gap": 40,
+        "body_gap_mobile": 12,
+        "menu": "",
+        "mega_menu_radius": 18,
+        "mega_menu_radius_top": 18,
+        "mega_menu_margin_top": 30,
+        "list_gap": 48,
+        "list_gap_mobile": 24,
+        "link_custom": false,
+        "link_font": "josefin_sans_n4",
+        "link_size": 16,
+        "link_size_mobile": 14,
+        "link_height": 130,
+        "menu_icon_size_mobile": 26,
+        "logo": "shopify://shop_images/Logo_Lio2_2_2_2_1_3_3.png",
+        "logo_width": 50,
+        "logo_width_mobile": 60,
+        "logo_position": "center",
+        "name_custom": false,
+        "name_font": "josefin_sans_n4",
+        "name_size": 32,
+        "name_size_mobile": 20,
+        "name_height": 130,
+        "right_gap": 48,
+        "right_gap_mobile": 16,
+        "right_link_custom": false,
+        "right_link_font": "josefin_sans_n4",
+        "right_link_size": 16,
+        "right_link_height": 130,
+        "icon_size": 20,
+        "icon_size_mobile": 18,
+        "use_search": false,
+        "search_text": "SEARCH",
+        "search_icon_desktop": false,
+        "search_menu_mobile": true,
+        "use_account": false,
+        "account_text": "ACCOUNT",
+        "account_icon_desktop": false,
+        "account_menu_mobile": true,
+        "cart_text": "CART",
+        "cart_icon_desktop": true,
+        "mobile_menu_bg_color": "#ffffff",
+        "link_color": "#ffffff",
+        "link_hover_color": "#ffffff",
+        "link_hero_color": "#FFFFFF",
+        "link_hover_hero_color": "#ffffff",
+        "name_color": "#ffffff",
+        "name_hover_color": "#ffffff",
+        "name_hero_color": "#FFFFFF",
+        "name_hover_hero_color": "#ffffff",
+        "right_link_color": "#ffffff",
+        "right_link_hover_color": "#ffffff",
+        "right_link_hero_color": "#FFFFFF",
+        "right_link_hover_hero_color": "#ffffff",
+        "background_color": "#00b67c",
+        "border_color": "#00b67c",
+        "margin_top": 20,
+        "margin_horizontal": 3,
+        "margin_horizontal_mobile": 1,
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 2,
+        "full_width": true,
+        "content_width": 120,
+        "border_thickness": 0,
+        "section_radius": 100,
+        "lazy": true
+      }
+    },
+    "instant_mmf_sy_ns9_tydl6aa_p_fHWYJy": {
+      "type": "instant-BFI4CojC8DoQmKpH",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "instant-csSFzKZosRDE2zb5": {
+      "type": "instant-csSFzKZosRDE2zb5",
+      "settings": {}
+    }
+  },
+  "order": [
+    "ss_header_1_BYg7tx",
+    "instant_mmf_sy_ns9_tydl6aa_p_fHWYJy",
+    "instant-csSFzKZosRDE2zb5"
+  ]
+}

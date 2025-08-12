@@ -1,0 +1,27 @@
+{% assign class_name = class | default: 'ecom-trustpilot' %}
+
+<div class="{{ class_name }}">
+  {% if type != 'small' %}
+    {% render 'icon', icon: 'trustpilot-logo', width: 99, height: 24 %}
+  {% endif %}
+
+  {% if trustpilot_avatars != blank %}
+    <div class="{{ class_name }}-avatars {{ class_name }}-avatars--mobile">
+      <img src="{{ trustpilot_avatars | image_url: width: 400 }}" alt="Trustpilot users avatars" width="133" height="auto">
+    </div>
+  {% endif %}
+  
+  {% if trustpilot_text != blank %}
+    <span class="{{ class_name }}-text">{{ trustpilot_text }}</span>
+  {% endif %}
+
+  {% if type == 'small' %}
+    {% render 'icon', icon: 'trustpilot-logo', width: 74, height: 18 %}
+  {% endif %}
+
+  {% if type == 'avatars-left' %}
+    <div class="{{ class_name }}-avatars {{ class_name }}-avatars--left-desktop">
+      <img src="{{ trustpilot_avatars | image_url: width: 400 }}" alt="Trustpilot users avatars" width="133" height="auto">
+    </div>
+  {% endif %}
+</div>

@@ -1,0 +1,195 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "contact": {
+      "type": "contact",
+      "blocks": {
+        "text_HYqCGx": {
+          "type": "text",
+          "settings": {
+            "title": "Subject",
+            "use_long_text": false,
+            "required": true
+          }
+        }
+      },
+      "block_order": [
+        "text_HYqCGx"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Talk to Us, We’re",
+        "title-high": "All Ears",
+        "content": "<p>Whether it’s quitting tips or partnership ideas, we’re here and ready to help.</p>",
+        "text_position": "center",
+        "contact_form_size": "large",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "contact_background": "",
+        "contact_text_color": "",
+        "button_background": "#eded5e",
+        "button_text_color": "#005128"
+      }
+    },
+    "custom_liquid_7cVngq": {
+      "type": "custom-liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": true,
+        "liquid": "<elevenlabs-convai agent-id=\"lHjwgldQtlzTolHdep1s\"></elevenlabs-convai><script src=\"https://elevenlabs.io/convai-widget/index.js\" async type=\"text/javascript\"></script>",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "ecom_faq_HRgRkk": {
+      "type": "ecom-faq",
+      "blocks": {
+        "question_wGjzfe": {
+          "type": "question",
+          "settings": {
+            "title": "What are the ingredients?",
+            "content": "<p>Lio® Flavour Cores are crafted with 100% natural ingredients, offering a nicotine-free solution to help break harmful habits. Delivering clean, flavoured air without smoke, vapor, or chemicals, ensuring a safe, effective, and satisfying alternative for relieving cravings.</p>"
+          }
+        },
+        "question_rd6RwX": {
+          "type": "question",
+          "settings": {
+            "title": "What does flavored air taste like?",
+            "content": "<p>If you’re used to vapor, Lio might feel lighter at first—but it’s designed for a healthier future. Think of Lio as herbal tea compared to the sticky soda of vapor: less intense, more natural, and far better for you.</p>"
+          }
+        },
+        "question_efCQhV": {
+          "type": "question",
+          "settings": {
+            "title": "What are cores made of?",
+            "content": "<p>Each Core fiber is medical grade polyester, infused in the fiber is our unique plant blend of pure essential oils from amazing farms we've partnered with around the world.</p>"
+          }
+        },
+        "question_aW6tje": {
+          "type": "question",
+          "settings": {
+            "title": "How long do the Lio Cores last?",
+            "content": "<p>Each Lio Core lasts 2-4 days, depending on your usage. Heavy users may need to replace the cores more frequently, but they are designed to provide lasting flavor and a satisfying experience.</p>"
+          }
+        },
+        "question_4jat8N": {
+          "type": "question",
+          "settings": {
+            "title": "How often can I use Lio?",
+            "content": "<p>Use Lio as often as you like. If you experience any discomfort, please discontinue use and consult your physician.</p>"
+          }
+        },
+        "question_kxdEME": {
+          "type": "question",
+          "settings": {
+            "title": "Is Lio safe to use?",
+            "content": "<p>Lio is made with 100% natural ingredients and is completely free from nicotine, smoke, and harmful chemicals, making it a safe and healthier alternative for people trying to quit smoking or vaping.</p>"
+          }
+        },
+        "question_VCwhxN": {
+          "type": "question",
+          "settings": {
+            "title": "Shipping & Refunds",
+            "content": "<p><strong>Worldwide shipping - For Free<br/></strong>We ship worldwide from the Netherlands with free shipping on all orders. Delivery takes 2-3 days within Europe, 4-8 days outside Europe, and next-day delivery in the Middle East (from Dubai).<br/><br/><strong>The Money Back Guarantee</strong><br/>If you’ve used Lio™, commit to a 30 days to experience its benefits. After completing the 30-day journey, you have 7 days to request a refund if you’re not satisfied. This ensures you have enough time to fully explore its impact before making a decision.</p>"
+          }
+        },
+        "question_neax6Y": {
+          "type": "question",
+          "settings": {
+            "title": "How does Lio work?",
+            "content": "<p>Lio works by replacing the hand-to-mouth fixation with naturally infused air, offering calming, refreshing flavors without nicotine, smoke, or chemicals. This action helps reduce the psychological need for smoking or vaping while keeping you engaged with familiar habits.</p>"
+          }
+        },
+        "question_9dgYwd": {
+          "type": "question",
+          "settings": {
+            "title": "Question",
+            "content": "<p>Share some content to your customers about your products.</p>"
+          }
+        },
+        "question_DAkteE": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use Lio anywhere?",
+            "content": "<p>Yes! Lio produces no smoke, vapor, or harmful chemicals, so it can be used in most places where smoking or vaping are not allowed. Its discreet and clean design makes it a convenient, portable option to carry and use anywhere, whether you’re at home, work, or on the go.</p>"
+          }
+        },
+        "question_VFRG4z": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use Lio anywhere?",
+            "content": "<p>Yes! Lio produces no smoke, vapor, or harmful chemicals, so it can be used in most places where smoking or vaping are not allowed. Its discreet and clean design makes it a convenient, portable option to carry and use anywhere, whether you’re at home, work, or on the go.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_wGjzfe",
+        "question_rd6RwX",
+        "question_efCQhV",
+        "question_aW6tje",
+        "question_4jat8N",
+        "question_kxdEME",
+        "question_VCwhxN",
+        "question_neax6Y",
+        "question_9dgYwd",
+        "question_DAkteE",
+        "question_VFRG4z"
+      ],
+      "name": "Ecom FAQ",
+      "settings": {
+        "padding_top": 32,
+        "padding_top_desktop": 40,
+        "padding_bottom": 32,
+        "padding_bottom_desktop": 40,
+        "title": "You asked we",
+        "high-title": "answered"
+      }
+    },
+    "need_help_rjBCEH": {
+      "type": "need-help",
+      "name": "need-help",
+      "settings": {
+        "title": "Need Help Fast?",
+        "title-high": "",
+        "content": "Track orders, request refunds, or check shipping all in one click.",
+        "button1_text": "Track your order",
+        "button1_url": "https://breathelio.com/apps/parcelpanel",
+        "button2_text": "Apply for a refund",
+        "button2_url": "shopify://pages/refund-policy",
+        "button3_text": "Shipping time",
+        "popup_title": "Shipping timing",
+        "popup_content": "<p>We aim to process all orders within 1–2 business days. Once shipped, standard U.S. delivery takes 3–5 business days, depending on your location. Need it sooner? Expedited shipping options are available at checkout.<br/><br/>For international orders, shipping may take 7–14 business days due to customs processing times, which vary by country.<br/><br/>Once your order leaves our warehouse, you’ll receive an email with a tracking number so you can follow your package every step of the way.<br/><br/>If you have any questions or experience any delays, our support team is here to help at <a href=\"mailto:support@breathelio.com\" title=\"mailto:support@breathelio.com\"><strong>support@breathelio.com</strong></a>.</p>",
+        "button4_text": "Start my journey",
+        "button4_url": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact",
+    "custom_liquid_7cVngq",
+    "ecom_faq_HRgRkk",
+    "need_help_rjBCEH"
+  ]
+}

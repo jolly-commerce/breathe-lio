@@ -1,0 +1,32 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "index.json",
+  "context": {
+    "market": "vae"
+  },
+  "sections": {
+    "new_homepage_banner_gFaJDm": {
+      "settings": {},
+      "blocks": {
+        "slide_jHyh9W": {
+          "settings": {
+            "free-text": "🇦🇪Free Next Day Delivery in UAE🇦🇪"
+          }
+        },
+        "slide_9Wfnag": {
+          "settings": {
+            "free-text": "🇦🇪Free Next Day Delivery in UAE🇦🇪"
+          }
+        }
+      }
+    }
+  }
+}

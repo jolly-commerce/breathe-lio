@@ -1,0 +1,189 @@
+{{ 'ecom-benefits.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css' | stylesheet_tag }}
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
+<style>
+  .ecom-benefits {
+    background-image: url({{ section.settings.bg-image | image_url: width: 1000 }});
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    @media (min-width: 1150px) {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+</style>
+
+<div class="ecom-benefits">
+  <div class="ecom-benefits__inner container">
+    <div class="ecom-benefits__title-and-img">
+      {% if section.settings.title != blank or section.settings.title-highlight != blank %}
+        <h2 class="ecom-benefits__title">
+          {{ section.settings.title }}
+          {% if section.settings.title-highlight != blank %}
+          <span class="ecom-benefits__title-highlight">{{ section.settings.title-highlight }}</span>
+        {% endif %}
+        </h2>
+      {% endif %}
+      {% if section.settings.image != blank %}
+        <div class="ecom-benefits__img">
+          <img src="{{ section.settings.image | image_url: width: 1000 }}" alt="{{ section.settings.image.alt }}" width="100%" height="100%">
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="swiper ecom-benefits-swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="ecom-benefits__item">
+              <div class="ecom-benefits__item-icon">
+                <img src="{{ block.settings.icon | image_url: width: 1000 }}" alt="{{ block.settings.icon.alt }}" width="100%" height="100%">
+              </div>
+              <div class="ecom-benefits__item-text">
+                <h3 class="ecom-benefits__item-title">
+                  {{ block.settings.title }}
+                </h3>
+                <div class="ecom-benefits__item-description">
+                  {{ block.settings.description }}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="ecom-benefits__progressbar"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var benefitsSlider = new Swiper('.ecom-benefits-swiper', {
+      slidesPerView: 1.5,
+      spaceBetween: 20,
+      loop: false,
+      pagination: {
+        el: '.ecom-benefits__progressbar',
+        type: 'progressbar',
+        clickable: true,
+      },
+      breakpoints: {
+        700: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1280: {
+          slidesPerView: 4,
+          spaceBetween: 80,
+        },
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Ecom Benefits",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Paddings",
+      "info": "Paddings for section"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40
+    },
+    {
+      "type": "image_picker",
+      "id": "bg-image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Don't Smoke,<br>Don't Vape,"
+    },
+    {
+      "type": "text",
+      "id": "title-highlight",
+      "label": "Title Highlight",
+      "default": "Just Breathe"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ecom Benefits"
+    }
+  ]
+}
+{% endschema %}

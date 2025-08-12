@@ -1,0 +1,138 @@
+<style>
+  #storerocket-panel{
+    z-index : 1 !important;
+  }
+  .storerocket-result{
+    background : transparent !important;
+}
+#storerocket-search{
+      background : transparent !important;
+}
+#storerocket-widget button, .storerocket-show-all-results-link{
+  background : transparent !important;
+  color : var(--lio-dark-green) !important;
+  width : 100% !important;
+  display : flex !important;
+   justify-content : center !important;
+   align-items : center !important;
+  font-weight : 700 !important;
+  border : 1px solid var(--lio-dark-green) !important;
+  border-radius : 10px !important;
+}
+#storerocket-widget .storerocket-lead-fields input{
+    width : 100% !important;
+    background : transparent !important;
+     border : 1px solid var(--lio-dark-green) !important;
+    max-width : 100% !important;
+  border-radius : 10px !important;
+  }
+.locator-hero {
+  min-height : 300px;
+   background-image: url('{{ section.settings.image | img_url: 'master' }}');
+  width : 100%;
+   background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    overflow : hidden;
+  padding : 50px;
+  display: flex;
+    flex-direction: column;
+  justify-content : center;
+}
+ 
+ .locator-hero h2.h2 {
+    font-size: 55px;
+    color : #F9F5E9;
+   max-width : 500px;
+}
+  .locator-hero h2.h2 span{
+    color : var(--lio-yellow);
+  }
+  .number-locations-con{
+    display : flex;
+    gap : 10px;
+    align-items : center;
+    margin-top : 10px;
+  }
+   .number-locations-con p{
+     font-weight : 700;
+     color : #F9F5E9;
+   }
+  
+@media (max-width: 768px) {
+  .locator-hero{
+     min-height : 250px;
+   background-image: url('{{ section.settings.image-mobile | img_url: 'master' }}');
+  width : 100%;
+   background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    overflow : hidden;
+  padding : 20px;
+  }
+   .locator-hero h2.h2 {
+    font-size: 30px;
+   max-width : 300px;
+}
+   .number-locations-con p{
+font-size : 10px;
+   }
+  .number-locations-con img{
+    width  10px;
+  }
+}  
+</style>
+<div class="locator-hero">
+   <h2 class="h2">{{ section.settings.heading }} <span>{{ section.settings.highlighted-heading }} </span>  {{ section.settings.pre-text }}</h2>
+  <div class="number-locations-con">
+    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/iconoo.svg?v=1749499789" />
+    <p>{{ section.settings.loc-text }}</p>
+  </div>
+</div>
+
+<div id='storerocket-widget' style='width:100%;' data-storerocket-env='p' data-storerocket-id='DG4gqBo805'><p style='text-align:center;font-size:13px;padding:10px;'>Store locator is loading from StoreRocket <a target='_blank' href='https://storerocket.io' style='font-size:13px;'>Store Locator App</a>..</p></div><script>(function(){var a=document.createElement('script');a.type='text/javascript';a.async=!0;a.src='https://cdn.storerocket.io/js/widget-mb.js';var b=document.getElementsByTagName('script')[0];b.parentNode.insertBefore(a,b);}());</script>
+{% schema %}
+  {
+    "name": "store-locator-widget",
+    "settings": [
+       {
+        "type": "image_picker",
+        "id": "image",
+        "label": "image"
+      },
+{
+        "type": "image_picker",
+        "id": "image-mobile",
+        "label": "image mobile"
+      },
+
+    
+      {
+          "type": "text",
+          "id": "heading",
+          "label": "SWITCH TO  "
+        },
+        {
+          "type": "text",
+          "id": "highlighted-heading",
+          "label": "highlighted-heading",
+          "default" : "LIO"
+        },
+        {
+          "type": "text",
+          "id": "pre-text",
+          "label": "pre-text",
+            "default" : "SMARTLY"
+      },
+      {
+          "type": "text",
+          "id": "loc-text",
+          "label": "number of location",
+            "default" : "Available at 1,300+ locations"
+      },
+    ],
+    "presets": [{
+      "name": "store-locator-widget"
+    }]
+  }
+{% endschema %}

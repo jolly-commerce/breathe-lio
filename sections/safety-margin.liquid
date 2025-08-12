@@ -1,0 +1,363 @@
+<style>
+  .safety-margin {
+    color: #302F2F;
+  }
+
+  p.heading-sft {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    padding-right: 13px;
+    transform: translateY(-3px);
+  }
+
+  p.heading-sft:after {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 1px;
+    background: var(--lio-dark-green);
+    margin-left: 10px;
+    transform: translateY(-9px);
+  }
+
+  p.heading-sft span {
+    color: var(--lio-light-green);
+  }
+
+  .sft-heading-box {
+    display: flex;
+    align-items: center;
+  }
+
+  .sft-chart-box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .left-sft-chart {
+    width: 35%;
+  }
+
+  .l-top-sft-chart {
+    display: flex;
+    gap: 30px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+
+  .l-top-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .l-top-box img {
+    height: 40px;
+  }
+
+  .l-top-box span {
+    font-size: 23px;
+    letter-spacing: -0.8px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .l-bottom-sft-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .l-bottom-sft-chart span {
+    font-family: 'Sigum';
+    font-size: 150px;
+    line-height: 1.1;
+    letter-spacing : -2px;
+    height: 140px;
+    transition: none;
+  }
+
+  .l-bottom-sft-chart p {
+    max-width: 300px;
+    text-align: center;
+    font-size: 28px;
+    margin: auto;
+    font-weight: 500;
+    letter-spacing: -1px;
+  }
+
+  .right-sft-chart {
+    width: 65%;
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0px 0px 13px 140px;
+    gap: 185px;
+    margin-top: 50px;
+  }
+
+  .sft-dashed-line {
+    height: 1px;
+    background-image: repeating-linear-gradient(
+      to right,
+      #00000020 0 10px,
+      transparent 10px 20px
+    );
+    width: 90%;
+  }
+
+  .abs-dashed-box {
+    position: absolute;
+    left: 0;
+    height: 340px;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sft-dashed-line-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    color: #000000;
+  }
+
+  .sft-dashed-line-box span {
+    min-width: 40px;
+    text-align: center;
+  }
+ .right-sft-chart img.sft-green-bar{
+   height : 42%;
+ }
+  .right-sft-chart img.sft-dashed-bar{
+    height : calc(100% - 20px);
+  }
+  .right-sft-chart img.sft-green-bar,
+  .right-sft-chart img.sft-dashed-bar {
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 1s ease-out;
+  }
+
+  .right-sft-chart.animate-bars img.sft-green-bar,
+  .right-sft-chart.animate-bars img.sft-dashed-bar {
+    transform: scaleY(1);
+  }
+
+  .sft-shift-line,
+  .sft-bar-text {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.6s ease-out;
+  }
+
+  .right-sft-chart.animate-bars .sft-shift-line,
+  .right-sft-chart.animate-bars .sft-bar-text {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1.2s;
+  }
+
+  .sft-shift-line {
+    position: absolute;
+    width: 190px;
+    left: 220px;
+    bottom: 43%;
+    z-index: 1;
+  }
+
+  .sft-bar-text {
+    position: absolute;
+    left: 272px;
+    bottom: 60%;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  #count-up:after{
+    content : "%";
+    
+  }
+
+  @media (max-width: 990px){
+    p.heading-sft {
+    font-size: 30px;
+}
+    .sft-heading-box {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+    .sft-chart-box {
+    flex-direction: column;
+    gap: 0px;
+}
+    .left-sft-chart {
+    width: 100%;
+}
+    .right-sft-chart {
+    width: 100%;
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0px 0px 13px 80px;
+    gap: 130px;
+    margin-top: 30px;
+}
+    .l-top-box img {
+    height: 25px;
+}
+    .l-top-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+    .l-top-box span {
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+    .sft-heading-box {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    max-width: 300px;
+}
+    .l-bottom-sft-chart span {
+    font-size: 140px;
+    height: 130px;
+}
+    .l-bottom-sft-chart p {
+    max-width: 220px;
+    font-size: 22px;
+    letter-spacing: -0.4px;
+}
+    .right-sft-chart img.sft-green-bar {
+    height: 145px;
+    width: 65px;
+    object-fit: cover;
+}
+    .right-sft-chart img.sft-dashed-bar {
+    width: 65px;
+    height: 315px;
+    object-fit: cover;
+}
+  .sft-shift-line {
+    position: absolute;
+    width: 180px;
+    left: 95px;
+    bottom: 46%;
+}
+    .sft-bar-text {
+    position: absolute;
+    left: 162px;
+    bottom: 60%;
+    text-align: center;
+    max-width: 80px;
+}
+    .safety-margin {
+    padding-top: 30px;
+}
+  }
+</style>
+
+<div class="safety-margin width-wrapper">
+  <div class="sft-heading-box">
+    <p class="heading-sft">{{ section.settings.heading }} <span>{{ section.settings.highlighted-heading }}</span></p>
+    <p>{{ section.settings.text }}</p>
+  </div>
+  <div class="sft-chart-box">
+    <div class="left-sft-chart">
+      <div class="l-top-sft-chart">
+        <div class="l-top-box">
+          <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/rect-green.svg?v=1749201965" />
+          <span>{{ section.settings.lio }}</span>
+        </div>
+        <div class="l-top-box">
+          <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/rect-dashed.svg?v=1749201966" />
+          <span>{{ section.settings.other }}</span>
+        </div>
+      </div>
+      <div class="l-bottom-sft-chart">
+        <span id="count-up" data-target="{{ section.settings.percent }}">0</span>
+        <p>{{ section.settings.per-text }}</p>
+      </div>
+    </div>
+    <div class="right-sft-chart">
+      <div class="abs-dashed-box">
+        <div class="sft-dashed-line-box"><span>100%</span><div class="sft-dashed-line"></div></div>
+        <div class="sft-dashed-line-box"><span>80%</span><div class="sft-dashed-line"></div></div>
+        <div class="sft-dashed-line-box"><span>60%</span><div class="sft-dashed-line"></div></div>
+        <div class="sft-dashed-line-box"><span>40%</span><div class="sft-dashed-line"></div></div>
+        <div class="sft-dashed-line-box"><span>20%</span><div class="sft-dashed-line"></div></div>
+        <div class="sft-dashed-line-box"><span>0%</span><div class="sft-dashed-line"></div></div>
+      </div>
+
+      <img class="sft-green-bar" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/rect-ver-green.svg?v=1749202028" />
+      <img class="sft-dashed-bar" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/rect-ver-dashed.svg?v=1749202028" />
+      <img class="sft-shift-line" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/behavior-line.svg?v=1749205088" />
+      <p class="sft-bar-text">{{ section.settings.bar-text }}</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const targetSection = document.querySelector('.sft-chart-box');
+    const chart = document.querySelector('.right-sft-chart');
+    const countUpEl = document.getElementById('count-up');
+    const targetNumber = parseInt(countUpEl.dataset.target);
+    let hasAnimated = false;
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasAnimated) {
+          hasAnimated = true;
+
+          // Trigger bar animations
+          chart.classList.add('animate-bars');
+
+          // Count-up animation
+          let current = 0;
+          const duration = 1500;
+          const stepTime = Math.abs(Math.floor(duration / targetNumber));
+          const counter = setInterval(() => {
+            current++;
+            countUpEl.textContent = current;
+            if (current >= targetNumber) {
+              clearInterval(counter);
+            }
+          }, stepTime);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(targetSection);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "safety-margin",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading Text" },
+    { "type": "text", "id": "highlighted-heading", "label": "Highlighted Heading" },
+    { "type": "text", "id": "text", "label": "Text", "default": "Third-party tested limits compared to Lio’s exposure levels" },
+    { "type": "text", "id": "lio", "label": "Lio", "default": "Lio" },
+    { "type": "text", "id": "other", "label": "Other", "default": "Agency Max" },
+    { "type": "text", "id": "percent", "label": "Percentage", "default": "44" },
+    { "type": "text", "id": "per-text", "label": "Percentage Text", "default": "of the safe daily limit used by Lio" },
+    { "type": "text", "id": "bar-text", "label": "Bar Text", "default": "Behavioral Shift" }
+  ],
+  "presets": [{ "name": "safety-margin" }]
+}
+{% endschema %}

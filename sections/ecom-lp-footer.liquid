@@ -1,0 +1,118 @@
+{{ 'ecom-lp-footer.css' | asset_url | stylesheet_tag: preload: true }}
+
+
+<style>
+  .ecom-lp-footer {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    @media (min-width: 1150px) {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+</style>
+
+<div class="ecom-lp-footer">
+  <div class="ecom-lp-footer__container container">
+    <div class="ecom-lp-footer__content">
+      <nav class="ecom-lp-footer__nav">
+        <div class="ecom-lp-footer__logo">
+          <img src="{{ section.settings.logo | image_url: width: 100 }}" alt="Lio Logo" width="40" height="40">
+        </div>
+
+        <ul class="ecom-lp-footer__links">
+          {% for link in section.settings.footer_links.links %}
+            <li class="ecom-lp-footer__link">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <div class="ecom-lp-footer__copyright-and-payment-icons">
+        <div class="ecom-lp-footer__copyright">
+          {{ section.settings.copyright_text }}
+        </div>
+
+        <ul class="ecom-lp-footer__payment-icons">
+          {%- for type in shop.enabled_payment_types -%}
+            <li class="contents">{{ type | payment_type_svg_tag }}</li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Ecom LP Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Paddings",
+        "info": "Paddings for section"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Padding Top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 32
+      },
+      {
+        "type": "range",
+        "id": "padding_top_desktop",
+        "label": "Padding Top Desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Padding Bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 32
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_desktop",
+        "label": "Padding Bottom Desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 40
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_links",
+        "label": "Footer Links",
+      },
+      {
+        "type": "text",
+        "id": "copyright_text",
+        "label": "Copyright Text",
+        "default": "© 2025, BreatheLio."
+      },
+    ],
+    "presets": [
+      {
+        "name": "Ecom LP Footer"
+      }
+    ]
+  }
+{% endschema %}

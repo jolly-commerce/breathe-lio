@@ -1,0 +1,116 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "retail_hero_T9UfWY": {
+      "type": "retail-hero",
+      "name": "retail-hero",
+      "settings": {
+        "heading-before": "Become an Authorized Lio® Retailer .",
+        "high-heading": "Join the Movement",
+        "heading-after": "",
+        "text": "Partner with Lio® and help your customers quit smoking naturally, without nicotine or chemicals.",
+        "new-head": "Why Partner with",
+        "head-2": "Lio® ?",
+        "icon-1": "shopify://shop_images/high-1.svg",
+        "name-1": "Increase Your Revenue",
+        "text-1": "Offer a high-demand product and tap into a growing market.",
+        "icon-2": "shopify://shop_images/high-2.svg",
+        "name-2": "Expand Your Offering",
+        "text-2": "Provide a healthier, sustainable, and eco-friendly alternative.",
+        "icon-3": "shopify://shop_images/high-3.svg",
+        "name-3": "Higher Margins",
+        "text-3": "Lio® products come with attractive profit potential."
+      }
+    },
+    "icon_text_2_MUMqBB": {
+      "type": "icon-text-2",
+      "blocks": {
+        "usp_tbiqCg": {
+          "type": "usp",
+          "settings": {
+            "title": "Vape Shops",
+            "icon": "shopify://shop_images/1_39bfeb91-eef0-4105-8881-3a3a58e0deee.svg"
+          }
+        },
+        "usp_dHk4nz": {
+          "type": "usp",
+          "settings": {
+            "title": "Convenience Stores",
+            "icon": "shopify://shop_images/2_c0f1e196-c245-4ff5-83fb-f888f42c8326.svg"
+          }
+        },
+        "usp_ktQTYh": {
+          "type": "usp",
+          "settings": {
+            "title": "Health Stores",
+            "icon": "shopify://shop_images/3_a6f27d6c-6191-4d7f-bd44-53d0cd169a32.svg"
+          }
+        },
+        "usp_UazBNC": {
+          "type": "usp",
+          "settings": {
+            "title": "Smoke Shops",
+            "icon": "shopify://shop_images/4_90eebc49-ea5d-49a8-9b27-2becc9d79b36.svg"
+          }
+        },
+        "usp_nR8wCm": {
+          "type": "usp",
+          "settings": {
+            "title": "Grocery Stores",
+            "icon": "shopify://shop_images/5_c012e997-8adb-4da9-9cc0-8381d6f8487c.svg"
+          }
+        },
+        "usp_4LGKyC": {
+          "type": "usp",
+          "settings": {
+            "title": "Pharmacies",
+            "icon": "shopify://shop_images/6_da0917ab-0935-4391-bf8c-b6dac9f91a8e.svg"
+          }
+        }
+      },
+      "block_order": [
+        "usp_tbiqCg",
+        "usp_dHk4nz",
+        "usp_ktQTYh",
+        "usp_UazBNC",
+        "usp_nR8wCm",
+        "usp_4LGKyC"
+      ],
+      "name": "icon-text-2",
+      "settings": {
+        "heading": "Who Can Become a",
+        "highlighted-heading": "Retailer?",
+        "text": "Lio® is looking for partners in the following industries :"
+      }
+    },
+    "retail_form_eiPg6m": {
+      "type": "retail-form",
+      "name": "retail-form",
+      "settings": {
+        "heading": "Get",
+        "highlighted-heading": "Started"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "retail_hero_T9UfWY",
+    "icon_text_2_MUMqBB",
+    "retail_form_eiPg6m"
+  ]
+}

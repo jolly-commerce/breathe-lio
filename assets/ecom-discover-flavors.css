@@ -1,0 +1,155 @@
+.ecom-discover-flavors {
+  background-color: #F8F5E8;
+}
+.ecom-discover-flavors__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+@media (min-width: 1150px) {
+  .ecom-discover-flavors__wrapper {
+    flex-direction: row;
+    gap: 40px;
+  }
+}
+.ecom-discover-flavors__wrapper > * {
+  width: 100%;
+}
+@media (min-width: 1150px) {
+  .ecom-discover-flavors__wrapper > * {
+    width: calc(50% - 20px);
+  }
+}
+.ecom-discover-flavors__media {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (min-width: 1150px) {
+  .ecom-discover-flavors__media {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: fit-content;
+    row-gap: 85px;
+  }
+}
+.ecom-discover-flavors__media-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+@media (min-width: 1150px) {
+  .ecom-discover-flavors__media-item {
+    flex-direction: column;
+  }
+  .ecom-discover-flavors__media-item:nth-child(1) {
+    grid-column: 1/span 1;
+    grid-row: 1/span 1;
+  }
+  .ecom-discover-flavors__media-item:nth-child(2) {
+    grid-column: 1/span 1;
+    grid-row: 2/span 1;
+  }
+  .ecom-discover-flavors__media-item:nth-child(4) {
+    grid-column: 3/span 1;
+    grid-row: 1/span 1;
+  }
+  .ecom-discover-flavors__media-item:nth-child(5) {
+    grid-column: 3/span 1;
+    grid-row: 2/span 1;
+  }
+  .ecom-discover-flavors__media-item:nth-child(3) {
+    grid-column: 2/span 1;
+    grid-row: 1/span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.ecom-discover-flavors__media img {
+  width: 40%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (min-width: 1150px) {
+  .ecom-discover-flavors__media img {
+    width: 100%;
+  }
+}
+.ecom-discover-flavors__media-description {
+  color: rgba(0, 81, 40, 0.6);
+  font-family: "Poppins";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 105%;
+  letter-spacing: -0.24px;
+}
+@media (min-width: 1000px) {
+  .ecom-discover-flavors__media-description {
+    font-size: 14px;
+    line-height: 105%;
+    letter-spacing: -0.28px;
+  }
+}
+@media (min-width: 1150px) {
+  .ecom-discover-flavors__media-description {
+    text-align: center;
+  }
+}
+.ecom-discover-flavors__questions-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1150px) {
+  .ecom-discover-flavors__questions-wrapper {
+    flex-direction: row;
+    gap: 8px;
+  }
+}
+.ecom-discover-flavors__questions-wrapper > div {
+  width: 100%;
+}
+@media (min-width: 1150px) {
+  .ecom-discover-flavors__questions-wrapper > div {
+    width: calc(50% - 4px);
+  }
+}
+.ecom-discover-flavors__question {
+  margin-bottom: 8px;
+}
+.ecom-discover-flavors__title--mobile {
+  color: #005128;
+  text-align: center;
+  font-family: "Sigum";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 90%;
+  letter-spacing: -0.8px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+@media (min-width: 1150px) {
+  .ecom-discover-flavors__title--mobile {
+    display: none;
+  }
+}
+.ecom-discover-flavors__title--desktop {
+  color: #005128;
+  text-align: left;
+  font-family: "Sigum";
+  font-weight: 400;
+  font-size: 64px;
+  letter-spacing: -1.28px;
+  line-height: 90%;
+  text-transform: uppercase;
+  margin-bottom: 48px;
+  display: none;
+}
+@media (min-width: 1150px) {
+  .ecom-discover-flavors__title--desktop {
+    display: block;
+  }
+}

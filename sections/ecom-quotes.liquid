@@ -1,0 +1,106 @@
+{{ 'ecom-quotes.css' | asset_url | stylesheet_tag: preload: true }}
+
+<div class="ecom-quotes">
+  <div class="ecom-quotes__inner container">
+    {% if section.blocks.size > 0 %}
+      <div class="swiper ecom-quotes__swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% if block.type == 'quote' %}
+              <div class="swiper-slide ecom-quotes__slide" {{ block.shopify_attributes }}>
+                <div class="ecom-quotes__quote">
+                  {% if block.settings.avatar %}
+                    <div class="ecom-quotes__avatar">
+                      {% assign img_size = '100x100' %}
+                      {{ block.settings.avatar | image_url: width: 100 | image_tag: loading: 'lazy', width: 50, height: 50, class: 'ecom-quotes__avatar-img' }}
+                    </div>
+                  {% endif %}
+                  {% if block.settings.quote_text != blank %}
+                    <div class="ecom-quotes__text">
+                      "{{ block.settings.quote_text }}"
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="ecom-quotes__progressbar"></div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var quotesSlider = new Swiper('.ecom-quotes__swiper', {
+      slidesPerView: 1.5,
+      spaceBetween: 40,
+      pagination: {
+        el: '.ecom-quotes__progressbar',
+        type: 'progressbar',
+        clickable: true
+      },
+      breakpoints: {
+        700: {
+          slidesPerView: 2
+        },
+        1000: {
+          slidesPerView: 3
+        },
+        1280: {
+          slidesPerView: 4
+        }
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Ecom Quotes",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Quote",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Customer Avatar"
+        },
+        {
+          "type": "textarea",
+          "id": "quote_text",
+          "label": "Quote Text",
+          "default": "I'm positively surprised by this I already quit two weeks"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ecom Quotes",
+      "blocks": [
+        {
+          "type": "quote"
+        },
+        {
+          "type": "quote"
+        },
+        {
+          "type": "quote"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

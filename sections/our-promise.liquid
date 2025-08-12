@@ -1,0 +1,170 @@
+<style>
+  .our-promise{
+    background : url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/op-bg-d.png?v=1747997489");
+    width : 100%;
+    background-size : cover;
+    background-repeat : no-repeat;
+    min-height : 550px;
+    display : flex;
+    padding : 30px;
+    gap : 40px;
+     border-top : 1px solid #00512840;
+     border-bottom : 1px solid #00512840;
+  }
+.op-left {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+ .op-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 400px;
+    text-wrap: balance;
+    justify-content: center;
+}
+  .op-left img{
+    width : 75%;
+    object-fit : contain;
+  }
+  .op-right  img.join-peoples {
+    width: 85px;
+}
+  .op-trust-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+  .op-right h2.h1 {
+    line-height: 0.9;
+    margin-bottom: -15px;
+}
+  .op-right h2.h1 span {
+  color: var(--lio-light-green);
+}
+  .op-right p{
+    font-size : 19px;
+  }
+ .op-right  .op-trust-section p{
+  font-weight : 500;
+    font-size : 16px;
+  }
+@media (max-width: 990px){
+ .our-promise {
+    background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/op-bg-m.png?v=1747997489");
+    width: 100%;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    min-height: 650px;
+    flex-direction: column-reverse;
+   padding : 90px 20px 20px 20px;
+}
+  .op-left {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+  .op-left img {
+    width: 95%;
+    object-fit: contain;
+}
+  .op-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 100%;
+    text-wrap: balance;
+    justify-content: center;
+}
+  .op-right h2.h1 {
+    line-height: 1;
+    text-align: center;
+    margin-bottom: -15px;
+}
+  .op-right p {
+    font-size: 15px;
+    text-align: center;
+}
+  .op-right  .op-trust-section p {
+    font-weight: 500;
+    font-size: 11px;
+    text-align: left;
+}
+}
+  
+</style>
+
+<div class="our-promise">
+  <div class="op-left">
+  <img src="{{ section.settings.image | image_url: width: 1500 }}" />
+  </div>
+  <div class="op-right">
+    <div class="op-trust-section">
+       <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/green-stars.svg">
+        <img class="join-peoples" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/peoplesss.png?v=1747912492">
+        <p>Trusted by 50,000+ people</p>
+      </div>
+     <h2 class="h1">{{ section.settings.heading }} <span>{{ section.settings.highlighted-heading }}</span></h2>
+      {{ section.settings.sub-text }}
+       {% if section.settings['button-text'] != blank %}
+            <a class="gradient-button" href="{{ section.settings.button-url }}">{{ section.settings['button-text'] }}</a>
+    
+          {% endif %}
+          
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "our-promise",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "image"
+      },
+      {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text",
+         "default" : "The Good vs The"
+        },
+        {
+          "type": "text",
+          "id": "highlighted-heading",
+          "label": "highlighted-heading",
+          "default" : "Bad"
+          },
+       {
+          "type": "richtext",
+          "id": "sub-text",
+          "label": "sub-text"
+        },
+      {
+          "type": "url",
+          "id": "button-url",
+          "label": "Button URL"
+        },
+        {
+          "type": "text",
+          "id": "button-text",
+          "label": "Button Text",
+          "default" : "Start Your Journey"
+        },
+      {
+          "type": "text",
+          "id": "trust-text",
+          "label": "trust-text"
+        },
+    ],
+    "presets": [{
+      "name": "our-promise"
+    }]
+  }
+{% endschema %}

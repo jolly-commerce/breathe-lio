@@ -1,0 +1,277 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "instant_k_hw1f_b_na_b_ids4bd_i_NRYP8a": {
+      "type": "instant-KHw1fBNaBIds4bdI",
+      "disabled": true,
+      "settings": {
+        "text_BxGqnC75QdRNnrzT": "<h3>THE STORY BEHIND LIO®</h3>",
+        "text_n4PH2Q3G5hfXTqdW": "<h3>A Simple Solution</h3><h3> to a Big Problem</h3>",
+        "text_DfpXZ4UQUzLFUKEx": "<h3>2021</h3>",
+        "text_SOeiwWtNmuvC0yAb": "<h3>The Beginning</h3>",
+        "text_6UkI51gBbuQG8Ow0": "<h3>Mees and his sister Vera noticed something: while many people wanted to quit smoking, they struggled with more than just nicotine. It was the ritual, the routine, the comfort. Inspired by this insight, they set out on a mission to create something different. A year of research, countless tests, and late-night brainstorming sessions led them to a breakthrough that could change how people quit smoking—forever.</h3>",
+        "text_QF0UnC4iEZ7vps8V": "<h3>2021</h3>",
+        "text_NogubMReCkkQiCHi": "<h3>The Beginning</h3>",
+        "text_di9RqLjiS4z4bGV8": "<h3>Mees and his sister Vera noticed something: while many people wanted to quit smoking, they struggled with more than just nicotine. It was the ritual, the routine, the comfort. Inspired by this insight, they set out on a mission to create something different. A year of research, countless tests, and late-night brainstorming sessions led them to a breakthrough that could change how people quit smoking—forever.</h3>",
+        "text_WI0zvEAGGp47zLMu": "<h3>2022</h3>",
+        "text_EyXxnbUWs6psF7vM": "<h3>The Challenge</h3>",
+        "text_m3qeNAeGkNk7CR0I": "<h3>While they had created a product that worked, Mees and Vera faced a harsh reality: helping people quit wasn’t easy when Big Tobacco stood in the way. The industry didn't want people to quit, and selling a product that truly helped people break free from smoking was harder than expected. Still, they remained determined, pushing forward with their mission despite the resistance.</h3>",
+        "text_J1rsNqvhbBWgyrz7": "<h3>2023</h3>",
+        "text_S0VEQt8zuCHVlrye": "<h3>Breaking Through</h3>",
+        "text_vYfAeB2ieRYTwDqv": "<h3>In 2023, Mees and Vera found a way to spread the word about Lio®. Against all the odds and challenges they faced from the powerful tobacco industry, they persevered. Their passion and belief in the product kept them moving forward, reaching more and more people with their message of natural, healthy quitting.</h3>",
+        "text_HqIlg5TR3lg4dBwF": "<h3>2024</h3>",
+        "text_g5tjbv5mLurNoYrG": "<h3>A Milestone Achieved</h3>",
+        "text_tjp0GjAbj8L0ArTP": "<h3>Now, in 2024, their dedication has paid off. Lio® has helped over 50,000 people worldwide quit smoking and vaping, offering a healthier alternative that addresses the habit itself, not just the addiction. Mees and Vera are proud of what they’ve achieved but know there’s still much more work to be done. They continue their mission to help people quit smoking and take control of their habits, one step at a time.</h3>",
+        "text_0PKHsX39cTxqfGgC": "<h3>2022</h3>",
+        "text_WzHkf4NpkcHFJ5IE": "<h3>The Challenge</h3>",
+        "text_wUTXAYxlyI5MScW0": "<h3>While they had created a product that worked, Mees and Vera faced a harsh reality: helping people quit wasn’t easy when Big Tobacco stood in the way. The industry didn't want people to quit, and selling a product that truly helped people break free from smoking was harder than expected. Still, they remained determined, pushing forward with their mission despite the resistance.</h3>",
+        "text_PhCN3yeAJQkfUrhg": "<h3>2023</h3>",
+        "text_l05sBwZKmcmhV9aW": "<h3>Breaking Through</h3>",
+        "text_Jljrue9XgwhRkeUX": "<h3>In 2023, Mees and Vera found a way to spread the word about Lio®. Against all the odds and challenges they faced from the powerful tobacco industry, they persevered. Their passion and belief in the product kept them moving forward, reaching more and more people with their message of natural, healthy quitting.</h3>",
+        "text_WMf2iKTAxedD6v0C": "<h3>2023</h3>",
+        "text_c36EB7uPPPDdm5jg": "<h3>A Milestone Achieved</h3>",
+        "text_0zUjHoL2eHw8iCpt": "<h3>Now, in 2024, their dedication has paid off. Lio® has helped over 50,000 people worldwide quit smoking and vaping, offering a healthier alternative that addresses the habit itself, not just the addiction. Mees and Vera are proud of what they’ve achieved but know there’s still much more work to be done. They continue their mission to help people quit smoking and take control of their habits, one step at a time.</h3>",
+        "text_vZpUmWJEh5qWZKyp": "<p>SHOP LIO®</p>",
+        "text_pPD9ihvJOygzZTG2": "<h3><strong>our products </strong></h3>",
+        "text_sjJBC37RLw5uqO3P": "<h3><strong>LIO® GEN 2</strong></h3>",
+        "text_I7u5b1vHrcAzfsqG": "<h3><strong>NEW</strong></h3>",
+        "text_P48xS6YhDTKdlfYN": "<h3><strong>CORES</strong></h3>",
+        "url_TEx81jyHJ4rzXqfe": "https://breathelio.com/pages/lio%C2%AE-gen-2-cores",
+        "text_FFVTb4uFgCgjfGd3": "<p>SHOP NOW </p>",
+        "text_EH85rp0SWjsgRXKN": "<h3><strong>LIO®</strong> CLASSIC</h3>",
+        "text_BotpDI5ezokgJAot": "<h3><strong>CORES</strong></h3>",
+        "url_hY8seExEU8n7A8uI": "https://breathelio.com/pages/lio%C2%AE-classic-cores",
+        "text_0nCI6a9udFabHd4f": "<p>SHOP NOW </p>",
+        "text_eMBLy8Rpd8vSYI42": "<h3><strong>LIO®</strong> CLASSIC</h3>",
+        "text_5LVkWia2CSOCOssf": "<h3><strong>CORES</strong></h3>",
+        "url_cK7ClTz7CuH8esqx": "https://breathelio.com/pages/lio%C2%AE-classic-cores",
+        "text_SIhOfC05UfNTV6pj": "<p>SHOP NOW </p>",
+        "text_Z1rzB7a3EyJR4Yud": "<h3><strong>LIO® GEN 2</strong></h3>",
+        "text_9wotfuk1UbDLRhvt": "<h3><strong>NEW</strong></h3>",
+        "text_GDk3UOkIuDDdFkm9": "<h3><strong>CORES</strong></h3>",
+        "url_VryMRzkUojmAeQKA": "https://breathelio.com/pages/lio%C2%AE-gen-2-cores",
+        "text_lZE8YkJtmacb4rAY": "<p>SHOP NOW </p>",
+        "url_sEJFRmMi6WtGxLkX": "https://breathelio.com/pages/lio-starterpack",
+        "text_lr6AXEL5rszZAyKY": "<p>ORDER NOW</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "17335624699f5757de": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_agg_section_GJNf79": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "only_photos": false,
+            "hide_thumbnails": true,
+            "product_handle": "",
+            "aggregated": true,
+            "data-limit": 20,
+            "maxwidth": 1080,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_agg_section_GJNf79"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "image_with_text_overlay_Hc9WgR": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_XtQCRL": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "How We’re Changing the Way People Quit",
+            "heading_tag": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XtQCRL"
+      ],
+      "custom_css": [
+        "p.h1 {max-width: 480px !important;}",
+        "@media only screen and (max-width: 999px) {p.h1 {font-size: 35px; max-width: 300px !important; padding-top: 15px; }}"
+      ],
+      "name": "Image with text overlay",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/dscf9235-enhanced-nr-2-1.png",
+        "mobile_image": "shopify://shop_images/dscf9235-enhanced-nr-2-1.webp",
+        "mobile_text_position": "place-self-start-center text-center",
+        "desktop_text_position": "sm:place-self-end-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "our_timeline_FJaEQN": {
+      "type": "our-timeline",
+      "name": "our-timeline",
+      "settings": {
+        "sub-heading": "Our Journey",
+        "heading-before": "Founded in 2022 by brother and sister",
+        "high-heading": "Mees & Vera van Lier",
+        "heading-after": ", Lio helps people quit smoking and reclaim their health—simply, naturally, and with science on their side.",
+        "content1": "<p>After months of research, Lio launched from a small apartment in Amsterdam. Mees and Vera learned quitting didn’t have to be hard, it was about the habit, not just the nicotine. They started small, packing orders themselves and listening to every bit of feedback.</p>",
+        "content2": "<p>They set out to build something different. Not a product that made quitting painful, but one that made it feel possible. They listened to real stories, improved the design, and began to see hope in people’s messages.</p>",
+        "content3": "<p>And today, word has spread fast. Over 80,000 people have quit smoking with Lio, often saying it was easier than they’d ever imagined. Mees and Vera keep refining, knowing every small improvement means another life changed.</p><p></p>"
+      }
+    },
+    "about_text_logo_THARQD": {
+      "type": "about-text-logo",
+      "blocks": {
+        "logo_heading_iqYtxB": {
+          "type": "logo_heading",
+          "settings": {
+            "image": "shopify://shop_images/nsc.svg",
+            "heading_before": "“Lio isn’t just habit support, it’s a",
+            "highlight_heading": "it’s a science-backed",
+            "heading_after": "way to curb cravings  and breathe easier.”"
+          }
+        },
+        "logo_heading_zBbrbY": {
+          "type": "logo_heading",
+          "settings": {
+            "image": "shopify://shop_images/influencer-daily-logo-002_1.png",
+            "heading_before": "\"Thousands are turning to Lio as the",
+            "highlight_heading": "new way",
+            "heading_after": "to break bad habits.\""
+          }
+        },
+        "logo_heading_Vnfkjb": {
+          "type": "logo_heading",
+          "settings": {
+            "image": "shopify://shop_images/disrupt.png",
+            "heading_before": "\"You can forget",
+            "highlight_heading": "patches and gums",
+            "heading_after": ", Lio is changing the quit game.”"
+          }
+        },
+        "logo_heading_BWnJTn": {
+          "type": "logo_heading",
+          "settings": {
+            "image": "shopify://shop_images/fiml-daily.png",
+            "heading_before": "\"Where old methods",
+            "highlight_heading": "fail",
+            "heading_after": ", Lio steps in with modern, research-backed way to quit those bad habits.\""
+          }
+        }
+      },
+      "block_order": [
+        "logo_heading_iqYtxB",
+        "logo_heading_zBbrbY",
+        "logo_heading_Vnfkjb",
+        "logo_heading_BWnJTn"
+      ],
+      "name": "about-text-logo",
+      "settings": {}
+    },
+    "about_stats_EJXKFN": {
+      "type": "about-stats",
+      "blocks": {
+        "stat_QWjqbr": {
+          "type": "stat",
+          "settings": {
+            "stat_number": "82%",
+            "stat_description": "Less waste produced by Lio cores, compared to disposable vape cartridges in the market",
+            "stat_footnote": "Based on internal analysis comparing material breakdown and usage rates across product lifespan."
+          }
+        },
+        "stat_iRxVxq": {
+          "type": "stat",
+          "settings": {
+            "stat_number": "3,945,880",
+            "stat_description": "Plastic devices avoided since 2021 by choosing Lio’s reusable, refillable diffuser",
+            "stat_footnote": ""
+          }
+        },
+        "stat_G6JkJC": {
+          "type": "stat",
+          "settings": {
+            "stat_number": "100%",
+            "stat_description": "Renewable energy used to power core flavor production and lab testing in 2023",
+            "stat_footnote": "Verified through third-party certification and supplier disclosures."
+          }
+        }
+      },
+      "block_order": [
+        "stat_QWjqbr",
+        "stat_iRxVxq",
+        "stat_G6JkJC"
+      ],
+      "name": "About Stats",
+      "settings": {
+        "image": "shopify://shop_images/science-hero.jpg"
+      }
+    },
+    "founder_quote_P8i6Ax": {
+      "type": "founder-quote",
+      "name": "founder-quote",
+      "settings": {
+        "heading-before": "“Lio was born from a simple idea, what if breaking a",
+        "high-heading": "habit felt good?",
+        "heading-after": "We built it to empower, not punish. That changes everything.”",
+        "image": "shopify://shop_images/Mees_Koen.webp",
+        "founder": "Mees van Lier",
+        "designation": "Founders, Lio"
+      }
+    },
+    "custom_newsletter_gNtCFp": {
+      "type": "custom-newsletter",
+      "disabled": true,
+      "name": "custom newsletter",
+      "settings": {
+        "heading": "Unlock your exclusive lio deal",
+        "highlighted-heading": "",
+        "sub-text": "Sign up to get al the updates",
+        "button_text": "sign up to the newsletter",
+        "input_text": "Enter your email id",
+        "subtext": "*By joining, you'll receive our wellness insights and can unsubscribe anytime.",
+        "image": "shopify://shop_images/vees.png",
+        "image-mobile": "shopify://shop_images/IMG_0142_3_8407560a-8254-4c74-bd6e-1111e360f6be.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "instant_k_hw1f_b_na_b_ids4bd_i_NRYP8a",
+    "17335624699f5757de",
+    "image_with_text_overlay_Hc9WgR",
+    "our_timeline_FJaEQN",
+    "about_text_logo_THARQD",
+    "about_stats_EJXKFN",
+    "founder_quote_P8i6Ax",
+    "custom_newsletter_gNtCFp"
+  ]
+}

@@ -1,0 +1,323 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "science_hero_FgYNT8": {
+      "type": "science-hero",
+      "name": "science-hero",
+      "settings": {
+        "image": "shopify://shop_images/science-hero.jpg",
+        "pre-text": "Backed by Behavior",
+        "heading": "The Science of the",
+        "highlighted-heading": "Lio Habit",
+        "text": "<p>Good habits start with awareness from the inside out. That’s where Lio makes a difference.<br/><br/>We combine simple science with real behavior : Sensory habit loops, natural flavor delivery, and powerful mind-body connections.<br/><br/>Habit-led, research-backed, and built to help you quit without going cold.<br/></p>",
+        "bold-text": "“It’s like a lab-backed habit reset” -",
+        "image-2": "shopify://shop_images/influencer-daily-logo-002_1.png"
+      }
+    },
+    "science_info_7XwFNg": {
+      "type": "science-info",
+      "blocks": {
+        "usp_WDfHfR": {
+          "type": "usp",
+          "settings": {
+            "title": "PLANT-BASED FORMULA"
+          }
+        },
+        "usp_4qgejP": {
+          "type": "usp",
+          "settings": {
+            "title": "SCIENCE -ALIGNED DESIGN"
+          }
+        },
+        "usp_C7fREc": {
+          "type": "usp",
+          "settings": {
+            "title": "EXPERT-RECOMMENDED"
+          }
+        },
+        "usp_Umn99U": {
+          "type": "usp",
+          "settings": {
+            "title": "FEELS GOOD, WORKS BETTER"
+          }
+        }
+      },
+      "block_order": [
+        "usp_WDfHfR",
+        "usp_4qgejP",
+        "usp_C7fREc",
+        "usp_Umn99U"
+      ],
+      "name": "science-info",
+      "settings": {
+        "heading": "Proven Habit Relief.",
+        "highlighted-heading": "Naturally Backed.",
+        "text": "Backed by behavior science and trusted by wellness experts, Lio delivers a plant-powered breath that supports craving control, focus, and calm—designed for everyday use, with zero toxins or vapor."
+      }
+    },
+    "safety_margin_jwFkHA": {
+      "type": "safety-margin",
+      "name": "safety-margin",
+      "settings": {
+        "heading": "Safety",
+        "highlighted-heading": "margin",
+        "text": "Third-party tested limits compared to Lio’s exposure levels",
+        "lio": "Lio",
+        "other": "Agency Max",
+        "percent": "44",
+        "per-text": "of the safe daily limit used by Lio",
+        "bar-text": "Behavioral Shift"
+      }
+    },
+    "stats_section_Ayi3ih": {
+      "type": "stats-section",
+      "name": "stats-section",
+      "settings": {
+        "heading": "LOW IMPACT",
+        "highlighted-heading": ". HIGH STANDARD.",
+        "sub": "THE LIO DIFFERENCE",
+        "button-url": "shopify://products/new-lio-journey-pack",
+        "button-text": "Try now for",
+        "sub-2": "EXPOSURE STUDY – INDEPENDENTLY TESTED",
+        "stat-1": "44",
+        "stat-1-text": "of people reported fewer daily cravings",
+        "stat-2": "100",
+        "stat-2-text": "of people felt more in control of urges",
+        "stat-3": "0",
+        "stat-3-text": "of people stuck to the habit switch",
+        "disclaimer": "Based on self-reported results in an independent 3-week study of 40 participants using Lio to manage cravings and reduce nicotine intake."
+      }
+    },
+    "expert_section_zdViUa": {
+      "type": "expert-section",
+      "blocks": {
+        "review_WGhj8c": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/1.jpg",
+            "name": "Cordell & Buckle 1",
+            "date": "2013",
+            "review": "<p>A university-based study tested the effects of black pepper and angelica root essential oils on cravings. Both helped reduce the urge to engage in unhealthy habits, with black pepper providing the most craving relief and angelica offering the longest delay before the next urge.</p>",
+            "designation": "Aromatherapy & Craving Reduction",
+            "conclusion": "<p><strong>Conclusion </strong>: Aromatherapy may help reduce cravings and support withdrawal relief.</p>"
+          }
+        },
+        "review_cTRKVY": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/2.jpg",
+            "name": "Cordell & Buckle 2",
+            "date": "2013",
+            "review": "<p>A university-based study tested the effects of black pepper and angelica root essential oils on cravings. Both helped reduce the urge to engage in unhealthy habits, with black pepper providing the most craving relief and angelica offering the longest delay before the next urge.</p>",
+            "designation": "Aromatherapy & Craving Reduction",
+            "conclusion": "<p><strong>Conclusion </strong>: Aromatherapy may help reduce cravings and support withdrawal relief.</p>"
+          }
+        },
+        "review_HXe9dE": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/3.jpg",
+            "name": "Cordell & Buckle 3",
+            "date": "2013",
+            "review": "<p>A university-based study tested the effects of black pepper and angelica root essential oils on cravings. Both helped reduce the urge to engage in unhealthy habits, with black pepper providing the most craving relief and angelica offering the longest delay before the next urge.</p>",
+            "designation": "Aromatherapy & Craving Reduction",
+            "conclusion": "<p><strong>Conclusion </strong>: Aromatherapy may help reduce cravings and support withdrawal relief.</p>"
+          }
+        },
+        "review_xbPFyn": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/1.jpg",
+            "name": "Cordell & Buckle 4",
+            "date": "2013",
+            "review": "<p>A university-based study tested the effects of black pepper and angelica root essential oils on cravings. Both helped reduce the urge to engage in unhealthy habits, with black pepper providing the most craving relief and angelica offering the longest delay before the next urge.</p>",
+            "designation": "Aromatherapy & Craving Reduction",
+            "conclusion": "<p><strong>Conclusion </strong>: Aromatherapy may help reduce cravings and support withdrawal relief.</p>"
+          }
+        },
+        "review_bfq7Rf": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/2.jpg",
+            "name": "Cordell & Buckle 5",
+            "date": "2013",
+            "review": "<p>A university-based study tested the effects of black pepper and angelica root essential oils on cravings. Both helped reduce the urge to engage in unhealthy habits, with black pepper providing the most craving relief and angelica offering the longest delay before the next urge.</p>",
+            "designation": "Aromatherapy & Craving Reduction",
+            "conclusion": "<p><strong>Conclusion </strong>: Aromatherapy may help reduce cravings and support withdrawal relief.</p>"
+          }
+        },
+        "review_PfQxHL": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/3.jpg",
+            "name": "Cordell & Buckle 6",
+            "date": "2013",
+            "review": "<p>A university-based study tested the effects of black pepper and angelica root essential oils on cravings. Both helped reduce the urge to engage in unhealthy habits, with black pepper providing the most craving relief and angelica offering the longest delay before the next urge.</p>",
+            "designation": "Aromatherapy & Craving Reduction",
+            "conclusion": "<p><strong>Conclusion </strong>: Aromatherapy may help reduce cravings and support withdrawal relief.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "review_WGhj8c",
+        "review_cTRKVY",
+        "review_HXe9dE",
+        "review_xbPFyn",
+        "review_bfq7Rf",
+        "review_PfQxHL"
+      ],
+      "name": "expert-section",
+      "settings": {
+        "heading": "Why Lio® is Safe &",
+        "highlighted-heading": "Effective",
+        "sub-text": "Aligned with Peer-Reviewed Research. We’re inspired by real clinical studies that explore how scent, ritual, and natural inhalation can reduce cravings and support healthier habits—without nicotine, smoke, or harmful chemicals.",
+        "left-sub-text": "more likely to stay nicotine-free",
+        "button-url": "",
+        "button-text": "See our reviews"
+      }
+    },
+    "ecom_faq_xbUPMV": {
+      "type": "ecom-faq",
+      "blocks": {
+        "question_RzczEX": {
+          "type": "question",
+          "settings": {
+            "title": "What are the ingredients?",
+            "content": "<p>Lio® Flavour Cores are crafted with 100% natural ingredients, offering a nicotine-free solution to help break harmful habits. Delivering clean, flavoured air without smoke, vapor, or chemicals, ensuring a safe, effective, and satisfying alternative for relieving cravings.</p>"
+          }
+        },
+        "question_Ui4DfF": {
+          "type": "question",
+          "settings": {
+            "title": "What does flavored air taste like?",
+            "content": "<p>If you’re used to vapor, Lio might feel lighter at first—but it’s designed for a healthier future. Think of Lio as herbal tea compared to the sticky soda of vapor: less intense, more natural, and far better for you.</p>"
+          }
+        },
+        "question_376M36": {
+          "type": "question",
+          "settings": {
+            "title": "What are cores made of?",
+            "content": "<p>Each Core fiber is medical grade polyester, infused in the fiber is our unique plant blend of pure essential oils from amazing farms we've partnered with around the world.</p>"
+          }
+        },
+        "question_Rp69ih": {
+          "type": "question",
+          "settings": {
+            "title": "How long do the Lio Cores last?",
+            "content": "<p>Each Lio Core lasts 2-4 days, depending on your usage. Heavy users may need to replace the cores more frequently, but they are designed to provide lasting flavor and a satisfying experience.</p>"
+          }
+        },
+        "question_x9MVmm": {
+          "type": "question",
+          "settings": {
+            "title": "How often can I use Lio?",
+            "content": "<p>Use Lio as often as you like. If you experience any discomfort, please discontinue use and consult your physician.</p>"
+          }
+        },
+        "question_TzktP8": {
+          "type": "question",
+          "settings": {
+            "title": "Is Lio safe to use?",
+            "content": "<p>Lio is made with 100% natural ingredients and is completely free from nicotine, smoke, and harmful chemicals, making it a safe and healthier alternative for people trying to quit smoking or vaping.</p>"
+          }
+        },
+        "question_Gt34WH": {
+          "type": "question",
+          "settings": {
+            "title": "Shipping & Refunds",
+            "content": "<p><strong>Worldwide shipping - For Free<br/></strong>We ship worldwide from the Netherlands with free shipping on all orders. Delivery takes 2-3 days within Europe, 4-8 days outside Europe, and next-day delivery in the Middle East (from Dubai).<br/><br/><strong>The Money Back Guarantee</strong><br/>If you’ve used Lio™, commit to a 30 days to experience its benefits. After completing the 30-day journey, you have 7 days to request a refund if you’re not satisfied. This ensures you have enough time to fully explore its impact before making a decision.</p>"
+          }
+        },
+        "question_knmy8H": {
+          "type": "question",
+          "settings": {
+            "title": "How does Lio work?",
+            "content": "<p>Lio works by replacing the hand-to-mouth fixation with naturally infused air, offering calming, refreshing flavors without nicotine, smoke, or chemicals. This action helps reduce the psychological need for smoking or vaping while keeping you engaged with familiar habits.</p>"
+          }
+        },
+        "question_eqU3k6": {
+          "type": "question",
+          "settings": {
+            "title": "Question",
+            "content": "<p>Share some content to your customers about your products.</p>"
+          }
+        },
+        "question_grJMmK": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use Lio anywhere?",
+            "content": "<p>Yes! Lio produces no smoke, vapor, or harmful chemicals, so it can be used in most places where smoking or vaping are not allowed. Its discreet and clean design makes it a convenient, portable option to carry and use anywhere, whether you’re at home, work, or on the go.</p>"
+          }
+        },
+        "question_3pJbUm": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use Lio anywhere?",
+            "content": "<p>Yes! Lio produces no smoke, vapor, or harmful chemicals, so it can be used in most places where smoking or vaping are not allowed. Its discreet and clean design makes it a convenient, portable option to carry and use anywhere, whether you’re at home, work, or on the go.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_RzczEX",
+        "question_Ui4DfF",
+        "question_376M36",
+        "question_Rp69ih",
+        "question_x9MVmm",
+        "question_TzktP8",
+        "question_Gt34WH",
+        "question_knmy8H",
+        "question_eqU3k6",
+        "question_grJMmK",
+        "question_3pJbUm"
+      ],
+      "name": "Ecom FAQ",
+      "settings": {
+        "padding_top": 32,
+        "padding_top_desktop": 40,
+        "padding_bottom": 32,
+        "padding_bottom_desktop": 40,
+        "title": "You asked we",
+        "high-title": "answered"
+      }
+    },
+    "custom_newsletter_DXfjmx": {
+      "type": "custom-newsletter",
+      "name": "custom newsletter",
+      "settings": {
+        "heading": "Unlock your exclusive lio deal",
+        "highlighted-heading": "",
+        "sub-text": "Sign up to get al the updates",
+        "button_text": "sign up to the newsletter",
+        "input_text": "Enter your email id",
+        "subtext": "*By joining, you'll receive our wellness insights and can unsubscribe anytime.",
+        "image": "shopify://shop_images/vees.png",
+        "image-mobile": "shopify://shop_images/IMG_0142_3_8407560a-8254-4c74-bd6e-1111e360f6be.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "science_hero_FgYNT8",
+    "science_info_7XwFNg",
+    "safety_margin_jwFkHA",
+    "stats_section_Ayi3ih",
+    "expert_section_zdViUa",
+    "ecom_faq_xbUPMV",
+    "custom_newsletter_DXfjmx"
+  ]
+}

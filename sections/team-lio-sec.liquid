@@ -1,0 +1,80 @@
+<style>
+  #footer-icons{
+    display : none;
+  }
+.founder-quote {
+  background: var(--lio-white);
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-color: var(--lio-white);
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+ .founder-quote .msg-box {
+    text-align: center;
+    max-width: 830px;
+    margin: auto;
+    margin-bottom: 25px;
+    text-wrap: balance;
+   font-size : 23px;
+   letter-spacing : -0.8px;
+}
+.f-separator {
+    width: 100%;
+    max-width: 400px;
+    height: 1px;
+    margin: auto;
+    background: var(--lio-dark-green);
+}
+  p.founder-name{
+    font-weight : 700;
+    margin-top : 20px;
+    font-size : 20px;
+  }
+  .founder-quote img{
+    width : 100%;
+    max-width : 80px;
+    margin-top : 10px;
+  }
+  @media screen and (max-width: 1024px){
+   .founder-quote .msg-box{
+     font-size : 17px;
+   }
+  }
+</style>
+
+<div class="founder-quote">
+  <div class="msg-box">
+  {{ section.settings.text }}
+  </div>
+  <div class="f-separator"></div>
+  <p class="founder-name">{{ section.settings.founder }}</p>
+  <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Squiggle_Mini_10green.svg?v=1749563394" />
+</div>
+
+{% schema %}
+  {
+    "name": "team-lio-sec",
+    "settings": [
+       {
+    "type": "richtext",
+    "id": "text",
+    "label": "text"
+      },
+    
+        {
+    "type": "text",
+    "id": "founder",
+    "label": "name"
+      },
+     
+    ],
+    "presets": [{
+      "name": "team-lio-sec"
+    }]
+  }
+{% endschema %}

@@ -1,0 +1,143 @@
+<style>
+.science-hero{
+  width : 100%;
+  min-height : 60vh;
+  display : grid;
+  grid-template-columns : 0.9fr 1.1fr;
+  gap : 10px;
+}  
+  .right-science-image{
+    height : 100%;
+    
+  }
+  .right-science-image img{
+    width : 100%;
+    height : 100%;
+    object-fit : cover;
+  }
+  .left-science-hero {
+    display: flex;
+    flex-direction: column;
+    max-width: 520px;
+    margin: auto;
+    gap : 20px;
+    padding : 20px;
+}
+  .left-science-hero span.pre-t-bold {
+    font-weight: 600;
+    font-size: 13px;
+}
+  .left-science-hero h2.h2 {
+    font-size: 55px;
+    color : #302F2F;
+}
+ .science-text p {
+    max-width: 450px;
+    text-wrap: balance;
+    font-weight: 500;
+   color : #434343;
+}
+   .left-science-hero h2.h2 span{
+     color : var(--lio-light-green);
+   }
+  .t-below-bold{
+    display : flex;
+    gap : 15px;
+  }
+  .t-below-bold b{
+    font-family : "Sigum";
+    text-transform : uppercase;
+    font-size : 17px;
+  }
+   .t-below-bold img{
+     width : 60px;
+   }
+  @media (max-width: 990px){
+    .science-hero{
+  grid-template-columns : 1fr;
+     gap : 20px; 
+}  
+    .left-science-hero{
+      width : 100%;
+    }
+    .left-science-hero h2.h2 {
+    font-size: 35px;
+    max-width: 300px;
+}
+    .science-text p {
+    max-width: 330px;
+}
+    .t-below-bold b {
+    font-size: 14px;
+}
+    .t-below-bold img {
+    width: 45px;
+}
+  }
+</style>
+<div class="science-hero">
+  <div class="left-science-hero">
+    <span class="pre-t-bold">{{ section.settings.pre-text }}</span>
+    <h2 class="h2">{{ section.settings.heading }} <span>{{ section.settings.highlighted-heading }}</span></h2>
+    <div class="science-text">
+      {{ section.settings.text }}
+    </div>
+    <div class="t-below-bold">
+       <b>{{ section.settings.bold-text }}</b>
+       <img src="{{ section.settings.image-2 | image_url: width: 1500 }}" />
+    </div>
+   
+  </div>
+  <div class="right-science-image">
+     <img src="{{ section.settings.image | image_url: width: 1500 }}" />
+  </div>
+ 
+</div>
+
+{% schema %}
+  {
+    "name": "science-hero",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "image"
+      },
+
+      {
+          "type": "text",
+          "id": "pre-text",
+          "label": "pre-text",
+            "default" : "Backed by Behavior"
+      },
+      {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text"
+        },
+        {
+          "type": "text",
+          "id": "highlighted-heading",
+          "label": "highlighted-heading"
+        },
+      {
+         "type": "richtext",
+          "id": "text",
+          "label": "text"
+      },
+      {
+        "type": "text",
+        "id": "bold-text",
+        "label": "bold-text"
+      },
+       {
+        "type": "image_picker",
+        "id": "image-2",
+        "label": "image logo"
+      },
+    ],
+    "presets": [{
+      "name": "science-hero"
+    }]
+  }
+{% endschema %}

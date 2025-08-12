@@ -1,0 +1,402 @@
+{% assign first = section.blocks.first %}
+<style>
+  .flavours-section {
+    width: 100%;
+    padding: 50px;
+    background: transparent;
+    transition: background 1s ease;
+    color : #F4F4F4;
+    overflow : hidden;
+    position : relative;
+    margin : 0px 0px;
+  }
+  .flavours-section *{
+    position : relative;
+    z-index : 1;
+  }
+  .flavour-overlay{
+    position : absolute !important;
+    top : 50%;
+    left : 50%;
+    width : 70%;
+    transform : translate(-50%, -50%);
+    background : #ffffff;
+    border-radius : 50%;
+    height : 110%;
+    filter: blur(122.46405029296875px);
+    z-index : 0 !important;
+    transition: background 1s ease;
+  }
+  .top-flav {
+    text-align: center;
+  }
+  .top-flav p{
+    text-transform : uppercase;
+    margin-bottom : 20px;
+    font-size : 13px;
+    font-weight : 700;
+  }
+  .top-flav h2{
+    max-width : 600px;
+    margin : auto;
+    padding-bottom : 40px;
+    font-size : 55px;
+    line-height : 1;
+  }
+  .flavour-container {
+    margin: 40px auto;
+    max-width: 100%;
+    cursor : grab;
+  }
+ .flavour-container .swiper-slide {
+    width: 200px; /* or whatever size */
+    cursor: grab;
+  
+  }
+  .flavour-container .swiper-slide img {
+    transform: scale(1);
+    transition: all 0.5s ease;
+    margin: auto;
+}
+  .flavour-container .swiper-slide.swiper-slide-active img{
+    transform : scale(1.4);
+  }
+  .slide-info {
+   
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 45px;
+}
+  .slide-info ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+        margin-bottom: 30px;
+}
+   .slide-info ul li {
+    max-width: 130px;
+    width: 100%;
+}
+  h3.flav-slide-title.h3 {
+    margin-bottom: 10px;
+    font-size : 55px;
+    color : #EAEAEA;
+}
+  p.flav-slide-desc{
+    text-transform : uppercase;
+    color : #D8D8D8;
+    font-size : 14px;
+    font-weight : 700;
+  }
+  
+  p.heading-flav{
+    font-family : 'Sigum';
+    text-transform : uppercase;
+    font-size : 20px;
+    padding-bottom : 15px;
+  }
+  p.heading-val {
+    font-size: 14px;
+    font-weight: 500;
+    color: #F9F5E9;
+    min-width: max-content;
+    line-height : 1.3;
+}
+  .flavour-values-con{
+    width : 100%;
+  margin-bottom : 10px;
+  }
+  .flavour-val-prog{
+    position : relative;
+    width : 100%;
+    background : #E4E4E430;
+    border-radius : 30px;
+    height : 3px;
+  }
+  .falvour-sticks{
+    display : flex;
+    justify-content : space-between;
+    width : 100%;
+    margin-top : 3px;
+  }
+  .falvour-stick{
+    width : 1px;
+    height : 11px;
+    background : #FCF7E5;
+  }
+  .flavour-val-main-prog{
+    position : absolute;
+    left : 0;
+    top : 0;
+    height : 100%;
+    background : #FCF7E5;
+    border-radius : 20px;
+ 
+  }
+  @media (max-width: 600px){
+    .flavour-container .swiper-slide.swiper-slide-active img {
+    transform: scale(1.45);
+}
+    .top-flav h2 {
+   width : 100%;
+    padding-bottom: 35px;
+    font-size: 35px;
+    line-height: 1;
+}
+    .flavours-section {
+    padding: 50px 20px;
+}
+    h3.flav-slide-title.h3 {
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+    p.flav-slide-desc {
+    font-size: 11px;
+}
+    p.heading-flav {
+   
+    font-size: 13.5px;
+   
+}
+    .slide-info ul li {
+    max-width: 100px;
+    width: 100%;
+}
+    .slide-info ul {
+
+    gap: 20px;
+
+}
+    p.heading-val {
+    font-size: 12px;
+    min-width: fit-content;
+    line-height: 1.25;
+}
+    .flavour-values-con {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+      .flavour-overlay{
+    position : absolute !important;
+    top : 50%;
+    left : 50%;
+    width : 70%;
+    transform : translate(-50%, -50%);
+    background : #E13A1E;
+    border-radius : 50%;
+    height : 110%;
+    filter: blur(122.46405029296875px);
+    z-index : 0 !important;
+    transition: background 1s ease;
+  }
+  }
+</style>
+
+<div class="flavours-section">
+  <div class="flavour-overlay"></div>
+  <div class="top-flav">
+    <p>{{ section.settings.sub }}</p>
+    <h2 class="h2">{{ section.settings.heading }}</h2>
+  </div>
+
+  <!-- Swiper -->
+  <div class="flavour-container">
+    <div class="swiper-wrapper">
+      {% comment %}
+        Loop through your flavors; store all per‐slide info in data‐attributes
+      {% endcomment %}
+      {% for flavor in section.blocks %}
+  <div
+    class="swiper-slide"
+    data-bg="{{ flavor.settings.bg_color }}"
+     data-overlay="{{ flavor.settings.overlay_color }}"
+    data-title="{{ flavor.settings.title }}"
+    data-desc="{{ flavor.settings.copy }}"
+    data-fresh="{{ flavor.settings.freshness }}"
+    data-throat="{{ flavor.settings.throat_hit }}"
+    data-sweet="{{ flavor.settings.sweetness }}"
+    data-fresh-pct="{{ flavor.settings.freshness_val }}"
+    data-throat-pct="{{ flavor.settings.throat_hit_val }}"
+    data-sweet-pct="{{ flavor.settings.sweetness_val }}"
+  >
+    <img src="{{ flavor.settings.image | img_url: 'master' }}" alt="{{ flavor.settings.title }}" />
+  </div>
+{% endfor %}
+
+    </div>
+  </div>
+
+  <div class="slide-info">
+    <h3 class="flav-slide-title h3">{{ first.settings.title }}</h3>
+    <p class="flav-slide-desc">{{ first.settings.copy }}</p>
+    <ul>
+      <li>
+        <div class="flavour-values-con">
+          <div class="flavour-val-prog">
+            <div class="flavour-val-main-prog fresh-prog-val"></div>
+          </div>
+          <div class="falvour-sticks">
+            <span class="falvour-stick"></span>
+             <span class="falvour-stick"></span>
+             <span class="falvour-stick"></span>
+          </div>
+        </div>
+        <p class="heading-flav">Freshness</p> 
+        <p class="fresh-val heading-val">{{ first.settings.freshness }}</p>
+      </li>
+      <li>
+          <div class="flavour-values-con">
+          <div class="flavour-val-prog">
+            <div class="flavour-val-main-prog throat-prog-val"></div>
+          </div>
+          <div class="falvour-sticks">
+            <span class="falvour-stick"></span>
+             <span class="falvour-stick"></span>
+             <span class="falvour-stick"></span>
+          </div>
+        </div>
+        <p class="heading-flav">Throat Hit</p> 
+        <p class="throat-val heading-val">{{ first.settings.throat_hit }}</p>
+      </li>
+      <li>
+          <div class="flavour-values-con">
+          <div class="flavour-val-prog">
+            <div class="flavour-val-main-prog sweet-prog-val"></div>
+          </div>
+          <div class="falvour-sticks">
+            <span class="falvour-stick"></span>
+             <span class="falvour-stick"></span>
+             <span class="falvour-stick"></span>
+          </div>
+        </div>
+        <p class="heading-flav">Sweetness</p> 
+        <p class="sweet-val heading-val">{{ first.settings.sweetness }}</p>
+      </li>
+     </ul>
+    {% assign razzy = all_products['razzy-berry-v2'] %}
+
+    <a href="{{ section.settings.url }}" class="gradient-button">{{ section.settings.price-title }}  {{ razzy.price | money_without_trailing_zeros }}</a>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var swiper = new Swiper('.flavour-container', {
+    slidesPerView: 5,
+    centeredSlides: true,
+    spaceBetween: 0,
+    grabCursor: true,
+    initialSlide: 2,
+    speed: 700,
+    breakpoints: {
+      500: {
+        slidesPerView: 1.7,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+      2300: {
+        slidesPerView: 5,
+      }
+    },
+    on: {
+      init: function() {
+        updateContent(this.slides[this.activeIndex]);
+      },
+      slideChange: function() {
+        updateContent(this.slides[this.activeIndex]);
+      }
+    }
+  });
+
+  // ✅ NEW CODE: Add click-to-activate behavior
+  document.querySelectorAll('.flavour-container .swiper-slide').forEach((slide, index) => {
+    slide.addEventListener('click', () => {
+      swiper.slideTo(index, 700);
+    });
+  });
+
+  function updateContent(slideEl) {
+    var bg         = slideEl.dataset.bg;
+    var title      = slideEl.dataset.title;
+    var desc       = slideEl.dataset.desc;
+    var fresh      = slideEl.dataset.fresh;
+    var throat     = slideEl.dataset.throat;
+    var sweet      = slideEl.dataset.sweet;
+    var freshPct   = slideEl.dataset.freshPct;
+    var throatPct  = slideEl.dataset.throatPct;
+    var sweetPct   = slideEl.dataset.sweetPct;
+    var overlayClr = slideEl.dataset.overlay;
+
+    document.querySelector('.flavours-section').style.background = bg;
+    document.querySelector('.flavour-overlay').style.background = overlayClr;
+    document.querySelector('.flav-slide-title').textContent = title;
+    document.querySelector('.flav-slide-desc').textContent = desc;
+    document.querySelector('.fresh-val').textContent = fresh;
+    document.querySelector('.throat-val').textContent = throat;
+    document.querySelector('.sweet-val').textContent = sweet;
+    document.querySelector('.fresh-prog-val').style.width = freshPct + '%';
+    document.querySelector('.throat-prog-val').style.width = throatPct + '%';
+    document.querySelector('.sweet-prog-val').style.width = sweetPct + '%';
+  }
+});
+
+</script>
+
+{% schema %}
+{
+  "name": "flavours-slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "price-title",
+      "label": "Price title",
+      "default" : "shop now for "
+    },
+    {
+      "type": "text",
+      "id": "sub",
+      "label": "Sub",
+      "default" : "flavour cores"
+    },
+     {
+      "type": "text",
+      "id": "heading",
+      "label": "heading",
+      "default" : "DISCOVER YOUR PERFECT FLAVOR"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "url"
+    }
+  ],
+  "blocks": [
+  {
+    "type": "flavor",
+    "name": "Flavor",
+    "settings": [
+      { "type": "color", "id": "bg_color", "label": "Background Color" },
+       { "type": "color", "id": "overlay_color", "label": "Overlay Color" },
+      { "type": "image_picker", "id": "image", "label": "Flavor Image" },
+      { "type": "text", "id": "title", "label": "Title" },
+      { "type": "textarea", "id": "copy", "label": "Copy / Description" },
+      { "type": "text", "id": "freshness", "label": "Freshness" },
+      { "type": "text", "id": "throat_hit", "label": "Throat Hit" },
+      { "type": "text", "id": "sweetness", "label": "Sweetness" },
+      { "type": "range", "id": "freshness_val", "label": "Freshness Value (0–100%)", "min": 0, "max": 100, "step": 1, "default": 50 },
+      { "type": "range", "id": "throat_hit_val", "label": "Throat Hit Value (0–100%)", "min": 0, "max": 100, "step": 1, "default": 50 },
+      { "type": "range", "id": "sweetness_val", "label": "Sweetness Value (0–100%)", "min": 0, "max": 100, "step": 1, "default": 50 }
+    ]
+  }
+]
+,
+  "presets": [{
+    "name": "Flavours Slider",
+    "category": "Custom"
+  }]
+}
+{% endschema %}

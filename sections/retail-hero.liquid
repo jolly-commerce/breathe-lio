@@ -1,0 +1,273 @@
+<style>
+.retail-hero{
+  max-width : 1400px;
+  width : 100%;
+  padding : 40px 40px;
+  margin : auto;
+  position : relative;
+} 
+   .retail-hero h2.h3 {
+     max-width : 620px;
+     text-align : center;
+     margin : auto;
+     margin-bottom : 15px;
+     font-size : 40px;
+   }
+  .retail-hero h2.h3 span{
+    color : var(--lio-light-green);
+  }
+  .retail-hero h2.h4 {
+    color: #F9F5E9;
+    font-size: 35px;
+    max-width: 270px;
+    min-width: 270px;
+}
+   .retail-hero h2.h4 span{
+     color : var(--lio-light-green);
+   }
+  .retail-hero p{
+    text-align : center;
+    max-width : 400px;
+    margin : auto;
+  }
+  .ret-banner{
+    min-height : 240px;
+    width : 90%;
+    background-color : var(--lio-dark-green);
+    background-image : url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/lio-main-bg.png?v=1749117809");
+    background-size : cover;
+    border-radius : 20px;
+    overflow : hidden;
+    margin : auto;
+    margin-top : 30px;
+     display: flex;
+    align-items: center;
+    padding : 35px;
+    position : relative;
+    z-index : 1;
+
+  }
+ .rte-banner-right {
+    display: flex;
+    padding-left: 30px;
+}
+ .rte-banner-right-box {
+    display: flex;
+    color: #F3F3F3;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 20px;
+}
+   .rte-banner-right-box img{
+     width : 48px;
+     height : 48px;
+     object-fit : contain;
+   }
+  .rte-banner-right-box h4{
+    font-weight : 400;
+    font-family : 'Sigum';
+    font-size : 15px;
+    text-transform : uppercase;
+  }
+  .rte-banner-right-box span{
+    font-size : 13px;
+    text-wrap : balance;
+    margin-top : -5px;
+  }
+  .ret-img{
+    position : absolute;
+   
+    width : 320px;
+  }
+ .ret-img-left {
+    left: 40px;
+    top: 40px;
+}
+  .ret-img-right{
+     right : -40px;
+    top : 60px;
+  }
+   @media screen and (max-width: 1024px){
+     .retail-hero {
+    padding: 40px 0px;
+       overflow : hidden;
+}
+      .retail-hero h2.h3 {
+     max-width : 350px;
+     margin-bottom : 15px;
+     font-size : 30px;
+   }
+     .retail-hero p {
+    max-width: 280px;
+}
+     .ret-banner {
+    min-height: 240px;
+    width: 100%;
+    background-color: var(--lio-dark-green);
+    background-image: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/grd.png?v=1749123795");
+    background-size: cover;
+    border-radius: 0px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    padding: 40px 15px;
+    position: relative;
+    z-index: 1;
+    flex-direction: column;
+}
+     .retail-hero h2.h4 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+     .rte-banner-right-box {
+    display: flex;
+    color: #F3F3F3;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    line-height: 1.2;
+    width: 150px;
+}
+   .rte-banner-right {
+    display: flex;
+    padding-left: 0px;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+     .ret-img {
+    width: 200px;
+       z-index : 2;
+}
+     .ret-img-left {
+    left: -80px;
+    top: 140px;
+}
+     .ret-img-right {
+    right: -90px;
+    top: 160px;
+}
+   }
+</style>
+
+<div class="retail-hero">
+  <img class="ret-img ret-img-left" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/razzy.png?v=1749123311" />
+  <img class="ret-img ret-img-right" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ohmy_orange.png?v=1749117811" />
+   <h2 class="h3">
+        {{ section.settings['heading-before'] -}}
+        {% if section.settings['high-heading'] != blank %}
+          <span class="">{{ section.settings['high-heading'] }}</span>
+        {% endif %}
+         {{ section.settings['heading-after'] -}}
+      </h2>
+  <p>{{ section.settings.text }}</p>
+  <div class="ret-banner">
+  <h2 class="h4">{{ section.settings.new-head }} <span>{{ section.settings.head-2 }}</span> </h2>
+    <div class="rte-banner-right">
+     <div class="rte-banner-right-box">
+  <img src="{{ section.settings.icon-1 | image_url: width: 1000 }}" />
+  <h4>{{ section.settings.name-1 }}</h4>
+  <span>{{ section.settings.text-1 }}</span>
+</div>
+<div class="rte-banner-right-box">
+  <img src="{{ section.settings.icon-2 | image_url: width: 1000 }}" />
+  <h4>{{ section.settings.name-2 }}</h4>
+  <span>{{ section.settings.text-2 }}</span>
+</div>
+<div class="rte-banner-right-box">
+  <img src="{{ section.settings.icon-3 | image_url: width: 1000 }}" />
+  <h4>{{ section.settings.name-3 }}</h4>
+  <span>{{ section.settings.text-3 }}</span>
+</div>
+
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "retail-hero",
+    "settings": [
+       {
+    "type": "text",
+    "id": "heading-before",
+    "label": "Heading Before"
+      },
+     {
+    "type": "text",
+    "id": "high-heading",
+    "label": "Heighlighted heading"
+      },
+     {
+    "type": "text",
+    "id": "heading-after",
+    "label": "Heading After"
+      },
+        {
+    "type": "text",
+    "id": "text",
+    "label": "text"
+      },
+      {
+    "type": "text",
+    "id": "new-head",
+    "label": "text 2"
+      },
+      {
+    "type": "text",
+    "id": "head-2",
+    "label": "text 3"
+      },
+       {
+      "type": "image_picker",
+      "id": "icon-1",
+      "label": "Icon 1"
+    },
+    {
+      "type": "text",
+      "id": "name-1",
+      "label": "Name 1"
+    },
+    {
+      "type": "textarea",
+      "id": "text-1",
+      "label": "Text 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon-2",
+      "label": "Icon 2"
+    },
+    {
+      "type": "text",
+      "id": "name-2",
+      "label": "Name 2"
+    },
+    {
+      "type": "textarea",
+      "id": "text-2",
+      "label": "Text 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon-3",
+      "label": "Icon 3"
+    },
+    {
+      "type": "text",
+      "id": "name-3",
+      "label": "Name 3"
+    },
+    {
+      "type": "textarea",
+      "id": "text-3",
+      "label": "Text 3"
+    }
+    ],
+    "presets": [{
+      "name": "retail-hero"
+    }]
+  }
+{% endschema %}

@@ -1,0 +1,437 @@
+<style>
+ .grid-review-outer {
+    padding: 50px 30px;
+}
+
+  .grid-review{
+    width : 100%;
+    display : flex;
+    gap : 60px;
+  }
+  .left-grid-review{
+    width : 30%;
+    display : flex;
+    flex-direction : column;
+    gap : 20px;
+  }
+ .right-grid-review {
+    width: 70%;
+   
+}
+  .right-grid-review-inner{
+    width: 100%;
+     display: grid;
+    grid-template-columns: 1fr 1fr;
+   gap : 20px;
+  }
+  .custom-rating-box {
+    padding: 30px;
+    background: var(--lio-dark-green);
+    border-radius: 20px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+ .c-rating-box {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+  .c-rating-box p {
+    color: #F8F5E880;
+    min-width: 80px;
+}
+  
+  .c-rating-box img{
+    min-width : 90px;
+  }
+ .star-animated-span {
+  display: block;
+  height: 7px;
+  border-radius: 10px;
+  width: 0;
+  transition: width 1s ease-out;
+  margin-top: 6px;
+  opacity: 1;
+   align-self: flex-start;
+  background-color: var(--default-color, #F8F5E8); /* fallback */
+}
+
+.star-animated-span[data-color="5"] {
+  background-color: #00B67A; /* green */
+}
+.star-animated-span[data-color="4"] {
+  background-color: #FBBC04; /* lime */
+}
+.star-animated-span[data-color="3"] {
+  background-color: #FFD600; /* yellow */
+}
+.star-animated-span[data-color="2"] {
+  background-color: #FF6D00; /* orange */
+}
+.star-animated-span[data-color="1"] {
+  background-color: #D50000; /* red */
+}
+
+.star-animated-span.hide {
+  display: none;
+}
+
+.g-single-review{
+  padding : 20px;
+ border-radius: 16px;
+border: 1px solid rgba(8, 21, 48, 0.12);
+}
+.g-right-name{
+  display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+gap: 8px;
+}
+  .g-right-name p{
+    font-weight : 600;
+  }
+  img.g-name-img{
+    width : 40px;
+    height : 40px;
+    border-radius : 50%;
+  }
+  img.g-trust-img{
+    width : 85px;
+  }
+  .g-bottom-rev{
+   display: flex;
+align-items: flex-start;
+gap: 16px;
+align-self: stretch;
+    
+  }
+  .g-bottom-rev img{
+    width: 92px;
+height: 120px;
+    object-fit : cover;
+  }
+ .g-bottom-rev p{
+   display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 8px;
+flex: 1 0 0;
+   font-size :14px;
+ } 
+  .g-top-rev {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 20px;
+    align-items: center;
+}
+.left-grid-review  h3.h3 {
+    color: #F8F5E8;
+    font-size: 30px;
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+  .g-show-more {
+    display: flex;
+    width: 208px;
+    height: 48px;
+    border-radius: 9.6px;
+    border: 1.2px solid #005128;
+    padding: 12.8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: auto;
+    margin-top: 20px;
+    align-self: center;
+    font-weight : 600;
+    box-shadow: -5px 5px 0px 0px #005128;
+-webkit-box-shadow: -5px 5px 0px 0px #005128;
+-moz-box-shadow: -5px 5px 0px 0px #005128;
+    cursor : pointer;
+}
+.g-single-review {
+  opacity: 1;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(0);
+}
+
+.g-single-review.hidden {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+ @media screen and (max-width: 990px){
+   .grid-review-outer {
+    padding: 50px 20px;
+}
+   .grid-review {
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+}
+   .left-grid-review {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+   .right-grid-review {
+    width: 100%;
+}
+   .right-grid-review-inner {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+ }  
+</style>
+<div class="width-wrapper grid-review-outer">
+<div class="grid-review">
+  <div class="left-grid-review">
+   
+  <div class="custom-rating-box">
+     <h3 class="h3">{{ section.settings.heading }}</h3>
+  <div class="c-rating-box c-5star">
+    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/5_64a06af9-dd8a-4910-88e5-47992aa3c245.svg?v=1748013669" />
+   <div style="flex: 1;">
+    <span data-span="{{ section.settings.percentage-5 }}" data-color="5" class="star-animated-span"></span>
+   </div> 
+    <p>
+      <span>{{ section.settings.percentage-5 }}% </span>
+      <span>({{ section.settings.stars-5 }})</span>
+    </p>
+  </div>
+
+  <div class="c-rating-box c-4star">
+    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/4_dbaccf56-f908-485e-b48f-d986f9cc6c82.svg?v=1748013669" />
+   <div style="flex: 1;">
+    <span data-span="{{ section.settings.percentage-4 }}" data-color="4" class="star-animated-span"></span>
+   </div>
+    <p>
+      <span>{{ section.settings.percentage-4 }}% </span>
+      <span>({{ section.settings.stars-4 }})</span>
+    </p>
+  </div>
+
+  <div class="c-rating-box c-3star">
+    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/3_bf8f7b5b-1180-42f8-bd8c-57d1b197d216.svg?v=1748013670" />
+  <div style="flex: 1;">
+    <span data-span="{{ section.settings.percentage-3 }}" data-color="3" class="star-animated-span"></span>
+  </div>
+    <p>
+      <span>{{ section.settings.percentage-3 }}% </span>
+      <span>({{ section.settings.stars-3 }})</span>
+    </p>
+  </div>
+
+  <div class="c-rating-box c-2star">
+    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/2_724df55b-1313-4f71-ae34-aae43742e7df.svg?v=1748013670" />
+ <div style="flex: 1;">
+    <span data-span="{{ section.settings.percentage-2 }}" data-color="2" class="star-animated-span"></span>
+ </div>
+   <p>
+      <span>{{ section.settings.percentage-2 }}% </span>
+      <span>({{ section.settings.stars-2 }})</span>
+    </p>
+  </div>
+
+  <div class="c-rating-box c-1star">
+    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/1_0d53a866-2ef6-4486-a75d-dc83f2b6f866.svg?v=1748013669" />
+ <div style="flex: 1;">
+    <span data-span="{{ section.settings.percentage-1 }}" data-color="1" class="star-animated-span"></span>
+ </div>
+   <p>
+      <span>{{ section.settings.percentage-1 }}% </span>
+      <span>({{ section.settings.stars-1 }})</span>
+    </p>
+  </div>
+</div>
+
+  </div>
+  <div class="right-grid-review">
+    <div class="right-grid-review-inner">
+    {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'review' %}
+          <div class="g-single-review">
+            <div class="g-top-rev">
+            <img class="g-name-img" src="{{ block.settings.image | image_url: width: 1000 }}" />
+              <div class="g-right-name">
+                <p>{{ block.settings.name }}</p>
+                 <img class="g-trust-img" src="{{ block.settings.trust-image | image_url: width: 1000 }}" />
+              </div>
+            </div>
+            <div class="g-bottom-rev">
+               <img class="g-product-image" src="{{ block.settings.product-image | image_url: width: 1000 }}" />
+              <p>{{ block.settings.review }}</p>
+            </div>
+          </div>
+           {% endcase %}
+          {% endfor %}
+          </div>
+    <span class="g-show-more">Show More</span>
+  </div>
+</div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const bars = entry.target.querySelectorAll(".star-animated-span");
+        bars.forEach((bar, index) => {
+          const value = parseInt(bar.getAttribute("data-span"), 10);
+          if (value > 0) {
+            setTimeout(() => {
+              bar.style.width = value + "%";
+            }, index * 100);
+          } else {
+            bar.classList.add("hide");
+          }
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll(".custom-rating-box").forEach((box) => observer.observe(box));
+
+  const reviews = document.querySelectorAll(".g-single-review");
+  const showMoreBtn = document.querySelector(".g-show-more");
+
+  reviews.forEach((rev, index) => {
+    if (index >= 4) {
+      rev.classList.add("hidden");
+    }
+  });
+
+  showMoreBtn.addEventListener("click", () => {
+    reviews.forEach((rev, index) => {
+      if (index >= 4 && index < 8) {
+        rev.classList.remove("hidden");
+      }
+    });
+
+    setTimeout(() => {
+      showMoreBtn.style.opacity = "0";
+      showMoreBtn.style.pointerEvents = "none";
+      showMoreBtn.style.transition = "opacity 0.5s ease";
+    }, 400);
+  });
+});
+</script>
+
+
+
+{% schema %}
+  {
+    "name": "grid-review",
+    "settings": [
+       {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text",
+         "default" : "Customer Reviews"
+        },
+       {
+  "type": "text",
+  "id": "stars-5",
+  "label": "stars-5"
+},
+{
+  "type": "text",
+  "id": "stars-4",
+  "label": "stars-4"
+},
+{
+  "type": "text",
+  "id": "stars-3",
+  "label": "stars-3"
+},
+{
+  "type": "text",
+  "id": "stars-2",
+  "label": "stars-2"
+},
+{
+  "type": "text",
+  "id": "stars-1",
+  "label": "stars-1"
+},
+ {
+  "type": "text",
+  "id": "percentage-5",
+  "label": "percentage-5"
+},
+{
+  "type": "text",
+  "id": "percentage-4",
+  "label": "percentage-4"
+},
+{
+  "type": "text",
+  "id": "percentage-3",
+  "label": "percentage-3"
+},
+{
+  "type": "text",
+  "id": "percentage-2",
+  "label": "percentage-2"
+},
+{
+  "type": "text",
+  "id": "percentage-1",
+  "label": "percentage-1"
+}
+
+    ],
+      "blocks": [
+     {
+    "type": "review",
+    "name": "review",
+    "settings":
+    [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "image"
+      },
+      {
+        "type": "image_picker",
+        "id": "trust-image",
+        "label": "trust-image"
+      },
+      {
+        "type": "image_picker",
+        "id": "product-image",
+        "label": "product-image"
+      },
+      {
+    "type": "text",
+    "id": "name",
+    "label": "name"
+      },
+       {
+    "type": "text",
+    "id": "review",
+    "label": "review"
+      }
+    ]
+  }
+  ],
+    "presets": [{
+      "name": "grid-review"
+    }]
+  }
+{% endschema %}
+

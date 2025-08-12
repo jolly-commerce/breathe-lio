@@ -1,0 +1,241 @@
+{{ 'ecom-science-backed.css' | asset_url | stylesheet_tag: preload: true }}
+{% comment %} {{ 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css' | stylesheet_tag }}
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script> {% endcomment %}
+
+<style>
+  .ecom-science-backed {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    @media (min-width: 1150px) {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+
+  .ecom-science-backed__card {
+    @media (min-width: 1150px) {
+      background-image: url({{ section.settings.background_image | image_url: width: 1000 }});
+    }
+  }
+</style>
+
+<div class="ecom-science-backed">
+  <div class="ecom-science-backed__container container">
+    <div class="ecom-science-backed__card">
+      <h2 class="ecom-science-backed__title">{{ section.settings.title }}</h2>
+      <p class="ecom-science-backed__description">{{ section.settings.description }}</p>
+
+      <div class="ecom-science-backed__navigation ecom-science-backed__navigation--desktop">
+        <button class="ecom-science-backed__prev">
+          {% render 'icon' , icon: 'arrow-left', width: 24, height: 24 %}
+        </button>
+        <button class="ecom-science-backed__next">
+          {% render 'icon' , icon: 'arrow-right', width: 24, height: 24 %}
+        </button>
+      </div>
+    </div>
+
+    <div class="ecom-science-backed__tabs-with-cards">
+      <div class="ecom-science-backed__tabs">
+        {% for block in section.blocks %}
+          <div class="ecom-science-backed__tab" data-tab="{{ block.settings.tab | handleize }}">{{ block.settings.tab }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="swiper ecom-science-backed-swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide ecom-science-backed__tab-card" data-tab-card="{{ block.settings.tab | handleize }}">
+              <div class="ecom-science-backed__tab-card-overlay"></div>
+              {% if block.settings.background_image != blank %}
+                {{ block.settings.background_image | image_url: width: 800 | image_tag: loading: 'lazy', width: 800, height: 800, class: 'ecom-science-backed__tab-card-background-image'  }}
+              {% endif %}
+              
+              <div class="ecom-science-backed__tab-card-content">
+                <div class="ecom-science-backed__label">
+                  <div class="ecom-science-backed__label-icon-container">
+                    <span class="ecom-science-backed__label-icon">
+                      {% render 'icon' icon: 'check-circle', width: 16, height: 16 %}
+                    </span>
+                    <span class="ecom-science-backed__label-text">{{ block.settings.label }}</span>
+                  </div>
+
+                  <span class="ecom-science-backed__label-date">{{ block.settings.date }}</span>
+                </div>
+                <p class="ecom-science-backed__tab-card-description">{{ block.settings.description | newline_to_br }}</p>
+              </div>    
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="ecom-science-backed__navigation ecom-science-backed__navigation--mobile">
+      <button class="ecom-science-backed__prev">
+        {% render 'icon' , icon: 'arrow-left', width: 24, height: 24 %}
+      </button>
+      <button class="ecom-science-backed__next">
+        {% render 'icon' , icon: 'arrow-right', width: 24, height: 24 %}
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Swiper
+    const swiper = new Swiper('.ecom-science-backed-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      navigation: {
+        nextEl: '.ecom-science-backed__next',
+        prevEl: '.ecom-science-backed__prev',
+      },
+      on: {
+        slideChange: function() {
+          // Get current slide
+          const activeSlide = this.slides[this.activeIndex];
+          const activeTabId = activeSlide.dataset.tabCard;
+          
+          // Update active tab
+          document.querySelectorAll('.ecom-science-backed__tab').forEach(tab => {
+            if (tab.dataset.tab === activeTabId) {
+              tab.classList.add('ecom-science-backed__tab--active');
+            } else {
+              tab.classList.remove('ecom-science-backed__tab--active');
+            }
+          });
+        }
+      }
+    });
+
+    // Tab click functionality
+    document.querySelectorAll('.ecom-science-backed__tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        const tabId = this.dataset.tab;
+        
+        // Find slide index
+        let slideIndex = 0;
+        swiper.slides.forEach((slide, index) => {
+          if (slide.dataset.tabCard === tabId) {
+            slideIndex = index;
+          }
+        });
+        
+        // Go to that slide
+        swiper.slideTo(slideIndex);
+      });
+    });
+
+    // Set initial active tab
+    if (swiper.slides.length > 0) {
+      const initialTabId = swiper.slides[0].dataset.tabCard;
+      document.querySelector(`.ecom-science-backed__tab[data-tab="${initialTabId}"]`)?.classList.add('ecom-science-backed__tab--active');
+    }
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Ecom Science Backed",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Paddings",
+        "info": "Paddings for section"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Padding Top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 32
+      },
+      {
+        "type": "range",
+        "id": "padding_top_desktop",
+        "label": "Padding Top Desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Padding Bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 32
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_desktop",
+        "label": "Padding Bottom Desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 40
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "tab",
+        "name": "Tab",
+        "settings": [
+          {
+            "type": "text",
+            "id": "tab",
+            "label": "Tab"
+          },
+          {
+            "type": "text",
+            "id": "label",
+            "label": "Label"
+          },
+          {
+            "type": "text",
+            "id": "date",
+            "label": "Date"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description"
+          },
+          {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Background Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Ecom Science Backed"
+      }
+    ]
+  }
+{% endschema %}

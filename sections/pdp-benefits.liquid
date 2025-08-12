@@ -1,0 +1,432 @@
+{% comment %}
+  sections/pdp-benefits.liquid
+{% endcomment %}
+
+<style>
+  .pdp-benefits {
+    position: relative;
+    max-width: 1400px;
+    margin: auto;
+    padding: 30px;
+  }
+
+  .pdp-benefits h2.h3 {
+    max-width: 600px;
+    text-wrap: balance;
+    position: relative;
+    margin-bottom: 30px;
+  }
+  .pdp-benefits h2.h3::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+    width: 90px;
+    height: 20px;
+    background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Squiggle_Mini_9f.svg?v=1747824794") no-repeat;
+    background-size: contain;
+  }
+  .pdp-benefits h2.h3 span {
+    color: var(--lio-light-green);
+  }
+
+  .pdp-benefit-container {
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin-top : 10px;
+  }
+
+  .pdp-single-ben {
+    flex: 0 0 19%;
+    transition: all .4s ease;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+  .pdp-single-ben img {
+    display: block;
+    width: 100%;
+    border-radius: 30px;
+     transition: all .4s ease;
+    opacity : 0.5;
+  }
+ .pdp-single-ben.active img{
+   opacity : 1;
+ }
+.pdp-benefit-container .pdp-single-ben:last-child .benefit-reveal{
+  padding-right : 30px;
+}
+  /* hidden reveal by default */
+  .pdp-single-ben .benefit-reveal {
+    opacity: 1;
+
+    transition: all .4s ease;
+    margin-top: 12px;
+    min-height : 400px;
+  }
+
+  /* show on active */
+  .pdp-single-ben.active {
+        flex: 0 0 24%;
+
+  }
+  .pdp-single-ben.active .benefit-reveal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .benefit-reveal .reveal-date {
+    margin-bottom: 4px;
+  }
+  .pdp-single-ben.active  .benefit-reveal .reveal-title{
+    opacity : 1;
+  }
+  .benefit-reveal .reveal-title {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 4px;
+   transition: all .4s ease;
+    opacity : 0;
+}
+  .benefit-reveal .reveal-here {
+    background: var(--lio-dark-green);
+    color: var(--lio-yellow);
+    padding: 7px 10px 5px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 11px;
+    margin-bottom: 10px;
+    display: inline-block;
+    line-height: 1;
+     transition: all .4s ease;
+    opacity : 0;
+}
+  .pdp-single-ben.active   .benefit-reveal .reveal-here{
+    opacity : 1;
+  }
+   .pdp-single-ben.active   .benefit-reveal .reveal-subtext{
+     opacity : 1;
+     transition : all 0.3s ease 0.3s;
+   }
+  .benefit-reveal .reveal-subtext {
+    font-size: .9rem;
+    color: #555;
+     opacity : 0;
+  }
+
+  .pdp-controls {
+    text-align: center;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    padding-right : 60px;
+}
+  .pdp-controls button {
+    display: flex;
+    width: 80px;
+    height: 49px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 1000px;
+    background: #19613B;
+    cursor: pointer;
+  }
+  .mov-button-container div {
+   
+}
+.image-block-pdp-ben {
+    display: flex;
+    min-height: 340px;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-right: 30px;
+}
+
+  .reveal-progress {
+    width: 100%;
+    display: flex;
+    padding-bottom : 10px;
+    align-items: center;
+}
+  span.reveal-line {
+    display: inline-block;
+    width: 100%;
+    height: 2.5px;
+    background: #B6C6BE;
+    transition : all 0.4s ease;
+}
+   .pdp-single-ben.active  span.reveal-line{
+     height: 2.5px;
+     background: linear-gradient(270deg, #EDED5E 0.01%, #004E55 57.58%, #004E55 115.15%);
+   }
+  span.reveal-dot {
+    background: var(--lio-dark-green);
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+   .pdp-week-nav{
+     display : none;
+   }
+  /* mobile only: show week-nav; hide the big prev/next controls */
+@media (max-width: 768px) {
+  .pdp-controls { display: none; }
+  .pdp-week-nav {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+
+    scrollbar-width: none;
+  }
+  .pdp-week-nav::-webkit-scrollbar { display: none; }
+
+  .pdp-week-nav-item {
+    flex: 0 0 auto;
+    background: transparent;
+    border: none;
+    font-size: 13.5px;
+    padding: 5px;
+    color: #302F2F;
+    font-weight : 300;
+    position: relative;
+  }
+  .pdp-week-nav-item.active {
+    color: var(--lio-dark-green);
+    font-weight: 600;
+  }
+  .pdp-week-nav-item.active::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 3px;
+    background: var(--lio-dark-green);
+    border-radius: 2px;
+  }
+  .pdp-single-ben {
+    flex: 0 0 80%;
+  scroll-snap-align: center;
+  -webkit-scroll-snap-align: center;
+  scroll-snap-stop: always;
+  -webkit-scroll-snap-stop: always;
+
+}
+  .pdp-single-ben.active {
+    flex: 0 0 80%;
+}
+  .image-block-pdp-ben {
+    min-height: fit-content;
+}
+  .pdp-benefit-container {
+    display: flex;
+    overflow: scroll;
+    margin-bottom: 20px;
+    margin-top: 10px;
+       scrollbar-width: none;
+    padding-left : 20px;
+     scroll-padding-left: 20px; 
+ scroll-snap-type: x mandatory;
+  -webkit-scroll-snap-type: x mandatory;
+}
+    .pdp-benefit-container::-webkit-scrollbar { display: none; }
+.pdp-benefits {
+    position: relative;
+    max-width: 1400px;
+    margin: auto;
+    padding: 30px 0px;
+}
+.pdp-benefits h2.h3 {
+    padding-left: 20px;
+    font-size: 30px;
+    max-width: 330px;
+}
+  .pdp-benefits h2.h3::after {
+    bottom: -20px;
+}
+  .pdp-single-ben .benefit-reveal{
+    min-height : fit-content;
+  }
+}
+
+</style>
+
+<div class="pdp-benefits">
+  <h2 class="h3">
+    {{ section.settings.heading }}
+    <span>{{ section.settings.highlighted_heading }}</span>
+    {{ section.settings.heading_after }}
+  </h2>
+<div class="pdp-controls">
+    <button class="prev-btn" aria-label="Previous step">{{ 'arrow-left.svg' | inline_asset_content }}</button>
+    <button class="next-btn" aria-label="Next step">{{ 'arrow-right.svg' | inline_asset_content }}</button>
+  </div>
+  <!-- week nav (mobile only) -->
+<div class="pdp-week-nav">
+  {% for block in section.blocks %}
+    <button
+      class="pdp-week-nav-item"
+      data-index="{{ forloop.index0 }}"
+      aria-label="Go to week {{ forloop.index }}"
+    >
+{{ block.settings.date }}
+    </button>
+  {% endfor %}
+</div>
+
+  <div class="pdp-benefit-container">
+    <!-- week nav (mobile only) -->
+
+
+    {% for block in section.blocks %}
+      <div class="pdp-single-ben" data-index="{{ forloop.index0 }}">
+        <div class="image-block-pdp-ben">
+        {% if block.settings.image %}
+          <img src="{{ block.settings.image | img_url: '600x600' }}" alt="{{ block.settings.text }}" />
+        {% endif %}
+      </div>
+        <div class="benefit-reveal">
+          <span class="reveal-here">You are here</span>
+          <div class="reveal-progress"><span class="reveal-dot"></span ><span class="reveal-line"></span></div>
+          <div class="reveal-date">{{ block.settings.date }}</div>
+          <div class="reveal-title">{{ block.settings.text }}</div>
+          <div class="reveal-subtext">{{ block.settings.sub_text }}</div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  
+</div>
+
+<script>
+// --------------------
+// JavaScript 
+// --------------------
+document.addEventListener('DOMContentLoaded', () => {
+  const slides     = Array.from(document.querySelectorAll('.pdp-single-ben'));
+  const navButtons = Array.from(document.querySelectorAll('.pdp-week-nav-item'));
+  const prevBtn    = document.querySelector('.prev-btn');
+  const nextBtn    = document.querySelector('.next-btn');
+  const container  = document.querySelector('.pdp-benefit-container');
+  let   current    = 0;
+
+  function setActive(idx) {
+    slides.forEach((s,i) => s.classList.toggle('active', i === idx));
+    navButtons.forEach((b,i) => b.classList.toggle('active', i === idx));
+    current = idx;
+  }
+
+  // pure-horizontal scroll helper
+  function scrollToIndex(idx) {
+    const slide = slides[idx];
+    const offset = slide.offsetLeft - (container.clientWidth - slide.clientWidth) / 2;
+    container.scrollTo({ left: offset, behavior: 'smooth' });
+    setActive(idx);
+  }
+
+  prevBtn?.addEventListener('click', () => {
+    let idx = (current - 1 + slides.length) % slides.length;
+    scrollToIndex(idx);
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    let idx = (current + 1) % slides.length;
+    scrollToIndex(idx);
+  });
+
+  slides.forEach((slide, i) =>
+    slide.addEventListener('click', () => scrollToIndex(i))
+  );
+
+  navButtons.forEach((button, i) =>
+    button.addEventListener('click', () => scrollToIndex(i))
+  );
+
+  // debounce active-state on scroll end
+  let scrollDebounce;
+  container.addEventListener('scroll', () => {
+    clearTimeout(scrollDebounce);
+    scrollDebounce = setTimeout(() => {
+      // find centre-closest slide
+      const center = container.getBoundingClientRect().left + container.clientWidth / 2;
+      let best = 0, bestDiff = Infinity;
+      slides.forEach((s, i) => {
+        const r = s.getBoundingClientRect();
+        const diff = Math.abs((r.left + r.width/2) - center);
+        if (diff < bestDiff) { bestDiff = diff; best = i; }
+      });
+      setActive(best);
+    }, 100);
+  });
+
+  // init
+  setActive(0);
+});
+
+
+</script>
+
+{% schema %}
+{
+  "name": "pdp-benefits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading Text",
+      "default": "Your Mind Feels the"
+    },
+    {
+      "type": "text",
+      "id": "highlighted_heading",
+      "label": "Highlighted Heading",
+      "default": "Benefits"
+    },
+    {
+      "type": "text",
+      "id": "heading_after",
+      "label": "Heading Text After",
+      "default": "of Lio® Before You Do"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date"
+        },
+        {
+          "type": "text",
+          "id": "sub_text",
+          "label": "Sub-text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP Benefits"
+    }
+  ]
+}
+{% endschema %}
+

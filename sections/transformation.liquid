@@ -1,0 +1,491 @@
+<style>
+  .transformation-section{
+    padding :50px 30px ;
+  }
+  .transformation-top {
+    display: flex;
+    gap: 15px;
+
+  }
+  .transformation-top h2.h2::after {
+    content: "";
+    position: absolute;
+    right: -40px;
+    top: 40px;
+    width: 95px;
+    height: 20px;
+    background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Squiggle_Mini_10d.svg?v=1747923212");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+   .transformation-top h2.h2 span {
+    color: var(--lio-light-green);
+    display: block;
+    line-height: 0.9;
+}
+  .transformation-top p{
+    margin-top : 5px;
+  }
+ .separator-trans {
+    height: 1px;
+    width: 40px;
+    background: #00512850;
+    margin-top: 15px;
+}
+  .transformation-bottom{
+    padding-top : 20px;
+    display : flex;
+    
+  }
+ .trans-bottom-left {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-right: 30px;
+    flex-direction: column;
+}
+  .trans-bottom-left p:last-of-type {
+  margin-top: 0;
+}
+
+ .trans-bottom-left h1 {
+  font-family: Sigum;
+  font-size: 250px;
+  font-weight: 700; /* No px here */
+  line-height: 1;
+  letter-spacing: -4px;
+  background: var(--Grad, linear-gradient(270deg, #EDED5E 0.01%, #005128 57.58%, #005128 115.15%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  width: 100%;
+  max-width: 350px;
+
+
+}
+  .trans-bottom-left p {
+    font-size: 35px;
+    font-weight: 500;
+    max-width: 300px;
+    text-align: center;
+    line-height: 1.1;
+    letter-spacing: -0.7px;
+}
+  .trans-bottom-right {
+    width: 65%;
+    padding-right: 15px;
+}
+
+.chart-container {
+  width: 100%;
+  opacity: 0;
+transition: opacity 1.5s ease 0.3s;
+
+}
+.chart-vertical-line {
+  stroke: #00512850;
+  stroke-width: 1;
+  stroke-dasharray: 4,4;
+}
+.chart-path {
+  fill: none;
+  stroke: #005128;
+  stroke-width: 1;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 2s ease-out;
+}
+
+.chart-point {
+  fill: #005128;
+}
+
+.chart-label, .chart-source {
+    fill: #005128;
+    font-size: 10px;
+    opacity: 0;
+}
+
+.chart-texts {
+    width: 110%;
+    display: flex;
+    margin-left: -5%;
+    justify-content: space-between;
+  position : relative;
+}
+  .chart-texts span{
+    font-weight : 400;
+    font-family : "Sigum";
+  }
+  .chart-texts span:nth-child(2){
+    transform : translateX(30px);
+  }
+  .chart-servey-text{
+    text-align : center;
+    font-weight : 600;
+    line-height : 1.25;
+       margin-top : 15px;
+  }
+ @media (max-width: 990px){
+    .chart-servey-text{
+    line-height : 1.25;
+    margin : auto;
+        margin-top : 15px;
+   max-width : 320px;
+      text-wrap : balance;
+  }
+   .transformation-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Optional for mobile responsiveness */
+  gap: 30px;
+
+}
+   .trans-bottom-left {
+    width: 100%;
+      padding-right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+}
+   .trans-bottom-right {
+    width: 100%;
+      padding-right: 0px;
+}
+   .trans-bottom-left h1 {
+    font-size: 150px;
+    height: 170px;
+    width: 100%;
+}
+   .trans-bottom-left p {
+    font-size: 17px;
+    letter-spacing: -0.5px;
+}
+   .transformation-top {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+}
+  .transformation-top h2.h2 {
+    max-width: 320px;
+    font-size: 35px;
+    line-height: 0.9;
+    position: relative;
+    text-align: center;
+}
+   .transformation-top h2.h2::after {
+    right: 10px;
+    top: 60px;
+    width: 85px;
+    height: 20px;
+}
+   .separator-trans {
+    display: none;
+}
+   .transformation-top h2.h2 span {
+    display: inline;
+       line-height: 1;
+}
+ .transformation-section.width-wrapper {
+    padding: 40px 30px;
+}
+  .chart-label, .chart-source {
+    font-size: 20px;
+} 
+.chart-texts span {
+    font-weight: 400;
+    font-size: 13px;
+    max-width: 80px;
+    line-height: 1;
+    text-align: center;
+    font-family: "Sigum";
+    margin-top: -10px;
+    transform: translateX(-10px);
+}
+  .chart-texts span:nth-child(2) {
+    transform: translateX(0px);
+}
+
+ }
+</style>
+<div class="transformation-section width-wrapper">
+  <div class="transformation-top">
+    <span class="separator-trans"></span>
+     <p>
+              {{ section.settings['sub-text'] }}
+            </p>
+  </div>
+  <div class="transformation-bottom">
+    <div class="trans-bottom-left">
+<p style="
+  font-family: Sigum;
+  font-size: 35px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.7px;
+  background: linear-gradient(270deg, #EDED5E 0.01%, #005128 57.58%, #005128 115.15%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  max-width: 300px;
+">
+  {{ section.settings['counter-top-text'] }}
+</p>
+
+<h1 id="lio-counter">0</h1>
+
+<p style="
+  font-family: Sigum;
+  font-size:35px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.7px;
+  background: linear-gradient(270deg, #EDED5E 0.01%, #005128 57.58%, #005128 115.15%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  max-width: 300px;
+">
+  {{ section.settings['counter-bottom-text'] }}
+</p>
+
+
+      {% if section.settings['button-text'] != blank %}
+            <a class="gradient-button " href="{{ section.settings.button-url }}">{{ section.settings['button-text'] }}</a>
+          {% endif %}
+    </div>
+   <!-- Add this inside your transformation-section.liquid, replacing the empty trans-bottom-right -->
+<div class="trans-bottom-right">
+  <div class="chart-container">
+    <svg class="hidden sm:block" viewBox="0 0 600 290" xmlns="http://www.w3.org/2000/svg">
+      <!-- Vertical dashed lines -->
+      <line x1="0"   y1="0"   x2="0"   y2="280" class="chart-vertical-line" />
+      <line x1="300" y1="0"   x2="300" y2="280" class="chart-vertical-line" />
+    <line x1="560" y1="0" x2="560" y2="280" class="chart-vertical-line"></line>
+<line
+    x1="0" y1="280"
+    x2="600" y2="280"
+    stroke="#999"
+    stroke-width="1"
+    stroke-dasharray="5,5"
+  />
+
+      <!-- Animated curved path -->
+      <path d="M0,280 Q300,50 560,20" class="chart-path" />
+
+
+      <!-- Data points -->
+     <circle cx="4" cy="278" r="4" class="chart-point"></circle>
+      <circle cx="300" cy="95" r="4" class="chart-point" />
+      <circle cx="560" cy="20"  r="4" class="chart-point" />
+
+      <!-- Data labels (hidden initially) -->
+     <text x="50" y="270" class="chart-label">Day 1
+  <tspan font-weight="bold">- Nicotine ↓20%</tspan> 
+</text>
+
+<text x="300" y="60" class="chart-label" text-anchor="middle">Week 2
+  <tspan font-weight="bold">- Cravings ↓40%</tspan> 
+</text>
+
+<text x="600" y="10" class="chart-label" text-anchor="end">Week 4
+  <tspan font-weight="bold">- Confidence ↑80%</tspan> 
+</text>
+
+    </svg>
+
+<svg  class="sm:hidden" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Vertical dashed lines -->
+  <line x1="0"   y1="30"   x2="0"   y2="560" class="chart-vertical-line" />
+  <line x1="300" y1="30"   x2="300" y2="560" class="chart-vertical-line" />
+  <line x1="560" y1="30"   x2="560" y2="560" class="chart-vertical-line" />
+  <line x1="0"   y1="560" x2="600" y2="560" stroke="#999" stroke-width="1" stroke-dasharray="5,5" />
+
+  <!-- Animated curved path -->
+  <path d="M0,560 Q300,100 560,60" class="chart-path" />
+
+  <!-- Data points -->
+  <circle cx="4"   cy="556" r="4" class="chart-point"></circle>
+  <circle cx="300" cy="195" r="4" class="chart-point" />
+  <circle cx="560" cy="60"  r="4" class="chart-point" />
+
+<text x="150" y="490" class="chart-label" text-anchor="middle">
+  Day 1 -
+  <tspan x="150" dy="22" font-weight="bold">Nicotine ↓20%</tspan>
+</text>
+    
+  <text x="200" y="160" class="chart-label" text-anchor="middle">
+  Week 2 -
+  <tspan x="200" dy="22" font-weight="bold">Cravings ↓40%</tspan>
+</text>
+
+<text x="500" y="20" class="chart-label" text-anchor="middle">
+  Week 4 -
+  <tspan x="500" dy="22" font-weight="bold">Confidence ↑80%</tspan>
+</text>
+
+</svg>
+
+        
+<div class="chart-texts">
+  <span>{{ section.settings.step_one }}</span>
+  <span>{{ section.settings.step_two }}</span>
+  <span>{{ section.settings.step_three }}</span>
+</div>
+<p class="chart-servey-text">{{ section.settings.survey }}</p>
+        
+  </div>
+</div>
+
+<!-- Chart CSS -->
+
+
+<!-- Intersection Observer + animation triggers -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+  const container = document.querySelector('.chart-container');
+  const paths = container.querySelectorAll('.chart-path');
+  const labels = container.querySelectorAll('.chart-label, .chart-source');
+
+  let hasAnimated = false; // 🔒 Flag to prevent repeat animation
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasAnimated) {
+        hasAnimated = true; // ✅ Lock animation
+  container.style.opacity = '1';
+
+        // Start counter animation
+const counter = document.getElementById("lio-counter");
+const duration = 2000;
+const endValue = 80;
+let frame = 0;
+const frameRate = 1000 / 60;
+const totalFrames = Math.round(duration / frameRate);
+
+const counterInterval = setInterval(() => {
+  frame++;
+  const progress = frame / totalFrames;
+  const current = Math.round(endValue * easeOutQuad(progress));
+  counter.innerText = current.toLocaleString("en-US");
+  if (frame === totalFrames) clearInterval(counterInterval);
+}, frameRate);
+
+function easeOutQuad(t) {
+  return t * (2 - t);
+}
+
+
+        
+        paths.forEach(path => {
+          const length = path.getTotalLength();
+          path.style.strokeDasharray = length;
+          path.style.strokeDashoffset = length;
+
+          // Trigger reflow before applying offset 0
+          path.getBoundingClientRect();
+          path.style.transition = 'stroke-dashoffset 2s ease-out';
+          path.style.strokeDashoffset = '0';
+        });
+
+        labels.forEach((el, i) => {
+          el.style.transition = `opacity 0.3s ease-out ${1.5 + i * 0.2}s`;
+          el.style.opacity = 1;
+        });
+
+        obs.unobserve(container); // 🔁 Stop observing
+      }
+    });
+  }, { threshold: 0.4 }); // Try 0.4–0.5 for middle-of-element visibility
+
+  observer.observe(container);
+});
+
+</script>
+
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "transformation-section",
+    "settings": [
+       {
+          "type": "text",
+          "id": "sub-text",
+          "label": "sub text"
+        },
+      {
+          "type": "text",
+          "id": "left-text",
+          "label": "left text",
+        "default" : "8x"
+        },
+       {
+          "type": "text",
+          "id": "left-sub-text",
+          "label": "left sub text",
+          "default" : "more likely to stay nicotine-free"
+        },
+       {
+  
+  "type": "text",
+  "id": "counter-top-text",
+  "label": "Text Above Counter",
+  "default": "It only takes"
+},
+{
+  "type": "text",
+  "id": "counter-bottom-text",
+  "label": "Text Below Counter",
+  "default": "days to break free."
+},
+{
+          "type": "url",
+          "id": "button-url",
+          "label": "Button URL"
+        },
+        {
+          "type": "text",
+          "id": "button-text",
+          "label": "Button Text",
+          "default" : "Start today"
+        },
+      {
+      "type": "text",
+      "id": "step_one",
+      "label": "Step One Text",
+      "default": "STARTING OUT"
+    },
+    {
+      "type": "text",
+      "id": "step_two",
+      "label": "Step Two Text",
+      "default": "FEELING THE SHIFT"
+    },
+    {
+      "type": "text",
+      "id": "step_three",
+      "label": "Step Three Text",
+      "default": "CONFIDENCE TAKES OVER"
+    },
+      {
+      "type": "text",
+      "id": "survey",
+      "label": "survey",
+      "default": "*Internal survey conducted with active Lio users, 2025"
+    }
+    ],
+    "presets": [{
+      "name": "transformation-section"
+    }]
+  }
+{% endschema %}

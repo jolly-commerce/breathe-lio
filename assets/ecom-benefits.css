@@ -1,0 +1,106 @@
+.ecom-benefits {
+  background-color: #F8F5E8;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.ecom-benefits__title-and-img {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+@media (min-width: 1000px) {
+  .ecom-benefits__title-and-img {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+.ecom-benefits__title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: rgba(0, 81, 40, 0.5);
+  font-family: Sigum;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 90%;
+  letter-spacing: -0.96px;
+  text-transform: uppercase;
+}
+@media (max-width: 999px) {
+  .ecom-benefits__title {
+    width: 100%;
+  }
+}
+@media (min-width: 1150px) {
+  .ecom-benefits__title {
+    font-size: 64px;
+    letter-spacing: -1.28px;
+  }
+}
+.ecom-benefits__title-highlight {
+  color: #005128;
+  align-self: flex-end;
+}
+@media (min-width: 1000px) {
+  .ecom-benefits__title-highlight {
+    margin-left: 7vw;
+  }
+}
+.ecom-benefits__img {
+  width: 100%;
+}
+@media (min-width: 1000px) {
+  .ecom-benefits__img {
+    max-width: 55%;
+  }
+}
+.ecom-benefits__progressbar {
+  background: rgba(0, 81, 40, 0.1215686275) !important;
+  height: 3px !important;
+  border-radius: 100px !important;
+  top: unset !important;
+  bottom: 0 !important;
+}
+.ecom-benefits__progressbar .swiper-pagination-progressbar-fill {
+  background-color: #005128 !important;
+  border-radius: 100px !important;
+}
+.ecom-benefits__item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 32px;
+}
+.ecom-benefits__item-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+}
+@media (min-width: 1000px) {
+  .ecom-benefits__item-icon {
+    width: 80px;
+    height: 80px;
+  }
+}
+.ecom-benefits__item-text {
+  color: #005128;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -0.42px;
+}
+@media (min-width: 1000px) {
+  .ecom-benefits__item-text {
+    font-size: 16px;
+    letter-spacing: -0.48px;
+  }
+}
+.ecom-benefits__item-title {
+  font-weight: 700;
+}

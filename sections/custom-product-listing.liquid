@@ -1,0 +1,311 @@
+<style>
+
+  /* Existing CSS */
+  .custom-product-outer {
+    max-width: 1400px;
+    padding: 30px 20px 20px 20px;
+    margin: auto;
+    display: flex;
+
+    flex-direction: column;
+  }
+  
+  
+  .horizontal-product {
+  background: #fffff !important;
+}
+
+.horizontal-product__cta .button {
+  background: var(--lio-button) !important;
+  color: #ffffff !important;
+}
+.custom-product-tab {
+  background: #ffffff);
+}
+
+
+.custom-product-tab span {
+  color: var(--lio-dark-green);
+  
+}
+  
+
+.custom-product-tab.active {
+  background: var(--lio-dark-green);
+}
+
+.custom-product-tab.active span {
+  color: #ffffff;
+}
+
+  .custom-product-listing {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+    width: 100%;
+  }
+  .custom-product-tab-content .horizontal-product {
+    min-width: 320px;
+    width: 320px;
+    
+  }
+  .custom-product-outer h2.h2 {
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+    position: relative;
+    margin-bottom: 15px;
+  }
+  .custom-product-outer h2.h2 span {
+    color: var(--lio-light-green);
+  }
+
+  
+  .custom-product-outer h2.h2::after {
+    content: "";
+    position: absolute;
+    right: -40px;
+    bottom: -10px;
+    width: 90px;
+    height: 20px;
+    background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Squiggle_Mini_9f.svg?v=1747824794");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  p.sub-heading-col {
+    margin: auto;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* New Tab specific CSS */
+  .custom-product-tabs {
+    display: flex;
+    
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  .custom-product-tab {
+    width: 180px;
+    padding: 5px 20px;
+    cursor: pointer;
+    border: 1px solid var(--lio-dark-green);
+    background-color: transparent;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    margin: 0 5px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    box-shadow: -3px 4px 0 0 var(--lio-dark-green), -4px 5px 0 0 var(--lio-yellow);
+  }
+  .custom-product-tab img {
+    width: 45px;
+    height: 34px;
+    object-fit: contain;
+  }
+  #shopify-section-{{ section.id }} .custom-product-tab.active,
+  #shopify-section-{{ section.id }} .custom-product-tab:hover {
+    background-color: var(--lio-yellow);
+    border: 1px solid transparent;
+  }
+  #shopify-section-{{ section.id }} .custom-product-tab-content {
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px 15px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  #shopify-section-{{ section.id }} .custom-product-tab-content.active {
+    display: flex;
+  }
+
+  @media (max-width: 990px) {
+    .custom-product-tab-content .horizontal-product {
+      min-width: 100%;
+      width: 100%;
+    }
+    .custom-product-outer {
+      padding: 30px 10px 10px 10px;
+    }
+    #shopify-section-{{ section.id }} .custom-product-listing {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    #shopify-section-{{ section.id }} .custom-product-tab-content.active {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .custom-product-outer h2.h2::after {
+      right: -10px;
+      bottom: -16px;
+      width: 70px;
+    }
+    .custom-product-outer h2.h2 {
+      font-size: 33px;
+    }
+    .custom-product-tab {
+      width: 160px;
+      padding: 5px 15px;
+      font-size: 15px;
+    }
+    .custom-product-tab img {
+      width: 40px;
+      height: 32px;
+    }
+  }
+
+  
+</style>
+
+<div id="shopify-section-{{ section.id }}" class="custom-product-outer">
+  <h2 id="{{ section.settings.anchor }}" class="h2">
+    {{ section.settings.heading }}
+    <span>{{ section.settings.heading_2 }}</span>
+  </h2>
+  <p class="sub-heading-col">{{ section.settings.text }}</p>
+
+  {%- if section.settings.collection_2 != blank -%}
+    <div class="custom-product-tabs">
+      <div
+        class="custom-product-tab active"
+        data-tab="tab-1-{{ section.id }}"
+      >
+        {% if section.settings.collection_1_image != blank %}
+          <img
+            src="{{ section.settings.collection_1_image | image_url: width: 1000 }}"
+            alt=""
+          />
+        {% endif %}
+        <span>{{ section.settings.collection_1_title }}</span>
+      </div>
+      <div
+        class="custom-product-tab"
+        data-tab="tab-2-{{ section.id }}"
+      >
+        {% if section.settings.collection_2_image != blank %}
+          <img
+            src="{{ section.settings.collection_2_image | image_url: width: 1000 }}"
+            alt=""
+          />
+        {% endif %}
+        <span>{{ section.settings.collection_2_title }}</span>
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div
+    class="custom-product-tab-content active"
+    id="tab-1-{{ section.id }}"
+  >
+    {% for product in section.settings.collection_1.products %}
+      {%- render 'horizontal-product', product: product, show_add_to_cart: true -%}
+    {% endfor %}
+  </div>
+
+  {%- if section.settings.collection_2 != blank -%}
+    <div
+      class="custom-product-tab-content"
+      id="tab-2-{{ section.id }}"
+    >
+      {% for product in section.settings.collection_2.products %}
+        {%- render 'horizontal-product', product: product, show_add_to_cart: true -%}
+      {% endfor %}
+    </div>
+  {%- endif -%}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sectionEl = document.getElementById('shopify-section-{{ section.id }}');
+    const tabs      = sectionEl.querySelectorAll('.custom-product-tab');
+    const panels    = sectionEl.querySelectorAll('.custom-product-tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // 1) clear all
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+
+        // 2) activate clicked
+        tab.classList.add('active');
+
+        // 3) show matching panel
+        const targetId = tab.dataset.tab;
+        const panel    = sectionEl.querySelector(`#${targetId}`);
+        if (panel) panel.classList.add('active');
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "custom-product-listing",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "anchor-id"
+    },
+    {
+      "type": "collection",
+      "id": "collection_1",
+      "label": "Collection 1"
+    },
+    {
+      "type": "text",
+      "id": "collection_1_title",
+      "label": "collection_1_title"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_1_image",
+      "label": "collection_1_image"
+    },
+    {
+      "type": "collection",
+      "id": "collection_2",
+      "label": "Collection 2 (Optional)"
+    },
+    {
+      "type": "text",
+      "id": "collection_2_title",
+      "label": "collection_2_title"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_2_image",
+      "label": "collection_2_image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading Text"
+    },
+    {
+      "type": "text",
+      "id": "heading_2",
+      "label": "Heading after"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Description Text"
+    }
+  ],
+  "presets": [{
+    "name": "custom-product-listing"
+  }]
+}
+{% endschema %}

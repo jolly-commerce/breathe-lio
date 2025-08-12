@@ -1,0 +1,136 @@
+<style>
+    .auto-icon-text{
+      --duration1: 100s;
+        --gap1: 25px;
+        display: flex;
+        overflow: hidden;
+        user-select: none;
+        gap: 0px;
+      width : 100%;
+      margin : auto;
+    }
+    .auto-icon-text-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 0;
+      width: max-content;
+      animation: scrollNew var(--duration1) linear infinite;
+  }
+     @keyframes scrollNew {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(calc(-100%));
+        }
+    }
+  .box-text-i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px 30px;
+      width: 410px;
+      height: 100%;
+  }
+  .width-wrapper-i {
+    border-bottom: 1px solid #A4A0A0;
+}
+  .right-auto-container{
+    display : flex;
+    gap : 10px;
+    flex-direction : column;
+    gap : 10px;
+  }
+    .box-text-i img.box-reviewer-image{
+      height : 70px;
+      width : 70px;
+      border-radius : 50%;
+      border : 2px solid var(--lio-dark-green);
+    }
+  .box-text-i p {
+    color: #302F2F;
+    font-size: 15px;
+    line-height: 1.2;
+    letter-spacing: -0.1px;
+}
+
+.right-auto-container img {
+    width: 75px;
+}
+   @media screen and (max-width: 600px){
+
+       .box-text-i {
+         width : 360px;
+      padding: 20px 15px;
+  }
+      .box-text-i p {
+    font-size: 14px;
+  
+}
+      .auto-icon-text{
+      --duration1: 50s;}
+   }
+</style>
+<div class="width-wrapper-i">
+<div class="auto-icon-text {{ section.settings.custom-class }}">
+  {% for i in (1..4) %}
+    <div class="auto-icon-text-group">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'usp' %}
+            <div class="box-text-i">
+         {% if block.settings.icon != blank %}
+            <img class="box-reviewer-image"
+                  src="{{ block.settings.icon | image_url: width: 400 }}"
+                >
+          {% endif %}
+          <div class="right-auto-container">
+              <p>{{ block.settings.title }}</p>
+            <!-- <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/green-stars.svg" /> -->
+            </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>
+</div>
+{% schema %}
+{
+  "name": "infinite section",
+  "settings": [
+    {
+    "type": "text",
+    "id": "custom-class",
+    "label": "custom class"
+      }
+  ],
+   "blocks": [
+     {
+    "type": "usp",
+    "name": "usp",
+    "settings":
+    [
+      {
+    "type": "text",
+    "id": "title",
+    "label": "usp text"
+      },
+      {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "icon"
+      }
+    ]
+  }
+  ],
+   "presets": [
+  {
+    "name": "infinite section"
+  }
+]
+}
+{% endschema %}

@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100..900&display=swap');
+
+[role=main] .shopify-section:not(.contents).science-research {
+    display: none;
+}
+
+.swiper.science-research-swiper.swiper-initialized.swiper-horizontal.swiper-android.swiper-backface-hidden {
+    overflow: visible;
+}
+
+.science-research-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.science-research-header-title {
+    color: #004631;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -1.28px;
+}
+
+.science-research-navigation {
+    display: flex;
+    gap: 8px;
+}
+
+.science-research-navigation-prev,
+.science-research-navigation-next {
+    width: 56px;
+    height: 40px;
+    border-radius: 40px;
+    background: #00B67C;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.science-research .swiper-button-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.science-research-navigation-prev:hover,
+.science-research-navigation-next:hover {
+    background: #0a3213;
+    color: white;
+}
+
+.science-research-navigation-prev::after,
+.science-research-navigation-next::after {
+    display: none;
+}
+
+.science-research-item {
+    border-radius: 12px;
+    border: 0.3px solid #004631;
+    padding: 15px 14px 18px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.science-research-item-header {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.science-research-item-image {
+    width: 62px;
+    min-width: 62px;
+}
+
+.science-research-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.science-research-item-content-conclusion {
+    color: #004631;
+    font-size: 17px;
+    line-height: 22px;
+}
+
+.science-research-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.science-research-item-content-review {
+    color: #004631;
+    font-family: "Albert Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px; /* 141.667% */
+    letter-spacing: -0.36px;
+}
+
+.science-research-item-content-source {
+    color: #004631;
+    font-family: "Albert Sans";
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.36px;
+}
+
+.science-research-item-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.science-research-item-footer-name {
+    color: #004631;
+    font-family: "Albert Sans";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.42px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.science-research-item-footer-designation {
+    color: #004631;
+    font-family: "Albert Sans";
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.36px;
+}
+
+/* Progressbar Pagination (Desktop) */
+.swiper-pagination.science-research-pagination.swiper-pagination-progressbar {
+    position: static;
+    height: 4px;
+    border-radius: 9px;
+    background: #B6C6BE;
+    overflow: hidden;
+    margin-top: 24px;
+}
+
+.swiper-pagination.science-research-pagination.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background: #004631;
+    border-radius: 30px;
+}
+
+/* Bullet Pagination (Mobile) */
+.swiper-pagination.science-research-pagination.swiper-pagination-bullets {
+    position: static;
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.swiper-pagination.science-research-pagination.swiper-pagination-bullets .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #B6C6BE;
+    border-radius: 50%;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination.science-research-pagination.swiper-pagination-bullets .swiper-pagination-bullet-active {
+    background: #004631;
+}
+
+.swiper.science-research-swiper.swiper-container-horizontal {
+    overflow: visible;
+}
+
+@media (max-width: 768px) {
+    .science-research-navigation {
+        display: none;
+    }
+
+    .science-research-header-title {
+        font-size: 24px;
+    }
+
+    .science-research-item-header {
+        align-items: flex-start;
+    }
+}

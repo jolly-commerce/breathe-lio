@@ -1,0 +1,118 @@
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+PRODUCT VIDEOS COMPONENT
+----------------------------------------------------------------------------------------------------------------------
+
+This component is used to display a swiper carousel of product videos from metafields
+
+********************************************
+Supported variables
+********************************************
+
+* product: the product to render
+* metafield_namespace: the namespace of the metafields containing videos (default: 'custom')
+* metafield_key: the key of the metafields containing videos (default: 'videos')
+{%- endcomment -%}
+
+{%- liquid
+  if product    
+    assign product_videos = product.metafields.custom.videos
+  else
+    assign product_videos = all_products['lio®-journey-pack'].metafields.custom.videos
+  endif
+-%}
+
+{%- if product_videos != blank -%}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  {{ 'product-videos.css' | asset_url | stylesheet_tag }}
+  
+  {%- capture product_videos_id -%}product-videos-{{ product.id }}{%- endcapture -%}
+  
+  <div class="product-videos">
+    <div class="product-videos__wrapper">
+      <div class="product-videos-slider swiper" id="{{ product_videos_id }}">
+        <div class="swiper-wrapper">
+          {%- for video in product_videos.value -%}
+            <div class="product-videos__slide swiper-slide">
+              <div class="product-videos__media">
+                <video-media class="product-videos__video-media {% if video.preview_image != blank %}has-poster{% endif %}">
+                  {{- video.video.value | video_tag: playsinline: true, preload: 'metadata', image_size: "8000x", image_quality: 'master', muted: true, loop: true, class: 'product-videos__video' -}}
+                </video-media>
+              </div>
+              <div class="product-videos__video-title">
+                {{ video.title.value }}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const swiper = new Swiper('#{{ product_videos_id }}', {
+        slidesPerView: 2.4,
+        spaceBetween: 10,
+        breakpoints: {
+          768: {
+            slidesPerView: 3.2,
+          }
+        }
+      });
+
+      // Autoplay first video when in view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target.querySelector('video');
+          if (entry.isIntersecting) {
+            if (video && video.paused) {
+              video.play().catch(e => console.log('Auto-play prevented:', e));
+            }
+          } else {
+            if (video && !video.paused) {
+              video.pause();
+            }
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      // Observe all video containers
+      document.querySelectorAll('.product-videos__media').forEach(container => {
+        observer.observe(container);
+      });
+      
+      // Handle play/pause button clicks
+      document.querySelectorAll('.product-videos__play-pause-btn').forEach(button => {
+        button.addEventListener('click', function() {
+          const container = this.closest('.product-videos__media');
+          const video = container.querySelector('video');
+          
+          if (video) {
+            if (video.paused) {
+              video.play();
+              container.classList.add('is-playing');
+            } else {
+              video.pause();
+              container.classList.remove('is-playing');
+            }
+          }
+        });
+      });
+      
+      // Update button state when video plays/pauses
+      document.querySelectorAll('.product-videos__video').forEach(video => {
+        video.addEventListener('play', function() {
+          const container = this.closest('.product-videos__media');
+          container.classList.add('is-playing');
+        });
+        
+        video.addEventListener('pause', function() {
+          const container = this.closest('.product-videos__media');
+          container.classList.remove('is-playing');
+        });
+      });
+    });
+  </script>
+{%- endif -%}

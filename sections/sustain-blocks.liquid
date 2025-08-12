@@ -1,0 +1,217 @@
+<style>
+  .sustain-blocks{
+    display : flex;
+    padding-top : 0px !important;
+    gap : 50px;
+    margin-top : -20px;
+    position : relative;
+  }
+  .left-sustain-block {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+     border-top: 1px solid #BEBBBB;
+}
+  .left-sustain-block a{
+    border-bottom : 1px solid #BEBBBB;
+    padding : 22px 10px 19px 10px;
+    font-family : 'Sigum';
+    line-height : 1;
+    font-size : 18px;
+    text-wrap : balance;
+    width : 100%;
+    text-transform : uppercase;
+    transition : all 0.4s ease;
+  }
+  .left-sustain-block a:hover{
+    background : var(--lio-yellow);
+     border-bottom : 1px solid transparent;
+  }
+  .right-sustain-block{
+     width : 70%;
+    
+  }
+  .sus-single-block {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    padding : 20px 0px;
+    border-top : 1px solid #BEBBBB;
+}
+  .sus-single-block .left-single-sus{
+    width : 60%;
+    font-size : 14px;
+  }
+  .right-single-sus {
+    width: 40%;
+}
+  .right-single-sus img{
+    width : 100%;
+  }
+  .left-sustain-block a.active-anchor {
+  background-color: var(--lio-yellow);
+  border-bottom: 1px solid transparent;
+}
+@media screen and (min-width: 1025px){
+  .left-sustain-block{
+    position : sticky;
+    top : 130px;
+  }
+  .left-sustain-block {
+  align-self: flex-start;
+}
+}
+   @media screen and (max-width: 1024px){
+      .sustain-blocks{
+    display : flex;
+        flex-direction : column;
+    padding : 0px !important;
+    gap : 20px;
+    margin-top : -10px;
+  }
+     .right-sustain-block{
+     width : 100%;
+      border-top: 0px solid #BEBBBB;
+  }
+     .left-sustain-block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+     border-top: 0px solid #BEBBBB;
+}
+     .sus-single-block {
+    display: flex;
+    gap: 30px;
+    flex-direction: column-reverse;
+}
+   .sus-single-block .left-single-sus {
+    width: 100%;
+    font-size: 14px;
+    padding: 0px 20px;
+}
+     .right-single-sus {
+    width: 100%;
+}
+     .right-single-sus img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+ .left-sustain-block {
+  width: 100%;
+  display: flex;
+  overflow-x: auto; /* horizontal scrolling */
+  overflow-y: hidden; /* prevent vertical scrollbar */
+  flex-direction: row;
+  border-top: 1px solid #BEBBBB;
+  align-items: center;
+  padding-top: 8px;
+
+  /* Hide scrollbar (Webkit browsers) */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.left-sustain-block::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+ .left-sustain-block a {
+    min-width: 190px;
+    margin-right: 20px;
+    padding: 8px 10px 6px 10px;
+    border-bottom: 0px solid #BEBBBB;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+   }
+</style>
+<div class="width-wrapper sustain-blocks">
+  <div class="left-sustain-block">
+    {% for block in section.blocks %} 
+      <a href="#anchor-{{ forloop.index }}">{{ block.settings.title }}</a>
+    {% endfor %}
+  </div>
+    <div class="right-sustain-block">
+      {% for block in section.blocks %} 
+     <div id="anchor-{{ forloop.index }}" class="sus-single-block">
+       <div class="left-single-sus">
+         {{ block.settings.text }}
+       </div>
+         <div class="right-single-sus">
+    <picture >
+      {% if block.settings.main-image-mob !=blank %}
+        <source srcset="{{ block.settings.main-image-mob | img_url: 'master' }}" media="(max-width: 700px)">
+      {% else %}
+        <source srcset="{{ block.settings.main-image | img_url: 'master' }}" media="(max-width: 700px)">
+      {% endif %}
+      <img src="{{ block.settings.main-image | img_url: 'master' }}" alt="Graphics">
+    </picture>
+  </div>
+     </div>
+    {% endfor %}
+    </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const anchors = document.querySelectorAll('.left-sustain-block a');
+    const blocks = document.querySelectorAll('.sus-single-block');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const index = Array.from(blocks).indexOf(entry.target);
+        if (entry.isIntersecting && entry.intersectionRatio >= 1) {
+          anchors.forEach(anchor => anchor.classList.remove('active-anchor'));
+          if (anchors[index]) {
+            anchors[index].classList.add('active-anchor');
+          }
+        }
+      });
+    }, {
+      threshold: 1.0 // ensures full visibility
+    });
+
+    blocks.forEach(block => observer.observe(block));
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "sustain-blocks",
+    "settings": [],
+    "blocks": [
+    {
+      "type": "Slide",
+      "name": "Slide",
+      "settings": [
+           {
+        "type": "image_picker",
+        "id": "main-image",
+        "label": "Right Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "main-image-mob",
+        "label": "Right Image mobile"
+      },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+         {
+          "type": "text",
+          "id": "title",
+          "label": "title"
+        }
+      
+      ]
+    }
+    ],
+    "presets": [{
+      "name": "sustain-blocks"
+    }]
+  }
+{% endschema %}

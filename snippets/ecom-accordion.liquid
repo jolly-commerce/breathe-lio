@@ -1,0 +1,105 @@
+{{ 'ecom-accordion.css' | asset_url | stylesheet_tag: preload: true }}
+
+{%- if title != blank and content != blank -%}
+  {% assign content_id = 'accordion-content' %}
+  {% if block.id %}
+    {% assign content_id = 'accordion-content-' | append: block.id %}
+  {% elsif id %}
+    {% assign content_id = 'accordion-content-' | append: id %}
+  {% endif %}
+
+  <div class="ecom-accordion {% if class %}{{ class }}{% endif %}" {% if id %}id="{{ id }}"{% endif %} data-accordion-item>
+    <button class="ecom-accordion__toggle">
+      <div class="ecom-accordion__toggle-content">
+        {% assign width = icon_width | default: 100 %}
+        {% if icon != blank %}
+          {{ icon | image_url: width: width | image_tag: loading: 'lazy', width: 32, height: 32, class: 'ecom-accordion__icon' }}
+        {% endif %}
+        <span class="ecom-accordion__title">{{ title }}</span>
+      </div>
+      {%- render 'icon' with 'minus-thin', width: 24, class: 'ecom-accordion__toggle-icon ecom-accordion__minus-icon' -%}
+      {%- render 'icon' with 'plus-thin', width: 24, class: 'ecom-accordion__toggle-icon ecom-accordion__plus-icon' -%}
+    </button>
+    <div id="{{ content_id }}" class="ecom-accordion__content" hidden>
+      <div class="ecom-accordion__divider"></div>
+      {{ content }}
+    </div>
+  </div>
+{%- endif -%}
+
+<script>
+  if (typeof window.EcomAccordion === 'undefined') {
+    window.EcomAccordion = class {
+      constructor(container) {
+        this.container = container;
+        this.toggle = this.container.querySelector('.ecom-accordion__toggle');
+        this.content = this.container.querySelector('.ecom-accordion__content');
+
+        if (!this.toggle) {
+          console.error('EcomAccordion Error: Toggle button (.ecom-accordion__toggle) not found within:', this.container);
+          return; 
+        }
+        if (!this.content) {
+           console.error('EcomAccordion Error: Content element (.ecom-accordion__content) not found within:', this.container);
+
+        }
+        this.init();
+      }
+
+      init() {
+        if (!this.toggle) return;
+
+        this.toggle.addEventListener('click', () => {
+          const isExpanded = this.toggle.getAttribute('aria-expanded') === 'true';
+          if (isExpanded) {
+            this.close();
+          } else {
+            this.open();
+          }
+        });
+
+        if (!this.content) {
+             console.warn("EcomAccordion Warning: Content element missing, state changes might not work as expected.", this.container);
+        }
+      }
+
+      open() {
+        if (!this.toggle || !this.content) return;
+        this.toggle.setAttribute('aria-expanded', 'true');
+        this.content.hidden = false;
+        this.container.classList.add('ecom-accordion--open');
+      }
+
+      close() {
+        if (!this.toggle || !this.content) return; 
+        this.toggle.setAttribute('aria-expanded', 'false');
+        this.content.hidden = true;
+        this.container.classList.remove('ecom-accordion--open'); 
+      }
+    };
+  }
+
+  function initializeEcomAccordions() {
+      const accordions = document.querySelectorAll('[data-accordion-item]');
+      accordions.forEach((accordion, index) => {
+          if (!accordion._accordionInstance) {
+              accordion._accordionInstance = new window.EcomAccordion(accordion);
+          }
+      });
+      window.ecomAccordionInitialized = true;
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeEcomAccordions);
+  } else {
+    initializeEcomAccordions();
+  }
+
+  document.addEventListener('shopify:section:load', initializeEcomAccordions);
+  document.addEventListener('shopify:block:select', (event) => {
+      const accordionItem = event.target.querySelector('[data-accordion-item]');
+      if (accordionItem && accordionItem._accordionInstance) {
+          accordionItem._accordionInstance.open();
+      }
+  });
+</script> 
