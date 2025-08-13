@@ -1,0 +1,299 @@
+{% comment %}
+  Snippet: product-main-gallery
+  Created by: Nazarii Prokopchuk
+
+  Accepts:
+  - root: {Object} section or block
+
+  Usage:
+  {%- render 'product-main-gallery', root: gallery_block -%}
+{% endcomment %}
+
+{% # CSS VARIABLES %}
+{% style %}
+  .gallery-container {
+    /* thumbs */
+    --thumb-count: 4;
+    --thumb-size-mob: {% if root.settings.thumbnails_position_mob == 'inside' %}40px{% else %}80px{% endif %};
+    --thumb-size-dsk: {% if root.settings.thumbnails_position_dsk == 'inside' %}40px{% else %}80px{% endif %};
+    --thumb-gap-mob: 16px;
+    --thumb-gap-dsk: 16px;
+
+    /* pagination */
+    --swiper-pagination-bullet-horizontal-gap: 8px;
+    --swiper-pagination-bullet-height: 8px;
+    --swiper-pagination-bullet-width: 8px;
+    --swiper-pagination-color: #121212;
+    --swiper-pagination-bullet-inactive-color: #E6E6E6;
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    --pagination-offset-mob: {% if root.settings.enable_pagination_mob %}32px{% else %}0px{% endif %};
+    --pagination-offset-dsk: {% if root.settings.enable_pagination_dsk %}32px{% else %}0px{% endif %};
+
+    /* navigation */
+    --navigation-button-size-mob: 40px;
+    --navigation-gap-mob: 16px;
+    --navigation-button-size-dsk: 40px;
+    --navigation-gap-dsk: 16px;
+  }
+{% endstyle %}
+
+{% # GALLERY CONTAINER CLASS %}
+{% capture gallery_container_class %}
+  {% case root.settings.thumbnails_position_mob %}
+    {% when 'left' %}
+      gallery-container--thumbs-position-left-mob
+    {% when 'inside' %}
+      gallery-container--thumbs-position-inside-mob
+    {% when 'bottom' %}
+      gallery-container--thumbs-position-bottom-mob
+  {% endcase %}
+  {% case root.settings.thumbnails_position_dsk %}
+    {% when 'left' %}
+      gallery-container--thumbs-position-left-dsk
+    {% when 'inside' %}
+      gallery-container--thumbs-position-inside-dsk
+    {% when 'bottom' %}
+      gallery-container--thumbs-position-bottom-dsk
+  {% endcase %}
+
+  {% # THUMBNAILS %}
+  {% if root.settings.enable_thumbnails_mob %}
+    {% case root.settings.thumbnails_position_mob %}
+      {% when 'left' %}
+        gallery-container--thumbs-left-mob
+      {% when 'inside' %}
+        gallery-container--thumbs-inside-mob
+      {% when 'bottom'  %}
+        gallery-container--thumbs-bottom-mob
+    {% endcase %}
+  {% endif %}
+
+  {% if root.settings.enable_thumbnails_dsk %}
+    {% case root.settings.thumbnails_position_dsk %}
+      {% when 'left' %}
+        gallery-container--thumbs-left-dsk
+      {% when 'inside' %}
+        gallery-container--thumbs-inside-dsk
+      {% when 'bottom'  %}
+        gallery-container--thumbs-bottom-dsk
+    {% endcase %}
+  {% endif %}
+{% endcapture %}
+
+{% # GALLERY SWIPER CLASS %}
+{% capture gallery_swiper_class %}
+  {% # PAGINATION %}
+  {% if root.settings.enable_pagination_mob %}
+    gallery-swiper--pagination-mob
+  {% endif %}
+  
+  {% if root.settings.enable_pagination_dsk %}
+    gallery-swiper--pagination-dsk
+  {% endif %}
+{% endcapture %}
+
+{% # NAVIGATION BUTTON CLASS %}
+{% capture nav_button_class %}
+  gallery-nav-button
+  {% if root.settings.enable_arrows_mob %}
+    gallery-nav-button--enabled-mob
+    {% case root.settings.arrows_position_mob %}
+      {% when 'center' %}
+        gallery-nav-button--position-center-mob
+      {% when 'bottom' %}
+        gallery-nav-button--position-bottom-mob
+    {% endcase %}
+  {% endif %}
+
+  {% if root.settings.enable_arrows_dsk %}
+    gallery-nav-button--enabled-dsk
+    {% case root.settings.arrows_position_dsk %}
+      {% when 'center' %}
+      gallery-nav-button--position-center-dsk
+      {% when 'bottom' %}
+      gallery-nav-button--position-bottom-dsk
+    {% endcase %}
+  {% endif %}
+{% endcapture %}
+
+{% # THUMBS %}
+{% capture thumb_swiper_class %}
+  thumbs-swiper
+  {% if root.settings.enable_thumbnails_mob %} 
+    thumbs-swiper--enabled-mob
+    {% case root.settings.thumbnails_position_mob %}
+      {% when 'left'  %}
+        thumbs-swiper--position-left-mob
+      {% when 'inside'  %}
+        thumbs-swiper--position-inside-mob
+      {% when 'bottom' %}
+        thumbs-swiper--position-bottom-mob
+    {% endcase %}
+  {% endif %}
+
+  {% if root.settings.enable_thumbnails_dsk %}
+    thumbs-swiper--enabled-dsk
+    {% case root.settings.thumbnails_position_dsk %}
+      {% when 'left'  %}
+        thumbs-swiper--position-left-dsk
+      {% when 'inside'  %}
+        thumbs-swiper--position-inside-dsk
+      {% when 'bottom' %}
+        thumbs-swiper--position-bottom-dsk
+    {% endcase %}
+  {% endif %}
+{% endcapture %}
+
+{% # Gallery swiper %}
+<product-gallery
+  data-form-id="{{ product_form_id }}"
+  data-layout="{{ root.settings.layout_type }}"
+  data-sticky
+  class="jc-sticky jc-block jc-top-0 md:[&[data-layout=grid]_.gallery-container]:jc-hidden"
+>
+  <div class="gallery-container {{ gallery_container_class }}">
+    <!-- Main gallery swiper -->
+    <swiper-container
+      id="productMainSwiper"
+      class="gallery-swiper {{ gallery_swiper_class }}"
+      slides-per-view="1"
+      speed="500"
+      loop="true"
+      {% if root.settings.enable_arrows_mob or root.settings.enable_arrows_dsk %}
+        navigation="true"
+        navigation-next-el=".swiper-button-next.gallery-nav-button-next"
+        navigation-prev-el=".swiper-button-prev.gallery-nav-button-prev"
+      {% endif %}
+      {% if root.settings.enable_pagination_mob or root.settings.enable_pagination_dsk %}
+        pagination="true"
+        pagination-clickable="true"
+      {% endif %}
+      thumbs-swiper="#gallery-thumbs"
+    >
+      {% for media in product.media %}
+        {%- liquid
+          assign img_loading = 'lazy'
+          assign slide_loading_class = 'jc-w-0'
+          if forloop.first
+            assign img_loading = 'eager'
+            assign slide_loading_class = ''
+          endif
+        -%}
+        <swiper-slide
+          class="
+            {{ slide_loading_class }}
+            {%- if root.settings.enable_lightbox -%}
+              jc-cursor-zoom-in
+            {%- endif -%}
+          "
+          {%- if root.settings.enable_lightbox -%}
+            data-lightbox-open
+          {%- endif -%}
+        >
+          <div
+            data-swiper-media-id="{{ media.id }}"
+            data-swiper-media-index="{{ forloop.index0 }}"
+            class="gallery-slide jc-relative jc-w-full jc-overflow-hidden"
+          >
+            {% case media.media_type %}
+              {% when 'image' %}
+                {% render 'g-render-image',
+                  class: 'jc-w-full jc-h-full jc-aspect-square jc-object-cover',
+                  img_src: media.url,
+                  img: media,
+                  alt: media.alt,
+                  size: '300 600 800',
+                  width: 600,
+                  height: 600,
+                  loading: img_loading
+                %}
+              {% when 'video' %}
+                {{
+                  media
+                  | video_tag:
+                    autoplay: false,
+                    loop: false,
+                    muted: true,
+                    controls: true,
+                    image_size: '800x',
+                    class: 'jc-w-full jc-h-full jc-aspect-square jc-object-cover lazyload',
+                    preload: 'none'
+                }}
+            {% endcase %}
+          </div>
+        </swiper-slide>
+      {% endfor %}
+
+      {% if root.settings.enable_arrows_mob or root.settings.enable_arrows_dsk %}
+        <div slot="container-end">
+          <div
+            part="button-prev"
+            class="swiper-button-prev gallery-nav-button-prev {{ nav_button_class }}"
+          >
+            {% render 'g-render-icon', icon: 'arrow-left', class: 'jc-w-full jc-h-full' %}
+          </div>
+          <div
+            part="button-next"
+            class="swiper-button-next gallery-nav-button-next {{ nav_button_class }}"
+          >
+            {% render 'g-render-icon', icon: 'arrow-right', class: 'jc-w-full jc-h-full' %}
+          </div>
+        </div>
+      {% endif %}
+    </swiper-container>
+
+    {% if root.settings.enable_thumbnails_mob or root.settings.enable_thumbnails_dsk %}
+      <swiper-container
+        id="gallery-thumbs"
+        class="{{ thumb_swiper_class }}"
+        slides-per-view="auto"
+        space-between="16"
+        free-mode="true"
+        {% if root.settings.thumbnails_position_mob == 'left' or root.settings.thumbnails_position_mob == 'inside' %}
+          direction="vertical"
+        {% endif %}
+        {% if root.settings.thumbnails_position_dsk == 'left' or root.settings.thumbnails_position_dsk == 'inside' %}
+          breakpoints='{"768": { "direction": "vertical" }}'
+        {% else %}
+          breakpoints='{"768": { "direction": "horizontal" }}'
+        {% endif %}
+      >
+        {% for media in product.media %}
+          <swiper-slide class="!jc-w-fit !jc-h-fit jc-cursor-pointer jc-opacity-60 [&.swiper-slide-thumb-active]:jc-opacity-100">
+            <div class="jc-w-[var(--thumb-size-mob)] md:jc-w-[var(--thumb-size-dsk)] jc-aspect-square jc-relative jc-overflow-hidden">
+              {% case media.media_type %}
+                {% when 'image' %}
+                  {% render 'g-render-image',
+                    class: 'jc-w-full jc-h-full jc-object-cover',
+                    img_src: media.url,
+                    img: media,
+                    size: '80 120 160',
+                    alt: media.alt,
+                    width: 80,
+                    height: 80,
+                    loading: 'lazy'
+                  %}
+                {% when 'video' %}
+                  {% render 'g-render-image',
+                    class: 'jc-w-full jc-h-full jc-object-cover',
+                    img_src: media.preview_image.url,
+                    img: media.preview_image,
+                    size: '80 120 160',
+                    alt: media.preview_image.alt,
+                    width: 80,
+                    height: 80,
+                    loading: 'lazy'
+                  %}
+                  {%- render 'g-render-icon', icon: 'video-enable', class: 'jc-absolute jc-right-1 jc-bottom-1' -%}
+              {% endcase %}
+            </div>
+          </swiper-slide>
+        {% endfor %}
+      </swiper-container>
+    {% endif %}
+  </div>
+
+  {% if root.settings.layout_type == 'grid' %}
+    {% render 'product-main-gallery-grid', root: root %}
+  {% endif %}
+</product-gallery>

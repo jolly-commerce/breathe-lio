@@ -1,0 +1,52 @@
+{% comment %}
+  Snippet: product-main-gallery-grid
+  Created by: Yevhen Hryhorenko
+
+  Accepts:
+  - root: {Object} section or block
+
+  Usage:
+  {%- render 'product-main-gallery-grid', root: gallery_block -%}
+{% endcomment %}
+
+<div data-gallery-grid class="jc-hidden md:jc-grid jc-grid-cols-2 jc-gap-4">
+  {% for media in product.media %}
+    {%- style -%}
+      .grid-item-{{ forloop.index }} {
+        order: {{ forloop.index }};
+      }
+    {%- endstyle -%}
+
+    <div data-grid-media-id="{{ media.id }}"
+      class="grid-item-{{ forloop.index }} jc-w-full jc-aspect-square jc-relative jc-overflow-hidden [&.active]:jc-order-[0] [&.active]:jc-col-span-2 {% if forloop.first %}active{% endif %}">
+      {%- assign img_loading = 'lazy' -%}
+      {%- if forloop.first -%}
+        {%- assign img_loading = 'eager' -%}
+      {%- endif -%}
+
+      {% case media.media_type %}
+        {% when 'image' %}
+          {% render 'g-render-image',
+            class: 'jc-w-full jc-h-full jc-object-cover jc-object-center',
+            img_src: media.url,
+            img: media,
+            size: '300 600 800',
+            alt: media.alt,
+            width: 'auto',
+            height: 'auto',
+            loading: img_loading
+          %}
+        {% when 'video' %}
+          {{
+            media
+            | video_tag:
+              autoplay: true,
+              loop: true,
+              muted: true,
+              controls: true,
+              class: 'jc-w-full jc-h-full jc-object-cover jc-object-center'
+          }}
+      {% endcase %}
+    </div>
+  {% endfor %}
+</div>

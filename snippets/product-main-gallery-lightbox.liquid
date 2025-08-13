@@ -1,0 +1,75 @@
+{% style %}
+	/* Custom cursors */
+	light-box [data-swiper-media-id]:not([data-zoom-active]):hover {
+		cursor: url({{ 'zoom-in.png' | file_img_url }}) 20 20, zoom-in;
+	}
+
+	light-box [data-swiper-media-id][data-zoom-active] {
+		cursor: url({{ 'zoom-out.png' | file_img_url }}) 20 20, zoom-out;
+	}
+{% endstyle %}
+
+<light-box
+	class="jc-fixed jc-inset-0 jc-h-[100dvh] jc-w-full jc-z-50 jc-opacity-0 [&[data-open='true']]:jc-opacity-100 jc-scale-0 [&[data-open='true']]:jc-scale-100 jc-transition-all jc-backdrop-blur-md [&[data-open='true']]:jc-bg-black/40"
+	data-open="false"
+	role="dialog"
+	aria-modal="true"
+	aria-label="Product Image Gallery"
+>
+	<div class="swiper jc-w-full jc-h-full jc-transition-all">
+		<div class="swiper-wrapper jc-transition-all">
+			{% for media in product.media %}
+				<figure class="swiper-slide jc-relative" data-slide-id="{{ media.id }}">
+					<div
+						data-swiper-media-id="{{ media.id }}"
+						data-swiper-media-index="{{ forloop.index0 }}"
+						class="jc-aspect-square jc-bg-white/80 md:jc-w-auto md:jc-mx-auto jc-relative jc-w-full jc-h-full jc-my-auto jc-overflow-hidden"
+						{% if media.media_type == 'image' %}
+							style="
+								--image-url: url({{ media | image_url: width: 1600 }});
+								--zoom-x: 0%;
+								--zoom-y: 0%;
+							"
+						{% endif %}
+					>
+						{% case media.media_type %}
+							{% when 'image' %}
+								{% render 'g-render-image',
+									class: 'jc-w-full jc-h-full jc-aspect-square jc-absolute jc-inset-0 jc-object-contain',
+									img_src: media.url,
+									img: media,
+									alt: media.alt,
+									size: '600 800 1600',
+									width: 1600,
+									height: 1600,
+									loading: 'lazy'
+								%}
+							{% when 'video' %}
+								{{
+									media
+									| video_tag:
+										autoplay: false,
+										loop: false,
+										muted: true,
+										controls: true,
+										image_size: '800x',
+										class: 'jc-w-full jc-h-auto md:jc-h-full jc-my-auto max-md:jc-aspect-square jc-object-cover md:jc-object-contain lazyload',
+										preload: 'none'
+								}}
+						{% endcase %}
+					</div>
+				</figure>
+			{% endfor %}
+		</div>
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+	</div>
+
+	<button
+		class="jc-flex md:jc-top-8 jc-top-4 jc-right-4 md:jc-right-8 hover:jc-scale-110 hover:jc-rotate-90 jc-absolute jc-z-50 jc-items-center jc-justify-center jc-p-2 md:jc-p-4 jc-leading-[0] jc-transition-all jc-bg-white jc-rounded-full jc-cursor-pointer"
+		data-lightbox-close
+		aria-label="Close gallery"
+	>
+		{% render 'g-render-icon', icon: 'cross', class: 'jc-w-full jc-h-full' %}
+	</button>
+</light-box>

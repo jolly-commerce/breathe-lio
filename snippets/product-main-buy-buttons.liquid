@@ -1,0 +1,115 @@
+{% comment %}
+  Renders product buy buttons and quantity selector
+
+  Accepts:
+  - root: {Object} section or block
+  - product_form_id: {String} form id
+
+  Usage:
+  {%- render 'product-main-buy-buttons', root: block, product_form_id: product_form_id -%}
+{% endcomment %}
+
+{% # Buy bttons attibutes %}
+{%- capture buy_now_attributes -%}
+  type="submit" data-buy-type="buy-now" data-button-text="{{ 'products.product.buy_now' | t }}"
+  data-sold-out-text="{{ 'products.product.sold_out' | t }}"
+  {% if product.selected_or_first_available_variant.available == false %}
+    disabled
+  {% endif %}
+{%- endcapture -%}
+
+{%- capture add_to_cart_attributes -%}
+  type="submit" data-button-text="{{ 'products.product.add_to_cart' | t }}"
+  data-sold-out-text="{{ 'products.product.sold_out' | t }}"
+  {% if product.selected_or_first_available_variant.available == false %}
+    disabled
+  {% endif %}
+{%- endcapture -%}
+
+{% # Buy bttons text %}
+{%- capture buy_now_text -%}
+  {% if product.selected_or_first_available_variant.available == false %}
+    {{ 'products.product.sold_out' | t }}
+  {%- else -%}
+    {{ 'products.product.buy_now' | t }}
+  {% endif %}
+{%- endcapture -%}
+
+{%- capture add_to_cart_text -%}
+  {% if product.selected_or_first_available_variant.available == false %}
+    {{ 'products.product.sold_out' | t }}
+  {%- else -%}
+    {{ 'products.product.add_to_cart' | t }}
+  {% endif %}
+{%- endcapture -%}
+
+{% # Buy bttons style %}
+{% case root.settings.buy_now_style %}
+  {%- when 'style1' -%}
+    {%- assign buy_now_type = 'black-button' -%}
+    {%- assign buy_now_icon = '' -%}
+  {%- when 'style2' -%}
+    {%- assign buy_now_type = 'transparent-black' -%}
+    {%- assign buy_now_icon = '' -%}
+  {%- when 'style3' -%}
+    {%- assign buy_now_type = 'transparent-black-with-arrow' -%}
+    {%- assign buy_now_icon = 'arrow-right' -%}
+{% endcase %}
+
+{% case root.settings.add_to_cart_style %}
+  {%- when 'style1' -%}
+    {%- assign add_to_cart_type = 'black-button' -%}
+    {%- assign add_to_cart_icon = '' -%}
+  {%- when 'style2' -%}
+    {%- assign add_to_cart_type = 'transparent-black' -%}
+    {%- assign add_to_cart_icon = '' -%}
+  {%- when 'style3' -%}
+    {%- assign add_to_cart_type = 'transparent-black-with-arrow' -%}
+    {%- assign add_to_cart_icon = 'arrow-right' -%}
+{% endcase %}
+
+{% # Buy bttons class %}
+{% liquid
+  assign add_to_cart_class = 'jc-flex-1 jc-min-w-fit disabled:jc-opacity-30'
+  assign buy_now_class = 'jc-w-full disabled:jc-opacity-30'
+
+  if root.settings.enable_add_to_cart == false
+    assign buy_now_class = 'jc-flex-1 jc-min-w-fit'
+  endif
+%}
+
+{% # Buy bttons and quantity selector %}
+{%- form 'product', product, is: 'product-form', id: product_form_id -%}
+  <input type="hidden" name="handle" value="{{ product.handle }}">
+  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+  <div class="jc-flex jc-w-full jc-gap-2 jc-flex-wrap">
+    {% if root.settings.enable_quantity_selector %}
+      {%- render 'product-main-quantity-selector', product_form_id: product_form_id -%}
+    {% endif %}
+
+    {% if root.settings.enable_add_to_cart %}
+      {%- render 'g-button',
+        text: add_to_cart_text,
+        type: add_to_cart_type,
+        button_attributes: add_to_cart_attributes,
+        button_class: add_to_cart_class,
+        display_price: root.settings.add_to_cart_display_price,
+        icon: add_to_cart_icon,
+        product_form_id: product_form_id
+      -%}
+    {% endif %}
+
+    {% if root.settings.enable_buy_now %}
+      {%- render 'g-button',
+        text: buy_now_text,
+        type: buy_now_type,
+        button_attributes: buy_now_attributes,
+        button_class: buy_now_class,
+        display_price: root.settings.buy_now_display_price,
+        icon: buy_now_icon,
+        product_form_id: product_form_id
+      -%}
+    {% endif %}
+  </div>
+{%- endform -%}

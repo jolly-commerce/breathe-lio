@@ -1,0 +1,82 @@
+{% comment %}
+  Snippet: g-button
+  Created by: Leonid Dulher / Mykyta Holodnyi / Yevhen Hryhorenko
+
+  Passed variables:
+  - type: {String} button type
+  - button_class - {String} custom button classes
+  - text: {String} text in button
+  - link: {String} url
+  - icon: {String} name of icon to render
+  - icon_class: {String} icon class
+  - price: {Boolean} display price
+  - button_attributes: {Srting} attributes
+
+  Used snippets:
+  - g-render-icon
+
+  Render example:
+    {% render 'g-button',
+      type: 'black-button',
+      button_class: 'custom-class',
+      text: 'Button',
+      link: 'https://google.com',
+      icon: 'arrow-right',
+      icon_class: 'custom-class',
+      display_price: false
+    %}
+{% endcomment %}
+
+{% # Default button classes %}
+{%- assign default_classes = 'jc-cursor-pointer jc-transition-all jc-duration-200 jc-text-center jc-no-underline jc-flex jc-justify-center jc-items-center jc-gap-2' -%}
+
+{% # Button types classes %}
+{%- assign black_button = 'jc-px-3 jc-py-4 jc-text-base jc-leading-5 jc-font-bold jc-bg-black jc-text-white jc-border jc-border-solid jc-border-black hover:jc-text-black hover:jc-bg-transparent' -%}
+{%- assign transparent_black = 'jc-px-3 jc-py-4 jc-text-base jc-leading-5 jc-text-black jc-bg-transparent jc-border jc-border-solid jc-border-black hover:jc-bg-black hover:jc-text-white' -%}
+{%- assign transparent_black_with_arrow = 'jc-text-base jc-leading-5 jc-text-black jc-bg-transparent jc-border-t-0 jc-border-r-0 jc-border-l-0 jc-border-b jc-border-solid jc-border-black' -%}
+
+{% if type == blank %}
+  {% assign type = 'black-button' %}
+{% endif %}
+
+{% if link %}
+  <a href="{{ link }}" {% if target_blank %} target="_blank" {% endif %}
+{% else %}
+  <button
+{% endif %}
+  {{ button_attributes }}
+  class="{{ button_class }} {{ default_classes }}
+  {%- # Button type -%}
+  {%- case type -%}
+    {%- when 'black-button' -%}
+      {{ black_button }}
+    {%- when 'transparent-black' -%}
+      {{ transparent_black }}
+    {%- when 'transparent-black-with-arrow' -%}
+      {{ transparent_black_with_arrow }}
+  {%- endcase -%}
+  ">
+    {%- # Text -%}
+    <span class="js-button-text empty:jc-hidden">
+      {{- text -}}
+    </span>
+
+    {%- # Price -%}
+    {%- if display_price -%}
+      {%- render 'g-price-block',
+        show_sale_badge: false,
+        quantity_update: true,
+        product_form_id: product_form_id,
+        class: 'jc-gap-1'
+      -%}
+    {%- endif -%}
+
+    {%- # Icon -%}
+    {%- if icon != blank -%}
+      {%- render 'g-render-icon', icon: icon, class: icon_class -%}
+    {%- endif -%}
+{%- if link -%}
+  </a>
+{%- else -%}
+  </button>
+{%- endif -%}

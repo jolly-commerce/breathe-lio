@@ -1,0 +1,51 @@
+{% comment %}
+  Snippet: Product Description List
+  Created by: Nazarii Prokopchuk
+
+  Description:
+  - This section displays a list of product descriptions, each with an optional icon and text.
+  - The descriptions are retrieved from the product's metafields.
+
+  Passed variables:
+  - product: {Object} the product whose descriptions are to be displayed
+
+  Metafields:
+  - jolly_meta.description_list: {Array} list of description items, each containing 'icon' and 'text'
+
+  Metafield settings:
+  - icon: {Image} icon image to display alongside the text
+  - text: {Text} descriptive text to display
+
+  Used snippets:
+  - g-render-image
+
+  Render example:
+  {% render 'product-main-description-list', product: product %}
+{% endcomment %}
+
+{%- assign description_list = product.metafields.jolly_meta.description_list -%}
+
+{% if description_list != blank %}
+  <div class="jc-flex jc-flex-col jc-gap-4">
+    {% for description_item in description_list.value %}
+      <div class="jc-flex jc-gap-4">
+        {% if description_item.icon != blank %}
+          {% render 'g-render-image',
+            class: 'jc-w-6 jc-h-6',
+            img_src: description_item.icon.url,
+            img: description_item.icon,
+            alt: description_item.icon.alt,
+            width: '24',
+            height: '24',
+            loading: 'lazy'
+          %}
+        {% endif %}
+        {% if description_item.text != blank %}
+          <div>
+            {{- description_item.text | metafield_tag -}}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

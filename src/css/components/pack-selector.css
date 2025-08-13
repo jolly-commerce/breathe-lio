@@ -1,0 +1,126 @@
+/* Pack Selector Component Styles */
+pack-selector-component {
+  display: block;
+}
+
+/* Step animations */
+pack-selector-component .step-content {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Product option hover states */
+pack-selector-component .pack-option {
+  transition: all 0.2s ease;
+}
+
+pack-selector-component .pack-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Selected state for options */
+pack-selector-component .pack-option.selected {
+  background-color: rgb(220 252 231); /* green-50 */
+  border-color: rgb(34 197 94); /* green-600 */
+}
+
+/* Button states */
+pack-selector-component .select-button,
+pack-selector-component .selected-button {
+  transition: all 0.2s ease;
+}
+
+/* Quantity controls (step 2) */
+pack-selector-component .qty-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+pack-selector-component .qty-control.jc-hidden {
+  display: none;
+}
+
+pack-selector-component .qty-control .btn {
+  background-color: #fff;
+}
+pack-selector-component .qty-control .btn.is-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+pack-selector-component .qty-count {
+  min-width: 2rem;
+  display: inline-block;
+}
+
+/* Step 2 SELECT button styles */
+pack-selector-component .step2-select-button.jc-bg-green-600 {
+  background-color: rgb(34 197 94) !important; /* green-600 */
+  color: white !important;
+  border-color: rgb(34 197 94) !important;
+}
+
+/* Flavor grid specific styles */
+pack-selector-component [data-step="2"] .pack-option {
+  min-height: 180px;
+}
+
+pack-selector-component [data-step="2"] .pack-option img {
+  max-height: 120px;
+}
+
+/* Accessory specific styles */
+pack-selector-component [data-step="3"] .pack-option {
+  position: relative;
+}
+
+/* Premium badge */
+pack-selector-component .premium-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: rgb(251 146 60); /* orange-400 */
+  color: white;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Submit button pulse animation when enabled */
+pack-selector-component #pack-selector-submit:not(:disabled) {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .8;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  pack-selector-component [data-step="1"] .pack-option {
+    max-width: 100%;
+  }
+  
+  pack-selector-component [data-step="2"] .pack-option {
+    min-height: 150px;
+  }
+}
