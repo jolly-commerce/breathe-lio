@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -441,5 +450,20 @@
         "other": "Es hat {{ count }} Bewertungen erhalten."
       }
     }
+  },
+  "bundle_pack": {
+    "button_select": "Auswählen",
+    "button_add": "Hinzufügen",
+    "button_add_to_cart": "In den Warenkorb",
+    "button_adding_to_cart": "Wird in den Warenkorb gelegt...",
+    "summary_select_your_lio": "Wähle dein Lio",
+    "selected_label": "Ausgewählt",
+    "tap_to_add": "Tippe auf +, um mehrere Geschmacksrichtungen hinzuzufügen",
+    "optional_label": "Optional",
+    "info_money_back": "Nicht in 30 Tagen aufgehört? Geld-zurück-Garantie!",
+    "info_shipping": "Kostenloser & schneller Versand",
+    "success_added": "Erfolgreich zum Warenkorb hinzugefügt!",
+    "error_failed_add": "Zum Warenkorb hinzufügen fehlgeschlagen",
+    "error_network": "Netzwerkfehler. Bitte versuche es erneut."
   }
 }

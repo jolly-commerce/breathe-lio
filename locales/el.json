@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -441,5 +450,20 @@
         "other": "Έχει λάβει {{ count }} αξιολογήσεις."
       }
     }
+  },
+  "bundle_pack": {
+    "button_select": "Επιλογή",
+    "button_add": "Προσθήκη",
+    "button_add_to_cart": "Προσθήκη στο καλάθι",
+    "button_adding_to_cart": "Γίνεται προσθήκη στο καλάθι...",
+    "summary_select_your_lio": "Επίλεξε το Lio σου",
+    "selected_label": "Επιλέχθηκε",
+    "tap_to_add": "Πάτησε + για να προσθέσεις πολλές γεύσεις",
+    "optional_label": "Προαιρετικό",
+    "info_money_back": "Δεν τα κατάφερες σε 30 ημέρες; Επιστροφή χρημάτων!",
+    "info_shipping": "Δωρεάν και γρήγορη αποστολή",
+    "success_added": "Προστέθηκε επιτυχώς στο καλάθι!",
+    "error_failed_add": "Αποτυχία προσθήκης στο καλάθι",
+    "error_network": "Σφάλμα δικτύου. Προσπάθησε ξανά."
   }
 }

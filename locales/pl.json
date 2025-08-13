@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -441,5 +450,20 @@
         "other": "Ma {{ count }} opinii."
       }
     }
+  },
+  "bundle_pack": {
+    "button_select": "Wybierz",
+    "button_add": "Dodaj",
+    "button_add_to_cart": "Dodaj do koszyka",
+    "button_adding_to_cart": "Dodawanie do koszyka...",
+    "summary_select_your_lio": "Wybierz swoje Lio",
+    "selected_label": "Wybrano",
+    "tap_to_add": "+ aby dodać kilka smaków",
+    "optional_label": "Opcjonalne",
+    "info_money_back": "Nie rzuciłeś w 30 dni? Zwrot pieniędzy!",
+    "info_shipping": "Darmowa i szybka dostawa",
+    "success_added": "Pomyślnie dodano do koszyka!",
+    "error_failed_add": "Nie udało się dodać do koszyka",
+    "error_network": "Błąd sieci. Spróbuj ponownie."
   }
 }

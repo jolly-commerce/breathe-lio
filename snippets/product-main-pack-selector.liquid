@@ -1,226 +1,258 @@
 {% comment %}
   Snippet: product-main-pack-selector
-  
+
   Usage:
   {% render 'product-main-pack-selector', root: block %}
 {% endcomment %}
 
-<pack-selector-component class="jc-block jc-w-full" data-max-flavors="{{ root.settings.max_flavors | default: 6 }}">
-  
-  {%- # Radio inputs for accordion control -%}
-  <input type="radio" name="pack-step" id="step-1-toggle" class="jc-hidden step-toggle" checked>
-  <input type="radio" name="pack-step" id="step-2-toggle" class="jc-hidden step-toggle">
-  <input type="radio" name="pack-step" id="step-3-toggle" class="jc-hidden step-toggle">
-
-  {%- # Step 1: Select Your Lio -%}
-  <div class="pack-selector-step" data-step="1">
-    <label for="step-1-toggle" class="jc-flex jc-items-center jc-justify-between jc-cursor-pointer jc-mb-4">
-      <div class="jc-flex jc-items-center jc-gap-2">
-        <span class="jc-text-sm jc-font-bold jc-text-green-600">STEP 1:</span>
-        <span class="jc-text-sm jc-font-bold jc-uppercase">SELECT YOUR LIO</span>
-      </div>
-      <svg class="jc-w-5 jc-h-5 jc-transition-transform step-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </label>
-    
-    <div class="step-content" data-content="step-1">
-      {%- if root.settings.step_1_title != blank -%}
-        <div class="jc-mb-4">{{ root.settings.step_1_title }}</div>
-      {%- endif -%}
-      
-      <div class="jc-grid jc-grid-cols-1 md:jc-grid-cols-3 jc-gap-4">
-        {%- for product in root.settings.step_1_packs -%}
-          <div class="pack-option jc-border jc-border-gray-300 jc-rounded-lg jc-p-4 jc-cursor-pointer jc-transition-all hover:jc-border-green-600" 
-               data-product-id="{{ product.first_available_variant.id }}" 
-               data-step="1">
-            <div class="jc-aspect-square jc-relative jc-mb-3">
-              {%- if product.featured_image -%}
-                <img src="{{ product.featured_image | image_url: width: 300 }}" 
-                     alt="{{ product.title }}" 
-                     class="jc-w-full jc-h-full jc-object-contain"
-                     loading="lazy">
-              {%- endif -%}
-              {%- if product.metafields.custom.badge_text -%}
-                <span class="jc-absolute jc-top-2 jc-right-2 jc-bg-orange-500 jc-text-white jc-text-xs jc-px-2 jc-py-1 jc-rounded">
-                  {{ product.metafields.custom.badge_text }}
-                </span>
-              {%- endif -%}
-            </div>
-            
-            <h3 class="jc-text-sm jc-font-bold jc-mb-1 jc-uppercase">{{ product.title }}</h3>
-            <p class="jc-text-xs jc-text-gray-600 jc-mb-3">{{ product.metafields.custom.subtitle | default: 'Premium wood' }}</p>
-            
-            <button class="jc-text-center jc-w-full jc-py-2 jc-border jc-border-black jc-rounded-full jc-text-sm jc-font-bold jc-uppercase jc-transition-all hover:jc-bg-black hover:jc-text-white select-button" 
-                    data-action="select-pack">
-              SELECT | €{{ product.price | money_without_currency }}
-            </button>
-          </div>
-        {%- endfor -%}
-      </div>
-    </div>
-  </div>
-
-  {%- # Step 2: Select Your Flavors -%}
-  <div class="pack-selector-step jc-mt-6" data-step="2">
-    <label for="step-2-toggle" class="jc-flex jc-items-center jc-justify-between jc-cursor-pointer jc-mb-4">
-      <div class="jc-flex jc-items-center jc-gap-2">
-        <span class="jc-text-sm jc-font-bold jc-text-green-600">STEP 2:</span>
-        <span class="jc-text-sm jc-font-bold jc-uppercase">SELECT YOUR FLAVORS</span>
-      </div>
-      <svg class="jc-w-5 jc-h-5 jc-transition-transform step-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </label>
-    
-    <div class="step-content" data-content="step-2">
-      {%- if root.settings.step_2_title != blank -%}
-        <div class="jc-mb-4">{{ root.settings.step_2_title }}</div>
-      {%- endif -%}
-      <div class="jc-flex jc-items-center jc-justify-between jc-mb-3 jc-text-xs md:jc-text-sm">
-        <div class="jc-flex jc-items-center jc-gap-2">
-          <span class="jc-font-semibold jc-uppercase">Selected</span>
-          <span><span data-role="flavor-counter">0</span>/<span data-role="flavor-max">{{ root.settings.max_flavors | default: 6 }}</span></span>
-        </div>
-        <div class="jc-text-gray-600">Tap + to add multiple flavors</div>
-      </div>
-      
-      <div class="jc-grid jc-grid-cols-2 md:jc-grid-cols-4 jc-gap-4">
-        {%- for product in root.settings.step_2_packs -%}
-          <div class="pack-option jc-border jc-border-gray-300 jc-rounded-lg jc-p-4 jc-transition-all hover:jc-border-green-600" 
-               data-product-id="{{ product.first_available_variant.id }}" 
-               data-step="2">
-            <div class="jc-aspect-square jc-relative jc-mb-3">
-              {%- if product.featured_image -%}
-                <img src="{{ product.featured_image | image_url: width: 200 }}" 
-                     alt="{{ product.title }}" 
-                     class="jc-w-full jc-h-full jc-object-contain"
-                     loading="lazy">
-              {%- endif -%}
-            </div>
-            
-            <h3 class="jc-text-xs jc-font-bold jc-text-center jc-uppercase jc-mb-2">{{ product.title }}</h3>
-
-            <button class="step2-select-button jc-text-center jc-w-full jc-py-2 jc-border jc-border-black jc-rounded-full jc-text-xs jc-font-bold jc-uppercase jc-transition-all hover:jc-bg-black hover:jc-text-white" 
-                    data-action="select-step2">
-              SELECT
-            </button>
-
-            <div class="qty-control jc-hidden" data-product-id="{{ product.first_available_variant.id }}">
-              <button type="button" class="btn btn-minus jc-w-8 jc-h-8 jc-rounded-full jc-border jc-border-gray-300 jc-text-gray-700 jc-flex jc-items-center jc-justify-center" aria-label="Decrease">−</button>
-              <span class="qty-count jc-w-8 jc-text-center jc-font-semibold">0</span>
-              <button type="button" class="btn btn-plus jc-w-8 jc-h-8 jc-rounded-full jc-border jc-border-gray-300 jc-text-gray-700 jc-flex jc-items-center jc-justify-center" aria-label="Increase">+</button>
-            </div>
-          </div>
-        {%- endfor -%}
-      </div>
-    </div>
-  </div>
-
-  {%- # Step 3: Select Accessories -%}
-  <div class="pack-selector-step jc-mt-6" data-step="3">
-    <label for="step-3-toggle" class="jc-flex jc-items-center jc-justify-between jc-cursor-pointer jc-mb-4">
-      <div class="jc-flex jc-items-center jc-gap-2">
-        <span class="jc-text-sm jc-font-bold jc-text-green-600">STEP 3:</span>
-        <span class="jc-text-sm jc-font-bold jc-uppercase">SELECT ACCESSORIES</span>
-        <span class="jc-text-xs jc-text-gray-500">Optional</span>
-      </div>
-      <svg class="jc-w-5 jc-h-5 jc-transition-transform step-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </label>
-    
-    <div class="step-content" data-content="step-3">
-      {%- if root.settings.step_3_title != blank -%}
-        <div class="jc-mb-4">{{ root.settings.step_3_title }}</div>
-      {%- endif -%}
-      
-      <div class="jc-grid jc-grid-cols-1 md:jc-grid-cols-3 jc-gap-4">
-        {%- for product in root.settings.step_3_packs -%}
-          <div class="pack-option jc-border jc-border-gray-300 jc-rounded-lg jc-p-4 jc-cursor-pointer jc-transition-all hover:jc-border-green-600" 
-               data-product-id="{{ product.first_available_variant.id }}" 
-               data-step="3">
-            <div class="jc-aspect-video jc-relative jc-mb-3">
-              {%- if product.featured_image -%}
-                <img src="{{ product.featured_image | image_url: width: 300 }}" 
-                     alt="{{ product.title }}" 
-                     class="jc-w-full jc-h-full jc-object-cover jc-rounded"
-                     loading="lazy">
-              {%- endif -%}
-            </div>
-            
-            <h3 class="jc-text-sm jc-font-bold jc-mb-1">{{ product.title }}</h3>
-            <p class="jc-text-xs jc-text-gray-600 jc-mb-3">{{ product.metafields.custom.description }}</p>
-            
-            <button class="jc-text-center jc-w-full jc-py-2 jc-border jc-border-black jc-rounded-full jc-text-sm jc-font-bold jc-uppercase jc-transition-all hover:jc-bg-black hover:jc-text-white select-button" 
-                    data-action="select-accessory">
-              ADD | €{{ product.price | money_without_currency }}
-            </button>
-          </div>
-        {%- endfor -%}
-      </div>
-    </div>
-  </div>
-
-  {%- # Summary Button -%}
-  <button class="jc-w-full jc-text-center jc-mt-8 jc-py-4 jc-bg-green-100 jc-text-green-800 jc-rounded-full jc-text-base jc-font-bold jc-uppercase jc-transition-all hover:jc-bg-green-200 jc-disabled:opacity-50 jc-disabled:cursor-not-allowed" 
-          id="pack-selector-submit" 
-          disabled>
-    SELECT YOUR LIO
-  </button>
-
-  {%- # Info Messages -%}
-  <div class="jc-mt-4 jc-space-y-2">
-    <div class="jc-flex jc-items-center jc-gap-2 jc-justify-center">
-      <svg class="jc-w-5 jc-h-5 jc-text-green-600" fill="currentColor" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-      </svg>
-      <span class="jc-text-sm">Didn't quit in 30 Days? Money Back!</span>
-    </div>
-    <div class="jc-flex jc-items-center jc-gap-2 jc-justify-center">
-      <svg class="jc-w-5 jc-h-5 jc-text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
-      </svg>
-      <span class="jc-text-sm">Free & Fast Shipping</span>
-    </div>
-  </div>
-</pack-selector-component>
-
 <style>
-  /* Step content visibility based on radio input state */
-  pack-selector-component #step-1-toggle:checked ~ .pack-selector-step[data-step="1"] .step-content {
-    display: block;
-  }
-  
-  pack-selector-component #step-2-toggle:checked ~ .pack-selector-step[data-step="2"] .step-content {
-    display: block;
-  }
-  
-  pack-selector-component #step-3-toggle:checked ~ .pack-selector-step[data-step="3"] .step-content {
-    display: block;
-  }
-  
-  pack-selector-component .step-content {
+  /* Step content visibility based on radio input state (inputs are inside each step) */
+  pack-selector-component .pack-selector-step .step-content {
     display: none;
   }
-  
+  pack-selector-component .pack-selector-step input.step-toggle:checked ~ .step-content {
+    display: block;
+  }
+
   /* Arrow rotation based on radio input state */
-  pack-selector-component #step-1-toggle:checked ~ .pack-selector-step[data-step="1"] .step-arrow,
-  pack-selector-component #step-2-toggle:checked ~ .pack-selector-step[data-step="2"] .step-arrow,
-  pack-selector-component #step-3-toggle:checked ~ .pack-selector-step[data-step="3"] .step-arrow {
+  pack-selector-component .pack-selector-step input.step-toggle:checked + label .step-arrow {
     transform: rotate(180deg);
   }
-  
   pack-selector-component .step-arrow {
     transform: rotate(0deg);
     transition: transform 0.3s ease;
   }
-  
-  pack-selector-component .pack-option.selected {
+
+  pack-selector-component .js-product-option-card.selected {
     @apply jc-border-green-600 jc-bg-green-50;
   }
-  
-  pack-selector-component .pack-option.selected .select-button {
+
+  pack-selector-component .js-product-option-card.selected .select-button {
     @apply jc-bg-green-600 jc-text-white jc-border-green-600;
   }
 </style>
+
+<pack-selector-component
+  class="jc-block jc-w-full"
+  data-max-flavors="{{ root.settings.max_flavors | default: 6 }}"
+  data-min-flavors="{{ root.settings.min_flavors | default: 4 }}"
+  data-text-summary-select-your-lio="{{ 'bundle_pack.summary_select_your_lio' | t }}"
+  data-text-button-add-to-cart="{{ 'bundle_pack.button_add_to_cart' | t }}"
+  data-text-button-adding-to-cart="{{ 'bundle_pack.button_adding_to_cart' | t }}"
+>
+  {%- # Step 1: Select Your Lio -%}
+  {%- if root.settings.step_1_title != blank -%}
+    <div class="pack-selector-step" data-step="1">
+      <input type="radio" name="pack-step" id="step-1-toggle" class="jc-hidden step-toggle" checked>
+      <label for="step-1-toggle" class="jc-flex jc-items-center jc-justify-between jc-cursor-pointer jc-mb-4">
+        <div class="jc-flex jc-items-center jc-gap-2">
+          <span class="jc-text-sm jc-font-bold jc-uppercase [&_strong]:jc-text-green-600">
+            {{- root.settings.step_1_title -}}
+          </span>
+        </div>
+        {% render 'g-render-icon', icon: 'chevron-down', class: 'jc-w-5 jc-h-5 jc-transition-transform step-arrow' %}
+      </label>
+
+      <div class="step-content" data-content="step-1">
+        <div class="jc-grid jc-grid-cols-1 md:jc-grid-cols-3 jc-gap-4">
+          {%- for product in root.settings.step_1_packs -%}
+            <div
+              class="
+                js-product-option-card jc-border jc-border-gray-300 jc-rounded-lg jc-p-4 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
+                [&.selected]:jc-bg-green-600  [&.selected]:jc-border-green-600
+              "
+              data-product-id="{{ product.first_available_variant.id }}"
+              data-step="1"
+            >
+              <div class="jc-aspect-square jc-relative jc-mb-3">
+                {%- if product.featured_image -%}
+                  {% render 'g-render-image',
+                    class: 'jc-w-full jc-h-full jc-object-contain',
+                    img_src: product.featured_image.url,
+                    img: product.featured_image,
+                    size: '220 300 400 500',
+                    alt: product.title,
+                    width: '100',
+                    height: '100',
+                    loading: 'lazy'
+                  %}
+                {%- endif -%}
+                {%- if product.metafields.custom.badge_text -%}
+                  <span class="jc-absolute jc-top-2 jc-right-2 jc-bg-orange-500 jc-text-white jc-text-xs jc-px-2 jc-py-1 jc-rounded">
+                    {{ product.metafields.custom.badge_text }}
+                  </span>
+                {%- endif -%}
+              </div>
+
+              <h3 class="jc-text-sm jc-font-bold jc-mb-1 jc-uppercase">{{ product.title }}</h3>
+              <p class="jc-text-xs jc-text-gray-600 jc-mb-3">
+                {{ product.metafields.custom.subtitle | default: 'Premium wood' }}
+              </p>
+
+              <button
+                class="jc-text-center jc-w-full jc-py-2 jc-border jc-border-black jc-rounded-full jc-text-sm jc-font-bold jc-uppercase jc-transition-all hover:jc-bg-black hover:jc-text-white select-button"
+                data-action="select-pack"
+              >
+                {{ 'bundle_pack.button_select' | t }} | {{ product.price | money }}
+              </button>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- # Step 2: Select Your Flavors -%}
+  {%- if root.settings.step_2_title != blank -%}
+    <div class="pack-selector-step jc-mt-6" data-step="2">
+      <input type="radio" name="pack-step" id="step-2-toggle" class="jc-hidden step-toggle">
+      <label for="step-2-toggle" class="jc-flex jc-items-center jc-justify-between jc-cursor-pointer jc-mb-4">
+        <div class="jc-flex jc-items-center jc-gap-2">
+          <span class="jc-text-sm jc-font-bold jc-uppercase [&_strong]:jc-text-green-600">
+            {{- root.settings.step_2_title -}}
+          </span>
+        </div>
+        {% render 'g-render-icon', icon: 'chevron-down', class: 'jc-w-5 jc-h-5 jc-transition-transform step-arrow' %}
+      </label>
+
+      <div class="step-content" data-content="step-2">
+        <div class="jc-flex jc-items-center jc-justify-between jc-mb-3 jc-text-xs md:jc-text-sm">
+          <div class="jc-flex jc-items-center jc-gap-2">
+            <span class="jc-font-semibold jc-uppercase">{{ 'bundle_pack.selected_label' | t }}</span>
+            <span
+              ><span data-role="flavor-counter">0</span>/<span data-role="flavor-max">
+                {{- root.settings.max_flavors | default: 6 -}}
+              </span></span
+            >
+          </div>
+        </div>
+
+        <div class="jc-grid jc-grid-cols-2 lg:jc-grid-cols-3 jc-gap-4">
+          {%- for product in root.settings.step_2_packs -%}
+            <div
+              class="
+                js-product-option-card jc-border jc-border-gray-300 jc-rounded-lg jc-p-4 jc-transition-all hover:jc-border-green-600
+                [&.selected]:jc-bg-green-600  [&.selected]:jc-border-green-600
+              "
+              data-product-id="{{ product.first_available_variant.id }}"
+              data-step="2"
+            >
+              <div class="jc-aspect-square jc-relative jc-mb-3">
+                {%- if product.featured_image -%}
+                  {% render 'g-render-image',
+                    class: 'jc-w-full jc-h-full jc-object-contain',
+                    img_src: product.featured_image.url,
+                    img: product.featured_image,
+                    size: '220 300 400 500',
+                    alt: product.title,
+                    width: '100',
+                    height: '100',
+                    loading: 'lazy'
+                  %}
+                {%- endif -%}
+              </div>
+              <div class="js-trigger-popup">
+                Trigger Popup
+              </div>
+              <h3 class="jc-text-xs jc-font-bold jc-text-center jc-uppercase jc-mb-2">{{ product.title }}</h3>
+
+              <button
+                class="js-select-button-step2 jc-text-center jc-w-full jc-py-2 jc-border jc-border-black jc-rounded-full jc-text-xs jc-font-bold jc-uppercase jc-transition-all hover:jc-bg-black hover:jc-text-white"
+                data-action="select-step2"
+              >
+                {{ 'bundle_pack.button_select' | t }}
+              </button>
+
+              <div class="js-qty-control jc-hidden" data-product-id="{{ product.first_available_variant.id }}">
+                <button
+                  type="button"
+                  class="js-btn-minus jc-btn jc-w-8 jc-h-8 jc-rounded-full jc-border jc-border-gray-300 jc-text-gray-700 jc-flex jc-items-center jc-justify-center"
+                  aria-label="Decrease"
+                >
+                  -
+                </button>
+                <span class="js-qty-count jc-w-8 jc-text-center jc-font-semibold">0</span>
+                <button
+                  type="button"
+                  class="js-btn-plus jc-btn jc-w-8 jc-h-8 jc-rounded-full jc-border jc-border-gray-300 jc-text-gray-700 jc-flex jc-items-center jc-justify-center"
+                  aria-label="Increase"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- # Step 3: Select Accessories -%}
+  {%- if root.settings.step_3_title != blank -%}
+    <div class="pack-selector-step jc-mt-6" data-step="3">
+      <input type="radio" name="pack-step" id="step-3-toggle" class="jc-hidden step-toggle">
+      <label for="step-3-toggle" class="jc-flex jc-items-center jc-justify-between jc-cursor-pointer jc-mb-4">
+        <div class="jc-flex jc-items-center jc-gap-2">
+          <span class="jc-text-sm jc-font-bold jc-uppercase [&_strong]:jc-text-green-600">
+            {{- root.settings.step_3_title -}}
+          </span>
+          <span class="jc-text-xs jc-text-gray-500">{{ 'bundle_pack.optional_label' | t }}</span>
+        </div>
+        {% render 'g-render-icon', icon: 'chevron-down', class: 'jc-w-5 jc-h-5 jc-transition-transform step-arrow' %}
+      </label>
+
+      <div class="step-content" data-content="step-3">
+        <div class="jc-grid jc-grid-cols-1 md:jc-grid-cols-3 jc-gap-4">
+          {%- for product in root.settings.step_3_packs -%}
+            <div
+              class="
+                js-product-option-card jc-border jc-border-gray-300 jc-rounded-lg jc-p-4 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
+                [&.selected]:jc-bg-green-600  [&.selected]:jc-border-green-600
+              "
+              data-product-id="{{ product.first_available_variant.id }}"
+              data-step="3"
+            >
+              <div class="jc-aspect-video jc-relative jc-mb-3">
+                {%- if product.featured_image -%}
+                  {% render 'g-render-image',
+                    class: 'jc-w-full jc-h-full jc-object-cover jc-rounded',
+                    img_src: product.featured_image.url,
+                    img: product.featured_image,
+                    size: '220 300 400 500',
+                    alt: product.title,
+                    width: '100',
+                    height: '100',
+                    loading: 'lazy'
+                  %}
+                {%- endif -%}
+              </div>
+
+              <h3 class="jc-text-sm jc-font-bold jc-mb-1">{{ product.title }}</h3>
+              <p class="jc-text-xs jc-text-gray-600 jc-mb-3">{{ product.metafields.custom.description }}</p>
+
+              <button
+                class="jc-text-center jc-w-full jc-py-2 jc-border jc-border-black jc-rounded-full jc-text-sm jc-font-bold jc-uppercase jc-transition-all hover:jc-bg-black hover:jc-text-white select-button"
+                data-action="select-accessory"
+              >
+                {{ 'bundle_pack.button_add' | t }} | {{ product.price | money }}
+              </button>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- # Summary Button -%}
+  <button
+    class="
+      jc-w-full jc-text-center jc-mt-8 jc-py-4 jc-bg-green-100 jc-text-green-800 jc-rounded-full jc-text-base jc-font-bold jc-uppercase
+      jc-transition-all hover:jc-bg-green-200 disabled:jc-opacity-50 disabled:jc-cursor-not-allowed [&:not(:disabled)]:jc-bg-green-600
+    "
+    id="pack-selector-submit"
+    disabled
+  >
+    {{ 'bundle_pack.summary_select_your_lio' | t }}
+  </button>
+
+</pack-selector-component>

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -441,5 +450,20 @@
         "other": "הוא קיבל {{ count }} ביקורות."
       }
     }
+  },
+  "bundle_pack": {
+    "button_select": "בחר",
+    "button_add": "הוסף",
+    "button_add_to_cart": "הוסף לעגלה",
+    "button_adding_to_cart": "מוסיף לעגלה...",
+    "summary_select_your_lio": "בחר את ה‑Lio שלך",
+    "selected_label": "נבחר",
+    "tap_to_add": "הקש על + כדי להוסיף כמה טעמים",
+    "optional_label": "רשות",
+    "info_money_back": "לא הפסקת בתוך 30 יום? החזר כספי!",
+    "info_shipping": "משלוח מהיר וחינמי",
+    "success_added": "נוסף לעגלה בהצלחה!",
+    "error_failed_add": "הוספה לעגלה נכשלה",
+    "error_network": "שגיאת רשת. נסה שוב."
   }
 }

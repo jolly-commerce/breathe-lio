@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -441,5 +450,20 @@
         "other": "Gauta atsiliepimų apie prekę: {{ count }}."
       }
     }
+  },
+  "bundle_pack": {
+    "button_select": "Pasirinkti",
+    "button_add": "Pridėti",
+    "button_add_to_cart": "Pridėti į krepšelį",
+    "button_adding_to_cart": "Pridedama į krepšelį...",
+    "summary_select_your_lio": "Pasirinkite savo Lio",
+    "selected_label": "Pasirinkta",
+    "tap_to_add": "Bakstelėkite +, kad pridėtumėte kelis skonius",
+    "optional_label": "Nebūtina",
+    "info_money_back": "Per 30 dienų neatsisakėte? Grąžiname pinigus!",
+    "info_shipping": "Nemokamas ir greitas pristatymas",
+    "success_added": "Sėkmingai pridėta į krepšelį!",
+    "error_failed_add": "Nepavyko pridėti į krepšelį",
+    "error_network": "Tinklo klaida. Bandykite dar kartą."
   }
 }

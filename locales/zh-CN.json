@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -441,5 +450,20 @@
         "other": "已收到 {{ count }} 条评价。"
       }
     }
+  },
+  "bundle_pack": {
+    "button_select": "选择",
+    "button_add": "添加",
+    "button_add_to_cart": "加入购物车",
+    "button_adding_to_cart": "正在加入购物车...",
+    "summary_select_your_lio": "选择你的 Lio",
+    "selected_label": "已选择",
+    "tap_to_add": "点击 + 添加多个口味",
+    "optional_label": "可选",
+    "info_money_back": "30 天内未成功？退款保障！",
+    "info_shipping": "快速且免费配送",
+    "success_added": "已成功加入购物车！",
+    "error_failed_add": "加入购物车失败",
+    "error_network": "网络错误，请重试"
   }
 }

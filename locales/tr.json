@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -441,5 +450,20 @@
         "other": "{{ count }} değerlendirme aldı."
       }
     }
+  },
+  "bundle_pack": {
+    "button_select": "Seç",
+    "button_add": "Ekle",
+    "button_add_to_cart": "Sepete ekle",
+    "button_adding_to_cart": "Sepete ekleniyor...",
+    "summary_select_your_lio": "Lio'nuzu seçin",
+    "selected_label": "Seçildi",
+    "tap_to_add": "+'ya dokunarak birden fazla lezzet ekleyin",
+    "optional_label": "İsteğe bağlı",
+    "info_money_back": "30 günde bırakamadınız mı? Para iadesi!",
+    "info_shipping": "Ücretsiz ve hızlı kargo",
+    "success_added": "Başarıyla sepete eklendi!",
+    "error_failed_add": "Sepete eklenemedi",
+    "error_network": "Ağ hatası. Lütfen tekrar deneyin."
   }
 }

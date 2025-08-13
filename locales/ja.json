@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -441,5 +450,20 @@
         "other": "{{ count }}件"
       }
     }
+  },
+  "bundle_pack": {
+    "button_select": "選択",
+    "button_add": "追加",
+    "button_add_to_cart": "カートに追加",
+    "button_adding_to_cart": "カートに追加中...",
+    "summary_select_your_lio": "Lio を選択",
+    "selected_label": "選択済み",
+    "tap_to_add": "+ を押してフレーバーを複数追加",
+    "optional_label": "任意",
+    "info_money_back": "30 日でやめられなかった？返金保証！",
+    "info_shipping": "無料・迅速な配送",
+    "success_added": "カートに追加しました！",
+    "error_failed_add": "カートに追加できませんでした",
+    "error_network": "ネットワークエラー。もう一度お試しください。"
   }
 }

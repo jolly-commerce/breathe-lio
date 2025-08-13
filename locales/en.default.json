@@ -1,3 +1,13 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+
 {
   "404": {
     "general": {
@@ -441,5 +451,20 @@
         "other": "It has received {{ count }} reviews."
       }
     }
+  },
+  "bundle_pack": {
+    "button_select": "Select",
+    "button_add": "Add",
+    "button_add_to_cart": "Add to cart",
+    "button_adding_to_cart": "Adding to cart...",
+    "summary_select_your_lio": "Select your Lio",
+    "selected_label": "Selected",
+    "tap_to_add": "Tap + to add multiple flavors",
+    "optional_label": "Optional",
+    "info_money_back": "Didn't quit in 30 Days? Money Back!",
+    "info_shipping": "Free & Fast Shipping",
+    "success_added": "Successfully added to cart!",
+    "error_failed_add": "Failed to add to cart",
+    "error_network": "Network error. Please try again."
   }
 }

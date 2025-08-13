@@ -4,10 +4,10 @@ Using Figma MCP (`get_code` and `get_image`), create a pixel-perfect version of 
 
 Use only Tailwind CSS classes (check `tailwind.config.js` and `main.css` to see what’s available, and feel free to extend these if needed to achieve pixel perfection).
 
-For icons, use those provided in Figma (fetch them via `curl` or export from Figma).
+For icons, use those provided in Figma (fetch them via `curl` or export from Figma) and harcode them.
 
-figma mobile:https://www.figma.com/design/1oN6NBVBT6fyMAmZNu7ePn/Lio-%F0%9F%9A%AC?node-id=24-5193&m=dev
-figma desktop:https://www.figma.com/design/1oN6NBVBT6fyMAmZNu7ePn/Lio-%F0%9F%9A%AC?node-id=24-3203&m=dev
+figma mobile:https://www.figma.com/design/1oN6NBVBT6fyMAmZNu7ePn/Lio-%F0%9F%9A%AC?node-id=27-2482&m=dev
+figma desktop:https://www.figma.com/design/1oN6NBVBT6fyMAmZNu7ePn/Lio-%F0%9F%9A%AC?node-id=27-2261&m=dev
 
 <rules>
 

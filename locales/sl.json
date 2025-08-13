@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -441,5 +450,20 @@
         "other": "Ta izdelek ima {{ count }} ocen."
       }
     }
+  },
+  "bundle_pack": {
+    "button_select": "Izberi",
+    "button_add": "Dodaj",
+    "button_add_to_cart": "Dodaj v košarico",
+    "button_adding_to_cart": "Dodajanje v košarico...",
+    "summary_select_your_lio": "Izberi svoj Lio",
+    "selected_label": "Izbrano",
+    "tap_to_add": "Tapni + za dodajanje več okusov",
+    "optional_label": "Neobvezno",
+    "info_money_back": "V 30 dneh niste prenehali? Vračilo denarja!",
+    "info_shipping": "Brezplačna in hitra dostava",
+    "success_added": "Uspešno dodano v košarico!",
+    "error_failed_add": "Dodajanje v košarico ni uspelo",
+    "error_network": "Napaka omrežja. Poskusite znova."
   }
 }

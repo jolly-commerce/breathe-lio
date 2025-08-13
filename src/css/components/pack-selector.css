@@ -20,17 +20,17 @@ pack-selector-component .step-content {
 }
 
 /* Product option hover states */
-pack-selector-component .pack-option {
+pack-selector-component .js-product-option-card {
   transition: all 0.2s ease;
 }
 
-pack-selector-component .pack-option:hover {
+pack-selector-component .js-product-option-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Selected state for options */
-pack-selector-component .pack-option.selected {
+pack-selector-component .js-product-option-card.selected {
   background-color: rgb(220 252 231); /* green-50 */
   border-color: rgb(34 197 94); /* green-600 */
 }
@@ -42,47 +42,47 @@ pack-selector-component .selected-button {
 }
 
 /* Quantity controls (step 2) */
-pack-selector-component .qty-control {
+pack-selector-component .js-qty-control {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
 }
 
-pack-selector-component .qty-control.jc-hidden {
+pack-selector-component .js-qty-control.jc-hidden {
   display: none;
 }
 
-pack-selector-component .qty-control .btn {
+pack-selector-component .js-qty-control .jc-btn {
   background-color: #fff;
 }
-pack-selector-component .qty-control .btn.is-disabled {
+pack-selector-component .js-qty-control .jc-btn.is-disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
-pack-selector-component .qty-count {
+pack-selector-component .js-qty-count {
   min-width: 2rem;
   display: inline-block;
 }
 
 /* Step 2 SELECT button styles */
-pack-selector-component .step2-select-button.jc-bg-green-600 {
+pack-selector-component .js-select-button-step2.jc-bg-green-600 {
   background-color: rgb(34 197 94) !important; /* green-600 */
   color: white !important;
   border-color: rgb(34 197 94) !important;
 }
 
 /* Flavor grid specific styles */
-pack-selector-component [data-step="2"] .pack-option {
+pack-selector-component [data-step="2"] .js-product-option-card {
   min-height: 180px;
 }
 
-pack-selector-component [data-step="2"] .pack-option img {
+pack-selector-component [data-step="2"] .js-product-option-card img {
   max-height: 120px;
 }
 
 /* Accessory specific styles */
-pack-selector-component [data-step="3"] .pack-option {
+pack-selector-component [data-step="3"] .js-product-option-card {
   position: relative;
 }
 
@@ -116,11 +116,11 @@ pack-selector-component #pack-selector-submit:not(:disabled) {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  pack-selector-component [data-step="1"] .pack-option {
+  pack-selector-component [data-step="1"] .js-product-option-card {
     max-width: 100%;
   }
   
-  pack-selector-component [data-step="2"] .pack-option {
+  pack-selector-component [data-step="2"] .js-product-option-card {
     min-height: 150px;
   }
 }

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -441,5 +450,20 @@
         "other": "Den har fået {{ count }} anmeldelser."
       }
     }
+  },
+  "bundle_pack": {
+    "button_select": "Vælg",
+    "button_add": "Tilføj",
+    "button_add_to_cart": "Læg i kurv",
+    "button_adding_to_cart": "Lægger i kurv...",
+    "summary_select_your_lio": "Vælg din Lio",
+    "selected_label": "Valgt",
+    "tap_to_add": "Tryk på + for at tilføje flere smage",
+    "optional_label": "Valgfrit",
+    "info_money_back": "Stoppede du ikke inden 30 dage? Penge tilbage!",
+    "info_shipping": "Gratis og hurtig levering",
+    "success_added": "Tilføjet til kurven!",
+    "error_failed_add": "Kunne ikke lægge i kurv",
+    "error_network": "Netværksfejl. Prøv igen."
   }
 }

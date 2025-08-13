@@ -41,20 +41,21 @@
           "type": "pack_selector",
           "settings": {
             "max_flavors": 20,
-            "step_1_title": "<p>Step 1: </p>",
+            "min_flavors": 4,
+            "step_1_title": "<p><strong>Step 1:</strong> SELECT your Lio</p>",
             "step_1_packs": [
               "lio-walnut",
               "lio-diffuser",
               "lio®-aluminium-black",
               "lio®-aluminium-silver"
             ],
-            "step_2_title": "<p>Step 2: </p>",
+            "step_2_title": "<p><strong>Step 2:</strong> SELECT your flavors</p>",
             "step_2_packs": [
               "cinnamon-spice",
               "lio®-cinnamon-spice",
               "lio®-cold-turkey-1"
             ],
-            "step_3_title": "<p>Step 3: </p>",
+            "step_3_title": "<p><strong>Step 3:</strong> SELECT accesorries</p>",
             "step_3_packs": [
               "fathers-day-gift-card",
               "dutch-product"
@@ -79,6 +80,7 @@
     },
     "instant_zn9_mnr_wy3_ymbk75_x_8aN4M3": {
       "type": "instant-ZN9MnrWy3YMBK75X",
+      "disabled": true,
       "name": "[TEST PDP_012] The Journe",
       "settings": {
         "product_P9oTZlGE5C9MkMTY": "lio®-journey-pack-1",
