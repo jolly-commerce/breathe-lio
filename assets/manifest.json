@@ -1,16 +1,16 @@
 {
   "css/main.css": {
-    "file": "main2.css",
+    "file": "main.css",
     "isEntry": true,
     "src": "css/main.css"
   },
   "templates/main.css": {
-    "file": "main.css",
+    "file": "main2.css",
     "src": "templates/main.css"
   },
   "templates/main.js": {
     "css": [
-      "main.css"
+      "main2.css"
     ],
     "file": "jc-bundle-main.js",
     "isEntry": true,
