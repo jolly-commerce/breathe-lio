@@ -468,6 +468,9 @@
     "select_minimum_flavors": "최소 {count}가지 맛을 선택하세요",
     "selected_cigarette": "Lio",
     "selected_flavors": "맛",
-    "total_price": "합계"
+    "total_price": "합계",
+    "savoury": "맛있는",
+    "throat_hit": "맛있는",
+    "sweetness": "맛있는"
   }
 }

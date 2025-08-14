@@ -468,6 +468,9 @@
     "select_minimum_flavors": "Pasirinkite mažiausiai {count} skonių",
     "selected_cigarette": "Lio",
     "selected_flavors": "Skonius",
-    "total_price": "Iš viso"
+    "total_price": "Iš viso",
+    "savoury": "Slanė",
+    "throat_hit": "Provozas",
+    "sweetness": "Sladus"
   }
 }

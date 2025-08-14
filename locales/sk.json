@@ -468,6 +468,9 @@
     "select_minimum_flavors": "Vyberte minimálne {count} príchute",
     "selected_cigarette": "Lio",
     "selected_flavors": "Príchute",
-    "total_price": "Celkom"
+    "total_price": "Celkom",
+    "savoury": "Slaná",
+    "throat_hit": "Prohloušený chuť",
+    "sweetness": "Sladká"
   }
 }

@@ -468,6 +468,9 @@
     "select_minimum_flavors": "בחרו לפחות {count} טעמים",
     "selected_cigarette": "Lio",
     "selected_flavors": "טעמים",
-    "total_price": "סה\"כ"
+    "total_price": "סה\"כ",
+    "savoury": "טעימים",
+    "throat_hit": "חזור בטווח",
+    "sweetness": "טעימים"
   }
 }

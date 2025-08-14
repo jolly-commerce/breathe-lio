@@ -468,6 +468,9 @@
     "select_minimum_flavors": "Velg minst {count} smaker",
     "selected_cigarette": "Lio",
     "selected_flavors": "Smaker",
-    "total_price": "Totalt"
+    "total_price": "Totalt",
+    "savoury": "Sød",
+    "throat_hit": "Prodlænd",
+    "sweetness": "Smag"
   }
 }

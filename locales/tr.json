@@ -468,6 +468,9 @@
     "select_minimum_flavors": "En az {count} aroma seçin",
     "selected_cigarette": "Lio",
     "selected_flavors": "Aromalar",
-    "total_price": "Toplam"
+    "total_price": "Toplam",
+    "savoury": "Ecstasy",
+    "throat_hit": "Provozası",
+    "sweetness": "Ecstasy"
   }
 }

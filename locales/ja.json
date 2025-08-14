@@ -468,6 +468,9 @@
     "select_minimum_flavors": "最低 {count} 種類のフレーバーを選択してください",
     "selected_cigarette": "Lio",
     "selected_flavors": "フレーバー",
-    "total_price": "合計"
+    "total_price": "合計",
+    "savoury": "甘い",
+    "throat_hit": "キリキリ",
+    "sweetness": "甘い"
   }
 }

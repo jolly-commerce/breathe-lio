@@ -468,6 +468,9 @@
     "select_minimum_flavors": "Επιλέξτε τουλάχιστον {count} γεύσεις",
     "selected_cigarette": "Lio",
     "selected_flavors": "Γεύσεις",
-    "total_price": "Σύνολο"
+    "total_price": "Σύνολο",
+    "savoury": "Νοστιμάτα",
+    "throat_hit": "Μαύρο",
+    "sweetness": "Γλυκά"
   }
 }

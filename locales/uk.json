@@ -468,6 +468,9 @@
     "select_minimum_flavors": "Оберіть мінімум {count} смаків",
     "selected_cigarette": "Lio",
     "selected_flavors": "Смаки",
-    "total_price": "Разом"
+    "total_price": "Разом",
+    "savoury": "Смаки",
+    "throat_hit": "Смаки",
+    "sweetness": "Смаки"
   }
 }

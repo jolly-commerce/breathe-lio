@@ -468,6 +468,9 @@
     "select_minimum_flavors": "Selecciona mínimo {count} sabores",
     "selected_cigarette": "Lio",
     "selected_flavors": "Sabores",
-    "total_price": "Total"
+    "total_price": "Total",
+    "savoury": "Salado",
+    "throat_hit": "Reblandado",
+    "sweetness": "Dulce"
   }
 }
