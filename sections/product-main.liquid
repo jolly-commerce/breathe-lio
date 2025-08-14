@@ -68,7 +68,7 @@
 
       {%- # Product info -%}
       <div class="jc-basis-full lg:jc-basis-1/2 jc-min-w-0">
-        <div data-sticky class="jc-sticky jc-top-0 jc-flex jc-flex-col jc-gap-8 jc-pdp-content jc-overflow-hidden">
+        <div data-sticky class="jc-sticky jc-top-0 jc-flex jc-flex-col jc-gap-8 jc-pdp-content">
           {%- # Product titles -%}
           <div>
             {%- for block in section.blocks -%}
@@ -109,11 +109,12 @@
                 {%- render 'product-main-buy-buttons', root: block, product_form_id: product_form_id -%}
               {%- when 'accordion' -%}
                 {%- render 'product-main-accordion', root: block -%}
+              {%- when 'pack_selector' -%}
+                {%- render 'product-main-pack-selector', root: block -%}
+              {%- when 'delivery_info' -%}
+                {%- render 'product-main-delivery-info', root: block -%}
             {%- endcase -%}
           {%- endfor -%}
-          {%- if pack_selector_block != blank -%}
-            {%- render 'product-main-pack-selector', root: pack_selector_block -%}
-          {%- endif -%}
         </div>
       </div>
     </div>
@@ -624,7 +625,55 @@
           "label": "Packs"
         },
       ]
+    },
+    {
+      "type": "delivery_info",
+      "name": "Delivery info",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Delivery info"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_card_payment",
+          "label": "Enable card payment info",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Title 1"
+        },
+        {
+          "type": "text",
+          "id": "delivery_info_title_1",
+          "label": "Title 1",
+          "default": "Didn't quit in 30 Days? Money Back!"
+        },
+        {
+          "type": "image_picker",
+          "id": "delivery_info_image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "header",
+          "content": "Title 2"
+        },
+        {
+          "type": "text",
+          "id": "delivery_info_title_2",
+          "label": "Title 2",
+          "default": "Free & Fast Shipping"
+        },
+        {
+          "type": "image_picker",
+          "id": "delivery_info_image_2",
+          "label": "Image 2"
+        },
+      ]
     }
+
   ],
   "presets": [
     {

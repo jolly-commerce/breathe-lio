@@ -15,106 +15,124 @@
 >
   <div class="js-popup-overlay jc-absolute jc-inset-0"></div>
 
-  <div class="jc-relative jc-w-80 jc-bg-white jc-rounded-[20px] jc-overflow-hidden jc-border jc-border-[#002a15]">
+  <div class="jc-relative jc-w-80 jc-overflow-hidden">
     <!-- Close Button -->
-    <button class="js-popup-close jc-absolute jc-top-3 jc-right-3 jc-z-10 jc-w-6 jc-h-6 jc-flex jc-items-center jc-justify-center jc-text-gray-600 hover:jc-text-gray-800 jc-transition-colors">
-      <svg class="jc-w-3 jc-h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
+    <button class="js-popup-close jc-absolute jc-top-3 jc-right-3 jc-z-10 jc-flex jc-items-center jc-justify-center">
+      {% render 'g-render-icon', icon: 'fat-close', class: 'jc-w-6 jc-h-6' %}
     </button>
 
-    <div class="jc-p-5">
-      <swiper-container
-        id="productStep2Swiper"
-        class="step2-swiper"
-        slides-per-view="1"
-        space-between="24"
-        speed="500"
-        loop="false"
-        navigation="true"
-        navigation-next-el=".step2-nav-button-next"
-        navigation-prev-el=".step2-nav-button-prev"
-      >
-        {%- for product in step_2_products -%}
-          <swiper-slide data-product-id="{{ product.first_available_variant.id }}">
+    <swiper-container
+      id="productStep2Swiper"
+      class="step2-swiper"
+      slides-per-view="1"
+      space-between="24"
+      speed="500"
+      loop="false"
+      navigation="true"
+      navigation-next-el=".step2-nav-button-next"
+      navigation-prev-el=".step2-nav-button-prev"
+    >
+      {%- for product in step_2_products -%}
+        <swiper-slide
+          style="
+            --bg-color: {{ product.metafields.jolly_meta.background_color | default: '#ffffff' }}30;
+            --dot-color: {{ product.metafields.jolly_meta.background_color | default: '#004631' }}60;
+            --dot-color-active: {{ product.metafields.jolly_meta.background_color | default: '#000000' }};
+          "
+          class="jc-bg-white jc-h-[inherit] jc-rounded-xl jc-border jc-border-britishRacingGreen"
+          data-product-id="{{ product.first_available_variant.id }}"
+        >
+          <div class="jc-p-5 jc-flex jc-flex-col jc-bg-[var(--bg-color)] jc-gap-4 jc-h-full jc-rounded-xl">
             <!-- Product Image with Navigation -->
-            <div class="jc-relative jc-mb-4">
-              <div
-                class="jc-w-full jc-h-[204px] jc-bg-center jc-bg-cover jc-bg-no-repeat"
-                style="background-image: url('{{ product.featured_image | image_url: width: 400 }}')"
-              ></div>
-
-              <!-- Navigation Arrows -->
-              <div class="jc-absolute jc-top-1/2 jc-left-0 jc-right-0 jc-flex jc-justify-between jc-px-5 jc-transform jc--translate-y-1/2">
-                <button class="step2-nav-button-prev jc-w-6 jc-h-6 jc-flex jc-items-center jc-justify-center jc-text-white jc-bg-black jc-bg-opacity-20 jc-rounded-full hover:jc-bg-opacity-40 jc-transition-all">
-                  <svg class="jc-w-3 jc-h-3" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-                  </svg>
-                </button>
-                <button class="step2-nav-button-next jc-w-6 jc-h-6 jc-flex jc-items-center jc-justify-center jc-text-white jc-bg-black jc-bg-opacity-20 jc-rounded-full hover:jc-bg-opacity-40 jc-transition-all">
-                  <svg class="jc-w-3 jc-h-3" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                  </svg>
-                </button>
-              </div>
+            <div class="jc-relative jc-w-full jc-h-fit">
+              {% render 'g-render-image',
+                class: 'jc-h-51 jc-w-51 jc-aspect-square jc-object-cover jc-mx-auto',
+                img_src: product.featured_image.url,
+                img: product.featured_image,
+                size: '400 500',
+                alt: product.featured_image.alt,
+                width: '204',
+                height: '204',
+                loading: 'lazy'
+              %}
             </div>
 
             <!-- Product Title -->
-            <h3 class="jc-text-[32px] jc-leading-[40px] jc-text-[#004631] jc-text-center jc-font-bold jc-mb-4">
+            <p class="jc-w-full jc-text-center jc-font-sigum jc-leading-10 jc-text-5xl jc-font-normal jc-text-britishRacingGreen">
               {{ product.title }}
-            </h3>
+            </p>
 
             <!-- Rating Categories -->
-            <div class="jc-flex jc-gap-4 jc-mb-4">
-              <div class="jc-flex-1 jc-flex jc-flex-col jc-items-center jc-gap-1">
-                <div class="jc-flex jc-gap-1">
-                  {%- assign savoury_rating = product.metafields.custom.savoury_rating | default: 3 -%}
-                  {%- for i in (1..5) -%}
-                    <div class="jc-w-[10px] jc-h-[10px] jc-rounded-full {% if i <= savoury_rating %}jc-bg-[#3B82F6]{% else %}jc-bg-[#E5E7EB]{% endif %}"></div>
-                  {%- endfor -%}
-                </div>
-                <div class="jc-text-[16px] jc-leading-[20px] jc-text-[#004631] jc-font-normal">Savoury</div>
-              </div>
-              
-              <div class="jc-flex-1 jc-flex jc-flex-col jc-items-center jc-gap-1">
-                <div class="jc-flex jc-gap-1">
-                  {%- assign throat_hit_rating = product.metafields.custom.throat_hit_rating | default: 4 -%}
-                  {%- for i in (1..5) -%}
-                    <div class="jc-w-[10px] jc-h-[10px] jc-rounded-full {% if i <= throat_hit_rating %}jc-bg-[#10B981]{% else %}jc-bg-[#E5E7EB]{% endif %}"></div>
-                  {%- endfor -%}
-                </div>
-                <div class="jc-text-[16px] jc-leading-[20px] jc-text-[#004631] jc-font-normal">Throat hit</div>
-              </div>
-              
-              <div class="jc-flex-1 jc-flex jc-flex-col jc-items-center jc-gap-1">
-                <div class="jc-flex jc-gap-1">
-                  {%- assign sweetness_rating = product.metafields.custom.sweetness_rating | default: 2 -%}
-                  {%- for i in (1..5) -%}
-                    <div class="jc-w-[10px] jc-h-[10px] jc-rounded-full {% if i <= sweetness_rating %}jc-bg-[#EF4444]{% else %}jc-bg-[#E5E7EB]{% endif %}"></div>
-                  {%- endfor -%}
-                </div>
-                <div class="jc-text-[16px] jc-leading-[20px] jc-text-[#004631] jc-font-normal">Sweetness</div>
-              </div>
+            {%- assign categories_handel = product.metafields.jolly_meta.categories_handel
+              | default: 'savoury,throat_hit,sweetness'
+            -%}
+            {%- assign categories = categories_handel | split: ',' -%}
+            <div class="jc-flex jc-gap-4">
+              {%- for category in categories -%}
+                {%- assign rating = product.metafields.jolly_meta[category] | default: 3 -%}
+                {%- assign category_title = 'bundle_pack.' | append: category | t -%}
+                {%- if rating != blank and category_title != blank -%}
+                  <div class="jc-flex-1 jc-flex jc-flex-col jc-items-center jc-gap-1">
+                    <div class="jc-flex jc-gap-1.5 jc-items-center">
+                      {%- for i in (1..3) -%}
+                        <div
+                          class="
+                            jc-w-3 jc-h-3 jc-rounded-full
+                            {% if i <= rating %}jc-bg-[var(--dot-color-active)]{% else %}jc-bg-[var(--dot-color)]{% endif %}
+                          "
+                        ></div>
+                      {%- endfor -%}
+                    </div>
+                    <div class="jc-text-base jc-leading-5 jc-text-britishRacingGreen jc-font-normal jc-font-sigum">
+                      {{ category_title }}
+                    </div>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
             </div>
 
             <!-- Notes -->
-            <div class="jc-text-[14px] jc-leading-[20px] jc-text-[#002a15] jc-text-center jc-mb-4">
-              <span class="jc-font-semibold">Notes:</span>
-              <span class="jc-font-normal">{{ product.metafields.custom.notes | default: 'Cool, Refreshing' }}</span>
-            </div>
+            {%- if product.metafields.jolly_meta.notes != blank -%}
+              <div class="jc-text-sm jc-leading-5 jc-text-darkGreen jc-font-normal jc-font-poppins jc-text-center">
+                {{ product.metafields.jolly_meta.notes | metafield_tag }}
+              </div>
+            {%- endif -%}
 
             <!-- Description -->
-            <div class="jc-text-[12px] jc-leading-[20px] jc-text-[#002a15] jc-text-center jc-mb-6 jc-font-normal">
-              {{ product.metafields.custom.popup_description | default: product.description | truncate: 150 }}
-            </div>
+            {%- if product.metafields.jolly_meta.custom_description != blank -%}
+              <div class="jc-text-xs jc-leading-5 jc-text-darkGreen jc-font-normal jc-font-poppins jc-text-center">
+                {{ product.metafields.jolly_meta.custom_description | metafield_tag }}
+              </div>
+            {%- endif -%}
 
             <!-- Add to Bundle Button -->
-            <button class="js-add-to-bundle jc-w-full jc-py-3 jc-bg-[#004631] jc-text-white jc-text-center jc-rounded-full jc-font-semibold jc-text-sm jc-uppercase jc-tracking-wide hover:jc-bg-[#002a15] jc-transition-colors">
+            <button
+              class="
+                js-add-to-bundle jc-mt-auto jc-w-full jc-text-center jc-py-2.5 jc-border jc-border-britishRacingGreen jc-rounded-mxs jc-uppercase
+                jc-transition-all jc-text-xxs lg:jc-text-xs jc-leading-4 jc-font-semibold jc-text-britishRacingGreen
+                [&:disabled]:jc-opacity-50 [&:disabled]:jc-pointer-events-none [&:disabled]:jc-cursor-not-allowed
+                hover:jc-bg-munsell hover:jc-text-white jc-shadow-pack-selector-green
+              "
+            >
               {{ 'bundle_pack.button_add' | t }}
             </button>
-          </swiper-slide>
-        {%- endfor -%}
-      </swiper-container>
-    </div>
+          </div>
+        </swiper-slide>
+      {%- endfor -%}
+      <div slot="container-end">
+        <div
+          part="button-prev"
+          class="swiper-button-prev step2-nav-button-prev after:!jc-content-[''] !jc-top-1/4 !jc-left-5"
+        >
+          {% render 'g-render-icon', icon: 'fat-chevron-down', class: 'jc-w-full jc-h-full jc-rotate-90' %}
+        </div>
+        <div
+          part="button-next"
+          class="swiper-button-next step2-nav-button-next after:!jc-content-[''] !jc-top-1/4 !jc-right-5"
+        >
+          {% render 'g-render-icon', icon: 'fat-chevron-down', class: 'jc-w-full jc-h-full -jc-rotate-90' %}
+        </div>
+      </div>
+    </swiper-container>
   </div>
 </pack-selector-popup>

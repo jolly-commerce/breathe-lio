@@ -63,9 +63,22 @@ module.exports = {
         22: "88px",
         25: "100px",
         30: "120px",
+        47: "188px",
+      },
+      minWidth: {
+        47: "188px",
       },
       boxShadow: {
         'pack-selector-green': '-2px 2px 0 0 #004630',
+        'pack-selector-green-big': '-7px 7px 0 0 #004630',
+      },
+      width: {
+        '6.5': '26.5px',
+        '51': '204px',
+        '47': '188px',
+      },
+      height: {
+        '51': '204px',
       },
     },
     spacing: {

@@ -34,6 +34,17 @@
   pack-selector-component.has-step1-selection .jc-summary-info {
     display: flex;
   }
+
+  .jc-custom-track::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: #aaaaaa; /* or add it to the track */
+  }
+
+  /* Add a thumb */
+  .jc-custom-track::-webkit-scrollbar-thumb {
+    background: #004631;
+  }
 </style>
 
 <pack-selector-component
@@ -93,20 +104,30 @@
                     loading: 'lazy'
                   %}
                 {%- endif -%}
-                {%- if product.metafields.custom.badge_text -%}
-                  <span class="jc-absolute jc-top-2 jc-right-2 jc-bg-orange-500 jc-text-white jc-text-xs jc-px-2 jc-py-1 jc-rounded">
-                    {{ product.metafields.custom.badge_text }}
-                  </span>
+                {%- if product.metafields.jolly_meta.product_tag -%}
+                  {%- for tag in product.metafields.jolly_meta.product_tag.value -%}
+                    {%- assign tag_title = tag.title -%}
+                    {%- assign background_color = tag.background_color -%}
+                    {%- assign border_color = tag.border_color -%}
+                    {%- if tag_title != blank -%}
+                      <span
+                        style="background-color: {{ background_color }}; border: {{ border_color }} 1px solid;"
+                        class="jc-absolute -jc-top-1 -jc-right-1 jc-text-xxs jc-leading-3 jc-font-medium jc-font-poppins jc-px-2 jc-py-1 jc-rounded-xxs"
+                      >
+                        {{ tag_title }}
+                      </span>
+                    {%- endif -%}
+                  {%- endfor -%}
                 {%- endif -%}
               </div>
               <div class="jc-mb-auto">
                 <p class="jc-font-sigum jc-text-sm lg:jc-text-base jc-leading-5 jc-font-normal jc-text-britishRacingGreen jc-mb-1 jc-uppercase">
                   {{ product.title }}
                 </p>
-                {%- if product.metafields.custom.subtitle -%}
-                  <p class="jc-font-poppins jc-text-xs jc-leading-3.5 jc-text-amazon jc-mt-0.5">
-                    {{ product.metafields.custom.subtitle }}
-                  </p>
+                {%- if product.metafields.jolly_meta.custom_description -%}
+                  <div class="jc-font-poppins jc-text-xs jc-leading-3.5 jc-text-amazon jc-mt-0.5">
+                    {{ product.metafields.jolly_meta.custom_description | metafield_tag }}
+                  </div>
                 {%- endif -%}
               </div>
               <button
@@ -267,21 +288,26 @@
             <span class="jc-text-britishRacingGreen">{{ root.settings.step_3_subtitle }}</span>
           {%- endif -%}
         </div>
-        {% render 'g-render-icon',
-          icon: 'fat-chevron-down',
-          class: 'jc-w-6 jc-h-6 jc-transition-transform step-arrow'
-        %}
+        <div class="jc-flex jc-flex-col lg:jc-flex-row jc-items-end lg:jc-items-center jc-gap-2">
+          <span class="jc-text-britishRacingGreen jc-opacity-50 jc-font-poppins jc-text-base jc-leading-6 jc-font-normal">
+            {{ 'bundle_pack.optional_label' | t }}
+          </span>
+          {% render 'g-render-icon',
+            icon: 'fat-chevron-down',
+            class: 'jc-w-6 jc-h-6 jc-transition-transform step-arrow'
+          %}
+        </div>
       </label>
 
       <div class="step-content" data-content="step-3">
-        <div class="jc-grid jc-grid-cols-1 md:jc-grid-cols-3 jc-gap-4">
+        <div class="jc-overflow-x-auto jc-snap-x jc-snap-mandatory jc-scroll-smooth jc-flex jc-gap-2 jc-w-full jc-h-full jc-py-6 jc-custom-track">
           {%- for product in root.settings.step_3_packs -%}
             <div
               class="
-                js-product-option-card jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
-                [&.selected_.jc-select-button]:jc-bg-munsell [&.selected_.jc-select-button]:jc-text-white jc-group/product-option-card
+                js-product-option-card jc-snap-start jc-shrink-0 jc-scroll-ml-4 jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
+                [&.selected_.jc-select-button]:jc-bg-munsell [&.selected_.jc-select-button]:jc-text-white jc-group/product-option-card jc-min-w-47 j jc-h-auto
               "
-              data-product-id="{{ product.first_available_variant.id }}"              
+              data-product-id="{{ product.first_available_variant.id }}"
               data-product-price="{{ product.price }}"
               data-step="3"
             >
@@ -304,10 +330,10 @@
                 <p class="jc-font-sigum jc-text-sm lg:jc-text-base jc-leading-5 jc-font-normal jc-text-britishRacingGreen jc-mb-1 jc-uppercase">
                   {{ product.title }}
                 </p>
-                {%- if product.metafields.custom.subtitle -%}
-                  <p class="jc-font-poppins jc-text-xs jc-leading-3.5 jc-text-amazon jc-mt-0.5">
-                    {{ product.metafields.custom.subtitle }}
-                  </p>
+                {%- if product.metafields.jolly_meta.custom_description -%}
+                  <div class="jc-font-poppins jc-text-xs jc-leading-3.5 jc-text-amazon jc-mt-0.5">
+                    {{ product.metafields.jolly_meta.custom_description | metafield_tag }}
+                  </div>
                 {%- endif -%}
               </div>
 
@@ -351,8 +377,8 @@
   {%- # Summary Button -%}
   <button
     class="
-      jc-w-full jc-text-center jc-mt-8 jc-py-4 jc-bg-green-100 jc-text-green-800 jc-rounded-full jc-text-base jc-font-bold jc-uppercase
-      jc-transition-all hover:jc-bg-green-200 disabled:jc-opacity-50 disabled:jc-cursor-not-allowed [&:not(:disabled)]:jc-bg-green-600
+      jc-w-full jc-text-center jc-mt-8 jc-py-6 jc-bg-green-100 jc-text-britishRacingGreen jc-rounded-xl jc-text-xl jc-font-semibold jc-leading-6 jc-uppercase
+      jc-transition-all hover:jc-bg-green-200 disabled:jc-opacity-50 disabled:jc-cursor-not-allowed [&:not(:disabled)]:jc-bg-munsell [&:not(:disabled)]:jc-text-white [&:not(:disabled)]:jc-shadow-pack-selector-green-big
     "
     id="pack-selector-submit"
     disabled

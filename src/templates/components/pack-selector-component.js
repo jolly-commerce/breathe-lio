@@ -476,6 +476,7 @@ class PackSelectorComponent extends HTMLElement {
 
 customElements.define('pack-selector-component', PackSelectorComponent);
 // Step 2 Card Component
+
 class Step2CardComponent extends HTMLElement {
   constructor() {
     super();
