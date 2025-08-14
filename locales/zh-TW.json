@@ -464,6 +464,10 @@
     "info_shipping": "快速且免費配送",
     "success_added": "已成功加入購物車！",
     "error_failed_add": "加入購物車失敗",
-    "error_network": "網路錯誤，請再試一次"
+    "error_network": "網路錯誤，請再試一次",
+    "select_minimum_flavors": "請至少選擇 {count} 種口味",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "口味",
+    "total_price": "合計"
   }
 }

@@ -464,6 +464,10 @@
     "info_shipping": "Gratis og hurtig levering",
     "success_added": "Tilføjet til kurven!",
     "error_failed_add": "Kunne ikke lægge i kurv",
-    "error_network": "Netværksfejl. Prøv igen."
+    "error_network": "Netværksfejl. Prøv igen.",
+    "select_minimum_flavors": "Vælg mindst {count} smag",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Smage",
+    "total_price": "I alt"
   }
 }

@@ -464,6 +464,10 @@
     "info_shipping": "Doprava zdarma",
     "success_added": "Úspešne pridané do košíka!",
     "error_failed_add": "Nepodarilo sa pridať do košíka",
-    "error_network": "Sieťová chyba. Skúste to znova."
+    "error_network": "Sieťová chyba. Skúste to znova.",
+    "select_minimum_flavors": "Vyberte minimálne {count} príchute",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Príchute",
+    "total_price": "Celkom"
   }
 }

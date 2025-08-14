@@ -464,6 +464,10 @@
     "info_shipping": "Doprava zdarma a rychlá",
     "success_added": "Úspěšně přidáno do košíku!",
     "error_failed_add": "Nepodařilo se přidat do košíku",
-    "error_network": "Chyba sítě. Zkuste to znovu."
+    "error_network": "Chyba sítě. Zkuste to znovu.",
+    "select_minimum_flavors": "Vyberte minimálně {count} příchutě",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Příchutě",
+    "total_price": "Celkem"
   }
 }

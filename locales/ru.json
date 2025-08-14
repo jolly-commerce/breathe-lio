@@ -464,6 +464,10 @@
     "info_shipping": "Бесплатная и быстрая доставка",
     "success_added": "Успешно добавлено в корзину!",
     "error_failed_add": "Не удалось добавить в корзину",
-    "error_network": "Сетевая ошибка. Попробуйте ещё раз."
+    "error_network": "Сетевая ошибка. Попробуйте ещё раз.",
+    "select_minimum_flavors": "Выберите минимум {count} вкусов",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Вкусы",
+    "total_price": "Итого"
   }
 }

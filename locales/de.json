@@ -464,6 +464,10 @@
     "info_shipping": "Kostenloser & schneller Versand",
     "success_added": "Erfolgreich zum Warenkorb hinzugefügt!",
     "error_failed_add": "Zum Warenkorb hinzufügen fehlgeschlagen",
-    "error_network": "Netzwerkfehler. Bitte versuche es erneut."
+    "error_network": "Netzwerkfehler. Bitte versuche es erneut.",
+    "select_minimum_flavors": "Wählen Sie mindestens {count} Geschmäcker",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Geschmacksrichtungen",
+    "total_price": "Summe"
   }
 }

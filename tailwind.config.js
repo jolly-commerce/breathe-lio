@@ -16,6 +16,10 @@ module.exports = {
       colors: {
         black: "#000000",
         platinum: "#e6e6e6",
+        darkGreen: "#002A15",
+        munsell: "#00B67C",
+        britishRacingGreen: "#004631",
+        amazon: "#3C6B59",
         green: {
           50: "#dcfce7",
           100: "#d1fae5",
@@ -54,7 +58,15 @@ module.exports = {
         50: "0.5",
         75: "0.75",
         100: "1"
-      }
+      },
+      maxWidth: {
+        22: "88px",
+        25: "100px",
+        30: "120px",
+      },
+      boxShadow: {
+        'pack-selector-green': '-2px 2px 0 0 #004630',
+      },
     },
     spacing: {
       px: "1px",
@@ -102,6 +114,7 @@ module.exports = {
     lineHeight: {
       none: "1",
       3: "12px",
+      3.5: "14px",
       4: "16px",
       5: "20px",
       6: "24px",
@@ -115,6 +128,7 @@ module.exports = {
       14: "56px",
     },
     fontSize: {
+      xxs: "11px",
       xs: "12px",
       sm: "14px",
       base: "16px",
@@ -134,6 +148,7 @@ module.exports = {
       none: "0",
       xxs: "4px",
       xs: "8px",
+      mxs: "10px",
       md: "12px",
       lg: "16px",
       xl: "20px",

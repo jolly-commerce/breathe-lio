@@ -464,6 +464,10 @@
     "info_shipping": "Darmowa i szybka dostawa",
     "success_added": "Pomyślnie dodano do koszyka!",
     "error_failed_add": "Nie udało się dodać do koszyka",
-    "error_network": "Błąd sieci. Spróbuj ponownie."
+    "error_network": "Błąd sieci. Spróbuj ponownie.",
+    "select_minimum_flavors": "Wybierz co najmniej {count} smaków",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Smaki",
+    "total_price": "Razem"
   }
 }

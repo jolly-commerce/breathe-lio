@@ -464,6 +464,10 @@
     "info_shipping": "Fri och snabb frakt",
     "success_added": "Tillagt i varukorgen!",
     "error_failed_add": "Kunde inte lägga i varukorgen",
-    "error_network": "Nätverksfel. Försök igen."
+    "error_network": "Nätverksfel. Försök igen.",
+    "select_minimum_flavors": "Välj minst {count} smaker",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Smaker",
+    "total_price": "Totalt"
   }
 }

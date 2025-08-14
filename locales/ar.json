@@ -464,6 +464,10 @@
     "info_shipping": "شحن مجاني وسريع",
     "success_added": "تمت الإضافة إلى السلة بنجاح!",
     "error_failed_add": "فشل الإضافة إلى السلة",
-    "error_network": "خطأ في الشبكة. حاول مرة أخرى."
+    "error_network": "خطأ في الشبكة. حاول مرة أخرى.",
+    "select_minimum_flavors": "اختر على الأقل {count} نكهة",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "نكهات",
+    "total_price": "المجموع"
   }
 }

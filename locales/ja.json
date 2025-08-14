@@ -464,6 +464,10 @@
     "info_shipping": "無料・迅速な配送",
     "success_added": "カートに追加しました！",
     "error_failed_add": "カートに追加できませんでした",
-    "error_network": "ネットワークエラー。もう一度お試しください。"
+    "error_network": "ネットワークエラー。もう一度お試しください。",
+    "select_minimum_flavors": "最低 {count} 種類のフレーバーを選択してください",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "フレーバー",
+    "total_price": "合計"
   }
 }

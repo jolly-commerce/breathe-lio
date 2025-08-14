@@ -464,6 +464,10 @@
     "info_shipping": "Bezmaksas un ātra piegāde",
     "success_added": "Veiksmīgi pievienots grozam!",
     "error_failed_add": "Neizdevās pievienot grozam",
-    "error_network": "Tīkla kļūda. Mēģiniet vēlreiz."
+    "error_network": "Tīkla kļūda. Mēģiniet vēlreiz.",
+    "select_minimum_flavors": "Izvēlieties vismaz {count} garšas",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Garšas",
+    "total_price": "Kopā"
   }
 }

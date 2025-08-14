@@ -42,20 +42,28 @@
           "settings": {
             "max_flavors": 20,
             "min_flavors": 4,
-            "step_1_title": "<p><strong>Step 1:</strong> SELECT your Lio</p>",
+            "step_1_title": "Step 1:",
+            "step_1_subtitle": "Select your Lio",
             "step_1_packs": [
               "lio-walnut",
               "lio-diffuser",
               "lio®-aluminium-black",
-              "lio®-aluminium-silver"
+              "lio®-aluminium-silver",
+              "lio®-gen-2-olive",
+              "lio®-gen-2-walnut"
             ],
-            "step_2_title": "<p><strong>Step 2:</strong> SELECT your flavors</p>",
+            "step_2_title": "Step 2:",
+            "step_2_subtitle": "Select your flavors",
             "step_2_packs": [
               "cinnamon-spice",
               "lio®-cinnamon-spice",
-              "lio®-cold-turkey-1"
+              "lio®-cold-turkey-1",
+              "lio®-classic-bags",
+              "lio®-ohh-my-orange-copy",
+              "minty-magic-30-days"
             ],
-            "step_3_title": "<p><strong>Step 3:</strong> SELECT accesorries</p>",
+            "step_3_title": "Step 3:",
+            "step_3_subtitle": "Select your accessories",
             "step_3_packs": [
               "fathers-day-gift-card",
               "dutch-product"
@@ -75,7 +83,7 @@
         "padding_dsk_b": 24,
         "padding_mob_t": 24,
         "padding_mob_b": 24,
-        "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)"
+        "background": "linear-gradient(180deg, rgba(245, 255, 247, 1), rgba(255, 255, 255, 1) 100%)"
       }
     },
     "instant_zn9_mnr_wy3_ymbk75_x_8aN4M3": {

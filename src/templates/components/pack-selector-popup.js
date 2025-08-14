@@ -125,18 +125,14 @@ class PackSelectorPopup extends HTMLElement {
     const productId = currentSlide.dataset.productId;
     if (!productId) return;
 
-    // Get the main pack selector component
-    const packSelector = document.querySelector('pack-selector-component');
-    if (packSelector) {
-      // Find the corresponding product option in the main component
-      const productOption = packSelector.querySelector(`.js-product-option-card[data-step="2"][data-product-id="${productId}"]`);
-      if (productOption) {
-        // Show controls and add quantity 1 (use the existing method)
-        packSelector.showStep2Controls(productOption, productId);
-        
-        // Close popup after adding
-        this.close();
-      }
+    // Find the corresponding Step2CardComponent
+    const step2Card = document.querySelector(`step2-card-component[data-product-id="${productId}"]`);
+    if (step2Card) {
+      // Use the card's own method to show controls and add quantity
+      step2Card.showControls();
+      
+      // Close popup after adding
+      this.close();
     }
   }
 }

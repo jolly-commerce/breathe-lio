@@ -464,6 +464,10 @@
     "info_shipping": "Livrare gratuită și rapidă",
     "success_added": "Adăugat cu succes în coș!",
     "error_failed_add": "Nu s-a putut adăuga în coș",
-    "error_network": "Eroare de rețea. Încearcă din nou."
+    "error_network": "Eroare de rețea. Încearcă din nou.",
+    "select_minimum_flavors": "Selectați minimum {count} arome",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Arome",
+    "total_price": "Total"
   }
 }

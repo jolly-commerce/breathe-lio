@@ -29,11 +29,6 @@ pack-selector-component .js-product-option-card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Selected state for options */
-pack-selector-component .js-product-option-card.selected {
-  background-color: rgb(220 252 231); /* green-50 */
-  border-color: rgb(34 197 94); /* green-600 */
-}
 
 /* Button states */
 pack-selector-component .select-button,
@@ -53,13 +48,6 @@ pack-selector-component .js-qty-control.jc-hidden {
   display: none;
 }
 
-pack-selector-component .js-qty-control .jc-btn {
-  background-color: #fff;
-}
-pack-selector-component .js-qty-control .jc-btn.is-disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
 pack-selector-component .js-qty-count {
   min-width: 2rem;
   display: inline-block;

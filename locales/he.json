@@ -464,6 +464,10 @@
     "info_shipping": "משלוח מהיר וחינמי",
     "success_added": "נוסף לעגלה בהצלחה!",
     "error_failed_add": "הוספה לעגלה נכשלה",
-    "error_network": "שגיאת רשת. נסה שוב."
+    "error_network": "שגיאת רשת. נסה שוב.",
+    "select_minimum_flavors": "בחרו לפחות {count} טעמים",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "טעמים",
+    "total_price": "סה\"כ"
   }
 }

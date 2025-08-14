@@ -464,6 +464,10 @@
     "info_shipping": "Δωρεάν και γρήγορη αποστολή",
     "success_added": "Προστέθηκε επιτυχώς στο καλάθι!",
     "error_failed_add": "Αποτυχία προσθήκης στο καλάθι",
-    "error_network": "Σφάλμα δικτύου. Προσπάθησε ξανά."
+    "error_network": "Σφάλμα δικτύου. Προσπάθησε ξανά.",
+    "select_minimum_flavors": "Επιλέξτε τουλάχιστον {count} γεύσεις",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Γεύσεις",
+    "total_price": "Σύνολο"
   }
 }

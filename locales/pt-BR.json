@@ -464,6 +464,10 @@
     "info_shipping": "Frete grátis e rápido",
     "success_added": "Adicionado ao carrinho com sucesso!",
     "error_failed_add": "Falha ao adicionar ao carrinho",
-    "error_network": "Erro de rede. Tente novamente."
+    "error_network": "Erro de rede. Tente novamente.",
+    "select_minimum_flavors": "Selecione no mínimo {count} sabores",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Sabores",
+    "total_price": "Total"
   }
 }

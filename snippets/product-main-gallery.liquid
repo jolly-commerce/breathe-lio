@@ -193,12 +193,12 @@
           <div
             data-swiper-media-id="{{ media.id }}"
             data-swiper-media-index="{{ forloop.index0 }}"
-            class="gallery-slide jc-relative jc-w-full jc-overflow-hidden"
+            class="gallery-slide jc-relative jc-w-full jc-overflow-hidden jc-border jc-border-solid jc-border-darkGreen jc-rounded-xl"
           >
             {% case media.media_type %}
               {% when 'image' %}
                 {% render 'g-render-image',
-                  class: 'jc-w-full jc-h-full jc-aspect-square jc-object-cover',
+                  class: 'jc-w-full jc-h-full jc-aspect-square jc-object-cover jc-rounded-xl',
                   img_src: media.url,
                   img: media,
                   alt: media.alt,
@@ -216,7 +216,7 @@
                     muted: true,
                     controls: true,
                     image_size: '800x',
-                    class: 'jc-w-full jc-h-full jc-aspect-square jc-object-cover lazyload',
+                    class: 'jc-w-full jc-h-full jc-aspect-square jc-object-cover lazyload jc-rounded-xl',
                     preload: 'none'
                 }}
             {% endcase %}
@@ -230,13 +230,13 @@
             part="button-prev"
             class="swiper-button-prev gallery-nav-button-prev {{ nav_button_class }}"
           >
-            {% render 'g-render-icon', icon: 'arrow-left', class: 'jc-w-full jc-h-full' %}
+            {% render 'g-render-icon', icon: 'fat-arrow-left', class: 'jc-w-full jc-h-full' %}
           </div>
           <div
             part="button-next"
             class="swiper-button-next gallery-nav-button-next {{ nav_button_class }}"
           >
-            {% render 'g-render-icon', icon: 'arrow-right', class: 'jc-w-full jc-h-full' %}
+            {% render 'g-render-icon', icon: 'fat-arrow-right', class: 'jc-w-full jc-h-full' %}
           </div>
         </div>
       {% endif %}
@@ -259,12 +259,17 @@
         {% endif %}
       >
         {% for media in product.media %}
-          <swiper-slide class="!jc-w-fit !jc-h-fit jc-cursor-pointer jc-opacity-60 [&.swiper-slide-thumb-active]:jc-opacity-100">
+          <swiper-slide
+            class="
+              !jc-w-fit !jc-h-fit jc-cursor-pointer jc-border-darkGreen jc-border-opacity-30 [&.swiper-slide-thumb-active]:jc-border-darkGreen
+              [&.swiper-slide-thumb-active]:jc-border-opacity-100 jc-border jc-border-solid jc-rounded-mxs
+            "
+          >
             <div class="jc-w-[var(--thumb-size-mob)] md:jc-w-[var(--thumb-size-dsk)] jc-aspect-square jc-relative jc-overflow-hidden">
               {% case media.media_type %}
                 {% when 'image' %}
                   {% render 'g-render-image',
-                    class: 'jc-w-full jc-h-full jc-object-cover',
+                    class: 'jc-w-full jc-h-full jc-object-cover jc-rounded-mxs',
                     img_src: media.url,
                     img: media,
                     size: '80 120 160',
@@ -275,7 +280,7 @@
                   %}
                 {% when 'video' %}
                   {% render 'g-render-image',
-                    class: 'jc-w-full jc-h-full jc-object-cover',
+                    class: 'jc-w-full jc-h-full jc-object-cover jc-rounded-mxs',
                     img_src: media.preview_image.url,
                     img: media.preview_image,
                     size: '80 120 160',

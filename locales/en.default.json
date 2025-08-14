@@ -465,6 +465,10 @@
     "info_shipping": "Free & Fast Shipping",
     "success_added": "Successfully added to cart!",
     "error_failed_add": "Failed to add to cart",
-    "error_network": "Network error. Please try again."
+    "error_network": "Network error. Please try again.",
+    "select_minimum_flavors": "Select minimum {count} flavors",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Flavors",
+    "total_price": "Total"
   }
 }

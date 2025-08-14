@@ -464,6 +464,10 @@
     "info_shipping": "Безкоштовна та швидка доставка",
     "success_added": "Успішно додано до кошика!",
     "error_failed_add": "Не вдалося додати до кошика",
-    "error_network": "Помилка мережі. Спробуйте ще раз."
+    "error_network": "Помилка мережі. Спробуйте ще раз.",
+    "select_minimum_flavors": "Оберіть мінімум {count} смаків",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Смаки",
+    "total_price": "Разом"
   }
 }

@@ -464,6 +464,10 @@
     "info_shipping": "Gratis og rask frakt",
     "success_added": "Lagt til i handlekurven!",
     "error_failed_add": "Kunne ikke legge i handlekurv",
-    "error_network": "Nettverksfeil. Prøv igjen."
+    "error_network": "Nettverksfeil. Prøv igjen.",
+    "select_minimum_flavors": "Velg minst {count} smaker",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Smaker",
+    "total_price": "Totalt"
   }
 }
