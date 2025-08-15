@@ -45,6 +45,11 @@
   .jc-custom-track::-webkit-scrollbar-thumb {
     background: #004631;
   }
+
+  /* Smooth scroll behavior for step content */
+  .step-content {
+    scroll-margin-top: 100px;
+  }
 </style>
 
 <pack-selector-component
@@ -57,19 +62,19 @@
   data-text-select-minimum-flavors="{{ 'bundle_pack.select_minimum_flavors' | t }}"
 >
   {%- # Step 1: Select Your Lio -%}
-  {%- if root.settings.step_1_title != blank -%}
+  {%- if root.settings.step_1_title != blank and root.settings.step_1_packs != blank -%}
     <div class="pack-selector-step" data-step="1" data-step-number="1">
       <input type="radio" name="pack-step" id="step-1-toggle" class="jc-hidden step-toggle" checked>
       <label
         for="step-1-toggle"
         class="jc-flex jc-gap-2 jc-items-end lg:jc-items-center jc-justify-between jc-cursor-pointer"
       >
-        <div class="jc-flex jc-flex-col lg:jc-flex-row jc-items-start lg:jc-items-center jc-gap-2 jc-text-xl jc-leading-6 jc-font-normal jc-font-sigum jc-uppercase">
-          <span class=" jc-text-munsell">
+        <div class="jc-flex jc-flex-col lg:jc-flex-row jc-items-start lg:jc-items-center jc-gap-2 jc-text-xl jc-leading-6 jc-font-normal jc-uppercase">
+          <span class=" jc-text-munsell jc-font-sigumL">
             {{- root.settings.step_1_title -}}
           </span>
           {%- if root.settings.step_1_subtitle != blank -%}
-            <span class="jc-text-britishRacingGreen">{{ root.settings.step_1_subtitle }}</span>
+            <span class="jc-text-britishRacingGreen jc-font-sigumL">{{ root.settings.step_1_subtitle }}</span>
           {%- endif -%}
         </div>
         {% render 'g-render-icon',
@@ -81,9 +86,9 @@
       <div class="step-content" data-content="step-1">
         <div class="jc-grid jc-grid-cols-2 xl:jc-grid-cols-3 jc-gap-2 jc-mt-4">
           {%- for product in root.settings.step_1_packs -%}
-            <div
+            <product-option-card
               class="
-                js-product-option-card jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
+                jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
                 [&.selected_.jc-select-button]:jc-bg-munsell [&.selected_.jc-select-button]:jc-text-white jc-group/product-option-card
               "
               data-product-id="{{ product.first_available_variant.id }}"
@@ -121,7 +126,7 @@
                 {%- endif -%}
               </div>
               <div class="jc-mb-auto">
-                <p class="jc-font-sigum jc-text-sm lg:jc-text-base jc-leading-5 jc-font-normal jc-text-britishRacingGreen jc-mb-1 jc-uppercase">
+                <p class="jc-font-sigumL jc-text-sm lg:jc-text-base jc-leading-5 jc-font-normal jc-text-britishRacingGreen jc-mb-1 jc-uppercase">
                   {{ product.title }}
                 </p>
                 {%- if product.metafields.jolly_meta.custom_description -%}
@@ -147,7 +152,7 @@
               >
                 {{ 'bundle_pack.button_select' | t }} | {{ product.price | money }}
               </button>
-            </div>
+            </product-option-card>
           {%- endfor -%}
         </div>
       </div>
@@ -156,7 +161,7 @@
   {%- endif -%}
 
   {%- # Step 2: Select Your Flavors -%}
-  {%- if root.settings.step_2_title != blank -%}
+  {%- if root.settings.step_2_title != blank and root.settings.step_2_packs != blank -%}
     <div
       class="pack-selector-step step-disabled jc-mt-8 [&.step-disabled]:jc-pointer-events-none [&.step-disabled]:jc-opacity-50 [&.step-disabled]:jc-cursor-not-allowe"
       data-step="2"
@@ -167,12 +172,12 @@
         for="step-2-toggle"
         class="jc-flex jc-gap-2 jc-items-end lg:jc-items-center jc-justify-between jc-cursor-pointer jc-mb-4"
       >
-        <div class="jc-flex jc-flex-col lg:jc-flex-row jc-items-start lg:jc-items-center jc-gap-2 jc-text-xl jc-leading-6 jc-font-normal jc-font-sigum jc-uppercase">
-          <span class=" jc-text-munsell">
+        <div class="jc-flex jc-flex-col lg:jc-flex-row jc-items-start lg:jc-items-center jc-gap-2 jc-text-xl jc-leading-6 jc-font-normal jc-uppercase">
+          <span class=" jc-text-munsell jc-font-sigumL">
             {{- root.settings.step_2_title -}}
           </span>
           {%- if root.settings.step_2_subtitle != blank -%}
-            <span class="jc-text-britishRacingGreen">{{ root.settings.step_2_subtitle }}</span>
+            <span class="jc-text-britishRacingGreen jc-font-sigumL">{{ root.settings.step_2_subtitle }}</span>
           {%- endif -%}
         </div>
         {% render 'g-render-icon',
@@ -184,9 +189,9 @@
       <div class="step-content" data-content="step-2">
         <div class="jc-grid jc-grid-cols-2 lg:jc-grid-cols-3 jc-gap-4 jc-mt-4">
           {%- for product in root.settings.step_2_packs -%}
-            <step2-card-component
+            <step2-product-card
               class="
-                js-product-option-card jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
+                jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
                 [&.selected_.jc-select-button]:jc-bg-munsell [&.selected_.jc-select-button]:jc-text-white jc-group/product-option-card
               "
               data-product-id="{{ product.first_available_variant.id }}"
@@ -260,16 +265,17 @@
                   {% render 'g-render-icon', icon: 'fat-plus', class: 'jc-block jc-size-5' %}
                 </button>
               </div>
-            </step2-card-component>
+            </step2-product-card>
           {%- endfor -%}
         </div>
+        {% render 'subscription-pack-selector', root: root %}
       </div>
     </div>
     <div class="jc-w-full jc-h-px jc-bg-darkGreen jc-mt-6"></div>
   {%- endif -%}
 
   {%- # Step 3: Select Accessories -%}
-  {%- if root.settings.step_3_title != blank -%}
+  {%- if root.settings.step_3_title != blank and root.settings.step_3_packs != blank -%}
     <div
       class="pack-selector-step step-disabled jc-mt-8 [&.step-disabled]:jc-pointer-events-none [&.step-disabled]:jc-opacity-50 [&.step-disabled]:jc-cursor-not-allowed"
       data-step="3"
@@ -280,12 +286,12 @@
         for="step-3-toggle"
         class="jc-flex jc-gap-2 jc-items-end lg:jc-items-center jc-justify-between jc-cursor-pointer jc-mb-4"
       >
-        <div class="jc-flex jc-flex-col lg:jc-flex-row jc-items-start lg:jc-items-center jc-gap-2 jc-text-xl jc-leading-6 jc-font-normal jc-font-sigum jc-uppercase">
-          <span class=" jc-text-munsell">
+        <div class="jc-flex jc-flex-col lg:jc-flex-row jc-items-start lg:jc-items-center jc-gap-2 jc-text-xl jc-leading-6 jc-font-normal jc-uppercase">
+          <span class=" jc-text-munsell jc-font-sigumL">
             {{- root.settings.step_3_title -}}
           </span>
           {%- if root.settings.step_3_subtitle != blank -%}
-            <span class="jc-text-britishRacingGreen">{{ root.settings.step_3_subtitle }}</span>
+            <span class="jc-text-britishRacingGreen jc-font-sigumL">{{ root.settings.step_3_subtitle }}</span>
           {%- endif -%}
         </div>
         <div class="jc-flex jc-flex-col lg:jc-flex-row jc-items-end lg:jc-items-center jc-gap-2">
@@ -302,16 +308,16 @@
       <div class="step-content" data-content="step-3">
         <div class="jc-overflow-x-auto jc-snap-x jc-snap-mandatory jc-scroll-smooth jc-flex jc-gap-2 jc-w-full jc-h-full jc-py-6 jc-custom-track">
           {%- for product in root.settings.step_3_packs -%}
-            <div
+            <product-option-card
               class="
-                js-product-option-card jc-snap-start jc-shrink-0 jc-scroll-ml-4 jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
-                [&.selected_.jc-select-button]:jc-bg-munsell [&.selected_.jc-select-button]:jc-text-white jc-group/product-option-card jc-min-w-47 j jc-h-auto
+                jc-snap-start jc-shrink-0 jc-scroll-ml-4 jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
+                [&.selected_.jc-select-button]:jc-bg-munsell [&.selected_.jc-select-button]:jc-text-white jc-group/product-option-card jc-min-w-47 jc-w-47 jc-h-auto
               "
               data-product-id="{{ product.first_available_variant.id }}"
               data-product-price="{{ product.price }}"
               data-step="3"
             >
-              <div class="jc-aspect-video jc-relative jc-mb-3">
+              <div class="jc-aspect-square jc-relative jc-mb-3 jc-max-w-30.5 jc-mx-auto">
                 {%- if product.featured_image -%}
                   {% render 'g-render-image',
                     class: 'jc-w-full jc-h-full jc-object-cover jc-rounded',
@@ -327,7 +333,7 @@
               </div>
 
               <div class="jc-mb-auto">
-                <p class="jc-font-sigum jc-text-sm lg:jc-text-base jc-leading-5 jc-font-normal jc-text-britishRacingGreen jc-mb-1 jc-uppercase">
+                <p class="jc-font-sigumL jc-text-sm lg:jc-text-base jc-leading-5 jc-font-normal jc-text-britishRacingGreen jc-mb-1 jc-uppercase">
                   {{ product.title }}
                 </p>
                 {%- if product.metafields.jolly_meta.custom_description -%}
@@ -349,7 +355,7 @@
               >
                 {{ 'bundle_pack.button_add' | t }} | {{ product.price | money }}
               </button>
-            </div>
+            </product-option-card>
           {%- endfor -%}
         </div>
       </div>
@@ -358,7 +364,7 @@
   {%- endif -%}
   {%- # Summary information -%}
 
-  <div class="jc-summary-info jc-mt-8 jc-flex jc-items-center jc-justify-center jc-gap-4 jc-font-poppins jc-text-md jc-leading-5">
+  <div class="jc-summary-info jc-mt-8 jc-flex jc-items-center jc-justify-center jc-gap-2 xl:jc-gap-4 jc-font-poppins jc-text-sm xl:jc-text-md jc-leading-5">
     <div class="jc-flex jc-items-center jc-gap-2">
       <span class="jc-font-semibold jc-text-britishRacingGreen">{{ 'bundle_pack.selected_cigarette' | t }}:</span>
       <span class="js-selected-lio jc-font-normal"></span>
@@ -378,7 +384,8 @@
   <button
     class="
       jc-w-full jc-text-center jc-mt-8 jc-py-6 jc-bg-green-100 jc-text-britishRacingGreen jc-rounded-xl jc-text-xl jc-font-semibold jc-leading-6 jc-uppercase
-      jc-transition-all hover:jc-bg-green-200 disabled:jc-opacity-50 disabled:jc-cursor-not-allowed [&:not(:disabled)]:jc-bg-munsell [&:not(:disabled)]:jc-text-white [&:not(:disabled)]:jc-shadow-pack-selector-green-big
+      jc-transition-all hover:jc-bg-green-200 disabled:jc-opacity-50 disabled:jc-cursor-not-allowed [&:not(:disabled)]:jc-bg-munsell 
+      [&:not(:disabled)]:jc-text-white [&:not(:disabled)]:jc-shadow-pack-selector-green-big [&:not(:disabled)]:hover:jc-opacity-80
     "
     id="pack-selector-submit"
     disabled

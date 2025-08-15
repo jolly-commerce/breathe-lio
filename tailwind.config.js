@@ -16,6 +16,7 @@ module.exports = {
       colors: {
         black: "#000000",
         platinum: "#e6e6e6",
+        cultured: "#F4F4F4",
         darkGreen: "#002A15",
         munsell: "#00B67C",
         britishRacingGreen: "#004631",
@@ -63,6 +64,7 @@ module.exports = {
         22: "88px",
         25: "100px",
         30: "120px",
+        30.5: "122px",
         47: "188px",
       },
       minWidth: {
@@ -79,6 +81,10 @@ module.exports = {
       },
       height: {
         '51': '204px',
+      },
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'],
+        'sigumL': ['Sigum', 'sans-serif'],
       },
     },
     spacing: {

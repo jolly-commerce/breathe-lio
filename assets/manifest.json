@@ -1,4 +1,7 @@
 {
+  "_swiper-core.chunk.js": {
+    "file": "swiper-core.chunk.js"
+  },
   "css/main.css": {
     "file": "main2.css",
     "isEntry": true,
@@ -13,7 +16,18 @@
       "main.css"
     ],
     "file": "jc-bundle-main.js",
+    "imports": [
+      "_swiper-core.chunk.js"
+    ],
     "isEntry": true,
     "src": "templates/main.js"
+  },
+  "templates/product.js": {
+    "file": "jc-bundle-product.js",
+    "imports": [
+      "_swiper-core.chunk.js"
+    ],
+    "isEntry": true,
+    "src": "templates/product.js"
   }
 }

@@ -3,14 +3,15 @@
 <script src="{{ 'jc-bundle-main.js' | asset_url }}" defer="defer" type="module"></script>
 
 {% # JS for different pages %}
-
-{% comment %} {%- if request.page_type == 'product' -%}
+{%- if request.page_type == 'product' -%}
   <script
   src="{{ 'jc-bundle-product.js' | asset_url }}"
   defer="defer"
   type="module"
   ></script>
 {%- endif -%}
+
+{% comment %}
 
 {%- if request.page_type == 'collection' -%}
   <script

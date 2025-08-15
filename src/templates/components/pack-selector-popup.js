@@ -125,8 +125,8 @@ class PackSelectorPopup extends HTMLElement {
     const productId = currentSlide.dataset.productId;
     if (!productId) return;
 
-    // Find the corresponding Step2CardComponent
-    const step2Card = document.querySelector(`step2-card-component[data-product-id="${productId}"]`);
+    // Find the corresponding Step2ProductCard (updated after refactor)
+    const step2Card = document.querySelector(`step2-product-card[data-product-id="${productId}"]`);
     if (step2Card) {
       // Use the card's own method to show controls and add quantity
       step2Card.showControls();
