@@ -1,0 +1,78 @@
+<style>
+  body:has(input.jc-pack-selector-3:checked) .jc-subscribe-3-packs  {
+    display: block;
+  }
+  body:has(input.jc-pack-selector-6:checked) .jc-subscribe-6-packs  {
+    display: block;
+  }
+</style>
+<!-- Packs selector -->
+<div class="jc-w-full">
+  <fieldset class="jc-rounded-xs jc-border jc-border-solid jc-border-darkGreen jc-p-1">
+    <div role="radiogroup" class="jc-grid jc-grid-cols-3">
+      <!-- OPTION: 3 bags -->
+      {%- assign has_checked = false -%}
+      {% for i in (1..3) %}
+        {%- assign title_handle = 'step_2_' | append: i | append: '_title' -%}
+        {%- assign discount_handle = 'step_2_' | append: i | append: '_discount' -%}
+        {%- assign title = root.settings[title_handle] -%}
+        {%- assign discount = root.settings[discount_handle] -%}
+        {%- assign complete_pack = false -%}
+        {% case i %}
+          {% when 1 %}
+            {%- assign max_flavors = 3 -%}
+            {%- assign class_name = 'jc-pack-selector-3' -%}
+          {% when 2 %}
+            {%- assign max_flavors = 6 -%}
+            {%- assign class_name = 'jc-pack-selector-6' -%}
+          {% when 3 %}
+            {%- assign max_flavors = 6 -%}
+            {%- assign complete_pack = true -%}
+            {%- assign class_name = 'jc-pack-selector-6' -%}
+        {% endcase %}
+        {% if title != blank %}
+          <label
+            class="js-pack-selector jc-relative"
+            data-max-flavors="{{ max_flavors }}"
+            data-complete-pack="{{ complete_pack }}"
+          >
+            <input
+              type="radio"
+              name="pack"
+              value="6"
+              class="jc-peer jc-sr-only {{ class_name }}"
+              {% if has_checked == false %}
+                checked
+              {% endif %}
+            >
+            {% if has_checked == false %}
+              {% assign has_checked = true %}
+            {% endif %}
+            <div
+              class="
+                jc-rounded-xs jc-flex jc-items-center jc-justify-center
+                jc-text-britishRacingGreen jc-font-medium jc-text-sm jc-leading-5 jc-uppercase
+                peer-checked:jc-bg-britishRacingGreen peer-checked:jc-text-white
+                jc-transition-colors jc-px-2 xl:jc-px-4 jc-py-2.5
+              "
+            >
+              {{ title }}
+            </div>
+
+            <!-- badge -->
+            {% if discount != blank %}
+              <span
+                class="
+                  jc-absolute jc-top-[-15px] jc-left-1/2 -jc-translate-x-1/2
+                  jc-rounded-xxs jc-bg-munsell jc-px-2 jc-py-1 jc-text-[11px] jc-leading-3 jc-font-medium jc-text-white
+                "
+              >
+                {{ discount }}
+              </span>
+            {% endif %}
+          </label>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </fieldset>
+</div>

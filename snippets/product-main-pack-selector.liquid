@@ -13,6 +13,9 @@
   pack-selector-component .pack-selector-step input.step-toggle:checked ~ .step-content {
     display: block;
   }
+  pack-selector-component .pack-selector-step input.step-toggle:checked ~ .jc-selected-lio{
+    display: none;
+  }
 
   /* Arrow rotation based on radio input state */
   pack-selector-component .pack-selector-step input.step-toggle:checked + label .step-arrow {
@@ -27,6 +30,15 @@
     @apply jc-bg-green-600 jc-text-white jc-border-green-600;
   }
 
+  /* Complete pack styles */
+  pack-selector-component step2-product-card.jc-complete-pack {
+    @apply jc-border-munsell;
+  }
+  
+  pack-selector-component step2-product-card.jc-complete-pack .js-qty-control {
+    @apply jc-opacity-75;
+  }
+
   /* Hide summary info until step 1 is selected */
   pack-selector-component .jc-summary-info {
     display: none;
@@ -38,7 +50,33 @@
   .jc-custom-track::-webkit-scrollbar {
     width: 5px;
     height: 8px;
-    background-color: #aaaaaa; /* or add it to the track */
+    margin-inline: 16px !important;
+    background: #aaaaaa;
+  }
+  @media (max-width: 1024px) {
+    .jc-custom-track::-webkit-scrollbar-track-piece:start {
+      background: transparent;
+      margin-left: 16px;
+    }
+    
+    .jc-custom-track::-webkit-scrollbar-track-piece:end {
+      background: transparent;
+      margin-right: 16px;
+    }
+    .jc-custom-track::-webkit-scrollbar {
+      width: 5px;
+      height: 8px;
+      margin-inline: 16px !important;
+      background: linear-gradient(
+        to right,
+        transparent 0,
+        transparent 16px,
+        #aaaaaa 16px,
+        #aaaaaa calc(100% - 16px),
+        transparent calc(100% - 16px),
+        transparent 100%
+      );
+    }
   }
 
   /* Add a thumb */
@@ -54,8 +92,8 @@
 
 <pack-selector-component
   class="jc-block jc-w-full"
-  data-max-flavors="{{ root.settings.max_flavors | default: 6 }}"
-  data-min-flavors="{{ root.settings.min_flavors | default: 4 }}"
+  data-max-flavors="6"
+  data-min-flavors="3"
   data-text-summary-select-your-lio="{{ 'bundle_pack.summary_select_your_lio' | t }}"
   data-text-button-add-to-cart="{{ 'bundle_pack.button_add_to_cart' | t }}"
   data-text-button-adding-to-cart="{{ 'bundle_pack.button_adding_to_cart' | t }}"
@@ -82,6 +120,7 @@
           class: 'jc-w-6 jc-h-6 jc-transition-transform step-arrow'
         %}
       </label>
+      <div class="js-selected-lio jc-selected-lio jc-mt-1 jc-font-poppins jc-leading-5 jc-text-sm jc-font-normal jc-text-amazon empty:jc-hidden"></div> 
 
       <div class="step-content" data-content="step-1">
         <div class="jc-grid jc-grid-cols-2 xl:jc-grid-cols-3 jc-gap-2 jc-mt-4">
@@ -89,7 +128,7 @@
             <product-option-card
               class="
                 jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
-                [&.selected_.jc-select-button]:jc-bg-munsell [&.selected_.jc-select-button]:jc-text-white jc-group/product-option-card
+                [&.selected_.jc-select-button]:jc-bg-munsell [&.selected_.jc-select-button]:jc-text-white jc-group/product-option-card [&.selected_.jc-selected-text]:jc-block [&.selected_.jc-standard-text]:jc-hidden
               "
               data-product-id="{{ product.first_available_variant.id }}"
               data-product-title="{{ product.title }}"
@@ -126,7 +165,7 @@
                 {%- endif -%}
               </div>
               <div class="jc-mb-auto">
-                <p class="jc-font-sigumL jc-text-sm lg:jc-text-base jc-leading-5 jc-font-normal jc-text-britishRacingGreen jc-mb-1 jc-uppercase">
+                <p class="jc-font-sigumL jc-text-sm lg:jc-text-base jc-leading-5 jc-font-normal jc-text-britishRacingGreen jc-mb-0.5 jc-uppercase">
                   {{ product.title }}
                 </p>
                 {%- if product.metafields.jolly_meta.custom_description -%}
@@ -150,7 +189,8 @@
                 "
                 data-action="select-pack"
               >
-                {{ 'bundle_pack.button_select' | t }} | {{ product.price | money }}
+               <span class="jc-selected-text jc-hidden"> {{ 'bundle_pack.selected_label' | t }} | {{ product.price | money }}</span> 
+               <span class="jc-standard-text"> {{ 'bundle_pack.button_select' | t }} | {{ product.price | money }}</span>
               </button>
             </product-option-card>
           {%- endfor -%}
@@ -187,13 +227,15 @@
       </label>
 
       <div class="step-content" data-content="step-2">
+        {% render 'pack-selectors', root: root %}
         <div class="jc-grid jc-grid-cols-2 lg:jc-grid-cols-3 jc-gap-4 jc-mt-4">
           {%- for product in root.settings.step_2_packs -%}
             <step2-product-card
               class="
                 jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
-                [&.selected_.jc-select-button]:jc-bg-munsell [&.selected_.jc-select-button]:jc-text-white jc-group/product-option-card
-              "
+                [&.selected_.jc-select-button]:jc-bg-munsell [&.selected_.jc-select-button]:jc-text-white jc-group/product-option-card 
+                [&.selected.jc-complete-pack_.jc-quantity-control]:jc-hidden [&.selected.jc-complete-pack_.jc-standard-button]:jc-hidden [&.selected.jc-complete-pack_.jc-selected-button]:jc-block 
+                [&.selected.jc-complete-pack_.jc-selected-button]:!jc-pointer-events-none [&.selected.jc-complete-pack_.jc-selected-button]:!jc-opacity-100"
               data-product-id="{{ product.first_available_variant.id }}"
               data-product-price="{{ product.price }}"
               data-step="2"
@@ -217,7 +259,7 @@
               </div>
               <button
                 class="
-                  js-select-button-step2
+                  js-select-button-step2 jc-selected-button
                   jc-mt-2.5 jc-select-button jc-text-center jc-w-full jc-py-2.5 jc-border jc-border-solid jc-border-britishRacingGreen jc-rounded-mxs jc-uppercase
                   jc-transition-all jc-text-xxs lg:jc-text-xs jc-leading-4 jc-font-semibold jc-text-britishRacingGreen
                   [&:disabled]:jc-opacity-50 [&:disabled]:jc-pointer-events-none [&:disabled]:jc-cursor-not-allowed
@@ -225,12 +267,17 @@
                 "
                 data-action="select-step2"
               >
-                {{ 'bundle_pack.button_select' | t }}
+                <span class="jc-standard-button jc-block">
+                  {{ 'bundle_pack.button_select' | t }}
+                </span>
+                <span class="jc-selected-button jc-hidden">
+                  {{ 'bundle_pack.selected_label' | t }}
+                </span>
               </button>
 
               <div
                 class="
-                  js-qty-control
+                  js-qty-control jc-quantity-control
                   jc-flex jc-items-center jc-justify-between not-visible
                   [&.not-visible]:jc-hidden jc-mt-2.5 jc-shadow-pack-selector-green jc-w-full jc-bg-munsell jc-border jc-border-solid
                   jc-border-britishRacingGreen jc-rounded-mxs jc-p-2
@@ -305,8 +352,8 @@
         </div>
       </label>
 
-      <div class="step-content" data-content="step-3">
-        <div class="jc-overflow-x-auto jc-snap-x jc-snap-mandatory jc-scroll-smooth jc-flex jc-gap-2 jc-w-full jc-h-full jc-py-6 jc-custom-track">
+      <div class="step-content max-lg:jc-mx-[-16px]" data-content="step-3">
+        <div class="jc-overflow-x-auto jc-snap-x jc-snap-mandatory jc-scroll-smooth jc-flex jc-gap-2 jc-w-full jc-h-full jc-py-6 jc-custom-track max-lg:jc-px-4">
           {%- for product in root.settings.step_3_packs -%}
             <product-option-card
               class="
@@ -316,6 +363,7 @@
               data-product-id="{{ product.first_available_variant.id }}"
               data-product-price="{{ product.price }}"
               data-step="3"
+              data-has-quantity="true"
             >
               <div class="jc-aspect-square jc-relative jc-mb-3 jc-max-w-30.5 jc-mx-auto">
                 {%- if product.featured_image -%}
@@ -345,8 +393,8 @@
 
               <button
                 class="
-                  select-button
-                  jc-mt-3 jc-select-button jc-text-center jc-w-full jc-py-2.5 jc-border jc-border-britishRacingGreen jc-rounded-mxs jc-uppercase
+                  js-select-button
+                  jc-mt-2.5 jc-select-button jc-text-center jc-w-full jc-py-2.5 jc-border jc-border-solid jc-border-britishRacingGreen jc-rounded-mxs jc-uppercase
                   jc-transition-all jc-text-xxs lg:jc-text-xs jc-leading-4 jc-font-semibold jc-text-britishRacingGreen
                   [&:disabled]:jc-opacity-50 [&:disabled]:jc-pointer-events-none [&:disabled]:jc-cursor-not-allowed
                   group-hover/product-option-card:jc-bg-munsell group-hover/product-option-card:jc-text-white jc-shadow-pack-selector-green
@@ -355,6 +403,44 @@
               >
                 {{ 'bundle_pack.button_add' | t }} | {{ product.price | money }}
               </button>
+
+              <div
+                class="
+                  js-qty-control
+                  jc-flex jc-items-center jc-justify-between not-visible
+                  [&.not-visible]:jc-hidden jc-mt-2.5 jc-shadow-pack-selector-green jc-w-full jc-bg-munsell jc-border jc-border-solid
+                  jc-border-britishRacingGreen jc-rounded-mxs jc-p-2
+                "
+                data-product-id="{{ product.first_available_variant.id }}"
+              >
+                {% assign max = blank %}
+                {% if product.first_available_variant.inventory_policy == 'continue' %}
+                  {% assign max = 9999 %}
+                {% elsif product.first_available_variant.inventory_management == 'shopify' %}
+                  {% assign max = product.first_available_variant.inventory_quantity %}
+                {% endif %}
+                <button
+                  type="button"
+                  class="js-btn-minus jc-bg-munsell jc-text-white [&.is-disabled]:jc-opacity-50 [&.is-disabled]:jc-pointer-events-none jc-size-5"
+                  aria-label="Decrease"
+                >
+                  {% render 'g-render-icon', icon: 'fat-minus', class: 'jc-block jc-size-5' %}
+                </button>
+                <input
+                  class="js-qty-count jc-h-5 jc-text-center jc-font-semibold jc-pointer-events-none jc-bg-transparent jc-text-white"
+                  value="0"
+                  min="0"
+                  max="{{ max }}"
+                  name="product-quantity-step3-{{ product.first_available_variant.id }}"
+                >
+                <button
+                  type="button"
+                  class="js-btn-plus jc-bg-munsell jc-text-white [&.is-disabled]:jc-opacity-50 [&.is-disabled]:jc-pointer-events-none jc-size-5"
+                  aria-label="Increase"
+                >
+                  {% render 'g-render-icon', icon: 'fat-plus', class: 'jc-block jc-size-5' %}
+                </button>
+              </div>
             </product-option-card>
           {%- endfor -%}
         </div>

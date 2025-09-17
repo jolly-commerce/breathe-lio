@@ -471,6 +471,8 @@
     "total_price": "Skupaj",
     "savoury": "Slan",
     "throat_hit": "Provoljno",
-    "sweetness": "Sladko"
+    "sweetness": "Sladko",
+    "select_flavor": "Izberite okus",
+    "close": "Zapri"
   }
 }

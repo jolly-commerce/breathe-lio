@@ -11,6 +11,9 @@
     border: 1px solid #004631;
     border-bottom: none;
   }
+  .tab-container:has(#tab-onetime:checked) .jc-subscribe-benefits-description {
+    background-color: #0000000D;
+  }
   .tab-container:has(#tab-subscribe:checked) .subscribe-panel {
     display: block;
   }
@@ -38,16 +41,13 @@
           for="tab-subscribe"
           class="
             subscribe-label jc-relative jc-flex-1 jc-cursor-pointer jc-rounded-t-mxs
-            jc-bg-transparent jc-text-britishRacingGreen jc-text-base jc-leading-xl jc-font-normal jc-font-sigumL jc-uppercase jc-text-center jc-py-3.5 jc-px-4
+            jc-bg-transparent jc-text-britishRacingGreen jc-text-base jc-leading-xl jc-font-normal jc-font-sigumL jc-uppercase jc-text-center jc-py-3.5 jc-px-4 jc-z-10
           "
         >
           {{ root.settings.subscribe_and_save_title }}
           {% if root.settings.subscribe_and_save_subtitle != blank %}
             <div
-              class="
-                jc-absolute -jc-top-3 jc-inset-0
-                
-              "
+              class="jc-absolute -jc-top-3 jc-inset-0"
             >
               <p class="jc-w-fit jc-mx-auto jc-bg-munsell jc-px-2 jc-py-1 jc-rounded-xxs jc-text-center jc-text-xxs jc-leading-3 jc-font-normal jc-font-poppins jc-text-white jc-uppercase">
                 {{ root.settings.subscribe_and_save_subtitle }}
@@ -63,87 +63,115 @@
           for="tab-onetime"
           class="
             onetime-label jc-relative jc-flex-1 jc-cursor-pointer jc-rounded-t-mxs
-            jc-bg-transparent jc-text-britishRacingGreen jc-text-base jc-leading-xl jc-font-normal jc-font-sigumL jc-uppercase jc-text-center jc-py-3.5 jc-px-4
+            jc-bg-transparent jc-text-britishRacingGreen jc-text-base jc-leading-xl jc-font-normal jc-font-sigumL jc-uppercase jc-text-center jc-py-3.5 jc-px-4 jc-z-10
           "
         >
           {{ root.settings.one_time_purchase_title }}
         </label>
       {% endif %}
     </div>
-
+    {%- capture benefits_features -%}
+      <ul class="jc-grid jc-grid-cols-3 jc-gap-3 jc-px-4">
+        {%- for i in (1..3) -%}
+          {%- assign benefit_title = 'benefits_features_title_' | append: i -%}
+          {%- assign benefit_image = 'benefits_features_image_' | append: i -%}
+          {%- if root.settings[benefit_title] != blank -%}
+            <li class="jc-flex jc-flex-col jc-items-center jc-gap-2">
+              {% if root.settings[benefit_image] != blank %}
+                {% render 'g-render-image',
+                  class: 'jc-w-6 jc-h-6',
+                  img_src: root.settings[benefit_image].url,
+                  img: root.settings[benefit_image],
+                  size: '40 60',
+                  alt: '{{root.settings[benefit_title] }}',
+                  width: '24',
+                  height: '24',
+                  loading: 'lazy'
+                %}
+              {% endif %}
+              <div
+                class="
+                  jc-leading-4 jc-font-normal jc-text-xs jc-font-poppins jc-text-britishRacingGreen jc-text-center
+                  [&_strong]:jc-text-sm [&_strong]:jc-mb-1 [&_strong]:jc-block
+                "
+              >
+                {{ root.settings[benefit_title] }}
+              </div>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+      {% if root.settings.subscribe_and_save_benefits_description != blank %}
+        <div class="jc-subscribe-benefits-description jc-flex jc-items-center jc-justify-center jc-px-4 jc-py-3 jc-bg-munsell jc-bg-opacity-10 jc-gap-2 lg:jc-gap-4">
+          <div class="jc-text-sm jc-leading-5 jc-font-normal jc-font-poppins jc-text-britishRacingGreen">
+            {{ root.settings.subscribe_and_save_benefits_description }}
+          </div>
+          {% if root.settings.subscribe_and_save_benefits_image != blank %}
+            {% render 'g-render-image',
+              class: 'jc-w-full jc-h-auto jc-max-w-25 lg:jc-max-w-32',
+              img_src: root.settings.subscribe_and_save_benefits_image.url,
+              img: root.settings.subscribe_and_save_benefits_image,
+              size: '1000',
+              alt: root.settings.subscribe_and_save_benefits_image.alt,
+              loading: 'lazy'
+            %}
+          {% endif %}
+        </div>
+      {% endif %}
+    {%- endcapture -%}
     <!-- Panels -->
     <div class="">
       <!-- SUBSCRIBE PANEL -->
       {% if root.settings.subscribe_and_save_title != blank %}
-        <div class="subscribe-panel jc-p-4 jc-pb-6 jc-hidden jc-space-y-3 jc-bg-green-100 jc-rounded-b-mxs jc-rounded-tr-mxs
-          jc-border jc-border-britishRacingGreen">
+        <div
+          class="
+            subscribe-panel jc-pt-4  jc-hidden jc-space-y-3 jc-bg-green-100 jc-rounded-b-mxs jc-rounded-tr-mxs
+            jc-border jc-border-britishRacingGreen
+          "
+        >
+          {% if root.settings.subscribe_3_packs != blank or root.settings.subscribe_6_packs != blank %}
+            <div class="jc-subscribe-packs-container">
+              {% if root.settings.subscribe_3_packs != blank %}
+                <div class="jc-subscribe-3-packs jc-text-sm jc-leading-5 jc-font-normal jc-font-poppins jc-text-britishRacingGreen jc-text-center jc-hidden">
+                  {{ root.settings.subscribe_3_packs }}
+                </div>
+              {% endif %}
+              {% if root.settings.subscribe_6_packs != blank %}
+                <div class="jc-subscribe-6-packs jc-text-sm jc-leading-5 jc-font-normal jc-font-poppins jc-text-britishRacingGreen jc-text-center jc-hidden">
+                  {{ root.settings.subscribe_6_packs }}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
           {%- if root.settings.subscribe_and_save_description != blank -%}
-            <div class="jc-text-sm jc-leading-5 jc-text-britishRacingGreen jc-font-poppins jc-font-normal">
+            <div class="jc-text-3xl jc-leading-8 jc-text-britishRacingGreen jc-font-normal jc-text-center jc-font-sigumL">
               {{ root.settings.subscribe_and_save_description }}
             </div>
           {%- endif -%}
-          <div class="jc-flex jc-items-center jc-justify-between jc-w-full">
-            {%- if root.settings.subscribe_and_save_benefits_title != blank -%}
-              <p class="jc-font-semibold jc-font-poppins jc-text-sm jc-leading-5 jc-text-britishRacingGreen">
-                {{ root.settings.subscribe_and_save_benefits_title }}
-              </p>
-            {%- endif -%}
-            <div class="jc-flex jc-items-end jc-gap-2.5 jc-justify-end">
-              <span class="jc-text-xs jc-leading-4 jc-line-through jc-font-medium jc-opacity-50">€30</span>
-              <span class="jc-font-semibold jc-text-base jc-leading-5 jc-text-britishRacingGreen">€21</span>
-            </div>
-          </div>
 
-          <ul class="jc-grid jc-grid-cols-1 md:jc-grid-cols-2 jc-gap-2.5">
-            {%- for i in (1..4) -%}
-              {%- assign benefit_title = 'benefits_features_title_' | append: i -%}
-              {%- if root.settings[benefit_title] != blank -%}
-                <li class="jc-flex jc-items-center jc-gap-2">
-                  {% render 'g-render-icon', icon: 'fat-check', class: 'jc-w-5 jc-h-5' %}
-                  <p class="jc-text-sm jc-leading-5 jc-font-medium jc-font-poppins jc-text-britishRacingGreen jc-opacity-80">
-                    {{ root.settings[benefit_title] }}
-                  </p>
-                </li>
-              {%- endif -%}
-            {%- endfor -%}
-          </ul>
+          {% if benefits_features != blank %}
+            {{ benefits_features }}
+          {% endif %}
         </div>
       {% endif %}
 
       <!-- ONE-TIME PANEL -->
       {% if root.settings.one_time_purchase_title != blank %}
-        <div class="onetime-panel jc-p-4 jc-pb-6 jc-hidden jc-space-y-3 jc-bg-cultured jc-rounded-b-mxs jc-rounded-tl-mxs
-          jc-border jc-border-britishRacingGreen">
+        <div
+          class="
+            onetime-panel jc-pt-4 jc-hidden jc-space-y-3 jc-bg-cultured jc-rounded-b-mxs jc-rounded-tl-mxs
+            jc-border jc-border-britishRacingGreen [&_*]:jc-opacity-80
+          "
+        >
           {%- if root.settings.one_time_purchase_description != blank -%}
-            <div class="jc-text-sm jc-leading-5 jc-text-britishRacingGreen jc-font-poppins jc-font-normal">
+            <div class="jc-text-3xl jc-leading-8 jc-text-britishRacingGreen jc-font-normal jc-text-center jc-font-sigumL">
               {{ root.settings.one_time_purchase_description }}
             </div>
           {%- endif -%}
 
-          <div class="jc-flex jc-items-center jc-justify-between jc-w-full">
-            {%- if root.settings.one_time_purchase_benefits_title != blank -%}
-              <p class="jc-font-semibold jc-font-poppins jc-text-sm jc-leading-5 jc-text-britishRacingGreen">
-                {{ root.settings.one_time_purchase_benefits_title }}
-              </p>
-            {%- endif -%}
-            <div class="jc-flex jc-items-end jc-gap-2.5 jc-justify-end">
-              <span class="jc-font-semibold jc-text-base jc-leading-5 jc-text-britishRacingGreen">€30</span>
-            </div>
-          </div>
-
-          <ul class="jc-grid jc-grid-cols-1 md:jc-grid-cols-2 jc-gap-2.5">
-            {%- for i in (1..4) -%}
-              {%- assign benefit_title = 'benefits_features_title_' | append: i -%}
-              {%- if root.settings[benefit_title] != blank -%}
-                <li class="jc-flex jc-items-center jc-gap-2">
-                  {% render 'g-render-icon', icon: 'fat-uncheck', class: 'jc-w-5 jc-h-5' %}
-                  <p class="jc-line-through jc-text-sm jc-leading-5 jc-font-medium jc-font-poppins jc-text-britishRacingGreen jc-opacity-80">
-                    {{ root.settings[benefit_title] }}
-                  </p>
-                </li>
-              {%- endif -%}
-            {%- endfor -%}
-          </ul>
+          {% if benefits_features != blank %}
+            {{ benefits_features }}
+          {% endif %}
         </div>
       {% endif %}
     </div>

@@ -471,6 +471,8 @@
     "total_price": "Toplam",
     "savoury": "Ecstasy",
     "throat_hit": "Provozası",
-    "sweetness": "Ecstasy"
+    "sweetness": "Ecstasy",
+    "select_flavor": "Aroma seçin",
+    "close": "Kapat"
   }
 }

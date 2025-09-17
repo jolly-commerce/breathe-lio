@@ -471,6 +471,8 @@
     "total_price": "合計",
     "savoury": "甜味",
     "throat_hit": "辛辣",
-    "sweetness": "甜味"
+    "sweetness": "甜味",
+    "select_flavor": "選擇口味",
+    "close": "關閉"
   }
 }

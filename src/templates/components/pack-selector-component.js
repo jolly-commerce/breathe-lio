@@ -1,3 +1,35 @@
+// Constants
+const PACK_TYPES = {
+  THREE_BAGS: 1,
+  SIX_BAGS: 2,
+  COMPLETE: 3
+};
+
+const PACK_LIMITS = {
+  THREE_BAGS_MAX: 3,
+  SIX_BAGS_MAX: 6,
+  THREE_BAGS_MIN: 3,
+  SIX_BAGS_MIN: 6
+};
+
+const DEFAULTS = {
+  MAX_QTY: 9999,
+  MAX_FLAVORS: 6,
+  MIN_FLAVORS: 4,
+  RETRY_DELAY: 100,
+  TRANSITION_DELAY: 50
+};
+
+const SELECTORS = {
+  THREE_BAGS_PACK: '.js-pack-selector[data-max-flavors="3"]',
+  SIX_BAGS_PACK: '.js-pack-selector[data-max-flavors="6"]:not([data-complete-pack="true"])',
+  STEP2_CARDS: 'step2-product-card',
+  PACK_RADIO: 'input[type="radio"]',
+  QTY_CONTROL: '.js-qty-control',
+  MINUS_BTN: '.js-btn-minus',
+  PLUS_BTN: '.js-btn-plus'
+};
+
 // Base Product Option Card Component
 class ProductOptionCard extends HTMLElement {
   constructor() {
@@ -7,13 +39,17 @@ class ProductOptionCard extends HTMLElement {
     this.step = 0;
     this.isSelected = false;
     this.parentComponent = this.closest('pack-selector-component');
+    this.hasQuantityControls = false;
+    this.quantity = 0;
+    this.maxQty = DEFAULTS.MAX_QTY;
   }
 
   connectedCallback() {
     this.productId = this.getAttribute('data-product-id') || '';
     this.productPrice = parseInt(this.getAttribute('data-product-price')) || 0;
     this.step = parseInt(this.getAttribute('data-step')) || 0;
-    
+    this.hasQuantityControls = this.getAttribute('data-has-quantity') === 'true';
+
     this.initializeCard();
   }
 
@@ -46,16 +82,122 @@ class ProductOptionCard extends HTMLElement {
         this.handlePopupTrigger(e);
       });
     }
+
+    // Initialize quantity controls if present
+    if (this.hasQuantityControls) {
+      this.initializeQuantityControls();
+    }
+  }
+
+  initializeQuantityControls() {
+    this.input = this.querySelector('.js-qty-count');
+    this.selectButton = this.querySelector('.js-select-button');
+    this.qtyControl = this.querySelector('.js-qty-control');
+    this.minusBtn = this.querySelector('.js-btn-minus');
+    this.plusBtn = this.querySelector('.js-btn-plus');
+    this.maxQty = this.input ? parseInt(this.input.getAttribute('max')) || DEFAULTS.MAX_QTY : DEFAULTS.MAX_QTY;
+
+    // Add quantity control event listeners
+    this.minusBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.changeQuantity(-1);
+    });
+
+    this.plusBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.changeQuantity(1);
+    });
+
+    // Initialize UI
+    this.updateQuantityUI();
   }
 
   handleCardClick(e) {
-    // To be overridden by subclasses or handled by parent
-    this.selectProduct();
+    if (this.hasQuantityControls) {
+      if (this.quantity === 0) {
+        this.showQuantityControls();
+      }
+    } else {
+      // Default behavior for non-quantity cards
+      this.selectProduct();
+    }
   }
 
   handleButtonClick(e) {
-    // To be overridden by subclasses or handled by parent
-    this.selectProduct();
+    if (this.hasQuantityControls) {
+      this.showQuantityControls();
+    } else {
+      // Default behavior for non-quantity cards
+      this.selectProduct();
+    }
+  }
+
+  showQuantityControls() {
+    if (!this.hasQuantityControls) return;
+
+    this.selectButton?.classList.add('jc-hidden');
+    this.qtyControl?.classList.remove('not-visible');
+    this.changeQuantity(1);
+  }
+
+  changeQuantity(delta) {
+    if (!this.hasQuantityControls) return;
+
+    const newQty = Math.max(0, this.quantity + delta);
+
+    // Check inventory limits when increasing
+    if (delta > 0 && this.quantity >= this.maxQty) return;
+
+    this.quantity = newQty;
+    this.updateQuantityUI();
+
+    // Notify parent of change based on step
+    const eventName = this.step === 3 ? 'step3-quantity-changed' : 'quantity-changed';
+    this.dispatchEvent(new CustomEvent(eventName, {
+      detail: {
+        productId: this.productId,
+        quantity: this.quantity,
+        price: this.productPrice
+      },
+      bubbles: true
+    }));
+  }
+
+  updateQuantityUI() {
+    if (!this.hasQuantityControls) return;
+
+    // Update input value
+    if (this.input) this.input.value = this.quantity;
+
+    // Update selected state
+    this.setSelected(this.quantity > 0);
+
+    // Toggle visibility
+    this.selectButton?.classList.toggle('jc-hidden', this.quantity > 0);
+    this.qtyControl?.classList.toggle('not-visible', this.quantity === 0);
+
+    // Update button states
+    this.updateQuantityButtonStates();
+  }
+
+  updateQuantityButtonStates() {
+    if (!this.hasQuantityControls || !this.plusBtn || !this.minusBtn || !this.selectButton) {
+      return;
+    }
+
+    const atProductMax = this.quantity >= this.maxQty;
+
+    // Update plus button (only inventory limits for step 3)
+    this.plusBtn.disabled = atProductMax;
+    this.plusBtn.classList.toggle('is-disabled', atProductMax);
+
+    // Update minus button
+    this.minusBtn.disabled = this.quantity <= 0;
+    this.minusBtn.classList.toggle('is-disabled', this.quantity <= 0);
+
+    // Update select button
+    this.selectButton.disabled = atProductMax;
+    this.selectButton.classList.toggle('jc-opacity-50', atProductMax);
   }
 
   handlePopupTrigger(e) {
@@ -69,7 +211,7 @@ class ProductOptionCard extends HTMLElement {
   selectProduct() {
     // Dispatch selection event
     this.dispatchEvent(new CustomEvent('product-selected', {
-      detail: { 
+      detail: {
         productId: this.productId,
         step: this.step,
         productCard: this
@@ -85,6 +227,25 @@ class ProductOptionCard extends HTMLElement {
 
   reset() {
     this.setSelected(false);
+    if (this.hasQuantityControls) {
+      this.quantity = 0;
+      this.updateQuantityUI();
+      this.selectButton?.classList.remove('jc-hidden');
+      this.qtyControl?.classList.add('not-visible');
+      this.selectButton?.classList.remove('jc-opacity-50');
+      if (this.selectButton) this.selectButton.disabled = false;
+    }
+  }
+
+  getQuantity() {
+    return this.hasQuantityControls ? this.quantity : (this.isSelected ? 1 : 0);
+  }
+
+  setQuantity(qty) {
+    if (this.hasQuantityControls) {
+      this.quantity = qty;
+      this.updateQuantityUI();
+    }
   }
 }
 
@@ -92,17 +253,23 @@ class ProductOptionCard extends HTMLElement {
 class Step2ProductCard extends ProductOptionCard {
   constructor() {
     super();
-    this.quantity = 0;
-    this.maxQty = 9999;
+    // Step 2 always has quantity controls
+    this.hasQuantityControls = true;
   }
 
   connectedCallback() {
-    super.connectedCallback();
-    
-    // Initialize Step 2 specific elements
+    this.productId = this.getAttribute('data-product-id') || '';
+    this.productPrice = parseInt(this.getAttribute('data-product-price')) || 0;
+    this.step = parseInt(this.getAttribute('data-step')) || 0;
+    this.hasQuantityControls = true; // Step 2 always has quantity controls
+
+    // Initialize Step 2 specific elements first
     this.input = this.querySelector('.js-qty-count');
-    this.maxQty = this.input ? parseInt(this.input.getAttribute('max')) || 9999 : 9999;
-    
+    this.maxQty = this.input ? parseInt(this.input.getAttribute('max')) || DEFAULTS.MAX_QTY : DEFAULTS.MAX_QTY;
+
+    // Call parent initialization
+    this.initializeCard();
+
     // Use setTimeout to ensure parent component is ready
     setTimeout(() => this.initializeStep2Elements(), 0);
   }
@@ -116,41 +283,90 @@ class Step2ProductCard extends ProductOptionCard {
 
     if (!this.selectButton || !this.qtyControl || !this.input || !this.minusBtn || !this.plusBtn) {
       console.warn('Step2ProductCard: Some required elements not found, retrying...');
-      setTimeout(() => this.initializeStep2Elements(), 100);
+      setTimeout(() => this.initializeStep2Elements(), DEFAULTS.RETRY_DELAY);
       return;
     }
 
-    // Add Step 2 specific event listeners
-    this.minusBtn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      this.changeQuantity(-1);
-    });
-
-    this.plusBtn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      this.changeQuantity(1);
-    });
-
-    // Initialize UI
     this.updateUI();
+  }
+
+  tryAutoSwitchTo6Bags(callback) {
+    if (!this.parentComponent || this.parentComponent.currentPackType !== PACK_TYPES.THREE_BAGS) {
+      return false;
+    }
+
+    const totalFlavors = this.parentComponent.getTotalFlavors();
+    if (totalFlavors < PACK_LIMITS.THREE_BAGS_MAX) {
+      return false;
+    }
+
+    const sixBagsSelector = this.parentComponent.querySelector(SELECTORS.SIX_BAGS_PACK);
+    if (!sixBagsSelector) {
+      return false;
+    }
+
+    const input = sixBagsSelector.querySelector(SELECTORS.PACK_RADIO);
+    if (!input) {
+      return false;
+    }
+
+    // Mark selector for preserving selections
+    sixBagsSelector.dataset.preserveSelections = 'true';
+    input.checked = true;
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+
+    // Execute callback after switching
+    if (callback && typeof callback === 'function') {
+      setTimeout(callback, DEFAULTS.TRANSITION_DELAY);
+    }
+
+    return true;
   }
 
   handleCardClick(e) {
     if (e.target.closest('button')) return;
-    
+
+    // Check if this is a complete pack
+    if (this.parentComponent && this.parentComponent.isCompletePack) {
+      return; // Don't allow click for complete pack
+    }
+
     if (this.quantity === 0) {
       this.showControls();
-    } else {
-      this.changeQuantity(1);
     }
+    // When quantity >= 1, only plus button should increase quantity
   }
 
   handleButtonClick(e) {
     e.stopPropagation();
+
+    // Check if this is a complete pack
+    if (this.parentComponent && this.parentComponent.isCompletePack) {
+      return; // Don't allow button for complete pack
+    }
+
+    // For already selected products, check automatic switching
+    if (this.quantity > 0) {
+      const switched = this.tryAutoSwitchTo6Bags(() => {
+        this.changeQuantity(1);
+      });
+
+      if (switched) return;
+    }
+
     this.showControls();
   }
 
   showControls() {
+    // Try automatic switching from 3 to 6 bags when selecting a new product
+    const switched = this.tryAutoSwitchTo6Bags(() => {
+      this.selectButton?.classList.add('jc-hidden');
+      this.qtyControl?.classList.remove('not-visible');
+      this.changeQuantity(1);
+    });
+
+    if (switched) return;
+
     // Check if parent allows more items
     const canAdd = this.dispatchEvent(new CustomEvent('can-add-flavor', {
       detail: { productId: this.productId },
@@ -166,17 +382,42 @@ class Step2ProductCard extends ProductOptionCard {
   }
 
   changeQuantity(delta) {
+    // Block changes for complete pack
+    if (this.parentComponent && this.parentComponent.isCompletePack) {
+      return;
+    }
+
     const newQty = Math.max(0, this.quantity + delta);
 
     // Check limits when increasing
     if (delta > 0) {
+      // Check if we need to auto-switch from 3 to 6 bags
+      if (this.parentComponent && this.parentComponent.currentPackType === PACK_TYPES.THREE_BAGS) {
+        const totalFlavors = this.parentComponent.getTotalFlavors();
+        if (totalFlavors + delta > PACK_LIMITS.THREE_BAGS_MAX) {
+          const switched = this.tryAutoSwitchTo6Bags(() => {
+            this.quantity = newQty;
+            this.updateUI();
+            // Notify parent of change
+            this.dispatchEvent(new CustomEvent('quantity-changed', {
+              detail: { productId: this.productId, quantity: this.quantity },
+              bubbles: true
+            }));
+          });
+
+          if (switched) return;
+        }
+      }
+
       const canAdd = this.dispatchEvent(new CustomEvent('can-add-flavor', {
         detail: { productId: this.productId },
         bubbles: true,
         cancelable: true
       }));
 
-      if (!canAdd || this.quantity >= this.maxQty) return;
+      if (!canAdd || this.quantity >= this.maxQty) {
+        return;
+      }
     }
 
     this.quantity = newQty;
@@ -190,17 +431,21 @@ class Step2ProductCard extends ProductOptionCard {
   }
 
   updateUI() {
-    // Update input value
-    if (this.input) this.input.value = this.quantity;
+    // Use parent's updateQuantityUI method which handles all the UI updates
+    if (this.hasQuantityControls) {
+      this.updateQuantityUI();
+    } else {
+      // Update input value
+      if (this.input) this.input.value = this.quantity;
 
-    // Update selected state
-    this.setSelected(this.quantity > 0);
+      // Update selected state
+      this.setSelected(this.quantity > 0);
 
-    // Toggle visibility
-    this.selectButton?.classList.toggle('jc-hidden', this.quantity > 0);
-    this.qtyControl?.classList.toggle('not-visible', this.quantity === 0);
+      // Toggle visibility
+      this.selectButton?.classList.toggle('jc-hidden', this.quantity > 0);
+      this.qtyControl?.classList.toggle('not-visible', this.quantity === 0);
+    }
 
-    // Update button states
     this.updateButtonStates();
   }
 
@@ -213,7 +458,15 @@ class Step2ProductCard extends ProductOptionCard {
     let atGlobalMax = false;
 
     if (this.parentComponent && typeof this.parentComponent.getTotalFlavors === 'function') {
-      atGlobalMax = this.parentComponent.getTotalFlavors() >= this.parentComponent.maxFlavors;
+      const totalFlavors = this.parentComponent.getTotalFlavors();
+
+      // For "3 bags" mode, don't block buttons when 3 items are reached,
+      // because it should automatically switch to "6 bags"
+      if (this.parentComponent.currentPackType === PACK_TYPES.THREE_BAGS && totalFlavors >= PACK_LIMITS.THREE_BAGS_MAX) {
+        atGlobalMax = false; // Allow adding for automatic switching
+      } else {
+        atGlobalMax = totalFlavors >= this.parentComponent.maxFlavors;
+      }
     }
 
     const atProductMax = this.quantity >= this.maxQty;
@@ -223,12 +476,14 @@ class Step2ProductCard extends ProductOptionCard {
     this.plusBtn.classList.toggle('is-disabled', atGlobalMax || atProductMax);
 
     // Update minus button
-    this.minusBtn.disabled = this.quantity <= 0;
-    this.minusBtn.classList.toggle('is-disabled', this.quantity <= 0);
+    const shouldDisableMinus = this.quantity <= 0;
+    this.minusBtn.disabled = shouldDisableMinus;
+    this.minusBtn.classList.toggle('is-disabled', shouldDisableMinus);
 
-    // Update select button
-    this.selectButton.disabled = atGlobalMax || atProductMax;
-    this.selectButton.classList.toggle('jc-opacity-50', atGlobalMax || atProductMax);
+    // Update select button - don't block in 3 bags mode when the limit is reached
+    const shouldDisableSelect = (atGlobalMax || atProductMax) && !(this.parentComponent && this.parentComponent.currentPackType === PACK_TYPES.THREE_BAGS && this.quantity === 0);
+    this.selectButton.disabled = shouldDisableSelect;
+    this.selectButton.classList.toggle('jc-opacity-50', shouldDisableSelect);
   }
 
   reset() {
@@ -238,6 +493,21 @@ class Step2ProductCard extends ProductOptionCard {
     this.qtyControl?.classList.add('not-visible');
     this.selectButton?.classList.remove('jc-opacity-50');
     if (this.selectButton) this.selectButton.disabled = false;
+    
+    // Reset plus/minus button states (important for Complete Pack recovery)
+    if (this.minusBtn) {
+      this.minusBtn.disabled = true; // Minus should be disabled when quantity is 0
+      this.minusBtn.classList.add('is-disabled');
+    }
+    if (this.plusBtn) {
+      this.plusBtn.disabled = false; // Plus should be enabled
+      this.plusBtn.classList.remove('is-disabled');
+    }
+    
+    // Remove Complete Pack restrictions
+    if (this.qtyControl) {
+      this.qtyControl.classList.remove('jc-pointer-events-none');
+    }
   }
 
   getQuantity() {
@@ -257,15 +527,17 @@ class PackSelectorComponent extends HTMLElement {
     this.selectedProducts = {
       step1: null,
       step2: {}, // { [productId]: { quantity, price } }
-      step3: [] // [{ productId, price }]
+      step3: {} // { [productId]: { quantity, price } }
     };
-    this.maxFlavors = 100;
-    this.minFlavors = 4;
+    this.maxFlavors = DEFAULTS.MAX_FLAVORS;
+    this.minFlavors = DEFAULTS.MIN_FLAVORS;
+    this.isCompletePack = false;
+    this.currentPackType = PACK_TYPES.THREE_BAGS;
   }
 
   connectedCallback() {
-    this.maxFlavors = parseInt(this.getAttribute('data-max-flavors')) || 6;
-    this.minFlavors = parseInt(this.getAttribute('data-min-flavors')) || 4;
+    this.maxFlavors = parseInt(this.getAttribute('data-max-flavors')) || DEFAULTS.MAX_FLAVORS;
+    this.minFlavors = parseInt(this.getAttribute('data-min-flavors')) || DEFAULTS.MIN_FLAVORS;
 
     // Re-initialize DOM elements after connection
     this.submitButton = this.querySelector('#pack-selector-submit');
@@ -279,6 +551,7 @@ class PackSelectorComponent extends HTMLElement {
   init() {
     this.initializeEventListeners();
     this.initializeStepRadios();
+    this.initializePackSelectors();
     this.updateUI();
   }
 
@@ -286,7 +559,7 @@ class PackSelectorComponent extends HTMLElement {
     // Listen for product selection events from cards
     this.addEventListener('product-selected', (e) => {
       const { productId, step, productCard } = e.detail;
-      
+
       if (step === 1) {
         this.selectStep1Product(productCard, productId);
       } else if (step === 3) {
@@ -304,7 +577,15 @@ class PackSelectorComponent extends HTMLElement {
 
     // Listen for Step 2 specific events
     this.addEventListener('can-add-flavor', (e) => {
-      const canAdd = this.getTotalFlavors() < this.maxFlavors;
+      const currentTotal = this.getTotalFlavors();
+
+      // In "3 bags" mode, always allow adding when the limit is reached
+      // because it will automatically switch to "6 bags"
+      if (this.currentPackType === PACK_TYPES.THREE_BAGS) {
+        return;
+      }
+
+      const canAdd = currentTotal < this.maxFlavors;
       if (!canAdd) {
         e.preventDefault();
       }
@@ -328,6 +609,24 @@ class PackSelectorComponent extends HTMLElement {
       // Update UI
       this.updateUI();
     });
+
+    // Listen for Step 3 quantity changes
+    this.addEventListener('step3-quantity-changed', (e) => {
+      const { productId, quantity, price } = e.detail;
+
+      // Update internal state
+      if (quantity === 0) {
+        delete this.selectedProducts.step3[productId];
+      } else {
+        this.selectedProducts.step3[productId] = {
+          quantity: quantity,
+          price: price
+        };
+      }
+
+      // Update UI
+      this.updateUI();
+    });
   }
 
   initializeStepRadios() {
@@ -336,6 +635,136 @@ class PackSelectorComponent extends HTMLElement {
       radio.addEventListener('change', () => {
         this.updateUI();
       });
+    });
+  }
+
+  initializePackSelectors() {
+    const packSelectors = this.querySelectorAll('.js-pack-selector');
+    packSelectors.forEach(selector => {
+      const input = selector.querySelector('input[type="radio"][name="pack"]');
+      if (input) {
+        input.addEventListener('change', (e) => {
+          if (e.target.checked) {
+            this.handlePackChange(selector);
+          }
+        });
+
+        // Initialize with selected pack by default
+        if (input.checked) {
+          this.handlePackChange(selector);
+        }
+      }
+    });
+  }
+
+  handlePackChange(selector) {
+    const maxFlavors = parseInt(selector.getAttribute('data-max-flavors')) || 6;
+    const isComplete = selector.getAttribute('data-complete-pack') === 'true';
+
+    console.log('Pack changed to:', { maxFlavors, isComplete });
+
+    // Define pack type
+    if (maxFlavors === PACK_LIMITS.THREE_BAGS_MAX) {
+      this.currentPackType = PACK_TYPES.THREE_BAGS;
+    } else if (!isComplete) {
+      this.currentPackType = PACK_TYPES.SIX_BAGS;
+    } else {
+      this.currentPackType = PACK_TYPES.COMPLETE;
+    }
+
+    // Reset previous selections on step 2 only if this is not an automatic switching with preserving selections
+    if (!selector.dataset.preserveSelections) {
+      this.resetStep2Selections();
+    }
+
+    this.maxFlavors = maxFlavors;
+    this.minFlavors = this.currentPackType === PACK_TYPES.THREE_BAGS ? PACK_LIMITS.THREE_BAGS_MIN : PACK_LIMITS.SIX_BAGS_MIN;
+    this.isCompletePack = isComplete;
+
+    this.setAttribute('data-max-flavors', String(this.maxFlavors));
+    this.setAttribute('data-min-flavors', String(this.minFlavors));
+
+    // For Complete Pack automatically select all products
+    if (this.isCompletePack) {
+      this.selectAllStep2Products();
+    }
+
+    // Clear flag for preserving selections
+    delete selector.dataset.preserveSelections;
+    this.updateUI();
+  }
+
+  resetStep2Selections() {
+    this.selectedProducts.step2 = {};
+    const step2Cards = this.querySelectorAll('step2-product-card');
+    step2Cards.forEach(card => {
+      card.reset();
+      card.classList.remove('jc-complete-pack');
+      
+      // Remove Complete Pack specific restrictions
+      const qtyControl = card.querySelector('.js-qty-control');
+      const minusBtn = card.querySelector('.js-btn-minus');
+      const plusBtn = card.querySelector('.js-btn-plus');
+      
+      if (qtyControl) {
+        qtyControl.classList.remove('jc-pointer-events-none');
+      }
+      if (minusBtn) {
+        minusBtn.disabled = false;
+        minusBtn.classList.remove('is-disabled');
+      }
+      if (plusBtn) {
+        plusBtn.disabled = false;
+        plusBtn.classList.remove('is-disabled');
+      }
+    });
+    
+    // Update all button states after reset
+    this.updateAllStep2Cards();
+  }
+
+
+  selectAllStep2Products() {
+    const step2Cards = this.querySelectorAll('step2-product-card');
+    const totalCards = step2Cards.length;
+
+    // Limit selection to 6 cards
+    const cardsToSelect = Math.min(totalCards, PACK_LIMITS.SIX_BAGS_MAX);
+
+    step2Cards.forEach((card, index) => {
+      if (index < cardsToSelect) {
+        // Add class for complete pack
+        card.classList.add('jc-complete-pack');
+
+        const productId = card.getAttribute('data-product-id');
+        const productPrice = parseInt(card.getAttribute('data-product-price')) || 0;
+
+        // Set quantity 1 for each product
+        card.setQuantity(1);
+
+        // Update internal state
+        this.selectedProducts.step2[productId] = {
+          quantity: 1,
+          price: productPrice
+        };
+
+        // Block controls for complete pack
+        const qtyControl = card.querySelector('.js-qty-control');
+        const minusBtn = card.querySelector('.js-btn-minus');
+        const plusBtn = card.querySelector('.js-btn-plus');
+
+        if (qtyControl) {
+          qtyControl.classList.add('jc-pointer-events-none');
+        }
+        if (minusBtn) {
+          minusBtn.disabled = true;
+          minusBtn.classList.add('is-disabled');
+        }
+        if (plusBtn) {
+          plusBtn.disabled = true;
+          plusBtn.classList.add('is-disabled');
+        }
+      }
     });
   }
 
@@ -358,22 +787,9 @@ class PackSelectorComponent extends HTMLElement {
   }
 
   selectStep3Product(productCard, productId) {
-    const isSelected = productCard.isSelected;
-
-    // Toggle selection
-    productCard.setSelected(!isSelected);
-
-    // Update data
-    if (isSelected) {
-      this.selectedProducts.step3 = this.selectedProducts.step3.filter(item => item.productId !== productId);
-    } else {
-      this.selectedProducts.step3.push({
-        productId: productId,
-        price: productCard.productPrice
-      });
-    }
-
-    this.updateUI();
+    // This method is now handled by Step3ProductCard quantity changes
+    // Keep for backward compatibility but step3 now uses quantity-based selection
+    console.warn('selectStep3Product called - Step 3 now uses quantity-based selection');
   }
 
   openProductPopup(clickedProduct) {
@@ -386,7 +802,7 @@ class PackSelectorComponent extends HTMLElement {
     // Wait for custom element to be defined
     if (!customElements.get('pack-selector-popup') || typeof popup.open !== 'function') {
       console.warn('Pack selector popup component not ready yet, retrying...');
-      setTimeout(() => this.openProductPopup(clickedProduct), 100);
+      setTimeout(() => this.openProductPopup(clickedProduct), DEFAULTS.RETRY_DELAY);
       return;
     }
 
@@ -404,6 +820,7 @@ class PackSelectorComponent extends HTMLElement {
     this.updateSubmitButton();
     this.updateSummaryInfo();
     this.updateAllStep2Cards();
+    this.updateAllStep3Cards();
   }
 
   updateStepAccess() {
@@ -432,6 +849,15 @@ class PackSelectorComponent extends HTMLElement {
     step2Cards.forEach(card => {
       if (card.updateButtonStates) {
         card.updateButtonStates();
+      }
+    });
+  }
+
+  updateAllStep3Cards() {
+    const step3Cards = this.querySelectorAll('product-option-card[data-step="3"]');
+    step3Cards.forEach(card => {
+      if (card.updateQuantityButtonStates) {
+        card.updateQuantityButtonStates();
       }
     });
   }
@@ -472,9 +898,20 @@ class PackSelectorComponent extends HTMLElement {
       buttonText = this.getAttribute('data-text-button-add-to-cart') || 'ADD TO CART';
     } else if (currentStep === 1 || !this.selectedProducts.step1) {
       buttonText = this.getAttribute('data-text-summary-select-your-lio') || 'SELECT YOUR LIO';
-    } else if ( remainingFlavors > 0) {
+    } else if (remainingFlavors > 0) {
       const minText = this.getAttribute('data-text-select-minimum-flavors') || 'Select minimum {count} flavors';
-      buttonText = minText.replace('{count}', remainingFlavors);
+
+      if (this.minFlavors === PACK_LIMITS.SIX_BAGS_MIN) {
+        buttonText = minText.replace('{count}', String(PACK_LIMITS.SIX_BAGS_MIN));
+      } else if (this.minFlavors === PACK_LIMITS.THREE_BAGS_MIN) {
+        buttonText = minText.replace('{count}', String(PACK_LIMITS.THREE_BAGS_MIN));
+      } else {
+        buttonText = minText.replace('{count}', remainingFlavors);
+      }
+
+      if (remainingFlavors !== this.minFlavors) {
+        buttonText = minText.replace('{count}', remainingFlavors);
+      }
     }
 
     this.submitButton.textContent = buttonText;
@@ -498,10 +935,10 @@ class PackSelectorComponent extends HTMLElement {
         parent_id: parentId,
         properties: { _bundle_id: bundleId }
       })),
-      // Accessories
-      ...this.selectedProducts.step3.map(item => ({
-        id: item.productId,
-        quantity: 1,
+      // Accessories with quantities
+      ...Object.entries(this.selectedProducts.step3).map(([id, item]) => ({
+        id,
+        quantity: item.quantity,
         parent_id: parentId,
         properties: { _bundle_id: bundleId }
       }))
@@ -545,12 +982,15 @@ class PackSelectorComponent extends HTMLElement {
 
   resetSelections() {
     // Reset data
-    this.selectedProducts = { step1: null, step2: {}, step3: [] };
+    this.selectedProducts = { step1: null, step2: {}, step3: {} };
 
     // Reset all product cards
     this.querySelectorAll('product-option-card, step2-product-card').forEach(card => {
       card.reset();
     });
+
+    // Reset to 3 bags pack
+    this.resetTo3BagsPack();
 
     // Go back to step 1
     this.openStep(1);
@@ -558,6 +998,20 @@ class PackSelectorComponent extends HTMLElement {
     // Update UI with reset flag
     this.updateUI();
     this.updateSubmitButton(true);
+  }
+
+  /**
+   * Resets the pack selector to default 3 bags pack
+   */
+  resetTo3BagsPack() {
+    const threeBagsSelector = this.querySelector(SELECTORS.THREE_BAGS_PACK);
+    if (threeBagsSelector) {
+      const input = threeBagsSelector.querySelector(SELECTORS.PACK_RADIO);
+      if (input) {
+        input.checked = true;
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    }
   }
 
   getTotalFlavors() {
@@ -579,21 +1033,25 @@ class PackSelectorComponent extends HTMLElement {
 
   updateSummaryInfo() {
     const hasStep1Selection = !!this.selectedProducts.step1;
-    
+
     this.classList.toggle('has-step1-selection', hasStep1Selection);
-    
+
     // Update selected Lio title
-    const lioElement = this.querySelector('.js-selected-lio');
+    const lioElement = this.querySelectorAll('.js-selected-lio');
     if (lioElement && hasStep1Selection) {
       const selectedOption = this.querySelector(`product-option-card[data-step="1"][data-product-id="${this.selectedProducts.step1.productId}"]`);
       if (selectedOption) {
         const title = selectedOption.getAttribute('data-product-title') || selectedOption.querySelector('p')?.textContent?.trim() || '';
-        lioElement.textContent = title;
+        lioElement.forEach(element => {
+          element.textContent = title;
+        });
       }
     } else if (lioElement) {
-      lioElement.textContent = '';
+      lioElement.forEach(element => {
+        element.textContent = '';
+      });
     }
-    
+
     // Calculate and update total price
     const totalPriceElement = this.querySelector('.js-selected-total-price');
     if (totalPriceElement) {
@@ -609,22 +1067,22 @@ class PackSelectorComponent extends HTMLElement {
 
   calculateTotalPrice() {
     let total = 0;
-    
+
     // Step 1 price (Lio)
     if (this.selectedProducts.step1) {
       total += this.selectedProducts.step1.price;
     }
-    
+
     // Step 2 prices (Flavors with quantities)
     Object.values(this.selectedProducts.step2).forEach(item => {
       total += item.price * item.quantity;
     });
-    
-    // Step 3 prices (Accessories)
-    this.selectedProducts.step3.forEach(item => {
-      total += item.price;
+
+    // Step 3 prices (Accessories with quantities)
+    Object.values(this.selectedProducts.step3).forEach(item => {
+      total += item.price * item.quantity;
     });
-    
+
     return total;
   }
 
@@ -642,32 +1100,26 @@ class PackSelectorComponent extends HTMLElement {
   }
 }
 
+
 // Register custom elements
 customElements.define('product-option-card', ProductOptionCard);
 customElements.define('step2-product-card', Step2ProductCard);
 customElements.define('pack-selector-component', PackSelectorComponent);
 
-let firstChange = true;
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const stepRadios = document.querySelectorAll('input[name="pack-step"]');
 
   stepRadios.forEach(radio => {
-    radio.addEventListener('change', function() {
-      // Skip the very first change (initial slide)
-      if (firstChange) {
-        firstChange = false;
-        return;
-      }
-
+    radio.addEventListener('change', function () {
       if (this.checked) {
         setTimeout(() => {
           const stepContent = this.parentElement.querySelector('.step-content');
           if (stepContent) {
-            const yOffset = -200; // scroll 100px up
+            const yOffset = -200; // scroll 200px up
             const y = stepContent.getBoundingClientRect().top + window.pageYOffset + yOffset;
             window.scrollTo({ top: y, behavior: 'smooth' });
           }
-        }, 100);
+        }, DEFAULTS.RETRY_DELAY);
       }
     });
   });

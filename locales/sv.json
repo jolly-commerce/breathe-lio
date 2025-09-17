@@ -471,6 +471,8 @@
     "total_price": "Totalt",
     "savoury": "Söd",
     "throat_hit": "Prodlænd",
-    "sweetness": "Smag"
+    "sweetness": "Smag",
+    "select_flavor": "Välj smak",
+    "close": "Stäng"
   }
 }

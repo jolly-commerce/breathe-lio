@@ -471,6 +471,8 @@
     "total_price": "Totaal",
     "savoury": "Smaakvol",
     "throat_hit": "Provozas",
-    "sweetness": "Smaakvol"
+    "sweetness": "Smaakvol",
+    "select_flavor": "Selecteer smak",
+    "close": "Sluiten"
   }
 }

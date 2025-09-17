@@ -471,6 +471,8 @@
     "total_price": "Итого",
     "savoury": "Сладкая",
     "throat_hit": "Провокационная",
-    "sweetness": "Сладкая"
+    "sweetness": "Сладкая",
+    "select_flavor": "Выберите вкус",
+    "close": "Закрыть"
   }
 }

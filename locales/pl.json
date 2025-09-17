@@ -471,6 +471,8 @@
     "total_price": "Razem",
     "savoury": "Słodki",
     "throat_hit": "Provozas",
-    "sweetness": "Słodki"
+    "sweetness": "Słodki",
+    "select_flavor": "Wybierz smak",
+    "close": "Zamknij"
   }
 }

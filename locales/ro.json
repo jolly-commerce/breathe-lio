@@ -471,6 +471,8 @@
     "total_price": "Total",
     "savoury": "Slan",
     "throat_hit": "Provoljno",
-    "sweetness": "Sladko"
+    "sweetness": "Sladko",
+    "select_flavor": "Selectează aromă",
+    "close": "Închide"
   }
 }

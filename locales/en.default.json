@@ -472,6 +472,8 @@
     "total_price": "Total",
     "savoury": "Savoury",
     "throat_hit": "Throat hit",
-    "sweetness": "Sweetness"
+    "sweetness": "Sweetness",
+    "select_flavor": "Select flavor",
+    "close": "Close"
   }
 }

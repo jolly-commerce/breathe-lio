@@ -16,7 +16,6 @@
   - product-main-info-tabs
   - product-main-sticky-atc
 {% endcomment %}
-
 {% style %}
   .background-{{ section.id }} {
     background: {{ section.settings.background }};
@@ -35,11 +34,7 @@
   }
 {% endstyle %}
 
-{%- # ! PRODUCT FORM ID -%}
 {%- assign product_form_id = 'product-form-' | append: section.id | append: '-' | append: product.id -%}
-
-{%- # Sticky ATC block -%}
-{% assign sticky_atc = section.blocks | where: 'type', 'sticky_atc' | first %}
 {%- assign pack_selector_block = section.blocks | where: 'type', 'pack_selector' | first -%}
 
 {% # Page url %}
@@ -59,7 +54,7 @@
 
 <div class="background-{{ section.id }} jc-overflow-hidden lg:jc-overflow-visible">
   <div class="jc-container paddings-{{ section.id }}">
-    <div class="lg:jc-flex-row lg:jc-gap-10 jc-relative jc-flex jc-flex-col jc-gap-4">
+    <div class="lg:jc-flex-row jc-gap-10 xl:jc-gap-20 jc-relative jc-flex jc-flex-col">
       {%- # Gallery -%}
 
       <div class="jc-basis-full lg:jc-basis-1/2 jc-min-w-0">
@@ -73,6 +68,17 @@
           <div>
             {%- for block in section.blocks -%}
               {%- case block.type -%}
+                {%- when '@app' -%}
+                  <div class="[&_.loox-rating-label]:jc-underline jc-mb-4 [&_.loox-rating-label]:!jc-ml-4 [&_.loox-rating-label]:!jc-text-sm [&_.loox-rating-label]:lg:!jc-text-base
+                     [&_.loox-rating-label]:!jc-leading-4 [&_.loox-rating-label]:lg:!jc-leading-5 [&_.loox-icon]:!jc-size-5">
+                    {% render block %}
+                  </div>
+                {%- when 'description' -%}
+                  {%- if product.description != blank -%}
+                    <div class="jc-font-poppins jc-font-normal jc-text-base jc-leading-6">
+                      {{- product.description -}}
+                    </div>
+                  {%- endif -%}
                 {%- when 'tagline' -%}
                   {%- if block.settings.tagline != blank -%}
                     <p class="jc-uppercase jc-text-xs jc-font-semibold jc-leading-4 jc-mb-4">
@@ -81,7 +87,7 @@
                   {%- endif -%}
                 {%- when 'title' -%}
                   {%- if product.title != blank -%}
-                    <h1 class="jc-text-7xl jc-leading-12 lg:jc-text-9xl lg:jc-leading-14 jc-font-bold">
+                    <h1 class="jc-text-7xl jc-leading-11 lg:jc-text-[46px] lg:jc-leading-13 jc-font-normal jc-font-sigumL jc-uppercase">
                       {{- product.title -}}
                     </h1>
                   {%- endif -%}
@@ -92,23 +98,6 @@
           {%- # Product blocks -%}
           {%- for block in section.blocks -%}
             {%- case block.type -%}
-              {%- when 'description' -%}
-                {%- if product.description != blank -%}
-                  <div class="jc-text-md jc-leading-8">
-                    {{- product.description -}}
-                  </div>
-                {%- endif -%}
-              {%- when 'price' -%}
-                {%- render 'g-price-block',
-                  quantity_update: false,
-                  show_sale_badge: block.settings.show_sale_badge,
-                  product_form_id: product_form_id,
-                  class: 'jc-text-3xl jc-leading-8 jc-gap-4'
-                -%}
-              {%- when 'buy_buttons' -%}
-                {%- render 'product-main-buy-buttons', root: block, product_form_id: product_form_id -%}
-              {%- when 'accordion' -%}
-                {%- render 'product-main-accordion', root: block -%}
               {%- when 'pack_selector' -%}
                 {%- render 'product-main-pack-selector', root: block -%}
               {%- when 'delivery_info' -%}
@@ -120,16 +109,6 @@
     </div>
   </div>
 </div>
-
-
-{%- # Render of sticky add to cart -%}
-{% if sticky_atc != blank %}
-  {% render 'product-main-sticky-atc', root: sticky_atc, product_form_id: product_form_id %}
-{% endif %}
-
-{% if gallery_block.settings.enable_lightbox %}
-  {% render 'product-main-gallery-lightbox', root: gallery_block %}
-{% endif %}
 
 {%- if pack_selector_block != blank -%}
   {% assign step_2_products = pack_selector_block.settings.step_2_packs %}
@@ -260,16 +239,6 @@
             }
           ],
           "default": "swiper"
-        },
-        {
-          "type": "header",
-          "content": "Lightbox"
-        },
-        {
-          "type": "checkbox",
-          "id": "enable_lightbox",
-          "label": "Enable Lightbox",
-          "default": true
         },
         {
           "type": "header",
@@ -507,6 +476,9 @@
       ]
     },
     {
+      "type": "@app"
+    },
+    {
       "type": "accordion",
       "name": "Accordion",
       "limit": 1,
@@ -605,6 +577,57 @@
         },
         {
           "type": "header",
+          "content": "Pack selectors"
+        },
+        {
+          "type": "header",
+          "content": "Pack 1"
+        },
+        {
+          "type": "text",
+          "id": "step_2_1_title",
+          "label": "Title",
+          "default": "3 bags"
+        },
+        {
+          "type": "text",
+          "id": "step_2_1_discount",
+          "label": "Discount"
+        },
+        {
+          "type": "header",
+          "content": "Pack 2"
+        },
+        {
+          "type": "text",
+          "id": "step_2_2_title",
+          "label": "Title",
+          "default": "6 bags"
+        },
+        {
+          "type": "text",
+          "id": "step_2_2_discount",
+          "label": "Discount",
+          "default": "10% OFF"
+        },
+        {
+          "type": "header",
+          "content": "Pack 3"
+        },
+        {
+          "type": "text",
+          "id": "step_2_3_title",
+          "label": "Title",
+          "default": "Complete"
+        },
+        {
+          "type": "text",
+          "id": "step_2_3_discount",
+          "label": "Discount",
+          "default": "15% OFF"
+        },
+        {
+          "type": "header",
           "content": "Step 3"
         },
         {
@@ -638,19 +661,23 @@
           "type": "richtext",
           "id": "subscribe_and_save_description",
           "label": "Subscribe and save description",
-          "default": "<p>Enjoy automatic refills delivered just when you need them. Stay stocked, in control, and worry-free.</p>"
+          "default": "<p>NEVER RUN OUT OF CORES</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "subscribe_3_packs",
+          "label": "3 packs description"
+        },
+        {
+          "type": "richtext",
+          "id": "subscribe_6_packs",
+          "label": "6 packs description"
         },
         {
           "type": "text",
           "id": "subscribe_and_save_subtitle",
           "label": "Subscribe and save tag",
-          "default": "Extra 20% Off"
-        },
-        {
-          "type": "text",
-          "id": "subscribe_and_save_benefits_title",
-          "label": "Subscribe and save benefits title",
-          "default": "Repeats monthly"
+          "default": "Extra 30% Off"
         },
         {
           "type": "header",
@@ -666,7 +693,7 @@
           "type": "richtext",
           "id": "one_time_purchase_description",
           "label": "One-time purchase description",
-          "default": "<p>Pay the full price today, without the savings or convenience of automatic refills.</p>"
+          "default": "<p>NEVER RUN OUT OF CORES</p>"
         },
         {
           "type": "text",
@@ -679,30 +706,45 @@
           "content": "Benefits features"
         },
         {
-          "type": "text",
+          "type": "richtext",
+          "id": "subscribe_and_save_benefits_description",
+          "label": "Subscribe and save benefits title"
+        },
+        {
+          "type": "image_picker",
+          "id": "subscribe_and_save_benefits_image",
+          "label": "Subscribe and save benefits image"
+        },
+        {
+          "type": "richtext",
           "id": "benefits_features_title_1",
-          "label": "Benefits features title 1",
-          "default": "Save 20% Extra Monthly"
+          "label": "Benefits features title 1"
         },
         {
-          "type": "text",
+          "type": "image_picker",
+          "id": "benefits_features_image_1",
+          "label": "Benefits features image 1"
+        },
+        {
+          "type": "richtext",
           "id": "benefits_features_title_2",
-          "label": "Benefits features title 2",
-          "default": "Free Shipping Monthly"
+          "label": "Benefits features title 2"
         },
         {
-          "type": "text",
+          "type": "image_picker",
+          "id": "benefits_features_image_2",
+          "label": "Benefits features image 2"
+        },
+        {
+          "type": "richtext",
           "id": "benefits_features_title_3",
-          "label": "Benefits features title 3",
-          "default": "Convenient, scheduled delivery"
+          "label": "Benefits features title 3"
         },
         {
-          "type": "text",
-          "id": "benefits_features_title_4",
-          "label": "Benefits features title 4",
-          "default": "Swap flavors or cancel any time"
-        },
-
+          "type": "image_picker",
+          "id": "benefits_features_image_3",
+          "label": "Benefits features image 3"
+        }
       ]
     },
     {
@@ -728,7 +770,7 @@
           "type": "text",
           "id": "delivery_info_title_1",
           "label": "Title 1",
-          "default": "Didn't quit in 30 Days? Money Back!"
+          "default": "30-Days Risk Free"
         },
         {
           "type": "image_picker",
@@ -750,9 +792,23 @@
           "id": "delivery_info_image_2",
           "label": "Image 2"
         },
+        {
+          "type": "header",
+          "content": "Title 3"
+        },
+        {
+          "type": "text",
+          "id": "delivery_info_title_3",
+          "label": "Title 3",
+          "default": "Made in Amsterdam"
+        },
+        {
+          "type": "image_picker",
+          "id": "delivery_info_image_3",
+          "label": "Image 3"
+        }
       ]
     }
-
   ],
   "presets": [
     {
@@ -772,6 +828,9 @@
         },
         {
           "type": "gallery"
+        },
+        {
+          "type": "delivery_info"
         }
       ]
     }

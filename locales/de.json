@@ -471,6 +471,8 @@
     "total_price": "Summe",
     "savoury": "Salzig",
     "throat_hit": "Rostig",
-    "sweetness": "Süß"
+    "sweetness": "Süß",
+    "select_flavor": "Geschmack auswählen",
+    "close": "Schließen"
   }
 }

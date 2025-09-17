@@ -471,6 +471,8 @@
     "total_price": "Celkem",
     "savoury": "Slaná",
     "throat_hit": "Prohloušený chuť",
-    "sweetness": "Sladká"
+    "sweetness": "Sladká",
+    "select_flavor": "Vybrat příchuť",
+    "close": "Zavřít"
   }
 }

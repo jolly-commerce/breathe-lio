@@ -471,6 +471,8 @@
     "total_price": "Kopā",
     "savoury": "Garšas",
     "throat_hit": "Garšas",
-    "sweetness": "Garšas"
+    "sweetness": "Garšas",
+    "select_flavor": "Izvēlies garšu",
+    "close": "Aizvērt"
   }
 }

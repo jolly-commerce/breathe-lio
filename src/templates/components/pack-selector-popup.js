@@ -17,7 +17,7 @@ class PackSelectorPopup extends HTMLElement {
 
   initializeEventListeners() {
     // Close button
-    this.querySelector('.js-popup-close')?.addEventListener('click', () => this.close());
+    this.querySelectorAll('.js-popup-close')?.forEach(button => button.addEventListener('click', () => this.close()));
 
     // Overlay click to close
     this.querySelector('.js-popup-overlay')?.addEventListener('click', (e) => {

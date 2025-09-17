@@ -12,6 +12,21 @@
     "product_main_LVy3Rh": {
       "type": "product-main",
       "blocks": {
+        "loox_reviews_loox_rating_Erpg4P": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-rating/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "contentSize": 16,
+            "pattern": "[rating]/5 based on [count]+ reviews",
+            "hideText": false,
+            "alignment": "",
+            "layout": "",
+            "textColor": "",
+            "starColor": "",
+            "showAllReviews": false,
+            "looxOpenFloatingWidget": false,
+            "emptyRatingWidget": false
+          }
+        },
         "title_XpNyBV": {
           "type": "title",
           "settings": {}
@@ -29,7 +44,7 @@
             "arrows_position_mob": "center",
             "enable_arrows_dsk": true,
             "enable_arrows_mob": true,
-            "thumbnails_position_dsk": "bottom",
+            "thumbnails_position_dsk": "left",
             "thumbnails_position_mob": "bottom",
             "enable_thumbnails_dsk": true,
             "enable_thumbnails_mob": true,
@@ -63,20 +78,56 @@
               "minty-magic-30-days",
               "lio®-minty-magic"
             ],
+            "step_2_1_title": "3 bags",
+            "step_2_1_discount": "",
+            "step_2_2_title": "6 bags",
+            "step_2_2_discount": "10% OFF",
+            "step_2_3_title": "Complete",
+            "step_2_3_discount": "15% OFF",
             "step_3_title": "Step 3:",
             "step_3_subtitle": "Select your accessories",
             "step_3_packs": [
               "fathers-day-gift-card",
               "dutch-product"
-            ]
+            ],
+            "subscribe_and_save_title": "SUBSCRIBE AND SAVE",
+            "subscribe_and_save_description": "<p>NEVER RUN OUT OF CORES</p>",
+            "subscribe_3_packs": "<p>3x flavors - €30 <strong>€21 / month</strong></p>",
+            "subscribe_6_packs": "<p>6x flavors - €60 <strong>€42 / month</strong></p>",
+            "subscribe_and_save_subtitle": "Extra 30% Off",
+            "one_time_purchase_title": "One-time purchase",
+            "one_time_purchase_description": "<p>NEVER RUN OUT OF CORES</p>",
+            "one_time_purchase_benefits_title": "One-time purchase",
+            "subscribe_and_save_benefits_description": "<p>Repeats monthly. Swap out flavors every month or keep the same ones. Cancel at any time.</p>",
+            "subscribe_and_save_benefits_image": "shopify://shop_images/subscribe_image.png",
+            "benefits_features_title_1": "<p><strong>Save 30% Extra<br/></strong>Monthly</p>",
+            "benefits_features_image_1": "shopify://shop_images/discount_icon_2fbffa11-c282-462e-81e2-9b8025ee825d.svg",
+            "benefits_features_title_2": "<p><strong>Free Shipping<br/></strong>Monthly</p>",
+            "benefits_features_image_2": "shopify://shop_images/package_delivered_icon_e0289af7-a8ca-4499-9296-23b268b539c1.svg",
+            "benefits_features_title_3": "<p><strong>Swap Flavors<br/></strong>Anytime</p>",
+            "benefits_features_image_3": "shopify://shop_images/repeat_icon_a9e21300-2a9c-406c-9808-4ea4b51a8bfe.svg"
+          }
+        },
+        "delivery_info_Ygz7Ct": {
+          "type": "delivery_info",
+          "settings": {
+            "enable_card_payment": true,
+            "delivery_info_title_1": "30-Days Risk Free",
+            "delivery_info_image_1": "shopify://shop_images/shield_icon_6923ce0a-c9f3-4fec-8a99-ff0485796347.svg",
+            "delivery_info_title_2": "Free & Fast Shipping",
+            "delivery_info_image_2": "shopify://shop_images/box_icon_65b084b8-1689-4674-8cf0-2372d10c69c7.svg",
+            "delivery_info_title_3": "Made in Amsterdam",
+            "delivery_info_image_3": "shopify://shop_images/country_icon_4245709a-b41f-428a-88bb-6be95e4c4e08.svg"
           }
         }
       },
       "block_order": [
+        "loox_reviews_loox_rating_Erpg4P",
         "title_XpNyBV",
         "description_i7UWTA",
         "gallery_eRBj96",
-        "pack_selector_YtXxRx"
+        "pack_selector_YtXxRx",
+        "delivery_info_Ygz7Ct"
       ],
       "name": "Product Main",
       "settings": {

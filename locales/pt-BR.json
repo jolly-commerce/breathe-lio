@@ -471,6 +471,8 @@
     "total_price": "Total",
     "savoury": "Salado",
     "throat_hit": "Reblandado",
-    "sweetness": "Doce"
+    "sweetness": "Doce",
+    "select_flavor": "Selecionar sabor",
+    "close": "Fechar"
   }
 }

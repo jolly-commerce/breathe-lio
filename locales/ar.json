@@ -471,6 +471,8 @@
     "total_price": "المجموع",
     "savoury": "حلو",
     "throat_hit": "حلو",
-    "sweetness": "حلو"
+    "sweetness": "حلو",
+    "select_flavor": "اختر النكهة",
+    "close": "إغلاق"
   }
 }

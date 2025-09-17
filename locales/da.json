@@ -471,6 +471,8 @@
     "total_price": "I alt",
     "savoury": "Sød",
     "throat_hit": "Prodlænd",
-    "sweetness": "Smag"
+    "sweetness": "Smag",
+    "select_flavor": "Vælg smag",
+    "close": "Luk"
   }
 }

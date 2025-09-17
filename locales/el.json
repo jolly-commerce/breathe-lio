@@ -471,6 +471,8 @@
     "total_price": "Σύνολο",
     "savoury": "Νοστιμάτα",
     "throat_hit": "Μαύρο",
-    "sweetness": "Γλυκά"
+    "sweetness": "Γλυκά",
+    "select_flavor": "Επιλογή γεύσης",
+    "close": "Κλείσιμο"
   }
 }

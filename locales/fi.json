@@ -471,6 +471,8 @@
     "total_price": "Yhteensä",
     "savoury": "Munuaiset",
     "throat_hit": "Lujennetut munuaiset",
-    "sweetness": "Munuaiset"
+    "sweetness": "Munuaiset",
+    "select_flavor": "Valitse maku",
+    "close": "Sulje"
   }
 }

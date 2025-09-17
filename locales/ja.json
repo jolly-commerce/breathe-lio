@@ -471,6 +471,8 @@
     "total_price": "合計",
     "savoury": "甘い",
     "throat_hit": "キリキリ",
-    "sweetness": "甘い"
+    "sweetness": "甘い",
+    "select_flavor": "フレーバーを選択",
+    "close": "閉じる"
   }
 }

@@ -471,6 +471,8 @@
     "total_price": "Iš viso",
     "savoury": "Slanė",
     "throat_hit": "Provozas",
-    "sweetness": "Sladus"
+    "sweetness": "Sladus",
+    "select_flavor": "Pasirinkti skonį",
+    "close": "Užverti"
   }
 }

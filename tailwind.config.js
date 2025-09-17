@@ -21,6 +21,7 @@ module.exports = {
         munsell: "#00B67C",
         britishRacingGreen: "#004631",
         amazon: "#3C6B59",
+        mintCream: "#f5fff7",
         green: {
           50: "#dcfce7",
           100: "#d1fae5",

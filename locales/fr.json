@@ -471,6 +471,8 @@
     "total_price": "Total",
     "savoury": "Salé",
     "throat_hit": "Rosti",
-    "sweetness": "Sucré"
+    "sweetness": "Sucré",
+    "select_flavor": "Sélectionner le goût",
+    "close": "Fermer"
   }
 }

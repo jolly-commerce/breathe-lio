@@ -1,28 +1,27 @@
 <div class="jc-flex jc-flex-col jc-gap-8 -jc-mt-2">
-  <div class="jc-flex jc-flex-col jc-gap-4">
-    {%- for i in (1..2) -%}
+  <div class="jc-flex jc-flex-row jc-gap-2 jc-flex-wrap jc-justify-center">
+    {%- for i in (1..3) -%}
       {%- if root.settings.delivery_info_title_1 != blank -%}
         {%- assign title = 'delivery_info_title_' | append: i -%}
         {%- assign image = 'delivery_info_image_' | append: i -%}
         {%- if root.settings[image] != blank or root.settings[title] != blank -%}
-          <div class="jc-flex jc-gap-2.5 jc-items-center jc-justify-center ">
+          <div class="jc-flex jc-gap-2 jc-items-center jc-justify-center jc-px-2 lg:jc-px-3 jc-py-1.5 jc-border jc-border-solid jc-border-munsell jc-rounded-xs">
             {%- if root.settings[image] != blank -%}
-              <div class="jc-w-7.5 jc-h-7.5 jc-aspect-square">
+              <div class="jc-w-5 jc-h-5 jc-aspect-square">
                 {%
                   render 'g-render-image',
                   class: 'jc-w-full jc-h-full jc-object-cover',
-                  img_src: root.settings[image] | image_url: width: 30, height: 30,
+                  img_src: root.settings[image] | image_url: width: 20, height: 20,
                   img: root.settings[image],
-                  size: '60',
                   alt: root.settings[title],
-                  width: '30',
-                  height: '30',
+                  width: '20',
+                  height: '20',
                   loading: 'lazy'
                 %}
               </div>
             {%- endif -%}
             {%- if root.settings[title] != blank -%}
-              <p class="jc-font-poppins jc-text-sm lg:jc-text-md jc-leading-5 jc-font-normal jc-text-britishRacingGreen">
+              <p class="jc-font-poppins jc-text-xs lg:jc-text-base jc-leading-4 lg:jc-leading-5 jc-font-normal jc-text-britishRacingGreen">
                 {{ root.settings[title] }}
               </p>
             {%- endif -%}

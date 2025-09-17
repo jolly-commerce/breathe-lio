@@ -33,6 +33,12 @@
       navigation-prev-el=".step2-nav-button-prev"
     >
       {%- for product in step_2_products -%}
+        {% style %}
+          body:has(step2-product-card[data-product-id="{{ product.first_available_variant.id }}"]):has(.js-btn-plus.is-disabled) .jc-popup-add-to-bundle[data-product-id="{{ product.first_available_variant.id }}"] {
+            pointer-events: none;
+            opacity: 0.7;
+          }
+          {% endstyle %}
         <swiper-slide
           style="
             --bg-color: {{ product.metafields.jolly_meta.background_color | default: '#ffffff' }}30;
@@ -58,7 +64,7 @@
             </div>
 
             <!-- Product Title -->
-            <p class="jc-w-full jc-text-center jc-font-sigumL jc-leading-10 jc-text-5xl jc-font-normal jc-text-britishRacingGreen">
+            <p class="jc-w-full jc-text-center jc-font-sigumL jc-leading-10 jc-text-5xl jc-font-normal jc-text-britishRacingGreen jc-uppercase">
               {{ product.title }}
             </p>
 
@@ -106,16 +112,30 @@
             {%- endif -%}
 
             <!-- Add to Bundle Button -->
-            <button
-              class="
-                js-add-to-bundle jc-mt-auto jc-w-full jc-text-center jc-py-2.5 jc-border jc-border-britishRacingGreen jc-rounded-mxs jc-uppercase
-                jc-transition-all jc-text-xxs lg:jc-text-xs jc-leading-4 jc-font-semibold jc-text-britishRacingGreen
-                [&:disabled]:jc-opacity-50 [&:disabled]:jc-pointer-events-none [&:disabled]:jc-cursor-not-allowed
-                hover:jc-bg-munsell hover:jc-text-white jc-shadow-pack-selector-green
-              "
-            >
-              {{ 'bundle_pack.button_add' | t }}
-            </button>
+            <div class="jc-flex jc-gap-4 jc-mt-auto">
+              <button
+                data-product-id="{{ product.first_available_variant.id }}"
+                class="
+                  js-add-to-bundle jc-popup-add-to-bundle jc-mt-auto jc-w-full jc-text-center jc-py-2.5 jc-border jc-border-britishRacingGreen jc-rounded-mxs jc-uppercase
+                  jc-transition-all jc-text-xxs lg:jc-text-xs jc-leading-4 jc-font-semibold jc-text-white 
+                  [&:disabled]:jc-opacity-50 [&:disabled]:jc-pointer-events-none [&:disabled]:jc-cursor-not-allowed
+                  jc-bg-munsell hover:jc-opacity-80 jc-shadow-pack-selector-green jc-shrink
+                "
+              >
+                {{ 'bundle_pack.select_flavor' | t }}
+              </button>
+              <button
+                class="
+                  js-popup-close jc-px-4
+                  jc-mt-auto jc-text-center jc-py-2.5 jc-border jc-border-britishRacingGreen jc-rounded-mxs jc-uppercase
+                  jc-transition-all jc-text-xxs lg:jc-text-xs jc-leading-4 jc-font-semibold jc-text-britishRacingGreen
+                  [&:disabled]:jc-opacity-50 [&:disabled]:jc-pointer-events-none [&:disabled]:jc-cursor-not-allowed
+                  jc-bg-mintCream hover:jc-bg-munsell hover:jc-text-white jc-shadow-pack-selector-green jc-w-fit
+                "
+              >
+                {{ 'bundle_pack.close' | t }}
+              </button>
+            </div>
           </div>
         </swiper-slide>
       {%- endfor -%}
@@ -124,13 +144,13 @@
           part="button-prev"
           class="swiper-button-prev step2-nav-button-prev after:!jc-content-[''] !jc-top-1/4 !jc-left-5"
         >
-          {% render 'g-render-icon', icon: 'fat-chevron-down', class: 'jc-w-full jc-h-full jc-rotate-90' %}
+          {% render 'g-render-icon', icon: 'green-chevron-left', class: 'jc-w-full jc-h-full' %}
         </div>
         <div
           part="button-next"
           class="swiper-button-next step2-nav-button-next after:!jc-content-[''] !jc-top-1/4 !jc-right-5"
         >
-          {% render 'g-render-icon', icon: 'fat-chevron-down', class: 'jc-w-full jc-h-full -jc-rotate-90' %}
+          {% render 'g-render-icon', icon: 'green-chevron-right', class: 'jc-w-full jc-h-full' %}
         </div>
       </div>
     </swiper-container>

@@ -471,6 +471,8 @@
     "total_price": "합계",
     "savoury": "맛있는",
     "throat_hit": "맛있는",
-    "sweetness": "맛있는"
+    "sweetness": "맛있는",
+    "select_flavor": "맛 선택",
+    "close": "닫기"
   }
 }

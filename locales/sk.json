@@ -471,6 +471,8 @@
     "total_price": "Celkom",
     "savoury": "Slaná",
     "throat_hit": "Prohloušený chuť",
-    "sweetness": "Sladká"
+    "sweetness": "Sladká",
+    "select_flavor": "Vyberte príchuť",
+    "close": "Zavrieť"
   }
 }

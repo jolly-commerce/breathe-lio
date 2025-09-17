@@ -471,6 +471,8 @@
     "total_price": "Разом",
     "savoury": "Смаки",
     "throat_hit": "Смаки",
-    "sweetness": "Смаки"
+    "sweetness": "Смаки",
+    "select_flavor": "Обрати смак",
+    "close": "Закрити"
   }
 }
