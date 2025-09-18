@@ -13,7 +13,7 @@
   pack-selector-component .pack-selector-step input.step-toggle:checked ~ .step-content {
     display: block;
   }
-  pack-selector-component .pack-selector-step input.step-toggle:checked ~ .jc-selected-lio{
+  pack-selector-component .pack-selector-step input.step-toggle:checked ~ .jc-selected-step-title{
     display: none;
   }
 
@@ -120,7 +120,7 @@
           class: 'jc-w-6 jc-h-6 jc-transition-transform step-arrow'
         %}
       </label>
-      <div class="js-selected-lio jc-selected-lio jc-mt-1 jc-font-poppins jc-leading-5 jc-text-sm jc-font-normal jc-text-amazon empty:jc-hidden"></div> 
+      <div class="js-selected-lio jc-selected-step-title jc-mt-1 jc-font-poppins jc-leading-5 jc-text-sm jc-font-normal jc-text-amazon empty:jc-hidden"></div> 
 
       <div class="step-content" data-content="step-1">
         <div class="jc-grid jc-grid-cols-2 xl:jc-grid-cols-3 jc-gap-2 jc-mt-4">
@@ -203,7 +203,7 @@
   {%- # Step 2: Select Your Flavors -%}
   {%- if root.settings.step_2_title != blank and root.settings.step_2_packs != blank -%}
     <div
-      class="pack-selector-step step-disabled jc-mt-8 [&.step-disabled]:jc-pointer-events-none [&.step-disabled]:jc-opacity-50 [&.step-disabled]:jc-cursor-not-allowe"
+      class="pack-selector-step step-disabled jc-mt-8 [&.step-disabled]:jc-pointer-events-none [&.step-disabled]:jc-opacity-50 [&.step-disabled]:jc-cursor-not-allowe [&.step-disabled_.jc-selected-step-title]:jc-hidden"
       data-step="2"
       data-step-number="2"
     >
@@ -225,6 +225,7 @@
           class: 'jc-w-6 jc-h-6 jc-transition-transform step-arrow'
         %}
       </label>
+      <div class="js-selected-pack-plan jc-selected-step-title jc-mt-1 jc-font-poppins jc-leading-5 jc-text-sm jc-font-normal jc-text-amazon empty:jc-hidden"></div> 
 
       <div class="step-content" data-content="step-2">
         {% render 'pack-selectors', root: root %}
@@ -324,7 +325,7 @@
   {%- # Step 3: Select Accessories -%}
   {%- if root.settings.step_3_title != blank and root.settings.step_3_packs != blank -%}
     <div
-      class="pack-selector-step step-disabled jc-mt-8 [&.step-disabled]:jc-pointer-events-none [&.step-disabled]:jc-opacity-50 [&.step-disabled]:jc-cursor-not-allowed"
+      class="pack-selector-step step-disabled jc-mt-8 [&.step-disabled]:jc-pointer-events-none [&.step-disabled]:jc-opacity-50 [&.step-disabled]:jc-cursor-not-allowed [&.step-disabled_.jc-selected-step-title]:jc-hidden"
       data-step="3"
       data-step-number="3"
     >

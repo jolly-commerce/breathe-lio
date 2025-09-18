@@ -543,7 +543,7 @@ class PackSelectorComponent extends HTMLElement {
     this.submitButton = this.querySelector('#pack-selector-submit');
     this.flavorCounter = this.querySelector('.js-flavor-counter');
     this.flavorMax = this.querySelector('[data-role="flavor-max"]');
-    this.cartDrawer = document.querySelector('#cart-drawer');
+    this.selectedPackPlan = this.querySelector('.js-selected-pack-plan');
 
     this.init();
   }
@@ -552,7 +552,10 @@ class PackSelectorComponent extends HTMLElement {
     this.initializeEventListeners();
     this.initializeStepRadios();
     this.initializePackSelectors();
+    this.initializePurchaseTypeListeners();
     this.updateUI();
+    // Initialize pack plan display
+    setTimeout(() => this.updateSelectedPackPlan(), 0);
   }
 
   initializeEventListeners() {
@@ -657,6 +660,16 @@ class PackSelectorComponent extends HTMLElement {
     });
   }
 
+  initializePurchaseTypeListeners() {
+    // Listen for purchase type changes (subscribe vs one-time)
+    const purchaseTypeRadios = document.querySelectorAll('input[name="purchase_type"]');
+    purchaseTypeRadios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        this.updateSelectedPackPlan();
+      });
+    });
+  }
+
   handlePackChange(selector) {
     const maxFlavors = parseInt(selector.getAttribute('data-max-flavors')) || 6;
     const isComplete = selector.getAttribute('data-complete-pack') === 'true';
@@ -692,6 +705,7 @@ class PackSelectorComponent extends HTMLElement {
     // Clear flag for preserving selections
     delete selector.dataset.preserveSelections;
     this.updateUI();
+    this.updateSelectedPackPlan();
   }
 
   resetStep2Selections() {
@@ -922,27 +936,40 @@ class PackSelectorComponent extends HTMLElement {
     if (!this.selectedProducts.step1 || this.getTotalFlavors() < this.minFlavors) return;
 
     const parentId = this.selectedProducts.step1.productId;
-    const bundleId = this.generateBundleId();
-
-    // Build cart items
     const items = [
       // Parent item (LIO)
-      { id: parentId, quantity: 1, properties: { _bundle_id: bundleId } },
+      { id: parentId, quantity: 1 },
       // Flavors
       ...Object.entries(this.selectedProducts.step2).map(([id, item]) => ({
         id,
-        quantity: item.quantity,
-        parent_id: parentId,
-        properties: { _bundle_id: bundleId }
+        quantity: item.quantity
       })),
       // Accessories with quantities
       ...Object.entries(this.selectedProducts.step3).map(([id, item]) => ({
         id,
-        quantity: item.quantity,
-        parent_id: parentId,
-        properties: { _bundle_id: bundleId }
+        quantity: item.quantity
       }))
     ];
+    // Build cart items for parent and children relationships
+    // const bundleId = this.generateBundleId();
+    // const items = [
+    //   // Parent item (LIO)
+    //   { id: parentId, quantity: 1, properties: { _bundle_id: bundleId } },
+    //   // Flavors
+    //   ...Object.entries(this.selectedProducts.step2).map(([id, item]) => ({
+    //     id,
+    //     quantity: item.quantity,
+    //     parent_id: parentId, // Commented out - no parent/child relationship
+    //     properties: { _bundle_id: bundleId }
+    //   })),
+    //   // Accessories with quantities
+    //   ...Object.entries(this.selectedProducts.step3).map(([id, item]) => ({
+    //     id,
+    //     quantity: item.quantity,
+    //     parent_id: parentId, // Commented out - no parent/child relationship
+    //     properties: { _bundle_id: bundleId }
+    //   }))
+    // ];
 
     try {
       this.setSubmitButtonLoading(true);
@@ -954,8 +981,9 @@ class PackSelectorComponent extends HTMLElement {
       });
 
       if (response.ok) {
-        await this.cartDrawerToggle();
         this.resetSelections();
+        // Redirect to checkout instead of opening cart drawer
+        window.location.href = '/checkout';
       }
     } catch (error) {
       console.error('Cart add error:', error);
@@ -964,21 +992,22 @@ class PackSelectorComponent extends HTMLElement {
     }
   }
 
-  async cartDrawerToggle() {
-    if (this.cartDrawer?._onCartRefresh) {
-      await this.cartDrawer._onCartRefresh();
-      await this.cartDrawer.show?.();
-    } else {
-      document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
-      document.documentElement.dispatchEvent(new CustomEvent('instant:add-to-cart'));
-    }
-  }
+  // Commented out - now redirecting to checkout instead of showing cart drawer
+  // async cartDrawerToggle() {
+  //   if (this.cartDrawer?._onCartRefresh) {
+  //     await this.cartDrawer._onCartRefresh();
+  //     await this.cartDrawer.show?.();
+  //   } else {
+  //     document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+  //     document.documentElement.dispatchEvent(new CustomEvent('instant:add-to-cart'));
+  //   }
+  // }
 
-  generateBundleId() {
-    const ts = Date.now().toString(36);
-    const rnd = Math.random().toString(36).slice(2, 8);
-    return `b-${ts}-${rnd}`;
-  }
+  // generateBundleId() {
+  //   const ts = Date.now().toString(36);
+  //   const rnd = Math.random().toString(36).slice(2, 8);
+  //   return `b-${ts}-${rnd}`;
+  // }
 
   resetSelections() {
     // Reset data
@@ -1097,6 +1126,42 @@ class PackSelectorComponent extends HTMLElement {
       this.submitButton.classList.remove('jc-opacity-75');
       this.updateUI();
     }
+  }
+
+  updateSelectedPackPlan() {
+    if (!this.selectedPackPlan) return;
+
+    // Get current pack name
+    const selectedPackSelector = this.querySelector('.js-pack-selector input[name="pack"]:checked');
+    if (!selectedPackSelector) return;
+
+    const packTitle = selectedPackSelector.closest('.js-pack-selector').querySelector('.js-pack-selector-title');
+    const packName = packTitle ? packTitle.textContent.trim() : '';
+
+    // Get current purchase type
+    const selectedPurchaseType = document.querySelector('input[name="purchase_type"]:checked');
+    let planType = '';
+    
+    if (selectedPurchaseType) {
+      const label = document.querySelector(`label[for="${selectedPurchaseType.id}"]`);
+      if (label) {
+        // Extract main text without subtitle
+        const mainText = label.childNodes[0]?.textContent?.trim() || label.textContent.trim();
+        planType = mainText;
+      }
+    }
+
+    // Combine pack name and plan type
+    let displayText = '';
+    if (packName && planType) {
+      displayText = `${packName}, ${planType}`;
+    } else if (packName) {
+      displayText = packName;
+    } else if (planType) {
+      displayText = planType;
+    }
+
+    this.selectedPackPlan.textContent = displayText;
   }
 }
 

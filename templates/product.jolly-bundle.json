@@ -31,6 +31,10 @@
           "type": "title",
           "settings": {}
         },
+        "product_tags_VcJ9U7": {
+          "type": "product_tags",
+          "settings": {}
+        },
         "description_i7UWTA": {
           "type": "description",
           "settings": {}
@@ -39,7 +43,6 @@
           "type": "gallery",
           "settings": {
             "layout_type": "swiper",
-            "enable_lightbox": false,
             "arrows_position_dsk": "center",
             "arrows_position_mob": "center",
             "enable_arrows_dsk": true,
@@ -90,7 +93,7 @@
               "fathers-day-gift-card",
               "dutch-product"
             ],
-            "subscribe_and_save_title": "SUBSCRIBE AND SAVE",
+            "subscribe_and_save_title": "Subscribe and save",
             "subscribe_and_save_description": "<p>NEVER RUN OUT OF CORES</p>",
             "subscribe_3_packs": "<p>3x flavors - €30 <strong>€21 / month</strong></p>",
             "subscribe_6_packs": "<p>6x flavors - €60 <strong>€42 / month</strong></p>",
@@ -124,6 +127,7 @@
       "block_order": [
         "loox_reviews_loox_rating_Erpg4P",
         "title_XpNyBV",
+        "product_tags_VcJ9U7",
         "description_i7UWTA",
         "gallery_eRBj96",
         "pack_selector_YtXxRx",

@@ -65,7 +65,7 @@
       <div class="jc-basis-full lg:jc-basis-1/2 jc-min-w-0">
         <div data-sticky class="jc-sticky jc-top-0 jc-flex jc-flex-col jc-gap-8 jc-pdp-content">
           {%- # Product titles -%}
-          <div>
+          <div class="jc-space-y-4">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when '@app' -%}
@@ -75,15 +75,22 @@
                   </div>
                 {%- when 'description' -%}
                   {%- if product.description != blank -%}
-                    <div class="jc-font-poppins jc-font-normal jc-text-base jc-leading-6">
+                    <div class="jc-font-poppins jc-font-normal jc-text-base jc-leading-6 !jc-mt-2 jc-text-amazon [&_strong]:!jc-font-semibold">
                       {{- product.description -}}
                     </div>
                   {%- endif -%}
-                {%- when 'tagline' -%}
-                  {%- if block.settings.tagline != blank -%}
-                    <p class="jc-uppercase jc-text-xs jc-font-semibold jc-leading-4 jc-mb-4">
-                      {{- block.settings.tagline -}}
-                    </p>
+                {%- when 'product_tags' -%}
+                  {% assign product_tags = product.metafields.jolly_meta.product_tags.value %}
+                  {% if product_tags != blank %}
+                    <div class="jc-flex jc-gap-2 jc-flex-wrap !jc-mt-2">
+                    {% for tag in product_tags %}
+                      <div class="jc-py-1 jc-px-2 lg:jc-px-2.5 jc-rounded-xs jc-border-munsell jc-border jc-border-solid">
+                        <span class="jc-block jc-text-xs lg:jc-text-sm jc-leading-4 lg:jc-leading-5 jc-font-normal jc-text-britishRacingGreen">
+                          {{ tag }}
+                        </span>
+                      </div>
+                    {% endfor %}
+                    </div>
                   {%- endif -%}
                 {%- when 'title' -%}
                   {%- if product.title != blank -%}
@@ -181,15 +188,10 @@
   ],
   "blocks": [
     {
-      "type": "tagline",
-      "name": "Tagline",
+      "type": "product_tags",
+      "name": "Product tags",
       "limit": 1,
       "settings": [
-        {
-          "type": "text",
-          "id": "tagline",
-          "label": "Text"
-        }
       ]
     },
     {
@@ -815,10 +817,10 @@
       "name": "Product Main",
       "blocks": [
         {
-          "type": "tagline"
+          "type": "title"
         },
         {
-          "type": "title"
+          "type": "product_tags"
         },
         {
           "type": "description"
