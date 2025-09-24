@@ -34,7 +34,7 @@
     {% assign payment_types = shop.enabled_payment_types %}
 
     {% if payment_types.size > 0 %}
-      <ul class="jc-flex jc-gap-2.5  jc-items-center jc-justify-center">
+      <ul class="jc-flex jc-gap-2.5  jc-items-center jc-justify-center jc-flex-wrap">
         {%- for type in shop.enabled_payment_types -%}
           <li class="jc-w-6.5 jc-h-5 jc-aspect-square jc-block [&>svg]:jc-w-full [&>svg]:jc-h-full">
             {{ type | payment_type_svg_tag }}

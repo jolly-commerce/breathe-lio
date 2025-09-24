@@ -22,6 +22,8 @@ module.exports = {
         britishRacingGreen: "#004631",
         amazon: "#3C6B59",
         mintCream: "#f5fff7",
+        azureishWhite: "#DAF7E9",
+        munsellLight20: "#c5f0de",
         green: {
           50: "#dcfce7",
           100: "#d1fae5",
@@ -67,6 +69,10 @@ module.exports = {
         30: "120px",
         30.5: "122px",
         47: "188px",
+      },
+      maxHeight: {
+        22: "88px",
+        30: "120px",
       },
       minWidth: {
         47: "188px",
@@ -117,6 +123,7 @@ module.exports = {
       18: "72px",
       20: "80px",
       24: "96px",
+      25: "100px",
       28: "110px",
       32: "128px",
       36: "144px",

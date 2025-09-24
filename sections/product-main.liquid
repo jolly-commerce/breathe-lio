@@ -57,12 +57,12 @@
     <div class="lg:jc-flex-row jc-gap-10 xl:jc-gap-20 jc-relative jc-flex jc-flex-col">
       {%- # Gallery -%}
 
-      <div class="jc-basis-full lg:jc-basis-1/2 jc-min-w-0">
+      <div class="jc-basis-full lg:jc-basis-[51.7%] jc-min-w-0">
         {% render 'product-main-gallery', root: gallery_block, product_form_id: product_form_id %}
       </div>
 
       {%- # Product info -%}
-      <div class="jc-basis-full lg:jc-basis-1/2 jc-min-w-0">
+      <div class="jc-basis-full lg:jc-basis-[48.3%] jc-min-w-0">
         <div data-sticky class="jc-sticky jc-top-0 jc-flex jc-flex-col jc-gap-8 jc-pdp-content">
           {%- # Product titles -%}
           <div class="jc-space-y-4">
@@ -75,14 +75,14 @@
                   </div>
                 {%- when 'description' -%}
                   {%- if product.description != blank -%}
-                    <div class="jc-font-poppins jc-font-normal jc-text-base jc-leading-6 !jc-mt-2 jc-text-amazon [&_strong]:!jc-font-semibold">
+                    <div class="jc-font-poppins jc-font-normal jc-text-base [&_*]:!jc-leading-6 !jc-mt-2 jc-text-amazon [&_strong]:!jc-font-semibold">
                       {{- product.description -}}
                     </div>
                   {%- endif -%}
                 {%- when 'product_tags' -%}
                   {% assign product_tags = product.metafields.jolly_meta.product_tags.value %}
                   {% if product_tags != blank %}
-                    <div class="jc-flex jc-gap-2 jc-flex-wrap !jc-mt-2">
+                    <div class="jc-flex jc-gap-2 jc-flex-wrap !jc-mt-3">
                     {% for tag in product_tags %}
                       <div class="jc-py-1 jc-px-2 lg:jc-px-2.5 jc-rounded-xs jc-border-munsell jc-border jc-border-solid">
                         <span class="jc-block jc-text-xs lg:jc-text-sm jc-leading-4 lg:jc-leading-5 jc-font-normal jc-text-britishRacingGreen">

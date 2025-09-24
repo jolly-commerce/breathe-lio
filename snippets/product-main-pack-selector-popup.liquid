@@ -44,9 +44,9 @@
           {% endstyle %}
         <swiper-slide
           style="
-            --bg-color: {{ product.metafields.jolly_meta.background_color | default: '#ffffff' }}30;
-            --dot-color: {{ product.metafields.jolly_meta.background_color | default: '#004631' }}60;
-            --dot-color-active: {{ product.metafields.jolly_meta.background_color | default: '#000000' }};
+            --bg-color: {{ product.metafields.jolly_meta.background_color | default: '#ffffff' }};
+            --dot-color: {{ product.metafields.jolly_meta.background_color_circle_popup | default: '#004631' }};
+            --dot-color-active: {{ product.metafields.jolly_meta.background_color_active_circle_popup | default: '#000000' }};
           "
           class="jc-bg-white jc-h-[inherit] jc-rounded-xl jc-border jc-border-britishRacingGreen"
           data-product-id="{{ product.first_available_variant.id }}"
@@ -92,7 +92,7 @@
                         ></div>
                       {%- endfor -%}
                     </div>
-                    <div class="jc-text-base jc-leading-5 jc-text-britishRacingGreen jc-font-normal jc-font-sigumL">
+                    <div class="jc-text-sm jc-leading-5 jc-text-britishRacingGreen jc-font-normal jc-font-sigumL jc-uppercase">
                       {{ category_title }}
                     </div>
                   </div>
@@ -102,14 +102,14 @@
 
             <!-- Notes -->
             {%- if product.metafields.jolly_meta.notes != blank -%}
-              <div class="jc-text-sm jc-leading-5 jc-text-darkGreen jc-font-normal jc-font-poppins jc-text-center">
+              <div class="jc-text-sm [&_*]:!jc-leading-5 jc-text-darkGreen jc-font-normal jc-font-poppins jc-text-center">
                 {{ product.metafields.jolly_meta.notes | metafield_tag }}
               </div>
             {%- endif -%}
 
             <!-- Description -->
             {%- if product.metafields.jolly_meta.custom_description != blank -%}
-              <div class="jc-text-xs jc-leading-5 jc-text-darkGreen jc-font-normal jc-font-poppins jc-text-center">
+              <div class="jc-text-xs [&_*]:!jc-leading-5 jc-text-darkGreen jc-font-normal jc-font-poppins jc-text-center">
                 {{ product.metafields.jolly_meta.custom_description | metafield_tag }}
               </div>
             {%- endif -%}
@@ -120,7 +120,7 @@
                 data-product-id="{{ product.first_available_variant.id }}"
                 class="
                   js-add-to-bundle jc-popup-add-to-bundle jc-mt-auto jc-w-full jc-text-center jc-py-2.5 jc-border jc-border-britishRacingGreen jc-rounded-mxs jc-uppercase
-                  jc-transition-all jc-text-xxs lg:jc-text-xs jc-leading-4 jc-font-semibold jc-text-white 
+                  jc-transition-all jc-text-sm jc-leading-5 jc-font-semibold jc-text-white 
                   [&:disabled]:jc-opacity-50 [&:disabled]:jc-pointer-events-none [&:disabled]:jc-cursor-not-allowed
                   jc-bg-munsell hover:jc-opacity-80 jc-shadow-pack-selector-green jc-shrink
                 "
@@ -131,7 +131,7 @@
                 class="
                   js-popup-close jc-px-4
                   jc-mt-auto jc-text-center jc-py-2.5 jc-border jc-border-britishRacingGreen jc-rounded-mxs jc-uppercase
-                  jc-transition-all jc-text-xxs lg:jc-text-xs jc-leading-4 jc-font-semibold jc-text-britishRacingGreen
+                  jc-transition-all jc-text-sm jc-leading-5 jc-font-semibold jc-text-britishRacingGreen
                   [&:disabled]:jc-opacity-50 [&:disabled]:jc-pointer-events-none [&:disabled]:jc-cursor-not-allowed
                   jc-bg-mintCream hover:jc-bg-munsell hover:jc-text-white jc-shadow-pack-selector-green jc-w-fit
                 "

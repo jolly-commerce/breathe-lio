@@ -46,7 +46,7 @@
             "arrows_position_dsk": "center",
             "arrows_position_mob": "center",
             "enable_arrows_dsk": true,
-            "enable_arrows_mob": true,
+            "enable_arrows_mob": false,
             "thumbnails_position_dsk": "left",
             "thumbnails_position_mob": "bottom",
             "enable_thumbnails_dsk": true,
@@ -102,7 +102,7 @@
             "subscribe_and_save_description": "<p>NEVER RUN OUT OF CORES</p>",
             "subscribe_3_packs": "<p>3x flavors - €30 <strong>€21 / month</strong></p>",
             "subscribe_6_packs": "<p>6x flavors - €60 <strong>€42 / month</strong></p>",
-            "subscribe_and_save_subtitle": "Extra 30% Off",
+            "subscribe_and_save_subtitle": "30% OFF",
             "one_time_purchase_title": "One-time purchase",
             "one_time_purchase_description": "<p>NEVER RUN OUT OF CORES</p>",
             "one_time_purchase_benefits_title": "One-time purchase",
@@ -140,10 +140,10 @@
       ],
       "name": "Product Main",
       "settings": {
-        "padding_dsk_t": 24,
-        "padding_dsk_b": 24,
-        "padding_mob_t": 24,
-        "padding_mob_b": 24,
+        "padding_dsk_t": 40,
+        "padding_dsk_b": 40,
+        "padding_mob_t": 20,
+        "padding_mob_b": 40,
         "background": "linear-gradient(180deg, rgba(245, 255, 247, 1), rgba(255, 255, 255, 1) 100%)"
       }
     },

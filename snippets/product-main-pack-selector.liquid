@@ -172,7 +172,7 @@
                     {%- assign border_color = tag.border_color -%}
                     {%- if tag_title != blank -%}
                       <span
-                        style="background-color: {{ background_color }}; border: {{ border_color }} 1px solid;"
+                        style="background-color: {{ background_color }}; border: {{ border_color }} 1px solid; color: {{ border_color }};"
                         class="jc-absolute -jc-top-1 -jc-right-1 jc-text-xxs jc-leading-3 jc-font-medium jc-font-poppins jc-px-2 jc-py-1 jc-rounded-xxs"
                       >
                         {{ tag_title }}
@@ -186,7 +186,7 @@
                   {{ product.title }}
                 </p>
                 {%- if product.metafields.jolly_meta.custom_description -%}
-                  <div class="jc-font-poppins jc-text-xs jc-leading-3.5 jc-text-amazon jc-mt-0.5">
+                  <div class="jc-font-poppins jc-text-xs [&_*]:!jc-leading-3.5 jc-text-amazon jc-mt-0.5">
                     {{ product.metafields.jolly_meta.custom_description | metafield_tag }}
                   </div>
                 {%- endif -%}
@@ -246,7 +246,7 @@
 
       <div class="step-content" data-content="step-2">
         {% render 'pack-selectors', root: root %}
-        <div class="jc-grid jc-grid-cols-2 lg:jc-grid-cols-3 jc-gap-4 jc-mt-4">
+        <div class="jc-grid jc-grid-cols-3 jc-gap-2 xl:jc-gap-4 jc-mt-4">
           {%- for product in root.settings.step_2_packs -%}
             {% if product.selected_or_first_available_variant.available == false and product.selected_or_first_available_variant.inventory_policy != 'continue' %}
               {% continue %}
@@ -258,7 +258,7 @@
             {% endif %}
             <step2-product-card
               class="
-                jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
+                jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-2 xl:jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
                 [&.selected_.jc-select-button]:jc-bg-munsell [&.selected_.jc-select-button]:jc-text-white jc-group/product-option-card 
                 [&.selected.jc-complete-pack_.jc-quantity-control]:jc-hidden [&.selected.jc-complete-pack_.jc-standard-button]:jc-hidden [&.selected.jc-complete-pack_.jc-selected-button]:jc-block 
                 [&.selected.jc-complete-pack_.jc-selected-button]:!jc-pointer-events-none [&.selected.jc-complete-pack_.jc-selected-button]:!jc-opacity-100"
@@ -272,7 +272,7 @@
               <div class="jc-relative">
                 {%- if product.featured_image -%}
                   {% render 'g-render-image',
-                    class: 'jc-w-full jc-h-full jc-object-cover jc-mb-2.5 jc-max-w-22 xl:jc-max-w-30 jc-mx-auto jc-aspect-square',
+                    class: 'jc-w-full jc-h-full jc-object-cover jc-max-w-22 xl:jc-max-w-30 jc-mx-auto jc-aspect-square jc-max-h-22 xl:jc-max-h-30',
                     img_src: product.featured_image.url,
                     img: product.featured_image,
                     size: '220 300 400 500',
@@ -309,7 +309,7 @@
                   js-qty-control jc-quantity-control
                   jc-flex jc-items-center jc-justify-between not-visible
                   [&.not-visible]:jc-hidden jc-mt-2.5 jc-shadow-pack-selector-green jc-w-full jc-bg-munsell jc-border jc-border-solid
-                  jc-border-britishRacingGreen jc-rounded-mxs jc-p-2
+                  jc-border-britishRacingGreen jc-rounded-mxs jc-px-4 jc-py-2
                 "
                 data-product-id="{{ product.first_available_variant.id }}"
               >
@@ -327,7 +327,7 @@
                   {% render 'g-render-icon', icon: 'fat-minus', class: 'jc-block jc-size-5' %}
                 </button>
                 <input
-                  class="js-qty-count jc-h-5 jc-text-center jc-font-semibold jc-pointer-events-none jc-bg-transparent jc-text-white"
+                  class="js-qty-count jc-text-xs jc-leading-4 jc-uppercase jc-font-poppins jc-h-4 jc-text-center jc-font-semibold jc-pointer-events-none jc-bg-transparent jc-text-white"
                   value="0"
                   min="0"
                   max="{{ max }}"
@@ -447,7 +447,7 @@
                   js-qty-control
                   jc-flex jc-items-center jc-justify-between not-visible
                   [&.not-visible]:jc-hidden jc-mt-2.5 jc-shadow-pack-selector-green jc-w-full jc-bg-munsell jc-border jc-border-solid
-                  jc-border-britishRacingGreen jc-rounded-mxs jc-p-2
+                  jc-border-britishRacingGreen jc-rounded-mxs jc-px-4 jc-py-2
                 "
                 data-product-id="{{ product.first_available_variant.id }}"
               >
@@ -465,7 +465,7 @@
                   {% render 'g-render-icon', icon: 'fat-minus', class: 'jc-block jc-size-5' %}
                 </button>
                 <input
-                  class="js-qty-count jc-h-5 jc-text-center jc-font-semibold jc-pointer-events-none jc-bg-transparent jc-text-white"
+                  class="js-qty-count jc-text-xs jc-leading-4 jc-uppercase jc-font-poppins jc-h-4 jc-text-center jc-font-semibold jc-pointer-events-none jc-bg-transparent jc-text-white"
                   value="0"
                   min="0"
                   max="{{ max }}"
@@ -508,8 +508,8 @@
   {%- # Summary Button -%}
   <button
     class="
-      jc-w-full jc-text-center jc-mt-8 jc-py-6 jc-bg-green-100 jc-text-britishRacingGreen jc-rounded-xl jc-text-xl jc-font-semibold jc-leading-6 jc-uppercase
-      jc-transition-all hover:jc-bg-green-200 disabled:jc-opacity-50 disabled:jc-cursor-not-allowed [&:not(:disabled)]:jc-bg-munsell 
+      jc-w-full jc-text-center jc-mt-8 jc-py-6 jc-bg-munsellLight20 jc-text-britishRacingGreen jc-rounded-xl jc-text-xl jc-font-semibold jc-leading-6 jc-uppercase
+      jc-transition-all hover:jc-bg-green-200 disabled:jc-bg-opacity-50 disabled:jc-cursor-not-allowed [&:not(:disabled)]:jc-bg-munsell 
       [&:not(:disabled)]:jc-text-white [&:not(:disabled)]:jc-shadow-pack-selector-green-big [&:not(:disabled)]:hover:jc-opacity-80
     "
     id="pack-selector-submit"

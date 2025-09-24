@@ -9,7 +9,7 @@
 @import "./components/pack-selector.css";
 
 .jc-container {
-  @apply jc-mx-auto jc-px-4 md:jc-px-12 jc-max-w-[1440px];
+  @apply jc-mx-auto jc-px-5 lg:jc-px-25 jc-max-w-[1440px];
 }
 
 /* Lazysizes css */

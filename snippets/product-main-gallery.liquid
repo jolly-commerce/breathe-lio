@@ -127,7 +127,7 @@
       {% when 'inside'  %}
         thumbs-swiper--position-inside-mob
       {% when 'bottom' %}
-        thumbs-swiper--position-bottom-mob
+        thumbs-swiper--position-bottom-mob [&::part(container)]:jc-px-5 !-jc-mx-5
     {% endcase %}
   {% endif %}
 
@@ -228,13 +228,13 @@
         <div slot="container-end">
           <div
             part="button-prev"
-            class="swiper-button-prev gallery-nav-button-prev {{ nav_button_class }}"
+            class="swiper-button-prev gallery-nav-button-prev !jc-w-10 !jc-h-10 {{ nav_button_class }}"
           >
             {% render 'g-render-icon', icon: 'fat-arrow-left', class: 'jc-w-full jc-h-full' %}
           </div>
           <div
             part="button-next"
-            class="swiper-button-next gallery-nav-button-next {{ nav_button_class }}"
+            class="swiper-button-next gallery-nav-button-next !jc-w-10 !jc-h-10 {{ nav_button_class }}"
           >
             {% render 'g-render-icon', icon: 'fat-arrow-right', class: 'jc-w-full jc-h-full' %}
           </div>
@@ -245,7 +245,7 @@
     {% if root.settings.enable_thumbnails_mob or root.settings.enable_thumbnails_dsk %}
       <swiper-container
         id="gallery-thumbs"
-        class="{{ thumb_swiper_class }}"
+        class="{{ thumb_swiper_class }} element"
         slides-per-view="auto"
         space-between="16"
         free-mode="true"

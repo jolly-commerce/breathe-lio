@@ -207,6 +207,23 @@
     top: 0;
     height: calc(100% - var(--pagination-offset-dsk));
   }
+  .thumbs-swiper--position-left-dsk::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    width: 82px;
+    z-index: 1;
+    height: 100%;
+    max-height: 100px;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(245, 255, 247, 0) 0%,
+      #f5fff7 100%
+    );
+  }
 
   .thumbs-swiper--position-inside-dsk {
     position: absolute;
