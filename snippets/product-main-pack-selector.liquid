@@ -47,6 +47,20 @@
     display: flex;
   }
 
+  /* Show/hide subscription price based on purchase type */
+  body:has(#tab-subscribe:checked) .js-selected-total-price {
+    display: none;
+  }
+  body:has(#tab-subscribe:checked) .js-selected-total-price-subscription {
+    display: inline;
+  }
+  body:has(#tab-onetime:checked) .js-selected-total-price {
+    display: inline;
+  }
+  body:has(#tab-onetime:checked) .js-selected-total-price-subscription {
+    display: none;
+  }
+
   .jc-custom-track::-webkit-scrollbar {
     width: 5px;
     height: 8px;
@@ -125,6 +139,9 @@
       <div class="step-content" data-content="step-1">
         <div class="jc-grid jc-grid-cols-2 xl:jc-grid-cols-3 jc-gap-2 jc-mt-4">
           {%- for product in root.settings.step_1_packs -%}
+            {% if product.selected_or_first_available_variant.available == false and product.selected_or_first_available_variant.inventory_policy != 'continue' %}
+              {% continue %}
+            {% endif %}
             <product-option-card
               class="
                 jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
@@ -231,6 +248,14 @@
         {% render 'pack-selectors', root: root %}
         <div class="jc-grid jc-grid-cols-2 lg:jc-grid-cols-3 jc-gap-4 jc-mt-4">
           {%- for product in root.settings.step_2_packs -%}
+            {% if product.selected_or_first_available_variant.available == false and product.selected_or_first_available_variant.inventory_policy != 'continue' %}
+              {% continue %}
+            {% endif %}
+            {% if product.selected_or_first_available_variant.inventory_policy == 'continue' %}
+              {% assign max_qty = 9999 %}
+            {% else %}
+              {% assign max_qty = product.selected_or_first_available_variant.inventory_quantity %}
+            {% endif %}
             <step2-product-card
               class="
                 jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
@@ -240,6 +265,9 @@
               data-product-id="{{ product.first_available_variant.id }}"
               data-product-price="{{ product.price }}"
               data-step="2"
+              data-max-qty="{{ max_qty }}"
+              data-subscription-product-price="4500"
+              data-subscription-product-id="{{ product.first_available_variant.id }}"
             >
               <div class="jc-relative">
                 {%- if product.featured_image -%}
@@ -356,6 +384,14 @@
       <div class="step-content max-lg:jc-mx-[-16px]" data-content="step-3">
         <div class="jc-overflow-x-auto jc-snap-x jc-snap-mandatory jc-scroll-smooth jc-flex jc-gap-2 jc-w-full jc-h-full jc-py-6 jc-custom-track max-lg:jc-px-4">
           {%- for product in root.settings.step_3_packs -%}
+            {% if product.selected_or_first_available_variant.available == false and product.selected_or_first_available_variant.inventory_policy != 'continue' %}
+              {% continue %}
+            {% endif %}
+            {% if product.selected_or_first_available_variant.inventory_policy == 'continue' %}
+              {% assign max_qty = 9999 %}
+            {% else %}
+              {% assign max_qty = product.selected_or_first_available_variant.inventory_quantity %}
+            {% endif %}
             <product-option-card
               class="
                 jc-snap-start jc-shrink-0 jc-scroll-ml-4 jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
@@ -365,6 +401,7 @@
               data-product-price="{{ product.price }}"
               data-step="3"
               data-has-quantity="true"
+              data-max-qty="{{ max_qty }}"
             >
               <div class="jc-aspect-square jc-relative jc-mb-3 jc-max-w-30.5 jc-mx-auto">
                 {%- if product.featured_image -%}
@@ -465,6 +502,7 @@
     <div class="jc-flex jc-items-center jc-gap-2">
       <span class="jc-font-semibold jc-text-britishRacingGreen">{{ 'bundle_pack.total_price' | t }}:</span>
       <span class="js-selected-total-price jc-font-normal">0</span>
+      <span class="js-selected-total-price-subscription jc-font-normal">0</span>
     </div>
   </div>
   {%- # Summary Button -%}

@@ -61,14 +61,13 @@
 
             <!-- badge -->
             {% if discount != blank %}
-              <span
+              <div
                 class="
-                  jc-absolute jc-top-[-15px] jc-left-1/2 -jc-translate-x-1/2
-                  jc-rounded-xxs jc-bg-munsell jc-px-2 jc-py-1 jc-text-[11px] jc-leading-3 jc-font-medium jc-text-white
+                  jc-absolute jc-top-[-15px] jc-inset-x-0 jc-flex jc-justify-center jc-w-full
                 "
               >
-                {{ discount }}
-              </span>
+                <span class="jc-rounded-xxs jc-bg-munsell jc-px-2 jc-py-1 jc-text-[11px] jc-leading-3 jc-font-medium jc-text-white jc-block">{{- discount -}}</span>
+              </div>
             {% endif %}
           </label>
         {% endif %}

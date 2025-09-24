@@ -33,8 +33,11 @@
       navigation-prev-el=".step2-nav-button-prev"
     >
       {%- for product in step_2_products -%}
+        {% if product.selected_or_first_available_variant.available == false and product.selected_or_first_available_variant.inventory_management != 'continue' %}
+          {% continue %}
+        {% endif %}
         {% style %}
-          body:has(step2-product-card[data-product-id="{{ product.first_available_variant.id }}"]):has(.js-btn-plus.is-disabled) .jc-popup-add-to-bundle[data-product-id="{{ product.first_available_variant.id }}"] {
+          body:has(step2-product-card[data-product-id="{{ product.first_available_variant.id }}"] .js-btn-plus.is-disabled) .jc-popup-add-to-bundle[data-product-id="{{ product.first_available_variant.id }}"] {
             pointer-events: none;
             opacity: 0.7;
           }

@@ -95,7 +95,7 @@ class ProductOptionCard extends HTMLElement {
     this.qtyControl = this.querySelector('.js-qty-control');
     this.minusBtn = this.querySelector('.js-btn-minus');
     this.plusBtn = this.querySelector('.js-btn-plus');
-    this.maxQty = this.input ? parseInt(this.input.getAttribute('max')) || DEFAULTS.MAX_QTY : DEFAULTS.MAX_QTY;
+    this.maxQty = parseInt(this.getAttribute('data-max-qty')) || DEFAULTS.MAX_QTY;
 
     // Add quantity control event listeners
     this.minusBtn?.addEventListener('click', (e) => {
@@ -260,12 +260,15 @@ class Step2ProductCard extends ProductOptionCard {
   connectedCallback() {
     this.productId = this.getAttribute('data-product-id') || '';
     this.productPrice = parseInt(this.getAttribute('data-product-price')) || 0;
+    this.subscriptionProductId = this.getAttribute('data-subscription-product-id') || this.productId;
+    this.subscriptionProductPrice = parseInt(this.getAttribute('data-subscription-product-price')) || this.productPrice;
     this.step = parseInt(this.getAttribute('data-step')) || 0;
     this.hasQuantityControls = true; // Step 2 always has quantity controls
 
     // Initialize Step 2 specific elements first
     this.input = this.querySelector('.js-qty-count');
-    this.maxQty = this.input ? parseInt(this.input.getAttribute('max')) || DEFAULTS.MAX_QTY : DEFAULTS.MAX_QTY;
+
+    this.maxQty = parseInt(this.getAttribute('data-max-qty')) || DEFAULTS.MAX_QTY;
 
     // Call parent initialization
     this.initializeCard();
@@ -425,7 +428,13 @@ class Step2ProductCard extends ProductOptionCard {
 
     // Notify parent of change
     this.dispatchEvent(new CustomEvent('quantity-changed', {
-      detail: { productId: this.productId, quantity: this.quantity },
+      detail: { 
+        productId: this.productId, 
+        quantity: this.quantity,
+        price: this.productPrice,
+        subscriptionProductId: this.subscriptionProductId,
+        subscriptionPrice: this.subscriptionProductPrice
+      },
       bubbles: true
     }));
   }
@@ -526,7 +535,7 @@ class PackSelectorComponent extends HTMLElement {
     super();
     this.selectedProducts = {
       step1: null,
-      step2: {}, // { [productId]: { quantity, price } }
+      step2: {}, // { [productId]: { quantity, price, subscriptionProductId, subscriptionPrice } }
       step3: {} // { [productId]: { quantity, price } }
     };
     this.maxFlavors = DEFAULTS.MAX_FLAVORS;
@@ -595,17 +604,17 @@ class PackSelectorComponent extends HTMLElement {
     });
 
     this.addEventListener('quantity-changed', (e) => {
-      const { productId, quantity } = e.detail;
+      const { productId, quantity, price, subscriptionProductId, subscriptionPrice } = e.detail;
 
       // Update internal state
       if (quantity === 0) {
         delete this.selectedProducts.step2[productId];
       } else {
-        // Find the product card to get price
-        const productCard = this.querySelector(`step2-product-card[data-product-id="${productId}"]`);
         this.selectedProducts.step2[productId] = {
           quantity: quantity,
-          price: productCard ? productCard.productPrice : 0
+          price: price || 0,
+          subscriptionProductId: subscriptionProductId || productId,
+          subscriptionPrice: subscriptionPrice || price || 0
         };
       }
 
@@ -752,14 +761,18 @@ class PackSelectorComponent extends HTMLElement {
 
         const productId = card.getAttribute('data-product-id');
         const productPrice = parseInt(card.getAttribute('data-product-price')) || 0;
+        const subscriptionProductId = card.getAttribute('data-subscription-product-id') || productId;
+        const subscriptionProductPrice = parseInt(card.getAttribute('data-subscription-product-price')) || productPrice;
 
         // Set quantity 1 for each product
         card.setQuantity(1);
 
-        // Update internal state
+        // Update internal state with subscription data
         this.selectedProducts.step2[productId] = {
           quantity: 1,
-          price: productPrice
+          price: productPrice,
+          subscriptionProductId: subscriptionProductId,
+          subscriptionPrice: subscriptionProductPrice
         };
 
         // Block controls for complete pack
@@ -936,13 +949,25 @@ class PackSelectorComponent extends HTMLElement {
     if (!this.selectedProducts.step1 || this.getTotalFlavors() < this.minFlavors) return;
 
     const parentId = this.selectedProducts.step1.productId;
+    
+    // Check if subscription is selected
+    const isSubscriptionSelected = document.querySelector('#tab-subscribe:checked');
+    
+    let flavorProperties = {};
+    if (this.isCompletePack) {
+      flavorProperties._bundle_complete = true;
+    } else if (this.currentPackType === PACK_TYPES.SIX_BAGS) {
+      flavorProperties._bundle_6_bags = true;
+    }
+    
     const items = [
       // Parent item (LIO)
       { id: parentId, quantity: 1 },
-      // Flavors
+      // Flavors - use correct ID based on subscription
       ...Object.entries(this.selectedProducts.step2).map(([id, item]) => ({
-        id,
-        quantity: item.quantity
+        id: isSubscriptionSelected ? item.subscriptionProductId : id,
+        quantity: item.quantity,
+        properties: flavorProperties
       })),
       // Accessories with quantities
       ...Object.entries(this.selectedProducts.step3).map(([id, item]) => ({
@@ -1085,12 +1110,16 @@ class PackSelectorComponent extends HTMLElement {
     const totalPriceElement = this.querySelector('.js-selected-total-price');
     if (totalPriceElement) {
       const totalPrice = this.calculateTotalPrice();
-      if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
-        totalPriceElement.textContent = Shopify.formatMoney(totalPrice);
-      } else {
-        const formatted = (totalPrice / 100).toFixed(2);
-        totalPriceElement.textContent = `${window.jollyVariables.cart_symbol}${formatted}`;
-      }
+      let formattedPrice = this.formatPrice(totalPrice);
+      totalPriceElement.textContent = formattedPrice;
+    }
+
+    // Calculate and update subscription total price
+    const totalPriceSubscriptionElement = this.querySelector('.js-selected-total-price-subscription');
+    if (totalPriceSubscriptionElement) {
+      const subscriptionTotalPrice = this.calculateSubscriptionTotalPrice();
+      let formattedSubscriptionPrice = this.formatPrice(subscriptionTotalPrice);
+      totalPriceSubscriptionElement.textContent = formattedSubscriptionPrice;
     }
   }
 
@@ -1113,6 +1142,43 @@ class PackSelectorComponent extends HTMLElement {
     });
 
     return total;
+  }
+
+  calculateSubscriptionTotalPrice() {
+    let total = 0;
+
+    // Step 1 price (Lio - same for both)
+    if (this.selectedProducts.step1) {
+      total += this.selectedProducts.step1.price;
+    }
+
+    // Step 2 subscription prices (Flavors with quantities)
+    Object.values(this.selectedProducts.step2).forEach(item => {
+      const subscriptionPrice = item.subscriptionPrice || item.price || 0;
+      total += subscriptionPrice * item.quantity;
+    });
+
+    // Step 3 prices (Accessories - same for both)
+    Object.values(this.selectedProducts.step3).forEach(item => {
+      total += item.price * item.quantity;
+    });
+
+    return total;
+  }
+
+  formatPrice(price) {
+    let formattedPrice;
+    
+    if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
+      formattedPrice = Shopify.formatMoney(price);
+    } else {
+      const formatted = (price / 100).toFixed(2);
+      formattedPrice = `${window.jollyVariables.cart_symbol}${formatted}`;
+    }
+    
+    // Remove .00 for whole numbers
+    formattedPrice = formattedPrice.replace(/\.00$/, '');
+    return formattedPrice;
   }
 
   setSubmitButtonLoading(isLoading) {
@@ -1182,7 +1248,7 @@ document.addEventListener('DOMContentLoaded', function () {
           if (stepContent) {
             const yOffset = -200; // scroll 200px up
             const y = stepContent.getBoundingClientRect().top + window.pageYOffset + yOffset;
-            window.scrollTo({ top: y, behavior: 'smooth' });
+            window.scrollTo({ top: y, behavior: 'instant' });
           }
         }, DEFAULTS.RETRY_DELAY);
       }
