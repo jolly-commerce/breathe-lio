@@ -441,7 +441,8 @@ class PackSelectorComponent extends HTMLElement {
       { id: parentId, quantity: 1 },
       // Flavors - use correct ID based on subscription
       ...Object.entries(this.selectedProducts.step2).map(([id, item]) => ({
-        id: isSubscriptionSelected ? item.subscriptionProductId : id,
+        id: id,
+        selling_plan: isSubscriptionSelected ? item.subscriptionProductId : null,
         quantity: item.quantity,
         properties: flavorProperties
       })),

@@ -132,12 +132,12 @@
           {% if root.settings.subscribe_3_packs != blank or root.settings.subscribe_6_packs != blank %}
             <div class="jc-subscribe-packs-container">
               {% if root.settings.subscribe_3_packs != blank %}
-                <div class="jc-subscribe-3-packs jc-text-sm [&_*]:!jc-leading-5 jc-font-normal jc-font-poppins jc-text-britishRacingGreen jc-text-center jc-hidden">
+                <div class="jc-subscribe-3-packs jc-text-sm [&_*]:!jc-leading-5 jc-font-normal jc-font-poppins jc-text-britishRacingGreen jc-text-center jc-hidden [&_em]:jc-line-through [&_em]:jc-not-italic">
                   {{ root.settings.subscribe_3_packs }}
                 </div>
               {% endif %}
               {% if root.settings.subscribe_6_packs != blank %}
-                <div class="jc-subscribe-6-packs jc-text-sm [&_*]:!jc-leading-5 jc-font-normal jc-font-poppins jc-text-britishRacingGreen jc-text-center jc-hidden">
+                <div class="jc-subscribe-6-packs jc-text-sm [&_*]:!jc-leading-5 jc-font-normal jc-font-poppins jc-text-britishRacingGreen jc-text-center jc-hidden [&_em]:jc-line-through [&_em]:jc-not-italic">
                   {{ root.settings.subscribe_6_packs }}
                 </div>
               {% endif %}
