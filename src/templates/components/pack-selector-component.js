@@ -33,7 +33,17 @@ class PackSelectorComponent extends HTMLElement {
     this.init();
   }
 
+  initializeDiscountRates() {
+    // Initialize dynamic discount rates from data attributes
+    this.discountRates = {
+      [PACK_TYPES.THREE_BAGS]: parseInt(this.getAttribute('data-discount-3-bags')) || 0,
+      [PACK_TYPES.SIX_BAGS]: parseInt(this.getAttribute('data-discount-6-bags')) || 10,
+      [PACK_TYPES.COMPLETE]: parseInt(this.getAttribute('data-discount-complete')) || 15
+    };
+  }
+
   init() {
+    this.initializeDiscountRates();
     this.initializeEventListeners();
     this.initializeStepRadios();
     this.initializePackSelectors();
@@ -89,7 +99,7 @@ class PackSelectorComponent extends HTMLElement {
         this.selectedProducts.step2[productId] = {
           quantity: quantity,
           price: price || 0,
-          subscriptionProductId: subscriptionProductId || productId,
+          subscriptionProductId: subscriptionProductId,
           subscriptionPrice: subscriptionPrice || price || 0
         };
       }
@@ -158,8 +168,6 @@ class PackSelectorComponent extends HTMLElement {
   handlePackChange(selector) {
     const maxFlavors = parseInt(selector.getAttribute('data-max-flavors')) || 6;
     const isComplete = selector.getAttribute('data-complete-pack') === 'true';
-
-    console.log('Pack changed to:', { maxFlavors, isComplete });
 
     // Define pack type
     if (maxFlavors === PACK_LIMITS.THREE_BAGS_MAX) {
@@ -237,7 +245,7 @@ class PackSelectorComponent extends HTMLElement {
 
         const productId = card.getAttribute('data-product-id');
         const productPrice = parseInt(card.getAttribute('data-product-price')) || 0;
-        const subscriptionProductId = card.getAttribute('data-subscription-product-id') || productId;
+        const subscriptionProductId = card.getAttribute('data-subscription-product-id');
         const subscriptionProductPrice = parseInt(card.getAttribute('data-subscription-product-price')) || productPrice;
 
         // Set quantity 1 for each product
@@ -442,7 +450,7 @@ class PackSelectorComponent extends HTMLElement {
       // Flavors - use correct ID based on subscription
       ...Object.entries(this.selectedProducts.step2).map(([id, item]) => ({
         id: id,
-        selling_plan: isSubscriptionSelected ? item.subscriptionProductId : null,
+        selling_plan: isSubscriptionSelected && item.subscriptionProductId ? item.subscriptionProductId : null,
         quantity: item.quantity,
         properties: flavorProperties
       })),
@@ -608,9 +616,10 @@ class PackSelectorComponent extends HTMLElement {
       total += this.selectedProducts.step1.price;
     }
 
-    // Step 2 prices (Flavors with quantities)
+    // Step 2 prices (Flavors with quantities) - apply discount
     Object.values(this.selectedProducts.step2).forEach(item => {
-      total += item.price * item.quantity;
+      const discountedPrice = this.applyDiscount(item.price, item.quantity);
+      total += discountedPrice;
     });
 
     // Step 3 prices (Accessories with quantities)
@@ -629,10 +638,11 @@ class PackSelectorComponent extends HTMLElement {
       total += this.selectedProducts.step1.price;
     }
 
-    // Step 2 subscription prices (Flavors with quantities)
+    // Step 2 subscription prices (Flavors with quantities) - apply discount
     Object.values(this.selectedProducts.step2).forEach(item => {
       const subscriptionPrice = item.subscriptionPrice || item.price || 0;
-      total += subscriptionPrice * item.quantity;
+      const discountedPrice = this.applyDiscount(subscriptionPrice, item.quantity);
+      total += discountedPrice;
     });
 
     // Step 3 prices (Accessories - same for both)
@@ -641,6 +651,22 @@ class PackSelectorComponent extends HTMLElement {
     });
 
     return total;
+  }
+
+  applyDiscount(price, quantity) {
+    const currentDiscount = this.discountRates[this.currentPackType] || 0;
+
+    if (currentDiscount === 0) {
+      return price * quantity;
+    }
+
+    // Calculate total price first, then apply discount to the total
+    const totalPrice = price * quantity;
+    const discountRate = currentDiscount / 100;
+    const discountAmount = Math.floor(totalPrice * discountRate);
+    const discountedTotal = totalPrice - discountAmount;
+
+    return discountedTotal;
   }
 
   formatPrice(price) {

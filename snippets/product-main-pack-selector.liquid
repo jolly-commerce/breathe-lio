@@ -108,6 +108,9 @@
   class="jc-block jc-w-full"
   data-max-flavors="6"
   data-min-flavors="3"
+  data-discount-3-bags="{{ section.settings.step_2_1_discount_percentage | default: 0 }}"
+  data-discount-6-bags="{{ section.settings.step_2_2_discount_percentage | default: 10 }}"
+  data-discount-complete="{{ section.settings.step_2_3_discount_percentage | default: 15 }}"
   data-text-summary-select-your-lio="{{ 'bundle_pack.summary_select_your_lio' | t }}"
   data-text-button-add-to-cart="{{ 'bundle_pack.button_add_to_cart' | t }}"
   data-text-button-adding-to-cart="{{ 'bundle_pack.button_adding_to_cart' | t }}"
@@ -256,6 +259,34 @@
             {% else %}
               {% assign max_qty = product.selected_or_first_available_variant.inventory_quantity %}
             {% endif %}
+
+            {%- liquid
+              assign selling_plan_allocation = null
+              assign selling_plan_id = null
+              assign selling_plan_group = null
+              assign selling_plan_price = null
+              assign selling_plan_compare_at_price = null
+
+              for selling_plan_group in product.selling_plan_groups
+                for plan in selling_plan_group.selling_plans
+                  assign selling_plan_id = plan.id
+
+                  if plan.price_adjustments[0].value_type == 'percentage'
+                    assign selling_plan_discount = plan.price_adjustments[0].value
+                  endif
+
+                  break
+                endfor
+              endfor
+
+              assign selling_plan_allocation = product.first_available_variant.selling_plan_allocations[0]
+              # doesn't work for some reason
+              #assign selling_plan_id = selling_plan_allocation.selling_plan_id
+              assign selling_plan_group = selling_plan_allocation.selling_plan_group_id
+              assign selling_plan_price = selling_plan_allocation.price
+              assign selling_plan_compare_at_price = selling_plan_allocation.compare_at_price
+            -%}
+
             <step2-product-card
               class="
                 jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-2 xl:jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
@@ -266,8 +297,12 @@
               data-product-price="{{ product.price }}"
               data-step="2"
               data-max-qty="{{ max_qty }}"
-              data-subscription-product-price="4500"
-              data-subscription-product-id="{{ product.first_available_variant.id }}"
+              {% if selling_plan_id != blank %}
+                data-subscription-product-price="{{ selling_plan_price }}"
+                data-subscription-product-id="{{ selling_plan_id }}"
+                data-selling-plan-discount="{{ selling_plan_discount }}"
+              {% endif %}
+              data-variant-id="{{ product.first_available_variant.id }}"
             >
               <div class="jc-relative">
                 {%- if product.featured_image -%}
@@ -486,8 +521,8 @@
     </div>
     <div class="jc-w-full jc-h-px jc-bg-darkGreen jc-mt-6"></div>
   {%- endif -%}
+  
   {%- # Summary information -%}
-
   <div class="jc-summary-info jc-mt-8 jc-flex jc-items-center jc-justify-center jc-gap-2 xl:jc-gap-4 jc-font-poppins jc-text-sm xl:jc-text-md jc-leading-5">
     <div class="jc-flex jc-items-center jc-gap-2">
       <span class="jc-font-semibold jc-text-britishRacingGreen">{{ 'bundle_pack.selected_cigarette' | t }}:</span>

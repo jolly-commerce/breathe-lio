@@ -260,7 +260,7 @@ class Step2ProductCard extends ProductOptionCard {
   connectedCallback() {
     this.productId = this.getAttribute('data-product-id') || '';
     this.productPrice = parseInt(this.getAttribute('data-product-price')) || 0;
-    this.subscriptionProductId = this.getAttribute('data-subscription-product-id') || this.productId;
+    this.subscriptionProductId = this.getAttribute('data-subscription-product-id') || null;
     this.subscriptionProductPrice = parseInt(this.getAttribute('data-subscription-product-price')) || this.productPrice;
     this.step = parseInt(this.getAttribute('data-step')) || 0;
     this.hasQuantityControls = true; // Step 2 always has quantity controls

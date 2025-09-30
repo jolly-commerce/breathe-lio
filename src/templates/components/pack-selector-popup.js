@@ -72,8 +72,6 @@ class PackSelectorPopup extends HTMLElement {
     // Wait for swiper to be ready
     const waitForSwiper = () => {
       if (swiperContainer.swiper) {
-        // console.log('Swiper ready, navigating to slide:', this.currentProductIndex);
-        
         // Navigate to correct slide first
         if (this.currentProductIndex >= 0) {
           swiperContainer.swiper.slideTo(this.currentProductIndex, 0); // No animation for instant positioning
@@ -103,7 +101,6 @@ class PackSelectorPopup extends HTMLElement {
     
     this.handleSlideChange = (e) => {
       this.currentProductIndex = e.detail[0].realIndex;
-      // console.log('Slide changed to:', this.currentProductIndex);
     };
     
     swiperContainer.addEventListener('slidechange', this.handleSlideChange);
