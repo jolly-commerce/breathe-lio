@@ -1,0 +1,97 @@
+{% comment %}
+  Snippet: g-accordion-item
+  Created by: Nazarii Prokopchuk
+
+  Passed variables:
+  - item_id: {String} unique id of accordion item,
+  - section_id: {String} unique id of section where the accordion item is placed,
+  - dropdown_icon_type: {String} (arrow | plus_minus) dropdown icon type ,
+  - input_type: {String} (radio | checkbox) input type, affects whether one or more accordions can be opened simultaneously,
+  - additional_icon: {Object} additional icon that will be displayed near title,
+  - item_title: {Object | String} accordion item title,
+  - item_content: {Object | String} accordion item content,
+  - is_open: {Boolean} affects whether accordion is open by default
+
+  Used snippets:
+  - g-render-icon
+  - g-render-image
+
+  Render example:
+  {% render 'g-accordion-item',
+    item_id: item_id,
+    section_id: section.id,
+    dropdown_icon_type: block.settings.dropdown_icon,
+    input_type: block.settings.accordion_input_type,
+    additional_icon: faq_item.settings.additional_icon,
+    item_title: faq_item.settings.question,
+    item_content: faq_item.settings.answer,
+    is_open: faq_item.settings.is_open
+  %}
+{% endcomment %}
+
+{%- liquid
+  assign dropdown_icon_type = dropdown_icon_type | default: 'plus_minus'
+-%}
+
+{% capture dropdown_icon %}
+  {% assign icon_class = 'jc-w-full jc-h-full jc-absolute jc-inset-0 jc-transition-transform' %}
+    {%- case dropdown_icon_type -%}
+      {% when 'arrow' %}
+        <div class="arrow jc-w-4 jc-h-4 jc-relative">
+          {% render 'g-render-icon', icon: 'chevron-down', class: icon_class %}
+        </div>
+      {% when 'plus_minus' %}
+        <div class="plus-minus jc-w-4 jc-h-4 jc-relative">
+          {% assign icon_class_minus = icon_class | append: ' jc-rotate-90' %}
+          {% render 'g-render-icon', icon: 'minus', class: icon_class_minus %}
+          {% render 'g-render-icon', icon: 'minus', class: icon_class %}
+        </div>
+    {%- endcase -%}
+{% endcapture %}
+
+<div class="jc-border-b jc-border-solid jc-border-gray-400 jc-accordion-item">
+  <input
+    id="{{ item_id }}"
+    class="jc-hidden jc-peer js-accordion-input"
+    name="{{ section.id }}"
+    {%- if input_type == 'checkbox' -%}
+      type="checkbox"
+    {%- else -%}
+      type="radio"
+    {%- endif -%}
+    {%- if is_open -%}
+      checked
+    {%- endif -%}
+  >
+  <label
+    for="{{ item_id }}"
+    class="
+      jc-text-left jc-flex jc-items-center jc-justify-between jc-py-4 jc-cursor-pointer
+      [&_.arrow_svg:first-child]:peer-checked:jc-rotate-180
+      [&_.plus-minus_svg:first-child]:peer-checked:jc-rotate-0
+    "
+  >
+    <div class="jc-flex jc-items-center jc-gap-2">
+      {% if additional_icon %}
+        {% render 'g-render-image',
+          class: 'jc-w-6 jc-w-6',
+          img_src: additional_icon.url,
+          img: additional_icon,
+          size: '24 48',
+          alt: additional_icon.alt,
+          width: '24',
+          height: '24',
+          loading: 'lazy'
+        %}
+      {% endif %}
+      {{- item_title -}}
+    </div>
+    {{- dropdown_icon -}}
+  </label>
+
+  <div class="jc-text-left jc-overflow-hidden jc-grid jc-grid-rows-[0fr] jc-transition-all jc-duration-300 jc-ease-in-out peer-checked:jc-grid-rows-[1fr]">
+    <div class="jc-min-h-0">
+      <div data-richtext class="jc-pb-4">{{ item_content }}</div>
+    </div>
+  </div>
+</div>

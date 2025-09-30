@@ -1,0 +1,51 @@
+{% comment %}
+  Snippet: Best Product Reviews
+  Created by: Nazarii Prokopchuk
+
+  Description:
+  - This section displays a list of the best product reviews.
+  - The reviews are retrieved from the product's metafields.
+
+  Passed variables:
+  - product: {Object} the product whose reviews are to be displayed
+  - root: {Object} section or block
+
+  Metafields:
+  - jolly_meta.best_reviews: {Array} list of review items, each containing 'icon', 'title', and 'text'
+
+  Metafield settings:
+  - icon: {Image} icon image to display alongside the review
+  - title: {Text} title of the review
+  - text: {Richtext} content of the review
+
+  Root settings:
+  - dropdown_icon: {String} type of icon to display for dropdowns
+  - input_type: {String} type of input to use
+
+  Used snippets:
+  - g-render-image
+
+  Render example:
+  {% render 'product-main-accordion', product: product, root: root %}
+{% endcomment %}
+
+{%- assign accordions = product.metafields.jolly_meta.accordions -%}
+
+{% if accordions != blank %}
+  <div>
+    {% for accordion in accordions.value %}
+      {%- assign item_id = 'product-accordion-item-' | append: forloop.index | append: '-' | append: root.id -%}
+      {%- assign accordion_text = accordion.text | metafield_tag -%}
+
+      {% render 'g-accordion-item',
+        item_id: item_id,
+        dropdown_icon_type: root.settings.dropdown_icon,
+        input_type: root.settings.input_type,
+        additional_icon: accordion.icon,
+        item_title: accordion.title,
+        item_content: accordion_text,
+        is_open: accordion.is_open
+      %}
+    {% endfor %}
+  </div>
+{% endif %}

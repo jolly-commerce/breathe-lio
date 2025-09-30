@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -441,5 +450,29 @@
         "other": "已收到 {{ count }} 則評價。"
       }
     }
+  },
+  "bundle_pack": {
+    "button_select": "選擇",
+    "button_add": "加入",
+    "button_add_to_cart": "加入購物車",
+    "button_adding_to_cart": "加入購物車中...",
+    "summary_select_your_lio": "選擇你的 Lio",
+    "selected_label": "已選擇",
+    "tap_to_add": "點擊 + 新增多種口味",
+    "optional_label": "可選",
+    "info_money_back": "30 天內未成功？提供退款保障！",
+    "info_shipping": "快速且免費配送",
+    "success_added": "已成功加入購物車！",
+    "error_failed_add": "加入購物車失敗",
+    "error_network": "網路錯誤，請再試一次",
+    "select_minimum_flavors": "請至少選擇 {count} 種口味",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "口味",
+    "total_price": "合計",
+    "savoury": "甜味",
+    "throat_hit": "辛辣",
+    "sweetness": "甜味",
+    "select_flavor": "選擇口味",
+    "close": "關閉"
   }
 }

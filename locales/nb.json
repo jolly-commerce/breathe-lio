@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -441,5 +450,29 @@
         "other": "Produktet har mottatt {{ count }} vurderinger."
       }
     }
+  },
+  "bundle_pack": {
+    "button_select": "Velg",
+    "button_add": "Legg til",
+    "button_add_to_cart": "Legg i handlekurv",
+    "button_adding_to_cart": "Legger i handlekurv...",
+    "summary_select_your_lio": "Velg din Lio",
+    "selected_label": "Valgt",
+    "tap_to_add": "Trykk på + for å legge til flere smaker",
+    "optional_label": "Valgfritt",
+    "info_money_back": "Ikke sluttet innen 30 dager? Pengene tilbake!",
+    "info_shipping": "Gratis og rask frakt",
+    "success_added": "Lagt til i handlekurven!",
+    "error_failed_add": "Kunne ikke legge i handlekurv",
+    "error_network": "Nettverksfeil. Prøv igjen.",
+    "select_minimum_flavors": "Velg minst {count} smaker",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Smaker",
+    "total_price": "Totalt",
+    "savoury": "Sød",
+    "throat_hit": "Prodlænd",
+    "sweetness": "Smag",
+    "select_flavor": "Velg smag",
+    "close": "Lukk"
   }
 }

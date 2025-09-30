@@ -1,0 +1,82 @@
+{%- comment -%}
+  Snippet: info-tabs
+  Created by: Volodymyr Korolchuk
+
+  Accepts:
+  - root: {Object} section or block
+  - tab_titles: {Array} array of tab titles
+  - content_entries: {Array} array of content entries
+
+  Usage:
+  {%- render 'info-tabs', tab_titles: tab_titles, content_entries: content_entries, root: root -%}
+{%- endcomment -%}
+
+{% liquid
+  assign group_id = 'now' | date: '%N'
+  assign entry_ids = ''
+
+  assign entries_present = false
+  for _ in (1..content_entries.size)
+    if content_entries[forloop.index0] != blank
+      assign entries_present = true
+      break
+    endif
+  endfor
+%}
+
+{% if entries_present %}
+  <info-tabs {{ root.shopify_attributes }}>
+    <div style="--grid-size: {{ content_entries.size }};" data-tabs-container>
+      {% for i in (1..content_entries.size) %}
+        {% liquid
+          assign unique_id = 'now' | date: '%N'
+          assign tab_title = tab_titles[forloop.index0] | default: 'Missing tab title'
+          assign tab_id = 'tab-' | append: unique_id | append: '-' | append: forloop.index
+
+          assign entry_ids = entry_ids | append: tab_id
+          unless forloop.last
+            assign entry_ids = entry_ids | append: ','
+          endunless
+
+          if content_entries[forloop.index0] == blank
+            continue
+          endif
+        %}
+
+        <label for="{{ tab_id }}" data-id="{{ tab_id }}" data-tab>
+          <p class="jc-pointer-events-none">
+            {{ tab_title }}
+          </p>
+          <input
+            id="{{ tab_id }}"
+            type="radio"
+            name="{{ group_id }}"
+            {% if forloop.first %}
+              checked
+            {% endif %}
+          >
+        </label>
+      {% endfor %}
+    </div>
+
+    {% assign entry_ids = entry_ids | split: ',' | compact %}
+    <div data-content-container>
+      {%- for i in (1..content_entries.size) -%}
+        {%- if content_entries[forloop.index0] == blank -%}
+          {%- continue -%}
+        {%- endif -%}
+
+        <div
+          data-richtext
+          data-id="{{ entry_ids[forloop.index0] }}"
+          data-content-entry
+          {% if forloop.first %}
+            data-active
+          {% endif %}
+        >
+          {{- content_entries[forloop.index0] -}}
+        </div>
+      {% endfor %}
+    </div>
+  </info-tabs>
+{% endif %}

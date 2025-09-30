@@ -246,7 +246,7 @@
       "type": "apps",
       "blocks": {
         "countdown_timer_essential_app_block_pJkDxe": {
-          "type": "shopify://apps/countdown-timer-essential/blocks/app-block/722378e8-5a70-4eae-aa89-9e44e8e9f6de",
+          "type": "shopify://apps/essential-countdown-timer/blocks/app-block/722378e8-5a70-4eae-aa89-9e44e8e9f6de",
           "settings": {
             "id": "clwzsgk1s4449361e1ed60r5k34"
           }
@@ -1062,10 +1062,6 @@
     },
     "science_research_PkfYbK": {
       "type": "science-research",
-      "name": "Science Research",
-      "settings": {
-        "heading": "Science research"
-      },
       "blocks": {
         "research_zNpLMX": {
           "type": "research",
@@ -1117,7 +1113,11 @@
         "research_hdNffU",
         "research_wVqN98",
         "research_3tLTCQ"
-      ]
+      ],
+      "name": "Science Research",
+      "settings": {
+        "heading": "Science research"
+      }
     }
   },
   "order": [

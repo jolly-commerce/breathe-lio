@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -441,5 +450,29 @@
         "other": "Il a reçu {{ count }} avis."
       }
     }
+  },
+  "bundle_pack": {
+    "button_select": "Sélectionner",
+    "button_add": "Ajouter",
+    "button_add_to_cart": "Ajouter au panier",
+    "button_adding_to_cart": "Ajout au panier...",
+    "summary_select_your_lio": "Sélectionnez votre Lio",
+    "selected_label": "Sélectionné",
+    "tap_to_add": "Appuyez sur + pour ajouter plusieurs saveurs",
+    "optional_label": "Optionnel",
+    "info_money_back": "Pas arrêté en 30 jours ? Remboursement !",
+    "info_shipping": "Livraison gratuite et rapide",
+    "success_added": "Ajouté au panier avec succès !",
+    "error_failed_add": "Échec de l'ajout au panier",
+    "error_network": "Erreur réseau. Veuillez réessayer.",
+    "select_minimum_flavors": "Sélectionnez au moins {count} saveurs",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Saveurs",
+    "total_price": "Total",
+    "savoury": "Salé",
+    "throat_hit": "Rosti",
+    "sweetness": "Sucré",
+    "select_flavor": "Sélectionner le goût",
+    "close": "Fermer"
   }
 }

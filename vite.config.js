@@ -14,7 +14,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         "main": resolve(__dirname, './src/templates/main.js'),
-        "jc-maincss": resolve(__dirname, './src/css/main.css')
+        "product": resolve(__dirname, './src/templates/product.js'),
+        "jc-maincss": resolve(__dirname, './src/css/main.css'),
       },
       output: {
         dir: './assets',

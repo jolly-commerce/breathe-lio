@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -441,5 +450,29 @@
         "other": "Het heeft {{ count }} beoordelingen ontvangen."
       }
     }
+  },
+  "bundle_pack": {
+    "button_select": "Selecteren",
+    "button_add": "Toevoegen",
+    "button_add_to_cart": "Toevoegen aan winkelwagen",
+    "button_adding_to_cart": "Bezig met toevoegen...",
+    "summary_select_your_lio": "Kies je Lio",
+    "selected_label": "Geselecteerd",
+    "tap_to_add": "Tik op + om meerdere smaken toe te voegen",
+    "optional_label": "Optioneel",
+    "info_money_back": "Niet binnen 30 dagen gestopt? Geld terug!",
+    "info_shipping": "Gratis en snelle verzending",
+    "success_added": "Succesvol aan de winkelwagen toegevoegd!",
+    "error_failed_add": "Toevoegen aan winkelwagen mislukt",
+    "error_network": "Netwerkfout. Probeer het opnieuw.",
+    "select_minimum_flavors": "Selecteer minimaal {count} smaken",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Smaken",
+    "total_price": "Totaal",
+    "savoury": "Smaakvol",
+    "throat_hit": "Provozas",
+    "sweetness": "Smaakvol",
+    "select_flavor": "Selecteer smak",
+    "close": "Sluiten"
   }
 }

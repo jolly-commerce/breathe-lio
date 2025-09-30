@@ -15,7 +15,83 @@ module.exports = {
     extend: {
       colors: {
         black: "#000000",
-        platinum: "#e6e6e6"
+        platinum: "#e6e6e6",
+        cultured: "#F4F4F4",
+        darkGreen: "#002A15",
+        munsell: "#00B67C",
+        britishRacingGreen: "#004631",
+        amazon: "#3C6B59",
+        mintCream: "#f5fff7",
+        azureishWhite: "#DAF7E9",
+        munsellLight20: "#c5f0de",
+        green: {
+          50: "#dcfce7",
+          100: "#d1fae5",
+          200: "#a7f3d0",
+          400: "#4ade80",
+          500: "#22c55e",
+          600: "#16a34a",
+          700: "#15803d",
+          800: "#166534"
+        },
+        orange: {
+          400: "#fb923c",
+          500: "#f97316"
+        },
+        gray: {
+          50: "#f9fafb",
+          100: "#f3f4f6",
+          200: "#e5e7eb",
+          300: "#d1d5db",
+          400: "#9ca3af",
+          500: "#6b7280",
+          600: "#4b5563",
+          700: "#374151",
+          800: "#1f2937",
+          900: "#111827"
+        },
+        red: {
+          100: "#fee2e2",
+          500: "#ef4444",
+          800: "#991b1b"
+        }
+      },
+      opacity: {
+        0: "0",
+        25: "0.25",
+        50: "0.5",
+        75: "0.75",
+        100: "1"
+      },
+      maxWidth: {
+        22: "88px",
+        25: "100px",
+        30: "120px",
+        30.5: "122px",
+        47: "188px",
+      },
+      maxHeight: {
+        22: "88px",
+        30: "120px",
+      },
+      minWidth: {
+        47: "188px",
+      },
+      boxShadow: {
+        'pack-selector-green': '-2px 2px 0 0 #004630',
+        'pack-selector-green-big': '-7px 7px 0 0 #004630',
+      },
+      width: {
+        '6.5': '26.5px',
+        '51': '204px',
+        '47': '188px',
+      },
+      height: {
+        '51': '204px',
+      },
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'],
+        'sigumL': ['Sigum', 'sans-serif'],
       },
     },
     spacing: {
@@ -47,6 +123,7 @@ module.exports = {
       18: "72px",
       20: "80px",
       24: "96px",
+      25: "100px",
       28: "110px",
       32: "128px",
       36: "144px",
@@ -64,6 +141,7 @@ module.exports = {
     lineHeight: {
       none: "1",
       3: "12px",
+      3.5: "14px",
       4: "16px",
       5: "20px",
       6: "24px",
@@ -77,6 +155,7 @@ module.exports = {
       14: "56px",
     },
     fontSize: {
+      xxs: "11px",
       xs: "12px",
       sm: "14px",
       base: "16px",
@@ -96,6 +175,7 @@ module.exports = {
       none: "0",
       xxs: "4px",
       xs: "8px",
+      mxs: "10px",
       md: "12px",
       lg: "16px",
       xl: "20px",

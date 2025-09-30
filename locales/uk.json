@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "404": {
     "general": {
@@ -441,5 +450,29 @@
         "other": "Отримано відгуків: {{ count }}."
       }
     }
+  },
+  "bundle_pack": {
+    "button_select": "Обрати",
+    "button_add": "Додати",
+    "button_add_to_cart": "Додати до кошика",
+    "button_adding_to_cart": "Додаємо до кошика...",
+    "summary_select_your_lio": "Обери свій Lio",
+    "selected_label": "Обрано",
+    "tap_to_add": "Натисни +, щоб додати кілька смаків",
+    "optional_label": "Необов'язково",
+    "info_money_back": "Не кинув за 30 днів? Повернемо гроші!",
+    "info_shipping": "Безкоштовна та швидка доставка",
+    "success_added": "Успішно додано до кошика!",
+    "error_failed_add": "Не вдалося додати до кошика",
+    "error_network": "Помилка мережі. Спробуйте ще раз.",
+    "select_minimum_flavors": "Оберіть мінімум {count} смаків",
+    "selected_cigarette": "Lio",
+    "selected_flavors": "Смаки",
+    "total_price": "Разом",
+    "savoury": "Смаки",
+    "throat_hit": "Смаки",
+    "sweetness": "Смаки",
+    "select_flavor": "Обрати смак",
+    "close": "Закрити"
   }
 }

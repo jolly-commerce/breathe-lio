@@ -1,0 +1,63 @@
+/* Pack Selector Component Styles */
+pack-selector-component {
+  display: block;
+}
+
+/* Step animations */
+pack-selector-component .step-content {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Product option hover states */
+pack-selector-component .js-product-option-card {
+  transition: all 0.2s ease;
+}
+
+pack-selector-component .js-product-option-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Button states */
+pack-selector-component .select-button,
+pack-selector-component .selected-button {
+  transition: all 0.2s ease;
+}
+
+/* Quantity controls (step 2) */
+pack-selector-component .js-qty-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+pack-selector-component .js-qty-control.jc-hidden {
+  display: none;
+}
+
+pack-selector-component .js-qty-count {
+  min-width: 2rem;
+  display: inline-block;
+}
+
+/* Step 2 SELECT button styles */
+pack-selector-component .js-select-button-step2.jc-bg-green-600 {
+  background-color: rgb(34 197 94) !important; /* green-600 */
+  color: white !important;
+  border-color: rgb(34 197 94) !important;
+}
+
+
