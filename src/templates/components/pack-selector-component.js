@@ -27,6 +27,7 @@ class PackSelectorComponent extends HTMLElement {
     // Re-initialize DOM elements after connection
     this.submitButton = this.querySelector('#pack-selector-submit');
     this.flavorCounter = this.querySelector('.js-flavor-counter');
+    this.accessoryCounter = this.querySelector('.js-accessory-counter');
     this.flavorMax = this.querySelector('[data-role="flavor-max"]');
     this.selectedPackPlan = this.querySelector('.js-selected-pack-plan');
 
@@ -331,6 +332,7 @@ class PackSelectorComponent extends HTMLElement {
   updateUI() {
     this.updateStepAccess();
     this.updateFlavorCounter();
+    this.updateAccessoryCounter();
     this.updateSubmitButton();
     this.updateSummaryInfo();
     this.updateAllStep2Cards();
@@ -380,7 +382,24 @@ class PackSelectorComponent extends HTMLElement {
     const radioInput = this.querySelector(`#step-${stepNumber}-toggle`);
     if (radioInput) {
       radioInput.checked = true;
+      this.scrollToStepContent(radioInput, 'smooth');
     }
+  }
+
+  /**
+   * Scroll to step content with specified behavior
+   * @param {HTMLElement} radioInput - The radio input element
+   * @param {string} behavior - 'smooth' or 'instant'
+   */
+  scrollToStepContent(radioInput, behavior = 'instant') {
+    setTimeout(() => {
+      const stepContent = radioInput.parentElement.querySelector('.step-content');
+      if (stepContent) {
+        const yOffset = -200; // scroll 200px up
+        const y = stepContent.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: behavior });
+      }
+    }, DEFAULTS.RETRY_DELAY);
   }
 
   getCurrentActiveStep() {
@@ -560,6 +579,10 @@ class PackSelectorComponent extends HTMLElement {
     return Object.values(this.selectedProducts.step2).reduce((sum, item) => sum + item.quantity, 0);
   }
 
+  getTotalAccessories() {
+    return Object.values(this.selectedProducts.step3).reduce((sum, item) => sum + item.quantity, 0);
+  }
+
   updateFlavorCounter() {
     const totalFlavors = this.getTotalFlavors();
     if (this.flavorCounter) {
@@ -571,6 +594,20 @@ class PackSelectorComponent extends HTMLElement {
       }
     }
     if (this.flavorMax) this.flavorMax.textContent = String(this.maxFlavors);
+  }
+
+  updateAccessoryCounter() {
+    const totalAccessories = this.getTotalAccessories();
+    if (this.accessoryCounter) {
+      this.accessoryCounter.textContent = String(totalAccessories);
+      this.accessoryCounter.setAttribute('data-accessory-counter', String(totalAccessories));
+    } else {
+      this.accessoryCounter = this.querySelector('.js-accessory-counter');
+      if (this.accessoryCounter) {
+        this.accessoryCounter.textContent = String(totalAccessories);
+        this.accessoryCounter.setAttribute('data-accessory-counter', String(totalAccessories));
+      }
+    }
   }
 
   updateSummaryInfo() {
@@ -808,14 +845,12 @@ document.addEventListener('DOMContentLoaded', function () {
   stepRadios.forEach(radio => {
     radio.addEventListener('change', function () {
       if (this.checked) {
-        setTimeout(() => {
-          const stepContent = this.parentElement.querySelector('.step-content');
-          if (stepContent) {
-            const yOffset = -200; // scroll 200px up
-            const y = stepContent.getBoundingClientRect().top + window.pageYOffset + yOffset;
-            window.scrollTo({ top: y, behavior: 'instant' });
-          }
-        }, DEFAULTS.RETRY_DELAY);
+        // Find the pack selector component and use its scroll method
+        
+        const packSelector = this.closest('pack-selector-component');
+        if (packSelector && packSelector.scrollToStepContent) {
+          packSelector.scrollToStepContent(this, 'instant');
+        }
       }
     });
   });
