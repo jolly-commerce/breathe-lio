@@ -127,7 +127,7 @@
       {% when 'inside'  %}
         thumbs-swiper--position-inside-mob
       {% when 'bottom' %}
-        thumbs-swiper--position-bottom-mob [&::part(container)]:jc-px-5 !-jc-mx-5
+        thumbs-swiper--position-bottom-mob [&::part(container)]:jc-px-5 lg:-jc-mx-5
     {% endcase %}
   {% endif %}
 
@@ -155,10 +155,10 @@
     <!-- Main gallery swiper -->
     <swiper-container
       id="productMainSwiper"
-      class="gallery-swiper {{ gallery_swiper_class }}"
+      class="gallery-swiper {{ gallery_swiper_class }} jc-bg-white lg:jc-bg-transparent"
       slides-per-view="1"
       speed="500"
-      loop="true"
+      loop="false"
       {% if root.settings.enable_arrows_mob or root.settings.enable_arrows_dsk %}
         navigation="true"
         navigation-next-el=".swiper-button-next.gallery-nav-button-next"
@@ -185,6 +185,7 @@
             {%- if root.settings.enable_lightbox -%}
               jc-cursor-zoom-in
             {%- endif -%}
+            lg:jc-px-1
           "
           {%- if root.settings.enable_lightbox -%}
             data-lightbox-open
@@ -193,12 +194,12 @@
           <div
             data-swiper-media-id="{{ media.id }}"
             data-swiper-media-index="{{ forloop.index0 }}"
-            class="gallery-slide jc-relative jc-w-full jc-overflow-hidden jc-border jc-border-solid jc-border-darkGreen jc-rounded-xl"
+            class="gallery-slide jc-relative jc-w-full jc-overflow-hidden lg:jc-border lg:jc-border-solid lg:jc-border-darkGreen lg:jc-rounded-xl"
           >
             {% case media.media_type %}
               {% when 'image' %}
                 {% render 'g-render-image',
-                  class: 'jc-w-full jc-h-full jc-aspect-square jc-object-cover jc-rounded-xl',
+                  class: 'jc-w-full jc-h-full jc-aspect-square jc-object-cover',
                   img_src: media.url,
                   img: media,
                   alt: media.alt,
@@ -216,7 +217,7 @@
                     muted: true,
                     controls: true,
                     image_size: '800x',
-                    class: 'jc-w-full jc-h-full jc-aspect-square jc-object-cover lazyload jc-rounded-xl',
+                    class: 'jc-w-full jc-h-full jc-aspect-square jc-object-cover lazyload',
                     preload: 'none'
                 }}
             {% endcase %}

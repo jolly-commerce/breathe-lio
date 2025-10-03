@@ -86,7 +86,7 @@
             "step_2_2_title": "6 bags",
             "step_2_2_discount": "10% OFF",
             "step_2_3_title": "Complete",
-            "step_2_3_discount": "15% OFF",
+            "step_2_3_discount": "10% OFF",
             "step_3_title": "Step 3:",
             "step_3_subtitle": "Select your accessories",
             "step_3_packs": [
@@ -100,15 +100,16 @@
             ],
             "subscribe_and_save_title": "Subscribe and save",
             "subscribe_and_save_description": "<p>NEVER RUN OUT OF CORES</p>",
-            "subscribe_3_packs": "<p>3x flavors - <em>€30</em> <strong>€21 / month</strong></p>",
-            "subscribe_6_packs": "<p>6x flavors - <em>€60</em> <strong>€42 / month</strong></p>",
-            "subscribe_and_save_subtitle": "30% OFF",
+            "subscribe_3_packs": "3x flavors",
+            "subscribe_6_packs": "6x flavors",
+            "subscribe_packs_price": "[compare_price] <strong>[price] / month</strong>",
+            "subscribe_and_save_subtitle": "20% OFF",
             "one_time_purchase_title": "One-time purchase",
             "one_time_purchase_description": "<p>NEVER RUN OUT OF CORES</p>",
             "one_time_purchase_benefits_title": "One-time purchase",
             "subscribe_and_save_benefits_description": "<p>Repeats monthly. Swap out flavors every month or keep the same ones. Cancel at any time.</p>",
             "subscribe_and_save_benefits_image": "shopify://shop_images/subscribe_image.png",
-            "benefits_features_title_1": "<p><strong>Save 30% Extra<br/></strong>Monthly</p>",
+            "benefits_features_title_1": "<p><strong>Save 20% Extra<br/></strong>Monthly</p>",
             "benefits_features_image_1": "shopify://shop_images/discount_icon_2fbffa11-c282-462e-81e2-9b8025ee825d.svg",
             "benefits_features_title_2": "<p><strong>Free Shipping<br/></strong>Monthly</p>",
             "benefits_features_image_2": "shopify://shop_images/package_delivered_icon_e0289af7-a8ca-4499-9296-23b268b539c1.svg",
@@ -1330,16 +1331,6 @@
         "image": "shopify://shop_images/vees.png",
         "image-mobile": "shopify://shop_images/IMG_0142_3_8407560a-8254-4c74-bd6e-1111e360f6be.png"
       }
-    },
-    "instant_2_umtw4idkjq_xa_nav_JFCbp3": {
-      "type": "instant-2Umtw4idkjqXaNAV",
-      "name": "STICKY CTA",
-      "settings": {
-        "url_2MWJOnA9KR8FDxip": "#iOVRdSNYzOXhtLQ7O",
-        "text_feXt0eChlMcnc9GS": "<p>Make The Switch</p>",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
@@ -1361,7 +1352,6 @@
     "good_vs_bad_rFDcB8",
     "instant_nwr_u_dx_xiop4_x_zc_rf_xgURMq",
     "ecom_faq_9JNHQA",
-    "custom_newsletter_Vr87pq",
-    "instant_2_umtw4idkjq_xa_nav_JFCbp3"
+    "custom_newsletter_Vr87pq"
   ]
 }

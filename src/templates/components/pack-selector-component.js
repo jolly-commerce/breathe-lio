@@ -228,6 +228,9 @@ class PackSelectorComponent extends HTMLElement {
     
     // Update all button states after reset
     this.updateAllStep2Cards();
+    
+    // Update subscription pricing after reset
+    this.updateSubscriptionStep2Pricing();
   }
 
 
@@ -502,7 +505,7 @@ class PackSelectorComponent extends HTMLElement {
     }
   }
 
-  // Commented out - now redirecting to checkout instead of showing cart drawer
+  // * Commented out - now redirecting to checkout instead of showing cart drawer
   // async cartDrawerToggle() {
   //   if (this.cartDrawer?._onCartRefresh) {
   //     await this.cartDrawer._onCartRefresh();
@@ -606,6 +609,9 @@ class PackSelectorComponent extends HTMLElement {
       let formattedSubscriptionPrice = this.formatPrice(subscriptionTotalPrice);
       totalPriceSubscriptionElement.textContent = formattedSubscriptionPrice;
     }
+
+    // Update subscription step 2 pricing
+    this.updateSubscriptionStep2Pricing();
   }
 
   calculateTotalPrice() {
@@ -667,6 +673,65 @@ class PackSelectorComponent extends HTMLElement {
     const discountedTotal = totalPrice - discountAmount;
 
     return discountedTotal;
+  }
+
+  /**
+   * Calculate subscription pricing for step 2 products only
+   * Returns { comparePrice, subscriptionPrice, hasProducts }
+   */
+  calculateSubscriptionStep2Pricing() {
+    const step2Products = Object.values(this.selectedProducts.step2);
+    
+    if (step2Products.length === 0) {
+      return { comparePrice: 0, subscriptionPrice: 0, hasProducts: false };
+    }
+
+    let comparePrice = 0;
+    let subscriptionPrice = 0;
+
+    step2Products.forEach(item => {
+      // Compare price: original price * quantity (no discount)
+      comparePrice += item.price * item.quantity;
+      
+      // Subscription price: subscription price with discount applied
+      const subPrice = item.subscriptionPrice || item.price || 0;
+      const discountedPrice = this.applyDiscount(subPrice, item.quantity);
+      subscriptionPrice += discountedPrice;
+    });
+
+    return { comparePrice, subscriptionPrice, hasProducts: true };
+  }
+
+  /**
+   * Update the subscription step 2 pricing display
+   */
+  updateSubscriptionStep2Pricing() {
+    // Only run when on step 2
+    if (this.getCurrentActiveStep() !== 2) return;
+
+    const priceWrapper = document.querySelector('.js-2-step-price-wrapper');
+    if (!priceWrapper) return;
+
+    const { comparePrice, subscriptionPrice, hasProducts } = this.calculateSubscriptionStep2Pricing();
+
+    // Show/hide wrapper based on whether products are selected
+    if (hasProducts) {
+      priceWrapper.style.removeProperty('display');
+      
+      // Update price elements
+      const priceElement = priceWrapper.querySelector('.js-2-step-price');
+      const comparePriceElement = priceWrapper.querySelector('.js-2-step-compare-price');
+      
+      if (priceElement) {
+        priceElement.textContent = this.formatPrice(subscriptionPrice);
+      }
+      
+      if (comparePriceElement) {
+        comparePriceElement.textContent = this.formatPrice(comparePrice);
+      }
+    } else {
+      priceWrapper.style.display = 'none';
+    }
   }
 
   formatPrice(price) {

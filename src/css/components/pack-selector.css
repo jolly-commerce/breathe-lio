@@ -49,7 +49,7 @@ pack-selector-component .js-qty-control.jc-hidden {
 }
 
 pack-selector-component .js-qty-count {
-  min-width: 2rem;
+  min-width: 1rem;
   display: inline-block;
 }
 

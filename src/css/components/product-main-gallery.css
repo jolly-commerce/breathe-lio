@@ -89,11 +89,6 @@
   display: none;
 }
 
-.gallery-nav-button.swiper-button-disabled {
-  opacity: 1;
-  background-color: #e6e6e6;
-}
-
 /* NAVIGATION MOBILE */
 @media screen and (width < 768px) {
   .gallery-nav-button--enabled-mob {

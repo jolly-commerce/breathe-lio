@@ -57,7 +57,12 @@
     <div class="lg:jc-flex-row jc-gap-10 xl:jc-gap-20 jc-relative jc-flex jc-flex-col">
       {%- # Gallery -%}
 
-      <div class="jc-basis-full lg:jc-basis-[51.7%] jc-min-w-0">
+      {%- assign wrapper_class = '' -%}
+      {%- if gallery_block.settings.enable_thumbnails_mob and gallery_block.settings.thumbnails_position_mob == 'bottom' -%}
+        {%- assign wrapper_class = '-jc-mx-5 lg:jc-mx-0' -%}
+      {%- endif -%}
+
+      <div class="jc-basis-full lg:jc-basis-[51.7%] jc-min-w-0 {{ wrapper_class }}">
         {% render 'product-main-gallery', root: gallery_block, product_form_id: product_form_id %}
       </div>
 
@@ -345,22 +350,6 @@
           "id": "enable_thumbnails_mob",
           "label": "Enable thumbnails (Mobile)",
           "default": false
-        },
-        {
-          "type": "header",
-          "content": "Pagination"
-        },
-        {
-          "type": "checkbox",
-          "id": "enable_pagination_dsk",
-          "label": "Enable pagination (Desktop)",
-          "default": true
-        },
-        {
-          "type": "checkbox",
-          "id": "enable_pagination_mob",
-          "label": "Enable pagination (Mobile)",
-          "default": true
         }
       ]
     },
@@ -646,7 +635,7 @@
           "type": "number",
           "id": "step_2_3_discount_percentage",
           "label": "Discount Percentage",
-          "default": 15,
+          "default": 10,
           "info": "Discount percentage for complete pack (0-100)"
         },
         {
@@ -687,16 +676,23 @@
           "default": "<p>NEVER RUN OUT OF CORES</p>"
         },
         {
-          "type": "richtext",
+          "type": "inline_richtext",
           "id": "subscribe_3_packs",
-          "label": "3 packs description",
-          "info": "Use italic tags for crossed price"
+          "label": "3 packs title",
+          "default": "3x flavors"
         },
         {
-          "type": "richtext",
+          "type": "inline_richtext",
           "id": "subscribe_6_packs",
-          "label": "6 packs description",
-          "info": "Use italic tags for crossed price"
+          "label": "6 packs title",
+          "default": "6x flavors"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "subscribe_packs_price",
+          "label": "Dynamic price",
+          "info": "Use [price] to insert the price, use [compare_price] to insert the compare price",
+          "default": "[compare_price] <strong>[price] / month</strong>"
         },
         {
           "type": "text",
