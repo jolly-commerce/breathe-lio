@@ -134,7 +134,7 @@
         class="jc-flex jc-gap-2 jc-items-end lg:jc-items-center jc-justify-between jc-cursor-pointer"
       >
         <div class="jc-flex jc-flex-col lg:jc-flex-row jc-items-start lg:jc-items-center jc-gap-2 jc-text-xl jc-leading-6 jc-font-normal jc-uppercase">
-          <span class=" jc-text-munsell jc-font-sigumL">
+          <span class=" jc-text-munsell jc-font-sigumL jc-step-number-title">
             {{- root.settings.step_1_title -}}
           </span>
           {%- if root.settings.step_1_subtitle != blank -%}
@@ -232,7 +232,7 @@
   {%- # Step 2: Select Your Flavors -%}
   {%- if root.settings.step_2_title != blank and root.settings.step_2_packs != blank -%}
     <div
-      class="pack-selector-step step-disabled jc-mt-8 [&.step-disabled]:jc-pointer-events-none [&.step-disabled]:jc-opacity-50 [&.step-disabled]:jc-cursor-not-allowe [&.step-disabled_.jc-selected-step-title]:jc-hidden"
+      class="pack-selector-step step-disabled jc-mt-8 [&.step-disabled]:jc-pointer-events-none [&.step-disabled]:jc-opacity-50 [&.step-disabled]:jc-cursor-not-allowe [&.step-disabled_.jc-selected-step-title]:jc-hidden [&.step-disabled_.jc-step-number-title]:jc-text-britishRacingGreen"
       data-step="2"
       data-step-number="2"
     >
@@ -242,7 +242,7 @@
         class="jc-flex jc-gap-2 jc-items-end lg:jc-items-center jc-justify-between jc-cursor-pointer jc-mb-4"
       >
         <div class="jc-flex jc-flex-col lg:jc-flex-row jc-items-start lg:jc-items-center jc-gap-2 jc-text-xl jc-leading-6 jc-font-normal jc-uppercase">
-          <span class=" jc-text-munsell jc-font-sigumL">
+          <span class=" jc-text-munsell jc-font-sigumL jc-step-number-title">
             {{- root.settings.step_2_title -}}
           </span>
           {%- if root.settings.step_2_subtitle != blank -%}
@@ -397,7 +397,7 @@
   {%- # Step 3: Select Accessories -%}
   {%- if root.settings.step_3_title != blank and root.settings.step_3_packs != blank -%}
     <div
-      class="pack-selector-step step-disabled jc-mt-8 [&.step-disabled]:jc-pointer-events-none [&.step-disabled]:jc-opacity-50 [&.step-disabled]:jc-cursor-not-allowed [&.step-disabled_.jc-selected-step-title]:jc-hidden"
+      class="pack-selector-step step-disabled jc-mt-8 [&.step-disabled]:jc-pointer-events-none [&.step-disabled]:jc-opacity-50 [&.step-disabled]:jc-cursor-not-allowed [&.step-disabled_.jc-selected-step-title]:jc-hidden [&.step-disabled_.jc-step-number-title]:jc-text-britishRacingGreen"
       data-step="3"
       data-step-number="3"
     >
@@ -407,7 +407,7 @@
         class="jc-flex jc-gap-2 jc-items-end lg:jc-items-center jc-justify-between jc-cursor-pointer jc-mb-4"
       >
         <div class="jc-flex jc-flex-col lg:jc-flex-row jc-items-start lg:jc-items-center jc-gap-2 jc-text-xl jc-leading-6 jc-font-normal jc-uppercase">
-          <span class=" jc-text-munsell jc-font-sigumL">
+          <span class=" jc-text-munsell jc-font-sigumL jc-step-number-title">
             {{- root.settings.step_3_title -}}
           </span>
           {%- if root.settings.step_3_subtitle != blank -%}

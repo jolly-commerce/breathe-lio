@@ -14,7 +14,7 @@
   .gallery-container {
     /* thumbs */
     --thumb-count: 4;
-    --thumb-size-mob: 80px;
+    --thumb-size-mob: 64px;
     --thumb-size-dsk: 80px;
     --thumb-gap-mob: 16px;
     --thumb-gap-dsk: 16px;
@@ -107,7 +107,7 @@
   thumbs-swiper
   {% if root.settings.enable_thumbnails_mob %} 
     thumbs-swiper--enabled-mob
-    thumbs-swiper--position-bottom-mob [&::part(container)]:jc-px-5 lg:-jc-mx-5
+    thumbs-swiper--position-bottom-mob [&::part(container)]:jc-px-5 lg:-jc-mx-5 [&::part(container)]:max-lg:jc-pb-1
   {% endif %}
 
   {% if root.settings.enable_thumbnails_dsk %}
@@ -227,12 +227,12 @@
         id="gallery-thumbs"
         class="{{ thumb_swiper_class }} element"
         slides-per-view="auto"
-        space-between="16"
+        space-between="8"
         free-mode="true"
         {% if root.settings.thumbnails_position_dsk == 'left' or root.settings.thumbnails_position_dsk == 'inside' %}
-          breakpoints='{"1024": { "direction": "vertical" }}'
+          breakpoints='{"1024": { "direction": "vertical", "spaceBetween": 16 }}'
         {% else %}
-          breakpoints='{"1024": { "direction": "horizontal" }}'
+          breakpoints='{"1024": { "direction": "horizontal", "spaceBetween": 16 }}'
         {% endif %}
       >
         {% for media in product.media %}
