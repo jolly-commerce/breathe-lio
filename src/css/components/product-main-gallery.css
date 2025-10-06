@@ -6,7 +6,7 @@
 }
 
 /* THUMBNAILS MOBILE */
-@media screen and (width < 768px) {
+@media screen and (width < 1024px) {
   .gallery-container--thumbs-position-left-mob {
     flex-direction: row-reverse;
   }
@@ -25,7 +25,7 @@
 }
 
 /* THUMBNAILS DESKTOP */
-@media screen and (width >= 768px) {
+@media screen and (width >= 1024px) {
   .gallery-container--thumbs-left-dsk {
     padding-left: calc(var(--thumb-size-dsk) + var(--thumb-gap-dsk));
   }
@@ -51,21 +51,21 @@
   bottom: 0;
 }
 
-@media screen and (width >= 768px) {
+@media screen and (width >= 1024px) {
   .gallery-swiper::part(container) {
     padding-bottom: var(--pagination-offset-dsk);
   }
 }
 
 /* PAGINATION MOBILE */
-@media screen and (width < 768px) {
+@media screen and (width < 1024px) {
   .gallery-swiper--pagination-mob::part(pagination) {
     display: block;
   }
 }
 
 /* PAGINATION DESKTOP */
-@media screen and (width >= 768px) {
+@media screen and (width >= 1024px) {
   .gallery-swiper--pagination-dsk::part(pagination) {
     display: block;
   }
@@ -90,7 +90,7 @@
 }
 
 /* NAVIGATION MOBILE */
-@media screen and (width < 768px) {
+@media screen and (width < 1024px) {
   .gallery-nav-button--enabled-mob {
     display: flex;
   }
@@ -114,7 +114,7 @@
 }
 
 /* NAVIGATION DESKTOP */
-@media screen and (width >= 768px) {
+@media screen and (width >= 1024px) {
   .gallery-nav-button {
     height: var(--navigation-button-size-dsk);
     width: var(--navigation-button-size-dsk);
@@ -151,7 +151,7 @@
 }
 
 /* THUMBNAILS MOBILE */
-@media screen and (width < 768px) {
+@media screen and (width < 1024px) {
   .thumbs-swiper {
     min-width: var(--thumb-size-mob);
     min-height: var(--thumb-size-mob);
@@ -185,7 +185,7 @@
 }
 
 /* THUMBNAILS DESKTOP */
-@media screen and (width >= 768px) {
+@media screen and (width >= 1024px) {
   .thumbs-swiper {
     min-width: var(--thumb-size-dsk);
     min-height: var(--thumb-size-dsk);
@@ -261,7 +261,7 @@ light-box [data-slide-id] [data-swiper-media-id]::after {
 }
 
 /* Desktop zoom styles */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   light-box [data-slide-id] [data-swiper-media-id]::after {
     background-size: 250%;
   }
@@ -333,7 +333,7 @@ light-box .swiper-button-prev {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   light-box .swiper-button-next,
   light-box .swiper-button-prev {
     width: 64px;

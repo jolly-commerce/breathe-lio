@@ -58,7 +58,7 @@
       {%- # Gallery -%}
 
       {%- assign wrapper_class = '' -%}
-      {%- if gallery_block.settings.enable_thumbnails_mob and gallery_block.settings.thumbnails_position_mob == 'bottom' -%}
+      {%- if gallery_block.settings.enable_thumbnails_mob -%}
         {%- assign wrapper_class = '-jc-mx-5 lg:jc-mx-0' -%}
       {%- endif -%}
 
@@ -303,26 +303,6 @@
           "type": "select",
           "id": "thumbnails_position_dsk",
           "label": "Thumbnails position (Desktop)",
-          "options": [
-            {
-              "value": "left",
-              "label": "Left"
-            },
-            {
-              "value": "bottom",
-              "label": "Bottom"
-            },
-            {
-              "value": "inside",
-              "label": "Inside"
-            }
-          ],
-          "default": "left"
-        },
-        {
-          "type": "select",
-          "id": "thumbnails_position_mob",
-          "label": "Thumbnails position (Mobile)",
           "options": [
             {
               "value": "left",

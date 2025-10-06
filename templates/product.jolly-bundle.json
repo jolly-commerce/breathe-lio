@@ -50,9 +50,7 @@
             "thumbnails_position_dsk": "left",
             "thumbnails_position_mob": "bottom",
             "enable_thumbnails_dsk": true,
-            "enable_thumbnails_mob": true,
-            "enable_pagination_dsk": false,
-            "enable_pagination_mob": false
+            "enable_thumbnails_mob": true
           }
         },
         "pack_selector_YtXxRx": {

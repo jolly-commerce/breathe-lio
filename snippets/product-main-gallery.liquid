@@ -14,8 +14,8 @@
   .gallery-container {
     /* thumbs */
     --thumb-count: 4;
-    --thumb-size-mob: {% if root.settings.thumbnails_position_mob == 'inside' %}40px{% else %}80px{% endif %};
-    --thumb-size-dsk: {% if root.settings.thumbnails_position_dsk == 'inside' %}40px{% else %}80px{% endif %};
+    --thumb-size-mob: 80px;
+    --thumb-size-dsk: 80px;
     --thumb-gap-mob: 16px;
     --thumb-gap-dsk: 16px;
 
@@ -39,14 +39,7 @@
 
 {% # GALLERY CONTAINER CLASS %}
 {% capture gallery_container_class %}
-  {% case root.settings.thumbnails_position_mob %}
-    {% when 'left' %}
-      gallery-container--thumbs-position-left-mob
-    {% when 'inside' %}
-      gallery-container--thumbs-position-inside-mob
-    {% when 'bottom' %}
       gallery-container--thumbs-position-bottom-mob
-  {% endcase %}
   {% case root.settings.thumbnails_position_dsk %}
     {% when 'left' %}
       gallery-container--thumbs-position-left-dsk
@@ -58,14 +51,7 @@
 
   {% # THUMBNAILS %}
   {% if root.settings.enable_thumbnails_mob %}
-    {% case root.settings.thumbnails_position_mob %}
-      {% when 'left' %}
-        gallery-container--thumbs-left-mob
-      {% when 'inside' %}
-        gallery-container--thumbs-inside-mob
-      {% when 'bottom'  %}
-        gallery-container--thumbs-bottom-mob
-    {% endcase %}
+      gallery-container--thumbs-bottom-mob
   {% endif %}
 
   {% if root.settings.enable_thumbnails_dsk %}
@@ -121,14 +107,7 @@
   thumbs-swiper
   {% if root.settings.enable_thumbnails_mob %} 
     thumbs-swiper--enabled-mob
-    {% case root.settings.thumbnails_position_mob %}
-      {% when 'left'  %}
-        thumbs-swiper--position-left-mob
-      {% when 'inside'  %}
-        thumbs-swiper--position-inside-mob
-      {% when 'bottom' %}
-        thumbs-swiper--position-bottom-mob [&::part(container)]:jc-px-5 lg:-jc-mx-5
-    {% endcase %}
+    thumbs-swiper--position-bottom-mob [&::part(container)]:jc-px-5 lg:-jc-mx-5
   {% endif %}
 
   {% if root.settings.enable_thumbnails_dsk %}
@@ -250,13 +229,10 @@
         slides-per-view="auto"
         space-between="16"
         free-mode="true"
-        {% if root.settings.thumbnails_position_mob == 'left' or root.settings.thumbnails_position_mob == 'inside' %}
-          direction="vertical"
-        {% endif %}
         {% if root.settings.thumbnails_position_dsk == 'left' or root.settings.thumbnails_position_dsk == 'inside' %}
-          breakpoints='{"768": { "direction": "vertical" }}'
+          breakpoints='{"1024": { "direction": "vertical" }}'
         {% else %}
-          breakpoints='{"768": { "direction": "horizontal" }}'
+          breakpoints='{"1024": { "direction": "horizontal" }}'
         {% endif %}
       >
         {% for media in product.media %}

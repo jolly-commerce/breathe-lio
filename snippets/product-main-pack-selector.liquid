@@ -67,6 +67,11 @@
     margin-inline: 16px !important;
     background: #aaaaaa;
   }
+
+  .jc-accessories-swiper {
+    --swiper-scrollbar-sides-offset: 0px;
+  }
+
   @media (max-width: 1024px) {
     .jc-custom-track::-webkit-scrollbar-track-piece:start {
       background: transparent;
@@ -90,6 +95,10 @@
         transparent calc(100% - 16px),
         transparent 100%
       );
+    }
+
+    .jc-accessories-swiper {
+      --swiper-scrollbar-sides-offset: 20px;
     }
   }
 
@@ -416,9 +425,9 @@
         </div>
       </label>
 
-      <div class="step-content max-lg:jc-mx-4" data-content="step-3">
+      <div class="step-content max-lg:-jc-mx-5" data-content="step-3">
         <swiper-container
-          class="jc-w-full max-lg:jc-px-4 [&::part(container)]:jc-pb-5"
+          class="jc-accessories-swiper jc-w-full [&::part(container)]:jc-pb-5 [&::part(container)]:max-lg:jc-px-5 [&::part(container)]:!jc-w-auto"
           slides-per-view="auto"
           space-between="8"
           speed="500"
