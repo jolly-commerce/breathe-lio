@@ -48,7 +48,6 @@
             "enable_arrows_dsk": true,
             "enable_arrows_mob": false,
             "thumbnails_position_dsk": "left",
-            "thumbnails_position_mob": "bottom",
             "enable_thumbnails_dsk": true,
             "enable_thumbnails_mob": true
           }
@@ -81,10 +80,13 @@
             ],
             "step_2_1_title": "3 bags",
             "step_2_1_discount": "",
+            "step_2_1_discount_percentage": 0,
             "step_2_2_title": "6 bags",
             "step_2_2_discount": "10% OFF",
+            "step_2_2_discount_percentage": 10,
             "step_2_3_title": "Complete",
             "step_2_3_discount": "10% OFF",
+            "step_2_3_discount_percentage": 10,
             "step_3_title": "Step 3:",
             "step_3_subtitle": "Select your accessories",
             "step_3_packs": [
@@ -143,7 +145,7 @@
         "padding_dsk_b": 40,
         "padding_mob_t": 20,
         "padding_mob_b": 40,
-        "background": "linear-gradient(180deg, rgba(245, 255, 247, 1), rgba(255, 255, 255, 1) 100%)"
+        "background": "linear-gradient(180deg, rgba(245, 255, 247, 1), rgba(245, 255, 247, 1) 100%)"
       }
     },
     "instant_zn9_mnr_wy3_ymbk75_x_8aN4M3": {
