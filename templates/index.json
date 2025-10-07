@@ -48,6 +48,145 @@
       "name": "new-homepage-banner",
       "settings": {}
     },
+    "product_main_BVqKQn": {
+      "type": "product-main",
+      "blocks": {
+        "loox_reviews_loox_rating_DrnYWG": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-rating/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "contentSize": 16,
+            "pattern": "[rating]/5 based on [count]+ reviews",
+            "hideText": false,
+            "alignment": "",
+            "layout": "",
+            "textColor": "",
+            "starColor": "",
+            "showAllReviews": false,
+            "looxOpenFloatingWidget": false,
+            "emptyRatingWidget": false
+          }
+        },
+        "title_ma694X": {
+          "type": "title",
+          "settings": {}
+        },
+        "product_tags_XMtpg6": {
+          "type": "product_tags",
+          "settings": {}
+        },
+        "description_nGFQLX": {
+          "type": "description",
+          "settings": {}
+        },
+        "gallery_GEMcan": {
+          "type": "gallery",
+          "settings": {
+            "layout_type": "swiper",
+            "arrows_position_dsk": "center",
+            "arrows_position_mob": "center",
+            "enable_arrows_dsk": true,
+            "enable_arrows_mob": false,
+            "thumbnails_position_dsk": "left",
+            "enable_thumbnails_dsk": true,
+            "enable_thumbnails_mob": true
+          }
+        },
+        "pack_selector_Ey9dAV": {
+          "type": "pack_selector",
+          "settings": {
+            "max_flavors": 20,
+            "min_flavors": 4,
+            "step_1_title": "Step 1:",
+            "step_1_subtitle": "Select your Lio",
+            "step_1_packs": [
+              "lio-walnut",
+              "lio-diffuser",
+              "lio®-aluminium-black",
+              "lio®-aluminium-silver",
+              "lio®-gen-2-olive",
+              "lio®-gen-2-walnut"
+            ],
+            "step_2_title": "Step 2:",
+            "step_2_subtitle": "Select your flavors",
+            "step_2_packs": [
+              "cinnamon-spice",
+              "lio®-cinnamon-spice",
+              "lio®-cold-turkey-1",
+              "lio®-classic-bags",
+              "lio®-ohh-my-orange-copy",
+              "minty-magic-30-days",
+              "lio®-minty-magic"
+            ],
+            "step_2_1_title": "3 bags",
+            "step_2_1_discount": "",
+            "step_2_1_discount_percentage": 0,
+            "step_2_2_title": "6 bags",
+            "step_2_2_discount": "10% OFF",
+            "step_2_2_discount_percentage": 10,
+            "step_2_3_title": "Complete",
+            "step_2_3_discount": "10% OFF",
+            "step_2_3_discount_percentage": 10,
+            "step_3_title": "Step 3:",
+            "step_3_subtitle": "Select your accessories",
+            "step_3_packs": [
+              "dutch-product",
+              "cold-turkey-30-days",
+              "cinnamon-spice-v2",
+              "lio®-cinnamon-spice",
+              "cinnamon-spice",
+              "cinnamon-spice-30-days",
+              "lio®-cold-turkey-1"
+            ],
+            "subscribe_and_save_title": "Subscribe and save",
+            "subscribe_and_save_description": "<p>NEVER RUN OUT OF CORES</p>",
+            "subscribe_3_packs": "3x flavors",
+            "subscribe_6_packs": "6x flavors",
+            "subscribe_packs_price": "[compare_price] <strong>[price] / month</strong>",
+            "subscribe_and_save_subtitle": "20% OFF",
+            "one_time_purchase_title": "One-time purchase",
+            "one_time_purchase_description": "<p>NEVER RUN OUT OF CORES</p>",
+            "one_time_purchase_benefits_title": "One-time purchase",
+            "subscribe_and_save_benefits_description": "<p>Repeats monthly. Swap out flavors every month or keep the same ones. Cancel at any time.</p>",
+            "subscribe_and_save_benefits_image": "shopify://shop_images/subscribe_image.png",
+            "benefits_features_title_1": "<p><strong>Save 20% Extra<br/></strong>Monthly</p>",
+            "benefits_features_image_1": "shopify://shop_images/discount_icon_2fbffa11-c282-462e-81e2-9b8025ee825d.svg",
+            "benefits_features_title_2": "<p><strong>Free Shipping<br/></strong>Monthly</p>",
+            "benefits_features_image_2": "shopify://shop_images/package_delivered_icon_e0289af7-a8ca-4499-9296-23b268b539c1.svg",
+            "benefits_features_title_3": "<p><strong>Swap Flavors<br/></strong>Anytime</p>",
+            "benefits_features_image_3": "shopify://shop_images/repeat_icon_a9e21300-2a9c-406c-9808-4ea4b51a8bfe.svg"
+          }
+        },
+        "delivery_info_xrtFXT": {
+          "type": "delivery_info",
+          "settings": {
+            "enable_card_payment": true,
+            "delivery_info_title_1": "30-Days Risk Free",
+            "delivery_info_image_1": "shopify://shop_images/shield_icon_6923ce0a-c9f3-4fec-8a99-ff0485796347.svg",
+            "delivery_info_title_2": "Free & Fast Shipping",
+            "delivery_info_image_2": "shopify://shop_images/box_icon_65b084b8-1689-4674-8cf0-2372d10c69c7.svg",
+            "delivery_info_title_3": "Made in Amsterdam",
+            "delivery_info_image_3": "shopify://shop_images/country_icon_4245709a-b41f-428a-88bb-6be95e4c4e08.svg"
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_rating_DrnYWG",
+        "title_ma694X",
+        "product_tags_XMtpg6",
+        "description_nGFQLX",
+        "gallery_GEMcan",
+        "pack_selector_Ey9dAV",
+        "delivery_info_xrtFXT"
+      ],
+      "name": "Product Main",
+      "settings": {
+        "padding_dsk_t": 40,
+        "padding_dsk_b": 40,
+        "padding_mob_t": 20,
+        "padding_mob_b": 40,
+        "background": "linear-gradient(180deg, rgba(245, 255, 247, 1), rgba(245, 255, 247, 1) 100%)"
+      }
+    },
     "ecom_highlight_info_xX3g3V": {
       "type": "ecom-highlight-info",
       "name": "Ecom Highlight Info",
@@ -313,6 +452,65 @@
         "text_xxBXF65VrMtcb7YC-1": "<p>Premium Walnut Wood</p>",
         "padding_top": 0,
         "padding_bottom": 0
+      }
+    },
+    "science_research_PkfYbK": {
+      "type": "science-research",
+      "blocks": {
+        "research_zNpLMX": {
+          "type": "research",
+          "settings": {
+            "image": "shopify://shop_images/logo_gyeongsanggnu-Photoroom_4.png",
+            "name": "Cordell & Buckle",
+            "source": "<a href=\"https://pubmed.ncbi.nlm.nih.gov/23536963/\" title=\"https://pubmed.ncbi.nlm.nih.gov/23536963/\">Source: B. Cordell and J. Buckle, November 2013.</a>",
+            "review": "<p>A university-based study tested the effects of black pepper and angelica root essential oils on cravings. Both helped reduce the urge to engage in unhealthy habits, with black pepper providing the most craving relief and angelica offering the longest delay before the next urge.</p>",
+            "designation": "Aromatherapy & Craving Reduction",
+            "conclusion": "<p><strong>Conclusion: Aromatherapy helps reduce cravings and supports withdrawal relief.</strong></p>"
+          }
+        },
+        "research_hdNffU": {
+          "type": "research",
+          "settings": {
+            "image": "shopify://shop_images/logo_gyeongsanggnu-Photoroom_1.png",
+            "name": "Rose & Behm",
+            "source": "<a href=\"https://pubmed.ncbi.nlm.nih.gov/8033760/\" title=\"https://pubmed.ncbi.nlm.nih.gov/8033760/\">Source: J.E. Rose and F.M. Behm, July 1994.</a>",
+            "review": "<p>A randomized study at Duke University tested the effects of inhaling black pepper vapor on cravings and withdrawal symptoms in smokers. Participants who inhaled black pepper reported significantly reduced cravings, anxiety, and withdrawal symptoms compared to menthol and placebo groups.</p>",
+            "designation": "Black Pepper Vapor & Withdrawal Relief",
+            "conclusion": "<p><strong>Conclusion: Inhaling black pepper vapor reduces cravings and withdrawal symptoms.</strong></p>"
+          }
+        },
+        "research_wVqN98": {
+          "type": "research",
+          "settings": {
+            "image": "shopify://shop_images/logo_gyeongsanggnu-Photoroom_2.png",
+            "name": "Przulj, McRobbie & Hajek",
+            "source": "<a href=\"https://benthamopen.com/contents/pdf/TOADDJ/TOADDJ-5-41.pdf\" title=\"https://benthamopen.com/contents/pdf/TOADDJ/TOADDJ-5-41.pdf\">Source: D. Przulj, H. McRobbie, P. Hajek, January 2012.</a>",
+            "review": "<p>A scientific review at Queen Mary University examined sensorimotor replacement approaches, such as non-nicotine inhalators and e-cigarettes. These methods helped reduce cravings, especially when combined with nicotine replacement therapy, by replacing the hand-to-mouth ritual and sensory cues.</p>",
+            "designation": "Sensorimotor Replacement & Craving Reduction",
+            "conclusion": "<p><strong>Conclusion: Sensorimotor replacement can help reduce cravings and improve cessation outcomes when combined with standard therapies.</strong></p>"
+          }
+        },
+        "research_3tLTCQ": {
+          "type": "research",
+          "settings": {
+            "image": "shopify://shop_images/logo_gyeongsanggnu-Photoroom_3.png",
+            "name": "Sayette & Parrott",
+            "source": "<a href=\"https://www.researchgate.net/publication/2523285_A_Psychometric_Evaluation_of_the_Facial_Action_Coding_System_for_Assessing_Spontaneous_Expression\" title=\"https://www.researchgate.net/publication/2523285_A_Psychometric_Evaluation_of_the_Facial_Action_Coding_System_for_Assessing_Spontaneous_Expression\">Source: M.A. Sayette and D.J. Parrott, December 1999.</a>",
+            "review": "<p>A study at the University of Pittsburgh tested how pleasant scents affected cigarette cravings in smokers. Exposure to pleasant odors significantly reduced craving intensity compared to neutral conditions, suggesting olfactory cues help reduce urges.</p>",
+            "designation": "Olfactory Stimuli & Urge Reduction",
+            "conclusion": "<p><strong>Conclusion: Pleasant smells can help reduce cravings and manage urges.</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "research_zNpLMX",
+        "research_hdNffU",
+        "research_wVqN98",
+        "research_3tLTCQ"
+      ],
+      "name": "Science Research",
+      "settings": {
+        "heading": "Science research"
       }
     },
     "our_promise_fTTciD": {
@@ -1059,69 +1257,11 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
-    },
-    "science_research_PkfYbK": {
-      "type": "science-research",
-      "blocks": {
-        "research_zNpLMX": {
-          "type": "research",
-          "settings": {
-            "image": "shopify://shop_images/logo_gyeongsanggnu-Photoroom_4.png",
-            "name": "Cordell & Buckle",
-            "source": "<a href=\"https://pubmed.ncbi.nlm.nih.gov/23536963/\" title=\"https://pubmed.ncbi.nlm.nih.gov/23536963/\">Source: B. Cordell and J. Buckle, November 2013.</a>",
-            "review": "<p>A university-based study tested the effects of black pepper and angelica root essential oils on cravings. Both helped reduce the urge to engage in unhealthy habits, with black pepper providing the most craving relief and angelica offering the longest delay before the next urge.</p>",
-            "designation": "Aromatherapy & Craving Reduction",
-            "conclusion": "<p><strong>Conclusion: Aromatherapy helps reduce cravings and supports withdrawal relief.</strong></p>"
-          }
-        },
-        "research_hdNffU": {
-          "type": "research",
-          "settings": {
-            "image": "shopify://shop_images/logo_gyeongsanggnu-Photoroom_1.png",
-            "name": "Rose & Behm",
-            "source": "<a href=\"https://pubmed.ncbi.nlm.nih.gov/8033760/\" title=\"https://pubmed.ncbi.nlm.nih.gov/8033760/\">Source: J.E. Rose and F.M. Behm, July 1994.</a>",
-            "review": "<p>A randomized study at Duke University tested the effects of inhaling black pepper vapor on cravings and withdrawal symptoms in smokers. Participants who inhaled black pepper reported significantly reduced cravings, anxiety, and withdrawal symptoms compared to menthol and placebo groups.</p>",
-            "designation": "Black Pepper Vapor & Withdrawal Relief",
-            "conclusion": "<p><strong>Conclusion: Inhaling black pepper vapor reduces cravings and withdrawal symptoms.</strong></p>"
-          }
-        },
-        "research_wVqN98": {
-          "type": "research",
-          "settings": {
-            "image": "shopify://shop_images/logo_gyeongsanggnu-Photoroom_2.png",
-            "name": "Przulj, McRobbie & Hajek",
-            "source": "<a href=\"https://benthamopen.com/contents/pdf/TOADDJ/TOADDJ-5-41.pdf\" title=\"https://benthamopen.com/contents/pdf/TOADDJ/TOADDJ-5-41.pdf\">Source: D. Przulj, H. McRobbie, P. Hajek, January 2012.</a>",
-            "review": "<p>A scientific review at Queen Mary University examined sensorimotor replacement approaches, such as non-nicotine inhalators and e-cigarettes. These methods helped reduce cravings, especially when combined with nicotine replacement therapy, by replacing the hand-to-mouth ritual and sensory cues.</p>",
-            "designation": "Sensorimotor Replacement & Craving Reduction",
-            "conclusion": "<p><strong>Conclusion: Sensorimotor replacement can help reduce cravings and improve cessation outcomes when combined with standard therapies.</strong></p>"
-          }
-        },
-        "research_3tLTCQ": {
-          "type": "research",
-          "settings": {
-            "image": "shopify://shop_images/logo_gyeongsanggnu-Photoroom_3.png",
-            "name": "Sayette & Parrott",
-            "source": "<a href=\"https://www.researchgate.net/publication/2523285_A_Psychometric_Evaluation_of_the_Facial_Action_Coding_System_for_Assessing_Spontaneous_Expression\" title=\"https://www.researchgate.net/publication/2523285_A_Psychometric_Evaluation_of_the_Facial_Action_Coding_System_for_Assessing_Spontaneous_Expression\">Source: M.A. Sayette and D.J. Parrott, December 1999.</a>",
-            "review": "<p>A study at the University of Pittsburgh tested how pleasant scents affected cigarette cravings in smokers. Exposure to pleasant odors significantly reduced craving intensity compared to neutral conditions, suggesting olfactory cues help reduce urges.</p>",
-            "designation": "Olfactory Stimuli & Urge Reduction",
-            "conclusion": "<p><strong>Conclusion: Pleasant smells can help reduce cravings and manage urges.</strong></p>"
-          }
-        }
-      },
-      "block_order": [
-        "research_zNpLMX",
-        "research_hdNffU",
-        "research_wVqN98",
-        "research_3tLTCQ"
-      ],
-      "name": "Science Research",
-      "settings": {
-        "heading": "Science research"
-      }
     }
   },
   "order": [
     "new_homepage_banner_gFaJDm",
+    "product_main_BVqKQn",
     "ecom_highlight_info_xX3g3V",
     "infinite_logo_section_6jwaYP",
     "infinite_section_W8PBf7",
