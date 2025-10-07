@@ -1,32 +1,23 @@
 {
-  "_swiper-core.chunk.js": {
-    "file": "swiper-core.chunk.js"
-  },
   "css/main.css": {
-    "file": "main2.css",
+    "file": "main.css",
     "isEntry": true,
     "src": "css/main.css"
   },
   "templates/main.css": {
-    "file": "main.css",
+    "file": "main2.css",
     "src": "templates/main.css"
   },
   "templates/main.js": {
     "css": [
-      "main.css"
+      "main2.css"
     ],
     "file": "jc-bundle-main.js",
-    "imports": [
-      "_swiper-core.chunk.js"
-    ],
     "isEntry": true,
     "src": "templates/main.js"
   },
   "templates/product.js": {
     "file": "jc-bundle-product.js",
-    "imports": [
-      "_swiper-core.chunk.js"
-    ],
     "isEntry": true,
     "src": "templates/product.js"
   }
