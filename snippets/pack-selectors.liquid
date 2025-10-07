@@ -1,6 +1,7 @@
 <style>
   body:has(input.jc-pack-selector-3:checked) .jc-subscribe-3-packs,
-  body:has(input.jc-pack-selector-6:checked) .jc-subscribe-6-packs {
+  body:has(input.jc-pack-selector-6:checked) .jc-subscribe-6-packs,
+  body:has(input.jc-pack-selector-complete:checked) .jc-subscribe-complete-packs {
     display: inline;
   }
 </style>
@@ -26,7 +27,7 @@
           {% when 3 %}
             {%- assign max_flavors = 6 -%}
             {%- assign complete_pack = true -%}
-            {%- assign class_name = 'jc-pack-selector-6' -%}
+            {%- assign class_name = 'jc-pack-selector-complete' -%}
         {% endcase %}
         {% if title != blank %}
           <label

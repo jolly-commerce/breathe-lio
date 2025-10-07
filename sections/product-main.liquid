@@ -36,6 +36,7 @@
 
 {%- assign product_form_id = 'product-form-' | append: section.id | append: '-' | append: product.id -%}
 {%- assign pack_selector_block = section.blocks | where: 'type', 'pack_selector' | first -%}
+{%- assign product = section.settings.product_main | default: product -%}
 
 {% # Page url %}
 {%- assign page_url = content_for_header
@@ -63,7 +64,7 @@
       {%- endif -%}
 
       <div class="jc-basis-full lg:jc-basis-[51.7%] jc-min-w-0 {{ wrapper_class }}">
-        {% render 'product-main-gallery', root: gallery_block, product_form_id: product_form_id %}
+        {% render 'product-main-gallery', root: gallery_block, product_form_id: product_form_id, product: product %}
       </div>
 
       {%- # Product info -%}
@@ -78,6 +79,15 @@
                      [&_.loox-rating-label]:!jc-leading-4 [&_.loox-rating-label]:lg:!jc-leading-5 [&_.loox-icon]:!jc-size-5">
                     {% render block %}
                   </div>
+                {%- when 'loox_reviews' -%}
+                  {%- if product.metafields.loox.avg_rating != blank and product.metafields.loox.num_reviews != blank -%}          
+                    <div class="jc-flex jc-gap-4 jc-items-center">
+                      <a href="#looxReviews" class="[&_.loox-rating-label]:!jc-hidden [&_.loox-icon]:!jc-size-5"><div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}"></div></a>
+                      <a href="#looxReviews">
+                        <span class="jc-text-sm lg:jc-text-base jc-leading-4 lg:jc-leading-5 jc-text-darkGreen jc-font-normal jc-underline">{{ block.settings.loox_rating_text | replace: '[rating]', product.metafields.loox.avg_rating | replace: '[count]', product.metafields.loox.num_reviews }}</span>
+                      </a>
+                    </div>
+                  {%- endif -%}
                 {%- when 'description' -%}
                   {%- if product.description != blank -%}
                     <div class="jc-font-poppins jc-font-normal jc-text-base [&_*]:!jc-leading-6 !jc-mt-2 jc-text-amazon [&_strong]:!jc-font-semibold">
@@ -111,9 +121,9 @@
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when 'pack_selector' -%}
-                {%- render 'product-main-pack-selector', root: block -%}
+                {%- render 'product-main-pack-selector', root: block, product: product -%}
               {%- when 'delivery_info' -%}
-                {%- render 'product-main-delivery-info', root: block -%}
+                {%- render 'product-main-delivery-info', root: block, product: product -%}
             {%- endcase -%}
           {%- endfor -%}
         </div>
@@ -124,7 +134,7 @@
 
 {%- if pack_selector_block != blank -%}
   {% assign step_2_products = pack_selector_block.settings.step_2_packs %}
-  {%- render 'product-main-pack-selector-popup', step_2_products: step_2_products -%}
+  {%- render 'product-main-pack-selector-popup', step_2_products: step_2_products, product: product -%}
 {%- endif -%}
 
 {% schema %}
@@ -132,6 +142,12 @@
   "name": "Product Main",
   "tag": "section",
   "settings": [
+    {
+      "type": "product",
+      "id": "product_main",
+      "label": "Product",
+      "info": "Select product to display in the product main section"
+    },
     {
       "type": "header",
       "content": "📐 Layout (desktop)"
@@ -197,6 +213,24 @@
       "name": "Product tags",
       "limit": 1,
       "settings": [
+      ]
+    },
+    {
+      "type": "loox_reviews",
+      "name": "Loox reviews",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Use this to display reviews for non-product pages"
+        },
+        {
+          "type": "text",
+          "id": "loox_rating_text",
+          "label": "Loox rating text",
+          "default": "[rating]/5 based on [count]+ reviews",
+          "info": "Use [rating], [count] to display the rating and the number of reviews"
+        }
       ]
     },
     {
@@ -483,24 +517,6 @@
       "limit": 1,
       "settings": [
         {
-          "type": "range",
-          "id": "max_flavors",
-          "label": "Max flavors",
-          "min": 4,
-          "max": 100,
-          "step": 1,
-          "default": 20
-        },
-        {
-          "type": "range",
-          "id": "min_flavors",
-          "label": "Min flavors",
-          "min": 1,
-          "max": 20,
-          "step": 1,
-          "default": 4
-        },
-        {
           "type": "header",
           "content": "Pack selectors"
         },
@@ -666,6 +682,12 @@
           "id": "subscribe_6_packs",
           "label": "6 packs title",
           "default": "6x flavors"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "subscribe_complete_packs",
+          "label": "Complete pack title",
+          "default": "Complete pack"
         },
         {
           "type": "inline_richtext",

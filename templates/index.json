@@ -51,19 +51,10 @@
     "product_main_BVqKQn": {
       "type": "product-main",
       "blocks": {
-        "loox_reviews_loox_rating_DrnYWG": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-rating/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+        "loox_reviews_r7YWzH": {
+          "type": "loox_reviews",
           "settings": {
-            "contentSize": 16,
-            "pattern": "[rating]/5 based on [count]+ reviews",
-            "hideText": false,
-            "alignment": "",
-            "layout": "",
-            "textColor": "",
-            "starColor": "",
-            "showAllReviews": false,
-            "looxOpenFloatingWidget": false,
-            "emptyRatingWidget": false
+            "loox_rating_text": "[rating]/5 based on [count]+ reviews"
           }
         },
         "title_ma694X": {
@@ -94,8 +85,6 @@
         "pack_selector_Ey9dAV": {
           "type": "pack_selector",
           "settings": {
-            "max_flavors": 20,
-            "min_flavors": 4,
             "step_1_title": "Step 1:",
             "step_1_subtitle": "Select your Lio",
             "step_1_packs": [
@@ -141,6 +130,7 @@
             "subscribe_and_save_description": "<p>NEVER RUN OUT OF CORES</p>",
             "subscribe_3_packs": "3x flavors",
             "subscribe_6_packs": "6x flavors",
+            "subscribe_complete_packs": "Complete pack",
             "subscribe_packs_price": "[compare_price] <strong>[price] / month</strong>",
             "subscribe_and_save_subtitle": "20% OFF",
             "one_time_purchase_title": "One-time purchase",
@@ -170,7 +160,7 @@
         }
       },
       "block_order": [
-        "loox_reviews_loox_rating_DrnYWG",
+        "loox_reviews_r7YWzH",
         "title_ma694X",
         "product_tags_XMtpg6",
         "description_nGFQLX",
@@ -180,6 +170,7 @@
       ],
       "name": "Product Main",
       "settings": {
+        "product_main": "lio®-journey-pack-test-loop",
         "padding_dsk_t": 40,
         "padding_dsk_b": 40,
         "padding_mob_t": 20,

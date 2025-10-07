@@ -237,13 +237,14 @@ class PackSelectorComponent extends HTMLElement {
 
   selectAllStep2Products() {
     const step2Cards = this.querySelectorAll('step2-product-card');
-    const totalCards = step2Cards.length;
+    if (!step2Cards || step2Cards.length == 0) return;
 
-    // Limit selection to 6 cards
-    const cardsToSelect = Math.min(totalCards, PACK_LIMITS.SIX_BAGS_MAX);
+    step2Cards.forEach((card) => {
+        const maxQuantity = parseInt(card.getAttribute('data-max-qty')) || 0;
+        if (maxQuantity < 1) {
+          return;
+        }
 
-    step2Cards.forEach((card, index) => {
-      if (index < cardsToSelect) {
         // Add class for complete pack
         card.classList.add('jc-complete-pack');
 
@@ -279,7 +280,7 @@ class PackSelectorComponent extends HTMLElement {
           plusBtn.disabled = true;
           plusBtn.classList.add('is-disabled');
         }
-      }
+      
     });
   }
 

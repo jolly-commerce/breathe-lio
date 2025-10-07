@@ -301,7 +301,8 @@
                 jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-2 xl:jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
                 [&.selected_.jc-select-button]:jc-bg-munsell [&.selected_.jc-select-button]:jc-text-white jc-group/product-option-card 
                 [&.selected.jc-complete-pack_.jc-quantity-control]:jc-hidden [&.selected.jc-complete-pack_.jc-standard-button]:jc-hidden [&.selected.jc-complete-pack_.jc-selected-button]:jc-block 
-                [&.selected.jc-complete-pack_.jc-selected-button]:!jc-pointer-events-none [&.selected.jc-complete-pack_.jc-selected-button]:!jc-opacity-100"
+                [&.selected.jc-complete-pack_.jc-selected-button]:!jc-pointer-events-none [&.selected.jc-complete-pack_.jc-selected-button]:!jc-opacity-100 [&.disabled]:jc-opacity-50
+                [&.disabled]:jc-pointer-events-none [&.disabled]:jc-cursor-not-allowed {% if max_qty <= 0 %} disabled {% endif %}"
               data-product-id="{{ product.first_available_variant.id }}"
               data-product-price="{{ product.price }}"
               data-step="2"
@@ -454,6 +455,7 @@
                 class="
                   jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
                   [&.selected_.jc-select-button]:jc-bg-munsell [&.selected_.jc-select-button]:jc-text-white jc-group/product-option-card jc-w-[180px] jc-h-full
+                  [&.disabled]:jc-pointer-events-none [&.disabled]:jc-cursor-not-allowed {% if max_qty <= 0 %} disabled {% endif %}
                 "
                 data-product-id="{{ product.first_available_variant.id }}"
                 data-product-price="{{ product.price }}"
