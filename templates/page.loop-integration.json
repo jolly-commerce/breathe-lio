@@ -117,6 +117,7 @@
     },
     "instant-ouCkfn1mqCQMe3UZ": {
       "type": "instant-ouCkfn1mqCQMe3UZ",
+      "disabled": true,
       "custom_css": [
         ".i8zW4SbosqXsZaiW7,a.iMhY5LxLTZ0EFWGSg {display: none !important;}",
         ".isroKXRjKQuwMs37d .iMhY5LxLTZ0EFWGSg {display: none !important;}"
@@ -163,6 +164,68 @@
         "product_aDakjA3ZVujDftFy-1": "",
         "text_hClGItQbjglsNkwv-1": "<h3>Classic Walnut </h3>",
         "text_ZnrBfw5tu2CAwzAG-1": "<p>Premium Walnut Wood</p>"
+      }
+    },
+    "product_main_kRGxG6": {
+      "type": "product-main",
+      "blocks": {
+        "title_XnpV8H": {
+          "type": "title",
+          "settings": {}
+        },
+        "product_tags_HNxkiT": {
+          "type": "product_tags",
+          "settings": {}
+        },
+        "description_4YLGzw": {
+          "type": "description",
+          "settings": {}
+        },
+        "price_BLzePa": {
+          "type": "price",
+          "settings": {
+            "show_sale_badge": false
+          }
+        },
+        "gallery_UgcmBF": {
+          "type": "gallery",
+          "settings": {
+            "layout_type": "swiper",
+            "arrows_position_dsk": "bottom",
+            "arrows_position_mob": "bottom",
+            "enable_arrows_dsk": true,
+            "enable_arrows_mob": true,
+            "thumbnails_position_dsk": "left",
+            "enable_thumbnails_dsk": false,
+            "enable_thumbnails_mob": false
+          }
+        },
+        "delivery_info_j7FfKL": {
+          "type": "delivery_info",
+          "settings": {
+            "enable_card_payment": true,
+            "delivery_info_title_1": "30-Days Risk Free",
+            "delivery_info_title_2": "Free & Fast Shipping",
+            "delivery_info_title_3": "Made in Amsterdam"
+          }
+        }
+      },
+      "block_order": [
+        "title_XnpV8H",
+        "product_tags_HNxkiT",
+        "description_4YLGzw",
+        "price_BLzePa",
+        "gallery_UgcmBF",
+        "delivery_info_j7FfKL"
+      ],
+      "name": "Product Main",
+      "settings": {
+        "product_main": "lio®-journey-pack-test-loop",
+        "padding_dsk_t": 24,
+        "padding_dsk_b": 24,
+        "padding_mob_t": 24,
+        "padding_mob_b": 24,
+        "background": "linear-gradient(180deg, rgba(245, 255, 247, 1), rgba(245, 255, 247, 1) 100%, rgba(255, 255, 255, 1) 100%)"
       }
     },
     "icon_text_1_V3ii4Q": {
@@ -421,68 +484,6 @@
         "title": "Frequently Asked Questions",
         "high-title": "answered"
       }
-    },
-    "product_main_kRGxG6": {
-      "type": "product-main",
-      "blocks": {
-        "title_XnpV8H": {
-          "type": "title",
-          "settings": {}
-        },
-        "product_tags_HNxkiT": {
-          "type": "product_tags",
-          "settings": {}
-        },
-        "description_4YLGzw": {
-          "type": "description",
-          "settings": {}
-        },
-        "price_BLzePa": {
-          "type": "price",
-          "settings": {
-            "show_sale_badge": false
-          }
-        },
-        "gallery_UgcmBF": {
-          "type": "gallery",
-          "settings": {
-            "layout_type": "swiper",
-            "arrows_position_dsk": "bottom",
-            "arrows_position_mob": "bottom",
-            "enable_arrows_dsk": true,
-            "enable_arrows_mob": true,
-            "thumbnails_position_dsk": "left",
-            "enable_thumbnails_dsk": false,
-            "enable_thumbnails_mob": false
-          }
-        },
-        "delivery_info_j7FfKL": {
-          "type": "delivery_info",
-          "settings": {
-            "enable_card_payment": true,
-            "delivery_info_title_1": "30-Days Risk Free",
-            "delivery_info_title_2": "Free & Fast Shipping",
-            "delivery_info_title_3": "Made in Amsterdam"
-          }
-        }
-      },
-      "block_order": [
-        "title_XnpV8H",
-        "product_tags_HNxkiT",
-        "description_4YLGzw",
-        "price_BLzePa",
-        "gallery_UgcmBF",
-        "delivery_info_j7FfKL"
-      ],
-      "name": "Product Main",
-      "settings": {
-        "product_main": "lio®-journey-pack-test-loop",
-        "padding_dsk_t": 24,
-        "padding_dsk_b": 24,
-        "padding_mob_t": 24,
-        "padding_mob_b": 24,
-        "background": "linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)"
-      }
     }
   },
   "order": [
@@ -490,6 +491,7 @@
     "new_homepage_banner_gJJX6a",
     "infinite_section_FfHPEr",
     "instant-ouCkfn1mqCQMe3UZ",
+    "product_main_kRGxG6",
     "icon_text_1_V3ii4Q",
     "instant_ayc_l8_zs7zs_arn6_if_kRtc6E",
     "our_promise_awwXez",
@@ -498,7 +500,6 @@
     "simple_steps_8x9U8t",
     "instant_nwr_u_dx_xiop4_x_zc_rf_aeRtFr",
     "instant_2_umtw4idkjq_xa_nav_znbqbD",
-    "ecom_faq_3BWThk",
-    "product_main_kRGxG6"
+    "ecom_faq_3BWThk"
   ]
 }
