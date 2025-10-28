@@ -169,6 +169,47 @@
     "product_main_kRGxG6": {
       "type": "product-main",
       "blocks": {
+        "pack_selector_TafKtg": {
+          "type": "pack_selector",
+          "settings": {
+            "step_1_title": "Step 1:",
+            "step_1_subtitle": "Select your Lio",
+            "step_1_packs": [
+              "lio-diffuser",
+              "lio-walnut",
+              "lio®-aluminium-black",
+              "lio®-aluminium-silver"
+            ],
+            "step_2_title": "Step 2:",
+            "step_2_subtitle": "Select your flavors",
+            "step_2_packs": [],
+            "step_2_1_title": "3 bags",
+            "step_2_1_discount": "",
+            "step_2_1_discount_percentage": 0,
+            "step_2_2_title": "6 bags",
+            "step_2_2_discount": "10% OFF",
+            "step_2_2_discount_percentage": 10,
+            "step_2_3_title": "Complete",
+            "step_2_3_discount": "15% OFF",
+            "step_2_3_discount_percentage": 10,
+            "step_3_title": "Step 3:",
+            "step_3_subtitle": "Select your accessories",
+            "step_3_packs": [],
+            "subscribe_and_save_title": "SUBSCRIBE AND SAVE",
+            "subscribe_and_save_description": "<p>NEVER RUN OUT OF CORES</p>",
+            "subscribe_3_packs": "3x flavors",
+            "subscribe_6_packs": "6x flavors",
+            "subscribe_complete_packs": "Complete pack",
+            "subscribe_packs_price": "[compare_price] <strong>[price] / month</strong>",
+            "subscribe_and_save_subtitle": "Extra 30% Off",
+            "one_time_purchase_title": "One-time purchase",
+            "one_time_purchase_description": "<p>NEVER RUN OUT OF CORES</p>",
+            "subscribe_and_save_benefits_description": "",
+            "benefits_features_title_1": "",
+            "benefits_features_title_2": "",
+            "benefits_features_title_3": ""
+          }
+        },
         "title_XnpV8H": {
           "type": "title",
           "settings": {}
@@ -211,6 +252,7 @@
         }
       },
       "block_order": [
+        "pack_selector_TafKtg",
         "title_XnpV8H",
         "product_tags_HNxkiT",
         "description_4YLGzw",
