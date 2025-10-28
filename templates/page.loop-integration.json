@@ -212,9 +212,12 @@
             "one_time_purchase_title": "One-time purchase",
             "one_time_purchase_description": "<p>NEVER RUN OUT </p>",
             "subscribe_and_save_benefits_description": "<p>Repeats monthly. Swap out flavors every month or keep the same ones. Cancel at any time.</p>",
-            "benefits_features_title_1": "",
-            "benefits_features_title_2": "",
-            "benefits_features_title_3": ""
+            "benefits_features_title_1": "<p><strong>Safe 20%</strong> Monthly</p>",
+            "benefits_features_image_1": "shopify://shop_images/discount_icon_2fbffa11-c282-462e-81e2-9b8025ee825d.svg",
+            "benefits_features_title_2": "<p><strong>Free Shipping</strong> Monthly</p>",
+            "benefits_features_image_2": "shopify://shop_images/package_delivered_icon_e0289af7-a8ca-4499-9296-23b268b539c1.svg",
+            "benefits_features_title_3": "<p><strong>Swap Flavors</strong> Anytime</p>",
+            "benefits_features_image_3": "shopify://shop_images/repeat_icon_a9e21300-2a9c-406c-9808-4ea4b51a8bfe.svg"
           }
         },
         "title_XnpV8H": {
