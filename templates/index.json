@@ -88,12 +88,10 @@
             "step_1_title": "Step 1:",
             "step_1_subtitle": "Select your Lio",
             "step_1_packs": [
-              "lio-walnut",
-              "lio-diffuser",
+              "lio®-classic-walnut",
+              "lio®-classic-olive",
               "lio®-aluminium-black",
-              "lio®-aluminium-silver",
-              "lio®-gen-2-olive",
-              "lio®-gen-2-walnut"
+              "lio®-aluminium-silver"
             ],
             "step_2_title": "Step 2:",
             "step_2_subtitle": "Select your flavors",
@@ -135,7 +133,6 @@
             "subscribe_and_save_subtitle": "20% OFF",
             "one_time_purchase_title": "One-time purchase",
             "one_time_purchase_description": "<p>NEVER RUN OUT OF CORES</p>",
-            "one_time_purchase_benefits_title": "One-time purchase",
             "subscribe_and_save_benefits_description": "<p>Repeats monthly. Swap out flavors every month or keep the same ones. Cancel at any time.</p>",
             "subscribe_and_save_benefits_image": "shopify://shop_images/subscribe_image.png",
             "benefits_features_title_1": "<p><strong>Save 20% Extra<br/></strong>Monthly</p>",
