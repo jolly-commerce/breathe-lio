@@ -48,133 +48,6 @@
       "name": "new-homepage-banner",
       "settings": {}
     },
-    "product_main_BVqKQn": {
-      "type": "product-main",
-      "blocks": {
-        "loox_reviews_r7YWzH": {
-          "type": "loox_reviews",
-          "settings": {
-            "loox_rating_text": "[rating]/5 based on [count]+ reviews"
-          }
-        },
-        "title_ma694X": {
-          "type": "title",
-          "settings": {}
-        },
-        "product_tags_XMtpg6": {
-          "type": "product_tags",
-          "settings": {}
-        },
-        "description_nGFQLX": {
-          "type": "description",
-          "settings": {}
-        },
-        "gallery_GEMcan": {
-          "type": "gallery",
-          "settings": {
-            "layout_type": "swiper",
-            "arrows_position_dsk": "center",
-            "arrows_position_mob": "center",
-            "enable_arrows_dsk": true,
-            "enable_arrows_mob": false,
-            "thumbnails_position_dsk": "left",
-            "enable_thumbnails_dsk": true,
-            "enable_thumbnails_mob": true
-          }
-        },
-        "pack_selector_Ey9dAV": {
-          "type": "pack_selector",
-          "settings": {
-            "step_1_title": "Step 1:",
-            "step_1_subtitle": "Select your Lio",
-            "step_1_packs": [
-              "lio®-classic-walnut",
-              "lio®-classic-olive",
-              "lio®-aluminium-black",
-              "lio®-aluminium-silver"
-            ],
-            "step_2_title": "Step 2:",
-            "step_2_subtitle": "Select your flavors",
-            "step_2_packs": [
-              "cinnamon-spice",
-              "lio®-cinnamon-spice",
-              "lio®-cold-turkey-1",
-              "lio®-classic-bags",
-              "lio®-ohh-my-orange-copy",
-              "minty-magic-30-days",
-              "lio®-minty-magic"
-            ],
-            "step_2_1_title": "3 bags",
-            "step_2_1_discount": "",
-            "step_2_1_discount_percentage": 0,
-            "step_2_2_title": "6 bags",
-            "step_2_2_discount": "10% OFF",
-            "step_2_2_discount_percentage": 10,
-            "step_2_3_title": "Complete",
-            "step_2_3_discount": "10% OFF",
-            "step_2_3_discount_percentage": 10,
-            "step_3_title": "Step 3:",
-            "step_3_subtitle": "Select your accessories",
-            "step_3_packs": [
-              "dutch-product",
-              "cold-turkey-30-days",
-              "cinnamon-spice-v2",
-              "lio®-cinnamon-spice",
-              "cinnamon-spice",
-              "cinnamon-spice-30-days",
-              "lio®-cold-turkey-1"
-            ],
-            "subscribe_and_save_title": "Subscribe and save",
-            "subscribe_and_save_description": "<p>NEVER RUN OUT OF CORES</p>",
-            "subscribe_3_packs": "3x flavors",
-            "subscribe_6_packs": "6x flavors",
-            "subscribe_complete_packs": "Complete pack",
-            "subscribe_packs_price": "[compare_price] <strong>[price] / month</strong>",
-            "subscribe_and_save_subtitle": "20% OFF",
-            "one_time_purchase_title": "One-time purchase",
-            "one_time_purchase_description": "<p>NEVER RUN OUT OF CORES</p>",
-            "subscribe_and_save_benefits_description": "<p>Repeats monthly. Swap out flavors every month or keep the same ones. Cancel at any time.</p>",
-            "subscribe_and_save_benefits_image": "shopify://shop_images/subscribe_image.png",
-            "benefits_features_title_1": "<p><strong>Save 20% Extra<br/></strong>Monthly</p>",
-            "benefits_features_image_1": "shopify://shop_images/discount_icon_2fbffa11-c282-462e-81e2-9b8025ee825d.svg",
-            "benefits_features_title_2": "<p><strong>Free Shipping<br/></strong>Monthly</p>",
-            "benefits_features_image_2": "shopify://shop_images/package_delivered_icon_e0289af7-a8ca-4499-9296-23b268b539c1.svg",
-            "benefits_features_title_3": "<p><strong>Swap Flavors<br/></strong>Anytime</p>",
-            "benefits_features_image_3": "shopify://shop_images/repeat_icon_a9e21300-2a9c-406c-9808-4ea4b51a8bfe.svg"
-          }
-        },
-        "delivery_info_xrtFXT": {
-          "type": "delivery_info",
-          "settings": {
-            "enable_card_payment": true,
-            "delivery_info_title_1": "30-Days Risk Free",
-            "delivery_info_image_1": "shopify://shop_images/shield_icon_6923ce0a-c9f3-4fec-8a99-ff0485796347.svg",
-            "delivery_info_title_2": "Free & Fast Shipping",
-            "delivery_info_image_2": "shopify://shop_images/box_icon_65b084b8-1689-4674-8cf0-2372d10c69c7.svg",
-            "delivery_info_title_3": "Made in Amsterdam",
-            "delivery_info_image_3": "shopify://shop_images/country_icon_4245709a-b41f-428a-88bb-6be95e4c4e08.svg"
-          }
-        }
-      },
-      "block_order": [
-        "loox_reviews_r7YWzH",
-        "title_ma694X",
-        "product_tags_XMtpg6",
-        "description_nGFQLX",
-        "gallery_GEMcan",
-        "pack_selector_Ey9dAV",
-        "delivery_info_xrtFXT"
-      ],
-      "name": "Product Main",
-      "settings": {
-        "product_main": "lio®-journey-pack-test-loop",
-        "padding_dsk_t": 40,
-        "padding_dsk_b": 40,
-        "padding_mob_t": 20,
-        "padding_mob_b": 40,
-        "background": "linear-gradient(180deg, rgba(245, 255, 247, 1), rgba(245, 255, 247, 1) 100%)"
-      }
-    },
     "ecom_highlight_info_xX3g3V": {
       "type": "ecom-highlight-info",
       "name": "Ecom Highlight Info",
@@ -391,8 +264,135 @@
         "text_color": ""
       }
     },
+    "product_main_BVqKQn": {
+      "type": "product-main",
+      "blocks": {
+        "loox_reviews_r7YWzH": {
+          "type": "loox_reviews",
+          "settings": {
+            "loox_rating_text": "[rating]/5 based on [count]+ reviews"
+          }
+        },
+        "title_ma694X": {
+          "type": "title",
+          "settings": {}
+        },
+        "product_tags_XMtpg6": {
+          "type": "product_tags",
+          "settings": {}
+        },
+        "description_nGFQLX": {
+          "type": "description",
+          "settings": {}
+        },
+        "gallery_GEMcan": {
+          "type": "gallery",
+          "settings": {
+            "layout_type": "swiper",
+            "arrows_position_dsk": "center",
+            "arrows_position_mob": "center",
+            "enable_arrows_dsk": true,
+            "enable_arrows_mob": false,
+            "thumbnails_position_dsk": "left",
+            "enable_thumbnails_dsk": true,
+            "enable_thumbnails_mob": true
+          }
+        },
+        "pack_selector_Ey9dAV": {
+          "type": "pack_selector",
+          "settings": {
+            "step_1_title": "Step 1:",
+            "step_1_subtitle": "Select your Lio",
+            "step_1_packs": [
+              "lio®-classic-olive",
+              "lio®-classic-walnut",
+              "lio®-aluminium-silver",
+              "lio®-aluminium-black"
+            ],
+            "step_2_title": "Step 2:",
+            "step_2_subtitle": "Select your flavors",
+            "step_2_packs": [
+              "lio®-cinnamon-spice",
+              "lio®-cold-turkey-1",
+              "lio®-minty-magic",
+              "lio®-razzy-berry",
+              "lio®-ohh-my-orange-copy",
+              "lio®-cold-turkey"
+            ],
+            "step_2_1_title": "3 bags",
+            "step_2_1_discount": "",
+            "step_2_1_discount_percentage": 0,
+            "step_2_2_title": "6 bags",
+            "step_2_2_discount": "10% OFF",
+            "step_2_2_discount_percentage": 10,
+            "step_2_3_title": "Complete",
+            "step_2_3_discount": "10% OFF",
+            "step_2_3_discount_percentage": 10,
+            "step_3_title": "Step 3:",
+            "step_3_subtitle": "Select your accessories",
+            "step_3_packs": [
+              "dutch-product",
+              "cold-turkey-30-days",
+              "cinnamon-spice-v2",
+              "lio®-cinnamon-spice",
+              "cinnamon-spice",
+              "cinnamon-spice-30-days",
+              "lio®-cold-turkey-1"
+            ],
+            "subscribe_and_save_title": "Subscribe and save",
+            "subscribe_and_save_description": "<p>NEVER RUN OUT OF CORES</p>",
+            "subscribe_3_packs": "3x flavors",
+            "subscribe_6_packs": "6x flavors",
+            "subscribe_complete_packs": "Complete pack",
+            "subscribe_packs_price": "[compare_price] <strong>[price] / month</strong>",
+            "subscribe_and_save_subtitle": "20% OFF",
+            "one_time_purchase_title": "One-time purchase",
+            "one_time_purchase_description": "<p>NEVER RUN OUT OF CORES</p>",
+            "subscribe_and_save_benefits_description": "<p>Repeats monthly. Swap out flavors every month or keep the same ones. Cancel at any time.</p>",
+            "subscribe_and_save_benefits_image": "shopify://shop_images/subscribe_image.png",
+            "benefits_features_title_1": "<p><strong>Save 20% Extra<br/></strong>Monthly</p>",
+            "benefits_features_image_1": "shopify://shop_images/discount_icon_2fbffa11-c282-462e-81e2-9b8025ee825d.svg",
+            "benefits_features_title_2": "<p><strong>Free Shipping<br/></strong>Monthly</p>",
+            "benefits_features_image_2": "shopify://shop_images/package_delivered_icon_e0289af7-a8ca-4499-9296-23b268b539c1.svg",
+            "benefits_features_title_3": "<p><strong>Swap Flavors<br/></strong>Anytime</p>",
+            "benefits_features_image_3": "shopify://shop_images/repeat_icon_a9e21300-2a9c-406c-9808-4ea4b51a8bfe.svg"
+          }
+        },
+        "delivery_info_xrtFXT": {
+          "type": "delivery_info",
+          "settings": {
+            "enable_card_payment": true,
+            "delivery_info_title_1": "30-Days Risk Free",
+            "delivery_info_image_1": "shopify://shop_images/shield_icon_6923ce0a-c9f3-4fec-8a99-ff0485796347.svg",
+            "delivery_info_title_2": "Free & Fast Shipping",
+            "delivery_info_image_2": "shopify://shop_images/box_icon_65b084b8-1689-4674-8cf0-2372d10c69c7.svg",
+            "delivery_info_title_3": "Made in Amsterdam",
+            "delivery_info_image_3": "shopify://shop_images/country_icon_4245709a-b41f-428a-88bb-6be95e4c4e08.svg"
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_r7YWzH",
+        "title_ma694X",
+        "product_tags_XMtpg6",
+        "description_nGFQLX",
+        "gallery_GEMcan",
+        "pack_selector_Ey9dAV",
+        "delivery_info_xrtFXT"
+      ],
+      "name": "Product Main",
+      "settings": {
+        "product_main": "lio®-journey-pack-test-loop",
+        "padding_dsk_t": 40,
+        "padding_dsk_b": 40,
+        "padding_mob_t": 20,
+        "padding_mob_b": 40,
+        "background": "linear-gradient(180deg, rgba(245, 255, 247, 1), rgba(245, 255, 247, 1) 100%)"
+      }
+    },
     "instant_sro_kx_rj_k_quw_ms37d_rE8m8d": {
       "type": "instant-sroKXRjKQuwMs37d",
+      "disabled": true,
       "custom_css": [
         ".ichqcxNOL8OtrWQO9 {display: none;}"
       ],
@@ -1249,13 +1249,13 @@
   },
   "order": [
     "new_homepage_banner_gFaJDm",
-    "product_main_BVqKQn",
     "ecom_highlight_info_xX3g3V",
     "infinite_logo_section_6jwaYP",
     "infinite_section_W8PBf7",
     "icon_text_1_kVM4dK",
     "instant_ayc_l8_zs7zs_arn6_if_bKrVJb",
     "175192946775f56041",
+    "product_main_BVqKQn",
     "instant_sro_kx_rj_k_quw_ms37d_rE8m8d",
     "science_research_PkfYbK",
     "our_promise_fTTciD",
