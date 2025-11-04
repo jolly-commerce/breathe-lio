@@ -460,6 +460,9 @@ class PackSelectorComponent extends HTMLElement {
     // Check if subscription is selected
     const isSubscriptionSelected = document.querySelector('#tab-subscribe:checked');
     
+    // Generate unique bundle ID for grouping Method with parent.child relationship
+    // const bundleId = this.generateBundleId();
+    // let flavorProperties = { _bundle_id: bundleId };
     let flavorProperties = {};
     if (this.isCompletePack) {
       flavorProperties._bundle_complete = true;
@@ -467,6 +470,33 @@ class PackSelectorComponent extends HTMLElement {
       flavorProperties._bundle_6_bags = true;
     }
     
+
+    //Method with parent.child relationship
+    // const items = [
+    //   // Parent item (LIO)
+    //   { 
+    //     id: parentId, 
+    //     quantity: 1,
+    //     properties: { _bundle_id: bundleId }
+    //   },
+    //   // Flavors - with parent_id relationship
+    //   ...Object.entries(this.selectedProducts.step2).map(([id, item]) => ({
+    //     id: id,
+    //     selling_plan: isSubscriptionSelected && item.subscriptionProductId ? item.subscriptionProductId : null,
+    //     quantity: item.quantity,
+    //     parent_id: parentId,
+    //     properties: flavorProperties
+    //   })),
+    //   // Accessories with quantities and parent_id
+    //   ...Object.entries(this.selectedProducts.step3).map(([id, item]) => ({
+    //     id,
+    //     quantity: item.quantity,
+    //     parent_id: parentId,
+    //     properties: { _bundle_id: bundleId }
+    //   }))
+    // ];
+
+    //Method withou parent_id
     const items = [
       // Parent item (LIO)
       { id: parentId, quantity: 1 },
@@ -483,33 +513,16 @@ class PackSelectorComponent extends HTMLElement {
         quantity: item.quantity
       }))
     ];
-    // Build cart items for parent and children relationships
-    // const bundleId = this.generateBundleId();
-    // const items = [
-    //   // Parent item (LIO)
-    //   { id: parentId, quantity: 1, properties: { _bundle_id: bundleId } },
-    //   // Flavors
-    //   ...Object.entries(this.selectedProducts.step2).map(([id, item]) => ({
-    //     id,
-    //     quantity: item.quantity,
-    //     parent_id: parentId, // Commented out - no parent/child relationship
-    //     properties: { _bundle_id: bundleId }
-    //   })),
-    //   // Accessories with quantities
-    //   ...Object.entries(this.selectedProducts.step3).map(([id, item]) => ({
-    //     id,
-    //     quantity: item.quantity,
-    //     parent_id: parentId, // Commented out - no parent/child relationship
-    //     properties: { _bundle_id: bundleId }
-    //   }))
-    // ];
 
     try {
       this.setSubmitButtonLoading(true);
 
       const response = await fetch('/cart/add.js', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
         body: JSON.stringify({ items })
       });
 
@@ -536,6 +549,7 @@ class PackSelectorComponent extends HTMLElement {
   //   }
   // }
 
+  // Method with parent.child relationship
   // generateBundleId() {
   //   const ts = Date.now().toString(36);
   //   const rnd = Math.random().toString(36).slice(2, 8);
