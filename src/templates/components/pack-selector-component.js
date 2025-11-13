@@ -457,11 +457,6 @@ class PackSelectorComponent extends HTMLElement {
 
     // Get selected variant info and show alert
     const { selectedVariantInfo, bundle_compose } = this.getSelectedVariantInfo();
-    if (selectedVariantInfo) {
-      alert(`Selected Bundle Variant:\n\nID: ${selectedVariantInfo.id}\nTitle: ${selectedVariantInfo.title}\n\nOptions:\n- Lio: ${selectedVariantInfo.option1}\n- Pack: ${selectedVariantInfo.option2}\n- Accessory: ${selectedVariantInfo.option3}\n\nPrice: ${this.formatPrice(selectedVariantInfo.price)}`);
-    }
-
-    const parentId = this.selectedProducts.step1.productId;
     
     // Check if subscription is selected
     const isSubscriptionSelected = document.querySelector('#tab-subscribe:checked');
@@ -473,8 +468,6 @@ class PackSelectorComponent extends HTMLElement {
       flavorProperties._bundle_6_bags = true;
     }
     
-
-
     const formattedProductProperties = {
       ...flavorProperties,
       __is_subscription_selected: isSubscriptionSelected ? 'true' : 'false',
