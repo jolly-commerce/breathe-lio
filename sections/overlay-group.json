@@ -50,7 +50,13 @@
           "lio®-ohh-my-orange-copy"
         ],
         "product_card_background": "#f2f2f2",
-        "product_card_text_color": ""
+        "product_card_text_color": "",
+        "shipping_cost_label": "Shipping cost",
+        "shipping_free_label": "Free",
+        "shipping_calculated_label": "Calculated at checkout",
+        "guarantee_label": "30-Day Money-Back Guarantee",
+        "subscription_label": "Subscribed",
+        "subscription_icon": "shopify://shop_images/repeat_icon_a9e21300-2a9c-406c-9808-4ea4b51a8bfe.svg"
       }
     },
     "search-drawer": {

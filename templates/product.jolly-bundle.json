@@ -55,17 +55,13 @@
         "pack_selector_YtXxRx": {
           "type": "pack_selector",
           "settings": {
-            "max_flavors": 20,
-            "min_flavors": 4,
             "step_1_title": "Step 1:",
             "step_1_subtitle": "Select your Lio",
             "step_1_packs": [
               "lio-walnut",
               "lio-diffuser",
               "lio®-aluminium-black",
-              "lio®-aluminium-silver",
-              "lio®-gen-2-olive",
-              "lio®-gen-2-walnut"
+              "lio®-aluminium-silver"
             ],
             "step_2_title": "Step 2:",
             "step_2_subtitle": "Select your flavors",
@@ -75,7 +71,6 @@
               "lio®-cold-turkey-1",
               "lio®-classic-bags",
               "lio®-ohh-my-orange-copy",
-              "minty-magic-30-days",
               "lio®-minty-magic"
             ],
             "step_2_1_title": "3 bags",
@@ -90,23 +85,17 @@
             "step_3_title": "Step 3:",
             "step_3_subtitle": "Select your accessories",
             "step_3_packs": [
-              "dutch-product",
-              "cold-turkey-30-days",
-              "cinnamon-spice-v2",
-              "lio®-cinnamon-spice",
-              "cinnamon-spice",
-              "cinnamon-spice-30-days",
-              "lio®-cold-turkey-1"
+              "dutch-product"
             ],
             "subscribe_and_save_title": "Subscribe and save",
             "subscribe_and_save_description": "<p>NEVER RUN OUT OF CORES</p>",
             "subscribe_3_packs": "3x flavors",
             "subscribe_6_packs": "6x flavors",
+            "subscribe_complete_packs": "Complete pack",
             "subscribe_packs_price": "[compare_price] <strong>[price] / month</strong>",
             "subscribe_and_save_subtitle": "20% OFF",
             "one_time_purchase_title": "One-time purchase",
             "one_time_purchase_description": "<p>NEVER RUN OUT OF CORES</p>",
-            "one_time_purchase_benefits_title": "One-time purchase",
             "subscribe_and_save_benefits_description": "<p>Repeats monthly. Swap out flavors every month or keep the same ones. Cancel at any time.</p>",
             "subscribe_and_save_benefits_image": "shopify://shop_images/subscribe_image.png",
             "benefits_features_title_1": "<p><strong>Save 20% Extra<br/></strong>Monthly</p>",
@@ -141,6 +130,7 @@
       ],
       "name": "Product Main",
       "settings": {
+        "product_main": "",
         "padding_dsk_t": 40,
         "padding_dsk_b": 40,
         "padding_mob_t": 20,

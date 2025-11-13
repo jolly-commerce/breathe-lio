@@ -1,7 +1,6 @@
 <div class="jc-flex jc-flex-col jc-gap-8 -jc-mt-2">
   <div class="jc-flex jc-flex-row jc-gap-2 jc-flex-wrap jc-justify-center">
     {%- for i in (1..3) -%}
-      {%- if root.settings.delivery_info_title_1 != blank -%}
         {%- assign title = 'delivery_info_title_' | append: i -%}
         {%- assign image = 'delivery_info_image_' | append: i -%}
         {%- if root.settings[image] != blank or root.settings[title] != blank -%}
@@ -27,7 +26,6 @@
             {%- endif -%}
           </div>
         {%- endif -%}
-      {%- endif -%}
     {%- endfor -%}
   </div>
   {%- if root.settings.enable_card_payment -%}

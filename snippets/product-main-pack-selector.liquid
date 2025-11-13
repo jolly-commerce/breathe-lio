@@ -113,6 +113,7 @@
   }
 </style>
 
+
 <pack-selector-component
   class="jc-block jc-w-full"
   data-max-flavors="6"
@@ -125,6 +126,12 @@
   data-text-button-adding-to-cart="{{ 'bundle_pack.button_adding_to_cart' | t }}"
   data-text-select-minimum-flavors="{{ 'bundle_pack.select_minimum_flavors' | t }}"
 >
+
+  <script>
+    const packSelectorComponentVariants = {{ product.variants | json }};
+    window.packSelectorComponentVariants = packSelectorComponentVariants;
+  </script>
+
   {%- # Step 1: Select Your Lio -%}
   {%- if root.settings.step_1_title != blank and root.settings.step_1_packs != blank -%}
     <div class="pack-selector-step" data-step="1" data-step-number="1">
@@ -163,6 +170,7 @@
               data-product-title="{{ product.title }}"
               data-product-price="{{ product.price }}"
               data-step="1"
+              data-variant-name="{{ product.title }}"
             >
               <div class="jc-relative jc-mb-2.5">
                 {%- if product.featured_image -%}
@@ -305,6 +313,7 @@
                 [&.disabled]:jc-pointer-events-none [&.disabled]:jc-cursor-not-allowed {% if max_qty <= 0 %} disabled {% endif %}"
               data-product-id="{{ product.first_available_variant.id }}"
               data-product-price="{{ product.price }}"
+              data-product-title="{{ product.title }}"
               data-step="2"
               data-max-qty="{{ max_qty }}"
               {% if selling_plan_id != blank %}
@@ -441,6 +450,33 @@
             --swiper-scrollbar-bottom: 0px;
           "
         >
+          {%- comment -%} Hidden "None" option to allow deselecting accessories {%- endcomment -%}
+          <swiper-slide class="jc-h-[inherit] jc-w-auto jc-hidden">
+            <product-option-card
+              class="
+                jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
+                [&.selected_.jc-select-button]:jc-bg-munsell [&.selected_.jc-select-button]:jc-text-white jc-group/product-option-card jc-w-[180px] jc-h-full
+                [&.selected_.jc-selected-text]:jc-block [&.selected_.jc-standard-text]:jc-hidden
+              "
+              data-product-id="none"
+              data-product-price="0"
+              data-step="3"
+              data-variant-name="No Accessory"
+            >
+              <button
+                class="
+                  js-select-button select-button
+                  jc-mt-2.5 jc-select-button jc-text-center jc-w-full jc-py-2.5 jc-border jc-border-solid jc-border-britishRacingGreen jc-rounded-mxs jc-uppercase
+                  jc-transition-all jc-text-xxs lg:jc-text-xs jc-leading-4 jc-font-semibold jc-text-britishRacingGreen
+                  group-hover/product-option-card:jc-bg-munsell group-hover/product-option-card:jc-text-white jc-shadow-pack-selector-green
+                "
+                data-action="select-accessory"
+              >
+                <span class="jc-standard-text">None</span>
+              </button>
+            </product-option-card>
+          </swiper-slide>
+
           {%- for product in root.settings.step_3_packs -%}
             {% if product.selected_or_first_available_variant.available == false and product.selected_or_first_available_variant.inventory_policy != 'continue' %}
               {% continue %}
@@ -455,13 +491,13 @@
                 class="
                   jc-flex jc-flex-col jc-border jc-border-solid jc-border-darkGreen jc-rounded-md jc-p-3 jc-cursor-pointer jc-transition-all hover:jc-border-green-600
                   [&.selected_.jc-select-button]:jc-bg-munsell [&.selected_.jc-select-button]:jc-text-white jc-group/product-option-card jc-w-[180px] jc-h-full
+                  [&.selected_.jc-selected-text]:jc-block [&.selected_.jc-standard-text]:jc-hidden
                   [&.disabled]:jc-pointer-events-none [&.disabled]:jc-cursor-not-allowed {% if max_qty <= 0 %} disabled {% endif %}
                 "
                 data-product-id="{{ product.first_available_variant.id }}"
                 data-product-price="{{ product.price }}"
                 data-step="3"
-                data-has-quantity="true"
-                data-max-qty="{{ max_qty }}"
+                data-variant-name="{{ product.title }}"
               >
                 <div class="jc-aspect-square jc-relative jc-mb-3 jc-max-w-30.5 jc-mx-auto">
                   {%- if product.featured_image -%}
@@ -491,7 +527,7 @@
 
                 <button
                   class="
-                    js-select-button
+                    js-select-button select-button
                     jc-mt-2.5 jc-select-button jc-text-center jc-w-full jc-py-2.5 jc-border jc-border-solid jc-border-britishRacingGreen jc-rounded-mxs jc-uppercase
                     jc-transition-all jc-text-xxs lg:jc-text-xs jc-leading-4 jc-font-semibold jc-text-britishRacingGreen
                     [&:disabled]:jc-opacity-50 [&:disabled]:jc-pointer-events-none [&:disabled]:jc-cursor-not-allowed
@@ -499,46 +535,9 @@
                   "
                   data-action="select-accessory"
                 >
-                  {{ 'bundle_pack.button_add' | t }} | {{ product.price | money }}
+                  <span class="jc-selected-text jc-hidden">{{ 'bundle_pack.selected_label' | t }} | {{ product.price | money }}</span>
+                  <span class="jc-standard-text">{{ 'bundle_pack.button_add' | t }} | {{ product.price | money }}</span>
                 </button>
-
-                <div
-                  class="
-                    js-qty-control
-                    jc-flex jc-items-center jc-justify-between not-visible
-                    [&.not-visible]:jc-hidden jc-mt-2.5 jc-shadow-pack-selector-green jc-w-full jc-bg-munsell jc-border jc-border-solid
-                    jc-border-britishRacingGreen jc-rounded-mxs jc-px-4 jc-py-2
-                  "
-                  data-product-id="{{ product.first_available_variant.id }}"
-                >
-                  {% assign max = blank %}
-                  {% if product.first_available_variant.inventory_policy == 'continue' %}
-                    {% assign max = 9999 %}
-                  {% elsif product.first_available_variant.inventory_management == 'shopify' %}
-                    {% assign max = product.first_available_variant.inventory_quantity %}
-                  {% endif %}
-                  <button
-                    type="button"
-                    class="js-btn-minus jc-bg-munsell jc-text-white [&.is-disabled]:jc-opacity-50 [&.is-disabled]:jc-pointer-events-none jc-size-5"
-                    aria-label="Decrease"
-                  >
-                    {% render 'g-render-icon', icon: 'fat-minus', class: 'jc-block jc-size-5' %}
-                  </button>
-                  <input
-                    class="js-qty-count jc-text-xs jc-leading-4 jc-uppercase jc-font-poppins jc-h-4 jc-text-center jc-font-semibold jc-pointer-events-none jc-bg-transparent jc-text-white"
-                    value="0"
-                    min="0"
-                    max="{{ max }}"
-                    name="product-quantity-step3-{{ product.first_available_variant.id }}"
-                  >
-                  <button
-                    type="button"
-                    class="js-btn-plus jc-bg-munsell jc-text-white [&.is-disabled]:jc-opacity-50 [&.is-disabled]:jc-pointer-events-none jc-size-5"
-                    aria-label="Increase"
-                  >
-                    {% render 'g-render-icon', icon: 'fat-plus', class: 'jc-block jc-size-5' %}
-                  </button>
-                </div>
               </product-option-card>
             </swiper-slide>
           {%- endfor -%}

@@ -83,8 +83,8 @@ class ProductOptionCard extends HTMLElement {
       });
     }
 
-    // Initialize quantity controls if present
-    if (this.hasQuantityControls) {
+    // Initialize quantity controls if present (but not for step 3)
+    if (this.hasQuantityControls && this.step !== 3) {
       this.initializeQuantityControls();
     }
   }
@@ -113,6 +113,12 @@ class ProductOptionCard extends HTMLElement {
   }
 
   handleCardClick(e) {
+    // For Step 3, only allow single selection without quantity controls
+    if (this.step === 3) {
+      this.selectProduct();
+      return;
+    }
+
     if (this.hasQuantityControls) {
       if (this.quantity === 0) {
         this.showQuantityControls();
@@ -124,6 +130,12 @@ class ProductOptionCard extends HTMLElement {
   }
 
   handleButtonClick(e) {
+    // For Step 3, only allow single selection without quantity controls
+    if (this.step === 3) {
+      this.selectProduct();
+      return;
+    }
+
     if (this.hasQuantityControls) {
       this.showQuantityControls();
     } else {
@@ -133,6 +145,9 @@ class ProductOptionCard extends HTMLElement {
   }
 
   showQuantityControls() {
+    // Step 3 doesn't use quantity controls
+    if (this.step === 3) return;
+    
     if (!this.hasQuantityControls) return;
 
     this.selectButton?.classList.add('jc-hidden');
@@ -141,6 +156,9 @@ class ProductOptionCard extends HTMLElement {
   }
 
   changeQuantity(delta) {
+    // Step 3 no longer uses quantity controls
+    if (this.step === 3) return;
+    
     if (!this.hasQuantityControls) return;
 
     const newQty = Math.max(0, this.quantity + delta);
@@ -151,9 +169,8 @@ class ProductOptionCard extends HTMLElement {
     this.quantity = newQty;
     this.updateQuantityUI();
 
-    // Notify parent of change based on step
-    const eventName = this.step === 3 ? 'step3-quantity-changed' : 'quantity-changed';
-    this.dispatchEvent(new CustomEvent(eventName, {
+    // Notify parent of change
+    this.dispatchEvent(new CustomEvent('quantity-changed', {
       detail: {
         productId: this.productId,
         quantity: this.quantity,
@@ -164,6 +181,9 @@ class ProductOptionCard extends HTMLElement {
   }
 
   updateQuantityUI() {
+    // Step 3 doesn't use quantity controls
+    if (this.step === 3) return;
+    
     if (!this.hasQuantityControls) return;
 
     // Update input value
@@ -209,6 +229,30 @@ class ProductOptionCard extends HTMLElement {
   }
 
   selectProduct() {
+    // For Step 3, handle deselection and radio button behavior
+    if (this.step === 3 && this.parentComponent) {
+      const allStep3Cards = this.parentComponent.querySelectorAll('product-option-card[data-step="3"]');
+      
+      // If clicking on already selected card, deselect it and select "none"
+      if (this.isSelected && this.productId !== 'none') {
+        allStep3Cards.forEach(card => card.setSelected(false));
+        
+        // Find and select the "none" option
+        const noneCard = this.parentComponent.querySelector('product-option-card[data-step="3"][data-product-id="none"]');
+        if (noneCard) {
+          noneCard.selectProduct();
+        }
+        return;
+      }
+      
+      // Clear other selections (radio button behavior)
+      allStep3Cards.forEach(card => {
+        if (card !== this) {
+          card.setSelected(false);
+        }
+      });
+    }
+
     // Dispatch selection event
     this.dispatchEvent(new CustomEvent('product-selected', {
       detail: {
@@ -227,6 +271,10 @@ class ProductOptionCard extends HTMLElement {
 
   reset() {
     this.setSelected(false);
+    
+    // Step 3 only needs to clear selection, no quantity controls
+    if (this.step === 3) return;
+    
     if (this.hasQuantityControls) {
       this.quantity = 0;
       this.updateQuantityUI();
@@ -238,10 +286,16 @@ class ProductOptionCard extends HTMLElement {
   }
 
   getQuantity() {
+    // Step 3 uses simple selection (0 or 1)
+    if (this.step === 3) return this.isSelected ? 1 : 0;
+    
     return this.hasQuantityControls ? this.quantity : (this.isSelected ? 1 : 0);
   }
 
   setQuantity(qty) {
+    // Step 3 doesn't use quantity controls
+    if (this.step === 3) return;
+    
     if (this.hasQuantityControls) {
       this.quantity = qty;
       this.updateQuantityUI();

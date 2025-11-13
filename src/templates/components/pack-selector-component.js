@@ -12,7 +12,7 @@ class PackSelectorComponent extends HTMLElement {
     this.selectedProducts = {
       step1: null,
       step2: {}, // { [productId]: { quantity, price, subscriptionProductId, subscriptionPrice } }
-      step3: {} // { [productId]: { quantity, price } }
+      step3: null // Single product: { productId, price } or null
     };
     this.maxFlavors = DEFAULTS.MAX_FLAVORS;
     this.minFlavors = DEFAULTS.MIN_FLAVORS;
@@ -30,6 +30,7 @@ class PackSelectorComponent extends HTMLElement {
     this.accessoryCounter = this.querySelector('.js-accessory-counter');
     this.flavorMax = this.querySelector('[data-role="flavor-max"]');
     this.selectedPackPlan = this.querySelector('.js-selected-pack-plan');
+    this.cartDrawer = document.querySelector('cart-drawer');
 
     this.init();
   }
@@ -49,6 +50,15 @@ class PackSelectorComponent extends HTMLElement {
     this.initializeStepRadios();
     this.initializePackSelectors();
     this.initializePurchaseTypeListeners();
+    
+    // Select "none" option for step 3 by default
+    setTimeout(() => {
+      const noneCard = this.querySelector('product-option-card[data-step="3"][data-product-id="none"]');
+      if (noneCard) {
+        noneCard.setSelected(true);
+      }
+    }, 0);
+    
     this.updateUI();
     // Initialize pack plan display
     setTimeout(() => this.updateSelectedPackPlan(), 0);
@@ -109,23 +119,6 @@ class PackSelectorComponent extends HTMLElement {
       this.updateUI();
     });
 
-    // Listen for Step 3 quantity changes
-    this.addEventListener('step3-quantity-changed', (e) => {
-      const { productId, quantity, price } = e.detail;
-
-      // Update internal state
-      if (quantity === 0) {
-        delete this.selectedProducts.step3[productId];
-      } else {
-        this.selectedProducts.step3[productId] = {
-          quantity: quantity,
-          price: price
-        };
-      }
-
-      // Update UI
-      this.updateUI();
-    });
   }
 
   initializeStepRadios() {
@@ -303,9 +296,26 @@ class PackSelectorComponent extends HTMLElement {
   }
 
   selectStep3Product(productCard, productId) {
-    // This method is now handled by Step3ProductCard quantity changes
-    // Keep for backward compatibility but step3 now uses quantity-based selection
-    console.warn('selectStep3Product called - Step 3 now uses quantity-based selection');
+    // Clear previous selection (only one accessory can be selected)
+    this.querySelectorAll('product-option-card[data-step="3"]').forEach(card => {
+      card.setSelected(false);
+    });
+
+    // Select new option
+    productCard.setSelected(true);
+    
+    // If "none" is selected, clear step3 selection
+    if (productId === 'none') {
+      this.selectedProducts.step3 = null;
+    } else {
+      this.selectedProducts.step3 = {
+        productId: productId,
+        price: productCard.productPrice
+      };
+    }
+
+    // Update UI
+    this.updateUI();
   }
 
   openProductPopup(clickedProduct) {
@@ -337,7 +347,6 @@ class PackSelectorComponent extends HTMLElement {
     this.updateSubmitButton();
     this.updateSummaryInfo();
     this.updateAllStep2Cards();
-    this.updateAllStep3Cards();
   }
 
   updateStepAccess() {
@@ -366,15 +375,6 @@ class PackSelectorComponent extends HTMLElement {
     step2Cards.forEach(card => {
       if (card.updateButtonStates) {
         card.updateButtonStates();
-      }
-    });
-  }
-
-  updateAllStep3Cards() {
-    const step3Cards = this.querySelectorAll('product-option-card[data-step="3"]');
-    step3Cards.forEach(card => {
-      if (card.updateQuantityButtonStates) {
-        card.updateQuantityButtonStates();
       }
     });
   }
@@ -455,14 +455,17 @@ class PackSelectorComponent extends HTMLElement {
   async handleSubmit() {
     if (!this.selectedProducts.step1 || this.getTotalFlavors() < this.minFlavors) return;
 
+    // Get selected variant info and show alert
+    const { selectedVariantInfo, bundle_compose } = this.getSelectedVariantInfo();
+    if (selectedVariantInfo) {
+      alert(`Selected Bundle Variant:\n\nID: ${selectedVariantInfo.id}\nTitle: ${selectedVariantInfo.title}\n\nOptions:\n- Lio: ${selectedVariantInfo.option1}\n- Pack: ${selectedVariantInfo.option2}\n- Accessory: ${selectedVariantInfo.option3}\n\nPrice: ${this.formatPrice(selectedVariantInfo.price)}`);
+    }
+
     const parentId = this.selectedProducts.step1.productId;
     
     // Check if subscription is selected
     const isSubscriptionSelected = document.querySelector('#tab-subscribe:checked');
-    
-    // Generate unique bundle ID for grouping Method with parent.child relationship
-    // const bundleId = this.generateBundleId();
-    // let flavorProperties = { _bundle_id: bundleId };
+
     let flavorProperties = {};
     if (this.isCompletePack) {
       flavorProperties._bundle_complete = true;
@@ -471,47 +474,15 @@ class PackSelectorComponent extends HTMLElement {
     }
     
 
-    //Method with parent.child relationship
-    // const items = [
-    //   // Parent item (LIO)
-    //   { 
-    //     id: parentId, 
-    //     quantity: 1,
-    //     properties: { _bundle_id: bundleId }
-    //   },
-    //   // Flavors - with parent_id relationship
-    //   ...Object.entries(this.selectedProducts.step2).map(([id, item]) => ({
-    //     id: id,
-    //     selling_plan: isSubscriptionSelected && item.subscriptionProductId ? item.subscriptionProductId : null,
-    //     quantity: item.quantity,
-    //     parent_id: parentId,
-    //     properties: flavorProperties
-    //   })),
-    //   // Accessories with quantities and parent_id
-    //   ...Object.entries(this.selectedProducts.step3).map(([id, item]) => ({
-    //     id,
-    //     quantity: item.quantity,
-    //     parent_id: parentId,
-    //     properties: { _bundle_id: bundleId }
-    //   }))
-    // ];
 
-    //Method withou parent_id
+    const formattedProductProperties = {
+      ...flavorProperties,
+      __is_subscription_selected: isSubscriptionSelected ? 'true' : 'false',
+      __lio_bundle_info: JSON.stringify(this.selectedProducts),
+      ...bundle_compose
+    };
     const items = [
-      // Parent item (LIO)
-      { id: parentId, quantity: 1 },
-      // Flavors - use correct ID based on subscription
-      ...Object.entries(this.selectedProducts.step2).map(([id, item]) => ({
-        id: id,
-        selling_plan: isSubscriptionSelected && item.subscriptionProductId ? item.subscriptionProductId : null,
-        quantity: item.quantity,
-        properties: flavorProperties
-      })),
-      // Accessories with quantities
-      ...Object.entries(this.selectedProducts.step3).map(([id, item]) => ({
-        id,
-        quantity: item.quantity
-      }))
+      { id: selectedVariantInfo.id, quantity: 1, properties: formattedProductProperties }
     ];
 
     try {
@@ -529,7 +500,8 @@ class PackSelectorComponent extends HTMLElement {
       if (response.ok) {
         this.resetSelections();
         // Redirect to checkout instead of opening cart drawer
-        window.location.href = '/checkout';
+        // window.location.href = '/checkout';
+        this.cartDrawerToggle();
       }
     } catch (error) {
       console.error('Cart add error:', error);
@@ -538,27 +510,81 @@ class PackSelectorComponent extends HTMLElement {
     }
   }
 
-  // * Commented out - now redirecting to checkout instead of showing cart drawer
-  // async cartDrawerToggle() {
-  //   if (this.cartDrawer?._onCartRefresh) {
-  //     await this.cartDrawer._onCartRefresh();
-  //     await this.cartDrawer.show?.();
-  //   } else {
-  //     document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
-  //     document.documentElement.dispatchEvent(new CustomEvent('instant:add-to-cart'));
-  //   }
-  // }
+  /**
+   * Get selected variant information based on current selection
+   * Returns variant object from window.packSelectorComponentVariants or null
+   */
+  getSelectedVariantInfo() {
+    if (!window.packSelectorComponentVariants) {
+      console.warn('packSelectorComponentVariants not found');
+      return null;
+    }
+    const bundle_compose = {};
 
-  // Method with parent.child relationship
-  // generateBundleId() {
-  //   const ts = Date.now().toString(36);
-  //   const rnd = Math.random().toString(36).slice(2, 8);
-  //   return `b-${ts}-${rnd}`;
-  // }
+    // Get option1: Lio name from Step 1
+    const step1Card = this.querySelector('product-option-card[data-step="1"].selected');
+    const option1 = step1Card?.getAttribute('data-variant-name') || '';
+    // if (option1) {
+    //   bundle_compose.lio = option1;
+    // }
+
+    // Get option2: Pack type from pack selector
+    const packSelector = this.querySelector('.js-pack-selector input[name="pack"]:checked');
+    const option2 = packSelector?.closest('.js-pack-selector')?.getAttribute('data-variant-name') || '';
+
+    // if (option2) {
+    //   bundle_compose.pack = option2;
+    // }
+
+    // Get Step 2: Flavors with quantities
+    const step2Cards = this.querySelectorAll('step2-product-card');
+    let flavorIndex = 1;
+    step2Cards.forEach(card => {
+      const productId = card.getAttribute('data-product-id');
+      const itemData = this.selectedProducts.step2[productId];
+      
+      if (itemData && itemData.quantity > 0) {
+        const title = card.getAttribute('data-product-title') || '';
+        bundle_compose[`Flavor ${flavorIndex}`] = `${itemData.quantity}x ${title}`;
+        flavorIndex++;
+      }
+    });
+
+    // Get option3: Accessory name from Step 3 (or "No" if none selected)
+    const step3Card = this.querySelector('product-option-card[data-step="3"].selected');
+    const option3 = step3Card?.getAttribute('data-variant-name') || 'No Accessory';
+
+    // if (option3) {
+    //   bundle_compose.accessory = option3;
+    // }
+
+    // Find matching variant in window.packSelectorComponentVariants
+    const matchedVariant = window.packSelectorComponentVariants.find(variant => {
+      return variant.option1 === option1 && 
+             variant.option2 === option2 && 
+             variant.option3 === option3;
+    });
+
+    return {
+      selectedVariantInfo: matchedVariant,
+      bundle_compose
+    };
+  }
+
+  // * Commented out - now redirecting to checkout instead of showing cart drawer
+  async cartDrawerToggle() {
+    if (this.cartDrawer?._onCartRefresh) {
+      await this.cartDrawer._onCartRefresh();
+      await this.cartDrawer.show?.();
+    } else {
+      document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+      document.documentElement.dispatchEvent(new CustomEvent('instant:add-to-cart'));
+    }
+  }
 
   resetSelections() {
     // Reset data
-    this.selectedProducts = { step1: null, step2: {}, step3: {} };
+    this.selectedProducts = { step1: null, step2: {}, step3: null };
 
     // Reset all product cards
     this.querySelectorAll('product-option-card, step2-product-card').forEach(card => {
@@ -567,6 +593,12 @@ class PackSelectorComponent extends HTMLElement {
 
     // Reset to 3 bags pack
     this.resetTo3BagsPack();
+    
+    // Select "none" option for step 3 by default
+    const noneCard = this.querySelector('product-option-card[data-step="3"][data-product-id="none"]');
+    if (noneCard) {
+      noneCard.setSelected(true);
+    }
 
     // Go back to step 1
     this.openStep(1);
@@ -595,7 +627,7 @@ class PackSelectorComponent extends HTMLElement {
   }
 
   getTotalAccessories() {
-    return Object.values(this.selectedProducts.step3).reduce((sum, item) => sum + item.quantity, 0);
+    return this.selectedProducts.step3 ? 1 : 0;
   }
 
   updateFlavorCounter() {
@@ -680,10 +712,10 @@ class PackSelectorComponent extends HTMLElement {
       total += discountedPrice;
     });
 
-    // Step 3 prices (Accessories with quantities)
-    Object.values(this.selectedProducts.step3).forEach(item => {
-      total += item.price * item.quantity;
-    });
+    // Step 3 price (Single accessory)
+    if (this.selectedProducts.step3) {
+      total += this.selectedProducts.step3.price;
+    }
 
     return total;
   }
@@ -703,10 +735,10 @@ class PackSelectorComponent extends HTMLElement {
       total += discountedPrice;
     });
 
-    // Step 3 prices (Accessories - same for both)
-    Object.values(this.selectedProducts.step3).forEach(item => {
-      total += item.price * item.quantity;
-    });
+    // Step 3 price (Single accessory - same for both)
+    if (this.selectedProducts.step3) {
+      total += this.selectedProducts.step3.price;
+    }
 
     return total;
   }
