@@ -454,12 +454,13 @@ class PackSelectorComponent extends HTMLElement {
 
   async handleSubmit() {
     if (!this.selectedProducts.step1 || this.getTotalFlavors() < this.minFlavors) return;
+    
+    // Check if subscription is selected
+    const isSubscriptionSelected = document.querySelector('#tab-subscribe:checked') ? 'true' : 'false';
 
     // Get selected variant info and show alert
     const { selectedVariantInfo, bundle_compose } = this.getSelectedVariantInfo();
-    
-    // Check if subscription is selected
-    const isSubscriptionSelected = document.querySelector('#tab-subscribe:checked');
+    const selectedVariantIdSubscription = isSubscriptionSelected === 'true' ? selectedVariantInfo.selling_plan_allocations?.[0]?.selling_plan_id : null;
 
     let flavorProperties = {};
     if (this.isCompletePack) {
@@ -470,12 +471,17 @@ class PackSelectorComponent extends HTMLElement {
     
     const formattedProductProperties = {
       ...flavorProperties,
-      __is_subscription_selected: isSubscriptionSelected ? 'true' : 'false',
+      __is_subscription_selected: isSubscriptionSelected,
       __lio_bundle_info: JSON.stringify(this.selectedProducts),
       ...bundle_compose
     };
     const items = [
-      { id: selectedVariantInfo.id, quantity: 1, properties: formattedProductProperties }
+      { 
+        id: selectedVariantInfo.id, 
+        quantity: 1, 
+        properties: formattedProductProperties,
+        ...(selectedVariantIdSubscription && { selling_plan: selectedVariantIdSubscription })
+      }
     ];
 
     try {
@@ -508,6 +514,7 @@ class PackSelectorComponent extends HTMLElement {
    * Returns variant object from window.packSelectorComponentVariants or null
    */
   getSelectedVariantInfo() {
+
     if (!window.packSelectorComponentVariants) {
       console.warn('packSelectorComponentVariants not found');
       return null;
@@ -569,6 +576,7 @@ class PackSelectorComponent extends HTMLElement {
     if (this.cartDrawer?._onCartRefresh) {
       await this.cartDrawer._onCartRefresh();
       await this.cartDrawer.show?.();
+      document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
     } else {
       document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
       document.documentElement.dispatchEvent(new CustomEvent('instant:add-to-cart'));
