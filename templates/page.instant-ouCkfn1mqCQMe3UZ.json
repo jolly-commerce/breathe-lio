@@ -149,6 +149,7 @@
         "text_xkqcPVU7wxybIXxZ-1": "<h3><strong>2x </strong>Gen 2 Silver </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
         "text_m7uTwUqSTzJvE6bD-1": "<h3><strong>2x </strong>Gen 2 Black </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
         "text_QaHC7fqaBFneYquR-1": "<h3><strong>OFF</strong></h3>",
+        "text_4cjsymL56ZlGtMLU-1": "<p>ADD TO CART</p>",
         "text_0SMRmsjUvS9cty21-1": "<p>ADD TO CART</p>",
         "text_VK296HUz3Fk45xEX-1": "<p>Didn't quit in 30 Days? Money Back!</p>",
         "text_Z6NhGN68fcTNSF8u-1": "<p>Free & Fast Shipping</p>",
@@ -420,9 +421,24 @@
         "title": "Frequently Asked Questions",
         "high-title": "answered"
       }
+    },
+    "instant_fih_w_wn_s_ao9j_ru_di_o_wgBL8P": {
+      "type": "instant-fihWWnSAo9jRuDiO",
+      "name": "Header Logo",
+      "settings": {
+        "text_O3qqCKYgMJ6QlDIY": "<p>BLACK FRIDAY SALE</p>",
+        "text_ATtGXdl8XbPQiTyo": "<p>ENDS IN:</p>",
+        "text_k74RtmNN6VXYNzLv": "<p>Days</p>",
+        "text_Vcir2bbLkE6QS4dZ": "<p>Hours</p>",
+        "text_Ty2S6Trg1Pt9mc4f": "<p>Min</p>",
+        "text_kdjhnWEMo60ARb6e": "<p>Sec</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
+    "instant_fih_w_wn_s_ao9j_ru_di_o_wgBL8P",
     "1751929855fb4a4f89",
     "new_homepage_banner_gJJX6a",
     "infinite_section_FfHPEr",
