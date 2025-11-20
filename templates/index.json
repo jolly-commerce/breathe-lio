@@ -50,6 +50,7 @@
     },
     "ecom_highlight_info_xX3g3V": {
       "type": "ecom-highlight-info",
+      "disabled": true,
       "name": "Ecom Highlight Info",
       "settings": {
         "show_check": true,
