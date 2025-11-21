@@ -329,8 +329,8 @@
             "step_2_3_title": "Complete",
             "step_2_3_discount": "15% OFF",
             "step_2_3_discount_percentage": 15,
-            "step_3_title": "Step 3:",
-            "step_3_subtitle": "Select your accessories",
+            "step_3_title": "",
+            "step_3_subtitle": "",
             "step_3_packs": [
               "dutch-product",
               "cold-turkey-30-days",
@@ -341,17 +341,17 @@
               "lio®-cold-turkey-1"
             ],
             "subscribe_and_save_title": "Subscribe and save",
-            "subscribe_and_save_description": "<p>NEVER RUN OUT OF CORES</p>",
+            "subscribe_and_save_description": "<p>NEVER RUN OUT</p>",
             "subscribe_3_packs": "<strong>3X flavours</strong>",
             "subscribe_6_packs": "<strong>6X flavours</strong>",
             "subscribe_complete_packs": "Complete pack",
             "subscribe_packs_price": "[compare_price] <strong>[price] / month</strong>",
             "subscribe_and_save_subtitle": "30% OFF",
             "one_time_purchase_title": "One-time purchase",
-            "one_time_purchase_description": "<p>NEVER RUN OUT OF CORES</p>",
+            "one_time_purchase_description": "<p>NEVER RUN OUT</p>",
             "subscribe_and_save_benefits_description": "<p>Repeats monthly. Swap out flavors every month or keep the same ones. Cancel at any time.</p>",
             "subscribe_and_save_benefits_image": "shopify://shop_images/subscribe_image.png",
-            "benefits_features_title_1": "<p><strong>Save 20% Extra<br/></strong>Monthly</p>",
+            "benefits_features_title_1": "<p><strong>Save 30% Extra<br/></strong>Monthly</p>",
             "benefits_features_image_1": "shopify://shop_images/discount_icon_2fbffa11-c282-462e-81e2-9b8025ee825d.svg",
             "benefits_features_title_2": "<p><strong>Free Shipping<br/></strong>Monthly</p>",
             "benefits_features_image_2": "shopify://shop_images/package_delivered_icon_e0289af7-a8ca-4499-9296-23b268b539c1.svg",
@@ -1236,16 +1236,6 @@
         "title": "You asked we",
         "high-title": "answered"
       }
-    },
-    "instant_2_umtw4idkjq_xa_nav_LRVrJQ": {
-      "type": "instant-2Umtw4idkjqXaNAV",
-      "name": "STICKY CTA",
-      "settings": {
-        "url_2MWJOnA9KR8FDxip": "#i26JL9iAF1K5CTpMT",
-        "text_feXt0eChlMcnc9GS": "<p>Claim 1+1 for free</p>",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
@@ -1272,7 +1262,6 @@
     "good_vs_bad_kKxKYP",
     "transformation_cmHyga",
     "instant_nwr_u_dx_xiop4_x_zc_rf_BNkRhX",
-    "ecom_faq_3gRGkD",
-    "instant_2_umtw4idkjq_xa_nav_LRVrJQ"
+    "ecom_faq_3gRGkD"
   ]
 }
