@@ -33,18 +33,6 @@
   <div data-instant-type="root" class="ik9IDfauZwMXXfpXM"
     ><div schemaId="mSLGu5vrLOUiHbuA-1" data-instant-type="code-block" class="imSLGu5vrLOUiHbuA" id="imSLGu5vrLOUiHbuA"><div class="countdown-timer-block" countdown-timer-id="clwzsgk1s4449361e1ed60r5k34"></div></div>
     {%- liquid
-      assign product_6zdDzBIh54XBZtBj-1_handle = 'lio®-gewoonte-reset-pakket'
-      assign product_6zdDzBIh54XBZtBj-1 = section.settings['product_6zdDzBIh54XBZtBj-1'] | default: all_products[product_6zdDzBIh54XBZtBj-1_handle]
-      assign product_6zdDzBIh54XBZtBj-1_variant = product_6zdDzBIh54XBZtBj-1.selected_or_first_available_variant
-
-      if product_6zdDzBIh54XBZtBj-1.selected_variant
-        assign product_6zdDzBIh54XBZtBj-1_variant = product_6zdDzBIh54XBZtBj-1.selected_variant
-      endif
-
-      assign product_6zdDzBIh54XBZtBj-1_image = product_6zdDzBIh54XBZtBj-1_variant.featured_image | default: product_6zdDzBIh54XBZtBj-1.featured_image
-    -%}
-    <!--  -->
-    {%- liquid
       assign loading = 'eager'
       assign fetchpriority = 'auto'
       if section.location == 'footer'
@@ -59,7 +47,7 @@
         endif
       endif
     -%}
-    <form class="i6zdDzBIh54XBZtBj" data-instant-type="container" id="i6zdDzBIh54XBZtBj" node="[object Object]" data-instant-form-product-url="{{ product_6zdDzBIh54XBZtBj-1.url }}" data-instant-form-variant-id="{{ product_6zdDzBIh54XBZtBj-1_variant.id }}" data-instant-form-product-id="{{ product_6zdDzBIh54XBZtBj-1.id }}"
+    <div class="i6zdDzBIh54XBZtBj" data-instant-type="container" id="i6zdDzBIh54XBZtBj" node="[object Object]"
       ><div class="i2yGwPII2lYnBtOEB" data-instant-type="container" node="[object Object]"
         ><div class="instant-slider-container i8H9T3KNmwGh3EYDT" data-instant-type="slider-container" node="[object Object]"
           ><div class="instant-slider-container iCTKpE20qfpaRXt54" data-instant-type="slider-container" node="[object Object]">
@@ -67,29 +55,22 @@
               { "breakpoints": { "0": { "speed": 300, "direction": "horizontal", "autoHeight": false, "slidesPerView": 5, "freeMode": false, "centeredSlides": false, "centerInsufficientSlides": false, "spaceBetween": 16 }, "576": { "speed": 300, "direction": "horizontal", "autoHeight": false, "slidesPerView": 3, "freeMode": false, "centeredSlides": false, "centerInsufficientSlides": false, "spaceBetween": 16 }, "769": { "speed": 300, "direction": "horizontal", "autoHeight": false, "slidesPerView": 4, "freeMode": false, "centeredSlides": false, "centerInsufficientSlides": false, "spaceBetween": 16 } }, "navigation": false, "watchOverflow": true, "watchSlidesProgress": true, "a11y": false, "containerModifierClass": "instant-slider-", "noSwipingClass": "instant-slider-no-swiping", "slideClass": "instant-slider-slide", "slideBlankClass": "instant-slider-slide-blank", "slideActiveClass": "instant-slider-slide-active", "slideVisibleClass": "instant-slider-slide-visible", "slideFullyVisibleClass": "instant-slider-slide-fully-visible", "slideNextClass": "instant-slider-slide-next", "slidePrevClass": "instant-slider-slide-prev", "wrapperClass": "instant-slider-wrapper", "lazyPreloaderClass": "instant-slider-lazy-preloader", "on": {} }
             </script>
             <div class="instant-slider instant-slider-thumbs imvFm2cP73gkpH0vn" data-instant-slider-id="dAJ1vlxrBvXnwKmM" id="imvFm2cP73gkpH0vn" data-instant-type="thumbnails"
-              ><div class="instant-slider-wrapper">
-                {%- liquid
-                  assign images_without_variant = '' | split: ''
-                  assign featured_image = product_6zdDzBIh54XBZtBj-1_variant.featured_image | default: product_6zdDzBIh54XBZtBj-1_image
+              ><div class="instant-slider-wrapper"
+                ><div class="instant-slider-slide igC7uA96aUFKlc4sI" data-instant-type="slider-slide" node="[object Object]"
+                  ><div data-instant-type="image" class="iUKYXAaJZuEsnG32H"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main"></div></div></div></div
+          ></div>
+          {%- liquid
+            assign product_HrOK3BTG5qKD7umj-1_handle = 'lio®-gewoonte-reset-pakket'
+            assign product_HrOK3BTG5qKD7umj-1 = section.settings['product_HrOK3BTG5qKD7umj-1'] | default: all_products[product_HrOK3BTG5qKD7umj-1_handle]
+            assign product_HrOK3BTG5qKD7umj-1_variant = product_HrOK3BTG5qKD7umj-1.selected_or_first_available_variant
 
-                  for image in product_6zdDzBIh54XBZtBj-1.images
-                    if image.id != featured_image.id
-                      assign image_element = image | sort
-                      assign images_without_variant = images_without_variant | concat: image_element
-                    endif
-                  endfor
+            if product_HrOK3BTG5qKD7umj-1.selected_variant
+              assign product_HrOK3BTG5qKD7umj-1_variant = product_HrOK3BTG5qKD7umj-1.selected_variant
+            endif
 
-                  assign images = featured_image | sort | concat: images_without_variant
-                -%}
-                {%- for image in images -%}
-                  {%- if forloop.length > 0 -%}
-                    {%- assign repeater_index_gC7uA96aUFKlc4sI = forloop.index0 -%}
-                    <div class="instant-slider-slide igC7uA96aUFKlc4sI" data-instant-type="slider-slide" node="[object Object]"
-                      ><div data-instant-type="image" class="iUKYXAaJZuEsnG32H"><img alt="{{ image.alt }}" src="{{ image | image_url: width: 640 }}" data-instant-dynamic-content-source="REPEATER" data-instant-repeater-id="gC7uA96aUFKlc4sI" data-instant-repeater-index="{{ repeater_index_gC7uA96aUFKlc4sI }}" width="{{ image.width }}" height="{{ image.height }}" sizes="(max-width: 640px) 100vw, 640px" srcSet="{{ image | image_url: width: 360 }} 360w, {{ image | image_url: width: 640 }} 640w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main"></div
-                    ></div>
-                  {%- endif -%}
-                {%- endfor -%}</div></div></div
-          ><div class="iHrOK3BTG5qKD7umj" data-instant-type="container" node="[object Object]">
+            assign product_HrOK3BTG5qKD7umj-1_image = product_HrOK3BTG5qKD7umj-1_variant.featured_image | default: product_HrOK3BTG5qKD7umj-1.featured_image
+          -%}
+          <form class="iHrOK3BTG5qKD7umj" data-instant-type="container" node="[object Object]" data-instant-form-product-url="{{ product_HrOK3BTG5qKD7umj-1.url }}" data-instant-form-variant-id="{{ product_HrOK3BTG5qKD7umj-1_variant.id }}" data-instant-form-product-id="{{ product_HrOK3BTG5qKD7umj-1.id }}">
             <script type="application/json" id="instant-slider-idAJ1vlxrBvXnwKmM-params">
               { "breakpoints": { "0": { "speed": 300, "direction": "horizontal", "autoHeight": false, "slidesPerView": 1, "freeMode": false, "centeredSlides": true, "centerInsufficientSlides": true, "spaceBetween": 0 }, "576": { "speed": 300, "direction": "horizontal", "autoHeight": false, "slidesPerView": 1, "freeMode": false, "centeredSlides": true, "centerInsufficientSlides": true, "spaceBetween": 0 } }, "navigation": { "nextEl": ".instant-slider-dAJ1vlxrBvXnwKmM-button-next", "prevEl": ".instant-slider-dAJ1vlxrBvXnwKmM-button-prev", "disabledClass": "instant-slider-button-disabled", "hiddenClass": "instant-slider-button-hidden", "lockClass": "instant-slider-button-lock", "navigationDisabledClass": "instant-slider-navigation-disabled" }, "watchOverflow": true, "thumbs": { "slideThumbActiveClass": "instant-slider-thumb-active", "thumbsContainerClass": "instant-slider-thumbs" }, "a11y": false, "containerModifierClass": "instant-slider-", "noSwipingClass": "instant-slider-no-swiping", "slideClass": "instant-slider-slide", "slideBlankClass": "instant-slider-slide-blank", "slideActiveClass": "instant-slider-slide-active", "slideVisibleClass": "instant-slider-slide-visible", "slideFullyVisibleClass": "instant-slider-slide-fully-visible", "slideNextClass": "instant-slider-slide-next", "slidePrevClass": "instant-slider-slide-prev", "wrapperClass": "instant-slider-wrapper", "lazyPreloaderClass": "instant-slider-lazy-preloader", "on": {} }
             </script>
@@ -97,9 +78,9 @@
               ><div class="instant-slider-wrapper">
                 {%- liquid
                   assign images_without_variant = '' | split: ''
-                  assign featured_image = product_6zdDzBIh54XBZtBj-1_variant.featured_image | default: product_6zdDzBIh54XBZtBj-1_image
+                  assign featured_image = product_HrOK3BTG5qKD7umj-1_variant.featured_image | default: product_HrOK3BTG5qKD7umj-1_image
 
-                  for image in product_6zdDzBIh54XBZtBj-1.images
+                  for image in product_HrOK3BTG5qKD7umj-1.images
                     if image.id != featured_image.id
                       assign image_element = image | sort
                       assign images_without_variant = images_without_variant | concat: image_element
@@ -135,9 +116,9 @@
               ><div class="instant-slider-wrapper">
                 {%- liquid
                   assign images_without_variant = '' | split: ''
-                  assign featured_image = product_6zdDzBIh54XBZtBj-1_variant.featured_image | default: product_6zdDzBIh54XBZtBj-1_image
+                  assign featured_image = product_HrOK3BTG5qKD7umj-1_variant.featured_image | default: product_HrOK3BTG5qKD7umj-1_image
 
-                  for image in product_6zdDzBIh54XBZtBj-1.images
+                  for image in product_HrOK3BTG5qKD7umj-1.images
                     if image.id != featured_image.id
                       assign image_element = image | sort
                       assign images_without_variant = images_without_variant | concat: image_element
@@ -153,7 +134,33 @@
                       ><div data-instant-type="image" class="iegr6sR86ify82M0Q"><img alt="{{ image.alt }}" src="{{ image | image_url: width: 640 }}" data-instant-dynamic-content-source="REPEATER" data-instant-repeater-id="AUg5rp2BJSMXuMar" data-instant-repeater-index="{{ repeater_index_AUg5rp2BJSMXuMar }}" width="{{ image.width }}" height="{{ image.height }}" sizes="(max-width: 640px) 100vw, 640px" srcSet="{{ image | image_url: width: 360 }} 360w, {{ image | image_url: width: 640 }} 640w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main"></div
                     ></div>
                   {%- endif -%}
-                {%- endfor -%}</div></div></div></div
+                {%- endfor -%}</div
+            ></div>
+            <!--  -->
+            <script type="application/json" id="variants__HrOK3BTG5qKD7umj--{{ section.id }}">
+              {{ product_HrOK3BTG5qKD7umj-1.variants | json }}
+            </script>
+            <script type="application/json" id="options__HrOK3BTG5qKD7umj--{{ section.id }}">
+              {{ product_HrOK3BTG5qKD7umj-1.options_with_values | json }}
+            </script>
+
+            {%- assign selling_plans_json = '' -%}
+            {%- for variant in product_HrOK3BTG5qKD7umj-1.variants -%}
+              {%- for allocation in variant.selling_plan_allocations -%}
+                {%- capture allocation_json -%}
+								{"variantId":"{{ variant.id }}","sellingPlanId":"{{ allocation.selling_plan.id }}","sellingPlanName":"{{ allocation.selling_plan.name | escape }}","price":"{{ allocation.price | money | escape }}","compareAtPrice":"{{ allocation.compare_at_price | money | escape }}"}
+							{%- endcapture -%}
+                {%- assign selling_plans_json = selling_plans_json | append: allocation_json | append: ',' -%}
+              {%- endfor -%}
+            {%- endfor -%}
+            {%- assign selling_plans_json_array = selling_plans_json | split: ',' -%}
+            {%- if selling_plans_json_array.size > 0 -%}
+              <script type="application/json" id="selling_plans__HrOK3BTG5qKD7umj--{{ section.id }}">
+                [{{ selling_plans_json | remove_last: ',' }}]
+              </script>
+            {%- endif -%}
+            <!--  -->
+          </form></div
         ><div class="iSWPQbglu6BnHvoS7" data-instant-type="container" node="[object Object]"
           ><div class="i65jB5K6iYbP9wJQA" data-instant-type="container" node="[object Object]"
             ><div class="instant-rich-text i8lSr8EAkakyILldn instant-scroll-trigger instant-scroll-trigger--hidden instant-reveal--transform" data-instant-scroll-into-view-replay="false" data-instant-type="text"
@@ -197,1056 +204,151 @@
               ><div data-instant-type="text" class="instant-rich-text iU60eCOyuMO2xL34X"
                 ><div>{{ section.settings['text_U60eCOyuMO2xL34X-1'] }}</div></div
               ></div
-            >
-            <!--  -->
-            {%- liquid
-              assign selected_options = product_6zdDzBIh54XBZtBj-1_variant.options
-              assign variants_option1 = product_6zdDzBIh54XBZtBj-1.variants | map: 'option1'
-              assign variants_option2 = product_6zdDzBIh54XBZtBj-1.variants | map: 'option2'
-              assign variants_option3 = product_6zdDzBIh54XBZtBj-1.variants | map: 'option3'
-              assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values | where: 'name', 'Lio®' | first
-
-              if selected_option == null
-                assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-              endif
-
-              assign hide_variant_picker = false
-
-              if product_6zdDzBIh54XBZtBj-1.has_only_default_variant or selected_option == null
-                assign hide_variant_picker = true
-              endif
-            -%}
-            {%- unless hide_variant_picker -%}
-              <!--  -->
-              <fieldset class="instant-variant-picker instant-variant-picker--select iHDD4ZLVEwAYNQSZe" data-instant-type="VARIANT_PICKER" node="[object Object]">
-                <legend class="instant-visually-hidden">{{ selected_option.name }}</legend>
-
-                <select name="6zdDzBIh54XBZtBj__{{ selected_option.name | url_param_escape }}">
-                  {%- for value in selected_option.values -%}
-                    {%- liquid
-                      assign option_disabled = true
-                      assign selected_variant = ''
-
-                      for option1_name in variants_option1
-                        if selected_option.position == 1 and option1_name == value and variants_option2[forloop.index0] == selected_options[1] and variants_option3[forloop.index0] == selected_options[2]
-                          assign option_disabled = false
-                        elsif selected_option.position == 2 and option1_name == selected_options[0] and variants_option2[forloop.index0] == value and variants_option3[forloop.index0] == selected_options[2]
-                          assign option_disabled = false
-                        elsif selected_option.position == 3 and option1_name == selected_options[0] and variants_option2[forloop.index0] == selected_options[1] and variants_option3[forloop.index0] == value
-                          assign option_disabled = false
-                        endif
-                      endfor
-
-                      for variant in product_6zdDzBIh54XBZtBj-1.variants
-                        if selected_option.position == 1 and variant.option1 == value and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
-                          assign selected_variant = variant
-                        elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == value and variant.option3 == selected_options[2]
-                          assign selected_variant = variant
-                        elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == value
-                          assign selected_variant = variant
-                        endif
-                      endfor
-
-                      if selected_variant.available == false
-                        assign option_disabled = true
-                      endif
-                    -%}
-                    <option
-                      id="HDD4ZLVEwAYNQSZe-{{ selected_option.position }}-{{ forloop.index0 }}"
-                      value="{{ value | escape }}"
-                      {%- if selected_options[1] == value -%}
-                        selected
-                      {%- endif -%}
-                      {%- if option_disabled -%}
-                        data-instant-disabled="true"
-                      {%- endif -%}
-                    >
-                      {{ value }}
-                      {%- if option_disabled -%}- Unavailable{%- endif -%}
-                    </option>
-                  {%- endfor -%}
-                </select>
-
-                <div class="iSHTXbKZ715Dm5iUN" data-instant-type="container" node="[object Object]"
-                  ><div class="ibPEOvjmiIZJfeX3E" data-instant-type="container" node="[object Object]">
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[0]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iYk3Uflehm9EZIssd">
-                      {%- if section.settings['image_Yk3Uflehm9EZIssd-1'] and section.settings['image_Yk3Uflehm9EZIssd-1'] != blank -%}
-                        {{ section.settings['image_Yk3Uflehm9EZIssd-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_Yk3Uflehm9EZIssd-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                      {%- else -%}
-                        <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
-                      {%- endif -%}
-                      <!--  -->
-                      {%- if section.settings['image_Yk3Uflehm9EZIssd-1_mobile'] and section.settings['image_Yk3Uflehm9EZIssd-1_mobile'] != blank -%}
-                        {{ section.settings['image_Yk3Uflehm9EZIssd-1_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_Yk3Uflehm9EZIssd-1_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                      {%- else -%}
-                        <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
-                      {%- endif -%}
-                    </div>
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[1]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iOF5TBmIJ3g1cQrSD">
-                      {%- if section.settings['image_OF5TBmIJ3g1cQrSD-1'] and section.settings['image_OF5TBmIJ3g1cQrSD-1'] != blank -%}
-                        {{ section.settings['image_OF5TBmIJ3g1cQrSD-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_OF5TBmIJ3g1cQrSD-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                      {%- else -%}
-                        <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
-                      {%- endif -%}
-                      <!--  -->
-                      {%- if section.settings['image_OF5TBmIJ3g1cQrSD-1_mobile'] and section.settings['image_OF5TBmIJ3g1cQrSD-1_mobile'] != blank -%}
-                        {{ section.settings['image_OF5TBmIJ3g1cQrSD-1_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_OF5TBmIJ3g1cQrSD-1_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                      {%- else -%}
-                        <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
-                      {%- endif -%}
-                    </div>
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[2]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iPj5Sk2Gngq08CQ3U">
-                      {%- if section.settings['image_Pj5Sk2Gngq08CQ3U-1'] and section.settings['image_Pj5Sk2Gngq08CQ3U-1'] != blank -%}
-                        {{ section.settings['image_Pj5Sk2Gngq08CQ3U-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_Pj5Sk2Gngq08CQ3U-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                      {%- else -%}
-                        <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
-                      {%- endif -%}
-                      <!--  -->
-                      {%- if section.settings['image_Pj5Sk2Gngq08CQ3U-1_mobile'] and section.settings['image_Pj5Sk2Gngq08CQ3U-1_mobile'] != blank -%}
-                        {{ section.settings['image_Pj5Sk2Gngq08CQ3U-1_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_Pj5Sk2Gngq08CQ3U-1_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                      {%- else -%}
-                        <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
-                      {%- endif -%}
-                    </div>
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[3]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="i0pvJqMp0NOlaRQ9g">
-                      {%- if section.settings['image_0pvJqMp0NOlaRQ9g-1'] and section.settings['image_0pvJqMp0NOlaRQ9g-1'] != blank -%}
-                        {{ section.settings['image_0pvJqMp0NOlaRQ9g-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_0pvJqMp0NOlaRQ9g-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                      {%- else -%}
-                        <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/fWw3Znh4otWGFB9L/artboard-1-copy-5-photoroom-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/fWw3Znh4otWGFB9L/artboard-1-copy-5-photoroom-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/fWw3Znh4otWGFB9L/artboard-1-copy-5-photoroom-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/fWw3Znh4otWGFB9L/artboard-1-copy-5-photoroom-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/fWw3Znh4otWGFB9L/artboard-1-copy-5-photoroom-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/fWw3Znh4otWGFB9L/artboard-1-copy-5-photoroom-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/fWw3Znh4otWGFB9L/artboard-1-copy-5-photoroom-4.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
-                      {%- endif -%}
-                    </div>
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[4]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="il2xLGsvb3AIjz917">
-                      {%- if section.settings['image_l2xLGsvb3AIjz917-1'] and section.settings['image_l2xLGsvb3AIjz917-1'] != blank -%}
-                        {{ section.settings['image_l2xLGsvb3AIjz917-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_l2xLGsvb3AIjz917-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                      {%- else -%}
-                        <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
-                      {%- endif -%}
-                      <!--  -->
-                      {%- if section.settings['image_l2xLGsvb3AIjz917-1_mobile'] and section.settings['image_l2xLGsvb3AIjz917-1_mobile'] != blank -%}
-                        {{ section.settings['image_l2xLGsvb3AIjz917-1_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_l2xLGsvb3AIjz917-1_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                      {%- else -%}
-                        <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
-                      {%- endif -%}
-                    </div>
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[5]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iREX3eZx6doi18MwD">
-                      {%- if section.settings['image_REX3eZx6doi18MwD-1'] and section.settings['image_REX3eZx6doi18MwD-1'] != blank -%}
-                        {{ section.settings['image_REX3eZx6doi18MwD-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_REX3eZx6doi18MwD-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                      {%- else -%}
-                        <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
-                      {%- endif -%}
-                      <!--  -->
-                      {%- if section.settings['image_REX3eZx6doi18MwD-1_mobile'] and section.settings['image_REX3eZx6doi18MwD-1_mobile'] != blank -%}
-                        {{ section.settings['image_REX3eZx6doi18MwD-1_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_REX3eZx6doi18MwD-1_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                      {%- else -%}
-                        <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
-                      {%- endif -%}</div></div
-                  ><div class="iaKXXxkuCb9ToLxw5" data-instant-type="container" node="[object Object]">
-                    {%- for value in selected_option.values -%}
-                      {%- if selected_options[1] == value -%}
-                        <span
-                          class="iXvhhS4ZIwGtXWDHl"
-                          data-instant-type="selected-variant-option"
-                        >
-                          {{ value }}
-                        </span>
-                      {%- endif -%}
-                    {%- endfor -%}
-
+            ><fieldset class="instant-variant-picker instant-variant-picker--select iHDD4ZLVEwAYNQSZe" data-instant-type="VARIANT_PICKER" node="[object Object]"
+              ><div class="iSHTXbKZ715Dm5iUN" data-instant-type="container" node="[object Object]"
+                ><div class="ibPEOvjmiIZJfeX3E" data-instant-type="container" node="[object Object]"
+                  ><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iYk3Uflehm9EZIssd">
+                    {%- if section.settings['image_Yk3Uflehm9EZIssd-1'] and section.settings['image_Yk3Uflehm9EZIssd-1'] != blank -%}
+                      {{ section.settings['image_Yk3Uflehm9EZIssd-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_Yk3Uflehm9EZIssd-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
+                    {%- endif -%}
                     <!--  -->
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[0]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text i2fAkSzNVvht2pGY5" {{- style -}} data-instant-conditional="true"
-                      ><div>{{ section.settings['text_2fAkSzNVvht2pGY5-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[1]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text irabSR7WJ7urFLnzW" {{- style -}} data-instant-conditional="true"
-                      ><div>{{ section.settings['text_rabSR7WJ7urFLnzW-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[2]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text iTfjAHJYyGiZSJnn2" {{- style -}} data-instant-conditional="true"
-                      ><div>{{ section.settings['text_TfjAHJYyGiZSJnn2-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[3]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text i4fpJNVNcD8hhmNkG" {{- style -}} data-instant-conditional="true"
-                      ><div>{{ section.settings['text_4fpJNVNcD8hhmNkG-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[4]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text iSpTlo83PSniJWsfq" {{- style -}} data-instant-conditional="true"
-                      ><div>{{ section.settings['text_SpTlo83PSniJWsfq-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[5]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text iwFVyLWHIrRxOiKej" {{- style -}} data-instant-conditional="true"
-                      ><div>{{ section.settings['text_wFVyLWHIrRxOiKej-1'] }}</div></div
-                    ></div
-                  ><div class="iQ2N66WW3gDozFbGT" data-instant-type="container" node="[object Object]"
-                    ><div data-instant-type="icon" class="i6yRG4Dj2z2efmKUo">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
-                        <title>caret-down</title><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path>
-                      </svg></div></div></div
-              ></fieldset>
-              <!--  -->
-            {%- endunless -%}
-            <!--  -->
-            <div class="iMzeqL0h1G4yxFptv" data-instant-type="container" node="[object Object]"
+                    {%- if section.settings['image_Yk3Uflehm9EZIssd-1_mobile'] and section.settings['image_Yk3Uflehm9EZIssd-1_mobile'] != blank -%}
+                      {{ section.settings['image_Yk3Uflehm9EZIssd-1_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_Yk3Uflehm9EZIssd-1_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qVsTmRcQaeAS8C7x/artboard-1-copy-5-photoroom-2.png?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
+                    {%- endif -%}</div
+                  ><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iOF5TBmIJ3g1cQrSD">
+                    {%- if section.settings['image_OF5TBmIJ3g1cQrSD-1'] and section.settings['image_OF5TBmIJ3g1cQrSD-1'] != blank -%}
+                      {{ section.settings['image_OF5TBmIJ3g1cQrSD-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_OF5TBmIJ3g1cQrSD-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
+                    {%- endif -%}
+                    <!--  -->
+                    {%- if section.settings['image_OF5TBmIJ3g1cQrSD-1_mobile'] and section.settings['image_OF5TBmIJ3g1cQrSD-1_mobile'] != blank -%}
+                      {{ section.settings['image_OF5TBmIJ3g1cQrSD-1_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_OF5TBmIJ3g1cQrSD-1_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/1knI36jfuwLT6jpC/artboard-1-copy-5-photoroom-2.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
+                    {%- endif -%}</div
+                  ><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iPj5Sk2Gngq08CQ3U">
+                    {%- if section.settings['image_Pj5Sk2Gngq08CQ3U-1'] and section.settings['image_Pj5Sk2Gngq08CQ3U-1'] != blank -%}
+                      {{ section.settings['image_Pj5Sk2Gngq08CQ3U-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_Pj5Sk2Gngq08CQ3U-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
+                    {%- endif -%}
+                    <!--  -->
+                    {%- if section.settings['image_Pj5Sk2Gngq08CQ3U-1_mobile'] and section.settings['image_Pj5Sk2Gngq08CQ3U-1_mobile'] != blank -%}
+                      {{ section.settings['image_Pj5Sk2Gngq08CQ3U-1_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_Pj5Sk2Gngq08CQ3U-1_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/iwKKWEYwMnsX5uFF/artboard-1-copy-5-photoroom-3.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
+                    {%- endif -%}</div
+                  ><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="i0pvJqMp0NOlaRQ9g">
+                    {%- if section.settings['image_0pvJqMp0NOlaRQ9g-1'] and section.settings['image_0pvJqMp0NOlaRQ9g-1'] != blank -%}
+                      {{ section.settings['image_0pvJqMp0NOlaRQ9g-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_0pvJqMp0NOlaRQ9g-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/fWw3Znh4otWGFB9L/artboard-1-copy-5-photoroom-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/fWw3Znh4otWGFB9L/artboard-1-copy-5-photoroom-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/fWw3Znh4otWGFB9L/artboard-1-copy-5-photoroom-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/fWw3Znh4otWGFB9L/artboard-1-copy-5-photoroom-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/fWw3Znh4otWGFB9L/artboard-1-copy-5-photoroom-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/fWw3Znh4otWGFB9L/artboard-1-copy-5-photoroom-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/fWw3Znh4otWGFB9L/artboard-1-copy-5-photoroom-4.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
+                    {%- endif -%}</div
+                  ><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="il2xLGsvb3AIjz917">
+                    {%- if section.settings['image_l2xLGsvb3AIjz917-1'] and section.settings['image_l2xLGsvb3AIjz917-1'] != blank -%}
+                      {{ section.settings['image_l2xLGsvb3AIjz917-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_l2xLGsvb3AIjz917-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
+                    {%- endif -%}
+                    <!--  -->
+                    {%- if section.settings['image_l2xLGsvb3AIjz917-1_mobile'] and section.settings['image_l2xLGsvb3AIjz917-1_mobile'] != blank -%}
+                      {{ section.settings['image_l2xLGsvb3AIjz917-1_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_l2xLGsvb3AIjz917-1_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9TvMkhXnSpZmbwdG/artboard-1-copy-5-photoroom-1.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
+                    {%- endif -%}</div
+                  ><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iREX3eZx6doi18MwD">
+                    {%- if section.settings['image_REX3eZx6doi18MwD-1'] and section.settings['image_REX3eZx6doi18MwD-1'] != blank -%}
+                      {{ section.settings['image_REX3eZx6doi18MwD-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_REX3eZx6doi18MwD-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
+                    {%- endif -%}
+                    <!--  -->
+                    {%- if section.settings['image_REX3eZx6doi18MwD-1_mobile'] and section.settings['image_REX3eZx6doi18MwD-1_mobile'] != blank -%}
+                      {{ section.settings['image_REX3eZx6doi18MwD-1_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_REX3eZx6doi18MwD-1_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/LBoeuYmVQmxaxmqw/artboard-1-copy-5-photoroom.webp?width=1280" width="1038" height="1038" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
+                    {%- endif -%}</div></div
+                ><div class="iaKXXxkuCb9ToLxw5" data-instant-type="container" node="[object Object]"
+                  ><div data-instant-type="text" class="instant-rich-text i2fAkSzNVvht2pGY5" {{- style -}} data-instant-conditional="true"
+                    ><div>{{ section.settings['text_2fAkSzNVvht2pGY5-1'] }}</div></div
+                  ><div data-instant-type="text" class="instant-rich-text irabSR7WJ7urFLnzW" {{- style -}} data-instant-conditional="true"
+                    ><div>{{ section.settings['text_rabSR7WJ7urFLnzW-1'] }}</div></div
+                  ><div data-instant-type="text" class="instant-rich-text iTfjAHJYyGiZSJnn2" {{- style -}} data-instant-conditional="true"
+                    ><div>{{ section.settings['text_TfjAHJYyGiZSJnn2-1'] }}</div></div
+                  ><div data-instant-type="text" class="instant-rich-text i4fpJNVNcD8hhmNkG" {{- style -}} data-instant-conditional="true"
+                    ><div>{{ section.settings['text_4fpJNVNcD8hhmNkG-1'] }}</div></div
+                  ><div data-instant-type="text" class="instant-rich-text iSpTlo83PSniJWsfq" {{- style -}} data-instant-conditional="true"
+                    ><div>{{ section.settings['text_SpTlo83PSniJWsfq-1'] }}</div></div
+                  ><div data-instant-type="text" class="instant-rich-text iwFVyLWHIrRxOiKej" {{- style -}} data-instant-conditional="true"
+                    ><div>{{ section.settings['text_wFVyLWHIrRxOiKej-1'] }}</div></div
+                  ></div
+                ><div class="iQ2N66WW3gDozFbGT" data-instant-type="container" node="[object Object]"
+                  ><div data-instant-type="icon" class="i6yRG4Dj2z2efmKUo">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
+                      <title>caret-down</title><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path>
+                    </svg></div></div></div></fieldset
+            ><div class="iMzeqL0h1G4yxFptv" data-instant-type="container" node="[object Object]"
               ><div class="instant-rich-text iPi8zFtTnI6Lfz4hz instant-scroll-trigger instant-scroll-trigger--hidden instant-reveal--transform" data-instant-scroll-into-view-replay="false" data-instant-type="text"
                 ><div>{{ section.settings['text_Pi8zFtTnI6Lfz4hz-1'] }}</div></div
               ></div
             ></div
           ><div class="imuQdUDNuIVkGjTqF" data-instant-type="container" node="[object Object]"
-            ><div
-              class="instant-custom-variant-picker iqil2dNHQYB01Z2pU"
-              data-instant-type="container"
-              node="[object Object]"
-              data-instant-action-type="select-variant-option"
-              data-instant-option-value="
-                {%- liquid
-                	assign selected_options = product_6zdDzBIh54XBZtBj-1_variant.options
-                	assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values | where : 'name', 'Lio' | first
-                	if selected_option == null
-                		assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[0]
-                	endif
-
-                	for variant in product_6zdDzBIh54XBZtBj-1.variants
-                		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
-                			assign selected_variant = variant
-                		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
-                			assign selected_variant = variant
-                		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
-                			assign selected_variant = variant
-                		endif
-                	endfor
-                -%}{{- selected_option.values[0] | escape -}}
-              "
-              data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-              data-instant-state="{%- if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
-              data-instant-disabled="
-                {%- liquid
-                	assign is_not_available = false
-                	if selected_variant.available == false
-                		assign is_not_available = true
-                	endif
-                -%}{{- is_not_available -}}
-              "
-            >
-              {%- liquid
-                assign style = ''
-
-                assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                assign selected_option_value = selected_option.values[0]
-
-                assign variant_has_option = false
-
-                if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                  assign variant_has_option = true
-                endif
-
-                if variant_has_option != true
-                  assign style = 'style="display: none;"'
-                endif
-              -%}
-              <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iM0Dzf7nmRU2vy1Ak">
-                {%- if product_6zdDzBIh54XBZtBj-1.images[0] != blank -%}<img alt="{{ product_6zdDzBIh54XBZtBj-1.images[0].alt }}" src="{{ product_6zdDzBIh54XBZtBj-1.images[0] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_6zdDzBIh54XBZtBj-1.images[0].width }}" height="{{ product_6zdDzBIh54XBZtBj-1.images[0].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_6zdDzBIh54XBZtBj-1.images[0] | image_url: width: 1080 }} 1080w, {{ product_6zdDzBIh54XBZtBj-1.images[0] | image_url: width: 828 }} 828w, {{ product_6zdDzBIh54XBZtBj-1.images[0] | image_url: width: 750 }} 750w, {{ product_6zdDzBIh54XBZtBj-1.images[0] | image_url: width: 640 }} 640w, {{ product_6zdDzBIh54XBZtBj-1.images[0] | image_url: width: 360 }} 360w, {{ product_6zdDzBIh54XBZtBj-1.images[0] | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}
-              </div>
-              {%- liquid
-                assign style = ''
-
-                assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                assign selected_option_value = selected_option.values[1]
-
-                assign variant_has_option = false
-
-                if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                  assign variant_has_option = true
-                endif
-
-                if variant_has_option != true
-                  assign style = 'style="display: none;"'
-                endif
-              -%}
-              <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="ixMURh1lTzDmpCQSN">
-                {%- if product_6zdDzBIh54XBZtBj-1.images[20] != blank -%}<img alt="{{ product_6zdDzBIh54XBZtBj-1.images[20].alt }}" src="{{ product_6zdDzBIh54XBZtBj-1.images[20] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_6zdDzBIh54XBZtBj-1.images[20].width }}" height="{{ product_6zdDzBIh54XBZtBj-1.images[20].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_6zdDzBIh54XBZtBj-1.images[20] | image_url: width: 1080 }} 1080w, {{ product_6zdDzBIh54XBZtBj-1.images[20] | image_url: width: 828 }} 828w, {{ product_6zdDzBIh54XBZtBj-1.images[20] | image_url: width: 750 }} 750w, {{ product_6zdDzBIh54XBZtBj-1.images[20] | image_url: width: 640 }} 640w, {{ product_6zdDzBIh54XBZtBj-1.images[20] | image_url: width: 360 }} 360w, {{ product_6zdDzBIh54XBZtBj-1.images[20] | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}
-              </div>
-              {%- liquid
-                assign style = ''
-
-                assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                assign selected_option_value = selected_option.values[2]
-
-                assign variant_has_option = false
-
-                if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                  assign variant_has_option = true
-                endif
-
-                if variant_has_option != true
-                  assign style = 'style="display: none;"'
-                endif
-              -%}
-              <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iVfkOOGXZBmgrFZd5">
-                {%- if product_6zdDzBIh54XBZtBj-1.images[13] != blank -%}<img alt="{{ product_6zdDzBIh54XBZtBj-1.images[13].alt }}" src="{{ product_6zdDzBIh54XBZtBj-1.images[13] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_6zdDzBIh54XBZtBj-1.images[13].width }}" height="{{ product_6zdDzBIh54XBZtBj-1.images[13].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_6zdDzBIh54XBZtBj-1.images[13] | image_url: width: 1080 }} 1080w, {{ product_6zdDzBIh54XBZtBj-1.images[13] | image_url: width: 828 }} 828w, {{ product_6zdDzBIh54XBZtBj-1.images[13] | image_url: width: 750 }} 750w, {{ product_6zdDzBIh54XBZtBj-1.images[13] | image_url: width: 640 }} 640w, {{ product_6zdDzBIh54XBZtBj-1.images[13] | image_url: width: 360 }} 360w, {{ product_6zdDzBIh54XBZtBj-1.images[13] | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}
-              </div>
-              {%- liquid
-                assign style = ''
-
-                assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                assign selected_option_value = selected_option.values[3]
-
-                assign variant_has_option = false
-
-                if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                  assign variant_has_option = true
-                endif
-
-                if variant_has_option != true
-                  assign style = 'style="display: none;"'
-                endif
-              -%}
-              <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="ih0D7oBqsJk45z6C0">
-                {%- if product_6zdDzBIh54XBZtBj-1.images[12] != blank -%}<img alt="{{ product_6zdDzBIh54XBZtBj-1.images[12].alt }}" src="{{ product_6zdDzBIh54XBZtBj-1.images[12] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_6zdDzBIh54XBZtBj-1.images[12].width }}" height="{{ product_6zdDzBIh54XBZtBj-1.images[12].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_6zdDzBIh54XBZtBj-1.images[12] | image_url: width: 1080 }} 1080w, {{ product_6zdDzBIh54XBZtBj-1.images[12] | image_url: width: 828 }} 828w, {{ product_6zdDzBIh54XBZtBj-1.images[12] | image_url: width: 750 }} 750w, {{ product_6zdDzBIh54XBZtBj-1.images[12] | image_url: width: 640 }} 640w, {{ product_6zdDzBIh54XBZtBj-1.images[12] | image_url: width: 360 }} 360w, {{ product_6zdDzBIh54XBZtBj-1.images[12] | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}
-              </div>
-              {%- liquid
-                assign style = ''
-
-                assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                assign selected_option_value = selected_option.values[4]
-
-                assign variant_has_option = false
-
-                if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                  assign variant_has_option = true
-                endif
-
-                if variant_has_option != true
-                  assign style = 'style="display: none;"'
-                endif
-              -%}
-              <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iwb4GlP2HhFtERKKQ">
-                {%- if product_6zdDzBIh54XBZtBj-1.images[11] != blank -%}<img alt="{{ product_6zdDzBIh54XBZtBj-1.images[11].alt }}" src="{{ product_6zdDzBIh54XBZtBj-1.images[11] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_6zdDzBIh54XBZtBj-1.images[11].width }}" height="{{ product_6zdDzBIh54XBZtBj-1.images[11].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_6zdDzBIh54XBZtBj-1.images[11] | image_url: width: 1080 }} 1080w, {{ product_6zdDzBIh54XBZtBj-1.images[11] | image_url: width: 828 }} 828w, {{ product_6zdDzBIh54XBZtBj-1.images[11] | image_url: width: 750 }} 750w, {{ product_6zdDzBIh54XBZtBj-1.images[11] | image_url: width: 640 }} 640w, {{ product_6zdDzBIh54XBZtBj-1.images[11] | image_url: width: 360 }} 360w, {{ product_6zdDzBIh54XBZtBj-1.images[11] | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}
-              </div>
-              {%- liquid
-                assign style = ''
-
-                assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                assign selected_option_value = selected_option.values[5]
-
-                assign variant_has_option = false
-
-                if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                  assign variant_has_option = true
-                endif
-
-                if variant_has_option != true
-                  assign style = 'style="display: none;"'
-                endif
-              -%}
-              <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="i4EBa7YvTaqMbtKQA">
-                {%- if product_6zdDzBIh54XBZtBj-1.images[10] != blank -%}<img alt="{{ product_6zdDzBIh54XBZtBj-1.images[10].alt }}" src="{{ product_6zdDzBIh54XBZtBj-1.images[10] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_6zdDzBIh54XBZtBj-1.images[10].width }}" height="{{ product_6zdDzBIh54XBZtBj-1.images[10].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_6zdDzBIh54XBZtBj-1.images[10] | image_url: width: 1080 }} 1080w, {{ product_6zdDzBIh54XBZtBj-1.images[10] | image_url: width: 828 }} 828w, {{ product_6zdDzBIh54XBZtBj-1.images[10] | image_url: width: 750 }} 750w, {{ product_6zdDzBIh54XBZtBj-1.images[10] | image_url: width: 640 }} 640w, {{ product_6zdDzBIh54XBZtBj-1.images[10] | image_url: width: 360 }} 360w, {{ product_6zdDzBIh54XBZtBj-1.images[10] | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}</div
+            ><div class="instant-custom-variant-picker iqil2dNHQYB01Z2pU" data-instant-type="container" node="[object Object]" data-instant-action-type="select-variant-option" data-instant-option-value="Single" data-instant-option-name="Amount" data-instant-state="inactive"
+              ><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iM0Dzf7nmRU2vy1Ak"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main"></div><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="ixMURh1lTzDmpCQSN"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main"></div><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iVfkOOGXZBmgrFZd5"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main"></div><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="ih0D7oBqsJk45z6C0"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main"></div><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iwb4GlP2HhFtERKKQ"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main"></div><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="i4EBa7YvTaqMbtKQA"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main"></div
               ><div class="iu0q9xxxIx2Z2GZ6o" data-instant-type="container" node="[object Object]"
                 ><div class="iiEW8Ok6dKTsxqa17" data-instant-type="container" node="[object Object]"
                   ><div class="i0MhjO9LuK7D7Ylp3" data-instant-type="container" node="[object Object]"
                     ><div data-instant-type="text" class="instant-rich-text irjmy6BMRYvk3HmuG"
                       ><div>{{ section.settings['text_rjmy6BMRYvk3HmuG-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[0]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text iZPN3VXIDK8OFhCl6" {{- style -}} data-instant-conditional="true"
+                    ><div data-instant-type="text" class="instant-rich-text iZPN3VXIDK8OFhCl6" {{- style -}} data-instant-conditional="true"
                       ><div>{{ section.settings['text_ZPN3VXIDK8OFhCl6-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[1]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text ilhqwVPs6VITZ58rD" {{- style -}} data-instant-conditional="true"
+                    ><div data-instant-type="text" class="instant-rich-text ilhqwVPs6VITZ58rD" {{- style -}} data-instant-conditional="true"
                       ><div>{{ section.settings['text_lhqwVPs6VITZ58rD-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[2]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text iroYm780qk5igcqX2" {{- style -}} data-instant-conditional="true"
+                    ><div data-instant-type="text" class="instant-rich-text iroYm780qk5igcqX2" {{- style -}} data-instant-conditional="true"
                       ><div>{{ section.settings['text_roYm780qk5igcqX2-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[3]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text i7kLd8auwmqB1kqvu" {{- style -}} data-instant-conditional="true"
+                    ><div data-instant-type="text" class="instant-rich-text i7kLd8auwmqB1kqvu" {{- style -}} data-instant-conditional="true"
                       ><div>{{ section.settings['text_7kLd8auwmqB1kqvu-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[4]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text id7f5eFyHWnk4yb88" {{- style -}} data-instant-conditional="true"
+                    ><div data-instant-type="text" class="instant-rich-text id7f5eFyHWnk4yb88" {{- style -}} data-instant-conditional="true"
                       ><div>{{ section.settings['text_d7f5eFyHWnk4yb88-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[5]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text irnFKoh5Xv0SiD4hO" {{- style -}} data-instant-conditional="true"
+                    ><div data-instant-type="text" class="instant-rich-text irnFKoh5Xv0SiD4hO" {{- style -}} data-instant-conditional="true"
                       ><div>{{ section.settings['text_rnFKoh5Xv0SiD4hO-1'] }}</div></div
                     ></div
                   ></div
                 ></div
-              ><div class="ipUaoNIaz90DEVwUU" data-instant-type="container" node="[object Object]"
-                ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iwfc7Cj9JUQIskNJM">
-                  {%- liquid
-                    assign variant_price = selected_variant.price
-
-                    if product_6zdDzBIh54XBZtBj-1_variant.selected_selling_plan_allocation
-                      for allocation in selected_variant.selling_plan_allocations
-                        assign selected_selling_plan_option = product_6zdDzBIh54XBZtBj-1_variant.selected_selling_plan_allocation.selling_plan.options | first
-                        assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
-
-                        if selling_plan_by_interval != null
-                          assign variant_price = allocation.price
-                          break
-                        endif
-                      endfor
-                    endif
-                  -%}
-                  {{- variant_price | money -}}
-                </p>
-
-                {%- liquid
-                  assign style = ''
-                  assign compare_at_price = selected_variant.compare_at_price
-                  assign variant_price = selected_variant.price
-
-                  if product_6zdDzBIh54XBZtBj-1_variant.selected_selling_plan_allocation
-                    for allocation in selected_variant.selling_plan_allocations
-                      assign selected_selling_plan_option = product_6zdDzBIh54XBZtBj-1_variant.selected_selling_plan_allocation.selling_plan.options | first
-                      assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
-
-                      if selling_plan_by_interval != null
-                        assign compare_at_price = allocation.compare_at_price
-                        assign variant_price = allocation.price
-                        break
-                      endif
-                    endfor
-                  endif
-
-                  if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
-                    assign style = 'style="display: none;"'
-                  endif
-                -%}
-                <span
-                  data-instant-dynamic-content-source="COMPARE_AT"
-                  class="ikO6EyGzTlUl9kIle"
-                  {{- style -}}
-                >
-                  {{- compare_at_price | money -}}
-                </span>
-              </div></div
-            ><div
-              class="instant-custom-variant-picker i36AzFTwfU9pdopvJ"
-              data-instant-type="container"
-              node="[object Object]"
-              data-instant-action-type="select-variant-option"
-              data-instant-option-value="
-                {%- liquid
-                	assign selected_options = product_6zdDzBIh54XBZtBj-1_variant.options
-                	assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values | where : 'name', 'Lio' | first
-                	if selected_option == null
-                		assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[0]
-                	endif
-
-                	for variant in product_6zdDzBIh54XBZtBj-1.variants
-                		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
-                			assign selected_variant = variant
-                		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
-                			assign selected_variant = variant
-                		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
-                			assign selected_variant = variant
-                		endif
-                	endfor
-                -%}{{- selected_option.values[0] | escape -}}
-              "
-              data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-              data-instant-state="{%- if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
-              data-instant-disabled="
-                {%- liquid
-                	assign is_not_available = false
-                	if selected_variant.available == false
-                		assign is_not_available = true
-                	endif
-                -%}{{- is_not_available -}}
-              "
-            >
-              {%- liquid
-                assign style = ''
-
-                assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                assign selected_option_value = selected_option.values[0]
-
-                assign variant_has_option = false
-
-                if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                  assign variant_has_option = true
-                endif
-
-                if variant_has_option != true
-                  assign style = 'style="display: none;"'
-                endif
-              -%}
-              <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iulR7WE9iZR0NRBF6">
-                {%- if product_6zdDzBIh54XBZtBj-1.images[15] != blank -%}<img alt="{{ product_6zdDzBIh54XBZtBj-1.images[15].alt }}" src="{{ product_6zdDzBIh54XBZtBj-1.images[15] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_6zdDzBIh54XBZtBj-1.images[15].width }}" height="{{ product_6zdDzBIh54XBZtBj-1.images[15].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_6zdDzBIh54XBZtBj-1.images[15] | image_url: width: 1080 }} 1080w, {{ product_6zdDzBIh54XBZtBj-1.images[15] | image_url: width: 828 }} 828w, {{ product_6zdDzBIh54XBZtBj-1.images[15] | image_url: width: 750 }} 750w, {{ product_6zdDzBIh54XBZtBj-1.images[15] | image_url: width: 640 }} 640w, {{ product_6zdDzBIh54XBZtBj-1.images[15] | image_url: width: 360 }} 360w, {{ product_6zdDzBIh54XBZtBj-1.images[15] | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}
-              </div>
-              {%- liquid
-                assign style = ''
-
-                assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                assign selected_option_value = selected_option.values[1]
-
-                assign variant_has_option = false
-
-                if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                  assign variant_has_option = true
-                endif
-
-                if variant_has_option != true
-                  assign style = 'style="display: none;"'
-                endif
-              -%}
-              <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="ihzkzyzsNXVTju4A2">
-                {%- if product_6zdDzBIh54XBZtBj-1.images[18] != blank -%}<img alt="{{ product_6zdDzBIh54XBZtBj-1.images[18].alt }}" src="{{ product_6zdDzBIh54XBZtBj-1.images[18] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_6zdDzBIh54XBZtBj-1.images[18].width }}" height="{{ product_6zdDzBIh54XBZtBj-1.images[18].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_6zdDzBIh54XBZtBj-1.images[18] | image_url: width: 1080 }} 1080w, {{ product_6zdDzBIh54XBZtBj-1.images[18] | image_url: width: 828 }} 828w, {{ product_6zdDzBIh54XBZtBj-1.images[18] | image_url: width: 750 }} 750w, {{ product_6zdDzBIh54XBZtBj-1.images[18] | image_url: width: 640 }} 640w, {{ product_6zdDzBIh54XBZtBj-1.images[18] | image_url: width: 360 }} 360w, {{ product_6zdDzBIh54XBZtBj-1.images[18] | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}
-              </div>
-              {%- liquid
-                assign style = ''
-
-                assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                assign selected_option_value = selected_option.values[2]
-
-                assign variant_has_option = false
-
-                if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                  assign variant_has_option = true
-                endif
-
-                if variant_has_option != true
-                  assign style = 'style="display: none;"'
-                endif
-              -%}
-              <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="i8C2YHzhiG8AfVKoO">
-                {%- if product_6zdDzBIh54XBZtBj-1.images[14] != blank -%}<img alt="{{ product_6zdDzBIh54XBZtBj-1.images[14].alt }}" src="{{ product_6zdDzBIh54XBZtBj-1.images[14] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_6zdDzBIh54XBZtBj-1.images[14].width }}" height="{{ product_6zdDzBIh54XBZtBj-1.images[14].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_6zdDzBIh54XBZtBj-1.images[14] | image_url: width: 1080 }} 1080w, {{ product_6zdDzBIh54XBZtBj-1.images[14] | image_url: width: 828 }} 828w, {{ product_6zdDzBIh54XBZtBj-1.images[14] | image_url: width: 750 }} 750w, {{ product_6zdDzBIh54XBZtBj-1.images[14] | image_url: width: 640 }} 640w, {{ product_6zdDzBIh54XBZtBj-1.images[14] | image_url: width: 360 }} 360w, {{ product_6zdDzBIh54XBZtBj-1.images[14] | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}
-              </div>
-              {%- liquid
-                assign style = ''
-
-                assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                assign selected_option_value = selected_option.values[3]
-
-                assign variant_has_option = false
-
-                if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                  assign variant_has_option = true
-                endif
-
-                if variant_has_option != true
-                  assign style = 'style="display: none;"'
-                endif
-              -%}
-              <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="i7kSIGo6XH67bm1FB">
-                {%- if product_6zdDzBIh54XBZtBj-1.images[16] != blank -%}<img alt="{{ product_6zdDzBIh54XBZtBj-1.images[16].alt }}" src="{{ product_6zdDzBIh54XBZtBj-1.images[16] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_6zdDzBIh54XBZtBj-1.images[16].width }}" height="{{ product_6zdDzBIh54XBZtBj-1.images[16].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_6zdDzBIh54XBZtBj-1.images[16] | image_url: width: 1080 }} 1080w, {{ product_6zdDzBIh54XBZtBj-1.images[16] | image_url: width: 828 }} 828w, {{ product_6zdDzBIh54XBZtBj-1.images[16] | image_url: width: 750 }} 750w, {{ product_6zdDzBIh54XBZtBj-1.images[16] | image_url: width: 640 }} 640w, {{ product_6zdDzBIh54XBZtBj-1.images[16] | image_url: width: 360 }} 360w, {{ product_6zdDzBIh54XBZtBj-1.images[16] | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}
-              </div>
-              {%- liquid
-                assign style = ''
-
-                assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                assign selected_option_value = selected_option.values[4]
-
-                assign variant_has_option = false
-
-                if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                  assign variant_has_option = true
-                endif
-
-                if variant_has_option != true
-                  assign style = 'style="display: none;"'
-                endif
-              -%}
-              <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iAXVrkaiv51f9dyt3">
-                {%- if product_6zdDzBIh54XBZtBj-1.images[17] != blank -%}<img alt="{{ product_6zdDzBIh54XBZtBj-1.images[17].alt }}" src="{{ product_6zdDzBIh54XBZtBj-1.images[17] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_6zdDzBIh54XBZtBj-1.images[17].width }}" height="{{ product_6zdDzBIh54XBZtBj-1.images[17].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_6zdDzBIh54XBZtBj-1.images[17] | image_url: width: 1080 }} 1080w, {{ product_6zdDzBIh54XBZtBj-1.images[17] | image_url: width: 828 }} 828w, {{ product_6zdDzBIh54XBZtBj-1.images[17] | image_url: width: 750 }} 750w, {{ product_6zdDzBIh54XBZtBj-1.images[17] | image_url: width: 640 }} 640w, {{ product_6zdDzBIh54XBZtBj-1.images[17] | image_url: width: 360 }} 360w, {{ product_6zdDzBIh54XBZtBj-1.images[17] | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}
-              </div>
-              {%- liquid
-                assign style = ''
-
-                assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                assign selected_option_value = selected_option.values[5]
-
-                assign variant_has_option = false
-
-                if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                  assign variant_has_option = true
-                endif
-
-                if variant_has_option != true
-                  assign style = 'style="display: none;"'
-                endif
-              -%}
-              <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="ivsV3fkRkNvkEGLiy">
-                {%- if product_6zdDzBIh54XBZtBj-1.images[19] != blank -%}<img alt="{{ product_6zdDzBIh54XBZtBj-1.images[19].alt }}" src="{{ product_6zdDzBIh54XBZtBj-1.images[19] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_6zdDzBIh54XBZtBj-1.images[19].width }}" height="{{ product_6zdDzBIh54XBZtBj-1.images[19].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_6zdDzBIh54XBZtBj-1.images[19] | image_url: width: 1080 }} 1080w, {{ product_6zdDzBIh54XBZtBj-1.images[19] | image_url: width: 828 }} 828w, {{ product_6zdDzBIh54XBZtBj-1.images[19] | image_url: width: 750 }} 750w, {{ product_6zdDzBIh54XBZtBj-1.images[19] | image_url: width: 640 }} 640w, {{ product_6zdDzBIh54XBZtBj-1.images[19] | image_url: width: 360 }} 360w, {{ product_6zdDzBIh54XBZtBj-1.images[19] | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}</div
+              ><div class="ipUaoNIaz90DEVwUU" data-instant-type="container" node="[object Object]"><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iwfc7Cj9JUQIskNJM">$0.00</p><span data-instant-dynamic-content-source="COMPARE_AT" data-instant-type="text" class="ikO6EyGzTlUl9kIle">$0.00</span></div></div
+            ><div class="instant-custom-variant-picker i36AzFTwfU9pdopvJ" data-instant-type="container" node="[object Object]" data-instant-action-type="select-variant-option" data-instant-option-value="Together" data-instant-option-name="Amount" data-instant-state="inactive"
+              ><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iulR7WE9iZR0NRBF6"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main"></div><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="ihzkzyzsNXVTju4A2"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main"></div><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="i8C2YHzhiG8AfVKoO"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main"></div><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="i7kSIGo6XH67bm1FB"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main"></div><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iAXVrkaiv51f9dyt3"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main"></div><div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="ivsV3fkRkNvkEGLiy"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main"></div
               ><div class="iXFcqJnWvoT92zA9H" data-instant-type="container" node="[object Object]"
                 ><div class="iixBfFtAR59Aa1KA3" data-instant-type="container" node="[object Object]"
                   ><div class="i7Q04uTHl9sqfCMRa" data-instant-type="container" node="[object Object]"
                     ><div data-instant-type="text" class="instant-rich-text irgYV4Qj1GVVcEsVP"
                       ><div>{{ section.settings['text_rgYV4Qj1GVVcEsVP-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[0]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text iTeAvdE3gDoUam1DB" {{- style -}} data-instant-conditional="true"
+                    ><div data-instant-type="text" class="instant-rich-text iTeAvdE3gDoUam1DB" {{- style -}} data-instant-conditional="true"
                       ><div>{{ section.settings['text_TeAvdE3gDoUam1DB-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[1]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text idaT96ImSKPGR7TEw" {{- style -}} data-instant-conditional="true"
+                    ><div data-instant-type="text" class="instant-rich-text idaT96ImSKPGR7TEw" {{- style -}} data-instant-conditional="true"
                       ><div>{{ section.settings['text_daT96ImSKPGR7TEw-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[2]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text il3mHckkym0xHFDYQ" {{- style -}} data-instant-conditional="true"
+                    ><div data-instant-type="text" class="instant-rich-text il3mHckkym0xHFDYQ" {{- style -}} data-instant-conditional="true"
                       ><div>{{ section.settings['text_l3mHckkym0xHFDYQ-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[3]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text ienlPE57sh9kmGrae" {{- style -}} data-instant-conditional="true"
+                    ><div data-instant-type="text" class="instant-rich-text ienlPE57sh9kmGrae" {{- style -}} data-instant-conditional="true"
                       ><div>{{ section.settings['text_enlPE57sh9kmGrae-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[4]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text issbwjx8ZkpPYVKui" {{- style -}} data-instant-conditional="true"
+                    ><div data-instant-type="text" class="instant-rich-text issbwjx8ZkpPYVKui" {{- style -}} data-instant-conditional="true"
                       ><div>{{ section.settings['text_ssbwjx8ZkpPYVKui-1'] }}</div></div
-                    >
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_6zdDzBIh54XBZtBj-1.options_with_values[1]
-                      assign selected_option_value = selected_option.values[5]
-
-                      assign variant_has_option = false
-
-                      if product_6zdDzBIh54XBZtBj-1_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="text" class="instant-rich-text iUd4HzK3o1AIYAVUa" {{- style -}} data-instant-conditional="true"
+                    ><div data-instant-type="text" class="instant-rich-text iUd4HzK3o1AIYAVUa" {{- style -}} data-instant-conditional="true"
                       ><div>{{ section.settings['text_Ud4HzK3o1AIYAVUa-1'] }}</div></div
                     ></div
                   ></div
                 ></div
-              ><div class="iVFsDniq7I49vsimy" data-instant-type="container" node="[object Object]"
-                ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iflL3arhvEoouRJC5">
-                  {%- liquid
-                    assign variant_price = selected_variant.price
-
-                    if product_6zdDzBIh54XBZtBj-1_variant.selected_selling_plan_allocation
-                      for allocation in selected_variant.selling_plan_allocations
-                        assign selected_selling_plan_option = product_6zdDzBIh54XBZtBj-1_variant.selected_selling_plan_allocation.selling_plan.options | first
-                        assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
-
-                        if selling_plan_by_interval != null
-                          assign variant_price = allocation.price
-                          break
-                        endif
-                      endfor
-                    endif
-                  -%}
-                  {{- variant_price | money -}}
-                </p>
-
-                {%- liquid
-                  assign style = ''
-                  assign compare_at_price = selected_variant.compare_at_price
-                  assign variant_price = selected_variant.price
-
-                  if product_6zdDzBIh54XBZtBj-1_variant.selected_selling_plan_allocation
-                    for allocation in selected_variant.selling_plan_allocations
-                      assign selected_selling_plan_option = product_6zdDzBIh54XBZtBj-1_variant.selected_selling_plan_allocation.selling_plan.options | first
-                      assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
-
-                      if selling_plan_by_interval != null
-                        assign compare_at_price = allocation.compare_at_price
-                        assign variant_price = allocation.price
-                        break
-                      endif
-                    endfor
-                  endif
-
-                  if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
-                    assign style = 'style="display: none;"'
-                  endif
-                -%}
-                <span
-                  data-instant-dynamic-content-source="COMPARE_AT"
-                  class="ifm0naAo8dnn2eRym"
-                  {{- style -}}
-                >
-                  {{- compare_at_price | money -}}
-                </span>
-              </div></div
+              ><div class="iVFsDniq7I49vsimy" data-instant-type="container" node="[object Object]"><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iflL3arhvEoouRJC5">$0.00</p><span data-instant-dynamic-content-source="COMPARE_AT" data-instant-type="text" class="ifm0naAo8dnn2eRym">$0.00</span></div></div
             ></div
-          ><a
-            conditionals=""
-            class="ijN94sQRqEd9VXJdr"
-            data-instant-type="container"
-            node="[object Object]"
-            href="{{ routes.cart_url }}/{{ product_6zdDzBIh54XBZtBj-1_variant.id }}:1?storefront=true"
-            rel="noopener noreferrer"
-            data-instant-action-type="add-to-cart"
-            data-instant-action-id="{{ product_6zdDzBIh54XBZtBj-1.id }}"
-            data-instant-action-variant-id="{{ product_6zdDzBIh54XBZtBj-1_variant.id }}"
-            data-instant-disabled="
-              {%- if product_6zdDzBIh54XBZtBj-1_variant.available == false -%}
-              	true
-              {%-	endif -%}
-            "
+          ><div conditionals="" class="ijN94sQRqEd9VXJdr" data-instant-type="container" node="[object Object]"
             ><div data-instant-type="text" conditionals="" class="instant-rich-text iTfd8H6xLTQZxTY6b"
               ><div>{{ section.settings['text_Tfd8H6xLTQZxTY6b-1'] }}</div></div
-            ><div class="iJTEfnmpvRIlYQ3AY" data-instant-type="container" node="[object Object]"></div
-            ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iWrtmysys8ykXU7SD">
-              {%- liquid
-                assign variant_price = product_6zdDzBIh54XBZtBj-1_variant.price
-
-                if product_6zdDzBIh54XBZtBj-1_variant.selected_selling_plan_allocation
-                  assign variant_price = product_6zdDzBIh54XBZtBj-1_variant.selected_selling_plan_allocation.price
-                endif
-              -%}
-              {{- variant_price | money -}}
-            </p></a
+            ><div class="iJTEfnmpvRIlYQ3AY" data-instant-type="container" node="[object Object]"></div><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iWrtmysys8ykXU7SD">$0.00</p></div
           ><div class="i9urE9dVh3Qyafz63" data-instant-type="container" node="[object Object]"
             ><div class="itGK027n7mswMrwqn" data-instant-type="container" node="[object Object]"
               ><div class="iInHeosqvmt4TAAGX" data-instant-type="container" node="[object Object]"
@@ -1357,7 +459,7 @@
 
               assign product_2TgdMPNhlqZfl4SE-1_image = product_2TgdMPNhlqZfl4SE-1_variant.featured_image | default: product_2TgdMPNhlqZfl4SE-1.featured_image
             -%}
-            <div class="i2TgdMPNhlqZfl4SE" data-instant-type="container" node="[object Object]" data-instant-form-product-url="{{ product_2TgdMPNhlqZfl4SE-1.url }}" data-instant-form-variant-id="{{ product_2TgdMPNhlqZfl4SE-1_variant.id }}" data-instant-form-product-id="{{ product_2TgdMPNhlqZfl4SE-1.id }}"
+            <form class="i2TgdMPNhlqZfl4SE" data-instant-type="container" node="[object Object]" data-instant-form-product-url="{{ product_2TgdMPNhlqZfl4SE-1.url }}" data-instant-form-variant-id="{{ product_2TgdMPNhlqZfl4SE-1_variant.id }}" data-instant-form-product-id="{{ product_2TgdMPNhlqZfl4SE-1.id }}"
               ><div data-instant-type="image" class="is6Ew8WshMSIpnrzw">
                 {%- if section.settings['image_s6Ew8WshMSIpnrzw-1'] and section.settings['image_s6Ew8WshMSIpnrzw-1'] != blank -%}
                   {{ section.settings['image_s6Ew8WshMSIpnrzw-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_s6Ew8WshMSIpnrzw-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
@@ -1440,7 +542,7 @@
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>plus</title><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"></path>
                   </svg></div></a
-            ></div>
+            ></form>
             {%- liquid
               assign product_PYi2VNcBEfF3Wzsc-1_handle = 'lio®-diffuser'
               assign product_PYi2VNcBEfF3Wzsc-1 = section.settings['product_PYi2VNcBEfF3Wzsc-1'] | default: all_products[product_PYi2VNcBEfF3Wzsc-1_handle]
@@ -1452,7 +554,7 @@
 
               assign product_PYi2VNcBEfF3Wzsc-1_image = product_PYi2VNcBEfF3Wzsc-1_variant.featured_image | default: product_PYi2VNcBEfF3Wzsc-1.featured_image
             -%}
-            <div class="iPYi2VNcBEfF3Wzsc" data-instant-type="container" node="[object Object]" data-instant-form-product-url="{{ product_PYi2VNcBEfF3Wzsc-1.url }}" data-instant-form-variant-id="{{ product_PYi2VNcBEfF3Wzsc-1_variant.id }}" data-instant-form-product-id="{{ product_PYi2VNcBEfF3Wzsc-1.id }}"
+            <form class="iPYi2VNcBEfF3Wzsc" data-instant-type="container" node="[object Object]" data-instant-form-product-url="{{ product_PYi2VNcBEfF3Wzsc-1.url }}" data-instant-form-variant-id="{{ product_PYi2VNcBEfF3Wzsc-1_variant.id }}" data-instant-form-product-id="{{ product_PYi2VNcBEfF3Wzsc-1.id }}"
               ><div data-instant-type="image" class="itKM4lmIzoRXp4Icb">
                 {%- if section.settings['image_tKM4lmIzoRXp4Icb-1'] and section.settings['image_tKM4lmIzoRXp4Icb-1'] != blank -%}
                   {{ section.settings['image_tKM4lmIzoRXp4Icb-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_tKM4lmIzoRXp4Icb-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
@@ -1535,7 +637,7 @@
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>plus</title><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"></path>
                   </svg></div></a
-            ></div>
+            ></form>
             {%- liquid
               assign product_t6B0Yy3TdsfRIsok-1_handle = 'lio®-diffuser'
               assign product_t6B0Yy3TdsfRIsok-1 = section.settings['product_t6B0Yy3TdsfRIsok-1'] | default: all_products[product_t6B0Yy3TdsfRIsok-1_handle]
@@ -1547,7 +649,7 @@
 
               assign product_t6B0Yy3TdsfRIsok-1_image = product_t6B0Yy3TdsfRIsok-1_variant.featured_image | default: product_t6B0Yy3TdsfRIsok-1.featured_image
             -%}
-            <div class="it6B0Yy3TdsfRIsok" data-instant-type="container" node="[object Object]" data-instant-form-product-url="{{ product_t6B0Yy3TdsfRIsok-1.url }}" data-instant-form-variant-id="{{ product_t6B0Yy3TdsfRIsok-1_variant.id }}" data-instant-form-product-id="{{ product_t6B0Yy3TdsfRIsok-1.id }}"
+            <form class="it6B0Yy3TdsfRIsok" data-instant-type="container" node="[object Object]" data-instant-form-product-url="{{ product_t6B0Yy3TdsfRIsok-1.url }}" data-instant-form-variant-id="{{ product_t6B0Yy3TdsfRIsok-1_variant.id }}" data-instant-form-product-id="{{ product_t6B0Yy3TdsfRIsok-1.id }}"
               ><div data-instant-type="image" class="i4Waihl7NyfHzMlnX">
                 {%- if section.settings['image_4Waihl7NyfHzMlnX-1'] and section.settings['image_4Waihl7NyfHzMlnX-1'] != blank -%}
                   {{ section.settings['image_4Waihl7NyfHzMlnX-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_4Waihl7NyfHzMlnX-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
@@ -1629,34 +731,8 @@
                 ><div class="iPNHadBjTVeYVK3iI instant-scroll-trigger instant-scroll-trigger--hidden instant-reveal--transform-fade" data-instant-scroll-into-view-replay="false" data-instant-type="icon">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>plus</title><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"></path>
-                  </svg></div></a></div></div></div
-      ></div>
-      <!--  -->
-      <script type="application/json" id="variants__6zdDzBIh54XBZtBj--{{ section.id }}">
-        {{ product_6zdDzBIh54XBZtBj-1.variants | json }}
-      </script>
-      <script type="application/json" id="options__6zdDzBIh54XBZtBj--{{ section.id }}">
-        {{ product_6zdDzBIh54XBZtBj-1.options_with_values | json }}
-      </script>
-
-      {%- assign selling_plans_json = '' -%}
-      {%- for variant in product_6zdDzBIh54XBZtBj-1.variants -%}
-        {%- for allocation in variant.selling_plan_allocations -%}
-          {%- capture allocation_json -%}
-								{"variantId":"{{ variant.id }}","sellingPlanId":"{{ allocation.selling_plan.id }}","sellingPlanName":"{{ allocation.selling_plan.name | escape }}","price":"{{ allocation.price | money | escape }}","compareAtPrice":"{{ allocation.compare_at_price | money | escape }}"}
-							{%- endcapture -%}
-          {%- assign selling_plans_json = selling_plans_json | append: allocation_json | append: ',' -%}
-        {%- endfor -%}
-      {%- endfor -%}
-      {%- assign selling_plans_json_array = selling_plans_json | split: ',' -%}
-      {%- if selling_plans_json_array.size > 0 -%}
-        <script type="application/json" id="selling_plans__6zdDzBIh54XBZtBj--{{ section.id }}">
-          [{{ selling_plans_json | remove_last: ',' }}]
-        </script>
-      {%- endif -%}
-      <!--  -->
-    </form>
-  </div>
+                  </svg></div></a></form></div></div></div></div
+  ></div>
   <!-- prettier-ignore -->
   <script>(()=>{let t=window.Instant||{};if(!t.initializedAppEmbed&&!window.__instant_loading_core){window.__instant_loading_core=!0,t.initializedVersion="4.5.6",t.initialized=!0;let i=()=>{let i=(t,i)=>t.split(".").map(Number).reduce((t,e,n)=>t||e-i.split(".")[n],0),e=[...document.querySelectorAll(".__instant")].map(t=>t.getAttribute("data-instant-version")||"1.0.0").sort(i).pop()||"1.0.0",n=document.createElement("script");n.src="https://client.instant.so/scripts/instant-core.min.js?version="+e,document.body.appendChild(n),t.initializedVersion=e};"loading"!==document.readyState?i():document.addEventListener("DOMContentLoaded",i)}})();</script>
 </div>
@@ -1672,8 +748,8 @@
   "settings": [
     {
       "type": "product",
-      "id": "product_6zdDzBIh54XBZtBj-1",
-      "label": "Product"
+      "id": "product_HrOK3BTG5qKD7umj-1",
+      "label": "Slider"
     },
     {
       "type": "richtext",
@@ -2082,7 +1158,7 @@
     {
       "name": "Het Gewoonte  Reset Pakke",
       "settings": {
-        "product_6zdDzBIh54XBZtBj-1": "lio®-gewoonte-reset-pakket",
+        "product_HrOK3BTG5qKD7umj-1": "lio®-gewoonte-reset-pakket",
         "text_8lSr8EAkakyILldn-1": "<p>Het Gewoonte</p><p>Reset Pakket</p>",
         "text_2McNNpmlW9gdU4Wt-1": "<p>1.000+ reviews</p>",
         "text_4eBI9KrZaV0B58Vm-1": "<p>✋ Vervangt de gewoonte</p>",
