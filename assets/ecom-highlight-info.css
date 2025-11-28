@@ -63,7 +63,7 @@
 
 .ecom-highlight-info__title {
   color: #fff;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 700;
   line-height: 1.3;
   letter-spacing: -0.02em;
@@ -104,7 +104,7 @@
   }
 
   .ecom-highlight-info__title {
-    font-size: 24px;
+    font-size: 32px;
   }
 
   .ecom-highlight-info__description {
@@ -150,7 +150,7 @@
   }
 
   .ecom-highlight-info__title {
-    font-size: 24px;
+    font-size: 28px;
     line-height: 1.3;
     max-width: none;
   }
@@ -194,7 +194,7 @@
 
 @media (min-width: 1200px) {
   .ecom-highlight-info__title {
-    font-size: 26px;
+    font-size: 32px;
   }
 
   .ecom-highlight-info__description {
