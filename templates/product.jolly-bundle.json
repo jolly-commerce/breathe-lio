@@ -65,7 +65,10 @@
             ],
             "step_2_title": "Step 2:",
             "step_2_subtitle": "Select your flavors",
-            "step_2_packs": [],
+            "step_2_packs": [
+              "minty-magic-v2",
+              "cinnamon-spice-v2"
+            ],
             "step_2_1_title": "3 bags",
             "step_2_1_discount": "",
             "step_2_1_discount_percentage": 0,
