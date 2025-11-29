@@ -65,14 +65,7 @@
             ],
             "step_2_title": "Step 2:",
             "step_2_subtitle": "Select your flavors",
-            "step_2_packs": [
-              "cinnamon-spice",
-              "lio®-cinnamon-spice",
-              "lio®-cold-turkey-1",
-              "lio®-classic-bags",
-              "lio®-ohh-my-orange-copy",
-              "lio®-minty-magic"
-            ],
+            "step_2_packs": [],
             "step_2_1_title": "3 bags",
             "step_2_1_discount": "",
             "step_2_1_discount_percentage": 0,
@@ -253,7 +246,6 @@
       "type": "instant-aycL8ZS7zsArn6IF",
       "name": "LIO ANIMATION ",
       "settings": {
-        "video_el6eY92Lav8u6Mi5": "shopify://files/videos/1744795548_V3_59457a11-471e-4c36-b27a-e9ba7d0360b3-ezgif.com-crop-video.mp4 (3).mp4",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -406,12 +398,7 @@
         "video_reviews_jpMixk": {
           "type": "video-reviews",
           "settings": {
-            "heading": "<p>See it in action</p>",
-            "video1": "shopify://files/videos/IMG_0275_MOV_V4.mp4",
-            "video2": "shopify://files/videos/56fe3510_52aa_4b2c_a59d_248d451b578a_2_MP4_V12.mp4",
-            "video3": "shopify://files/videos/1738065008_V1.mp4",
-            "video4": "shopify://files/videos/IMG_0275_MOV_V1.mp4",
-            "video5": "shopify://files/videos/bfeb179a_cc7c_474a_8492_a9fcdf2408ac_1_1_3_V2.mp4"
+            "heading": "<p>See it in action</p>"
           }
         },
         "customer_reviews_GgY7kp": {
@@ -574,7 +561,6 @@
         "infinite_video_Q6cHzP": {
           "type": "infinite-video",
           "settings": {
-            "video": "shopify://files/videos/1724386284_V1.mp4",
             "age": "32",
             "review": "I haven’t come across anything as good as this. I thought it was nothing at first, but I quickly realized my cravings just disappeared once I started using it. It’s been an eye-opening experience."
           }
@@ -582,7 +568,6 @@
         "infinite_video_37DQgg": {
           "type": "infinite-video",
           "settings": {
-            "video": "shopify://files/videos/default_8_mp4_V4.mp4",
             "age": "62",
             "review": "I’ve been using Lio for a week now. I smoked, vaped, and chewed gum for the past 30 years, but with Lio I’m not craving my vape at all. All the flavors are really good. I absolutely love it."
           }
@@ -590,7 +575,6 @@
         "infinite_video_LC7Yd8": {
           "type": "infinite-video",
           "settings": {
-            "video": "shopify://files/videos/default_8_mp4_V8.mp4",
             "age": "24",
             "review": "I’ve been trying to quit for over 2 years, but nothing really worked. This little thing helped me cut down almost completely. I’m on day 14 now and it’s been such a big help. If you’re trying to quit, definitely give this a try, it really works."
           }
@@ -598,7 +582,6 @@
         "infinite_video_qAgMzt": {
           "type": "infinite-video",
           "settings": {
-            "video": "shopify://files/videos/1744795548_V1.mp4",
             "age": "28",
             "review": "I quit smoking 14 days ago with Lio. At first, I worried it might trigger cravings, but instead it helped me appreciate a healthy body even more. It’s like breathing exercises, with amazing flavors.  I’ve already saved so much money."
           }
@@ -606,7 +589,6 @@
         "infinite_video_YVDAeJ": {
           "type": "infinite-video",
           "settings": {
-            "video": "shopify://files/videos/WhatsApp_Video_2024_08_05_at_12_53_05_PM_2_V5.mp4",
             "age": "48",
             "review": "It blows my mind how a product like this hasn’t existed forever. I’ve been using it for 6 days and haven’t touched a vape since. This is an awesome product. I highly recommend it to everyone."
           }
@@ -614,7 +596,6 @@
         "infinite_video_XVEm3K": {
           "type": "infinite-video",
           "settings": {
-            "video": "shopify://files/videos/1734082081_V2.mp4",
             "age": "42",
             "review": "I’ve been trying to quit smoking for months, but the hand-to-mouth habit was tough. Lio changed that. It feels natural, tastes good, and helped me cut my vaping by 80% in just 3 days."
           }
@@ -622,7 +603,6 @@
         "infinite_video_hiekm3": {
           "type": "infinite-video",
           "settings": {
-            "video": "shopify://files/videos/default_8_mp4_V11.mp4",
             "age": "32",
             "review": "It’s amazing, this stuff really works. I went to a party and didn’t smoke anything. Even the smokers tried it and loved it. It really helps. I’m super satisfied."
           }
@@ -630,7 +610,6 @@
         "infinite_video_WiHJ87": {
           "type": "infinite-video",
           "settings": {
-            "video": "shopify://files/videos/default_8_mp4_V6.mp4",
             "age": "44",
             "review": "I have to say I’m positively surprised by this. Even though there’s no nicotine, smoke, or vape, it satisfies the hand-to-mouth habit and the urge to take a drag. I got this 2 weeks ago, and I haven’t craved smoking or vaping at all since then."
           }
@@ -638,7 +617,6 @@
         "infinite_video_Xg8Fqg": {
           "type": "infinite-video",
           "settings": {
-            "video": "shopify://files/videos/1750180429_V1.mp4",
             "age": "30",
             "review": "I decided to get Lio over a week ago. I’ve been off my vape completely since, no smoke, no nicotine, and much cheaper. I highly recommend it to anyone wanting to quit."
           }
@@ -646,7 +624,6 @@
         "infinite_video_7h4Kyw": {
           "type": "infinite-video",
           "settings": {
-            "video": "shopify://files/videos/1738065008_V1.mp4",
             "age": "28",
             "review": "I’ve been using Lio for two weeks. My bad habit was stress eating and sugar cravings whenever I felt anxious. Now, I just use Lio instead, and it actually works. I’m pretty happy with it."
           }
@@ -654,7 +631,6 @@
         "infinite_video_NfkWkT": {
           "type": "infinite-video",
           "settings": {
-            "video": "shopify://files/videos/default_8_mp4_V10.mp4",
             "age": "40",
             "review": "I’ve been using Lio for 3 weeks now. I always wanted to quit IQOS, and this has been key in helping me do it. Whenever I felt the urge, Lio gave me a similar feeling and really took the edge off. This thing has been magical."
           }
