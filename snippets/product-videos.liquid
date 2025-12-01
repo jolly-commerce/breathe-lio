@@ -23,7 +23,9 @@ Supported variables
 -%}
 
 {%- if product_videos != blank -%}
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="preload" href="...swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="...swiper-bundle.min.css"></noscript>
+
   {{ 'product-videos.css' | asset_url | stylesheet_tag }}
   
   {%- capture product_videos_id -%}product-videos-{{ product.id }}{%- endcapture -%}
@@ -36,8 +38,7 @@ Supported variables
             <div class="product-videos__slide swiper-slide">
               <div class="product-videos__media">
                 <video-media class="product-videos__video-media {% if video.preview_image != blank %}has-poster{% endif %}">
-                  {{- video.video.value | video_tag: playsinline: true, preload: 'metadata', image_size: "8000x", image_quality: 'master', muted: true, loop: true, class: 'product-videos__video' -}}
-                </video-media>
+{{- video.video.value | video_tag: playsinline: true, preload: 'none', image_size: "600x", muted: true, loop: true, class: 'product-videos__video' -}}                </video-media>
               </div>
               <div class="product-videos__video-title">
                 {{ video.title.value }}

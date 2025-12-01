@@ -18,15 +18,18 @@
       "blocks": {
         "slide_jHyh9W": {
           "settings": {
-            "free-text": "🇬🇧 Fast & Free UK Shipping 🇬🇧"
-          }
-        },
-        "slide_9Wfnag": {
-          "settings": {
+            "button-url": "#shopify-section-template--24575915426168__featured_product_YqCfNV",
+            "sub-button-url": "#shopify-section-template--24575915426168__featured_product_q6YpDh",
             "free-text": "🇬🇧 Fast & Free UK Shipping 🇬🇧"
           }
         }
       }
+    },
+    "our_promise_fTTciD": {
+      "settings": {
+        "button-url": "#shopify-section-template--24575915426168__featured_product_YqCfNV"
+      },
+      "blocks": {}
     }
   }
 }

@@ -105,18 +105,20 @@
       "size_chart": "Tabela rozmiarów",
       "available_colors_count": {
         "one": "{{ count }} dostępny kolor",
+        "few": "{{ count }} dostępne kolory",
+        "many": "{{ count }} dostępnych kolorów",
         "other": "{{ count }} dostępne kolorów"
       },
-      "single": "Sztuka",
-      "packs": "Zestawy",
-      "adding": "Dodawanie...",
-      "added": "Dodano!",
-      "error": "Błąd",
-      "select_variant": "Wybierz wariant",
-      "no_pack_variants": "Brak dostępnych wariantów pakietu",
-      "up_to_weeks": "do {{ weeks }} tygodni",
-      "weeks": "tygodnie",
-      "discount": "zniżka"
+      "single": "Single",
+      "packs": "Packs",
+      "adding": "Adding...",
+      "added": "Added!",
+      "error": "Error",
+      "select_variant": "Select a variant",
+      "no_pack_variants": "No pack variants available",
+      "up_to_weeks": "up to {{ weeks }} weeks",
+      "weeks": "weeks",
+      "discount": "discount"
     },
     "gallery": {
       "close": "Zamknij galerię",
@@ -144,6 +146,8 @@
     "rating_count": {
       "zero": "Brak opinii",
       "one": "{{ count }} opinia",
+      "few": "{{ count }} opinie",
+      "many": "{{ count }} opinii",
       "other": "{{ count }} opinie"
     },
     "inventory": {
@@ -152,6 +156,8 @@
       "incoming_stock": "Dostępne od {{ next_incoming_date }}",
       "low_stock_with_quantity_count": {
         "one": "Została tylko {{ count }} sztuka",
+        "few": "Zostały tylko {{ count }} sztuki",
+        "many": "Zostało tylko {{ count }} sztuk",
         "other": "Only {{count}} units left"
       }
     },
@@ -172,9 +178,11 @@
       "continue_shopping": "Kontynuuj zakupy"
     },
     "products_count": {
-      "zero": "0 products",
       "one": "{{ count }} produkt",
-      "other": "{{ count }} produktów"
+      "few": "{{ count }} produkty",
+      "many": "{{ count }} produktów",
+      "other": "{{ count }} produktów",
+      "zero": "0 products"
     },
     "faceting": {
       "filters": "Filtry",
@@ -217,6 +225,8 @@
       "count": {
         "zero": "{{ count }} komentarzy",
         "one": "{{ count }} komentarz",
+        "few": "{{ count }} komentarze",
+        "many": "{{ count }} komentarzy",
         "other": "{{ count }} comments"
       }
     }
@@ -333,9 +343,11 @@
       "title": "Koszyk",
       "empty": "Twój koszyk jest pusty",
       "item_count": {
-        "zero": "{{ count }} items",
         "one": "{{ count }} przedmiot",
-        "other": "{{ count }} przedmiotu"
+        "few": "{{ count }} przedmioty",
+        "many": "{{ count }} przedmiotów",
+        "other": "{{ count }} przedmiotu",
+        "zero": "{{ count }} items"
       },
       "continue_shopping": "Kontynuuj zakupy",
       "weight": "Waga",
@@ -397,6 +409,8 @@
     "results_count": {
       "zero": "0 wyników dla \"{{ terms }}\"",
       "one": "1 wynik dla \"{{ terms }}\"",
+      "few": "{{ count }} wyniki dla \"{{ terms }}\"",
+      "many": "{{ count }} wyników dla \"{{ terms }}\"",
       "other": "{{ count }} wyników dla \"{{ terms }}\""
     }
   },
@@ -447,6 +461,8 @@
       "review_count": {
         "zero": "Ten produkt nie ma jeszcze opinii.",
         "one": "Ma {{ count }} opinii.",
+        "few": "Ma {{ count }} opinie.",
+        "many": "Ma {{ count }} opinii",
         "other": "Ma {{ count }} opinii."
       }
     }

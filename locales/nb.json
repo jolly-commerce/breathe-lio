@@ -107,16 +107,16 @@
         "one": "{{ count }} farge tilgjengelig",
         "other": "{{ count }} farger tilgjengelig"
       },
-      "single": "Enkel",
-      "packs": "Pakker",
-      "adding": "Legger til...",
-      "added": "Lagt til!",
-      "error": "Feil",
-      "select_variant": "Velg en variant",
-      "no_pack_variants": "Ingen pakkevarianter tilgjengelig",
-      "up_to_weeks": "opptil {{ weeks }} uker",
-      "weeks": "uker",
-      "discount": "rabatt"
+      "single": "Single",
+      "packs": "Packs",
+      "adding": "Adding...",
+      "added": "Added!",
+      "error": "Error",
+      "select_variant": "Select a variant",
+      "no_pack_variants": "No pack variants available",
+      "up_to_weeks": "up to {{ weeks }} weeks",
+      "weeks": "weeks",
+      "discount": "discount"
     },
     "gallery": {
       "close": "Lukk galleri",
@@ -333,25 +333,25 @@
       "title": "Handlekurv",
       "empty": "Handlekurven din er tom",
       "item_count": {
-        "zero": "{{ count }} items",
         "one": "{{ count }} vare",
-        "other": "{{ count }} varer"
+        "other": "{{ count }} varer",
+        "zero": "{{ count }} items"
       },
       "continue_shopping": "Fortsett shoppingen",
       "weight": "Vekt",
       "subtotal": "Nettobeløp",
       "total": "Totalt",
-      "taxes_and_shipping_policy_at_checkout_html": "Avgifter og <a href=\"{{ link }}\" class=\"link\">frakt</a> beregnes i kassen",
-      "taxes_included_but_shipping_at_checkout": "Inklusiv avgifter og frakt beregnes i kassen",
-      "taxes_included_and_shipping_policy_html": "Inklusiv avgifter. <a href=\"{{ link }}\" class=\"link\">Frakt</a> beregnes i kassen.",
-      "taxes_and_shipping_at_checkout": "Avgifter og frakt beregnes i kassen",
       "add_order_note": "Legg til merknad i bestilling",
       "edit_order_note": "Rediger merknad i bestilling",
       "order_note": "Merknad i bestilling",
       "save_note": "Lagre",
       "view_cart": "Vis handlekurv",
       "checkout": "Gå til kasse",
-      "we_accept": "Vi aksepterer"
+      "we_accept": "Vi aksepterer",
+      "taxes_and_shipping_policy_at_checkout_html": "Avgifter og <a href=\"{{ link }}\" class=\"link\">frakt</a> beregnes i kassen",
+      "taxes_included_but_shipping_at_checkout": "Inklusiv avgifter og frakt beregnes i kassen",
+      "taxes_included_and_shipping_policy_html": "Inklusiv avgifter. <a href=\"{{ link }}\" class=\"link\">Frakt</a> beregnes i kassen.",
+      "taxes_and_shipping_at_checkout": "Avgifter og frakt beregnes i kassen"
     },
     "order": {
       "product": "Produkt",

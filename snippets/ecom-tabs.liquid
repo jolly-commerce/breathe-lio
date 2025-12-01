@@ -36,7 +36,7 @@
                                 <div class="swiper-slide {{ block.settings.class }}">
                                     <div class="product-item">
                                         <div class="product-item__image">
-                                            <img src="{{ block.settings.image | image_url: width: 100 }}" alt="{{ block.settings.title }}" width="90" height="90">
+                                            <img loading="lazy" src="{{ block.settings.image | image_url: width: 100 }}" alt="{{ block.settings.title }}" width="90" height="90">
                                             <div class="check-icon">
                                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <g clip-path="url(#clip0_14041_491-{{forloop.index }})">
@@ -86,7 +86,7 @@
                     {% for block in section.blocks %}
                         {% if block.type == 'ingredient-tab' %}
                             <div class="ingredient-icon">
-                                <img src="{{ block.settings.image | image_url: width: 48 }}" alt="{{ block.settings.title }}" width="48" height="48">
+                                <img loading="lazy" src="{{ block.settings.image | image_url: width: 48 }}" alt="{{ block.settings.title }}" width="48" height="48">
                             </div>
                             <h3>{{ block.settings.title }}</h3>
                             <p>{{ block.settings.content }}</p>
@@ -135,10 +135,8 @@
     </div>
 </div>
 
-<link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-  />
+<link rel="preload" href="...swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="...swiper-bundle.min.css"></noscript>
   
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>

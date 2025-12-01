@@ -763,14 +763,14 @@ border: 1px solid #BEBBBB50;
    <div class="what-in-box">
      <div class="wib-box wib-box-1">
          {% if block.settings.image-1 != blank %}
-       <img src="{{ block.settings.image-1 | image_url: width: 400 }}" />
+       <img loading="lazy" src="{{ block.settings.image-1 | image_url: width: 400 }}" />
        {% endif %}
         <p>{{ block.settings.heading-1 }}</p>
          <span>{{ block.settings.text-1 }}</span>
      </div>
      <div class="wib-box wib-box-2">
         {% if block.settings.image-2 != blank %}
-          <img src="{{ block.settings.image-2 | image_url: width: 400 }}" />
+          <img loading="lazy" src="{{ block.settings.image-2 | image_url: width: 400 }}" />
        {% endif %}
          <p>{{ block.settings.heading-2 }}</p>
          <span>{{ block.settings.text-2 }}</span>
@@ -788,7 +788,7 @@ border: 1px solid #BEBBBB50;
       <span>{{ block.settings.others }}</span>
     </div>
     <div class="c-wallet-inner c-wallet-inner-3">
-      <img src="{{ block.settings.lio-logo | image_url: width: 400 }}" />
+      <img loading="lazy" src="{{ block.settings.lio-logo | image_url: width: 400 }}" />
     </div>
   </div>
 <p>{{ block.settings.wallet-1 }}</p>
@@ -798,7 +798,7 @@ border: 1px solid #BEBBBB50;
 
 <div id="third-tab-{{ block.id }}" class="content-{{ block.id }}">
    <div class="c-ing-block-outer">
-     <img src="{{ block.settings.lio-bundle | image_url: width: 400 }}" />
+     <img loading="lazy" src="{{ block.settings.lio-bundle | image_url: width: 400 }}" />
      <p>{{ block.settings.ingredient-1 }}</p>
 <span>{{ block.settings.ingredient-2 }}</span>
    </div>
@@ -844,7 +844,7 @@ border: 1px solid #BEBBBB50;
           </style>
         <div class="custom-icono">
           <div class="custom-icono-top">
-            <img src="{{ block.settings.image | image_url: width: 300 }}" />
+            <img loading="lazy" src="{{ block.settings.image | image_url: width: 300 }}" />
         <span> {{ block.settings.heading }} </span>
           </div>
           <p>{{ block.settings.text }}</p>
@@ -928,9 +928,9 @@ border: 1px solid #BEBBBB50;
       <div class="rev-inner">
         <div class="rev-inner-top">
           <div class="rev-inner-top-left">
-            <img class="rev-verified" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/trick.svg?v=1748267137" />
+            <img loading="lazy" class="rev-verified" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/trick.svg?v=1748267137" />
             <span>{{ name_value }}</span>
-            <img class="rev-stars" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/yelllow-stars.svg?v=1748270319" />
+            <img loading="lazy" class="rev-stars" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/yelllow-stars.svg?v=1748270319" />
           </div>
           <div class="rev-inner-top-right">
             <span>{{ date_value }}</span>
@@ -1194,7 +1194,7 @@ border: 1px solid #BEBBBB50;
 
 
 {% when 'pay-icon' %}
- <img class="pay-icon"
+ <img loading="lazy" class="pay-icon"
       src="{{ block.settings.image | img_url: '1000x' }}" 
       alt="Icon"
     >
@@ -1206,7 +1206,7 @@ border: 1px solid #BEBBBB50;
               <div class="free-c-text">
 
   <div class="usp-c-block">
-    <img 
+    <img loading="lazy" 
       src="{{ block.settings.icon-1 | img_url: '100x' }}" 
       alt="Icon 1"
     >
@@ -1214,7 +1214,7 @@ border: 1px solid #BEBBBB50;
   </div>
 
   <div class="usp-c-block">
-    <img 
+    <img loading="lazy" 
       src="{{ block.settings.icon-2 | img_url: '100x' }}" 
       alt="Icon 2"
     >
@@ -1249,12 +1249,12 @@ padding-top : 3px;
                   }
                 </style>
               <div class="shop-emi">
-              <p class="shop-emi">{{ block.settings.emi-text }} <span> {{ product.price | divided_by: 4 | money  }}</span> {{ block.settings.emi-text-after }} <span class="dashed-emi-space"> | </span><img src="{{ block.settings.shop-badge | image_url: width: 1000 }}" /> </p>
+              <p class="shop-emi">{{ block.settings.emi-text }} <span> {{ product.price | divided_by: 4 | money  }}</span> {{ block.settings.emi-text-after }} <span class="dashed-emi-space"> | </span><img loading="lazy" src="{{ block.settings.shop-badge | image_url: width: 1000 }}" /> </p>
               </div>
  {%- when 'star-rating'  -%}
 <div class="star-rating-block">
               
-  <img src="{{ block.settings.image | image_url: width: 500 }}" />
+  <img loading="lazy" src="{{ block.settings.image | image_url: width: 500 }}" />
               <span>
    {% comment %}
     ({{ product.metafields.reviews.rating_count.value | default: 0 }} 
@@ -1682,19 +1682,19 @@ padding-top : 3px;
 
          <div class="plan-usp-blocks">
     <div class="plan-usp">
-    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Plan-Usp.svg?v=1750183759" />
+    <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Plan-Usp.svg?v=1750183759" />
     <p>{{ block.settings.usp_1_text }}</p>
     </div>
      <div class="plan-usp">
-    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Plan-Usp.svg?v=1750183759" />
+    <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Plan-Usp.svg?v=1750183759" />
    <p>{{ block.settings.usp_2_text }}</p>
     </div>
      <div class="plan-usp">
-    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Plan-Usp.svg?v=1750183759" />
+    <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Plan-Usp.svg?v=1750183759" />
     <p>{{ block.settings.usp_3_text }}</p>
     </div>
      <div class="plan-usp">
-    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Plan-Usp.svg?v=1750183759" />
+    <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Plan-Usp.svg?v=1750183759" />
      <p>{{ block.settings.usp_4_text }}</p>
     </div>
     </div>
@@ -1723,19 +1723,19 @@ padding-top : 3px;
 
               <div class="plan-usp-blocks">
     <div class="plan-usp">
-    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Plan-Usp.svg?v=1750183759" />
+    <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Plan-Usp.svg?v=1750183759" />
     <p>{{ block.settings.usp_5_text }}</p>
     </div>
      <div class="plan-usp">
-    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Plan-Usp.svg?v=1750183759" />
+    <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Plan-Usp.svg?v=1750183759" />
    <p>{{ block.settings.usp_6_text }}</p>
     </div>
      <div class="plan-usp">
-    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Plan-Usp.svg?v=1750183759" />
+    <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Plan-Usp.svg?v=1750183759" />
     <p>{{ block.settings.usp_7_text }}</p>
     </div>
      <div class="plan-usp">
-    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Plan-Usp.svg?v=1750183759" />
+    <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Plan-Usp.svg?v=1750183759" />
      <p>{{ block.settings.usp_8_text }}</p>
     </div>
     </div>

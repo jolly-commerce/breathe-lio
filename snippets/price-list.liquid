@@ -47,7 +47,7 @@ Supported variables
     VARIANT CASE (used on product page, quick view...)
     --------------------------------------------------------------------------------------------------------------------
     {%- endcomment -%}
-    <sale-price class="{% if variant.compare_at_price > variant.price %}{{ on_sale_price_classes }}{% else %}{{ regular_price_classes }}{% endif %}">
+    <sale-price data-variant-id="{{ variant.id }}" class="igPrice {% if variant.compare_at_price > variant.price %}{{ on_sale_price_classes }}{% else %}{{ regular_price_classes }}{% endif %}">
       <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
 
       {%- if settings.currency_code_enabled -%}
@@ -58,7 +58,7 @@ Supported variables
     </sale-price>
 
     {%- if variant.compare_at_price > variant.price -%}
-      <compare-at-price class="{{ compare_at_price_classes }}">
+      <compare-at-price data-variant-id="{{ variant.id }}" class="igComparePrice {{ compare_at_price_classes }}">
         <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
 
         {%- if settings.currency_code_enabled -%}
@@ -90,7 +90,7 @@ Supported variables
     </sale-price>
 
     {%- if highest_compare > line_item.final_line_price -%}
-      <compare-at-price class="{{ compare_at_price_classes }}">
+      <compare-at-price data-price-multiplier="{{ line_item.quantity }}" data-variant-id="{{ line_item.id }}" class="igComparePrice {{ compare_at_price_classes }}">
         <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
 
         {%- if settings.currency_code_enabled -%}
@@ -118,12 +118,12 @@ Supported variables
       {%- endcapture -%}
 
       {%- if cheapest_variant.price < cheapest_variant.compare_at_price -%}
-        <sale-price class="{{ on_sale_price_classes }}">
+        <sale-price data-variant-id="{{ cheapest_variant.id }}" class="igPrice {{ on_sale_price_classes }}">
           <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
           {{- 'product.price.from_price_html' | t: price_min: price_min -}}
         </sale-price>
 
-        <compare-at-price class="{{ compare_at_price_classes }}">
+        <compare-at-price data-variant-id="{{ cheapest_variant.id }}" class="igComparePrice {{ compare_at_price_classes }}">
           <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
 
           {%- if settings.currency_code_enabled -%}
@@ -133,13 +133,13 @@ Supported variables
           {%- endif -%}
         </compare-at-price>
       {%- else -%}
-        <sale-price class="{{ regular_price_classes }}">
+        <sale-price data-variant-id="{{ cheapest_variant.id }}" class="igPrice {{ regular_price_classes }}">
           <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
           {{- 'product.price.from_price_html' | t: price_min: price_min -}}
         </sale-price>
       {%- endif -%}
     {%- elsif product.price < product.compare_at_price -%}
-      <sale-price class="{{ on_sale_price_classes }}">
+      <sale-price data-product-id="{{ product.id }}" class="igPrice {{ on_sale_price_classes }}">
         <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
 
         {%- if settings.currency_code_enabled -%}
@@ -149,7 +149,7 @@ Supported variables
         {%- endif -%}
       </sale-price>
 
-      <compare-at-price class="{{ compare_at_price_classes }}">
+      <compare-at-price data-product-id="{{ product.id }}" class="igComparePrice {{ compare_at_price_classes }}">
         <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
 
         {%- if settings.currency_code_enabled -%}
@@ -175,12 +175,12 @@ Supported variables
         {%- endif -%}
       {%- endcapture -%}
 
-      <sale-price class="{{ regular_price_classes }}">
+      <sale-price data-product-id="{{ product.id }}" class="igPrice {{ regular_price_classes }}">
         <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
         {{- 'product.price.from_price_html' | t: price_min: price_min, price_max: price_max -}}
       </sale-price>
     {%- else -%}
-      <sale-price class="{{ regular_price_classes }}">
+      <sale-price data-product-id="{{ product.id }}" class="igPrice {{ regular_price_classes }}">
         <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
 
         {%- if settings.currency_code_enabled -%}

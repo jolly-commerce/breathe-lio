@@ -9,12 +9,36 @@
  */
 {
   "sections": {
+    "new_homepage_banner_AqdjW9": {
+      "type": "new-homepage-banner",
+      "blocks": {
+        "slide_Eg4UHa": {
+          "type": "Slide",
+          "settings": {
+            "image-1": "shopify://shop_images/Gemini_Generated_Image_owrclhowrclhowrc_1.png",
+            "heading": "",
+            "highlighted-heading": "",
+            "sub-text": "",
+            "trust-text": "",
+            "button-url": "",
+            "button-text": "",
+            "free-text": "Free shipping available above €50"
+          }
+        }
+      },
+      "block_order": [
+        "slide_Eg4UHa"
+      ],
+      "name": "new-homepage-banner",
+      "settings": {}
+    },
     "instant-hdGP35DemrGTfYWT": {
       "type": "instant-hdGP35DemrGTfYWT",
       "settings": {}
     }
   },
   "order": [
+    "new_homepage_banner_AqdjW9",
     "instant-hdGP35DemrGTfYWT"
   ]
 }

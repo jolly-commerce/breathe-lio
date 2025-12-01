@@ -107,16 +107,16 @@
         "one": "有 {{ count }} 種顏色",
         "other": "有 {{ count }} 種顏色"
       },
-      "single": "單件",
-      "packs": "套裝",
-      "adding": "正在新增...",
-      "added": "已新增！",
-      "error": "錯誤",
-      "select_variant": "請選擇款式",
-      "no_pack_variants": "無可用的套裝款式",
-      "up_to_weeks": "最長 {{ weeks }} 週",
-      "weeks": "週",
-      "discount": "折扣"
+      "single": "Single",
+      "packs": "Packs",
+      "adding": "Adding...",
+      "added": "Added!",
+      "error": "Error",
+      "select_variant": "Select a variant",
+      "no_pack_variants": "No pack variants available",
+      "up_to_weeks": "up to {{ weeks }} weeks",
+      "weeks": "weeks",
+      "discount": "discount"
     },
     "gallery": {
       "close": "關閉圖片庫",
@@ -333,25 +333,25 @@
       "title": "購物車",
       "empty": "您的購物車為空",
       "item_count": {
+        "other": "{{ count }} 件商品",
         "zero": "{{ count }} items",
-        "one": "{{ count }} item",
-        "other": "{{ count }} 件商品"
+        "one": "{{ count }} item"
       },
       "continue_shopping": "繼續購物",
       "weight": "重量",
       "subtotal": "小計",
       "total": "總計",
-      "taxes_and_shipping_policy_at_checkout_html": "結帳時計算稅費和<a href=\"{{ link }}\" class=\"link\">運費</a>",
-      "taxes_included_but_shipping_at_checkout": "含稅並於結帳時計算運費",
-      "taxes_included_and_shipping_policy_html": "含稅。在結帳時計算<a href=\"{{ link }}\" class=\"link\">運費</a>。",
-      "taxes_and_shipping_at_checkout": "結帳時計算稅費運費",
       "add_order_note": "增加訂單備註",
       "edit_order_note": "編輯訂單備註",
       "order_note": "訂單備註",
       "save_note": "儲存",
       "view_cart": "查看購物車",
       "checkout": "結帳",
-      "we_accept": "我們接受"
+      "we_accept": "我們接受",
+      "taxes_and_shipping_policy_at_checkout_html": "結帳時計算稅費和<a href=\"{{ link }}\" class=\"link\">運費</a>",
+      "taxes_included_but_shipping_at_checkout": "含稅並於結帳時計算運費",
+      "taxes_included_and_shipping_policy_html": "含稅。在結帳時計算<a href=\"{{ link }}\" class=\"link\">運費</a>。",
+      "taxes_and_shipping_at_checkout": "結帳時計算稅費運費"
     },
     "order": {
       "product": "產品",

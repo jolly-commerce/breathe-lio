@@ -1,7 +1,7 @@
 <style>
   .simple-steps{
     width : 100%;
-    background : var(--lio-white);
+    background : #0d4e2c
 
     border-radius : 20px;
   }
@@ -18,8 +18,9 @@
 }
   .simple-steps-inner h2.h2{
     text-align : center;
-    color : var(--lio-dark-green);
+    color : var(--lio-white);
   }
+  }a
   .s-steps-inner {
     display: flex;
     padding: 0px 40px;
@@ -113,17 +114,17 @@
       <h2 class="h2">{{ section.settings.heading }}</h2>
 <div class="s-steps-inner">
   <div class="s-steps s-step-1">
-    <img src="{{ section.settings.icon-1 | image_url: width: 1000 }}" />
+    <img loading="lazy" src="{{ section.settings.icon-1 | image_url: width: 1000 }}" />
     <span class="s-step-number">1</span>
     <p>{{ section.settings.text-1 }}</p>
   </div>
   <div class="s-steps s-step-2">
-    <img src="{{ section.settings.icon-2 | image_url: width: 1000 }}" />
+    <img loading="lazy" src="{{ section.settings.icon-2 | image_url: width: 1000 }}" />
     <span class="s-step-number">2</span>
     <p>{{ section.settings.text-2 }}</p>
   </div>
   <div class="s-steps s-step-3">
-    <img src="{{ section.settings.icon-3 | image_url: width: 1000 }}" />
+    <img loading="lazy" src="{{ section.settings.icon-3 | image_url: width: 1000 }}" />
     <span class="s-step-number">3</span>
     <p>{{ section.settings.text-3 }}</p>
   </div>

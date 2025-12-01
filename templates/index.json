@@ -15,110 +15,358 @@
         "slide_jHyh9W": {
           "type": "Slide",
           "settings": {
-            "image-1": "shopify://shop_images/hero-desktop_9c856a0b-c92f-4e24-8ea6-193da27f8cb2.jpg",
-            "image-2": "shopify://shop_images/hero-mobile.jpg",
-            "heading": "Don't smoke, Don't vape,",
-            "highlighted-heading": "just breathe.",
-            "sub-text": "Zero nicotine. No batteries. No vapor. No calories.",
+            "image-1": "shopify://shop_images/hero-desktop_9c856a0b-c92f-4e24-8ea6-193da27f8cb2_2_3.webp",
+            "image-2": "shopify://shop_images/521A2779_1_5.webp",
+            "heading": "Say Goodbye to your bad habit",
+            "highlighted-heading": "",
+            "sub-text": "World's first Lio Diffuser that uses natural aromas to replace both the ritual and the sensation.",
             "trust-text": "Rated 4.7 / 5  in 1000+ Reviews",
-            "button-url": "#i26JL9iAF1K5CTpMT",
-            "button-text": "Make the Switch",
-            "free-text": "Fast & Free Worldwide Shipping"
-          }
-        },
-        "slide_9Wfnag": {
-          "type": "Slide",
-          "settings": {
-            "image-1": "shopify://shop_images/hero-desktop-2.jpg",
-            "image-2": "shopify://shop_images/hero-mobile-2.jpg",
-            "heading": "Don't smoke, Don't vape,",
-            "highlighted-heading": "Just breathe.",
-            "sub-text": "Zero nicotine. No batteries. No vapor. No calories.",
-            "trust-text": "Rated 4.7 / 5  in 1000+ Reviews",
-            "button-url": "#i26JL9iAF1K5CTpMT",
-            "button-text": "Make the Switch",
-            "free-text": "Fast & Free Worldwide Shipping"
+            "button-url": "shopify://products/new-lio-journey-pack",
+            "button-text": "Start My Journey",
+            "sub-button-url": "shopify://products/double-your-cores",
+            "sub-button-text": "Order Refills",
+            "free-text": ""
           }
         }
       },
       "block_order": [
-        "slide_jHyh9W",
-        "slide_9Wfnag"
+        "slide_jHyh9W"
       ],
       "name": "new-homepage-banner",
       "settings": {}
     },
-    "ecom_highlight_info_xX3g3V": {
-      "type": "ecom-highlight-info",
-      "disabled": true,
-      "name": "Ecom Highlight Info",
-      "settings": {
-        "show_check": true,
-        "reviews_text": "Verification based on \n100,000+ reviews & testing",
-        "title": "No nicotine, \nno chemicals. \nJust results.",
-        "title_desktop": "No nicotine, no chemicals. Just results.",
-        "description": "Lio ranks #1 in customer success rate and long-term quitting impact.\nAlso, the guarantee is something that gives this a 100% reason to try it."
-      }
-    },
-    "infinite_logo_section_6jwaYP": {
-      "type": "infinite-logo-section",
+    "featured_product_YqCfNV": {
+      "type": "featured-product",
       "blocks": {
-        "logo_r7er7N": {
-          "type": "logo",
+        "section_store_block_social_proof_MqYDxa": {
+          "type": "shopify://apps/section-store/blocks/block-social-proof/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
-            "logo": "shopify://shop_images/meduim_logo.png"
+            "use_carousel": true,
+            "slide_icon_size": 28,
+            "text": "<p><strong>Emma</strong> , <strong>John</strong>  and 100.000+ others have already made the switch!</p>",
+            "text_size": 14,
+            "text_color": "#ffffff",
+            "checkmark_size": 14,
+            "symbols_color": "#00b67c",
+            "border": "solid",
+            "border_thickness": 1,
+            "border_color": "#d7d7d7",
+            "radius": 16,
+            "bg_color": "#00b67c",
+            "padding_vertical": 12,
+            "padding_horizontal": 16,
+            "clip_as_header_of_wrapper": true
           }
         },
-        "logo_hYPzi3": {
-          "type": "logo",
+        "title_R3WznG": {
+          "type": "title",
           "settings": {
-            "logo": "shopify://shop_images/disrupt_logo.png"
+            "heading_tag": "h2"
           }
         },
-        "logo_HT8Are": {
-          "type": "logo",
+        "section_store_block_review_summary_ycd6X6": {
+          "type": "shopify://apps/section-store/blocks/block-review-summary/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
-            "logo": "shopify://shop_images/menshealth_logo.svg"
+            "stars_custom": "shopify://shop_images/images_2_2.png",
+            "stars_count": 5,
+            "stars_size": 17,
+            "stars_gap": 2,
+            "stars_color": "#ffffff",
+            "stars_bg_color": "#00b67a",
+            "stars_bg_half_color": "#dddddd",
+            "first_text": "<p>Great</p>",
+            "first_text_size": 15,
+            "first_text_color": "#000000",
+            "second_text": "<p><strong>1230</strong> reviews</p>",
+            "second_text_size": 13,
+            "second_text_color": "#000000",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "background": "",
+            "background_gradient": "",
+            "padding_vertical": 0,
+            "padding_horizontal": 0
           }
         },
-        "logo_h7MWHD": {
-          "type": "logo",
+        "section_store_block_benefits_list_fTJ4nF": {
+          "type": "shopify://apps/section-store/blocks/block-benefits-list/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
-            "logo": "shopify://shop_images/healtline_logo.png"
+            "items_gap": 10,
+            "first_text": "<p>100,000+ Happy Customers</p>",
+            "second_text": "<p>Keep the hand-to-mouth habit</p>",
+            "third_text": "<p>No smoke, no vape, no nicotine</p>",
+            "fourth_text": "<p>Didn't quit within 30 days? Money back</p>",
+            "icon_size": 20,
+            "icon_color": "#00b67c",
+            "text_size": 15,
+            "text_color": "#000000",
+            "content_align": "left",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "background": "",
+            "background_gradient": "",
+            "padding_vertical": 0,
+            "padding_horizontal": 0
           }
         },
-        "logo_g8RyK8": {
-          "type": "logo",
+        "section_store_block_shipping_info_nRDKX8": {
+          "type": "shopify://apps/section-store/blocks/block-shipping-info/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
-            "logo": "shopify://shop_images/newscientist_logo.svg"
+            "use_dot": true,
+            "icon_color": "#00b67c",
+            "icon_size": 12,
+            "ships_by_text": "Delivery by",
+            "shipping_within_days": 3,
+            "include_weekend": false,
+            "ships_by_font_size": 14,
+            "ships_by_text_color": "#000000",
+            "fast_shipping_text": "<strong>Free Shipping</strong>",
+            "allow_all_countries": true,
+            "allowed_countries": "US,CH,DE,AT,FR,IT",
+            "fast_shipping_text_for_rest_countries": "Fast International Shipping",
+            "fast_shipping_text_color": "#00b67c",
+            "border_style": "none",
+            "border_width": 1,
+            "border_color": "#000000",
+            "border_radius": 8,
+            "bg_color": "#d4ece0",
+            "padding_vertical": 6,
+            "padding_horizontal": 15
           }
         },
-        "logo_88AMYj": {
-          "type": "logo",
+        "price_ixxbpG": {
+          "type": "price",
           "settings": {
-            "logo": "shopify://shop_images/influencer_logo.png"
+            "show_taxes_notice": false
           }
         },
-        "logo_Y7QYit": {
-          "type": "logo",
+        "rating_DmeNn9": {
+          "type": "rating",
           "settings": {
-            "logo": "shopify://shop_images/filmdaily_logo.png"
+            "show_empty": false
+          }
+        },
+        "section_store_block_product_info_wrapper_b8EpYz": {
+          "type": "shopify://apps/section-store/blocks/block-product-info-wrapper/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "auto_detect_product_info_container": true,
+            "product_info_container_selector": "",
+            "use_on_mobile": true,
+            "use_header": false,
+            "header_font_size": 16,
+            "header_bg_color": "#000000",
+            "header_text_color": "#ffffff",
+            "header_text_align": "center",
+            "header_text": "♥︎ 9 of 10 recommend to friends",
+            "border_style": "solid",
+            "border_width": 1,
+            "border_color": "#dfdfdf",
+            "border_radius": 12,
+            "background_color": "",
+            "shadow": "shadow_1",
+            "padding_top": 14,
+            "padding_bottom": 14,
+            "padding_left": 14,
+            "padding_right": 14
+          }
+        },
+        "description_DRn9C4": {
+          "type": "description",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "collapse_content": false
+          }
+        },
+        "variant_picker_6jmBW6": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "buy_buttons_djxgJQ": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "section_store_block_benefits_boxes_2_hgxqQX": {
+          "type": "shopify://apps/section-store/blocks/block-benefits-boxes-2/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "cards_design": "vertical",
+            "cards_row": "3",
+            "card_align": "center",
+            "first_icon": "credit_card",
+            "first_title": "Money Back",
+            "first_sub_title": "if it didn't work",
+            "second_icon": "shield_check",
+            "second_title": "Free & Fast",
+            "second_sub_title": "Shipping",
+            "third_icon": "earth",
+            "third_title": "100.000+",
+            "third_sub_title": "people love it",
+            "all_size": 19,
+            "all_color": "#00b67c",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "cards_bg_color": "",
+            "padding_vertical": 0,
+            "padding_horizontal": 0
+          }
+        },
+        "section_store_block_countdown_timer_pXLeFr": {
+          "type": "shopify://apps/section-store/blocks/block-countdown-timer/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "hour": 0,
+            "minute": 46,
+            "second": 26,
+            "progress_start": 70,
+            "action_on_complete": "hide",
+            "number_size": 15,
+            "number_color": "#000000",
+            "text": "<p>Shipped today if you order within:</p>",
+            "text_size": 14,
+            "text_color": "#000000",
+            "progress_default_color": "#ebe9eb",
+            "progress_active_color": "#000000",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "background": "",
+            "padding_top": 4,
+            "padding_bottom": 4,
+            "padding_left": 0,
+            "padding_right": 0
+          }
+        },
+        "section_store_block_payment_icons_2_iHpXWi": {
+          "type": "shopify://apps/section-store/blocks/block-payment-icons-2/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "icons_layout": "fixed_grid",
+            "icons_per_row": 10,
+            "icons_per_row_mobile": 10,
+            "gap": 10,
+            "icons_align": "center",
+            "icons_monochrome": false,
+            "enable_first_image": false,
+            "enable_second_image": false,
+            "enable_third_image": false,
+            "icon_size": 20,
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "background": "",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_left": 0,
+            "padding_right": 0
           }
         }
       },
       "block_order": [
-        "logo_r7er7N",
-        "logo_hYPzi3",
-        "logo_HT8Are",
-        "logo_h7MWHD",
-        "logo_g8RyK8",
-        "logo_88AMYj",
-        "logo_Y7QYit"
+        "section_store_block_social_proof_MqYDxa",
+        "title_R3WznG",
+        "section_store_block_review_summary_ycd6X6",
+        "section_store_block_benefits_list_fTJ4nF",
+        "section_store_block_shipping_info_nRDKX8",
+        "price_ixxbpG",
+        "rating_DmeNn9",
+        "section_store_block_product_info_wrapper_b8EpYz",
+        "description_DRn9C4",
+        "variant_picker_6jmBW6",
+        "buy_buttons_djxgJQ",
+        "section_store_block_benefits_boxes_2_hgxqQX",
+        "section_store_block_countdown_timer_pXLeFr",
+        "section_store_block_payment_icons_2_iHpXWi"
       ],
-      "disabled": true,
-      "name": "infinite logo section",
+      "name": "Featured product",
       "settings": {
-        "custom-class": "test-home002--visible"
+        "full_width": true,
+        "product": "new-lio-journey-pack",
+        "desktop_media_width": 55,
+        "desktop_media_layout": "carousel_thumbnails_left",
+        "mobile_media_size": "expanded",
+        "mobile_carousel_control": "thumbnails",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
+      }
+    },
+    "icon_text_1_kVM4dK": {
+      "type": "icon-text-1",
+      "blocks": {
+        "usp_Mn4pWh": {
+          "type": "usp",
+          "settings": {
+            "title": "No nicotine",
+            "icon": "shopify://shop_images/1.svg"
+          }
+        },
+        "usp_MfDXKV": {
+          "type": "usp",
+          "settings": {
+            "title": "Plant-based",
+            "icon": "shopify://shop_images/2.svg"
+          }
+        },
+        "usp_qQeffE": {
+          "type": "usp",
+          "settings": {
+            "title": "No vapor",
+            "icon": "shopify://shop_images/3.svg"
+          }
+        },
+        "usp_XMczdi": {
+          "type": "usp",
+          "settings": {
+            "title": "Chemical-free",
+            "icon": "shopify://shop_images/4.svg"
+          }
+        },
+        "usp_HcKPU3": {
+          "type": "usp",
+          "settings": {
+            "title": "No toxins",
+            "icon": "shopify://shop_images/5.svg"
+          }
+        }
+      },
+      "block_order": [
+        "usp_Mn4pWh",
+        "usp_MfDXKV",
+        "usp_qQeffE",
+        "usp_XMczdi",
+        "usp_HcKPU3"
+      ],
+      "custom_css": [],
+      "name": "icon-text-1",
+      "settings": {
+        "heading": "No nicotine. No vapor. No smoke.",
+        "highlighted-heading": "Just natural air."
       }
     },
     "infinite_section_W8PBf7": {
@@ -180,328 +428,6 @@
         "custom-class": "test-home002--hidden"
       }
     },
-    "icon_text_1_kVM4dK": {
-      "type": "icon-text-1",
-      "blocks": {
-        "usp_Mn4pWh": {
-          "type": "usp",
-          "settings": {
-            "title": "No nicotine",
-            "icon": "shopify://shop_images/1.svg"
-          }
-        },
-        "usp_MfDXKV": {
-          "type": "usp",
-          "settings": {
-            "title": "Plant-based",
-            "icon": "shopify://shop_images/2.svg"
-          }
-        },
-        "usp_qQeffE": {
-          "type": "usp",
-          "settings": {
-            "title": "No vapor",
-            "icon": "shopify://shop_images/3.svg"
-          }
-        },
-        "usp_XMczdi": {
-          "type": "usp",
-          "settings": {
-            "title": "Chemical-free",
-            "icon": "shopify://shop_images/4.svg"
-          }
-        },
-        "usp_HcKPU3": {
-          "type": "usp",
-          "settings": {
-            "title": "No toxins",
-            "icon": "shopify://shop_images/5.svg"
-          }
-        }
-      },
-      "block_order": [
-        "usp_Mn4pWh",
-        "usp_MfDXKV",
-        "usp_qQeffE",
-        "usp_XMczdi",
-        "usp_HcKPU3"
-      ],
-      "custom_css": [],
-      "name": "icon-text-1",
-      "settings": {
-        "heading": "No nicotine. No vapor. No smoke.",
-        "highlighted-heading": "Just natural air."
-      }
-    },
-    "instant_ayc_l8_zs7zs_arn6_if_bKrVJb": {
-      "type": "instant-aycL8ZS7zsArn6IF",
-      "disabled": true,
-      "name": "LIO ANIMATION ",
-      "settings": {
-        "video_el6eY92Lav8u6Mi5": "shopify://files/videos/1744795548_V3_59457a11-471e-4c36-b27a-e9ba7d0360b3-ezgif.com-crop-video.mp4 (3).mp4",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "175192946775f56041": {
-      "type": "apps",
-      "blocks": {
-        "countdown_timer_essential_app_block_pJkDxe": {
-          "type": "shopify://apps/essential-countdown-timer/blocks/app-block/722378e8-5a70-4eae-aa89-9e44e8e9f6de",
-          "settings": {
-            "id": "clwzsgk1s4449361e1ed60r5k34"
-          }
-        }
-      },
-      "block_order": [
-        "countdown_timer_essential_app_block_pJkDxe"
-      ],
-      "settings": {
-        "full_width": true,
-        "remove_vertical_spacing": true,
-        "remove_horizontal_spacing": true,
-        "background": "",
-        "background_gradient": "",
-        "text_color": ""
-      }
-    },
-    "product_main_BVqKQn": {
-      "type": "product-main",
-      "blocks": {
-        "loox_reviews_r7YWzH": {
-          "type": "loox_reviews",
-          "settings": {
-            "loox_rating_text": "[rating]/5 based on [count]+ reviews"
-          }
-        },
-        "title_ma694X": {
-          "type": "title",
-          "settings": {}
-        },
-        "product_tags_XMtpg6": {
-          "type": "product_tags",
-          "settings": {}
-        },
-        "description_nGFQLX": {
-          "type": "description",
-          "settings": {}
-        },
-        "gallery_GEMcan": {
-          "type": "gallery",
-          "settings": {
-            "layout_type": "swiper",
-            "arrows_position_dsk": "center",
-            "arrows_position_mob": "center",
-            "enable_arrows_dsk": true,
-            "enable_arrows_mob": false,
-            "thumbnails_position_dsk": "left",
-            "enable_thumbnails_dsk": true,
-            "enable_thumbnails_mob": true
-          }
-        },
-        "pack_selector_Ey9dAV": {
-          "type": "pack_selector",
-          "settings": {
-            "step_1_title": "Step 1:",
-            "step_1_subtitle": "Select your Lio",
-            "step_1_packs": [
-              "lio®-classic-olive",
-              "lio®-classic-walnut",
-              "lio®-aluminium-silver",
-              "lio®-aluminium-black"
-            ],
-            "step_2_title": "Step 2:",
-            "step_2_subtitle": "Select your flavors",
-            "step_2_packs": [
-              "lio®-minty-magic",
-              "lio®-cold-turkey-1",
-              "lio®-cinnamon-spice",
-              "lio®-razzy-berry",
-              "lio®-ohh-my-orange-copy",
-              "lio®-cold-turkey"
-            ],
-            "step_2_1_title": "3 bags",
-            "step_2_1_discount": "",
-            "step_2_1_discount_percentage": 13,
-            "step_2_2_title": "6 bags",
-            "step_2_2_discount": "15% OFF",
-            "step_2_2_discount_percentage": 15,
-            "step_2_3_title": "Complete",
-            "step_2_3_discount": "15% OFF",
-            "step_2_3_discount_percentage": 15,
-            "step_3_title": "",
-            "step_3_subtitle": "",
-            "step_3_packs": [
-              "dutch-product",
-              "cold-turkey-30-days",
-              "cinnamon-spice-v2",
-              "lio®-cinnamon-spice",
-              "cinnamon-spice",
-              "cinnamon-spice-30-days",
-              "lio®-cold-turkey-1"
-            ],
-            "subscribe_and_save_title": "Subscribe and save",
-            "subscribe_and_save_description": "<p>NEVER RUN OUT</p>",
-            "subscribe_3_packs": "<strong>3X flavours</strong>",
-            "subscribe_6_packs": "<strong>6X flavours</strong>",
-            "subscribe_complete_packs": "Complete pack",
-            "subscribe_packs_price": "[compare_price] <strong>[price] / month</strong>",
-            "subscribe_and_save_subtitle": "30% OFF",
-            "one_time_purchase_title": "One-time purchase",
-            "one_time_purchase_description": "<p>NEVER RUN OUT</p>",
-            "subscribe_and_save_benefits_description": "<p>Repeats monthly. Swap out flavors every month or keep the same ones. Cancel at any time.</p>",
-            "subscribe_and_save_benefits_image": "shopify://shop_images/subscribe_image.png",
-            "benefits_features_title_1": "<p><strong>Save 30% Extra<br/></strong>Monthly</p>",
-            "benefits_features_image_1": "shopify://shop_images/discount_icon_2fbffa11-c282-462e-81e2-9b8025ee825d.svg",
-            "benefits_features_title_2": "<p><strong>Free Shipping<br/></strong>Monthly</p>",
-            "benefits_features_image_2": "shopify://shop_images/package_delivered_icon_e0289af7-a8ca-4499-9296-23b268b539c1.svg",
-            "benefits_features_title_3": "<p><strong>Swap Flavors<br/></strong>Anytime</p>",
-            "benefits_features_image_3": "shopify://shop_images/repeat_icon_a9e21300-2a9c-406c-9808-4ea4b51a8bfe.svg"
-          }
-        },
-        "delivery_info_xrtFXT": {
-          "type": "delivery_info",
-          "settings": {
-            "enable_card_payment": true,
-            "delivery_info_title_1": "30-Days Risk Free",
-            "delivery_info_image_1": "shopify://shop_images/shield_icon_6923ce0a-c9f3-4fec-8a99-ff0485796347.svg",
-            "delivery_info_title_2": "Free & Fast Shipping",
-            "delivery_info_image_2": "shopify://shop_images/box_icon_65b084b8-1689-4674-8cf0-2372d10c69c7.svg",
-            "delivery_info_title_3": "Made in Amsterdam",
-            "delivery_info_image_3": "shopify://shop_images/country_icon_4245709a-b41f-428a-88bb-6be95e4c4e08.svg"
-          }
-        }
-      },
-      "block_order": [
-        "loox_reviews_r7YWzH",
-        "title_ma694X",
-        "product_tags_XMtpg6",
-        "description_nGFQLX",
-        "gallery_GEMcan",
-        "pack_selector_Ey9dAV",
-        "delivery_info_xrtFXT"
-      ],
-      "name": "Product Main",
-      "settings": {
-        "product_main": "lio®-journey-pack-test-loop",
-        "padding_dsk_t": 40,
-        "padding_dsk_b": 40,
-        "padding_mob_t": 20,
-        "padding_mob_b": 40,
-        "background": "linear-gradient(180deg, rgba(245, 255, 247, 1), rgba(245, 255, 247, 1) 100%)"
-      }
-    },
-    "instant_sro_kx_rj_k_quw_ms37d_rE8m8d": {
-      "type": "instant-sroKXRjKQuwMs37d",
-      "disabled": true,
-      "custom_css": [
-        ".ichqcxNOL8OtrWQO9 {display: none;}"
-      ],
-      "name": "The Journey Pack  ",
-      "settings": {
-        "product_26JL9iAF1K5CTpMT-1": "lio®-journey-pack-1",
-        "text_HPZnxoK5eaKH7RQt-1": "<p>4,7/5 based on 1000+ reviews</p>",
-        "text_zOPJyGWagaLlWTcV-1": "<h3>Journey pack</h3>",
-        "text_vx6GnqilCy0byfgt-1": "<h3>Step 1: SELECT your Lio</h3>",
-        "text_0cCbz3XV9TWw0Yyv-1": "<h3>Crafted from premium Olive wood.</h3>",
-        "text_1KCKrCLHiMxnl9Iw-1": "<h3>Crafted from premium walnut wood.</h3>",
-        "text_ZI3b3WGUkdxDnSdz-1": "<h3>Durable, easy to clean, and built for longer-lasting flavours.</h3>",
-        "text_MNJA7iVqTvvt3yAu-1": "<h3>Durable, easy to clean, and built for longer-lasting flavours.</h3>",
-        "text_3G2XbAcuZCEWzYfl-1": "<h3>Made of stainless steel, with a magnetic adjustable airflow system and built-in fidget feature.</h3>",
-        "text_2AAS1syVOypIWLMr-1": "<h3>Made of stainless steel, with a magnetic adjustable airflow system and built-in fidget feature.</h3>",
-        "text_8kgHW0KzaKvToFh8-1": "<h3>Step 2: SELECT your PACK</h3>",
-        "text_xsmuMPAKgpCnhcxn-1": "<h3>SOLO</h3>",
-        "text_2FUOBzRpis84faTX-1": "<h3><strong>1x </strong>Olive Wood Lio</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
-        "text_tYZSvrN16ijianMA-1": "<h3><strong>1x </strong>Wanut Wood Lio</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
-        "text_mhOn1kG8qdTDxp3g-1": "<h3><strong>1x </strong>Silver Aluminium Lio</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
-        "text_1gY4HZYIiFW9vpF6-1": "<h3><strong>1x </strong>Black Aluminium Lio</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
-        "text_kYQupcjvhAEf9LLd-1": "<h3><strong>1x </strong>Gen 2 Silver</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
-        "text_ONGDqDl6jLyhCDwb-1": "<h3><strong>1x </strong>Gen 2 Black</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
-        "text_xhFmxzA06y3UKABC-1": "<h3><strong>OFF</strong></h3>",
-        "text_ApqLnraPDBFWZBqQ-1": "<h3>Together</h3>",
-        "text_kPA9GbeFICdUelka-1": "<h3><strong>2x </strong>Olive Wood Lio </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
-        "text_TQErPXKrISOQor8w-1": "<h3><strong>2x </strong>Walnut Wood Lio </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
-        "text_Rztyz4fXVHLmFpfJ-1": "<h3><strong>2x </strong>Silver Aluminium Lio </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
-        "text_T2kUFaPOd9G6xCrN-1": "<h3><strong>2x </strong>Black Aluminium Lio </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
-        "text_M1fZJ3JTm2sEIdVA-1": "<h3><strong>2x </strong>Gen 2 Silver </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
-        "text_yFRplVAKBf9HvJsp-1": "<h3><strong>2x </strong>Gen 2 Black </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
-        "text_7GDAmkbKojSuyUvO-1": "<h3><strong>OFF</strong></h3>",
-        "text_uzjRJDhW9rCeiqa9-1": "<p>ADD TO CART</p>",
-        "text_atEsQR1PLatSL0UL-1": "<p>Didn't quit in 30 Days? Money Back!</p>",
-        "text_C1CLZH3pOrXKstOX-1": "<p>Free & Fast Shipping</p>",
-        "text_ans9hucXbayb4kbO-1": "<p><strong>40% of people also add:</strong></p>",
-        "product_iHkQhaxofGrXVUGV-1": "lio®-complete",
-        "text_GaC9NJN2SZXWJlI8-1": "<h3>Classic Complete </h3>",
-        "text_DjybQJVdngGBdWz5-1": "<p>60 days of Flavour Cores</p>",
-        "product_4hjQJxviPeZqXWif-1": "lio®-diffuser",
-        "text_XESH5ae655wTgZ6n-1": "<h3>Classic Olive </h3>",
-        "text_7KcISUabvQTgzaUJ-1": "<p>Premium Olive Wood</p>",
-        "product_2UGNUAdKlcAUGVhO-1": "lio®-diffuser",
-        "text_6mfSmVf161jRUO5c-1": "<h3>Classic Walnut </h3>",
-        "text_xxBXF65VrMtcb7YC-1": "<p>Premium Walnut Wood</p>",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "science_research_PkfYbK": {
-      "type": "science-research",
-      "blocks": {
-        "research_zNpLMX": {
-          "type": "research",
-          "settings": {
-            "image": "shopify://shop_images/logo_gyeongsanggnu-Photoroom_4.png",
-            "name": "Cordell & Buckle",
-            "source": "<a href=\"https://pubmed.ncbi.nlm.nih.gov/23536963/\" title=\"https://pubmed.ncbi.nlm.nih.gov/23536963/\">Source: B. Cordell and J. Buckle, November 2013.</a>",
-            "review": "<p>A university-based study tested the effects of black pepper and angelica root essential oils on cravings. Both helped reduce the urge to engage in unhealthy habits, with black pepper providing the most craving relief and angelica offering the longest delay before the next urge.</p>",
-            "designation": "Aromatherapy & Craving Reduction",
-            "conclusion": "<p><strong>Conclusion: Aromatherapy helps reduce cravings and supports withdrawal relief.</strong></p>"
-          }
-        },
-        "research_hdNffU": {
-          "type": "research",
-          "settings": {
-            "image": "shopify://shop_images/logo_gyeongsanggnu-Photoroom_1.png",
-            "name": "Rose & Behm",
-            "source": "<a href=\"https://pubmed.ncbi.nlm.nih.gov/8033760/\" title=\"https://pubmed.ncbi.nlm.nih.gov/8033760/\">Source: J.E. Rose and F.M. Behm, July 1994.</a>",
-            "review": "<p>A randomized study at Duke University tested the effects of inhaling black pepper vapor on cravings and withdrawal symptoms in smokers. Participants who inhaled black pepper reported significantly reduced cravings, anxiety, and withdrawal symptoms compared to menthol and placebo groups.</p>",
-            "designation": "Black Pepper Vapor & Withdrawal Relief",
-            "conclusion": "<p><strong>Conclusion: Inhaling black pepper vapor reduces cravings and withdrawal symptoms.</strong></p>"
-          }
-        },
-        "research_wVqN98": {
-          "type": "research",
-          "settings": {
-            "image": "shopify://shop_images/logo_gyeongsanggnu-Photoroom_2.png",
-            "name": "Przulj, McRobbie & Hajek",
-            "source": "<a href=\"https://benthamopen.com/contents/pdf/TOADDJ/TOADDJ-5-41.pdf\" title=\"https://benthamopen.com/contents/pdf/TOADDJ/TOADDJ-5-41.pdf\">Source: D. Przulj, H. McRobbie, P. Hajek, January 2012.</a>",
-            "review": "<p>A scientific review at Queen Mary University examined sensorimotor replacement approaches, such as non-nicotine inhalators and e-cigarettes. These methods helped reduce cravings, especially when combined with nicotine replacement therapy, by replacing the hand-to-mouth ritual and sensory cues.</p>",
-            "designation": "Sensorimotor Replacement & Craving Reduction",
-            "conclusion": "<p><strong>Conclusion: Sensorimotor replacement can help reduce cravings and improve cessation outcomes when combined with standard therapies.</strong></p>"
-          }
-        },
-        "research_3tLTCQ": {
-          "type": "research",
-          "settings": {
-            "image": "shopify://shop_images/logo_gyeongsanggnu-Photoroom_3.png",
-            "name": "Sayette & Parrott",
-            "source": "<a href=\"https://www.researchgate.net/publication/2523285_A_Psychometric_Evaluation_of_the_Facial_Action_Coding_System_for_Assessing_Spontaneous_Expression\" title=\"https://www.researchgate.net/publication/2523285_A_Psychometric_Evaluation_of_the_Facial_Action_Coding_System_for_Assessing_Spontaneous_Expression\">Source: M.A. Sayette and D.J. Parrott, December 1999.</a>",
-            "review": "<p>A study at the University of Pittsburgh tested how pleasant scents affected cigarette cravings in smokers. Exposure to pleasant odors significantly reduced craving intensity compared to neutral conditions, suggesting olfactory cues help reduce urges.</p>",
-            "designation": "Olfactory Stimuli & Urge Reduction",
-            "conclusion": "<p><strong>Conclusion: Pleasant smells can help reduce cravings and manage urges.</strong></p>"
-          }
-        }
-      },
-      "block_order": [
-        "research_zNpLMX",
-        "research_hdNffU",
-        "research_wVqN98",
-        "research_3tLTCQ"
-      ],
-      "name": "Science Research",
-      "settings": {
-        "heading": "Science research"
-      }
-    },
     "our_promise_fTTciD": {
       "type": "our-promise",
       "name": "our-promise",
@@ -510,143 +436,325 @@
         "heading": "30 Days to Quit,",
         "highlighted-heading": "Or Money Back.",
         "sub-text": "<p>If you’re not satisfied after 30 days, we’ll give you a full refund, no questions asked.</p>",
-        "button-url": "#i26JL9iAF1K5CTpMT",
-        "button-text": "Claim 1+1 for free",
+        "button-url": "shopify://products/new-lio-journey-pack",
+        "button-text": "Make The Switch",
         "trust-text": ""
       }
     },
-    "lio_grid_product_xdHbnd": {
-      "type": "lio-grid-product",
-      "name": "lio-grid-product",
-      "settings": {
-        "image_1": "shopify://shop_images/Screenshot_2025-06-28_at_5.14.01_PM.webp",
-        "image_heading_1": "Journey packs",
-        "image_sub_heading_1": "Your first step toward a fresher habit.",
-        "image_link_1": "shopify://products/new-lio-journey-pack",
-        "image_url_text_1": "Start My Journey",
-        "image_2": "shopify://shop_images/J55A4617_3.webp",
-        "image_heading_2": "flavour Cores",
-        "image_sub_heading_2": "Refill your routine with our Cores",
-        "image_link_2": "shopify://products/flavour-box",
-        "image_url_text_2": "Shop Flavour Cores",
-        "image_3": "shopify://shop_images/J55A4617_1.webp",
-        "image_heading_3": "diffusers",
-        "image_sub_heading_3": "Feels like nature in your hand.",
-        "image_link_3": "/collections/lio®-products/#diffusers",
-        "image_url_text_3": "Shop Diffusers"
-      }
-    },
-    "join_the_movement_6hrh8y": {
-      "type": "join-the-movement",
+    "featured_product_q6YpDh": {
+      "type": "featured-product",
       "blocks": {
-        "infinite_video_acWnyz": {
-          "type": "infinite-video",
+        "title_FBddgW": {
+          "type": "title",
           "settings": {
-            "video": "shopify://files/videos/1724386284_V1.mp4",
-            "age": "32",
-            "review": "I haven’t come across anything as good as this. I thought it was nothing at first, but I quickly realized my cravings just disappeared once I started using it. It’s been an eye-opening experience."
+            "heading_tag": "h2"
           }
         },
-        "infinite_video_xHTADd": {
-          "type": "infinite-video",
+        "section_store_block_banner_YQbwpy": {
+          "type": "shopify://apps/section-store/blocks/block-banner/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
-            "video": "shopify://files/videos/default_8_mp4_V4.mp4",
-            "age": "62",
-            "review": "I’ve been using Lio for a week now. I smoked, vaped, and chewed gum for the past 30 years, but with Lio I’m not craving my vape at all. All the flavors are really good. I absolutely love it."
+            "gap": 2,
+            "text_align": "center",
+            "link": "",
+            "use_image": false,
+            "icon": "rocket",
+            "image_size": 30,
+            "image_position": "left",
+            "icon_color": "#b82020",
+            "title_text": "<p>This does <strong>not</strong> include a Lio Diffuser</p>",
+            "title_size": 14,
+            "title_color": "#ff9600",
+            "body_text": "",
+            "body_size": 8,
+            "body_color": "#ff9600",
+            "border": "dotted",
+            "border_thickness": 1,
+            "border_color": "#ff9600",
+            "radius": 16,
+            "background": "#fff8ec",
+            "shadow": "none",
+            "padding_vertical": 8,
+            "padding_horizontal": 16
           }
         },
-        "infinite_video_ri7eyq": {
-          "type": "infinite-video",
+        "section_store_block_review_summary_bbwyRD": {
+          "type": "shopify://apps/section-store/blocks/block-review-summary/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
-            "video": "shopify://files/videos/default_8_mp4_V8.mp4",
-            "age": "24",
-            "review": "I’ve been trying to quit for over 2 years, but nothing really worked. This little thing helped me cut down almost completely. I’m on day 14 now and it’s been such a big help. If you’re trying to quit, definitely give this a try, it really works."
+            "stars_custom": "shopify://shop_images/images_2_2.png",
+            "stars_count": 5,
+            "stars_size": 17,
+            "stars_gap": 2,
+            "stars_color": "#ffffff",
+            "stars_bg_color": "#00b67a",
+            "stars_bg_half_color": "#dddddd",
+            "first_text": "<p>Great</p>",
+            "first_text_size": 15,
+            "first_text_color": "#000000",
+            "second_text": "<p><strong>1230</strong> reviews</p>",
+            "second_text_size": 13,
+            "second_text_color": "#000000",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "background": "",
+            "background_gradient": "",
+            "padding_vertical": 0,
+            "padding_horizontal": 0
           }
         },
-        "infinite_video_jQWRbc": {
-          "type": "infinite-video",
+        "section_store_block_benefits_list_R3a9Xw": {
+          "type": "shopify://apps/section-store/blocks/block-benefits-list/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
-            "video": "shopify://files/videos/1744795548_V1.mp4",
-            "age": "28",
-            "review": "I quit smoking 14 days ago with Lio. At first, I worried it might trigger cravings, but instead it helped me appreciate a healthy body even more. It’s like breathing exercises, with amazing flavors.  I’ve already saved so much money."
+            "items_gap": 10,
+            "first_text": "<p>100,000+ Happy Customers</p>",
+            "second_text": "<p>Keep the hand-to-mouth habit</p>",
+            "third_text": "<p>No smoke, no vape, no nicotine</p>",
+            "fourth_text": "<p>Didn't quit within 30 days? Money back</p>",
+            "icon_size": 20,
+            "icon_color": "#00b67c",
+            "text_size": 15,
+            "text_color": "#000000",
+            "content_align": "left",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "background": "",
+            "background_gradient": "",
+            "padding_vertical": 0,
+            "padding_horizontal": 0
           }
         },
-        "infinite_video_9p793T": {
-          "type": "infinite-video",
+        "section_store_block_shipping_info_BMGwVW": {
+          "type": "shopify://apps/section-store/blocks/block-shipping-info/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
-            "video": "shopify://files/videos/WhatsApp_Video_2024_08_05_at_12_53_05_PM_2_V5.mp4",
-            "age": "48",
-            "review": "It blows my mind how a product like this hasn’t existed forever. I’ve been using it for 6 days and haven’t touched a vape since. This is an awesome product. I highly recommend it to everyone."
+            "use_dot": true,
+            "icon_color": "#00b67c",
+            "icon_size": 12,
+            "ships_by_text": "Delivery by",
+            "shipping_within_days": 3,
+            "include_weekend": false,
+            "ships_by_font_size": 14,
+            "ships_by_text_color": "#000000",
+            "fast_shipping_text": "<strong>Free Shipping</strong>",
+            "allow_all_countries": true,
+            "allowed_countries": "US,CH,DE,AT,FR,IT",
+            "fast_shipping_text_for_rest_countries": "Fast International Shipping",
+            "fast_shipping_text_color": "#00b67c",
+            "border_style": "none",
+            "border_width": 1,
+            "border_color": "#000000",
+            "border_radius": 8,
+            "bg_color": "#d4ece0",
+            "padding_vertical": 6,
+            "padding_horizontal": 15
           }
         },
-        "infinite_video_qDcMdD": {
-          "type": "infinite-video",
+        "price_dYQEdq": {
+          "type": "price",
           "settings": {
-            "video": "shopify://files/videos/1734082081_V2.mp4",
-            "age": "42",
-            "review": "I’ve been trying to quit smoking for months, but the hand-to-mouth habit was tough. Lio changed that. It feels natural, tastes good, and helped me cut my vaping by 80% in just 3 days."
+            "show_taxes_notice": false
           }
         },
-        "infinite_video_8eMNE4": {
-          "type": "infinite-video",
+        "rating_zBm6jP": {
+          "type": "rating",
           "settings": {
-            "video": "shopify://files/videos/default_8_mp4_V11.mp4",
-            "age": "32",
-            "review": "It’s amazing, this stuff really works. I went to a party and didn’t smoke anything. Even the smokers tried it and loved it. It really helps. I’m super satisfied."
+            "show_empty": false
           }
         },
-        "infinite_video_Te3Cqy": {
-          "type": "infinite-video",
+        "section_store_block_product_info_wrapper_8Qfmx7": {
+          "type": "shopify://apps/section-store/blocks/block-product-info-wrapper/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
-            "video": "shopify://files/videos/default_8_mp4_V6.mp4",
-            "age": "44",
-            "review": "I have to say I’m positively surprised by this. Even though there’s no nicotine, smoke, or vape, it satisfies the hand-to-mouth habit and the urge to take a drag. I got this 2 weeks ago, and I haven’t craved smoking or vaping at all since then."
+            "auto_detect_product_info_container": true,
+            "product_info_container_selector": "",
+            "use_on_mobile": true,
+            "use_header": false,
+            "header_font_size": 16,
+            "header_bg_color": "#000000",
+            "header_text_color": "#ffffff",
+            "header_text_align": "center",
+            "header_text": "♥︎ 9 of 10 recommend to friends",
+            "border_style": "solid",
+            "border_width": 1,
+            "border_color": "#dfdfdf",
+            "border_radius": 12,
+            "background_color": "",
+            "shadow": "shadow_1",
+            "padding_top": 14,
+            "padding_bottom": 14,
+            "padding_left": 14,
+            "padding_right": 14
           }
         },
-        "infinite_video_E6NkXE": {
-          "type": "infinite-video",
+        "description_rdK7fp": {
+          "type": "description",
           "settings": {
-            "video": "shopify://files/videos/1750180429_V1.mp4",
-            "age": "30",
-            "review": "I decided to get Lio over a week ago. I’ve been off my vape completely since, no smoke, no nicotine, and much cheaper. I highly recommend it to anyone wanting to quit."
+            "icon": "none",
+            "icon_width": 20,
+            "collapse_content": false
           }
         },
-        "infinite_video_KiDdqt": {
-          "type": "infinite-video",
+        "variant_picker_cYPy93": {
+          "type": "variant_picker",
           "settings": {
-            "video": "shopify://files/videos/1738065008_V1.mp4",
-            "age": "28",
-            "review": "I’ve been using Lio for two weeks. My bad habit was stress eating and sugar cravings whenever I felt anxious. Now, I just use Lio instead, and it actually works. I’m pretty happy with it."
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
           }
         },
-        "infinite_video_eDihND": {
-          "type": "infinite-video",
+        "section_store_block_banner_JEhMpn": {
+          "type": "shopify://apps/section-store/blocks/block-banner/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
-            "video": "shopify://files/videos/default_8_mp4_V10.mp4",
-            "age": "40",
-            "review": "I’ve been using Lio for 3 weeks now. I always wanted to quit IQOS, and this has been key in helping me do it. Whenever I felt the urge, Lio gave me a similar feeling and really took the edge off. This thing has been magical."
+            "gap": 2,
+            "text_align": "center",
+            "link": "",
+            "use_image": false,
+            "icon": "rocket",
+            "image_size": 30,
+            "image_position": "left",
+            "icon_color": "#b82020",
+            "title_text": "<p><strong>🚨 Double Your Cores! Only today! 🚨</strong></p>",
+            "title_size": 14,
+            "title_color": "#b82020",
+            "body_text": "<p>Add 2 = Pay for 1</p>",
+            "body_size": 30,
+            "body_color": "#b82020",
+            "border": "dotted",
+            "border_thickness": 1,
+            "border_color": "#b82020",
+            "radius": 16,
+            "background": "#ffecec",
+            "shadow": "none",
+            "padding_vertical": 12,
+            "padding_horizontal": 16
+          }
+        },
+        "buy_buttons_66y6Hf": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "section_store_block_benefits_boxes_2_DgAPTR": {
+          "type": "shopify://apps/section-store/blocks/block-benefits-boxes-2/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "cards_design": "vertical",
+            "cards_row": "3",
+            "card_align": "center",
+            "first_icon": "credit_card",
+            "first_title": "Money Back",
+            "first_sub_title": "if it didn't work",
+            "second_icon": "shield_check",
+            "second_title": "Free & Fast",
+            "second_sub_title": "Shipping",
+            "third_icon": "earth",
+            "third_title": "100.000+",
+            "third_sub_title": "people love it",
+            "all_size": 19,
+            "all_color": "#00b67c",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "cards_bg_color": "",
+            "padding_vertical": 0,
+            "padding_horizontal": 0
+          }
+        },
+        "section_store_block_countdown_timer_Vm8xP7": {
+          "type": "shopify://apps/section-store/blocks/block-countdown-timer/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "hour": 0,
+            "minute": 46,
+            "second": 26,
+            "progress_start": 70,
+            "action_on_complete": "hide",
+            "number_size": 15,
+            "number_color": "#000000",
+            "text": "<p>Shipped today if you order within:</p>",
+            "text_size": 14,
+            "text_color": "#000000",
+            "progress_default_color": "#ebe9eb",
+            "progress_active_color": "#000000",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "background": "",
+            "padding_top": 4,
+            "padding_bottom": 4,
+            "padding_left": 0,
+            "padding_right": 0
+          }
+        },
+        "section_store_block_payment_icons_2_L6zGwG": {
+          "type": "shopify://apps/section-store/blocks/block-payment-icons-2/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "icons_layout": "fixed_grid",
+            "icons_per_row": 10,
+            "icons_per_row_mobile": 10,
+            "gap": 10,
+            "icons_align": "center",
+            "icons_monochrome": false,
+            "enable_first_image": false,
+            "enable_second_image": false,
+            "enable_third_image": false,
+            "icon_size": 20,
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "background": "",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_left": 0,
+            "padding_right": 0
           }
         }
       },
       "block_order": [
-        "infinite_video_acWnyz",
-        "infinite_video_xHTADd",
-        "infinite_video_ri7eyq",
-        "infinite_video_jQWRbc",
-        "infinite_video_9p793T",
-        "infinite_video_qDcMdD",
-        "infinite_video_8eMNE4",
-        "infinite_video_Te3Cqy",
-        "infinite_video_E6NkXE",
-        "infinite_video_KiDdqt",
-        "infinite_video_eDihND"
+        "title_FBddgW",
+        "section_store_block_banner_YQbwpy",
+        "section_store_block_review_summary_bbwyRD",
+        "section_store_block_benefits_list_R3a9Xw",
+        "section_store_block_shipping_info_BMGwVW",
+        "price_dYQEdq",
+        "rating_zBm6jP",
+        "section_store_block_product_info_wrapper_8Qfmx7",
+        "description_rdK7fp",
+        "variant_picker_cYPy93",
+        "section_store_block_banner_JEhMpn",
+        "buy_buttons_66y6Hf",
+        "section_store_block_benefits_boxes_2_DgAPTR",
+        "section_store_block_countdown_timer_Vm8xP7",
+        "section_store_block_payment_icons_2_L6zGwG"
       ],
-      "name": "join-the-movement",
+      "name": "Featured product",
       "settings": {
-        "trust-text": "Trusted by 80,000+ people",
-        "heading": "Stories of people just like you",
-        "highlighted-heading": "",
-        "age-text": "age"
+        "full_width": true,
+        "product": "double-your-cores",
+        "desktop_media_width": 55,
+        "desktop_media_layout": "carousel_thumbnails_left",
+        "mobile_media_size": "expanded",
+        "mobile_carousel_control": "thumbnails",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
       }
     },
     "benefits_section_KkixCJ": {
@@ -684,469 +792,33 @@
         "gen-usp6-text": "Easy to carry, easy to use, anywhere you go."
       }
     },
-    "instant_q_xz_qdr_ck_ki_cae_gkq_bEd4yt": {
-      "type": "instant-QXzQdrCKKiCAEGkq",
-      "name": "EXPLAINER VIDEO",
-      "settings": {
-        "text_lfwOTQxMTMRSG1QL": "<h3>Lio diffuser?</h3>",
-        "text_UFe3Olrd368XrYCk": "<h3>what is a</h3>",
-        "video_bWObCp9nkSvq5757": "shopify://files/videos/THIS ONE IS UT.mp4",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "simple_steps_dbKHVK": {
-      "type": "simple-steps",
-      "name": "Simple-steps",
-      "settings": {
-        "heading": "",
-        "icon-1": "shopify://shop_images/Mask_group11_1.png",
-        "text-1": "1: Fray the Core",
-        "icon-2": "shopify://shop_images/Mask_group11_2.png",
-        "text-2": "2: INsert the core",
-        "icon-3": "shopify://shop_images/Mask_group11_3.png",
-        "text-3": "3: Craving relief"
-      }
-    },
-    "before_after_lio_TXa7cL": {
-      "type": "before-after-lio",
+    "1763697576b75fd508": {
+      "type": "apps",
       "blocks": {
-        "review_AqV3Bz": {
-          "type": "review",
+        "loox_reviews_loox_agg_section_gyTJaH": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
           "settings": {
-            "name": "Dr. Peter Hajek",
-            "review": "<p><strong>Queen Mary University of London<br/></strong><br/>“Replacing the physical rituals of smoking, like holding, inhaling, and exhaling, can help reduce cravings and support quitting.”</p>"
-          }
-        },
-        "review_wtdmVm": {
-          "type": "review",
-          "settings": {
-            "name": "Dr. Jane Buckle",
-            "review": "<p><strong>Columbia University<br/></strong><br/>“Inhaled black pepper and angelica essential oils were shown to reduce cravings and extend time between urges.”</p>"
-          }
-        },
-        "review_GPt6L6": {
-          "type": "review",
-          "settings": {
-            "name": "Dr. Jed E. Rose",
-            "review": "<p><strong>Duke University Medical Center</strong></p><p>“Vapor from black pepper oil eased withdrawal symptoms and reduced cravings in smokers.”</p>"
-          }
-        },
-        "review_NYVwnE": {
-          "type": "review",
-          "settings": {
-            "name": "Dr. Judson Brewer",
-            "review": "<p><strong>Yale School of Medicine</strong></p><p>“Mindful breathing can help rewire the brain’s craving circuits.”</p>"
-          }
-        },
-        "compare_RpfgrN": {
-          "type": "compare",
-          "settings": {
-            "before-lio": "Tried to quit, failed.",
-            "after-lio": "Finally quit."
-          }
-        },
-        "compare_c7pbhc": {
-          "type": "compare",
-          "settings": {
-            "before-lio": "Feeling stuck",
-            "after-lio": "Enjoying freedom"
-          }
-        },
-        "compare_rFCnWn": {
-          "type": "compare",
-          "settings": {
-            "before-lio": "Feeling guilty",
-            "after-lio": "Feeling proud"
-          }
-        },
-        "compare_dBzTDN": {
-          "type": "compare",
-          "settings": {
-            "before-lio": "In a loop",
-            "after-lio": "In control"
+            "only_photos": false,
+            "hide_thumbnails": true,
+            "product_handle": "",
+            "aggregated": true,
+            "data-limit": 20,
+            "maxwidth": 1080,
+            "is_sample": true
           }
         }
       },
       "block_order": [
-        "review_AqV3Bz",
-        "review_wtdmVm",
-        "review_GPt6L6",
-        "review_NYVwnE",
-        "compare_RpfgrN",
-        "compare_c7pbhc",
-        "compare_rFCnWn",
-        "compare_dBzTDN"
-      ],
-      "name": "before-after-lio",
-      "settings": {
-        "heading": "SAME HABIT,<br>",
-        "highlighted-heading": "Nothing bad.",
-        "sub-text": "Lio feels like the habit you're used to,  just without the bad stuff.",
-        "trust-text": "Average 4.9/5 Reviews",
-        "before-lio": "OLD YOU",
-        "after-lio": "NEW YOU"
-      }
-    },
-    "usp_auto_icons_YfbK7R": {
-      "type": "usp-auto-icons",
-      "blocks": {
-        "usp_CqwncU": {
-          "type": "usp",
-          "settings": {
-            "title": "Sustainable & Eco-Friendly",
-            "icon": "shopify://shop_images/8.svg"
-          }
-        },
-        "usp_9Tea4G": {
-          "type": "usp",
-          "settings": {
-            "title": "3 Cores Per Bag",
-            "icon": "shopify://shop_images/9.svg"
-          }
-        },
-        "usp_qMXMgW": {
-          "type": "usp",
-          "settings": {
-            "title": " Powered by Natural Flavors",
-            "icon": "shopify://shop_images/7.svg"
-          }
-        },
-        "usp_gxThzH": {
-          "type": "usp",
-          "settings": {
-            "title": "Nicotine-Free Alternative",
-            "icon": "shopify://shop_images/6.svg"
-          }
-        }
-      },
-      "block_order": [
-        "usp_CqwncU",
-        "usp_9Tea4G",
-        "usp_qMXMgW",
-        "usp_gxThzH"
+        "loox_reviews_loox_agg_section_gyTJaH"
       ],
       "disabled": true,
-      "name": "usp-auto-icons",
       "settings": {
-        "custom-class": ""
-      }
-    },
-    "expert_section_hWj3m6": {
-      "type": "expert-section",
-      "blocks": {
-        "review_zNpLMX": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/logo_gyeongsanggnu-Photoroom_4.png",
-            "name": "Cordell & Buckle",
-            "date": "2013",
-            "review": "<p>A university-based study tested the effects of black pepper and angelica root essential oils on cravings. Both helped reduce the urge to engage in unhealthy habits, with black pepper providing the most craving relief and angelica offering the longest delay before the next urge.</p>",
-            "designation": "Aromatherapy & Craving Reduction",
-            "conclusion": "<p><strong>Conclusion: Aromatherapy helps reduce cravings and supports withdrawal relief.</strong><br/><br/><a href=\"https://pubmed.ncbi.nlm.nih.gov/23536963/\" title=\"https://pubmed.ncbi.nlm.nih.gov/23536963/\"><em>Source: B. Cordell and J. Buckle, November 2013.</em></a></p>"
-          }
-        },
-        "review_hdNffU": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/logo_gyeongsanggnu-Photoroom_1.png",
-            "name": "Rose & Behm",
-            "date": "1994",
-            "review": "<p>A randomized study at Duke University tested the effects of inhaling black pepper vapor on cravings and withdrawal symptoms in smokers. Participants who inhaled black pepper reported significantly reduced cravings, anxiety, and withdrawal symptoms compared to menthol and placebo groups.</p>",
-            "designation": "Black Pepper Vapor & Withdrawal Relief",
-            "conclusion": "<p><strong>Conclusion: Inhaling black pepper vapor reduces cravings and withdrawal symptoms.<br/></strong><br/><a href=\"https://pubmed.ncbi.nlm.nih.gov/8033760/\" title=\"https://pubmed.ncbi.nlm.nih.gov/8033760/\">Source: J.E. Rose and F.M. Behm, July 1994.</a></p>"
-          }
-        },
-        "review_wVqN98": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/logo_gyeongsanggnu-Photoroom_2.png",
-            "name": "Przulj, McRobbie & Hajek",
-            "date": "2012",
-            "review": "<p>A scientific review at Queen Mary University examined sensorimotor replacement approaches, such as non-nicotine inhalators and e-cigarettes. These methods helped reduce cravings, especially when combined with nicotine replacement therapy, by replacing the hand-to-mouth ritual and sensory cues.</p>",
-            "designation": "Sensorimotor Replacement & Craving Reduction",
-            "conclusion": "<p><strong>Conclusion: Sensorimotor replacement can help reduce cravings and improve cessation outcomes when combined with standard therapies.<br/></strong><br/><a href=\"https://benthamopen.com/contents/pdf/TOADDJ/TOADDJ-5-41.pdf\" title=\"https://benthamopen.com/contents/pdf/TOADDJ/TOADDJ-5-41.pdf\">Source: D. Przulj, H. McRobbie, P. Hajek, January 2012.</a></p>"
-          }
-        },
-        "review_3tLTCQ": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/logo_gyeongsanggnu-Photoroom_3.png",
-            "name": "Sayette & Parrott",
-            "date": "1999",
-            "review": "<p>A study at the University of Pittsburgh tested how pleasant scents affected cigarette cravings in smokers. Exposure to pleasant odors significantly reduced craving intensity compared to neutral conditions, suggesting olfactory cues help reduce urges.</p>",
-            "designation": "Olfactory Stimuli & Urge Reduction",
-            "conclusion": "<p><strong>Conclusion: Pleasant smells can help reduce cravings and manage urges.</strong><br/><br/><a href=\"https://www.researchgate.net/publication/2523285_A_Psychometric_Evaluation_of_the_Facial_Action_Coding_System_for_Assessing_Spontaneous_Expression\" title=\"https://www.researchgate.net/publication/2523285_A_Psychometric_Evaluation_of_the_Facial_Action_Coding_System_for_Assessing_Spontaneous_Expression\">Source: M.A. Sayette and D.J. Parrott, December 1999.</a></p>"
-          }
-        }
-      },
-      "block_order": [
-        "review_zNpLMX",
-        "review_hdNffU",
-        "review_wVqN98",
-        "review_3tLTCQ"
-      ],
-      "name": "expert-section",
-      "settings": {
-        "heading": "Backed by",
-        "highlighted-heading": "Research",
-        "sub-text": "Studies show natural scents and simple habits can help people quit safely and cut cravings, proven by real experts.",
-        "left-sub-text": "more likely to stay nicotine-free",
-        "button-url": "",
-        "button-text": "Learn more"
-      }
-    },
-    "flavours_section_XjqGMW": {
-      "type": "flavours-section",
-      "blocks": {
-        "flavor_VREVYn": {
-          "type": "flavor",
-          "settings": {
-            "bg_color": "#e4a933",
-            "overlay_color": "#e13a1e",
-            "image": "shopify://shop_images/ohh_my_Orange.png",
-            "title": "Orange",
-            "copy": "The funky mix of orange and lemon",
-            "freshness": "Low mint",
-            "throat_hit": "Easy on the throat",
-            "sweetness": "Citrus-forward",
-            "freshness_val": 96,
-            "throat_hit_val": 24,
-            "sweetness_val": 70
-          }
-        },
-        "flavor_Ha8ErR": {
-          "type": "flavor",
-          "settings": {
-            "bg_color": "#dc1d41",
-            "overlay_color": "#e44260",
-            "image": "shopify://shop_images/Razzy_Berry.png",
-            "title": "Razzy berry",
-            "copy": "The funky mix of Rasberry and lio flavor",
-            "freshness": "Soft & mellow",
-            "throat_hit": "Gentle buzz",
-            "sweetness": "Bursting with berry",
-            "freshness_val": 20,
-            "throat_hit_val": 20,
-            "sweetness_val": 82
-          }
-        },
-        "flavor_WbzzU9": {
-          "type": "flavor",
-          "settings": {
-            "bg_color": "#941840",
-            "overlay_color": "#be3762",
-            "image": "shopify://shop_images/Mango_passion.png",
-            "title": "Mango passion",
-            "copy": "The funky mix of mango and lio flavor",
-            "freshness": "No coolness",
-            "throat_hit": "Smooth & fruity",
-            "sweetness": "Tropical sweetness",
-            "freshness_val": 50,
-            "throat_hit_val": 50,
-            "sweetness_val": 50
-          }
-        },
-        "flavor_yGX8WF": {
-          "type": "flavor",
-          "settings": {
-            "bg_color": "#b94449",
-            "overlay_color": "#8b2326",
-            "image": "shopify://shop_images/Cinnamon_spice.png",
-            "title": "Cinamon spice",
-            "copy": "The funky mix of CINAMON and SPICE",
-            "freshness": "Cozy herbal edge",
-            "throat_hit": "Warm & spicy",
-            "sweetness": "Balanced bite",
-            "freshness_val": 19,
-            "throat_hit_val": 80,
-            "sweetness_val": 43
-          }
-        },
-        "flavor_4EpxiD": {
-          "type": "flavor",
-          "settings": {
-            "bg_color": "#a1dbf9",
-            "overlay_color": "#2c81ce",
-            "image": "shopify://shop_images/Minty_magic.png",
-            "title": "minty magic",
-            "copy": "The funky mix of MINT and MAGIC",
-            "freshness": "Ice-fresh finish",
-            "throat_hit": "Bold & cooling",
-            "sweetness": "Subtly sweet",
-            "freshness_val": 79,
-            "throat_hit_val": 50,
-            "sweetness_val": 50
-          }
-        },
-        "flavor_yAyyjX": {
-          "type": "flavor",
-          "settings": {
-            "bg_color": "#76d6a5",
-            "overlay_color": "#3bb16e",
-            "image": "shopify://shop_images/Cold_turkey.png",
-            "title": "Cold turkey",
-            "copy": "The funky mix of Cores and lio flavor",
-            "freshness": "Pure clean exhale",
-            "throat_hit": "Strong & crisp",
-            "sweetness": "Lightly sweetened",
-            "freshness_val": 95,
-            "throat_hit_val": 50,
-            "sweetness_val": 11
-          }
-        }
-      },
-      "block_order": [
-        "flavor_VREVYn",
-        "flavor_Ha8ErR",
-        "flavor_WbzzU9",
-        "flavor_yGX8WF",
-        "flavor_4EpxiD",
-        "flavor_yAyyjX"
-      ],
-      "name": "flavours-section",
-      "settings": {
-        "price-title": "Shop Flavours for",
-        "sub": "flavour cores",
-        "heading": "Taste the Change",
-        "url": "/collections/lio®-products/#cores"
-      }
-    },
-    "good_vs_bad_kKxKYP": {
-      "type": "good-vs-bad",
-      "blocks": {
-        "compare_YTUXN7": {
-          "type": "compare",
-          "settings": {
-            "image": "shopify://shop_images/aaslip.png",
-            "text-1": "Natural",
-            "text-2": "Feeling",
-            "text-3": "Chemical",
-            "text-4": "Feeling"
-          }
-        },
-        "compare_FrTmLM": {
-          "type": "compare",
-          "settings": {
-            "image": "shopify://shop_images/lippi.png",
-            "text-1": "Having",
-            "text-2": "Freedom",
-            "text-3": "Being",
-            "text-4": "Stuck"
-          }
-        },
-        "compare_gcWnNr": {
-          "type": "compare",
-          "settings": {
-            "image": "shopify://shop_images/lung-1.png",
-            "text-1": "UNHEALTHY",
-            "text-2": "LUNGS",
-            "text-3": "HEALTHY",
-            "text-4": "LUNGS"
-          }
-        },
-        "compare_4wAUiX": {
-          "type": "compare",
-          "settings": {
-            "image": "shopify://shop_images/lady-1.png",
-            "text-1": "YOU'RE",
-            "text-2": "DRAINED",
-            "text-3": "YOU'RE",
-            "text-4": "ENERGIZED"
-          }
-        },
-        "compare_UEVETp": {
-          "type": "compare",
-          "settings": {
-            "image": "shopify://shop_images/piggy-1.png",
-            "text-1": "WASTE",
-            "text-2": "MONEY",
-            "text-3": "SAVE",
-            "text-4": "MONEY"
-          }
-        },
-        "info_TXzNeL": {
-          "type": "info",
-          "settings": {
-            "text": "Day 1 — First breath without nicotine"
-          }
-        },
-        "info_NHLBX3": {
-          "type": "info",
-          "settings": {
-            "text": "Week 1 — Cravings come, you stay in control"
-          }
-        },
-        "info_ymGF7M": {
-          "type": "info",
-          "settings": {
-            "text": "Week 2 — Breathing clearer, sleeping better"
-          }
-        },
-        "info_ce8tqT": {
-          "type": "info",
-          "settings": {
-            "text": "Week 3 — Habit weakens, you feel stronger"
-          }
-        },
-        "info_riPk9n": {
-          "type": "info",
-          "settings": {
-            "text": "Week 4 — Free, proud, fully yourself again"
-          }
-        }
-      },
-      "block_order": [
-        "compare_YTUXN7",
-        "compare_FrTmLM",
-        "compare_gcWnNr",
-        "compare_4wAUiX",
-        "compare_UEVETp",
-        "info_TXzNeL",
-        "info_NHLBX3",
-        "info_ymGF7M",
-        "info_ce8tqT",
-        "info_riPk9n"
-      ],
-      "name": "good-vs-bad",
-      "settings": {
-        "heading": "The Good vs The",
-        "highlighted-heading": "Bad",
-        "sub-text": "Lio® vs. smoking, vaping, patches, and gum, see what sets us apart.",
-        "button-url": "shopify://products/new-lio-journey-pack",
-        "button-text": "Start Your Journey",
-        "table-text": "What to expect"
-      }
-    },
-    "transformation_cmHyga": {
-      "type": "transformation",
-      "disabled": true,
-      "name": "transformation-section",
-      "settings": {
-        "sub-text": "",
-        "left-text": "",
-        "left-sub-text": "j",
-        "counter-top-text": "MORE THEN",
-        "counter-bottom-text": "THOUSAND PEOPLE USE LIO",
-        "button-url": "shopify://products/new-lio-journey-pack",
-        "button-text": "Start My Journey",
-        "step_one": "STARTING OUT",
-        "step_two": "FEELING THE SHIFT",
-        "step_three": "CONFIDENCE TAKES OVER",
-        "survey": "*Internal survey conducted with active Lio users, 2025"
-      }
-    },
-    "instant_nwr_u_dx_xiop4_x_zc_rf_BNkRhX": {
-      "type": "instant-nwrUDxXIOP4XZcRf",
-      "custom_css": [
-        ".iKXd3bKSUDjQWRMjZ {display: none;}"
-      ],
-      "name": "LOOX REVIEWS",
-      "settings": {
-        "text_67M6c8SZyKKmkMTS": "<h3>more than 80.000 happy customers</h3>",
-        "text_b7cR5hCCIWghXSa2": "<p>4,7/5 based on 800+ reviews</p>",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
       }
     },
     "ecom_faq_3gRGkD": {
@@ -1155,6 +827,7 @@
         "question_wgkmgX": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "What are the ingredients?",
             "content": "<p>Lio® Flavour Cores are made with 100% natural ingredients. They don’t have nicotine, smoke, vapor, or chemicals. They offer a clean, tasty air that helps you break bad habits safely.</p>"
           }
@@ -1162,6 +835,7 @@
         "question_LAbnnq": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "What does flavored air taste like?",
             "content": "<p>If you’re used to vapor, Lio feels lighter at first. Think of it like a herbal tea instead of soda: less harsh, more natural, and better for you.</p>"
           }
@@ -1169,6 +843,7 @@
         "question_eiDnJV": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "What are cores made of?",
             "content": "<p>Each Core uses medical-grade polyester. The fiber is filled with natural plant oils from farms we work with around the world.</p>"
           }
@@ -1176,6 +851,7 @@
         "question_CYDXWF": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "How long do the Lio Cores last?",
             "content": "<p>Each Core lasts 2–4 days, depending on how much you use it. If you use it a lot, you might need to change it more often.</p>"
           }
@@ -1183,6 +859,7 @@
         "question_mzqPjk": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "How often can I use Lio?",
             "content": "<p>You can use Lio as much as you want. If you feel any discomfort, stop using and talk to your doctor.</p>"
           }
@@ -1190,6 +867,7 @@
         "question_CMify8": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "Is Lio safe to use?",
             "content": "<p><strong>Yes, </strong>absolutely<strong>!</strong> Lio is made with natural ingredients and has no nicotine, smoke, or harmful chemicals.</p>"
           }
@@ -1197,6 +875,7 @@
         "question_44hFeD": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "Shipping & Refunds",
             "content": "<p><strong>Worldwide shipping - For Free<br/></strong>We ship worldwide from the Netherlands with free shipping on all orders. Delivery takes 2-3 days within Europe, 4-8 days outside Europe, and next-day delivery in the Middle East (from Dubai).<br/><br/><strong>The Money Back Guarantee</strong><br/>If you’ve used Lio™, commit to a 30 days to experience its benefits. After completing the 30-day journey, you have 7 days to request a refund if you’re not satisfied. This ensures you have enough time to fully explore its impact before making a decision.</p>"
           }
@@ -1204,6 +883,7 @@
         "question_htK8yE": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "How does Lio work?",
             "content": "<p>Lio helps you keep the hand-to-mouth habit but with clean, tasty air instead. It keeps you relaxed and makes quitting smoking or vaping easier.</p>"
           }
@@ -1211,6 +891,7 @@
         "question_zE9BfB": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "Can I use Lio anywhere?",
             "content": "<p>Yes. You can use Lio anywhere because there's no smoke or vapor</p>"
           }
@@ -1229,39 +910,23 @@
       ],
       "name": "Ecom FAQ",
       "settings": {
-        "padding_top": 32,
-        "padding_top_desktop": 40,
-        "padding_bottom": 32,
-        "padding_bottom_desktop": 40,
         "title": "You asked we",
-        "high-title": "answered"
+        "high_title": "Questions",
+        "show_categories": true,
+        "category_1_name": "Product",
+        "category_2_name": "General"
       }
     }
   },
   "order": [
     "new_homepage_banner_gFaJDm",
-    "ecom_highlight_info_xX3g3V",
-    "infinite_logo_section_6jwaYP",
-    "infinite_section_W8PBf7",
+    "featured_product_YqCfNV",
     "icon_text_1_kVM4dK",
-    "instant_ayc_l8_zs7zs_arn6_if_bKrVJb",
-    "175192946775f56041",
-    "product_main_BVqKQn",
-    "instant_sro_kx_rj_k_quw_ms37d_rE8m8d",
-    "science_research_PkfYbK",
+    "infinite_section_W8PBf7",
     "our_promise_fTTciD",
-    "lio_grid_product_xdHbnd",
-    "join_the_movement_6hrh8y",
+    "featured_product_q6YpDh",
     "benefits_section_KkixCJ",
-    "instant_q_xz_qdr_ck_ki_cae_gkq_bEd4yt",
-    "simple_steps_dbKHVK",
-    "before_after_lio_TXa7cL",
-    "usp_auto_icons_YfbK7R",
-    "expert_section_hWj3m6",
-    "flavours_section_XjqGMW",
-    "good_vs_bad_kKxKYP",
-    "transformation_cmHyga",
-    "instant_nwr_u_dx_xiop4_x_zc_rf_BNkRhX",
+    "1763697576b75fd508",
     "ecom_faq_3gRGkD"
   ]
 }

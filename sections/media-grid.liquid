@@ -71,7 +71,7 @@ LIQUID
                     {%- assign loop_video = true -%}
                   {%- endif -%}
 
-                  {{- block.settings.video | video_tag: playsinline: true, muted: true, loop: loop_video, controls: block.settings.show_video_controls, preload: 'metadata', class: 'object-fill' -}}
+                  {{- block.settings.video | video_tag: playsinline: true, muted: true, loop: loop_video, controls: block.settings.show_video_controls, preload: 'none', class: 'object-fill' -}}
                 </video-media>
               {%- else -%}
                 <video-media host="{{ block.settings.external_video_url.type }}" autoplay style="--aspect-ratio: auto">

@@ -43,20 +43,16 @@
         "show_shipping_text": false,
         "show_view_cart_button": false,
         "show_checkout_button": true,
-        "recommendations_title": "Frequently bought together",
+        "recommendations_title": "🚨 Double Your Cores! Only today! 🚨",
         "products": [
-          "cinnamon-spice",
-          "lio®-cold-turkey-1",
-          "lio®-ohh-my-orange-copy"
+          "double-your-cores"
         ],
         "product_card_background": "#f2f2f2",
         "product_card_text_color": "",
         "shipping_cost_label": "Shipping cost",
         "shipping_free_label": "Free",
         "shipping_calculated_label": "Calculated at checkout",
-        "guarantee_label": "30-Day Money-Back Guarantee",
-        "subscription_label": "Subscribed",
-        "subscription_icon": "shopify://shop_images/repeat_icon_a9e21300-2a9c-406c-9808-4ea4b51a8bfe.svg"
+        "guarantee_label": "30-Day Money-Back Guarantee"
       }
     },
     "search-drawer": {
@@ -68,29 +64,12 @@
         "search_menu": "",
         "search_menu_show_title": true
       }
-    },
-    "lio_calculator_pop_6mYhXU": {
-      "type": "Lio-calculator-pop",
-      "disabled": true,
-      "name": "Lio calculator Pop",
-      "settings": {
-        "heading": "SAVE CALCULATOR",
-        "per_week_label": "Cigarettes per week:",
-        "per_week_label_2": "Vape per week:",
-        "current_spend_label": "Your current spending",
-        "lio_spend_label": "Cost of switching to lio",
-        "per_month_label": "Per month",
-        "per_year_label": "Per year",
-        "you_save_label": "YOU SAVE",
-        "button_text": "Make the switch & save"
-      }
     }
   },
   "order": [
     "newsletter-popup",
     "privacy-banner",
     "cart-drawer",
-    "search-drawer",
-    "lio_calculator_pop_6mYhXU"
+    "search-drawer"
   ]
 }

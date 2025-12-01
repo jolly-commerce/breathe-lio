@@ -98,12 +98,12 @@ LIQUID
             {%- if block.settings.video != blank -%}
               {%- if block.settings.mobile_video != blank -%}
                 <video-media class="sm:hidden" {% if section.settings.image_size == 'auto' %}style="--aspect-ratio: {{ block.settings.mobile_video.aspect_ratio }}"{% endif %}>
-                  {{- block.settings.mobile_video | video_tag: class: 'object-cover sm:hidden', controls: false, autoplay: false, playsinline: true, muted: true, loop: video_loop, preload: 'metadata', image_size: '400x' -}}
+                  {{- block.settings.mobile_video | video_tag: class: 'object-cover sm:hidden', controls: false, autoplay: false, playsinline: true, muted: true, loop: video_loop, preload: 'none', image_size: '400x' -}}
                 </video-media>
               {%- endif -%}
 
               <video-media {% if block.settings.mobile_video != blank %}class="hidden sm:block"{% endif %} {% if section.settings.image_size == 'auto' %}style="--aspect-ratio: {{ block.settings.video.aspect_ratio }}"{% endif %}>
-                {{- block.settings.video | video_tag: playsinline: true, preload: 'metadata', muted: true, loop: video_loop, autoplay: false, controls: false, image_size: '800x' -}}
+                {{- block.settings.video | video_tag: playsinline: true, preload: 'none', muted: true, loop: video_loop, autoplay: false, controls: false, image_size: '800x' -}}
               </video-media>
             {%- else -%}
               {%- capture placeholder_image -%}{% cycle 'placeholder': 'lifestyle-1', 'lifestyle-2' %}{%- endcapture -%}

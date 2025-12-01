@@ -1,0 +1,43 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "page.instant-VtDPv74OYvlpq7JG.json",
+  "context": {
+    "market": "7a040a7a-bc3b-4136-81cd-f9f2269f2d5b"
+  },
+  "sections": {
+    "join_the_movement_fXEqdY": {
+      "settings": {},
+      "blocks": {
+        "infinite_video_6PxqLj": {
+          "settings": {
+            "video": "shopify://files/videos/52524990_2a24_496a_8ecb_8b065582ba37_3_MP4_V4.mp4"
+          }
+        }
+      }
+    },
+    "instant_fih_w_wn_s_ao9j_ru_di_o_FatNM7": {
+      "settings": {
+        "text_k74RtmNN6VXYNzLv": "<p>Dagen</p>"
+      },
+      "blocks": {}
+    },
+    "instant_at_vr_ir_q_im_unu_nzzk_GteKCQ": {
+      "settings": {
+        "text_xQgrPj4f8liFZ9Nf-1": "<p>1 + 1 GRATIS</p>",
+        "text_q0PzjHpC2bKWerK4-1": "<p>Rook niet,</p><p>VApe NIET,</p>",
+        "text_aZdv7tucVjxm7TeL-1": "<p>ADEM GEWOON.</p>",
+        "text_lGTGw7QxORPKZteW-1": "<p>Rook niet,</p><p>VApe NIET, ADEM GEWOON.</p>",
+        "text_c6RvXd1jTQweEOmq-1": "<p>Claim 1+1 Gratis</p>"
+      },
+      "blocks": {}
+    }
+  }
+}

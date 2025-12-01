@@ -137,7 +137,7 @@ div#Stat-stat_iRxVxq .about-stats__number {
 
     <div class="about-stats__image">
       {% if section.settings.image != blank %}
-        <img
+        <img loading="lazy"
           src="{{ section.settings.image | img_url: 'master' }}"
           alt="alternae"
         >

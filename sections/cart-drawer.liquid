@@ -14,8 +14,7 @@
         <p class="h5">{{ 'cart.general.empty' | t }}</p>
 
         {%- assign button_content = 'cart.general.continue_shopping' | t -%}
-        {%- render 'button', href: settings.cart_empty_button_link, size: 'xl', content: button_content -%}
-      </div>
+{%- render 'button', is: 'close-button', size: 'xl', content: button_content -%}      </div>
     </div>
   {%- else -%}
     <div class="cart-drawer__inner">
@@ -80,8 +79,8 @@
                   {%- endif -%}
  {%- if rendered_recommendations > 1 -%}
                  <div class="navigation-links">
-   <img class="left-navigation" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/left-cirlce-got.svg?v=1750158089" width="24" height="24" />
-    <img class="right-navigation" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/right-cirlce-got.svg?v=1750158089" width="24" height="24" />
+   <img loading="lazy" class="left-navigation" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/left-cirlce-got.svg?v=1750158089" width="24" height="24" />
+    <img loading="lazy" class="right-navigation" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/right-cirlce-got.svg?v=1750158089" width="24" height="24" />
    </div>
    {% endif %}
                 </div>
@@ -112,46 +111,6 @@
             <span class="text-subdued">-{{ discount_application.total_allocated_amount | money }}</span>
           </div>
         {% endfor %}
-    
-        {%- comment -%} TEST-CART_001 - START {%- endcomment -%}
-        {%- liquid
-          assign calculated_total_price = 0
-
-          for line_item in cart.items
-            if line_item.requires_shipping
-              assign calculated_total_price = calculated_total_price | plus: line_item.final_line_price
-            endif
-          endfor
-
-          # We have to remove the cart level discount from the calculated amount
-          assign total_cart_discount = 0
-
-          for discount_application in cart.cart_level_discount_applications
-            assign total_cart_discount = total_cart_discount | plus: discount_application.total_allocated_amount
-          endfor
-
-          assign calculated_total_price = calculated_total_price | minus: total_cart_discount
-        -%}
-
-        {%- if cart.requires_shipping -%}
-          <shipping-cost-display 
-            class="cart-drawer__shipping-cost-display gap-2 justify-between" 
-            threshold="{{ settings.cart_free_shipping_threshold | times: 100.0 }}" 
-            total-price="{{ calculated_total_price }}"
-            free-label="{{ section.settings.shipping_free_label | default: 'Free' }}"
-            calculated-label="{{ section.settings.shipping_calculated_label | default: 'Calculated at checkout' }}">
-            <span class="h5">{{ section.settings.shipping_cost_label | default: 'Shipping cost' }}</span>
-            <span class="cart-drawer__shipping-cost-display-value">
-              {%- assign shipping_threshold_in_cents = settings.cart_free_shipping_threshold | times: 100.0 -%}
-              {%- if calculated_total_price >= shipping_threshold_in_cents -%}
-                {{ section.settings.shipping_free_label | default: 'Free' }}
-              {%- else -%}
-                {{ section.settings.shipping_calculated_label | default: 'Calculated at checkout' }}
-              {%- endif -%}
-            </span>
-          </shipping-cost-display>
-        {%- endif -%}
-        {%- comment -%} TEST-CART_001 - END {%- endcomment -%}
 
         <div class="h-stack gap-4 justify-between">
           <span class="h5 total-label">{{ 'cart.general.total' | t }}</span>

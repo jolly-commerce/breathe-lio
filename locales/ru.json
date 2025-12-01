@@ -107,16 +107,16 @@
         "one": "{{ count }} цвет доступен",
         "other": "Доступно цветов: {{ count }}"
       },
-      "single": "Одна штука",
-      "packs": "Наборы",
-      "adding": "Добавляем...",
-      "added": "Добавлено!",
-      "error": "Ошибка",
-      "select_variant": "Выберите вариант",
-      "no_pack_variants": "Варианты наборов недоступны",
-      "up_to_weeks": "до {{ weeks }} недель",
-      "weeks": "недели",
-      "discount": "скидка"
+      "single": "Single",
+      "packs": "Packs",
+      "adding": "Adding...",
+      "added": "Added!",
+      "error": "Error",
+      "select_variant": "Select a variant",
+      "no_pack_variants": "No pack variants available",
+      "up_to_weeks": "up to {{ weeks }} weeks",
+      "weeks": "weeks",
+      "discount": "discount"
     },
     "gallery": {
       "close": "Закрыть галерею",
@@ -333,25 +333,27 @@
       "title": "Корзина",
       "empty": "Корзина пуста",
       "item_count": {
-        "zero": "{{ count }} items",
         "one": "{{ count }} предмет",
-        "other": "{{ count }} предмет"
+        "few": "{{ count }} предмета",
+        "many": "{{ count }} предметов",
+        "other": "{{ count }} предмет",
+        "zero": "{{ count }} items"
       },
       "continue_shopping": "Продолжить покупки",
       "weight": "Вес",
       "subtotal": "Промежуточный итог",
       "total": "Итого",
-      "taxes_and_shipping_policy_at_checkout_html": "Налоги и <a href=\"{{ link }}\" class=\"link\">стоимость доставки</a> рассчитываются при оформлении заказа",
-      "taxes_included_but_shipping_at_checkout": "Включенные в цену налоги и стоимость доставки рассчитываются при оформлении заказа",
-      "taxes_included_and_shipping_policy_html": "Налог включен в цену. <a href=\"{{ link }}\" class=\"link\">Стоимость доставки</a> рассчитывается при оформлении заказа.",
-      "taxes_and_shipping_at_checkout": "Налоги и стоимость доставки рассчитываются при оформлении доставки",
       "add_order_note": "Добавить примечание к заказу",
       "edit_order_note": "Изменить примечание к заказу",
       "order_note": "Примечание к заказу",
       "save_note": "Сохранить",
       "view_cart": "Просмотреть корзину",
       "checkout": "Оформить заказ",
-      "we_accept": "Мы принимаем следующие виды оплаты:"
+      "we_accept": "Мы принимаем следующие виды оплаты:",
+      "taxes_and_shipping_policy_at_checkout_html": "Налоги и <a href=\"{{ link }}\" class=\"link\">стоимость доставки</a> рассчитываются при оформлении заказа",
+      "taxes_included_but_shipping_at_checkout": "Включенные в цену налоги и стоимость доставки рассчитываются при оформлении заказа",
+      "taxes_included_and_shipping_policy_html": "Налог включен в цену. <a href=\"{{ link }}\" class=\"link\">Стоимость доставки</a> рассчитывается при оформлении заказа.",
+      "taxes_and_shipping_at_checkout": "Налоги и стоимость доставки рассчитываются при оформлении доставки"
     },
     "order": {
       "product": "Товар",

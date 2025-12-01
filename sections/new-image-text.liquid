@@ -132,7 +132,7 @@
       {% else %}
         <source srcset="{{ section.settings.main-image | img_url: 'master' }}" media="(max-width: 700px)">
       {% endif %}
-      <img src="{{ section.settings.main-image | img_url: 'master' }}" alt="Graphics">
+      <img loading="lazy" src="{{ section.settings.main-image | img_url: 'master' }}" alt="Graphics">
     </picture>
   </div>
 </div>

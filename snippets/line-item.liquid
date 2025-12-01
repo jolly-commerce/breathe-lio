@@ -75,7 +75,7 @@ Supported variables
         {%- endfor -%}
       </ul>
     {%- endunless -%}
-    {% if line_item.properties.__is_subscription_selected == 'true' %}
+        {% if line_item.properties.__is_subscription_selected == 'true' %}
       {% if section.settings.subscription_icon != blank or section.settings.subscription_label != blank %}
         <div class="jc-bg-mintCream jc-flex jc-gap-2 jc-items-center jc-justify-center jc-px-2 lg:jc-px-3 jc-py-1.5 jc-border jc-border-solid jc-border-munsell jc-rounded-xs jc-justify-self-end">
           {%- if section.settings.subscription_icon != blank -%}

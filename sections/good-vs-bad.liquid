@@ -240,7 +240,7 @@
           {% when 'compare' %}
           <div class="swiper-slide">
             <div class="gb-comp-slide">
-             <img src="{{ block.settings.image | image_url: width: 1000 }}" />
+             <img loading="lazy" src="{{ block.settings.image | image_url: width: 1000 }}" />
               <div class="bottom-gb-row">
                <p>{{ block.settings.text-1 }} <span>{{ block.settings.text-2 }}</span> </p>
                  <p>{{ block.settings.text-3 }} <span>{{ block.settings.text-4 }}</span> </p>
@@ -267,7 +267,7 @@
         {% case block.type %}
           {% when 'info' %}
           <div class="gb-table-single">
-            <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/tick-dark-green.svg?v=1747990521" />
+            <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/tick-dark-green.svg?v=1747990521" />
             <p>{{ block.settings.text }}</p>
           </div>
           {% endcase %}

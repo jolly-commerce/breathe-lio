@@ -90,7 +90,7 @@ p.icono-para {
           {% when 'usp' %}
             <div class="usp-icon-block">
          {% if block.settings.icon != blank %}
-            <img 
+            <img loading="lazy" 
                   src="{{ block.settings.icon | image_url: width: 400 }}"
                 >
           {% endif %}

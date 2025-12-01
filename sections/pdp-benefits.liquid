@@ -286,7 +286,7 @@
       <div class="pdp-single-ben" data-index="{{ forloop.index0 }}">
         <div class="image-block-pdp-ben">
         {% if block.settings.image %}
-          <img src="{{ block.settings.image | img_url: '600x600' }}" alt="{{ block.settings.text }}" />
+          <img loading="lazy" src="{{ block.settings.image | img_url: '600x600' }}" alt="{{ block.settings.text }}" />
         {% endif %}
       </div>
         <div class="benefit-reveal">

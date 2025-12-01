@@ -1,35 +1,40 @@
+{% comment %} ecom-highlight-info.liquid {% endcomment %}
+
 {{ 'ecom-highlight-info.css' | asset_url | stylesheet_tag: preload: true }}
+
+<style>
+  .ecom-highlight-info {
+    --title-font-size-mobile: {{ section.settings.title_font_size_mobile }}px;
+    --title-font-size-tablet: {{ section.settings.title_font_size_tablet }}px;
+    --title-font-size-desktop: {{ section.settings.title_font_size_desktop }}px;
+    --title-font-size-large: {{ section.settings.title_font_size_large }}px;
+    --description-font-size-mobile: {{ section.settings.description_font_size_mobile }}px;
+    --description-font-size-tablet: {{ section.settings.description_font_size_tablet }}px;
+    --description-font-size-desktop: {{ section.settings.description_font_size_desktop }}px;
+    --description-font-size-large: {{ section.settings.description_font_size_large }}px;
+    --reviews-font-size-mobile: {{ section.settings.reviews_font_size_mobile }}px;
+    --reviews-font-size-tablet: {{ section.settings.reviews_font_size_tablet }}px;
+    --reviews-font-size-desktop: {{ section.settings.reviews_font_size_desktop }}px;
+    --reviews-font-size-large: {{ section.settings.reviews_font_size_large }}px;
+  }
+</style>
 
 <div class="ecom-highlight-info">
   <div class="ecom-highlight-info__container width-wrapper">
-    <div class="ecom-highlight-info__headings">
-      {% if section.settings.show_check %}
-        <span class="ecom-highlight-info__check--desktop">
-          {% render 'icon' with 'check-circle-curved' %}
-        </span>
-      {% endif %}
-      <div class="ecom-highlight-info__headings-content">
-        {% if section.settings.reviews_text != blank %}
-          <p class="ecom-highlight-info__reviews-text">
-            {% if section.settings.show_check %}
-              <span class="ecom-highlight-info__check--mobile">
-              {% render 'icon' with 'check-circle-curved' %}
-            </span>
-            {% endif %}
-            <span class="ecom-highlight-info__reviews-text--desktop">{{ section.settings.reviews_text }}</span>
-            <span class="ecom-highlight-info__reviews-text--mobile">{{ section.settings.reviews_text | newline_to_br }}</span>
-          </p>
+    {% if section.settings.reviews_text != blank %}
+      <p class="ecom-highlight-info__reviews-text">
+        {% if section.settings.show_check %}
+          <span class="ecom-highlight-info__check--mobile">
+            {% render 'icon' with 'check-circle-curved' %}
+          </span>
         {% endif %}
-        {% if section.settings.title != blank and section.settings.title_desktop != blank %}
-          <div class="ecom-highlight-info__title ecom-highlight-info__title--mobile">{{ section.settings.title | newline_to_br }}</div>
-          <div class="ecom-highlight-info__title ecom-highlight-info__title--desktop">{{ section.settings.title_desktop | newline_to_br }}</div>
-        {% endif %}
-      </div>
-    </div>
-  
-    {% if section.settings.description != blank %}
-      <div class="ecom-highlight-info__description">
-        {{ section.settings.description | newline_to_br }}
+        {{ section.settings.reviews_text }}
+      </p>
+    {% endif %}
+
+    {% if section.settings.title != blank %}
+      <div class="ecom-highlight-info__title">
+        {{ section.settings.title | newline_to_br }}
       </div>
     {% endif %}
   </div>
@@ -42,32 +47,112 @@
     {
       "type": "checkbox",
       "id": "show_check",
-      "label": "Show Check",
+      "label": "Show Check Icon",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Content"
     },
     {
       "type": "textarea",
       "id": "reviews_text",
       "label": "Reviews Text",
-      "default": "Verification based on 50,000+ reviews & testing"
+      "default": "No Smoke, No Vapor, No Nicotine"
     },
     {
       "type": "textarea",
       "id": "title",
-      "label": "Title (mobile)",
-      "default": "No nicotine, \no chemicals.\nJust results."
+      "label": "Title",
+      "default": "Quit Your Bad Habit in 30 Days with the world's first Lio Diffuser that uses natural aromas to replace both the ritual and the sensation."
     },
     {
-      "type": "textarea",
-      "id": "title_desktop",
-      "label": "Title (desktop)",
-      "default": "No nicotine, no chemicals. Just results."
+      "type": "header",
+      "content": "Title Font Sizes"
     },
     {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "Lio ranks #1 in customer success rate and long-term quitting impact.\nAlso, the guarantee is something that gives this a 100% reason to try it."
+      "type": "range",
+      "id": "title_font_size_mobile",
+      "min": 16,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile (< 768px)",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_tablet",
+      "min": 16,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Tablet (768px - 999px)",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_desktop",
+      "min": 16,
+      "max": 56,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop (1000px - 1199px)",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_large",
+      "min": 16,
+      "max": 56,
+      "step": 1,
+      "unit": "px",
+      "label": "Large Desktop (≥ 1200px)",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "Reviews Badge Font Sizes"
+    },
+    {
+      "type": "range",
+      "id": "reviews_font_size_mobile",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile (< 768px)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "reviews_font_size_tablet",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Tablet (768px - 999px)",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "reviews_font_size_desktop",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop (1000px - 1199px)",
+      "default": 17
+    },
+    {
+      "type": "range",
+      "id": "reviews_font_size_large",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Large Desktop (≥ 1200px)",
+      "default": 18
     }
   ],
   "presets": [

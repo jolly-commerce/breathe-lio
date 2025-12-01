@@ -1,5 +1,5 @@
 .ecom-lio-steps {
-  background-color: #F8F5E8;
+  background-color: #ffffff;
 }
 .ecom-lio-steps__wrapper {
   background-color: #005128;
@@ -25,7 +25,7 @@
   }
 }
 .ecom-lio-steps__title {
-  color: #F8F5E8;
+  color: #ffffff;
   text-align: center;
   font-family: "Sigum";
   font-size: 40px;
@@ -82,7 +82,7 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background-color: #EDED5E;
+  background-color: #ffffff;
   color: #005128;
   text-align: center;
   font-family: "Sigum";
@@ -102,7 +102,7 @@
   }
 }
 .ecom-lio-steps__item-title {
-  color: #EDED5E;
+  color: #ffffff;
   text-align: center;
   font-family: "Sigum";
   font-size: 16px;

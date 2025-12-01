@@ -83,7 +83,7 @@
           {% when 'usp' %}
             <div class="box-text-i">
          {% if block.settings.icon != blank %}
-            <img class="box-reviewer-image"
+            <img loading="lazy" class="box-reviewer-image"
                   src="{{ block.settings.icon | image_url: width: 400 }}"
                 >
           {% endif %}

@@ -242,7 +242,7 @@ padding : 10px 0px 20px;
             <p class="ben-para">{{ section.settings.sub-text }}</p>
   <a href="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/arrf.svg?v=1747933867">  </a>
    {% if section.settings['button-text'] != blank %}
-            <a class="button-expert-review" href="{{ section.settings.button-url }}">{{ section.settings['button-text'] }} <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/arrf.svg?v=1747933867" /> </a>
+            <a class="button-expert-review" href="{{ section.settings.button-url }}">{{ section.settings['button-text'] }} <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/arrf.svg?v=1747933867" /> </a>
           {% endif %}
 
   <div class="full-width-expert-section">
@@ -254,7 +254,7 @@ padding : 10px 0px 20px;
           {% when 'review' %}
           <div class="swiper-slide">
             <div class="image-expert-box">
-              <img src="{{ block.settings.image | image_url: width: 1000 }}" />
+              <img loading="lazy" src="{{ block.settings.image | image_url: width: 1000 }}" />
             </div>
           </div>
            {% endcase %}
@@ -268,10 +268,10 @@ padding : 10px 0px 20px;
           {% when 'review' %}
           <div class="swiper-slide">
             <div class="text-expert-box">
-             <img class="sm:hidden hiding-image-desktop" src="{{ block.settings.image | image_url: width: 1000 }}" />
+             <img loading="lazy" class="sm:hidden hiding-image-desktop" src="{{ block.settings.image | image_url: width: 1000 }}" />
              <div class="text-expert-box-top">
                <div class="top-rev-exp">
-                 <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ticko.svg?v=1747821467" />
+                 <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ticko.svg?v=1747821467" />
                  <p>{{ block.settings.name }}</p>
                </div>
                <p class="designation-rev">{{ block.settings.designation }}</p>

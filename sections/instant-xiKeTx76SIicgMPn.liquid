@@ -714,11 +714,11 @@
                   </svg></div></a></form></div></div
         ><div class="instant-video__container iLTvPkyMmqsg7BCKr" data-instant-type="video">
           {%- if section.settings['video_LTvPkyMmqsg7BCKr-1'] and section.settings['video_LTvPkyMmqsg7BCKr-1'] != blank -%}
-            {{ section.settings['video_LTvPkyMmqsg7BCKr-1'] | video_tag: class: 'instant-video__player', image_size: '1280x', autoplay: false, loop: false, muted: false, controls: true, playsinline: true, preload: 'metadata' }}
+            {{ section.settings['video_LTvPkyMmqsg7BCKr-1'] | video_tag: class: 'instant-video__player', image_size: '1280x', autoplay: false, loop: false, muted: false, controls: true, playsinline: true, preload: 'none' }}
           {%- else -%}
             <video class="instant-video__player" controls="" playsinline="" preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/9c39056c4a1f4a7ba20840ebec9168fe.mp4"></video>
           {%- endif -%}
-          <span aria-hidden="true"><img class="instant-video__sizer" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2710000%27%20height=%2710000%27/%3e"></span></div></div></div
+          <span aria-hidden="true"><img loading="lazy" class="instant-video__sizer" alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2710000%27%20height=%2710000%27/%3e"></span></div></div></div
   ></div>
   <!-- prettier-ignore -->
   <script>(()=>{let t=window.Instant||{};if(!t.initializedAppEmbed&&!window.__instant_loading_core){window.__instant_loading_core=!0,t.initializedVersion="4.5.6",t.initialized=!0;let i=()=>{let i=(t,i)=>t.split(".").map(Number).reduce((t,e,n)=>t||e-i.split(".")[n],0),e=[...document.querySelectorAll(".__instant")].map(t=>t.getAttribute("data-instant-version")||"1.0.0").sort(i).pop()||"1.0.0",n=document.createElement("script");n.src="https://client.instant.so/scripts/instant-core.min.js?version="+e,document.body.appendChild(n),t.initializedVersion=e};"loading"!==document.readyState?i():document.addEventListener("DOMContentLoaded",i)}})();</script>
@@ -742,7 +742,7 @@
       "type": "richtext",
       "id": "text_8lSr8EAkakyILldn-1",
       "label": "Title",
-      "default": "<p>Het Gewoonte</p><p>Reset Pakket</p>"
+      "default": "<p>Gewoonte</p><p>Reset Pakket</p>"
     },
     {
       "type": "image_picker",
@@ -1139,7 +1139,7 @@
       "name": "Het Gewoonte  Reset Pakke",
       "settings": {
         "product_HrOK3BTG5qKD7umj-1": "lio®-gewoonte-reset-pakket",
-        "text_8lSr8EAkakyILldn-1": "<p>Het Gewoonte</p><p>Reset Pakket</p>",
+        "text_8lSr8EAkakyILldn-1": "<p>Gewoonte</p><p>Reset Pakket</p>",
         "text_2McNNpmlW9gdU4Wt-1": "<p>1.000+ reviews</p>",
         "text_4eBI9KrZaV0B58Vm-1": "<p>✋ Vervangt de gewoonte</p>",
         "text_K0a2tKtkEwEeUN6i-1": "<p>🌱 Natuurlijke lucht met smaak</p>",

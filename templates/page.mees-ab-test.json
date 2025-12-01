@@ -1,0 +1,472 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "instant_yt6go_y_aig9_r0zv88_36XNJD": {
+      "type": "instant-Yt6goYAig9R0zv88",
+      "name": "HERO 10/2025",
+      "settings": {
+        "text_Rk720jSHpOG9oUs4": "<p>The Habit THAT You Don’t Have to Quit</p>",
+        "text_CyypWZCOT2CaL9rL": "<p>The Habit THAT You Don’t </p><p>Have to Quit</p>",
+        "text_GxmkwKkZWdMlckCG": "<p>Feels like the habit you’re used to.</p><p><strong>Without any of the bad stuff.</strong></p>",
+        "text_ezh2Hh4yEAtSAja5": "<p>No Nicotine</p>",
+        "text_XZOBpqks4vybmiCW": "<p>No Smoke</p>",
+        "text_boPTKf3sruhs6Ezc": "<p>No Vapour</p>",
+        "text_qdl3h833zGoTLwS2": "<p>All Natural</p>",
+        "text_HXG5y2XFOy0yBn1W": "<p>100% Safe </p>",
+        "text_DYxupZHA9OIviKMN": "<p>Science Backed</p>",
+        "text_IrEfWFPfEYrI0OHR": "<p>ORDER NOW</p>",
+        "text_6uSqXoI1ifWdyIhW": "<p>30-Day Money Back Guarantee</p>",
+        "text_XTMeTOFO1C3XtaoW": "<p>🇬🇧 Free Shipping</p>",
+        "text_ubJmUYfRQvvVbjGa": "<p>📦  2/3 Days Shipping</p>",
+        "text_kavUS0TQRS5L2Uwa": "<p>🇳🇱 Made In Amsterdam</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "ecom_highlight_info_GEFa8T": {
+      "type": "ecom-highlight-info",
+      "name": "Ecom Highlight Info",
+      "settings": {
+        "show_check": false,
+        "reviews_text": "✅ Trusted by 100,000+ real users",
+        "title": "Zero Nicotine. \nZero Chemicals. \n100% Results.",
+        "title_desktop": "No nicotine. No chemicals. All natural results.",
+        "description": "Lio is ranked #1 for helping people quit. Backed by a 30 day money back guarantee, you’ve got every reason to give it a try, risk-free."
+      }
+    },
+    "instant_yx_geinh_fij_k5_rc_hv_ywEdCr": {
+      "type": "instant-YxGeinhFijK5RCHv",
+      "name": "LIO PDP 10/2025",
+      "settings": {
+        "product_MUZtGsPQ0YbKykRB": "lio®-journey-pack-1",
+        "text_77uEKvBvhp4Z24bE": "<h3>Journey pack</h3>",
+        "text_9T0hoJ4rLSm6thjO": "<p><strong>Everything you need for the simplest way to switch.</strong> Includes your Lio, 60 days’ worth of flavour cores, and a 30-day habit tracker to help you stay on track.</p>",
+        "text_IcW75p3U8LZ36wge": "<p>No Nicotine</p>",
+        "text_wf6S5PXIFGNgdPWO": "<p>No Vapour</p>",
+        "text_T3ZLYKhUvDQQVa06": "<p>No Smoke</p>",
+        "text_01We5kIkmEIWIylo": "<p>All Natural</p>",
+        "text_hIFzxIUctegqTmX2": "<p>Use Anywhere</p>",
+        "text_BAi76VR40Mqj4Xim": "<p>100% Safe</p>",
+        "text_80zjHwIwmRk6yi59": "<p>Didn&apos;t quit after 30 days? Get your money back.</p>",
+        "text_h2NYMtX568o4LxsD": "<p>Step 1: Select your Lio</p>",
+        "text_aAewBObkZqeULRwl": "<h3>Olive</h3>",
+        "text_W9T4sgBC6AjSiXFH": "<h3>Walnut</h3>",
+        "text_i3VbyeVmXqUvMvD1": "<h3>Silver</h3>",
+        "text_q3BaskzZ6ksB3vM5": "<h3>Black</h3>",
+        "text_uNFLSW82kZb2LXGw": "<p>Step 2: SELECT your Journey Pack</p>",
+        "text_KvcbdHUWiyVb2jfn": "<h3>SOLO</h3>",
+        "text_mBGZL6jBRmnbMmV5": "<h3><strong>1x </strong>Olive Wood Lio</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
+        "text_CPLrtfWXlpqM8TeW": "<h3><strong>1x </strong>Wanut Wood Lio</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
+        "text_dOBG1rnVhNNzxel5": "<h3><strong>1x </strong>Silver Aluminium Lio</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
+        "text_pFH1wqTV2zPQFiYQ": "<h3><strong>1x </strong>Black Aluminium Lio</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
+        "text_ip309kffsCjMi26N": "<h3><strong>1x </strong>Gen 2 Silver</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
+        "text_gMwVtPDgt07N9C14": "<h3><strong>1x </strong>Gen 2 Black</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
+        "text_ABn2x8wLQbJfxwxw": "<h3><strong>OFF</strong></h3>",
+        "text_v3zxXK3Z2nqHGii1": "<h3>Together</h3>",
+        "text_1Lopz3Kmoiol4XLA": "<h3><strong>2x </strong>Olive Wood Lio </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
+        "text_VSApuuhzTCzmU8pw": "<h3><strong>2x </strong>Walnut Wood Lio </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
+        "text_GDRUIU3TVYE5qQDY": "<h3><strong>2x </strong>Silver Aluminium Lio </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
+        "text_pTEeKmCCz4smFkZ4": "<h3><strong>2x </strong>Black Aluminium Lio </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
+        "text_2YfJHxLOtnZi9xSB": "<h3><strong>2x </strong>Gen 2 Silver </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
+        "text_Biyep9FiT2MsqOAc": "<h3><strong>2x </strong>Gen 2 Black </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
+        "text_l4HLW4bfMy9ZMMJf": "<h3><strong>OFF</strong></h3>",
+        "text_LcIPtJZEcdYtjhuO": "<p>ADD TO CART</p>",
+        "text_DmkxNES2aum56GrA": "<p>📦 Free Shipping</p>",
+        "text_rTJsHnf7ZaUubAWW": "<p>🇬🇧 2/3 Days Delivery for UK</p>",
+        "text_jjTH4i5Bpozbv5wL": "<p>🇳🇱 Made in Amsterdam</p>",
+        "text_RdZilreQ9OJypgDt": "<p>✅ 30-Days Risk Free</p>",
+        "text_r1b7lyHEHE7fsVbu": "<p><strong>40% of people also add:</strong></p>",
+        "product_yZU9PndnAh2vNeeo": "lio®-complete",
+        "text_wSmHpj6Lbt3yEv8U": "<h3>Classic Complete </h3>",
+        "text_HaCz0FSvU05ptdVR": "<p>60 days of Flavour Cores</p>",
+        "product_yV4lJPMbu7q2dKa3": "lio®-diffuser",
+        "text_cibYkuuKM9nLI2j4": "<h3>Classic Olive </h3>",
+        "text_ie1hvSJ310TdFwsp": "<p>Premium Olive Wood</p>",
+        "product_yTr3oMdPtUKbvXDY": "lio®-diffuser",
+        "text_wcqdJQXaRJIavCzZ": "<h3>Classic Walnut </h3>",
+        "text_vFmZwgMTnX2M6NMm": "<p>Premium Walnut Wood</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "infinite_section_FfHPEr": {
+      "type": "infinite-section",
+      "blocks": {
+        "usp_zp6pGM": {
+          "type": "usp",
+          "settings": {
+            "title": "“This little thing helped me a lot. After 2 years, I finally quit.”",
+            "icon": "shopify://shop_images/Screenshot_2025-06-19_at_7.37.12_PM.png"
+          }
+        },
+        "usp_Vpt6HT": {
+          "type": "usp",
+          "settings": {
+            "title": "“I can’t believe something like this didn’t exist before. I haven’t touched a vape since.”",
+            "icon": "shopify://shop_images/Screenshot_2025-06-19_at_7.36.53_PM.png"
+          }
+        },
+        "usp_WPNPtw": {
+          "type": "usp",
+          "settings": {
+            "title": "“I’ve never found anything this good. My cravings just disappeared.”",
+            "icon": "shopify://shop_images/Screenshot_2025-06-19_at_7.36.31_PM.png"
+          }
+        },
+        "usp_HYqcLx": {
+          "type": "usp",
+          "settings": {
+            "title": "“I was addicted for 30 years. After just a week with this, I didn’t even miss my vape.”",
+            "icon": "shopify://shop_images/Screenshot_2025-06-19_at_7.36.45_PM.png"
+          }
+        },
+        "usp_yxxFPC": {
+          "type": "usp",
+          "settings": {
+            "title": "“It feels so good. I’m truly, truly happy with it. If you want to quit, you really should try this.”",
+            "icon": "shopify://shop_images/Screenshot_2025-06-27_at_10.46.46_AM.png"
+          }
+        },
+        "usp_AHdFAf": {
+          "type": "usp",
+          "settings": {
+            "title": "“I quit IQOS with this. It feels quite similar. Honestly, it’s been magical.”",
+            "icon": "shopify://shop_images/Screenshot_2025-06-27_at_10.48.42_AM.png"
+          }
+        }
+      },
+      "block_order": [
+        "usp_zp6pGM",
+        "usp_Vpt6HT",
+        "usp_WPNPtw",
+        "usp_HYqcLx",
+        "usp_yxxFPC",
+        "usp_AHdFAf"
+      ],
+      "disabled": true,
+      "name": "infinite section",
+      "settings": {
+        "custom-class": ""
+      }
+    },
+    "instant-ouCkfn1mqCQMe3UZ": {
+      "type": "instant-ouCkfn1mqCQMe3UZ",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "product_PBQ5UghM1ixR3fg3-1": "",
+        "text_dmSVSlT5VFCIFASW-1": "<p>4,7/5 based on 1000+ reviews</p>",
+        "text_sknTTg7vfnca8Fix-1": "<h3>Journey pack</h3>",
+        "text_9VU3f1js9dES2aDp-1": "<h3>Step 1: SELECT your Lio</h3>",
+        "text_FIcYwlCqTEG9nchT-1": "<h3>Crafted from premium Olive wood.</h3>",
+        "text_pTj05B8yCtBtbVJS-1": "<h3>Crafted from premium walnut wood.</h3>",
+        "text_dnBwff8cxwxhPPhl-1": "<h3>Durable, easy to clean, and built for longer-lasting flavours.</h3>",
+        "text_ibzf8ne6z5dAW3Ve-1": "<h3>Durable, easy to clean, and built for longer-lasting flavours.</h3>",
+        "text_PzcuJV0dPPlhH9h8-1": "<h3>Made of stainless steel, with a magnetic adjustable airflow system and built-in fidget feature.</h3>",
+        "text_4fR6aI9TNbYJUmX4-1": "<h3>Made of stainless steel, with a magnetic adjustable airflow system and built-in fidget feature.</h3>",
+        "text_nnivFBF8CWKfYisx-1": "<h3>Step 2: SELECT your PACK</h3>",
+        "text_Mz9B4uD8EM2MUrlM-1": "<h3>SOLO</h3>",
+        "text_0dZAvlWf4LCBli16-1": "<h3><strong>1x </strong>Olive Wood Lio</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
+        "text_mDCjPpW0nLcwxX1f-1": "<h3><strong>1x </strong>Wanut Wood Lio</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
+        "text_cDhRvJN2qSz3lKj9-1": "<h3><strong>1x </strong>Silver Aluminium Lio</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
+        "text_gwALH0a98Ps4vcCA-1": "<h3><strong>1x </strong>Black Aluminium Lio</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
+        "text_QpyOpMycASauhwjT-1": "<h3><strong>1x </strong>Gen 2 Silver</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
+        "text_kAmhoMeq3gGYTERg-1": "<h3><strong>1x </strong>Gen 2 Black</h3><h3><strong>1x</strong> Habit Tracker </h3><h3><strong>1x </strong>60-day Supply (18 Cores)</h3>",
+        "text_RbsCaqC2FBA8PsGu-1": "<h3><strong>OFF</strong></h3>",
+        "text_MgxoUHyqB0Yr8cd7-1": "<h3>Together</h3>",
+        "text_oFg1rC5sVniUhbwk-1": "<h3><strong>2x </strong>Olive Wood Lio </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
+        "text_jpSZNgRsUCUJEuaS-1": "<h3><strong>2x </strong>Walnut Wood Lio </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
+        "text_quHWUsVhmOGwKUZ0-1": "<h3><strong>2x </strong>Silver Aluminium Lio </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
+        "text_UxygcGJ978uM1J6O-1": "<h3><strong>2x </strong>Black Aluminium Lio </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
+        "text_xkqcPVU7wxybIXxZ-1": "<h3><strong>2x </strong>Gen 2 Silver </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
+        "text_m7uTwUqSTzJvE6bD-1": "<h3><strong>2x </strong>Gen 2 Black </h3><h3><strong>2x</strong> Habit Tracker</h3><h3><strong>2x </strong>60-day Supply (36 Cores)</h3>",
+        "text_QaHC7fqaBFneYquR-1": "<h3><strong>OFF</strong></h3>",
+        "text_4cjsymL56ZlGtMLU-1": "<p>ADD TO CART</p>",
+        "text_0SMRmsjUvS9cty21-1": "<p>ADD TO CART</p>",
+        "text_VK296HUz3Fk45xEX-1": "<p>Didn't quit in 30 Days? Money Back!</p>",
+        "text_Z6NhGN68fcTNSF8u-1": "<p>Free & Fast Shipping</p>",
+        "text_uoBLZOAB5z9dPdVw-1": "<p><strong>40% of people also add:</strong></p>",
+        "product_0tygbylbEp22fUtK-1": "",
+        "text_4Lrw3okBOS1DMWiC-1": "<h3>Classic Complete </h3>",
+        "text_AQL85rvuVk8DkC5j-1": "<p>60 days of Flavour Cores</p>",
+        "product_3QyRnmMrY7GDn5zp-1": "",
+        "text_THXTZu3i60LiZmQP-1": "<h3>Classic Olive </h3>",
+        "text_CNNRvWwtaDRdnghm-1": "<p>Premium Olive Wood</p>",
+        "product_aDakjA3ZVujDftFy-1": "",
+        "text_hClGItQbjglsNkwv-1": "<h3>Classic Walnut </h3>",
+        "text_ZnrBfw5tu2CAwzAG-1": "<p>Premium Walnut Wood</p>"
+      }
+    },
+    "icon_text_1_V3ii4Q": {
+      "type": "icon-text-1",
+      "blocks": {
+        "usp_mDzn3P": {
+          "type": "usp",
+          "settings": {
+            "title": "No nicotine",
+            "icon": "shopify://shop_images/1_8619ac43-c1b3-4532-9889-2af912400049.svg"
+          }
+        },
+        "usp_Ky8h4i": {
+          "type": "usp",
+          "settings": {
+            "title": "Plant-based",
+            "icon": "shopify://shop_images/2.svg"
+          }
+        },
+        "usp_bUWxQm": {
+          "type": "usp",
+          "settings": {
+            "title": "No vapor",
+            "icon": "shopify://shop_images/3.svg"
+          }
+        },
+        "usp_UBJPBe": {
+          "type": "usp",
+          "settings": {
+            "title": "Use It Anywhere",
+            "icon": "shopify://shop_images/2_2b77114a-7648-414f-ae77-447d90634a42.svg"
+          }
+        },
+        "usp_xff4tU": {
+          "type": "usp",
+          "settings": {
+            "title": "No toxins",
+            "icon": "shopify://shop_images/5.svg"
+          }
+        }
+      },
+      "block_order": [
+        "usp_mDzn3P",
+        "usp_Ky8h4i",
+        "usp_bUWxQm",
+        "usp_UBJPBe",
+        "usp_xff4tU"
+      ],
+      "name": "icon-text-1",
+      "settings": {
+        "heading": "No nicotine. No vapor. No smoke.",
+        "highlighted-heading": "Just natural air."
+      }
+    },
+    "instant_ayc_l8_zs7zs_arn6_if_kRtc6E": {
+      "type": "instant-aycL8ZS7zsArn6IF",
+      "name": "LIO ANIMATION ",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "our_promise_awwXez": {
+      "type": "our-promise",
+      "name": "our-promise",
+      "settings": {
+        "image": "shopify://shop_images/card_1.png",
+        "heading": "30 Days to Quit,",
+        "highlighted-heading": "Or Money Back.",
+        "sub-text": "<p>If you’re not satisfied after 30 days, we’ll give you a full refund, no questions asked.</p>",
+        "button-url": "#idBsWCZW7bQGwFuzQ",
+        "button-text": "Make The Switch",
+        "trust-text": ""
+      }
+    },
+    "join_the_movement_PL9bL8": {
+      "type": "join-the-movement",
+      "blocks": {
+        "infinite_video_WGQkBQ": {
+          "type": "infinite-video",
+          "settings": {
+            "video": "shopify://files/videos/1724386284_V1.mp4",
+            "age": "32",
+            "review": "I haven’t come across anything as good as this. I thought it was nothing at first, but I quickly realized my cravings just disappeared once I started using it. It’s been an eye-opening experience."
+          }
+        },
+        "infinite_video_fnLfGW": {
+          "type": "infinite-video",
+          "settings": {
+            "video": "shopify://files/videos/default_8_mp4_V4.mp4",
+            "age": "62",
+            "review": "I’ve been using Lio for a week now. I smoked, vaped, and chewed gum for the past 30 years, but with Lio I’m not craving my vape at all. All the flavors are really good. I absolutely love it."
+          }
+        },
+        "infinite_video_K9kGNH": {
+          "type": "infinite-video",
+          "settings": {
+            "video": "shopify://files/videos/default_8_mp4_V8.mp4",
+            "age": "24",
+            "review": "I’ve been trying to quit for over 2 years, but nothing really worked. This little thing helped me cut down almost completely. I’m on day 14 now and it’s been such a big help. If you’re trying to quit, definitely give this a try, it really works."
+          }
+        },
+        "infinite_video_bqfxTG": {
+          "type": "infinite-video",
+          "settings": {
+            "video": "shopify://files/videos/1744795548_V1.mp4",
+            "age": "28",
+            "review": "I quit smoking 14 days ago with Lio. At first, I worried it might trigger cravings, but instead it helped me appreciate a healthy body even more. It’s like breathing exercises, with amazing flavors.  I’ve already saved so much money."
+          }
+        },
+        "infinite_video_EetrDa": {
+          "type": "infinite-video",
+          "settings": {
+            "video": "shopify://files/videos/WhatsApp_Video_2024_08_05_at_12_53_05_PM_2_V5.mp4",
+            "age": "48",
+            "review": "It blows my mind how a product like this hasn’t existed forever. I’ve been using it for 6 days and haven’t touched a vape since. This is an awesome product. I highly recommend it to everyone."
+          }
+        },
+        "infinite_video_a9rUQp": {
+          "type": "infinite-video",
+          "settings": {
+            "video": "shopify://files/videos/1734082081_V2.mp4",
+            "age": "42",
+            "review": "I’ve been trying to quit smoking for months, but the hand-to-mouth habit was tough. Lio changed that. It feels natural, tastes good, and helped me cut my vaping by 80% in just 3 days."
+          }
+        },
+        "infinite_video_DYpVNB": {
+          "type": "infinite-video",
+          "settings": {
+            "video": "shopify://files/videos/default_8_mp4_V11.mp4",
+            "age": "32",
+            "review": "It’s amazing, this stuff really works. I went to a party and didn’t smoke anything. Even the smokers tried it and loved it. It really helps. I’m super satisfied."
+          }
+        },
+        "infinite_video_BLH86k": {
+          "type": "infinite-video",
+          "settings": {
+            "video": "shopify://files/videos/default_8_mp4_V6.mp4",
+            "age": "44",
+            "review": "I have to say I’m positively surprised by this. Even though there’s no nicotine, smoke, or vape, it satisfies the hand-to-mouth habit and the urge to take a drag. I got this 2 weeks ago, and I haven’t craved smoking or vaping at all since then."
+          }
+        },
+        "infinite_video_VX9xLw": {
+          "type": "infinite-video",
+          "settings": {
+            "video": "shopify://files/videos/1750180429_V1.mp4",
+            "age": "30",
+            "review": "I decided to get Lio over a week ago. I’ve been off my vape completely since, no smoke, no nicotine, and much cheaper. I highly recommend it to anyone wanting to quit."
+          }
+        },
+        "infinite_video_MDtrQL": {
+          "type": "infinite-video",
+          "settings": {
+            "video": "shopify://files/videos/1738065008_V1.mp4",
+            "age": "28",
+            "review": "I’ve been using Lio for two weeks. My bad habit was stress eating and sugar cravings whenever I felt anxious. Now, I just use Lio instead, and it actually works. I’m pretty happy with it."
+          }
+        },
+        "infinite_video_qzJANw": {
+          "type": "infinite-video",
+          "settings": {
+            "video": "shopify://files/videos/default_8_mp4_V10.mp4",
+            "age": "40",
+            "review": "I’ve been using Lio for 3 weeks now. I always wanted to quit IQOS, and this has been key in helping me do it. Whenever I felt the urge, Lio gave me a similar feeling and really took the edge off. This thing has been magical."
+          }
+        }
+      },
+      "block_order": [
+        "infinite_video_WGQkBQ",
+        "infinite_video_fnLfGW",
+        "infinite_video_K9kGNH",
+        "infinite_video_bqfxTG",
+        "infinite_video_EetrDa",
+        "infinite_video_a9rUQp",
+        "infinite_video_DYpVNB",
+        "infinite_video_BLH86k",
+        "infinite_video_VX9xLw",
+        "infinite_video_MDtrQL",
+        "infinite_video_qzJANw"
+      ],
+      "name": "join-the-movement",
+      "settings": {
+        "trust-text": "Trusted by 80,000+ people",
+        "heading": "Stories of people just like you",
+        "highlighted-heading": "",
+        "age-text": "age"
+      }
+    },
+    "instant_q_xz_qdr_ck_ki_cae_gkq_Q683gx": {
+      "type": "instant-QXzQdrCKKiCAEGkq",
+      "name": "EXPLAINER VIDEO",
+      "settings": {
+        "text_lfwOTQxMTMRSG1QL": "<h3>Lio diffuser?</h3>",
+        "text_UFe3Olrd368XrYCk": "<h3>what is a</h3>",
+        "video_bWObCp9nkSvq5757": "shopify://files/videos/THIS ONE IS UT.mp4",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "simple_steps_8x9U8t": {
+      "type": "simple-steps",
+      "name": "Simple-steps",
+      "settings": {
+        "heading": "just 3 simple steps:",
+        "icon-1": "shopify://shop_images/Mask_group11_1.png",
+        "text-1": "1: Fray the Core",
+        "icon-2": "shopify://shop_images/Mask_group11_2.png",
+        "text-2": "2: INsert the core",
+        "icon-3": "shopify://shop_images/Mask_group11_3.png",
+        "text-3": "3: Craving relief"
+      }
+    },
+    "instant_nwr_u_dx_xiop4_x_zc_rf_aeRtFr": {
+      "type": "instant-nwrUDxXIOP4XZcRf",
+      "custom_css": [
+        ".iTrbGi9i9F32NMzQ9 {display: none !important;}"
+      ],
+      "name": "LOOX REVIEWS",
+      "settings": {
+        "text_67M6c8SZyKKmkMTS": "<h3>more than 80.000 happy customers</h3>",
+        "text_b7cR5hCCIWghXSa2": "<p>4,7/5 based on 800+ reviews</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "ecom_faq_3BWThk": {
+      "type": "ecom-faq",
+      "blocks": {
+        "question_F9gtx8": {
+          "type": "question",
+          "settings": {
+            "title": "Question",
+            "content": "<p>Share some content to your customers about your products.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_F9gtx8"
+      ],
+      "disabled": true,
+      "name": "Ecom FAQ",
+      "settings": {
+        "padding_top": 32,
+        "padding_top_desktop": 40,
+        "padding_bottom": 32,
+        "padding_bottom_desktop": 40,
+        "title": "Frequently Asked Questions",
+        "high-title": "answered"
+      }
+    }
+  },
+  "order": [
+    "instant_yt6go_y_aig9_r0zv88_36XNJD",
+    "ecom_highlight_info_GEFa8T",
+    "instant_yx_geinh_fij_k5_rc_hv_ywEdCr",
+    "infinite_section_FfHPEr",
+    "instant-ouCkfn1mqCQMe3UZ",
+    "icon_text_1_V3ii4Q",
+    "instant_ayc_l8_zs7zs_arn6_if_kRtc6E",
+    "our_promise_awwXez",
+    "join_the_movement_PL9bL8",
+    "instant_q_xz_qdr_ck_ki_cae_gkq_Q683gx",
+    "simple_steps_8x9U8t",
+    "instant_nwr_u_dx_xiop4_x_zc_rf_aeRtFr",
+    "ecom_faq_3BWThk"
+  ]
+}

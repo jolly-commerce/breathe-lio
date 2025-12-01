@@ -107,16 +107,16 @@
         "one": "Доступно кольорів: {{ count }}",
         "other": "Доступно кольорів: {{ count }}"
       },
-      "single": "Одна штука",
-      "packs": "Набори",
-      "adding": "Додаємо...",
-      "added": "Додано!",
-      "error": "Помилка",
-      "select_variant": "Оберіть варіант",
-      "no_pack_variants": "Варіанти наборів недоступні",
-      "up_to_weeks": "до {{ weeks }} тижнів",
-      "weeks": "тижні",
-      "discount": "знижка"
+      "single": "Single",
+      "packs": "Packs",
+      "adding": "Adding...",
+      "added": "Added!",
+      "error": "Error",
+      "select_variant": "Select a variant",
+      "no_pack_variants": "No pack variants available",
+      "up_to_weeks": "up to {{ weeks }} weeks",
+      "weeks": "weeks",
+      "discount": "discount"
     },
     "gallery": {
       "close": "Закрити галерею",
@@ -333,25 +333,27 @@
       "title": "Кошик",
       "empty": "Ваш кошик пустий",
       "item_count": {
-        "zero": "{{ count }} items",
         "one": "{{ count }} предмет",
-        "other": "{{ count }} предмет"
+        "few": "{{ count }} предмети",
+        "many": "{{ count }} предметів",
+        "other": "{{ count }} предмет",
+        "zero": "{{ count }} items"
       },
       "continue_shopping": "Продовжити покупки",
       "weight": "Вага",
       "subtotal": "Проміжний підсумок",
       "total": "Усього",
-      "taxes_and_shipping_policy_at_checkout_html": "Податки й <a href=\"{{ link }}\" class=\"link\">вартість доставки</a> обчислюються під час оформлення замовлення",
-      "taxes_included_but_shipping_at_checkout": "Податок враховано, і вартість доставки обчислюється під час оформлення замовлення",
-      "taxes_included_and_shipping_policy_html": "Податок враховано. <a href=\"{{ link }}\" class=\"link\">Вартість доставки</a> обчислюється під час оформлення замовлення.",
-      "taxes_and_shipping_at_checkout": "Податки та вартість доставки обчислюються під час оформлення замовлення",
       "add_order_note": "Додати примітку до замовлення",
       "edit_order_note": "Редагувати примітку до замовлення",
       "order_note": "Примітка до замовлення",
       "save_note": "Зберегти",
       "view_cart": "Переглянути кошик",
       "checkout": "Оформити замовлення",
-      "we_accept": "Ми приймаємо"
+      "we_accept": "Ми приймаємо",
+      "taxes_and_shipping_policy_at_checkout_html": "Податки й <a href=\"{{ link }}\" class=\"link\">вартість доставки</a> обчислюються під час оформлення замовлення",
+      "taxes_included_but_shipping_at_checkout": "Податок враховано, і вартість доставки обчислюється під час оформлення замовлення",
+      "taxes_included_and_shipping_policy_html": "Податок враховано. <a href=\"{{ link }}\" class=\"link\">Вартість доставки</a> обчислюється під час оформлення замовлення.",
+      "taxes_and_shipping_at_checkout": "Податки та вартість доставки обчислюються під час оформлення замовлення"
     },
     "order": {
       "product": "Товар",

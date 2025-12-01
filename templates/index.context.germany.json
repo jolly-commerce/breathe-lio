@@ -12,12 +12,5 @@
   "context": {
     "market": "germany"
   },
-  "sections": {
-    "instant_q_xz_qdr_ck_ki_cae_gkq_bEd4yt": {
-      "settings": {
-        "video_bWObCp9nkSvq5757": "shopify://files/videos/German Explainer (1) (3).mp4"
-      },
-      "blocks": {}
-    }
-  }
+  "sections": {}
 }

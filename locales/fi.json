@@ -107,16 +107,16 @@
         "one": "{{ count }} väri saatavilla",
         "other": "{{ count }} väriä saatavilla"
       },
-      "single": "Yksittäin",
-      "packs": "Pakkaukset",
-      "adding": "Lisätään...",
-      "added": "Lisätty!",
-      "error": "Virhe",
-      "select_variant": "Valitse vaihtoehto",
-      "no_pack_variants": "Pakettivaihtoehtoja ei saatavilla",
-      "up_to_weeks": "jopa {{ weeks }} viikkoa",
-      "weeks": "viikkoa",
-      "discount": "alennus"
+      "single": "Single",
+      "packs": "Packs",
+      "adding": "Adding...",
+      "added": "Added!",
+      "error": "Error",
+      "select_variant": "Select a variant",
+      "no_pack_variants": "No pack variants available",
+      "up_to_weeks": "up to {{ weeks }} weeks",
+      "weeks": "weeks",
+      "discount": "discount"
     },
     "gallery": {
       "close": "Sulje galleria",
@@ -333,25 +333,25 @@
       "title": "Ostoskori",
       "empty": "Ostoskorisi on tyhjä",
       "item_count": {
-        "zero": "{{ count }} items",
         "one": "{{ count }} tuote",
-        "other": "{{ count }} tuotetta"
+        "other": "{{ count }} tuotetta",
+        "zero": "{{ count }} items"
       },
       "continue_shopping": "Jatka ostoksia",
       "weight": "Paino",
       "subtotal": "Välisumma",
       "total": "Yhteensä",
-      "taxes_and_shipping_policy_at_checkout_html": "Verot ja <a href=\"{{ link }}\" class=\"link\">toimituskulut</a> lasketaan maksun yhteydessä",
-      "taxes_included_but_shipping_at_checkout": "Sisältyvät verot ja toimituskululut lasketaan maksun yhteydessä",
-      "taxes_included_and_shipping_policy_html": "Verot sisältyvät hintaan. <a href=\"{{ link }}\" class=\"link\">Toimituskulut</a> lasketaan maksun yhteydessä.",
-      "taxes_and_shipping_at_checkout": "Verot ja toimituskululut lasketaan maksun yhteydessä",
       "add_order_note": "Lisää tilauksen kommentti",
       "edit_order_note": "Muokkaa tilauksen kommenttia",
       "order_note": "Tilauksen kommentti",
       "save_note": "Tallenna",
       "view_cart": "Näytä ostoskori",
       "checkout": "Kassalle",
-      "we_accept": "Maksutavat"
+      "we_accept": "Maksutavat",
+      "taxes_and_shipping_policy_at_checkout_html": "Verot ja <a href=\"{{ link }}\" class=\"link\">toimituskulut</a> lasketaan maksun yhteydessä",
+      "taxes_included_but_shipping_at_checkout": "Sisältyvät verot ja toimituskululut lasketaan maksun yhteydessä",
+      "taxes_included_and_shipping_policy_html": "Verot sisältyvät hintaan. <a href=\"{{ link }}\" class=\"link\">Toimituskulut</a> lasketaan maksun yhteydessä.",
+      "taxes_and_shipping_at_checkout": "Verot ja toimituskululut lasketaan maksun yhteydessä"
     },
     "order": {
       "product": "Tuote",

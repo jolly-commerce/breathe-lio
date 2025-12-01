@@ -107,16 +107,16 @@
         "one": "צבע {{ count }} זמין",
         "other": "{{ count }} צבעים זמינים"
       },
-      "single": "יחידה",
-      "packs": "חבילות",
-      "adding": "מוסיף...",
-      "added": "נוסף!",
-      "error": "שגיאה",
-      "select_variant": "בחרו וריאנט",
-      "no_pack_variants": "אין וריאציות לחבילה זמינות",
-      "up_to_weeks": "עד {{ weeks }} שבועות",
-      "weeks": "שבועות",
-      "discount": "הנחה"
+      "single": "Single",
+      "packs": "Packs",
+      "adding": "Adding...",
+      "added": "Added!",
+      "error": "Error",
+      "select_variant": "Select a variant",
+      "no_pack_variants": "No pack variants available",
+      "up_to_weeks": "up to {{ weeks }} weeks",
+      "weeks": "weeks",
+      "discount": "discount"
     },
     "gallery": {
       "close": "סגירת גלריה",
@@ -333,25 +333,25 @@
       "title": "עגלת קניות",
       "empty": "עגלת הקניות שלך ריקה",
       "item_count": {
-        "zero": "{{ count }} items",
         "one": "{{ count }} פריט",
-        "other": "{{ count }} פריטים"
+        "other": "{{ count }} פריטים",
+        "zero": "{{ count }} items"
       },
       "continue_shopping": "המשך בקניות",
       "weight": "משקל",
       "subtotal": "סכום ביניים",
       "total": "סה\"כ",
-      "taxes_and_shipping_policy_at_checkout_html": "מסים ו<a href=\"{{ link }}\" class=\"link\">דמי משלוח</a> יחושבו בעת התשלום",
-      "taxes_included_but_shipping_at_checkout": "המסים הכלולים ודמי משלוח יחושבו בעת התשלום",
-      "taxes_included_and_shipping_policy_html": "המס כלול. <a href=\"{{ link }}\" class=\"link\">דמי משלוח</a> יחושבו בעת התשלום.",
-      "taxes_and_shipping_at_checkout": "המסים ודמי משלוח יחושבו בעת התשלום",
       "add_order_note": "הוספת הערה להזמנה",
       "edit_order_note": "עריכת הערה להזמנה",
       "order_note": "הערה להזמנה",
       "save_note": "שמירה",
       "view_cart": "הצג עגלת קניות",
       "checkout": "לתשלום",
-      "we_accept": "אנחנו מקבלים"
+      "we_accept": "אנחנו מקבלים",
+      "taxes_and_shipping_policy_at_checkout_html": "מסים ו<a href=\"{{ link }}\" class=\"link\">דמי משלוח</a> יחושבו בעת התשלום",
+      "taxes_included_but_shipping_at_checkout": "המסים הכלולים ודמי משלוח יחושבו בעת התשלום",
+      "taxes_included_and_shipping_policy_html": "המס כלול. <a href=\"{{ link }}\" class=\"link\">דמי משלוח</a> יחושבו בעת התשלום.",
+      "taxes_and_shipping_at_checkout": "המסים ודמי משלוח יחושבו בעת התשלום"
     },
     "order": {
       "product": "מוצר",

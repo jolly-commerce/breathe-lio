@@ -107,16 +107,16 @@
         "one": "{{ count }} renk mevcut",
         "other": "{{ count }} renk mevcut"
       },
-      "single": "Tekli",
-      "packs": "Paketler",
-      "adding": "Ekleniyor...",
-      "added": "Eklendi!",
-      "error": "Hata",
-      "select_variant": "Bir varyasyon seçin",
-      "no_pack_variants": "Paket varyasyonu yok",
-      "up_to_weeks": "en fazla {{ weeks }} hafta",
-      "weeks": "hafta",
-      "discount": "indirim"
+      "single": "Single",
+      "packs": "Packs",
+      "adding": "Adding...",
+      "added": "Added!",
+      "error": "Error",
+      "select_variant": "Select a variant",
+      "no_pack_variants": "No pack variants available",
+      "up_to_weeks": "up to {{ weeks }} weeks",
+      "weeks": "weeks",
+      "discount": "discount"
     },
     "gallery": {
       "close": "Galeriyi kapat",
@@ -333,25 +333,25 @@
       "title": "Sepet",
       "empty": "Sepetiniz boş",
       "item_count": {
+        "other": "{{ count }} ürün",
         "zero": "{{ count }} items",
-        "one": "{{ count }} item",
-        "other": "{{ count }} ürün"
+        "one": "{{ count }} item"
       },
       "continue_shopping": "Alışverişe devam edin",
       "weight": "Ağırlık",
       "subtotal": "Ara toplam",
       "total": "Toplam",
-      "taxes_and_shipping_policy_at_checkout_html": "Vergiler ve <a href=\"{{ link }}\" class=\"link\">gönderi ücreti</a> ödeme sırasında hesaplanır",
-      "taxes_included_but_shipping_at_checkout": "Vergi dahildir ve gönderi ücreti ödeme sırasında hesaplanır",
-      "taxes_included_and_shipping_policy_html": "Vergi dahildir. <a href=\"{{ link }}\" class=\"link\">Gönderi ücreti</a> ödeme sırasında hesaplanır.",
-      "taxes_and_shipping_at_checkout": "Vergiler ve gönderi ücreti ödeme sırasında hesaplanır",
       "add_order_note": "Sipariş notu ekle",
       "edit_order_note": "Sipariş notunu düzenle",
       "order_note": "Sipariş notu",
       "save_note": "Kaydet",
       "view_cart": "Sepeti görüntüle",
       "checkout": "Ödeme yap",
-      "we_accept": "Kabul ettiklerimiz:"
+      "we_accept": "Kabul ettiklerimiz:",
+      "taxes_and_shipping_policy_at_checkout_html": "Vergiler ve <a href=\"{{ link }}\" class=\"link\">gönderi ücreti</a> ödeme sırasında hesaplanır",
+      "taxes_included_but_shipping_at_checkout": "Vergi dahildir ve gönderi ücreti ödeme sırasında hesaplanır",
+      "taxes_included_and_shipping_policy_html": "Vergi dahildir. <a href=\"{{ link }}\" class=\"link\">Gönderi ücreti</a> ödeme sırasında hesaplanır.",
+      "taxes_and_shipping_at_checkout": "Vergiler ve gönderi ücreti ödeme sırasında hesaplanır"
     },
     "order": {
       "product": "Ürün",

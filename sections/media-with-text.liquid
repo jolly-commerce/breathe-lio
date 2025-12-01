@@ -96,9 +96,9 @@ LIQUID
                 {%- endunless -%}
 
                 {%- if block.settings.autoplay -%}
-                  {{- block.settings.video | video_tag: playslinline: true, muted: true, loop: true, preload: 'metadata' -}}
+                  {{- block.settings.video | video_tag: playslinline: true, muted: true, loop: true, preload: 'none' -}}
                 {%- else -%}
-                  {{- block.settings.video | video_tag: playslinline: true, controls: true, muted: false, loop: false, preload: 'metadata' -}}
+                  {{- block.settings.video | video_tag: playslinline: true, controls: true, muted: false, loop: false, preload: 'none' -}}
                 {%- endif -%}
               </video-media>
             {%- else -%}

@@ -105,18 +105,19 @@
       "size_chart": "Dydžių lentelė",
       "available_colors_count": {
         "one": "Parduodama {{ count }} spalvos",
+        "few": "Parduodama {{ count }} spalvų",
         "other": "Parduodama {{ count }} spalvų"
       },
-      "single": "Vnt.",
-      "packs": "Paketai",
-      "adding": "Pridedama...",
-      "added": "Pridėta!",
-      "error": "Klaida",
-      "select_variant": "Pasirinkite variantą",
-      "no_pack_variants": "Nėra galimų pakuočių variantų",
-      "up_to_weeks": "iki {{ weeks }} savaičių",
-      "weeks": "savaitės",
-      "discount": "nuolaida"
+      "single": "Single",
+      "packs": "Packs",
+      "adding": "Adding...",
+      "added": "Added!",
+      "error": "Error",
+      "select_variant": "Select a variant",
+      "no_pack_variants": "No pack variants available",
+      "up_to_weeks": "up to {{ weeks }} weeks",
+      "weeks": "weeks",
+      "discount": "discount"
     },
     "gallery": {
       "close": "Uždaryti galeriją",
@@ -144,6 +145,7 @@
     "rating_count": {
       "zero": "{{ count }} peržiūrų",
       "one": "{{ count }} peržiūra",
+      "few": "{{ count }} peržiūros",
       "other": "{{ count }} peržiūrų"
     },
     "inventory": {
@@ -152,6 +154,7 @@
       "incoming_stock": "Vėl gausime {{ next_incoming_date }}",
       "low_stock_with_quantity_count": {
         "one": "Liko tik {{count}} vienetas",
+        "few": "Liko tik {{count}} vienetai",
         "other": "Liko tik {{count}} vienetų"
       }
     },
@@ -174,6 +177,7 @@
     "products_count": {
       "zero": "{{ count }} prekių",
       "one": "{{ count }} prekė",
+      "few": "{{ count }} prekės",
       "other": "{{ count }} prekių"
     },
     "faceting": {
@@ -217,6 +221,7 @@
       "count": {
         "zero": "{{ count }} komentarų",
         "one": "{{ count }} komentaras",
+        "few": "{{ count }} komentarai",
         "other": "{{ count }} komentarų"
       }
     }
@@ -333,25 +338,26 @@
       "title": "Krepšelis",
       "empty": "Jūsų krepšelis yra tuščias",
       "item_count": {
-        "zero": "{{ count }} items",
         "one": "{{ count }} prekė",
-        "other": "{{ count }} prekių"
+        "few": "{{ count }} prekės",
+        "other": "{{ count }} prekių",
+        "zero": "{{ count }} items"
       },
       "continue_shopping": "Tęsti apsipirkimą",
       "weight": "Svoris",
       "subtotal": "Tarpinė suma",
       "total": "Iš viso",
-      "taxes_and_shipping_policy_at_checkout_html": "Mokesčiai ir <a href=\"{{ link }}\" class=\"link\">siuntimo išlaidos</a> apskaičiuojami pateikiant užsakymą",
-      "taxes_included_but_shipping_at_checkout": "Į kainą įtrauktas mokestis ir siuntimo išlaidos apskaičiuojami pateikiant užsakymą",
-      "taxes_included_and_shipping_policy_html": "Į kainą įtrauktas mokestis. <a href=\"{{ link }}\" class=\"link\">Siuntimo išlaidos</a> apskaičiuojamos pateikiant užsakymą.",
-      "taxes_and_shipping_at_checkout": "Mokesčiai ir siuntimo išlaidos apskaičiuojami pateikiant užsakymą",
       "add_order_note": "Pridėti užsakymo pastabą",
       "edit_order_note": "Redaguoti užsakymo pastabą",
       "order_note": "Užsakymo pastaba",
       "save_note": "Išsaugoti",
       "view_cart": "Peržiūrėti krepšelį",
       "checkout": "Pateikti užsakymą",
-      "we_accept": "Priimame"
+      "we_accept": "Priimame",
+      "taxes_and_shipping_policy_at_checkout_html": "Mokesčiai ir <a href=\"{{ link }}\" class=\"link\">siuntimo išlaidos</a> apskaičiuojami pateikiant užsakymą",
+      "taxes_included_but_shipping_at_checkout": "Į kainą įtrauktas mokestis ir siuntimo išlaidos apskaičiuojami pateikiant užsakymą",
+      "taxes_included_and_shipping_policy_html": "Į kainą įtrauktas mokestis. <a href=\"{{ link }}\" class=\"link\">Siuntimo išlaidos</a> apskaičiuojamos pateikiant užsakymą.",
+      "taxes_and_shipping_at_checkout": "Mokesčiai ir siuntimo išlaidos apskaičiuojami pateikiant užsakymą"
     },
     "order": {
       "product": "Prekė",
@@ -397,6 +403,7 @@
     "results_count": {
       "zero": "{{ count }} rezultatų pagal užklausą „{{ terms }}“",
       "one": "{{ count }} rezultatas pagal užklausą „{{ terms }}“",
+      "few": "{{ count }} rezultatai pagal užklausą „{{ terms }}“",
       "other": "{{ count }} rezultatų pagal užklausą „{{ terms }}“"
     }
   },

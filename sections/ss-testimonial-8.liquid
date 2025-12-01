@@ -1,16 +1,16 @@
 {% comment %}
----------------------------------------------------------
-Copyright © 2023 Section Store. All rights reserved.
-Unauthorized copying, modification, distribution, or use
-of this code or any portion of it, is strictly prohibited.
-Violators will be prosecuted to the fullest extent of the law.
-For inquiries or permissions, contact daniel@section.store
----------------------------------------------------------
+  ---------------------------------------------------------
+  Copyright © 2025 Section Store. All rights reserved.
+  Unauthorized copying, modification, distribution, or use
+  of this code or any portion of it, is strictly prohibited.
+  Violators will be prosecuted to the fullest extent of the law.
+  For inquiries or permissions, contact daniel@section.store
+  ---------------------------------------------------------
 {% endcomment %}
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
-
-{%- liquid 
+<link rel="preload" href="...swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="...swiper-bundle.min.css"></noscript>
+{%- liquid
   assign padding_horizontal = section.settings.padding_horizontal
   assign padding_horizontal_mobile = section.settings.padding_horizontal_mobile
   assign padding_top = section.settings.padding_top
@@ -52,9 +52,11 @@ For inquiries or permissions, contact daniel@section.store
   assign stars_icon = section.settings.stars_icon
   assign stars_color = section.settings.stars_color
   assign stars_bg_color = section.settings.stars_bg_color
+  assign stars_bg_half_color = section.settings.stars_bg_half_color
   assign stars_size = section.settings.stars_size
   assign stars_size_mobile = section.settings.stars_size_mobile
   assign stars_count = section.settings.stars_count
+  assign stars_gap = section.settings.stars_gap
 
   assign text = section.settings.text
   assign text_size = section.settings.text_size
@@ -157,11 +159,10 @@ For inquiries or permissions, contact daniel@section.store
   assign button_border_hover_color = section.settings.button_border_hover_color
   assign button_bg_color = section.settings.button_bg_color
   assign button_bg_hover_color = section.settings.button_bg_hover_color
-  
+  assign new_tab = section.settings.new_tab
 -%}
 
 {%- style -%}
-
   {{  heading_font | font_face: font_display: 'swap' }}
   {{  rating_text_font | font_face: font_display: 'swap' }}
   {{  text_font | font_face: font_display: 'swap' }}
@@ -169,7 +170,7 @@ For inquiries or permissions, contact daniel@section.store
   {{  card_text_font | font_face: font_display: 'swap' }}
   {{  card_author_date_text_font | font_face: font_display: 'swap' }}
   {{  button_font | font_face: font_display: 'swap' }}
-  
+
   .section-{{ section.id }} {
     border-top: solid {{ border_color }} {{ border_thickness }}px;
     border-bottom: solid {{ border_color }} {{ border_thickness }}px;
@@ -177,7 +178,7 @@ For inquiries or permissions, contact daniel@section.store
     margin-bottom: {{ margin_bottom | times: 0.75 | round: 0 }}px;
     overflow: hidden;
   }
-  
+
   .section-{{ section.id }}-settings {
     margin: 0 auto;
     padding-top: {{ padding_top | times: 0.75 | round: 0 }}px;
@@ -198,7 +199,7 @@ For inquiries or permissions, contact daniel@section.store
   .testimonials-stars-{{ section.id }} {
     display: flex;
     align-items: end;
-    gap: 5px;
+    gap: {{ stars_gap }}px;
   }
 
   .testimonials-stars-{{ section.id }} svg,
@@ -210,7 +211,7 @@ For inquiries or permissions, contact daniel@section.store
   }
 
   .testimonials-stars-{{ section.id }} svg {
-    background-color: {{ stars_bg_color }}; 
+    background-color: {{ stars_bg_color }};
   }
 
   .testimonials-rating-{{ section.id }} {
@@ -301,7 +302,7 @@ For inquiries or permissions, contact daniel@section.store
     border-radius: {{ card_radius }}px;
     border: {{ card_border_thickness }}px solid {{ card_border_color }};
     background-color: {{ card_bg_color }};
-    box-sizing: border-box !important; 
+    box-sizing: border-box !important;
     height: auto !important;
   }
 
@@ -482,14 +483,14 @@ For inquiries or permissions, contact daniel@section.store
     background-color: {{ button_bg_hover_color }};
     transition: all 0.25s ease 0s;
   }
-  
+
   @media(min-width: 1024px) {
 
     .section-{{ section.id }} {
       margin-top: {{ margin_top }}px;
       margin-bottom: {{ margin_bottom }}px;
     }
-    
+
     .section-{{ section.id }}-settings {
       padding: 0 5rem;
       padding-top: {{ padding_top }}px;
@@ -520,7 +521,7 @@ For inquiries or permissions, contact daniel@section.store
     .testimonials-text-{{ section.id }} {
       margin-top: {{ text_mt }}px;
     }
-  
+
     .testimonials-text-{{ section.id }} * {
       font-size: {{ text_size }}px;
     }
@@ -532,7 +533,7 @@ For inquiries or permissions, contact daniel@section.store
       width: 100%;
       max-width: {{ slider_width }}%;
     }
-    
+
     .testimonials-slide-{{ section.id }} {
       gap: {{ card_author_date_text_mt }}px;
       padding: {{ card_padding_vertical }}px {{ card_padding_horizontal }}px;
@@ -574,7 +575,7 @@ For inquiries or permissions, contact daniel@section.store
     .testimonials-btn-prev-{{ section.id }} {
       left: -{{ arrow_size | times: 0.5 }}px !important;
     }
-  
+
     .testimonials-btn-next-{{ section.id }} {
       right: -{{ arrow_size | times: 0.5 }}px !important;
     }
@@ -596,13 +597,12 @@ For inquiries or permissions, contact daniel@section.store
       font-size: {{ button_size }}px;
     }
   }
-  
 {%- endstyle -%}
 
 {% unless full_width %}
   <style>
     .section-{{ section.id }}-settings {
-      max-width: {{ content_width }}rem;
+      max-width: {{ content_width }}px;
     }
   </style>
 {% endunless %}
@@ -755,14 +755,14 @@ For inquiries or permissions, contact daniel@section.store
   </style>
 {% endif %}
 
-{% if card_text_align == "center" %}
+{% if card_text_align == 'center' %}
   <style>
     .testimonials-slide-text-btn-{{ section.id }} {
       margin-left: auto;
       margin-right: auto;
     }
   </style>
-{% elsif card_text_align == "right" %}
+{% elsif card_text_align == 'right' %}
   <style>
     .testimonials-slide-text-btn-{{ section.id }} {
       margin-left: auto;
@@ -786,7 +786,7 @@ For inquiries or permissions, contact daniel@section.store
       }
     }
   </style>
-{% else%}
+{% else %}
   <style>
     @media(min-width: 768px) {
       .testimonials-slide-{{ section.id }}.swiper-slide-visible.swiper-slide-prev,
@@ -815,7 +815,7 @@ For inquiries or permissions, contact daniel@section.store
       }
     }
   </style>
-{% else%}
+{% else %}
   <style>
     @media(min-width: 1024px) {
       .testimonials-slide-{{ section.id }}.swiper-slide-visible.swiper-slide-prev,
@@ -824,7 +824,7 @@ For inquiries or permissions, contact daniel@section.store
         transition-duration: 250ms;
         transition-property: transform, opacity;
       }
-      
+
       .testimonials-slide-{{ section.id }}.swiper-slide-visible.swiper-slide-prev {
         opacity: 1;
         transition-duration: 250ms;
@@ -834,18 +834,18 @@ For inquiries or permissions, contact daniel@section.store
   </style>
 {% endif %}
 
-{% if button_align == "center" %}
+{% if button_align == 'center' %}
   <style>
-   .testimonials-btn-{{ section.id }} {
-      margin-left: auto;
-      margin-right: auto;
-    } 
+    .testimonials-btn-{{ section.id }} {
+       margin-left: auto;
+       margin-right: auto;
+     }
   </style>
-{% elsif button_align == "right" %}
+{% elsif button_align == 'right' %}
   <style>
-   .testimonials-btn-{{ section.id }} {
-      margin-left: auto;
-    } 
+    .testimonials-btn-{{ section.id }} {
+       margin-left: auto;
+     }
   </style>
 {% endif %}
 
@@ -868,326 +868,366 @@ For inquiries or permissions, contact daniel@section.store
   }
 </style>
 
-<div class="section-{{ section.id }} testimonials-{{ section.id }}" style="background-color:{{ background_color }}; background-image: {{ background_gradient }};">
-    <div class="section-{{ section.id }}-settings ">
-      {% if heading != blank %}
-        <h2 class="testimonials-heading-{{ section.id }}">{{ heading }}</h2>
-      {% endif %}
-      {% unless rating_text_hide and rating_hide and stars_count == 0 %}
-        <div class="testimonials-rating-{{ section.id }}">
-          {% unless rating_text_hide %}
-            <p class="testimonials-rating-text-{{ section.id }}">{{ rating_text }}</p>
-          {% endunless %}
-          {% unless rating_hide %}
-            <span>{{ rating }}</span>
-             <p class="testimonials-rating-text-{{ section.id }}"><strong>/ 5</strong></p>
-          {% endunless %}
-          {% if stars_count != 0 %}
-            <div class="testimonials-stars-{{ section.id }}">
-                {% if stars_icon != blank %}
-                  {% for item in (1..stars_count) %}
-                    <img src="{{ stars_icon | image_url }}" alt="{{ stars_icon.alt }}" {% if lazy %}loading="lazy"{% endif %}>
-                  {% endfor %}
-                {% else %}
-                  {% if stars_count > 0 %}
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      {% if stars_count == 0.5 %}
-                        <defs>
-                          <linearGradient id="grad{{ section.id }}1">
-                            <stop offset="0%" stop-color="{{ stars_bg_color }}" />
-                            <stop offset="50%" stop-color="{{ stars_bg_color }}" />
-                            <stop offset="50%" stop-color="#DDDDDD" />
-                            <stop offset="100%" stop-color="#DDDDDD" />
-                          </linearGradient>
-                        </defs>
-                      {% endif %}
-                      <rect width="32" height="32" fill="{% if stars_count == 0.5 %}url(#grad{{ section.id }}1){% else %}{{ stars_bg_color }}{% endif %}"/>
-                      <g clip-path="url(#clip0_25_4)">
-                      <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
-                      </g>
-                      <defs>
-                      <clipPath id="clip0_25_4">
-                      <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
-                      </clipPath>
-                      </defs>
-                    </svg>
+<div
+  class="section-{{ section.id }} testimonials-{{ section.id }}"
+  style="background-color:{{ background_color }}; background-image: {{ background_gradient }};"
+>
+  <div class="section-{{ section.id }}-settings ">
+    {% if heading != blank %}
+      <h2 class="testimonials-heading-{{ section.id }}">{{ heading }}</h2>
+    {% endif %}
+    {% unless rating_text_hide and rating_hide and stars_count == 0 %}
+      <div class="testimonials-rating-{{ section.id }}">
+        {% unless rating_text_hide %}
+          <p class="testimonials-rating-text-{{ section.id }}">{{ rating_text }}</p>
+        {% endunless %}
+        {% unless rating_hide %}
+          <span>{{ rating }}</span>
+          <p class="testimonials-rating-text-{{ section.id }}"><strong>/ 5</strong></p>
+        {% endunless %}
+        {% if stars_count != 0 %}
+          <div class="testimonials-stars-{{ section.id }}">
+            {% if stars_icon != blank %}
+              {% assign stars_count_round = stars_count | round: 0 %}
+              {% for item in (1..stars_count_round) %}
+                <img
+                  src="{{ stars_icon | image_url }}"
+                  alt="{{ stars_icon.alt }}"
+                  {% if lazy %}
+                    loading="lazy"
                   {% endif %}
-                  {% if stars_count > 1 %}
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      {% if stars_count == 1.5 %}
-                        <defs>
-                          <linearGradient id="grad{{ section.id }}2">
-                            <stop offset="0%" stop-color="{{ stars_bg_color }}" />
-                            <stop offset="50%" stop-color="{{ stars_bg_color }}" />
-                            <stop offset="50%" stop-color="#DDDDDD" />
-                            <stop offset="100%" stop-color="#DDDDDD" />
-                          </linearGradient>
-                        </defs>
-                      {% endif %}
-                      <rect width="32" height="32" fill="{% if stars_count == 1.5 %}url(#grad{{ section.id }}2){% else %}{{ stars_bg_color }}{% endif %}"/>
-                      <g clip-path="url(#clip0_25_4)">
-                      <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
-                      </g>
-                      <defs>
-                      <clipPath id="clip0_25_4">
-                      <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
-                      </clipPath>
-                      </defs>
-                    </svg>
+                >
+              {% endfor %}
+            {% else %}
+              {% if stars_count > 0 %}
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {% if stars_count == 0.5 %}
+                    <defs>
+                      <linearGradient id="grad{{ section.id }}1">
+                        <stop offset="0%" stop-color="{{ stars_bg_color }}" />
+                        <stop offset="50%" stop-color="{{ stars_bg_color }}" />
+                        <stop offset="50%" stop-color="{{ stars_bg_half_color }}" />
+                        <stop offset="100%" stop-color="{{ stars_bg_half_color }}" />
+                      </linearGradient>
+                    </defs>
                   {% endif %}
-                  {% if stars_count > 2 %}
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      {% if stars_count == 2.5 %}
-                        <defs>
-                          <linearGradient id="grad{{ section.id }}3">
-                            <stop offset="0%" stop-color="{{ stars_bg_color }}" />
-                            <stop offset="50%" stop-color="{{ stars_bg_color }}" />
-                            <stop offset="50%" stop-color="#DDDDDD" />
-                            <stop offset="100%" stop-color="#DDDDDD" />
-                          </linearGradient>
-                        </defs>
-                      {% endif %}
-                      <rect width="32" height="32" fill="{% if stars_count == 2.5 %}url(#grad{{ section.id }}3){% else %}{{ stars_bg_color }}{% endif %}"/>
-                      <g clip-path="url(#clip0_25_4)">
-                      <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
-                      </g>
-                      <defs>
-                      <clipPath id="clip0_25_4">
-                      <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
-                      </clipPath>
-                      </defs>
-                    </svg>
+                  <rect width="32" height="32" fill="{% if stars_count == 0.5 %}url(#grad{{ section.id }}1){% else %}{{ stars_bg_color }}{% endif %}"/>
+                  <g clip-path="url(#clip0_25_4)">
+                  <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_25_4">
+                  <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+              {% endif %}
+              {% if stars_count > 1 %}
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {% if stars_count == 1.5 %}
+                    <defs>
+                      <linearGradient id="grad{{ section.id }}2">
+                        <stop offset="0%" stop-color="{{ stars_bg_color }}" />
+                        <stop offset="50%" stop-color="{{ stars_bg_color }}" />
+                        <stop offset="50%" stop-color="{{ stars_bg_half_color }}" />
+                        <stop offset="100%" stop-color="{{ stars_bg_half_color }}" />
+                      </linearGradient>
+                    </defs>
                   {% endif %}
-                  {% if stars_count > 3 %}
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      {% if stars_count == 3.5 %}
-                        <defs>
-                          <linearGradient id="grad{{ section.id }}4">
-                            <stop offset="0%" stop-color="{{ stars_bg_color }}" />
-                            <stop offset="50%" stop-color="{{ stars_bg_color }}" />
-                            <stop offset="50%" stop-color="#DDDDDD" />
-                            <stop offset="100%" stop-color="#DDDDDD" />
-                          </linearGradient>
-                        </defs>
-                      {% endif %}
-                      <rect width="32" height="32" fill="{% if stars_count == 3.5 %}url(#grad{{ section.id }}4){% else %}{{ stars_bg_color }}{% endif %}"/>
-                      <g clip-path="url(#clip0_25_4)">
-                      <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
-                      </g>
-                      <defs>
-                      <clipPath id="clip0_25_4">
-                      <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
-                      </clipPath>
-                      </defs>
-                    </svg>
+                  <rect width="32" height="32" fill="{% if stars_count == 1.5 %}url(#grad{{ section.id }}2){% else %}{{ stars_bg_color }}{% endif %}"/>
+                  <g clip-path="url(#clip0_25_4)">
+                  <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_25_4">
+                  <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+              {% endif %}
+              {% if stars_count > 2 %}
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {% if stars_count == 2.5 %}
+                    <defs>
+                      <linearGradient id="grad{{ section.id }}3">
+                        <stop offset="0%" stop-color="{{ stars_bg_color }}" />
+                        <stop offset="50%" stop-color="{{ stars_bg_color }}" />
+                        <stop offset="50%" stop-color="{{ stars_bg_half_color }}" />
+                        <stop offset="100%" stop-color="{{ stars_bg_half_color }}" />
+                      </linearGradient>
+                    </defs>
                   {% endif %}
-                  {% if stars_count > 4 %}
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      {% if stars_count == 4.5 %}
-                        <defs>
-                          <linearGradient id="grad{{ section.id }}5">
-                            <stop offset="0%" stop-color="{{ stars_bg_color }}" />
-                            <stop offset="50%" stop-color="{{ stars_bg_color }}" />
-                            <stop offset="50%" stop-color="#DDDDDD" />
-                            <stop offset="100%" stop-color="#DDDDDD" />
-                          </linearGradient>
-                        </defs>
-                      {% endif %}
-                      <rect width="32" height="32" fill="{% if stars_count == 4.5 %}url(#grad{{ section.id }}5){% else %}{{ stars_bg_color }}{% endif %}"/>
-                      <g clip-path="url(#clip0_25_4)">
-                      <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
-                      </g>
-                      <defs>
-                      <clipPath id="clip0_25_4">
-                      <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
-                      </clipPath>
-                      </defs>
-                    </svg>
+                  <rect width="32" height="32" fill="{% if stars_count == 2.5 %}url(#grad{{ section.id }}3){% else %}{{ stars_bg_color }}{% endif %}"/>
+                  <g clip-path="url(#clip0_25_4)">
+                  <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_25_4">
+                  <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+              {% endif %}
+              {% if stars_count > 3 %}
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {% if stars_count == 3.5 %}
+                    <defs>
+                      <linearGradient id="grad{{ section.id }}4">
+                        <stop offset="0%" stop-color="{{ stars_bg_color }}" />
+                        <stop offset="50%" stop-color="{{ stars_bg_color }}" />
+                        <stop offset="50%" stop-color="{{ stars_bg_half_color }}" />
+                        <stop offset="100%" stop-color="{{ stars_bg_half_color }}" />
+                      </linearGradient>
+                    </defs>
                   {% endif %}
-                {% endif %}
-            </div>
-          {% endif %}
-        </div>
-      {% endunless %}
-      {% if text != blank %}
-        <div class="testimonials-text-{{ section.id }}">
-          {{ text }}
-          {% if text_right_image != blank %}
-            <div class="testimonials-image-{{ section.id }}">
-              <img src="{{ text_right_image | image_url }}" alt="{{ text_right_image.alt }}" {% if lazy %}loading="lazy"{% endif %}>
-            </div>
-          {% endif %}
-        </div>
-      {% endif %}
-      <div class="testimonials-slider-wrapper-{{ section.id }}">
-        <div class="testimonials-slider-{{ section.id }} swiper preview">
-          <div class="swiper-wrapper">
-            {% for block in section.blocks %}
-              <div class="testimonials-slide-{{ section.id }} swiper-slide">
-                <div class="testimonials-slide-top-{{ section.id }}">
-                  {% if block.settings.stars_count != 0 %}
-                    <div class="testimonials-stars-{{ section.id }}">
-                        {% if stars_icon != blank %}
-                          {% for item in (1..block.settings.stars_count) %}
-                            <img src="{{ stars_icon | image_url }}" alt="{{ stars_icon.alt }}" {% if lazy %}loading="lazy"{% endif %}>
-                          {% endfor %}
-                        {% else %}
-                          {% if block.settings.stars_count > 0 %}
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              {% if block.settings.stars_count == 0.5 %}
-                                <defs>
-                                  <linearGradient id="grad{{ section.id }}1">
-                                    <stop offset="0%" stop-color="{{ stars_bg_color }}" />
-                                    <stop offset="50%" stop-color="{{ stars_bg_color }}" />
-                                    <stop offset="50%" stop-color="#DDDDDD" />
-                                    <stop offset="100%" stop-color="#DDDDDD" />
-                                  </linearGradient>
-                                </defs>
-                              {% endif %}
-                              <rect width="32" height="32" fill="{% if block.settings.stars_count == 0.5 %}url(#grad{{ section.id }}1){% else %}{{ stars_bg_color }}{% endif %}"/>
-                              <g clip-path="url(#clip0_25_4)">
-                              <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
-                              </g>
-                              <defs>
-                              <clipPath id="clip0_25_4">
-                              <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
-                              </clipPath>
-                              </defs>
-                            </svg>
-                          {% endif %}
-                          {% if block.settings.stars_count > 1 %}
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              {% if block.settings.stars_count == 1.5 %}
-                                <defs>
-                                  <linearGradient id="grad{{ section.id }}2">
-                                    <stop offset="0%" stop-color="{{ stars_bg_color }}" />
-                                    <stop offset="50%" stop-color="{{ stars_bg_color }}" />
-                                    <stop offset="50%" stop-color="#DDDDDD" />
-                                    <stop offset="100%" stop-color="#DDDDDD" />
-                                  </linearGradient>
-                                </defs>
-                              {% endif %}
-                              <rect width="32" height="32" fill="{% if block.settings.stars_count == 1.5 %}url(#grad{{ section.id }}2){% else %}{{ stars_bg_color }}{% endif %}"/>
-                              <g clip-path="url(#clip0_25_4)">
-                              <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
-                              </g>
-                              <defs>
-                              <clipPath id="clip0_25_4">
-                              <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
-                              </clipPath>
-                              </defs>
-                            </svg>
-                          {% endif %}
-                          {% if block.settings.stars_count > 2 %}
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              {% if block.settings.stars_count == 2.5 %}
-                                <defs>
-                                  <linearGradient id="grad{{ section.id }}3">
-                                    <stop offset="0%" stop-color="{{ stars_bg_color }}" />
-                                    <stop offset="50%" stop-color="{{ stars_bg_color }}" />
-                                    <stop offset="50%" stop-color="#DDDDDD" />
-                                    <stop offset="100%" stop-color="#DDDDDD" />
-                                  </linearGradient>
-                                </defs>
-                              {% endif %}
-                              <rect width="32" height="32" fill="{% if block.settings.stars_count == 2.5 %}url(#grad{{ section.id }}3){% else %}{{ stars_bg_color }}{% endif %}"/>
-                              <g clip-path="url(#clip0_25_4)">
-                              <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
-                              </g>
-                              <defs>
-                              <clipPath id="clip0_25_4">
-                              <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
-                              </clipPath>
-                              </defs>
-                            </svg>
-                          {% endif %}
-                          {% if block.settings.stars_count > 3 %}
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              {% if block.settings.stars_count == 3.5 %}
-                                <defs>
-                                  <linearGradient id="grad{{ section.id }}4">
-                                    <stop offset="0%" stop-color="{{ stars_bg_color }}" />
-                                    <stop offset="50%" stop-color="{{ stars_bg_color }}" />
-                                    <stop offset="50%" stop-color="#DDDDDD" />
-                                    <stop offset="100%" stop-color="#DDDDDD" />
-                                  </linearGradient>
-                                </defs>
-                              {% endif %}
-                              <rect width="32" height="32" fill="{% if block.settings.stars_count == 3.5 %}url(#grad{{ section.id }}4){% else %}{{ stars_bg_color }}{% endif %}"/>
-                              <g clip-path="url(#clip0_25_4)">
-                              <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
-                              </g>
-                              <defs>
-                              <clipPath id="clip0_25_4">
-                              <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
-                              </clipPath>
-                              </defs>
-                            </svg>
-                          {% endif %}
-                          {% if block.settings.stars_count > 4 %}
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              {% if block.settings.stars_count == 4.5 %}
-                                <defs>
-                                  <linearGradient id="grad{{ section.id }}5">
-                                    <stop offset="0%" stop-color="{{ stars_bg_color }}" />
-                                    <stop offset="50%" stop-color="{{ stars_bg_color }}" />
-                                    <stop offset="50%" stop-color="#DDDDDD" />
-                                    <stop offset="100%" stop-color="#DDDDDD" />
-                                  </linearGradient>
-                                </defs>
-                              {% endif %}
-                              <rect width="32" height="32" fill="{% if block.settings.stars_count == 4.5 %}url(#grad{{ section.id }}5){% else %}{{ stars_bg_color }}{% endif %}"/>
-                              <g clip-path="url(#clip0_25_4)">
-                              <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
-                              </g>
-                              <defs>
-                              <clipPath id="clip0_25_4">
-                              <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
-                              </clipPath>
-                              </defs>
-                            </svg>
-                          {% endif %}
-                              
-                        {% endif %}
-                    </div>
+                  <rect width="32" height="32" fill="{% if stars_count == 3.5 %}url(#grad{{ section.id }}4){% else %}{{ stars_bg_color }}{% endif %}"/>
+                  <g clip-path="url(#clip0_25_4)">
+                  <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_25_4">
+                  <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+              {% endif %}
+              {% if stars_count > 4 %}
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {% if stars_count == 4.5 %}
+                    <defs>
+                      <linearGradient id="grad{{ section.id }}5">
+                        <stop offset="0%" stop-color="{{ stars_bg_color }}" />
+                        <stop offset="50%" stop-color="{{ stars_bg_color }}" />
+                        <stop offset="50%" stop-color="{{ stars_bg_half_color }}" />
+                        <stop offset="100%" stop-color="{{ stars_bg_half_color }}" />
+                      </linearGradient>
+                    </defs>
                   {% endif %}
-                  {% if block.settings.heading != blank %}
-                    <p class="testimonials-slide-heading-{{ section.id }}">{{ block.settings.heading }}</p>
-                  {% endif %}
-                  {% if block.settings.text != blank %}
-                    <p class="testimonials-slide-text-{{ section.id }}">
-                      <span>{{ block.settings.text }}</span>
-                      <span class="testimonials-slide-text-small-{{ section.id }} testimonials-slide-text-small">{{ block.settings.text | truncatewords: card_count_words }}</span>
-                      <span class="testimonials-slide-text-big-{{ section.id }} testimonials-slide-text-big">{{ block.settings.text }}</span>
-                      <button class="testimonials-slide-text-btn-{{ section.id }} testimonials-slide-text-btn">{{ card_text_more }}</button>
-                    </p>
-                  {% endif %}
-                </div>
-                <div class="testimonials-slide-bottom-{{ section.id }}">
-                  {% if block.settings.author_date != blank %}
-                    <p class="testimonials-slide-author-date-{{ section.id }}">{{ block.settings.author_date }}</p>
-                  {% endif %}
-                </div>
-              </div>
-            {% endfor %}
+                  <rect width="32" height="32" fill="{% if stars_count == 4.5 %}url(#grad{{ section.id }}5){% else %}{{ stars_bg_color }}{% endif %}"/>
+                  <g clip-path="url(#clip0_25_4)">
+                  <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_25_4">
+                  <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+              {% endif %}
+            {% endif %}
           </div>
-          <div class="testimonials-btn-prev-{{ section.id }}">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g id="Left"><path d="M14,17a1,1,0,0,1-.707-.293l-4-4a1,1,0,0,1,0-1.414l4-4a1,1,0,1,1,1.414,1.414L11.414,12l3.293,3.293A1,1,0,0,1,14,17Z" style="fill:#1c1b1e"/></g></svg>
-          </div>
-          <div class="testimonials-btn-next-{{ section.id }}">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g id="Left"><path d="M14,17a1,1,0,0,1-.707-.293l-4-4a1,1,0,0,1,0-1.414l4-4a1,1,0,1,1,1.414,1.414L11.414,12l3.293,3.293A1,1,0,0,1,14,17Z" style="fill:#1c1b1e"/></g></svg>
-          </div>
-          <div class="testimonials-pagination-{{ section.id }} swiper-pagination"></div>
-        </div>
+        {% endif %}
       </div>
-      {% if button != blank %}
-        <a href="{{ button_url }}" class="testimonials-btn-{{ section.id }}">{{ button }}</a>
-      {% endif %}
+    {% endunless %}
+    {% if text != blank %}
+      <div class="testimonials-text-{{ section.id }}">
+        {{ text }}
+        {% if text_right_image != blank %}
+          <div class="testimonials-image-{{ section.id }}">
+            <img
+              src="{{ text_right_image | image_url }}"
+              alt="{{ text_right_image.alt }}"
+              {% if lazy %}
+                loading="lazy"
+              {% endif %}
+            >
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="testimonials-slider-wrapper-{{ section.id }}">
+      <div class="testimonials-slider-{{ section.id }} swiper preview">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="testimonials-slide-{{ section.id }} swiper-slide">
+              <div class="testimonials-slide-top-{{ section.id }}">
+                {% if block.settings.stars_count != 0 %}
+                  <div class="testimonials-stars-{{ section.id }}">
+                    {% if stars_icon != blank %}
+                      {% assign stars_count_round = block.settings.stars_count | round: 0 %}
+                      {% for item in (1..stars_count_round) %}
+                        <img
+                          src="{{ stars_icon | image_url }}"
+                          alt="{{ stars_icon.alt }}"
+                          {% if lazy %}
+                            loading="lazy"
+                          {% endif %}
+                        >
+                      {% endfor %}
+                    {% else %}
+                      {% if block.settings.stars_count > 0 %}
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          {% if block.settings.stars_count == 0.5 %}
+                            <defs>
+                              <linearGradient id="grad{{ section.id }}1">
+                                <stop offset="0%" stop-color="{{ stars_bg_color }}" />
+                                <stop offset="50%" stop-color="{{ stars_bg_color }}" />
+                                <stop offset="50%" stop-color="{{ stars_bg_half_color }}" />
+                                <stop offset="100%" stop-color="{{ stars_bg_half_color }}" />
+                              </linearGradient>
+                            </defs>
+                          {% endif %}
+                          <rect width="32" height="32" fill="{% if block.settings.stars_count == 0.5 %}url(#grad{{ section.id }}1){% else %}{{ stars_bg_color }}{% endif %}"/>
+                          <g clip-path="url(#clip0_25_4)">
+                          <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
+                          </g>
+                          <defs>
+                          <clipPath id="clip0_25_4">
+                          <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
+                          </clipPath>
+                          </defs>
+                        </svg>
+                      {% endif %}
+                      {% if block.settings.stars_count > 1 %}
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          {% if block.settings.stars_count == 1.5 %}
+                            <defs>
+                              <linearGradient id="grad{{ section.id }}2">
+                                <stop offset="0%" stop-color="{{ stars_bg_color }}" />
+                                <stop offset="50%" stop-color="{{ stars_bg_color }}" />
+                                <stop offset="50%" stop-color="{{ stars_bg_half_color }}" />
+                                <stop offset="100%" stop-color="{{ stars_bg_half_color }}" />
+                              </linearGradient>
+                            </defs>
+                          {% endif %}
+                          <rect width="32" height="32" fill="{% if block.settings.stars_count == 1.5 %}url(#grad{{ section.id }}2){% else %}{{ stars_bg_color }}{% endif %}"/>
+                          <g clip-path="url(#clip0_25_4)">
+                          <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
+                          </g>
+                          <defs>
+                          <clipPath id="clip0_25_4">
+                          <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
+                          </clipPath>
+                          </defs>
+                        </svg>
+                      {% endif %}
+                      {% if block.settings.stars_count > 2 %}
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          {% if block.settings.stars_count == 2.5 %}
+                            <defs>
+                              <linearGradient id="grad{{ section.id }}3">
+                                <stop offset="0%" stop-color="{{ stars_bg_color }}" />
+                                <stop offset="50%" stop-color="{{ stars_bg_color }}" />
+                                <stop offset="50%" stop-color="{{ stars_bg_half_color }}" />
+                                <stop offset="100%" stop-color="{{ stars_bg_half_color }}" />
+                              </linearGradient>
+                            </defs>
+                          {% endif %}
+                          <rect width="32" height="32" fill="{% if block.settings.stars_count == 2.5 %}url(#grad{{ section.id }}3){% else %}{{ stars_bg_color }}{% endif %}"/>
+                          <g clip-path="url(#clip0_25_4)">
+                          <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
+                          </g>
+                          <defs>
+                          <clipPath id="clip0_25_4">
+                          <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
+                          </clipPath>
+                          </defs>
+                        </svg>
+                      {% endif %}
+                      {% if block.settings.stars_count > 3 %}
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          {% if block.settings.stars_count == 3.5 %}
+                            <defs>
+                              <linearGradient id="grad{{ section.id }}4">
+                                <stop offset="0%" stop-color="{{ stars_bg_color }}" />
+                                <stop offset="50%" stop-color="{{ stars_bg_color }}" />
+                                <stop offset="50%" stop-color="{{ stars_bg_half_color }}" />
+                                <stop offset="100%" stop-color="{{ stars_bg_half_color }}" />
+                              </linearGradient>
+                            </defs>
+                          {% endif %}
+                          <rect width="32" height="32" fill="{% if block.settings.stars_count == 3.5 %}url(#grad{{ section.id }}4){% else %}{{ stars_bg_color }}{% endif %}"/>
+                          <g clip-path="url(#clip0_25_4)">
+                          <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
+                          </g>
+                          <defs>
+                          <clipPath id="clip0_25_4">
+                          <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
+                          </clipPath>
+                          </defs>
+                        </svg>
+                      {% endif %}
+                      {% if block.settings.stars_count > 4 %}
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          {% if block.settings.stars_count == 4.5 %}
+                            <defs>
+                              <linearGradient id="grad{{ section.id }}5">
+                                <stop offset="0%" stop-color="{{ stars_bg_color }}" />
+                                <stop offset="50%" stop-color="{{ stars_bg_color }}" />
+                                <stop offset="50%" stop-color="{{ stars_bg_half_color }}" />
+                                <stop offset="100%" stop-color="{{ stars_bg_half_color }}" />
+                              </linearGradient>
+                            </defs>
+                          {% endif %}
+                          <rect width="32" height="32" fill="{% if block.settings.stars_count == 4.5 %}url(#grad{{ section.id }}5){% else %}{{ stars_bg_color }}{% endif %}"/>
+                          <g clip-path="url(#clip0_25_4)">
+                          <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="{{ stars_color }}"/>
+                          </g>
+                          <defs>
+                          <clipPath id="clip0_25_4">
+                          <rect width="22" height="22" fill="{{ stars_color }}" transform="translate(5 5)"/>
+                          </clipPath>
+                          </defs>
+                        </svg>
+                      {% endif %}
+                    {% endif %}
+                  </div>
+                {% endif %}
+                {% if block.settings.heading != blank %}
+                  <p class="testimonials-slide-heading-{{ section.id }}">{{ block.settings.heading }}</p>
+                {% endif %}
+                {% if block.settings.text != blank %}
+                  <p class="testimonials-slide-text-{{ section.id }}">
+                    <span>{{ block.settings.text }}</span>
+                    <span class="testimonials-slide-text-small-{{ section.id }} testimonials-slide-text-small">
+                      {{- block.settings.text | truncatewords: card_count_words -}}
+                    </span>
+                    <span class="testimonials-slide-text-big-{{ section.id }} testimonials-slide-text-big">
+                      {{- block.settings.text -}}
+                    </span>
+                    <button class="testimonials-slide-text-btn-{{ section.id }} testimonials-slide-text-btn">
+                      {{ card_text_more }}
+                    </button>
+                  </p>
+                {% endif %}
+              </div>
+              <div class="testimonials-slide-bottom-{{ section.id }}">
+                {% if block.settings.author_date != blank %}
+                  <p class="testimonials-slide-author-date-{{ section.id }}">{{ block.settings.author_date }}</p>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="testimonials-btn-prev-{{ section.id }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g id="Left"><path d="M14,17a1,1,0,0,1-.707-.293l-4-4a1,1,0,0,1,0-1.414l4-4a1,1,0,1,1,1.414,1.414L11.414,12l3.293,3.293A1,1,0,0,1,14,17Z"/></g>
+          </svg>
+        </div>
+        <div class="testimonials-btn-next-{{ section.id }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g id="Left"><path d="M14,17a1,1,0,0,1-.707-.293l-4-4a1,1,0,0,1,0-1.414l4-4a1,1,0,1,1,1.414,1.414L11.414,12l3.293,3.293A1,1,0,0,1,14,17Z"/></g>
+          </svg>
+        </div>
+        <div class="testimonials-pagination-{{ section.id }} swiper-pagination"></div>
+      </div>
     </div>
+    {% if button != blank %}
+      <a
+        href="{{ button_url }}"
+        class="testimonials-btn-{{ section.id }}"
+        {% if new_tab %}
+          target="_blank"
+        {% endif %}
+      >
+        {{- button -}}
+      </a>
+    {% endif %}
+  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.js"></script>
-              
+
 <script>
   function initTestimonials8{{ section.id | replace: '-', '' }}() {
     document.querySelector('.testimonials-slider-{{ section.id }}').classList.remove('preview');
@@ -1248,1326 +1288,1394 @@ For inquiries or permissions, contact daniel@section.store
   document.addEventListener('DOMContentLoaded', function() {
     setTimeout(initTestimonials8{{ section.id | replace: '-', '' }}, 500);
   });
-  
+
   if (Shopify.designMode) {
      document.addEventListener('shopify:section:unload', initTestimonials8{{ section.id | replace: '-', '' }});
      document.addEventListener('shopify:section:load', initTestimonials8{{ section.id | replace: '-', '' }});
   }
-  
 </script>
 
 {% schema %}
-  {
-    "name": "SS - Testimonial #8",
-    "settings": [
-      {
-        "type": "header",
-        "content": "ATT: Save editor before slider works"
-      },
-      {
-        "type": "header",
-        "content": "Heading"
-      },
-      {
-        "type": "text",
-        "id": "heading",
-        "label": "Heading",
-        "default": "Our customers tell it better than we do!"
-      },
-      {
-        "type": "checkbox",
-        "id": "heading_custom",
-        "label": "Use Custom Font",
-        "default": false
-      },
-      {
-        "type": "font_picker",
-        "id": "heading_font",
-        "label": "Heading Font Family",
-        "default": "josefin_sans_n4"
-      },
-      {
-        "type": "range",
-        "id": "heading_size",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Heading Size",
-        "default": 40
-      },
-      {
-        "type": "range",
-        "id": "heading_size_mobile",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Heading Size - Mobile",
-        "default": 24
-      },
-      {
-        "type": "range",
-        "id": "heading_height",
-        "min": 50,
-        "max": 200,
-        "step": 10,
-        "unit": "%",
-        "label": "Heading Line Height",
-        "default": 130
-      },
-      {
-        "type": "select",
-        "id": "heading_align",
-        "label": "Heading Text Align",
-        "default": "center",
-        "options": [
-          {
-            "label": "Left",
-            "value": "left"
-          },
-          {
-            "label": "Center",
-            "value": "center"
-          },
-          {
-            "label": "Right",
-            "value": "right"
+{
+  "name": "SS - Testimonial #8",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "⚠️ Save settings to see section in action"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Text",
+      "default": "Our customers tell it better than we do!"
+    },
+    {
+      "type": "checkbox",
+      "id": "heading_custom",
+      "label": "Use custom font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Font family",
+      "default": "josefin_sans_n4",
+      "visible_if": "{{ section.settings.heading_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 0,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Font size",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "min": 0,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Font size - mobile",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "heading_height",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "label": "Line height",
+      "default": 130
+    },
+    {
+      "type": "select",
+      "id": "heading_align",
+      "label": "Alignment",
+      "default": "center",
+      "options": [
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Rating summary"
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Text",
+      "default": "Excellent"
+    },
+    {
+      "type": "checkbox",
+      "id": "rating_text_custom",
+      "label": "Use custom font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "rating_text_font",
+      "label": "Font family",
+      "default": "josefin_sans_n4",
+      "visible_if": "{{ section.settings.rating_text_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "rating_text_size",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "rating_text_size_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size - mobile",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "rating_text_height",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "label": "Line height",
+      "default": 130
+    },
+    {
+      "type": "header",
+      "content": "Rating"
+    },
+    {
+      "type": "range",
+      "id": "rating",
+      "min": 0,
+      "max": 5,
+      "step": 0.1,
+      "label": "Rating",
+      "default": 4.8
+    },
+    {
+      "type": "checkbox",
+      "id": "rating_hide",
+      "label": "Hide rating",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "rating_text_hide",
+      "label": "Hide text",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "rating_text_mt",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin top",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "rating_align",
+      "label": "Alignment",
+      "default": "center",
+      "options": [
+        {
+          "label": "Left",
+          "value": "start"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Right",
+          "value": "end"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Stars"
+    },
+    {
+      "type": "image_picker",
+      "label": "Stars icon",
+      "id": "stars_icon",
+      "info": "Replaces the default stars icon"
+    },
+    {
+      "type": "range",
+      "id": "stars_count",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "label": "Stars count",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "stars_size",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Size",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "stars_size_mobile",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Size - mobile",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "stars_gap",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "label": "Stars gap",
+      "default": 5
+    },
+    {
+      "type": "select",
+      "id": "stars_align",
+      "label": "Alignment",
+      "default": "center",
+      "options": [
+        {
+          "label": "Left",
+          "value": "start"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Right",
+          "value": "end"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>based on <strong>1 067</strong> reviews</p>",
+      "info": "You can underline text by making it bold."
+    },
+    {
+      "type": "image_picker",
+      "label": "Image",
+      "id": "text_right_image"
+    },
+    {
+      "type": "checkbox",
+      "id": "text_custom",
+      "label": "Use custom font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "text_font",
+      "label": "Font family",
+      "default": "josefin_sans_n4",
+      "visible_if": "{{ section.settings.text_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size - mobile",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "text_height",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "label": "Line height",
+      "default": 130
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Alignment",
+      "default": "center",
+      "options": [
+        {
+          "label": "Left",
+          "value": "start"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Right",
+          "value": "end"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "text_mt",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin top",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Slider"
+    },
+    {
+      "type": "range",
+      "id": "slider_width",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "%",
+      "label": "Slider width",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "slider_view",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "Slides per view",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "slider_view_mobile",
+      "min": 1,
+      "max": 3,
+      "step": 0.2,
+      "label": "Slides per view - mobile",
+      "default": 1.2
+    },
+    {
+      "type": "range",
+      "id": "slider_gap",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Gap",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "slider_gap_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Gap - mobile",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "slider_mt",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin top",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Card"
+    },
+    {
+      "type": "range",
+      "id": "card_padding_vertical",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding vertical",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "card_padding_vertical_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding vertical - mobile",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "card_padding_horizontal",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding horizontal",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "card_padding_horizontal_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding horizontal - mobile",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Roundness",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "card_border_thickness",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Border thickness",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "card_shadow",
+      "label": "Use shadow",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Card heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_heading_custom",
+      "label": "Use custom font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "card_heading_font",
+      "label": "Font family",
+      "default": "josefin_sans_n4",
+      "visible_if": "{{ section.settings.card_heading_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "card_heading_size",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "card_heading_size_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size - mobile",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_heading_height",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "label": "Line height",
+      "default": 130
+    },
+    {
+      "type": "select",
+      "id": "card_heading_align",
+      "label": "Alignment",
+      "default": "center",
+      "options": [
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "card_heading_mt",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin top",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Testimonial"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_text_custom",
+      "label": "Use custom font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "card_text_font",
+      "label": "Font family",
+      "default": "josefin_sans_n4",
+      "visible_if": "{{ section.settings.card_text_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "card_text_size",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "card_text_size_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size - mobile",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "card_text_height",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "label": "Line height",
+      "default": 150
+    },
+    {
+      "type": "select",
+      "id": "card_text_align",
+      "label": "Alignment",
+      "default": "center",
+      "options": [
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "card_text_mt",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin top",
+      "default": 16
+    },
+    {
+      "type": "text",
+      "id": "card_text_more",
+      "label": "View more text",
+      "default": "View more"
+    },
+    {
+      "type": "text",
+      "id": "card_text_less",
+      "label": "View less text",
+      "default": "View Less"
+    },
+    {
+      "type": "range",
+      "id": "card_count_words",
+      "min": 5,
+      "max": 40,
+      "step": 1,
+      "label": "Word count",
+      "info": "Word count up to the 'More' button.",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Author and date"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_author_date_text_custom",
+      "label": "Use custom font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "card_author_date_text_font",
+      "label": "Font family",
+      "default": "josefin_sans_n4",
+      "visible_if": "{{ section.settings.card_author_date_text_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "card_author_date_text_size",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "card_author_date_text_size_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Font size - mobile",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "card_author_date_text_height",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "label": "Line height",
+      "default": 130
+    },
+    {
+      "type": "select",
+      "id": "card_author_date_text_align",
+      "label": "Alignment",
+      "default": "center",
+      "options": [
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "card_author_date_text_mt",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin top",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Arrows"
+    },
+    {
+      "type": "checkbox",
+      "id": "arrow_show_desktop",
+      "label": "Show on desktop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "arrow_show_mobile",
+      "label": "Show on mobile",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "arrow_size",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Size",
+      "default": 50,
+      "visible_if": "{{ section.settings.arrow_show_desktop }}"
+    },
+    {
+      "type": "range",
+      "id": "arrow_size_mobile",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Size - mobile",
+      "default": 50,
+      "visible_if": "{{ section.settings.arrow_show_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "arrow_icon_size",
+      "min": 10,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Icon size",
+      "default": 28,
+      "visible_if": "{{ section.settings.arrow_show_desktop }}"
+    },
+    {
+      "type": "range",
+      "id": "arrow_icon_size_mobile",
+      "min": 10,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Icon size - mobile",
+      "default": 28,
+      "visible_if": "{{ section.settings.arrow_show_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "arrow_border_thickness",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Border thickness",
+      "default": 0,
+      "visible_if": "{{ section.settings.arrow_show_desktop or section.settings.arrow_show_mobile }}"
+    },
+    {
+      "type": "header",
+      "content": "Dots"
+    },
+    {
+      "type": "checkbox",
+      "id": "dots_show_desktop",
+      "label": "Show on desktop",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "dots_show_mobile",
+      "label": "Show on mobile",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "dots_size",
+      "min": 5,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Size",
+      "default": 12,
+      "visible_if": "{{ section.settings.dots_show_desktop }}"
+    },
+    {
+      "type": "range",
+      "id": "dots_size_mobile",
+      "min": 5,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Size - mobile",
+      "default": 12,
+      "visible_if": "{{ section.settings.dots_show_mobile }}"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button",
+      "label": "Button label",
+      "default": "View All"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "new_tab",
+      "label": "Open link in new tab"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_custom",
+      "label": "Use custom font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "button_font",
+      "label": "Font family",
+      "default": "josefin_sans_n4",
+      "visible_if": "{{ section.settings.button_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "button_size",
+      "min": 0,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_size_mobile",
+      "min": 0,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Font size - mobile",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_height",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "label": "Line height",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding vertical",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding horizontal",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Roundness",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "button_border_thickness",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Border thickness",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "button_mt",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Margin top",
+      "default": 24
+    },
+    {
+      "type": "select",
+      "id": "button_align",
+      "label": "Alignment",
+      "default": "center",
+      "options": [
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Button colors"
+    },
+    {
+      "type": "color",
+      "label": "Text",
+      "id": "button_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "label": "Text hover",
+      "id": "button_hover_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "label": "Background",
+      "id": "button_bg_color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "label": "Background hover",
+      "id": "button_bg_hover_color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "label": "Border",
+      "id": "button_border_color",
+      "default": "#121212",
+      "visible_if": "{{ section.settings.button_border_thickness >= 1 }}"
+    },
+    {
+      "type": "color",
+      "label": "Border hover",
+      "id": "button_border_hover_color",
+      "default": "#121212",
+      "visible_if": "{{ section.settings.button_border_thickness >= 1 }}"
+    },
+    {
+      "type": "header",
+      "content": "Card colors"
+    },
+    {
+      "type": "color",
+      "label": "Heading",
+      "id": "card_heading_color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "label": "Text",
+      "id": "card_text_color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "label": "Author and date",
+      "id": "card_author_date_text_color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "label": "Background",
+      "id": "card_bg_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "label": "Border",
+      "id": "card_border_color",
+      "default": "#121212",
+      "visible_if": "{{ section.settings.card_border_thickness >= 1 }}"
+    },
+    {
+      "type": "color",
+      "label": "Shadow",
+      "id": "card_shadow_color",
+      "default": "#00B67A",
+      "visible_if": "{{ section.settings.card_shadow }}"
+    },
+    {
+      "type": "header",
+      "content": "Arrows colors",
+      "visible_if": "{{ section.settings.arrow_show_desktop or section.settings.arrow_show_mobile }}"
+    },
+    {
+      "type": "color",
+      "label": "Arrow",
+      "id": "arrow_color",
+      "default": "#121212",
+      "visible_if": "{{ section.settings.arrow_show_desktop or section.settings.arrow_show_mobile }}"
+    },
+    {
+      "type": "color",
+      "label": "Arrow hover",
+      "id": "arrow_hover_color",
+      "default": "#121212",
+      "visible_if": "{{ section.settings.arrow_show_desktop or section.settings.arrow_show_mobile }}"
+    },
+    {
+      "type": "color",
+      "label": "Background",
+      "id": "arrow_bg_color",
+      "default": "#FFFFFF",
+      "visible_if": "{{ section.settings.arrow_show_desktop or section.settings.arrow_show_mobile }}"
+    },
+    {
+      "type": "color",
+      "label": "Background hover",
+      "id": "arrow_bg_hover_color",
+      "default": "#FFFFFF",
+      "visible_if": "{{ section.settings.arrow_show_desktop or section.settings.arrow_show_mobile }}"
+    },
+    {
+      "type": "color",
+      "label": "Border",
+      "id": "arrow_border_color",
+      "default": "#121212",
+      "visible_if": "{{ section.settings.arrow_show_desktop or section.settings.arrow_show_mobile }}"
+    },
+    {
+      "type": "color",
+      "label": "Border hover",
+      "id": "arrow_border_hover_color",
+      "default": "#121212",
+      "visible_if": "{{ section.settings.arrow_show_desktop or section.settings.arrow_show_mobile }}"
+    },
+    {
+      "type": "header",
+      "content": "Navigation dots colors",
+      "visible_if": "{{ section.settings.dots_show_desktop or section.settings.dots_show_mobile }}"
+    },
+    {
+      "type": "color",
+      "label": "Dots",
+      "id": "dots_color",
+      "default": "#121212",
+      "visible_if": "{{ section.settings.dots_show_desktop or section.settings.dots_show_mobile }}"
+    },
+    {
+      "type": "header",
+      "content": "Stars colors",
+      "visible_if": "{{ section.settings.stars_icon == blank }}"
+    },
+    {
+      "type": "color",
+      "label": "Star icon",
+      "id": "stars_color",
+      "default": "#FFFFFF",
+      "visible_if": "{{ section.settings.stars_icon == blank }}"
+    },
+    {
+      "type": "color",
+      "label": "Star background",
+      "id": "stars_bg_color",
+      "default": "#00B67A",
+      "visible_if": "{{ section.settings.stars_icon == blank }}"
+    },
+    {
+      "type": "color",
+      "label": "Inactive star background",
+      "id": "stars_bg_half_color",
+      "default": "#DDDDDD",
+      "visible_if": "{{ section.settings.stars_icon == blank }}"
+    },
+    {
+      "type": "header",
+      "content": "Section Colors"
+    },
+    {
+      "type": "color",
+      "label": "Heading",
+      "id": "heading_color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "label": "Rating text",
+      "id": "rating_text_color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "label": "Text",
+      "id": "text_color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "label": "Section background",
+      "id": "background_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Section background gradient",
+      "info": "Remove gradient to replace with solid colors",
+      "default": "linear-gradient(180deg, rgba(206, 239, 199, 1), rgba(255, 255, 255, 1) 100%)"
+    },
+    {
+      "type": "color",
+      "label": "Border",
+      "id": "border_color",
+      "default": "#121212"
+    },
+    {
+      "type": "header",
+      "content": "Section margin (outside)"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section padding (inside)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "rem",
+      "label": "Sides",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal_mobile",
+      "min": 0,
+      "max": 15,
+      "step": 0.5,
+      "unit": "rem",
+      "label": "Sides - mobile",
+      "default": 1.5
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "min": 800,
+      "max": 2000,
+      "step": 100,
+      "unit": "px",
+      "label": "Section content width",
+      "default": 1500,
+      "visible_if": "{{ section.settings.full_width == false }}"
+    },
+    {
+      "type": "range",
+      "id": "border_thickness",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Border thickness",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "lazy",
+      "label": "Lazy load",
+      "info": "Lazy load images for speed optimisation",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonials",
+      "name": "Testimonials",
+      "settings": [
+        {
+          "type": "range",
+          "id": "stars_count",
+          "min": 0,
+          "max": 5,
+          "step": 0.5,
+          "label": "Stars count",
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "I love it!!!"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Testimonial",
+          "info": "For best results, keep the word count similar in each quote.",
+          "default": "<p>Add customer reviews and testimonials to highlight the positive experiences they’ve had with your store.</p>"
+        },
+        {
+          "type": "text",
+          "id": "author_date",
+          "label": "Author and date",
+          "default": "Author's name – date"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SS - Testimonial #8",
+      "blocks": [
+        {
+          "type": "testimonials",
+          "settings": {
+            "heading": "I love it! 😍",
+            "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
+            "author_date": "Cathrine"
           }
-        ]
-      },
-      {
-        "type": "header",
-        "content": "Rating Text"
-      },
-      {
-        "type": "text",
-        "id": "rating_text",
-        "label": "Rating Text",
-        "default": "Excellent"
-      },
-      {
-        "type": "checkbox",
-        "id": "rating_text_custom",
-        "label": "Use Custom Font",
-        "default": false
-      },
-      {
-        "type": "font_picker",
-        "id": "rating_text_font",
-        "label": "Rating Text Font Family",
-        "default": "josefin_sans_n4"
-      },
-      {
-        "type": "range",
-        "id": "rating_text_size",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Rating Text Size",
-        "default": 24
-      },
-      {
-        "type": "range",
-        "id": "rating_text_size_mobile",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Rating Text Size - Mobile",
-        "default": 20
-      },
-      {
-        "type": "range",
-        "id": "rating_text_height",
-        "min": 50,
-        "max": 200,
-        "step": 10,
-        "unit": "%",
-        "label": "Rating Text Line Height",
-        "default": 130
-      },
-      {
-        "type": "range",
-        "id": "rating_text_mt",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Rating Text Margin Top",
-        "default": 16
-      },
-      {
-        "type": "header",
-        "content": "Rating Settings"
-      },
-      {
-        "type": "range",
-        "id": "rating",
-        "min": 0,
-        "max": 5,
-        "step": 0.1,
-        "label": "Rating",
-        "default": 4.7
-      },
-      {
-        "type": "checkbox",
-        "id": "rating_hide",
-        "label": "Rating Hide",
-        "default": false
-      },
-      {
-        "type": "checkbox",
-        "id": "rating_text_hide",
-        "label": "Rating Text Hide",
-        "default": false
-      },
-      {
-        "type": "select",
-        "id": "rating_align",
-        "label": "Rating Align",
-        "default": "center",
-        "options": [
-          {
-            "label": "Left",
-            "value": "start"
-          },
-          {
-            "label": "Center",
-            "value": "center"
-          },
-          {
-            "label": "Right",
-            "value": "end"
+        },
+        {
+          "type": "testimonials",
+          "settings": {
+            "heading": "I love it! 😍",
+            "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
+            "author_date": "Cathrine"
           }
-        ]
-      },
-      {
-        "type": "header",
-        "content": "Stars Settings"
-      },
-      {
-        "type": "image_picker",
-        "label": "Stars Icon",
-        "id": "stars_icon",
-        "info": "Replaces the default stars icon"
-      },
-      {
-        "type": "range",
-        "id": "stars_count",
-        "min": 0,
-        "max": 5,
-        "step": 0.5,
-        "label": "Stars Count",
-        "default": 5
-      },
-      {
-        "type": "range",
-        "id": "stars_size",
-        "min": 10,
-        "max": 100,
-        "step": 2,
-        "label": "Stars Size",
-        "default": 28
-      },
-      {
-        "type": "range",
-        "id": "stars_size_mobile",
-        "min": 10,
-        "max": 100,
-        "step": 2,
-        "label": "Stars Size - Mobile",
-        "default": 24
-      },
-      {
-        "type": "select",
-        "id": "stars_align",
-        "label": "Stars Align on Card",
-        "default": "center",
-        "options": [
-          {
-            "label": "Left",
-            "value": "start"
-          },
-          {
-            "label": "Center",
-            "value": "center"
-          },
-          {
-            "label": "Right",
-            "value": "end"
+        },
+        {
+          "type": "testimonials",
+          "settings": {
+            "heading": "I love it! 😍",
+            "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
+            "author_date": "Cathrine"
           }
-        ]
-      },
-      {
-        "type": "header",
-        "content": "Text"
-      },
-      {
-        "type": "richtext",
-        "id": "text",
-        "label": "Text",
-        "default": "<p>based on <strong>1 067</strong> reviews</p>",
-        "info": "Use 'Strong' for underline text"
-      },
-      {
-        "type": "image_picker",
-        "label": "Text Right Image",
-        "id": "text_right_image"
-      },
-      {
-        "type": "checkbox",
-        "id": "text_custom",
-        "label": "Use Custom Font",
-        "default": false
-      },
-      {
-        "type": "font_picker",
-        "id": "text_font",
-        "label": "Text Font Family",
-        "default": "josefin_sans_n4"
-      },
-      {
-        "type": "range",
-        "id": "text_size",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Text Size",
-        "default": 20
-      },
-      {
-        "type": "range",
-        "id": "text_size_mobile",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Text Size - Mobile",
-        "default": 16
-      },
-      {
-        "type": "range",
-        "id": "text_height",
-        "min": 50,
-        "max": 200,
-        "step": 10,
-        "unit": "%",
-        "label": "Text Line Height",
-        "default": 130
-      },
-      {
-        "type": "select",
-        "id": "text_align",
-        "label": "Text Align",
-        "default": "center",
-        "options": [
-          {
-            "label": "Left",
-            "value": "start"
-          },
-          {
-            "label": "Center",
-            "value": "center"
-          },
-          {
-            "label": "Right",
-            "value": "end"
+        },
+        {
+          "type": "testimonials",
+          "settings": {
+            "heading": "I love it! 😍",
+            "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
+            "author_date": "Cathrine"
           }
-        ]
-      },
-      {
-        "type": "range",
-        "id": "text_mt",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Text Margin Top",
-        "default": 16
-      },
-      {
-        "type": "header",
-        "content": "Slider Settings"
-      },
-      {
-        "type": "range",
-        "id": "slider_width",
-        "min": 0,
-        "max": 100,
-        "step": 2,
-        "unit": "%",
-        "label": "Slider Width - Desktop",
-        "default": 80
-      },
-      {
-        "type": "range",
-        "id": "slider_view",
-        "min": 1,
-        "max": 3,
-        "step": 1,
-        "label": "Slides Per View",
-        "default": 3
-      },
-      {
-        "type": "range",
-        "id": "slider_view_mobile",
-        "min": 1,
-        "max": 3,
-        "step": 0.2,
-        "label": "Slides Per View - Mobile",
-        "default": 1.2
-      },
-      {
-        "type": "range",
-        "id": "slider_gap",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Slider Gap",
-        "default": 20
-      },
-      {
-        "type": "range",
-        "id": "slider_gap_mobile",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Slider Gap - Mobile",
-        "default": 20
-      },
-      {
-        "type": "range",
-        "id": "slider_mt",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Slider Margin Top",
-        "default": 36
-      },
-      {
-        "type": "header",
-        "content": "Card Settings"
-      },
-      {
-        "type": "range",
-        "id": "card_padding_vertical",
-        "min": 0,
-        "max": 100,
-        "step": 2,
-        "unit": "px",
-        "label": "Card Padding Vertical",
-        "default": 32
-      },
-      {
-        "type": "range",
-        "id": "card_padding_vertical_mobile",
-        "min": 0,
-        "max": 100,
-        "step": 2,
-        "unit": "px",
-        "label": "Card Padding Vertical - Mobile",
-        "default": 24
-      },
-      {
-         "type": "range",
-         "id": "card_padding_horizontal",
-         "min": 0,
-         "max": 100,
-         "step": 2,
-         "unit": "px",
-         "label": "Card Padding Horizontal",
-         "default": 40
-      },
-      {
-         "type": "range",
-         "id": "card_padding_horizontal_mobile",
-         "min": 0,
-         "max": 100,
-         "step": 2,
-         "unit": "px",
-         "label": "Card Padding Horizontal - Mobile",
-         "default": 24
-      },
-      {
-         "type": "range",
-         "id": "card_radius",
-         "min": 0,
-         "max": 100,
-         "step": 2,
-         "unit": "px",
-         "label": "Card Border Radius",
-         "default": 16
-      },
-      {
-         "type": "range",
-         "id": "card_border_thickness",
-         "min": 0,
-         "max": 10,
-         "step": 1,
-         "unit": "px",
-         "label": "Card Border Thickness",
-         "default": 0
-      },
-      {
-        "type": "checkbox",
-        "id": "card_shadow",
-        "label": "Use Card Shadow",
-        "default": true
-      },
-      {
-        "type": "header",
-        "content": "Card Heading"
-      },
-      {
-        "type": "checkbox",
-        "id": "card_heading_custom",
-        "label": "Use Custom Font",
-        "default": false
-      },
-      {
-        "type": "font_picker",
-        "id": "card_heading_font",
-        "label": "Card Heading Font Family",
-        "default": "josefin_sans_n4"
-      },
-      {
-        "type": "range",
-        "id": "card_heading_size",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Card Heading Size",
-        "default": 24
-      },
-      {
-        "type": "range",
-        "id": "card_heading_size_mobile",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Card Heading Size - Mobile",
-        "default": 20
-      },
-      {
-        "type": "range",
-        "id": "card_heading_height",
-        "min": 50,
-        "max": 200,
-        "step": 10,
-        "unit": "%",
-        "label": "Card Heading Line Height",
-        "default": 130
-      },
-      {
-        "type": "select",
-        "id": "card_heading_align",
-        "label": "Card Heading Align",
-        "default": "center",
-        "options": [
-          {
-            "label": "Left",
-            "value": "left"
-          },
-          {
-            "label": "Center",
-            "value": "center"
-          },
-          {
-            "label": "Right",
-            "value": "right"
+        },
+        {
+          "type": "testimonials",
+          "settings": {
+            "heading": "I love it! 😍",
+            "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
+            "author_date": "Cathrine"
           }
-        ]
-      },
-      {
-        "type": "range",
-        "id": "card_heading_mt",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Card Heading Margin Top",
-        "default": 16
-      },
-      {
-        "type": "header",
-        "content": "Card Text"
-      },
-      {
-        "type": "checkbox",
-        "id": "card_text_custom",
-        "label": "Use Custom Font",
-        "default": false
-      },
-      {
-        "type": "font_picker",
-        "id": "card_text_font",
-        "label": "Card Text Font Family",
-        "default": "josefin_sans_n4"
-      },
-      {
-        "type": "range",
-        "id": "card_text_size",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Card Text Size",
-        "default": 14
-      },
-      {
-        "type": "range",
-        "id": "card_text_size_mobile",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Card Text Size - Mobile",
-        "default": 14
-      },
-      {
-        "type": "range",
-        "id": "card_text_height",
-        "min": 50,
-        "max": 200,
-        "step": 10,
-        "unit": "%",
-        "label": "Card Text Line Height",
-        "default": 150
-      },
-      {
-        "type": "select",
-        "id": "card_text_align",
-        "label": "Card Text Align",
-        "default": "center",
-        "options": [
-          {
-            "label": "Left",
-            "value": "left"
-          },
-          {
-            "label": "Center",
-            "value": "center"
-          },
-          {
-            "label": "Right",
-            "value": "right"
+        },
+        {
+          "type": "testimonials",
+          "settings": {
+            "heading": "I love it! 😍",
+            "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
+            "author_date": "Cathrine"
           }
-        ]
-      },
-      {
-        "type": "range",
-        "id": "card_text_mt",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Card Text Margin Top",
-        "default": 16
-      },
-      {
-        "type": "text",
-        "id": "card_text_more",
-        "label": "Card Text More",
-        "default": "View More"
-      },
-      {
-        "type": "text",
-        "id": "card_text_less",
-        "label": "Card Text Less",
-        "default": "View Less"
-      },
-      {
-        "type": "range",
-        "id": "card_count_words",
-        "min": 5,
-        "max": 40,
-        "step": 1,
-        "label": "Count Words Before 'More Button'",
-        "default": 20
-      },
-      {
-        "type": "header",
-        "content": "Card Author-Date Text"
-      },
-      {
-        "type": "checkbox",
-        "id": "card_author_date_text_custom",
-        "label": "Use Custom Font",
-        "default": false
-      },
-      {
-        "type": "font_picker",
-        "id": "card_author_date_text_font",
-        "label": "Card Author-Date Text Font Family",
-        "default": "josefin_sans_n4"
-      },
-      {
-        "type": "range",
-        "id": "card_author_date_text_size",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Card Author-Date Text Size",
-        "default": 16
-      },
-      {
-        "type": "range",
-        "id": "card_author_date_text_size_mobile",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Card Author-Date Text Size - Mobile",
-        "default": 16
-      },
-      {
-        "type": "range",
-        "id": "card_author_date_text_height",
-        "min": 50,
-        "max": 200,
-        "step": 10,
-        "unit": "%",
-        "label": "Card Author-Date Text Line Height",
-        "default": 130
-      },
-      {
-        "type": "select",
-        "id": "card_author_date_text_align",
-        "label": "Card Author-Date Text Align",
-        "default": "center",
-        "options": [
-          {
-            "label": "Left",
-            "value": "left"
-          },
-          {
-            "label": "Center",
-            "value": "center"
-          },
-          {
-            "label": "Right",
-            "value": "right"
-          }
-        ]
-      },
-      {
-        "type": "range",
-        "id": "card_author_date_text_mt",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Card Author-Date Text Margin Top",
-        "default": 16
-      },
-      {
-        "type": "header",
-        "content": "Arrow Settings"
-      },
-      {
-        "type": "range",
-        "id": "arrow_size",
-        "min": 10,
-        "max": 100,
-        "step": 2,
-        "unit": "px",
-        "label": "Arrow Size",
-        "default": 50
-      },
-      {
-        "type": "range",
-        "id": "arrow_size_mobile",
-        "min": 10,
-        "max": 100,
-        "step": 2,
-        "unit": "px",
-        "label": "Arrow Size - Mobile",
-        "default": 50
-      },
-      {
-        "type": "range",
-        "id": "arrow_icon_size",
-        "min": 10,
-        "max": 50,
-        "step": 2,
-        "unit": "px",
-        "label": "Arrow Icon Size",
-        "default": 28
-      },
-      {
-        "type": "range",
-        "id": "arrow_icon_size_mobile",
-        "min": 10,
-        "max": 50,
-        "step": 2,
-        "unit": "px",
-        "label": "Arrow Icon Size - Mobile",
-        "default": 28
-      },
-      {
-        "type": "range",
-        "id": "arrow_border_thickness",
-        "min": 0,
-        "max": 10,
-        "step": 1,
-        "unit": "px",
-        "label": "Arrow Border Thickness",
-        "default": 0
-      },
-      {
-        "type": "checkbox",
-        "id": "arrow_show_desktop",
-        "label": "Show on Desktop",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "arrow_show_mobile",
-        "label": "Show on Mobile",
-        "default": false
-      },
-      {
-        "type": "header",
-        "content": "Dots Settings"
-      },
-      {
-        "type": "range",
-        "id": "dots_size",
-        "min": 5,
-        "max": 40,
-        "step": 1,
-        "unit": "px",
-        "label": "Dots Size",
-        "default": 12
-      },
-      {
-        "type": "range",
-        "id": "dots_size_mobile",
-        "min": 5,
-        "max": 40,
-        "step": 1,
-        "unit": "px",
-        "label": "Dots Size - Mobile",
-        "default": 12
-      },
-      {
-        "type": "checkbox",
-        "id": "dots_show_desktop",
-        "label": "Show on Desktop",
-        "default": false
-      },
-      {
-        "type": "checkbox",
-        "id": "dots_show_mobile",
-        "label": "Show on Mobile",
-        "default": false
-      },
-      {
-        "type": "header",
-        "content": "Button"
-      },
-      {
-        "type": "text",
-        "id": "button",
-        "label": "Button",
-        "default": "View All"
-      },
-      {
-        "type": "url",
-        "id": "button_url",
-        "label": "Button URL"
-      },
-      {
-        "type": "checkbox",
-        "id": "button_custom",
-        "label": "Use Custom Font",
-        "default": false
-      },
-      {
-        "type": "font_picker",
-        "id": "button_font",
-        "label": "Button Font Family",
-        "default": "josefin_sans_n4"
-      },
-      {
-        "type": "range",
-        "id": "button_size",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Button Size",
-        "default": 16
-      },
-      {
-        "type": "range",
-        "id": "button_size_mobile",
-        "min": 0,
-        "max": 72,
-        "step": 2,
-        "unit": "px",
-        "label": "Button Size - Mobile",
-        "default": 14
-      },
-      {
-        "type": "range",
-        "id": "button_height",
-        "min": 50,
-        "max": 200,
-        "step": 10,
-        "unit": "%",
-        "label": "Button Line Height",
-        "default": 100
-      },
-      {
-        "type": "select",
-        "id": "button_align",
-        "label": "Button Text Align",
-        "default": "center",
-        "options": [
-          {
-            "label": "Left",
-            "value": "left"
-          },
-          {
-            "label": "Center",
-            "value": "center"
-          },
-          {
-            "label": "Right",
-            "value": "right"
-          }
-        ]
-      },
-      {
-        "type": "range",
-        "id": "button_mt",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Button Margin Top",
-        "default": 16
-      },
-      {
-        "type": "range",
-        "id": "button_padding_vertical",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Button Padding Vertical",
-        "default": 20
-      },
-      {
-         "type": "range",
-         "id": "button_padding_horizontal",
-         "min": 0,
-         "max": 100,
-         "step": 4,
-         "unit": "px",
-         "label": "Button Padding Horizontal",
-         "default": 16
-      },
-      {
-         "type": "range",
-         "id": "button_radius",
-         "min": 0,
-         "max": 100,
-         "step": 2,
-         "unit": "px",
-         "label": "Button Border Radius",
-         "default": 8
-      },
-      {
-         "type": "range",
-         "id": "button_border_thickness",
-         "min": 0,
-         "max": 10,
-         "step": 1,
-         "unit": "px",
-         "label": "Button Border Thickness",
-         "default": 0
-      },
-      {
-        "type": "header",
-        "content": "Button Colors"
-      },
-      {
-        "type": "color",
-        "label": "Button Color",
-        "id": "button_color",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "color",
-        "label": "Button Hover Color",
-        "id": "button_hover_color",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "color",
-        "label": "Button Background Color",
-        "id": "button_bg_color",
-        "default": "#000000"
-      },
-      {
-        "type": "color",
-        "label": "Button Background Hover Color",
-        "id": "button_bg_hover_color",
-        "default": "#000000"
-      },
-      {
-        "type": "color",
-        "label": "Button Border Color",
-        "id": "button_border_color",
-        "default": "#000000"
-      },
-      {
-        "type": "color",
-        "label": "Button Border Hover Color",
-        "id": "button_border_hover_color",
-        "default": "#000000"
-      },
-      {
-        "type": "header",
-        "content": "Card Colors"
-      },
-      {
-        "type": "color",
-        "label": "Card Background Color",
-        "id": "card_bg_color",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "color",
-        "label": "Card Border Color",
-        "id": "card_border_color",
-        "default": "#000000"
-      },
-      {
-        "type": "color",
-        "label": "Card Shadow Color",
-        "id": "card_shadow_color",
-        "default": "#00B67A"
-      },
-      {
-        "type": "color",
-        "label": "Card Heading Color",
-        "id": "card_heading_color",
-        "default": "#000000"
-      },
-      {
-        "type": "color",
-        "label": "Card Text Color",
-        "id": "card_text_color",
-        "default": "#000000"
-      },
-      {
-        "type": "color",
-        "label": "Card Author-Date Text Color",
-        "id": "card_author_date_text_color",
-        "default": "#000000"
-      },
-      {
-        "type": "header",
-        "content": "Navigation Colors"
-      },
-      {
-        "type": "color",
-        "label": "Arrow color",
-        "id": "arrow_color",
-        "default": "#000000"
-      },
-      {
-        "type": "color",
-        "label": "Arrow Hover color",
-        "id": "arrow_hover_color",
-        "default": "#000000"
-      },
-      {
-        "type": "color",
-        "label": "Arrow Background color",
-        "id": "arrow_bg_color",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "color",
-        "label": "Arrow Background Hover color",
-        "id": "arrow_bg_hover_color",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "color",
-        "label": "Arrow Border color",
-        "id": "arrow_border_color",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "color",
-        "label": "Arrow Border Hover color",
-        "id": "arrow_border_hover_color",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "color",
-        "label": "Dots Color",
-        "id": "dots_color",
-        "default": "#000000"
-      },
-      {
-        "type": "header",
-        "content": "Section Colors"
-      },
-      {
-        "type": "color",
-        "label": "Heading Color",
-        "id": "heading_color",
-        "default": "#000000"
-      },
-      {
-        "type": "color",
-        "label": "Rating Text Color",
-        "id": "rating_text_color",
-        "default": "#000000"
-      },
-      {
-        "type": "color",
-        "label": "Default Stars Background Color",
-        "id": "stars_bg_color",
-        "default": "#00B67A"
-      },
-      {
-        "type": "color",
-        "label": "Default Stars Color",
-        "id": "stars_color",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "color",
-        "label": "Text Color",
-        "id": "text_color",
-        "default": "#000000"
-      },
-      {
-        "type": "color",
-        "label": "Section background",
-        "id": "background_color",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "color_background",
-        "id": "background_gradient",
-        "label": "Section background gradient",
-        "default": "linear-gradient(180deg, rgba(206, 239, 199, 1), rgba(255, 255, 255, 1) 100%)"
-      },
-      {
-        "type": "color",
-        "label": "Border",
-        "id": "border_color",
-        "default": "#000000"
-      },
-      {
-        "type": "header",
-        "content": "Section margin (outside)"
-      },
-      {
-        "type": "range",
-        "id": "margin_top",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Margin top",
-        "default": 0
-      },
-      {
-        "type": "range",
-        "id": "margin_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Margin bottom",
-        "default": 0
-      },
-      {
-        "type": "header",
-        "content": "Section padding (inside)"
-      },
-      {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "Padding top",
-        "default": 60
-      },
-      {
-         "type": "range",
-         "id": "padding_bottom",
-         "min": 0,
-         "max": 100,
-         "step": 4,
-         "unit": "px",
-         "label": "Padding bottom",
-         "default": 60
-      },
-      {
-        "type": "range",
-        "id": "padding_horizontal",
-        "min": 0,
-        "max": 30,
-        "step": 1,
-        "unit": "rem",
-        "label": "Padding sides",
-        "default": 5
-      },
-      {
-        "type": "range",
-        "id": "padding_horizontal_mobile",
-        "min": 0,
-        "max": 15,
-        "step": 0.5,
-        "unit": "rem",
-        "label": "Padding sides mobile",
-        "default": 1.5
-      },
-      {
-        "type": "header",
-        "content": "Section Settings"
-      },
-      {
-        "type": "checkbox",
-        "id": "full_width",
-        "label": "Full Width",
-        "default": true
-      },
-      {
-        "type": "range",
-        "id": "content_width",
-        "min": 0,
-        "max": 400,
-        "step": 10,
-        "unit": "rem",
-        "label": "Section content width",
-        "default": 120
-      },
-      {
-        "type": "range",
-        "id": "border_thickness",
-        "min": 0,
-        "max": 50,
-        "step": 1,
-        "unit": "px",
-        "label": "Border thickness",
-        "default": 0
-      },
-      {
-        "type": "checkbox",
-        "id": "lazy",
-        "label": "Lazy load",
-        "info": "Lazy load images for speed optimisation",
-        "default": true
-      }
-    ],
-    "blocks": [
-      {
-        "type": "slide",
-        "name": "Slide",
-        "settings": [
-          {
-            "type": "range",
-            "id": "stars_count",
-            "min": 0,
-            "max": 5,
-            "step": 0.5,
-            "label": "Stars Count",
-            "default": 5
-          },
-          {
-            "type": "text",
-            "id": "heading",
-            "label": "Heading"
-          },
-          {
-            "type": "text",
-            "id": "text",
-            "label": "Text"
-          },
-          {
-            "type": "text",
-            "id": "author_date",
-            "label": "Author and Date"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "SS - Testimonial #8",
-        "blocks": [
-          {
-            "type": "slide",
-            "settings": {
-              "heading": "I love it! 😍",
-              "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
-              "author_date": "Cathrine"
-            }
-          },
-          {
-            "type": "slide",
-            "settings": {
-              "heading": "I love it! 😍",
-              "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
-              "author_date": "Cathrine"
-            }
-          },
-          {
-            "type": "slide",
-            "settings": {
-              "heading": "I love it! 😍",
-              "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
-              "author_date": "Cathrine"
-            }
-          },
-          {
-            "type": "slide",
-            "settings": {
-              "heading": "I love it! 😍",
-              "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
-              "author_date": "Cathrine"
-            }
-          },
-          {
-            "type": "slide",
-            "settings": {
-              "heading": "I love it! 😍",
-              "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
-              "author_date": "Cathrine"
-            }
-          },
-          {
-            "type": "slide",
-            "settings": {
-              "heading": "I love it! 😍",
-              "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
-              "author_date": "Cathrine"
-            }
-          }
-        ]
-      }
-    ]
-  }
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}

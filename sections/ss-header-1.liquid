@@ -1212,12 +1212,29 @@ For inquiries or permissions, contact daniel@section.store
             </a>
           {%- endif -%}
 
-          <a href="{{ routes.cart_url }}" class="header-cart-{{ section.id }}">
-            <span class="header-cart-icon-{{ section.id }}">
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 21.3 19.3" style="enable-background:new 0 0 21.3 19.3;" xml:space="preserve">
-                <path class="st0" d="M20.4,0.2c-0.5-0.1-1.1,0.2-1.2,0.7l-2.9,11.2h-7l-2.5-12H1.1c-0.6,0-1,0.4-1,1c0,0.6,0.4,1,1,1h4.1l2.5,12  h10.2l3.3-12.8C21.3,0.8,20.9,0.3,20.4,0.2z M10.1,17.6c0,0.8-0.7,1.5-1.5,1.5c-0.8,0-1.5-0.7-1.5-1.5s0.7-1.5,1.5-1.5  C9.5,16.1,10.1,16.8,10.1,17.6z M16.6,19.1c0.8,0,1.5-0.7,1.5-1.5s-0.7-1.5-1.5-1.5c-0.8,0-1.5,0.7-1.5,1.5S15.8,19.1,16.6,19.1z"></path>
-              </svg>
-            </span>
+        <a href="{{ routes.cart_url }}"
+   class="header-cart-{{ section.id }}"
+   data-no-instant
+   {% if settings.cart_type != 'page' and request.page_type != 'cart' %}
+     aria-controls="cart-drawer"
+   {% endif %}>
+  <span class="header-cart-icon-{{ section.id }}">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         version="1.1"
+         id="Layer_1"
+         x="0px"
+         y="0px"
+         viewBox="0 0 21.3 19.3"
+         style="enable-background:new 0 0 21.3 19.3;"
+         xml:space="preserve">
+      <path class="st0" d="M20.4,0.2c-0.5-0.1-1.1,0.2-1.2,0.7l-2.9,11.2h-7l-2.5-12H1.1c-0.6,0-1,0.4-1,1c0,0.6,0.4,1,1,1h4.1l2.5,12  
+        h10.2l3.3-12.8C21.3,0.8,20.9,0.3,20.4,0.2z M10.1,17.6c0,0.8-0.7,1.5-1.5,1.5c-0.8,0-1.5-0.7-1.5-1.5s0.7-1.5,1.5-1.5  
+        C9.5,16.1,10.1,16.8,10.1,17.6z M16.6,19.1c0.8,0,1.5-0.7,1.5-1.5s-0.7-1.5-1.5-1.5c-0.8,0-1.5,0.7-1.5,1.5S15.8,19.1,16.6,19.1z"></path>
+    </svg>
+  </span>
+</a>
+
             <span class="header-cart-text-{{ section.id }}">{{ cart_text }}</span>
             {%- if cart != empty -%}
               <div class="cart-count-bubble">

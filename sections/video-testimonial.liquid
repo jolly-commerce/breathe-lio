@@ -148,18 +148,19 @@ h2.trust-swap-heading {
 
         
         <div class="swiper-slide"> 
-          <video
+         <video
   class="caraousel-video"
   src="{{ video_src }}"
   loop
   muted
-  preload="auto"
+  preload="none"
+  loading="lazy"
   playsinline
   webkit-playsinline
-  poster="{{ block.settings.video.preview_image | image_url: width: 1000 }}"
+  poster="{{ block.settings.video.preview_image | image_url: width: 600 }}"
 ></video>
 
-        <img class="play-button-svg" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/yellow-pl-btn.svg?v=1747943568" />
+        <img loading="lazy" class="play-button-svg" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/yellow-pl-btn.svg?v=1747943568" />
         </div>
          {% endcase %}
       {% endfor %}

@@ -107,16 +107,16 @@
         "one": "{{ count }} cor disponível",
         "other": "{{ count }} cores disponíveis"
       },
-      "single": "Unitário",
-      "packs": "Pacotes",
-      "adding": "Adicionando...",
-      "added": "Adicionado!",
-      "error": "Erro",
-      "select_variant": "Selecione uma variação",
-      "no_pack_variants": "Nenhuma variação de pacote disponível",
-      "up_to_weeks": "até {{ weeks }} semanas",
-      "weeks": "semanas",
-      "discount": "desconto"
+      "single": "Single",
+      "packs": "Packs",
+      "adding": "Adding...",
+      "added": "Added!",
+      "error": "Error",
+      "select_variant": "Select a variant",
+      "no_pack_variants": "No pack variants available",
+      "up_to_weeks": "up to {{ weeks }} weeks",
+      "weeks": "weeks",
+      "discount": "discount"
     },
     "gallery": {
       "close": "Fechar galeria",
@@ -333,9 +333,9 @@
       "title": "Carrinho",
       "empty": "Seu carrinho está vazio",
       "item_count": {
-        "zero": "{{ count }} items",
         "one": "{{ count }} item",
-        "other": "{{ count }} itens"
+        "other": "{{ count }} itens",
+        "zero": "{{ count }} items"
       },
       "continue_shopping": "Continuar comprando",
       "weight": "Peso",

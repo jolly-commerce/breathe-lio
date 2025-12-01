@@ -36,7 +36,7 @@ Supported variables
 {%- if cart.requires_shipping -%}
   <free-shipping-bar class="free-shipping-bar" threshold="{{ settings.cart_free_shipping_threshold | times: 100.0 }}" total-price="{{ calculated_total_price }}" reached-message="{{ 'cart.free_shipping_bar.limit_reached_html' | t | escape }}" unreached-message="{{ 'cart.free_shipping_bar.limit_unreached_html' | t | escape }}">
     {%- comment -%}The span below is the placeholder where the content will be inserted in JS{%- endcomment -%}
-   <img class="image-col-truck" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/bfvv.svg?v=1750160080" />
+   <img loading="lazy" class="image-col-truck" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/bfvv.svg?v=1750160080" />
 
     <progress-bar class="progress-bar" role="progressbar" aria-valuemin="0" style="--progress: 0"></progress-bar>
      <span>&nbsp;</span>

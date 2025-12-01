@@ -107,16 +107,16 @@
         "one": "{{ count }} culoare disponibilă",
         "other": "{{ count }} culori disponibile"
       },
-      "single": "Bucată",
-      "packs": "Pachete",
-      "adding": "Se adaugă...",
-      "added": "Adăugat!",
-      "error": "Eroare",
-      "select_variant": "Selectați o variantă",
-      "no_pack_variants": "Nu există variante de pachet disponibile",
-      "up_to_weeks": "până la {{ weeks }} săptămâni",
-      "weeks": "săptămâni",
-      "discount": "reducere"
+      "single": "Single",
+      "packs": "Packs",
+      "adding": "Adding...",
+      "added": "Added!",
+      "error": "Error",
+      "select_variant": "Select a variant",
+      "no_pack_variants": "No pack variants available",
+      "up_to_weeks": "up to {{ weeks }} weeks",
+      "weeks": "weeks",
+      "discount": "discount"
     },
     "gallery": {
       "close": "Închide galeria",
@@ -333,25 +333,26 @@
       "title": "Coș",
       "empty": "Coșul tău este gol",
       "item_count": {
-        "zero": "{{ count }} items",
         "one": "{{ count }} articol",
-        "other": "{{ count }} articole"
+        "few": "{{ count }} articole",
+        "other": "{{ count }} articole",
+        "zero": "{{ count }} items"
       },
       "continue_shopping": "Continuă cumpărăturile",
       "weight": "Greutate",
       "subtotal": "Subtotal",
       "total": "Total",
-      "taxes_and_shipping_policy_at_checkout_html": "Taxele și <a href=\"{{ link }}\" class=\"link\">costul de livrare</a> sunt calculate la finalizarea comenzii",
-      "taxes_included_but_shipping_at_checkout": "Taxa este inclusă și costul de livrare este calculat la finalizarea comenzii",
-      "taxes_included_and_shipping_policy_html": "Taxa este inclusă. <a href=\"{{ link }}\" class=\"link\">Costul de livrare</a> este calculat la finalizarea comenzii.",
-      "taxes_and_shipping_at_checkout": "Taxele și costul de livrare sunt calculate la finalizarea comenzii",
       "add_order_note": "Adaugă observații la comandă",
       "edit_order_note": "Editează observațiile la comandă",
       "order_note": "Observații la comandă",
       "save_note": "Salvează",
       "view_cart": "Vezi coșul",
       "checkout": "Finalizează comanda",
-      "we_accept": "Acceptăm"
+      "we_accept": "Acceptăm",
+      "taxes_and_shipping_policy_at_checkout_html": "Taxele și <a href=\"{{ link }}\" class=\"link\">costul de livrare</a> sunt calculate la finalizarea comenzii",
+      "taxes_included_but_shipping_at_checkout": "Taxa este inclusă și costul de livrare este calculat la finalizarea comenzii",
+      "taxes_included_and_shipping_policy_html": "Taxa este inclusă. <a href=\"{{ link }}\" class=\"link\">Costul de livrare</a> este calculat la finalizarea comenzii.",
+      "taxes_and_shipping_at_checkout": "Taxele și costul de livrare sunt calculate la finalizarea comenzii"
     },
     "order": {
       "product": "Produs",

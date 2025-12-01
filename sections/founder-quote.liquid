@@ -62,7 +62,7 @@
       </h2>
   
   {% if  section.settings.image != blank  %}
-  <img src="{{ section.settings.image | img_url: 'master' }}" alt="Graphics">
+  <img loading="lazy" src="{{ section.settings.image | img_url: 'master' }}" alt="Graphics">
   {% endif %}
   <p class="founder-name">{{ section.settings.founder }}</p>
   <p class="designation">{{ section.settings.designation }}</p>

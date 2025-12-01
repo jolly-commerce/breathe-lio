@@ -95,7 +95,7 @@
       "added_to_cart": "Aggiunto al tuo carrello!",
       "sold_out_badge": "Esaurito",
       "on_sale_badge": "In vendita",
-      "discount_badge_html": "Salva {{ savings }}",
+      "discount_badge_html": "Risparmia {{ savings }}",
       "sku": "SKU:",
       "variant": "Variante",
       "view_in_space": "Visualizza nel tuo spazio",
@@ -107,16 +107,16 @@
         "one": "{{ count }} colori disponibili",
         "other": "{{ count }} colori disponibili"
       },
-      "single": "Singolo",
-      "packs": "Pacchi",
-      "adding": "Aggiungendo...",
-      "added": "Aggiunto!",
       "error": "Errore",
-      "select_variant": "Seleziona una variante",
-      "no_pack_variants": "Nessuna variante di pacchetto disponibile",
-      "up_to_weeks": "fino a {{ weeks }} settimane",
-      "weeks": "settimane",
-      "discount": "sconto"
+      "single": "Single",
+      "packs": "Packs",
+      "adding": "Adding...",
+      "added": "Added!",
+      "select_variant": "Select a variant",
+      "no_pack_variants": "No pack variants available",
+      "up_to_weeks": "up to {{ weeks }} weeks",
+      "weeks": "weeks",
+      "discount": "discount"
     },
     "gallery": {
       "close": "Chiudi galleria",
@@ -138,8 +138,8 @@
     },
     "volume_pricing": {
       "title": "Prezzi a volume",
-      "minimum": "{{ minimum_quantity }}+",
-      "price_at_each": "{{ price }}/cad"
+      "price_at_each": "{{ price }}/cad",
+      "minimum": "{{ minimum_quantity }}+"
     },
     "rating_count": {
       "zero": "Nessuna recensione",
@@ -188,8 +188,8 @@
       "price_range_to": "a",
       "price_filter_from": "Dal prezzo",
       "price_filter_to": "Prezzo",
-      "price_filter": "{{ min_price }} - {{ max_price }}",
-      "availability_label": "Solo in magazzino"
+      "availability_label": "Solo in magazzino",
+      "price_filter": "{{ min_price }} - {{ max_price }}"
     }
   },
   "blog": {
@@ -333,9 +333,9 @@
       "title": "Carrello",
       "empty": "Il tuo carrello è vuoto",
       "item_count": {
-        "zero": "{{ count }} articoli",
         "one": "{{ count }} articolo",
-        "other": "{{ count }} articoli"
+        "other": "{{ count }} articoli",
+        "zero": "{{ count }} articoli"
       },
       "continue_shopping": "Continua a fare acquisti",
       "weight": "Peso",
@@ -455,24 +455,24 @@
     "button_select": "Seleziona",
     "button_add": "Aggiungi",
     "button_add_to_cart": "Aggiungi al carrello",
-    "button_adding_to_cart": "Aggiunta al carrello...",
+    "button_adding_to_cart": "Aggiungendo al carrello...",
     "summary_select_your_lio": "Seleziona il tuo Lio",
     "selected_label": "Selezionato",
     "tap_to_add": "Tocca + per aggiungere più gusti",
     "optional_label": "Opzionale",
-    "info_money_back": "Non hai smesso in 30 giorni? Rimborso!",
+    "info_money_back": "Non hai smesso in 30 giorni? Rimborso garantito!",
     "info_shipping": "Spedizione gratuita e veloce",
     "success_added": "Aggiunto al carrello con successo!",
-    "error_failed_add": "Impossibile aggiungere al carrello",
-    "error_network": "Errore di rete. Riprova.",
-    "select_minimum_flavors": "Seleziona almeno {count} sapori",
+    "error_failed_add": "Aggiunta al carrello non riuscita",
+    "error_network": "Errore di rete. Per favore riprova.",
+    "select_minimum_flavors": "Seleziona almeno {count} gusti",
     "selected_cigarette": "Lio",
     "selected_flavors": "Gusti",
     "selected_accessories": "Accessori",
     "total_price": "Totale",
-    "savoury": "Slan",
-    "throat_hit": "Provoljno",
-    "sweetness": "Sladko",
+    "savoury": "Salato",
+    "throat_hit": "Provola",
+    "sweetness": "Dolce",
     "select_flavor": "Seleziona gusto",
     "close": "Chiudi"
   }

@@ -116,7 +116,7 @@ width : 100%;
   <div class="width-wrapper">
   <div class="pdp-icono-top">
      <h2 class="h1">{{ section.settings.heading }} <br/> <span>{{ section.settings.highlighted-heading }}</span></h2>
-    <img src="{{ section.settings.image | image_url: width: 1000 }}" />
+    <img loading="lazy" src="{{ section.settings.image | image_url: width: 1000 }}" />
     
   </div>
 
@@ -124,7 +124,7 @@ width : 100%;
     {% for block in section.blocks %}
     <div class="pdp-icon-inner">
       {% if block.settings.image_icon != blank  %}
-      <img class="pdp-icon-image" src="{{ block.settings.image_icon | image_url: width: 400 }}" />
+      <img loading="lazy" class="pdp-icon-image" src="{{ block.settings.image_icon | image_url: width: 400 }}" />
       {% endif %}
       <p>{{ block.settings.sub-text }}</p>
     </div>
@@ -136,7 +136,7 @@ width : 100%;
       <div class="swiper-slide">
         <div class="pdp-icon-inner">
           {% if block.settings.image_icon != blank %}
-            <img class="pdp-icon-image" src="{{ block.settings.image_icon | image_url: width: 400 }}" />
+            <img loading="lazy" class="pdp-icon-image" src="{{ block.settings.image_icon | image_url: width: 400 }}" />
           {% endif %}
           <p>{{ block.settings.sub-text }}</p>
         </div>

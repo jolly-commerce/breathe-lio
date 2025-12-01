@@ -223,7 +223,7 @@
     data-throat-pct="{{ flavor.settings.throat_hit_val }}"
     data-sweet-pct="{{ flavor.settings.sweetness_val }}"
   >
-    <img src="{{ flavor.settings.image | img_url: 'master' }}" alt="{{ flavor.settings.title }}" />
+    <img loading="lazy" src="{{ flavor.settings.image | img_url: 'master' }}" alt="{{ flavor.settings.title }}" />
   </div>
 {% endfor %}
 
@@ -279,7 +279,7 @@
      </ul>
     {% assign razzy = all_products['razzy-berry-v2'] %}
 
-    <a href="{{ section.settings.url }}" class="gradient-button">{{ section.settings.price-title }}  {{ razzy.price | money_without_trailing_zeros }}</a>
+    <a href="{{ section.settings.url }}" class="gradient-button igPrice" data-product-id="{{ razzy.id }}">{{ section.settings.price-title }}  {{ razzy.price | money_without_trailing_zeros }}</a>
   </div>
 </div>
 <script>

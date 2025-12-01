@@ -7,7 +7,7 @@
 
   {% if trustpilot_avatars != blank %}
     <div class="{{ class_name }}-avatars {{ class_name }}-avatars--mobile">
-      <img src="{{ trustpilot_avatars | image_url: width: 400 }}" alt="Trustpilot users avatars" width="133" height="auto">
+      <img loading="lazy" src="{{ trustpilot_avatars | image_url: width: 400 }}" alt="Trustpilot users avatars" width="133" height="auto">
     </div>
   {% endif %}
   
@@ -21,7 +21,7 @@
 
   {% if type == 'avatars-left' %}
     <div class="{{ class_name }}-avatars {{ class_name }}-avatars--left-desktop">
-      <img src="{{ trustpilot_avatars | image_url: width: 400 }}" alt="Trustpilot users avatars" width="133" height="auto">
+      <img loading="lazy" src="{{ trustpilot_avatars | image_url: width: 400 }}" alt="Trustpilot users avatars" width="133" height="auto">
     </div>
   {% endif %}
 </div>

@@ -144,7 +144,7 @@
   <div class="inline-ing-box">
     <span class="ing-name">{{ block.settings.name }}, </span>
     <div class="ing-card">
-    <img src="{{ block.settings.image | image_url: width: 1000 }}" />
+    <img loading="lazy" src="{{ block.settings.image | image_url: width: 1000 }}" />
       <div class="ing-card-below">
       <h4>{{ block.settings.name }}</h4>
       <p>{{ block.settings.description }}</p>

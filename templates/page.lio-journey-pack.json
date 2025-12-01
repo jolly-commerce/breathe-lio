@@ -9,12 +9,537 @@
  */
 {
   "sections": {
+    "ecom_highlight_info_ViJMTx": {
+      "type": "ecom-highlight-info",
+      "name": "Ecom Highlight Info",
+      "settings": {
+        "show_check": false,
+        "reviews_text": "No Smoke, No Vapor, No Nicotine",
+        "title": "Quit Your Bad Habit in 30 Days with Lio, the world’s first Diffuser that uses natural aromas to replace both the ritual and the sensation.",
+        "title_font_size_mobile": 18,
+        "title_font_size_tablet": 20,
+        "title_font_size_desktop": 20,
+        "title_font_size_large": 20,
+        "reviews_font_size_mobile": 15,
+        "reviews_font_size_tablet": 16,
+        "reviews_font_size_desktop": 17,
+        "reviews_font_size_large": 18
+      }
+    },
     "main": {
       "type": "main-page",
-      "settings": {}
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "176431694236efa8a0": {
+      "type": "apps",
+      "blocks": {
+        "section_store_block_banner_RaGxVa": {
+          "type": "shopify://apps/section-store/blocks/block-banner/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "disabled": true,
+          "settings": {
+            "gap": 2,
+            "text_align": "center",
+            "link": "",
+            "use_image": false,
+            "icon": "rocket",
+            "image_size": 30,
+            "image_position": "left",
+            "icon_color": "#b82020",
+            "title_text": "<p><strong>🚨 Buy 1, get 1 FREE - ends today! 🚨</strong></p>",
+            "title_size": 16,
+            "title_color": "#b82020",
+            "body_text": "<p>Add 1 - Get 1 FREE</p>",
+            "body_size": 27,
+            "body_color": "#b82020",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#b82020",
+            "radius": 0,
+            "background": "#ffecec",
+            "shadow": "none",
+            "padding_vertical": 12,
+            "padding_horizontal": 16
+          }
+        }
+      },
+      "block_order": [
+        "section_store_block_banner_RaGxVa"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": true,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "featured_product_HRmnjb": {
+      "type": "featured-product",
+      "blocks": {
+        "section_store_block_social_proof_ATeGc7": {
+          "type": "shopify://apps/section-store/blocks/block-social-proof/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "use_carousel": true,
+            "slide_icon_size": 28,
+            "text": "<p><strong>Emma</strong> , <strong>John</strong>  and 100.000+ others have already made the switch!</p>",
+            "text_size": 14,
+            "text_color": "#ffffff",
+            "checkmark_size": 14,
+            "symbols_color": "#42a5f5",
+            "border": "solid",
+            "border_thickness": 1,
+            "border_color": "#d7d7d7",
+            "radius": 16,
+            "bg_color": "#00b67c",
+            "padding_vertical": 12,
+            "padding_horizontal": 16,
+            "clip_as_header_of_wrapper": true
+          }
+        },
+        "title_Nyxc9V": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h2"
+          }
+        },
+        "section_store_block_review_summary_iRLLEJ": {
+          "type": "shopify://apps/section-store/blocks/block-review-summary/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "stars_custom": "shopify://shop_images/images_2_2.png",
+            "stars_count": 5,
+            "stars_size": 17,
+            "stars_gap": 2,
+            "stars_color": "#ffffff",
+            "stars_bg_color": "#00b67a",
+            "stars_bg_half_color": "#dddddd",
+            "first_text": "<p>Great</p>",
+            "first_text_size": 15,
+            "first_text_color": "#000000",
+            "second_text": "<p>1230 reviews</p>",
+            "second_text_size": 13,
+            "second_text_color": "#000000",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "background": "",
+            "background_gradient": "",
+            "padding_vertical": 0,
+            "padding_horizontal": 0
+          }
+        },
+        "section_store_block_benefits_list_qf73HP": {
+          "type": "shopify://apps/section-store/blocks/block-benefits-list/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "items_gap": 10,
+            "first_text": "<p>100,000+ Happy Customers</p>",
+            "second_text": "<p>Keep the hand-to-mouth habit</p>",
+            "third_text": "<p>No smoke, no vape, no nicotine</p>",
+            "fourth_text": "<p>Didn't quit within 30 days? Money back.</p>",
+            "icon_size": 20,
+            "icon_color": "#00b67c",
+            "text_size": 15,
+            "text_color": "#000000",
+            "content_align": "left",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "background": "",
+            "background_gradient": "",
+            "padding_vertical": 0,
+            "padding_horizontal": 0
+          }
+        },
+        "section_store_block_product_info_wrapper_frK9mj": {
+          "type": "shopify://apps/section-store/blocks/block-product-info-wrapper/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "auto_detect_product_info_container": true,
+            "product_info_container_selector": "",
+            "use_on_mobile": true,
+            "use_header": false,
+            "header_font_size": 16,
+            "header_bg_color": "#000000",
+            "header_text_color": "#ffffff",
+            "header_text_align": "center",
+            "header_text": "♥︎ 9 of 10 recommend to friends",
+            "border_style": "solid",
+            "border_width": 1,
+            "border_color": "#dfdfdf",
+            "border_radius": 12,
+            "background_color": "",
+            "shadow": "shadow_1",
+            "padding_top": 16,
+            "padding_bottom": 16,
+            "padding_left": 16,
+            "padding_right": 16
+          }
+        },
+        "section_store_block_shipping_info_kVQz9T": {
+          "type": "shopify://apps/section-store/blocks/block-shipping-info/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "use_dot": true,
+            "icon_color": "#00b67c",
+            "icon_size": 12,
+            "ships_by_text": "Delivery on",
+            "shipping_within_days": 3,
+            "include_weekend": true,
+            "ships_by_font_size": 14,
+            "ships_by_text_color": "#000000",
+            "fast_shipping_text": "<strong>Free Shipping</strong>",
+            "allow_all_countries": true,
+            "allowed_countries": "US,CH,DE,AT,FR,IT",
+            "fast_shipping_text_for_rest_countries": "Fast International Shipping",
+            "fast_shipping_text_color": "#000000",
+            "border_style": "none",
+            "border_width": 1,
+            "border_color": "#000000",
+            "border_radius": 8,
+            "bg_color": "#cfffd8",
+            "padding_vertical": 0,
+            "padding_horizontal": 8
+          }
+        },
+        "badges_gDigAD": {
+          "type": "badges",
+          "settings": {}
+        },
+        "price_MNb88D": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "rating_cyfGMx": {
+          "type": "rating",
+          "settings": {
+            "show_empty": false
+          }
+        },
+        "description_eFMpRm": {
+          "type": "description",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "collapse_content": false
+          }
+        },
+        "variant_picker_PQGzfB": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "section_store_block_banner_hRJBg8": {
+          "type": "shopify://apps/section-store/blocks/block-banner/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "disabled": true,
+          "settings": {
+            "gap": 2,
+            "text_align": "center",
+            "link": "",
+            "use_image": false,
+            "icon": "rocket",
+            "image_size": 30,
+            "image_position": "left",
+            "icon_color": "#b82020",
+            "title_text": "<p><strong>🚨 Buy 1, Get 1 FREE</strong></p>",
+            "title_size": 14,
+            "title_color": "#b82020",
+            "body_text": "<p>Ends when stock runs out.</p>",
+            "body_size": 11,
+            "body_color": "#b82020",
+            "border": "dotted",
+            "border_thickness": 1,
+            "border_color": "#b82020",
+            "radius": 16,
+            "background": "#ffecec",
+            "shadow": "none",
+            "padding_vertical": 10,
+            "padding_horizontal": 0
+          }
+        },
+        "buy_buttons_a66nex": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "section_store_block_benefits_boxes_2_dDdHAF": {
+          "type": "shopify://apps/section-store/blocks/block-benefits-boxes-2/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "cards_design": "vertical",
+            "cards_row": "3",
+            "card_align": "center",
+            "first_icon": "credit_card",
+            "first_title": "Money Back",
+            "first_sub_title": "if it didn't work",
+            "second_icon": "shield_check",
+            "second_title": "Free & Fast",
+            "second_sub_title": "Shipping",
+            "third_icon": "earth",
+            "third_title": "100.000+",
+            "third_sub_title": "people love it",
+            "all_size": 19,
+            "all_color": "#00b67c",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "cards_bg_color": "",
+            "padding_vertical": 0,
+            "padding_horizontal": 0
+          }
+        },
+        "section_store_block_countdown_timer_8pJ69X": {
+          "type": "shopify://apps/section-store/blocks/block-countdown-timer/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "hour": 0,
+            "minute": 46,
+            "second": 26,
+            "progress_start": 70,
+            "action_on_complete": "hide",
+            "number_size": 15,
+            "number_color": "#000000",
+            "text": "<p>Shipped for free today if you order within:</p>",
+            "text_size": 14,
+            "text_color": "#000000",
+            "progress_default_color": "#ebe9eb",
+            "progress_active_color": "#000000",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "background": "",
+            "padding_top": 4,
+            "padding_bottom": 4,
+            "padding_left": 0,
+            "padding_right": 0
+          }
+        },
+        "section_store_block_payment_icons_2_DqAMpX": {
+          "type": "shopify://apps/section-store/blocks/block-payment-icons-2/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "icons_layout": "fixed_grid",
+            "icons_per_row": 10,
+            "icons_per_row_mobile": 10,
+            "gap": 10,
+            "icons_align": "center",
+            "icons_monochrome": false,
+            "enable_first_image": false,
+            "enable_second_image": false,
+            "enable_third_image": false,
+            "icon_size": 20,
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "background": "",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_left": 0,
+            "padding_right": 0
+          }
+        }
+      },
+      "block_order": [
+        "section_store_block_social_proof_ATeGc7",
+        "title_Nyxc9V",
+        "section_store_block_review_summary_iRLLEJ",
+        "section_store_block_benefits_list_qf73HP",
+        "section_store_block_product_info_wrapper_frK9mj",
+        "section_store_block_shipping_info_kVQz9T",
+        "badges_gDigAD",
+        "price_MNb88D",
+        "rating_cyfGMx",
+        "description_eFMpRm",
+        "variant_picker_PQGzfB",
+        "section_store_block_banner_hRJBg8",
+        "buy_buttons_a66nex",
+        "section_store_block_benefits_boxes_2_dDdHAF",
+        "section_store_block_countdown_timer_8pJ69X",
+        "section_store_block_payment_icons_2_DqAMpX"
+      ],
+      "name": "Featured product",
+      "settings": {
+        "full_width": true,
+        "product": "new-lio-journey-pack",
+        "desktop_media_width": 55,
+        "desktop_media_layout": "carousel_thumbnails_left",
+        "mobile_media_size": "expanded",
+        "mobile_carousel_control": "thumbnails",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
+      }
+    },
+    "icon_text_1_BjTzrh": {
+      "type": "icon-text-1",
+      "blocks": {
+        "usp_pYTT63": {
+          "type": "usp",
+          "settings": {
+            "title": "No Batteries",
+            "icon": "shopify://shop_images/3.svg"
+          }
+        },
+        "usp_A9k44T": {
+          "type": "usp",
+          "settings": {
+            "title": "100% Natural",
+            "icon": "shopify://shop_images/3_979dfd3c-efdb-4978-800a-1b274fe6aac0.svg"
+          }
+        },
+        "usp_4M4nVq": {
+          "type": "usp",
+          "settings": {
+            "title": "No Smoke",
+            "icon": "shopify://shop_images/1_8619ac43-c1b3-4532-9889-2af912400049.svg"
+          }
+        },
+        "usp_V4Xacr": {
+          "type": "usp",
+          "settings": {
+            "title": "No vapor",
+            "icon": "shopify://shop_images/1_39bfeb91-eef0-4105-8881-3a3a58e0deee.svg"
+          }
+        },
+        "usp_mpQzjk": {
+          "type": "usp",
+          "settings": {
+            "title": "No toxins",
+            "icon": "shopify://shop_images/5.svg"
+          }
+        }
+      },
+      "block_order": [
+        "usp_pYTT63",
+        "usp_A9k44T",
+        "usp_4M4nVq",
+        "usp_V4Xacr",
+        "usp_mpQzjk"
+      ],
+      "name": "icon-text-1",
+      "settings": {
+        "heading": "No nicotine. No vapor. No smoke.",
+        "highlighted-heading": "Just natural air."
+      }
+    },
+    "our_promise_XLqaaX": {
+      "type": "our-promise",
+      "name": "our-promise",
+      "settings": {
+        "image": "shopify://shop_images/card_1.png",
+        "heading": "Didn't quit after 30 days?",
+        "highlighted-heading": "Money back!",
+        "sub-text": "<p>Over 100,000 smokers quit with Lio. If it doesn’t work for you in 30 days, we refund you, simple.</p>",
+        "button-url": "#shopify-section-template--24575915327864__featured_product_HRmnjb",
+        "button-text": "Start Your Journey",
+        "trust-text": ""
+      }
+    },
+    "ecom_lio_steps_BKKN6k": {
+      "type": "ecom-lio-steps",
+      "blocks": {
+        "step_jCNNYP": {
+          "type": "step",
+          "settings": {
+            "title": "3: Enjoy the relief",
+            "icon": "shopify://shop_images/Mask_group33.png"
+          }
+        },
+        "step_U4xxBp": {
+          "type": "step",
+          "settings": {
+            "title": "2: Insert the Core",
+            "icon": "shopify://shop_images/Mask_group22.png"
+          }
+        },
+        "step_6bAUL9": {
+          "type": "step",
+          "settings": {
+            "title": "1: Fray The Core",
+            "icon": "shopify://shop_images/Mask_group11.png"
+          }
+        },
+        "step_QAigjk": {
+          "type": "step",
+          "settings": {
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "step_jCNNYP",
+        "step_U4xxBp",
+        "step_6bAUL9",
+        "step_QAigjk"
+      ],
+      "name": "Ecom Lio Steps",
+      "settings": {
+        "padding_top": 0,
+        "padding_top_desktop": 0,
+        "padding_bottom": 0,
+        "padding_bottom_desktop": 0,
+        "title": "3 simple steps"
+      }
+    },
+    "1764313984a7323ead": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_agg_section_yFXmFt": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "only_photos": false,
+            "hide_thumbnails": true,
+            "product_handle": "",
+            "aggregated": true,
+            "data-limit": 10,
+            "maxwidth": 1080,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_agg_section_yFXmFt"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
     }
   },
   "order": [
-    "main"
+    "ecom_highlight_info_ViJMTx",
+    "main",
+    "176431694236efa8a0",
+    "featured_product_HRmnjb",
+    "icon_text_1_BjTzrh",
+    "our_promise_XLqaaX",
+    "ecom_lio_steps_BKKN6k",
+    "1764313984a7323ead"
   ]
 }

@@ -1,64 +1,167 @@
 .ecom-faq {
-  background-color: var(--lio-white);
-}
-.ecom-faq__title {
-    color: #005128;
-    font-family: Sigum;
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 90%;
-    letter-spacing: -.8px;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-    text-wrap: balance;
-    max-width: 290px;
-}
-.ecom-faq__title span{
-  color : var(--lio-light-green);
-  position : relative;
-}
-.ecom-faq__title span::after {
-    content: "";
-    position: absolute;
-    right: -40px;
-    bottom: -10px;
-    width: 90px;
-    height: 20px;
-    background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/f-g.svg?v=1747996418");
-    background-size: contain;
-    background-repeat: no-repeat;
+  background: #F5FFF7;
+  padding: 40px 20px;
 }
 
-.ecom-faq__questions-wrapper {
-  display: flex;
-  flex-direction: column;
+.ecom-faq__container {
+  max-width: 1000px;
+  margin: 0 auto;
 }
-@media (min-width: 1000px) {
-  .ecom-faq__questions-wrapper {
-    flex-direction: row;
-    gap: 40px;
-  }
-  .ecom-faq__title {
-    font-size : 40px;
-  }
+
+.ecom-faq__header {
+  text-align: center;
+  margin-bottom: 40px;
 }
-.ecom-faq__questions-wrapper > div {
-  width: 100%;
+
+.ecom-faq__title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 32px;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
 }
-@media (min-width: 1000px) {
-  .ecom-faq__questions-wrapper > div {
-    width: calc(50% - 20px);
-  }
+
+.ecom-faq__title-highlight {
+  background: linear-gradient(135deg, #51b380, #45a071);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
+
+.ecom-faq__tabs {
+  display: inline-flex;
+  background: #fff;
+  border-radius: 12px;
+  padding: 6px;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.ecom-faq__tab {
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  color: #666;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.ecom-faq__tab--active {
+  background: linear-gradient(135deg, #51b380, #45a071);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(81,179,128,0.3);
+}
+
+.ecom-faq__grid {
+  display: grid;
+  gap: 16px;
+}
+
+.ecom-faq__item {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: box-shadow 0.3s;
+}
+
+.ecom-faq__item:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
 .ecom-faq__question {
-  margin-bottom: 8px;
+  width: 100%;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  transition: color 0.3s;
 }
-@media (min-width: 1000px) {
+
+.ecom-faq__question:hover,
+.ecom-faq__item.active .ecom-faq__question {
+  color: #51b380;
+}
+
+.ecom-faq__icon {
+  flex-shrink: 0;
+  transition: transform 0.3s;
+  color: #51b380;
+}
+
+.ecom-faq__item.active .ecom-faq__icon {
+  transform: rotate(180deg);
+}
+
+.ecom-faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.ecom-faq__item.active .ecom-faq__answer {
+  max-height: 500px;
+}
+
+.ecom-faq__answer-content {
+  padding: 0 24px 24px;
+  color: #666;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.ecom-faq__answer-content p {
+  margin: 0 0 12px;
+}
+
+.ecom-faq__answer-content p:last-child {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .ecom-faq {
+    padding: 60px 40px;
+  }
+  
+  .ecom-faq__header {
+    margin-bottom: 48px;
+  }
+  
+  .ecom-faq__tab {
+    padding: 12px 32px;
+    font-size: 16px;
+  }
+  
+  .ecom-faq__grid {
+    gap: 20px;
+  }
+  
   .ecom-faq__question {
-    margin-bottom: 16px;
+    padding: 24px 28px;
+    font-size: 17px;
+  }
+  
+  .ecom-faq__answer-content {
+    padding: 0 28px 28px;
+    font-size: 16px;
   }
 }
-.ecom-faq__question:last-child {
-  margin-bottom: 0;
+
+@media (min-width: 1000px) {
+  .ecom-faq__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
 }

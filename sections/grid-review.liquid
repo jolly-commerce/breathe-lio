@@ -201,7 +201,7 @@ flex: 1 0 0;
   <div class="custom-rating-box">
      <h3 class="h3">{{ section.settings.heading }}</h3>
   <div class="c-rating-box c-5star">
-    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/5_64a06af9-dd8a-4910-88e5-47992aa3c245.svg?v=1748013669" />
+    <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/5_64a06af9-dd8a-4910-88e5-47992aa3c245.svg?v=1748013669" />
    <div style="flex: 1;">
     <span data-span="{{ section.settings.percentage-5 }}" data-color="5" class="star-animated-span"></span>
    </div> 
@@ -212,7 +212,7 @@ flex: 1 0 0;
   </div>
 
   <div class="c-rating-box c-4star">
-    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/4_dbaccf56-f908-485e-b48f-d986f9cc6c82.svg?v=1748013669" />
+    <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/4_dbaccf56-f908-485e-b48f-d986f9cc6c82.svg?v=1748013669" />
    <div style="flex: 1;">
     <span data-span="{{ section.settings.percentage-4 }}" data-color="4" class="star-animated-span"></span>
    </div>
@@ -223,7 +223,7 @@ flex: 1 0 0;
   </div>
 
   <div class="c-rating-box c-3star">
-    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/3_bf8f7b5b-1180-42f8-bd8c-57d1b197d216.svg?v=1748013670" />
+    <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/3_bf8f7b5b-1180-42f8-bd8c-57d1b197d216.svg?v=1748013670" />
   <div style="flex: 1;">
     <span data-span="{{ section.settings.percentage-3 }}" data-color="3" class="star-animated-span"></span>
   </div>
@@ -234,7 +234,7 @@ flex: 1 0 0;
   </div>
 
   <div class="c-rating-box c-2star">
-    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/2_724df55b-1313-4f71-ae34-aae43742e7df.svg?v=1748013670" />
+    <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/2_724df55b-1313-4f71-ae34-aae43742e7df.svg?v=1748013670" />
  <div style="flex: 1;">
     <span data-span="{{ section.settings.percentage-2 }}" data-color="2" class="star-animated-span"></span>
  </div>
@@ -245,7 +245,7 @@ flex: 1 0 0;
   </div>
 
   <div class="c-rating-box c-1star">
-    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/1_0d53a866-2ef6-4486-a75d-dc83f2b6f866.svg?v=1748013669" />
+    <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/1_0d53a866-2ef6-4486-a75d-dc83f2b6f866.svg?v=1748013669" />
  <div style="flex: 1;">
     <span data-span="{{ section.settings.percentage-1 }}" data-color="1" class="star-animated-span"></span>
  </div>
@@ -264,14 +264,14 @@ flex: 1 0 0;
           {% when 'review' %}
           <div class="g-single-review">
             <div class="g-top-rev">
-            <img class="g-name-img" src="{{ block.settings.image | image_url: width: 1000 }}" />
+            <img loading="lazy" class="g-name-img" src="{{ block.settings.image | image_url: width: 1000 }}" />
               <div class="g-right-name">
                 <p>{{ block.settings.name }}</p>
-                 <img class="g-trust-img" src="{{ block.settings.trust-image | image_url: width: 1000 }}" />
+                 <img loading="lazy" class="g-trust-img" src="{{ block.settings.trust-image | image_url: width: 1000 }}" />
               </div>
             </div>
             <div class="g-bottom-rev">
-               <img class="g-product-image" src="{{ block.settings.product-image | image_url: width: 1000 }}" />
+               <img loading="lazy" class="g-product-image" src="{{ block.settings.product-image | image_url: width: 1000 }}" />
               <p>{{ block.settings.review }}</p>
             </div>
           </div>

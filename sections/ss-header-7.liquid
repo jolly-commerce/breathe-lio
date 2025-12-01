@@ -1782,7 +1782,7 @@ For inquiries or permissions, contact daniel@section.store
                                   <a href="{{ collection.url }}" class="header-submenu-collection-{{ section.id }}">
                                     <div class="header-submenu-collection-image-{{ section.id }}">
                                       {% if collection.featured_image != blank %}
-                                        <img src="{{ collection.featured_image | image_url }}" alt="{{ collection.featured_image.alt }}" {% if lazy %}loading="lazy"{% endif %}>
+                                        <img loading="lazy" src="{{ collection.featured_image | image_url }}" alt="{{ collection.featured_image.alt }}" {% if lazy %}loading="lazy"{% endif %}>
                                       {% endif %}
                                     </div>                                 
                                     {% if block.settings.collection_title %}
@@ -1798,7 +1798,7 @@ For inquiries or permissions, contact daniel@section.store
                                     <a href="{{ block.settings.first_url }}" class="header-submenu-collection-{{ section.id }}">
                                       <div class="header-submenu-collection-image-{{ section.id }}">
                                         {% if block.settings.image != blank %}
-                                          <img src="{{ block.settings.image | image_url }}" alt="{{ block.settings.image.alt }}" {% if lazy %}loading="lazy"{% endif %}>
+                                          <img loading="lazy" src="{{ block.settings.image | image_url }}" alt="{{ block.settings.image.alt }}" {% if lazy %}loading="lazy"{% endif %}>
                                         {% else %}
                                           {{ 'image' | placeholder_svg_tag }}
                                         {% endif %}
@@ -1813,7 +1813,7 @@ For inquiries or permissions, contact daniel@section.store
                                       <div class="header-submenu-collection-image-{{ section.id }}">
                                         <div class="header-submenu-collection-image-{{ section.id }}">
                                           {% if block.settings.second_image != blank %}
-                                            <img src="{{ block.settings.second_image | image_url }}" alt="{{ block.settings.second_image.alt }}" {% if lazy %}loading="lazy"{% endif %}>
+                                            <img loading="lazy" src="{{ block.settings.second_image | image_url }}" alt="{{ block.settings.second_image.alt }}" {% if lazy %}loading="lazy"{% endif %}>
                                           {% else %}
                                             {{ 'image' | placeholder_svg_tag }}
                                           {% endif %}
@@ -1829,7 +1829,7 @@ For inquiries or permissions, contact daniel@section.store
                                       <div class="header-submenu-collection-image-{{ section.id }}">
                                         <div class="header-submenu-collection-image-{{ section.id }}">
                                           {% if block.settings.third_image != blank %}
-                                            <img src="{{ block.settings.third_image | image_url }}" alt="{{ block.settings.third_image.alt }}" {% if lazy %}loading="lazy"{% endif %}>
+                                            <img loading="lazy" src="{{ block.settings.third_image | image_url }}" alt="{{ block.settings.third_image.alt }}" {% if lazy %}loading="lazy"{% endif %}>
                                           {% else %}
                                             {{ 'image' | placeholder_svg_tag }}
                                           {% endif %}

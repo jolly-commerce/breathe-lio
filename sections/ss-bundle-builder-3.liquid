@@ -1267,7 +1267,7 @@ For inquiries or permissions, contact daniel@section.store
               <div class="bundle-product-{{ section.id }}" data-title="{{ product.title }}" data-id="{% if use_selector and product.variants.size > 1 %}{{ product.selected_or_first_available_variant.id }}{% else %}{{ product.id }}{% endif %}">
                 <div class="bundle-product-image-{{ section.id }}">
                   {% if product.featured_image != blank %}
-                    <img src="{{ product.featured_image | image_url }}" alt="{{ product.featured_image.alt }}" {% if lazy %}loading="lazy"{% endif %}>
+                    <img loading="lazy" src="{{ product.featured_image | image_url }}" alt="{{ product.featured_image.alt }}" {% if lazy %}loading="lazy"{% endif %}>
                   {% else %}
                     {{ 'image' | placeholder_svg_tag }}
                   {% endif %}
@@ -1330,7 +1330,7 @@ For inquiries or permissions, contact daniel@section.store
               <div class="bundle-product-{{ section.id }}" data-title="{{ product.title }}" data-id="{% if use_selector and product.variants.size > 1 %}{{ product.selected_or_first_available_variant.id }}{% else %}{{ product.id }}{% endif %}">
                 <div class="bundle-product-image-{{ section.id }}">
                   {% if product.featured_image != blank %}
-                    <img src="{{ product.featured_image | image_url }}" alt="{{ product.featured_image.alt }}" {% if lazy %}loading="lazy"{% endif %}>
+                    <img loading="lazy" src="{{ product.featured_image | image_url }}" alt="{{ product.featured_image.alt }}" {% if lazy %}loading="lazy"{% endif %}>
                   {% else %}
                     {{ 'image' | placeholder_svg_tag }}
                   {% endif %}

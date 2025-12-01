@@ -107,16 +107,16 @@
         "one": "{{ count }} 种颜色可选",
         "other": "{{ count }} 种颜色可选"
       },
-      "single": "单件",
-      "packs": "套装",
-      "adding": "正在添加...",
-      "added": "已添加！",
-      "error": "错误",
-      "select_variant": "请选择款式",
-      "no_pack_variants": "无可用的套装款式",
-      "up_to_weeks": "最长 {{ weeks }} 周",
-      "weeks": "周",
-      "discount": "折扣"
+      "single": "Single",
+      "packs": "Packs",
+      "adding": "Adding...",
+      "added": "Added!",
+      "error": "Error",
+      "select_variant": "Select a variant",
+      "no_pack_variants": "No pack variants available",
+      "up_to_weeks": "up to {{ weeks }} weeks",
+      "weeks": "weeks",
+      "discount": "discount"
     },
     "gallery": {
       "close": "关闭图库",
@@ -333,25 +333,25 @@
       "title": "购物车",
       "empty": "您的购物车为空",
       "item_count": {
+        "other": "{{ count }} 件商品",
         "zero": "{{ count }} items",
-        "one": "{{ count }} item",
-        "other": "{{ count }} 件商品"
+        "one": "{{ count }} item"
       },
       "continue_shopping": "继续购物",
       "weight": "重量",
       "subtotal": "小计",
       "total": "合计",
-      "taxes_and_shipping_policy_at_checkout_html": "结账时计算税费和<a href=\"{{ link }}\" class=\"link\">运费</a>",
-      "taxes_included_but_shipping_at_checkout": "含税并在结账时计算运费",
-      "taxes_included_and_shipping_policy_html": "含税。在结账时计算<a href=\"{{ link }}\" class=\"link\">运费</a>。",
-      "taxes_and_shipping_at_checkout": "结账时计算税费和运费",
       "add_order_note": "添加订单备注",
       "edit_order_note": "编辑订单备注",
       "order_note": "订单备注",
       "save_note": "保存",
       "view_cart": "查看购物车",
       "checkout": "结账",
-      "we_accept": "我们接受"
+      "we_accept": "我们接受",
+      "taxes_and_shipping_policy_at_checkout_html": "结账时计算税费和<a href=\"{{ link }}\" class=\"link\">运费</a>",
+      "taxes_included_but_shipping_at_checkout": "含税并在结账时计算运费",
+      "taxes_included_and_shipping_policy_html": "含税。在结账时计算<a href=\"{{ link }}\" class=\"link\">运费</a>。",
+      "taxes_and_shipping_at_checkout": "结账时计算税费和运费"
     },
     "order": {
       "product": "产品",

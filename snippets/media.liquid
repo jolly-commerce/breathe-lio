@@ -37,7 +37,7 @@ Supported variables
       {{- media | image_url: width: media.preview_image.width | image_tag: loading: loading, fetchpriority: fetchpriority, sizes: sizes, widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200', class: 'rounded' -}}
 
       {%- if media.media_type == 'video' -%}
-        {{- media | video_tag: controls: true, playsinline: true, muted: autoplay, loop: loop, preload: 'metadata' -}}
+        {{- media | video_tag: controls: true, playsinline: true, muted: autoplay, loop: loop, preload: 'none' -}}
       {%- else -%}
         <template>
           {%- if media.host == 'youtube' -%}

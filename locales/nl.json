@@ -95,7 +95,7 @@
       "added_to_cart": "Toegevoegd aan je winkelwagen!",
       "sold_out_badge": "Uitverkocht",
       "on_sale_badge": "In de uitverkoop",
-      "discount_badge_html": "Opslaan {{ savings }}",
+      "discount_badge_html": "Bespaar {{ savings }}",
       "sku": "SKU:",
       "variant": "Variant",
       "view_in_space": "Bekijk in je ruimte",
@@ -107,11 +107,11 @@
         "one": "{{ count }} kleur beschikbaar",
         "other": "{{ count }} kleuren beschikbaar"
       },
+      "error": "Fout",
       "single": "Enkel",
       "packs": "Pakketten",
-      "adding": "Bezig met toevoegen...",
+      "adding": "Toevoegen...",
       "added": "Toegevoegd!",
-      "error": "Fout",
       "select_variant": "Selecteer een variant",
       "no_pack_variants": "Geen pakketvarianten beschikbaar",
       "up_to_weeks": "tot {{ weeks }} weken",
@@ -138,8 +138,8 @@
     },
     "volume_pricing": {
       "title": "Volumeprijsstelling",
-      "minimum": "{{ minimum_quantity }}+",
-      "price_at_each": "{{ price }}/st."
+      "price_at_each": "{{ price }}/st.",
+      "minimum": "{{ minimum_quantity }} +"
     },
     "rating_count": {
       "zero": "Geen recensies",
@@ -188,8 +188,8 @@
       "price_range_to": "naar",
       "price_filter_from": "Vanaf prijs",
       "price_filter_to": "Prijzen",
-      "price_filter": "{{ min_price }} - {{ max_price }}",
-      "availability_label": "Alleen op voorraad"
+      "availability_label": "Alleen op voorraad",
+      "price_filter": "{{ min_price }} - {{ max_price }}"
     }
   },
   "blog": {
@@ -333,25 +333,25 @@
       "title": "Winkelwagen",
       "empty": "Je winkelwagen is leeg",
       "item_count": {
-        "zero": "{{ count }} items",
         "one": "{{ count }} item",
-        "other": "{{ count }} items"
+        "other": "{{ count }} items",
+        "zero": "{{ count }} items"
       },
       "continue_shopping": "Doorgaan met winkelen",
       "weight": "Gewicht",
       "subtotal": "Subtotaal",
       "total": "Totaal",
-      "taxes_and_shipping_policy_at_checkout_html": "Belastingen en <a href=\"{{ link }}\" class=\"link\">verzending</a> berekend bij het afrekenen",
-      "taxes_included_but_shipping_at_checkout": "Belasting inbegrepen en verzendkosten worden berekend bij het afrekenen",
-      "taxes_included_and_shipping_policy_html": "Belasting inbegrepen. <a href=\"{{ link }}\" class=\"link\">Verzending</a> berekend bij het afrekenen.",
-      "taxes_and_shipping_at_checkout": "Belastingen en verzending worden berekend bij het afrekenen",
       "add_order_note": "Voeg bestelnotitie toe",
       "edit_order_note": "Bestelnotitie bewerken",
       "order_note": "Bestelnotitie",
       "save_note": "Opslaan",
       "view_cart": "Bekijk winkelwagen",
       "checkout": "Ga door naar afrekenen",
-      "we_accept": "Wij accepteren"
+      "we_accept": "Wij accepteren",
+      "taxes_and_shipping_policy_at_checkout_html": "Belastingen en <a href=\"{{ link }}\" class=\"link\">verzending</a> berekend bij het afrekenen",
+      "taxes_included_but_shipping_at_checkout": "Belasting inbegrepen en verzendkosten worden berekend bij het afrekenen",
+      "taxes_included_and_shipping_policy_html": "Belasting inbegrepen. <a href=\"{{ link }}\" class=\"link\">Verzending</a> berekend bij het afrekenen.",
+      "taxes_and_shipping_at_checkout": "Belastingen en verzending worden berekend bij het afrekenen"
     },
     "order": {
       "product": "Product",
@@ -452,28 +452,28 @@
     }
   },
   "bundle_pack": {
-    "button_select": "Selecteren",
+    "button_select": "Selecteer",
     "button_add": "Toevoegen",
     "button_add_to_cart": "Toevoegen aan winkelwagen",
-    "button_adding_to_cart": "Bezig met toevoegen...",
-    "summary_select_your_lio": "Kies je Lio",
+    "button_adding_to_cart": "Toevoegen aan winkelwagen...",
+    "summary_select_your_lio": "Selecteer je Lio",
     "selected_label": "Geselecteerd",
-    "tap_to_add": "Tik op + om meerdere smaken toe te voegen",
+    "tap_to_add": "Klik op + om meer smaak toe te voegen",
     "optional_label": "Optioneel",
-    "info_money_back": "Niet binnen 30 dagen gestopt? Geld terug!",
+    "info_money_back": "Niet gestopt in 30 dagen? Terugbetaling!",
     "info_shipping": "Gratis en snelle verzending",
-    "success_added": "Succesvol aan de winkelwagen toegevoegd!",
-    "error_failed_add": "Toevoegen aan winkelwagen mislukt",
+    "success_added": "Succesvol toegevoegd aan winkelwagen!",
+    "error_failed_add": "Mislukt om toe te voegen aan winkelwagen",
     "error_network": "Netwerkfout. Probeer het opnieuw.",
-    "select_minimum_flavors": "Selecteer minimaal {count} smaken",
+    "select_minimum_flavors": "Selecteer minimaal {count} smaak",
     "selected_cigarette": "Lio",
-    "selected_flavors": "Smaken",
+    "selected_flavors": "Smaak",
     "selected_accessories": "Accessoires",
     "total_price": "Totaal",
-    "savoury": "Smaakvol",
+    "savoury": "Smaak",
     "throat_hit": "Provozas",
-    "sweetness": "Smaakvol",
-    "select_flavor": "Selecteer smak",
+    "sweetness": "Smaak",
+    "select_flavor": "Selecteer smaak",
     "close": "Sluiten"
   }
 }

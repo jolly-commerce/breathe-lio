@@ -107,16 +107,16 @@
         "one": "{{ count }} χρώμα διαθέσιμο",
         "other": "{{ count }} διαθέσιμα χρώματα"
       },
-      "single": "Μονάδα",
-      "packs": "Πακέτα",
-      "adding": "Προσθήκη...",
-      "added": "Προστέθηκε!",
-      "error": "Σφάλμα",
-      "select_variant": "Επιλέξτε παραλλαγή",
-      "no_pack_variants": "Δεν υπάρχουν διαθέσιμες παραλλαγές πακέτου",
-      "up_to_weeks": "έως {{ weeks }} εβδομάδες",
-      "weeks": "εβδομάδες",
-      "discount": "έκπτωση"
+      "single": "Single",
+      "packs": "Packs",
+      "adding": "Adding...",
+      "added": "Added!",
+      "error": "Error",
+      "select_variant": "Select a variant",
+      "no_pack_variants": "No pack variants available",
+      "up_to_weeks": "up to {{ weeks }} weeks",
+      "weeks": "weeks",
+      "discount": "discount"
     },
     "gallery": {
       "close": "Κλείσιμο γκαλερί",
@@ -333,25 +333,25 @@
       "title": "Καλάθι",
       "empty": "Το καλάθι σας είναι άδειο",
       "item_count": {
-        "zero": "{{ count }} items",
         "one": "{{ count }} αντικείμενο",
-        "other": "{{ count }} αντικείμενα"
+        "other": "{{ count }} αντικείμενα",
+        "zero": "{{ count }} items"
       },
       "continue_shopping": "Συνεχίστε τις αγορές σας",
       "weight": "Βάρος",
       "subtotal": "Υποσύνολο",
       "total": "Σύνολο",
-      "taxes_and_shipping_policy_at_checkout_html": "Οι φόροι και τα <a href=\"{{ link }}\" class=\"link\">έξοδα αποστολής</a> υπολογίζονται στο ταμείο",
-      "taxes_included_but_shipping_at_checkout": "Ο φόρος περιλαμβάνεται και τα έξοδα αποστολής υπολογίζονται στο ταμείο",
-      "taxes_included_and_shipping_policy_html": "Ο φόρος περιλαμβάνεται. <a href=\"{{ link }}}\" class=\"link\">Τα έξοδα αποστολής</a> υπολογίζονται στο ταμείο.",
-      "taxes_and_shipping_at_checkout": "Οι φόροι και τα έξοδα αποστολής υπολογίζονται στο ταμείο",
       "add_order_note": "Προσθήκη σημείωσης παραγγελίας",
       "edit_order_note": "Επεξεργασία σημείωσης παραγγελίας",
       "order_note": "Σημειώσεις παραγγελίας",
       "save_note": "Αποθήκευση",
       "view_cart": "Προβολή καλαθιού",
       "checkout": "Ταμείο",
-      "we_accept": "Δεχόμαστε"
+      "we_accept": "Δεχόμαστε",
+      "taxes_and_shipping_policy_at_checkout_html": "Οι φόροι και τα <a href=\"{{ link }}\" class=\"link\">έξοδα αποστολής</a> υπολογίζονται στο ταμείο",
+      "taxes_included_but_shipping_at_checkout": "Ο φόρος περιλαμβάνεται και τα έξοδα αποστολής υπολογίζονται στο ταμείο",
+      "taxes_included_and_shipping_policy_html": "Ο φόρος περιλαμβάνεται. <a href=\"{{ link }}}\" class=\"link\">Τα έξοδα αποστολής</a> υπολογίζονται στο ταμείο.",
+      "taxes_and_shipping_at_checkout": "Οι φόροι και τα έξοδα αποστολής υπολογίζονται στο ταμείο"
     },
     "order": {
       "product": "Προϊόν",

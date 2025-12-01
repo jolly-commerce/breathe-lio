@@ -182,7 +182,7 @@
         data-tab="tab-1-{{ section.id }}"
       >
         {% if section.settings.collection_1_image != blank %}
-          <img
+          <img loading="lazy"
             src="{{ section.settings.collection_1_image | image_url: width: 1000 }}"
             alt=""
           />
@@ -194,7 +194,7 @@
         data-tab="tab-2-{{ section.id }}"
       >
         {% if section.settings.collection_2_image != blank %}
-          <img
+          <img loading="lazy"
             src="{{ section.settings.collection_2_image | image_url: width: 1000 }}"
             alt=""
           />

@@ -9,7 +9,7 @@
  */
 {
   "sections": {
-    "instant_fih_w_wn_s_ao9j_ru_di_o_wgBL8P": {
+    "instant_fih_w_wn_s_ao9j_ru_di_o_EwhJLr": {
       "type": "instant-fihWWnSAo9jRuDiO",
       "name": "Header Logo",
       "settings": {
@@ -21,28 +21,6 @@
         "text_kdjhnWEMo60ARb6e": "<p>Sec</p>",
         "padding_top": 0,
         "padding_bottom": 0
-      }
-    },
-    "1751929855fb4a4f89": {
-      "type": "apps",
-      "blocks": {
-        "countdown_timer_essential_app_block_BFkb9g": {
-          "type": "shopify://apps/essential-countdown-timer/blocks/app-block/722378e8-5a70-4eae-aa89-9e44e8e9f6de",
-          "settings": {
-            "id": "clwzsgk1s4449361e1ed60r5k34"
-          }
-        }
-      },
-      "block_order": [
-        "countdown_timer_essential_app_block_BFkb9g"
-      ],
-      "settings": {
-        "full_width": true,
-        "remove_vertical_spacing": true,
-        "remove_horizontal_spacing": true,
-        "background": "",
-        "background_gradient": "",
-        "text_color": ""
       }
     },
     "new_homepage_banner_gJJX6a": {
@@ -57,8 +35,8 @@
             "highlighted-heading": "Just Breathe.",
             "sub-text": "Zero nicotine. No batteries. No vapor. No calories.",
             "trust-text": "Rated 4.7 / 5  in 800+ Reviews",
-            "button-url": "#iPBQ5UghM1ixR3fg3",
-            "button-text": "Claim 1 + 1 for free",
+            "button-url": "#in4hEd7BEMDS7i5pP",
+            "button-text": "Claim my 1 +1  free",
             "free-text": "Didn't quit in 30 days? Money back!"
           }
         }
@@ -129,14 +107,11 @@
         "custom-class": ""
       }
     },
-    "instant-ouCkfn1mqCQMe3UZ": {
+    "instant_ou_ckfn1mq_cq_me3_uz_iqJQLi": {
       "type": "instant-ouCkfn1mqCQMe3UZ",
-      "custom_css": [
-        ".i8zW4SbosqXsZaiW7,a.iMhY5LxLTZ0EFWGSg {display: none !important;}",
-        ".isroKXRjKQuwMs37d .iMhY5LxLTZ0EFWGSg {display: none !important;}"
-      ],
+      "name": "THEJOURNEYPACK",
       "settings": {
-        "product_n4hEd7BEMDS7i5pP-5": "",
+        "product_n4hEd7BEMDS7i5pP-5": "lio®-black-friday-pack",
         "text_uqVWI1CG7UnZLmYy-5": "<p>4,7/5 based on 1000+ reviews</p>",
         "text_Z1ZXEniWyWiOBR0j-5": "<h3>Journey Packs</h3>",
         "text_ts1edwPYTmbj9TYB-5": "<h3><strong>Why Wait Until January to Quit When You Can Start Today, And Get Your Second One Free.</strong></h3><h3></h3><h3>✓ 2 Lio&apos;s - home, car, office or gift. </h3><h3>✓ 2 Carry Cases - protected everywhere </h3><h3>✓ 2 Habit Trackers - track your progress </h3><h3>✓ 6-24 Flavour Bags - find what works</h3>",
@@ -190,13 +165,13 @@
         "text_fRalRJjBnIPDx6DJ-5": "<p>Didn&apos;t quit in 30 Days? Money Back!</p>",
         "text_XdQsjaT9z7HDAva1-5": "<p>Free &amp; Fast Shipping</p>",
         "text_wrDIvhet7P3xkrhl-5": "<p><strong>40% of people also add:</strong></p>",
-        "product_jo987kOXiCqTYF6w-5": "",
+        "product_jo987kOXiCqTYF6w-5": "lio®-complete",
         "text_NR004QyYZSfirBbS-5": "<h3>Classic Complete </h3>",
         "text_BPrpRfLcnUiDSCKL-5": "<p>60 days of Flavour Cores</p>",
-        "product_zGnGtGsuf4Z7LdKj-5": "",
+        "product_zGnGtGsuf4Z7LdKj-5": "lio®-diffuser",
         "text_mX0HxCaf7ttJfEz3-5": "<h3>Classic Olive </h3>",
         "text_r5vDLq0V12DKWkIi-5": "<p>Premium Olive Wood</p>",
-        "product_jhKa3PabCnbOtIUJ-5": "",
+        "product_jhKa3PabCnbOtIUJ-5": "lio®-diffuser",
         "text_rPUztPvlw5Gj13Rh-5": "<h3>Classic Walnut </h3>",
         "text_NLFVVdsiJ8IbyXij-5": "<p>Premium Walnut Wood</p>"
       }
@@ -269,8 +244,8 @@
         "heading": "30 Days to Quit,",
         "highlighted-heading": "Or Money Back.",
         "sub-text": "<p>If you’re not satisfied after 30 days, we’ll give you a full refund, no questions asked.</p>",
-        "button-url": "#iPBQ5UghM1ixR3fg3",
-        "button-text": "Claim 1 + 1 for free",
+        "button-url": "#in4hEd7BEMDS7i5pP",
+        "button-text": "Claim my 1 +1  free",
         "trust-text": ""
       }
     },
@@ -424,16 +399,6 @@
         "padding_bottom": 0
       }
     },
-    "instant_2_umtw4idkjq_xa_nav_znbqbD": {
-      "type": "instant-2Umtw4idkjqXaNAV",
-      "name": "STICKY CTA",
-      "settings": {
-        "url_2MWJOnA9KR8FDxip": "#iPBQ5UghM1ixR3fg3",
-        "text_feXt0eChlMcnc9GS": "<p>Claim 1 + 1 for free</p>",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "ecom_faq_3BWThk": {
       "type": "ecom-faq",
       "blocks": {
@@ -448,6 +413,7 @@
       "block_order": [
         "question_F9gtx8"
       ],
+      "disabled": true,
       "name": "Ecom FAQ",
       "settings": {
         "padding_top": 32,
@@ -457,14 +423,95 @@
         "title": "Frequently Asked Questions",
         "high-title": "answered"
       }
+    },
+    "instant_b7_z_ih_d_mj_cfd_glpzv_fnKf6J": {
+      "type": "instant-b7ZIhDMjCFDGlpzv",
+      "disabled": true,
+      "name": "BF HOME",
+      "settings": {
+        "product_lyAcznQLz6iZy2kR": "lio®-black-friday-pack",
+        "text_fuXJgfAYoaw0YP2r": "<p>4,7/5 based on 1000+ reviews</p>",
+        "text_A8BbOlScFGnvGc57": "<h3>Journey Packs</h3>",
+        "text_tCvGZPxIP0r9pgnZ": "<h3><strong>Why Wait Until January to Quit When You Can Start Today, And Get Your Second One Free.</strong></h3><h3></h3><h3>✓ 2 Lio&apos;s - home, car, office or gift. </h3><h3>✓ 2 Carry Cases - protected everywhere </h3><h3>✓ 2 Habit Trackers - track your progress </h3><h3>✓ 6-16 Flavour Bags - find what works</h3>",
+        "text_s0j8EbxMfpYoyG2N": "<p>Step 1: Select your Lio</p>",
+        "text_Knmn4WpIkpBjcZt3": "<p>Olive</p>",
+        "text_ncNcDz7dskZy8uXN": "<h3>+1 Free</h3>",
+        "text_8ftji8lKqEO5v45H": "<p>Walnut</p>",
+        "text_DGojTFkz5yVkTDxQ": "<h3>+1 Free</h3>",
+        "text_LvTydzEsIIiVA42m": "<p>SILVER</p>",
+        "text_cB1jHfCjdf5bxE0E": "<h3>+1 Free</h3>",
+        "text_KnLxWapoOfkTc5CM": "<p>Black</p>",
+        "text_NTSeYtlp97YnBHd0": "<h3>+1 Free</h3>",
+        "text_GQeU5Xsb1DPlvf0f": "<p>Step 2: Select your pack</p>",
+        "text_wRSGZjqRMCeTCRER": "<h3>Journey</h3>",
+        "text_RaI59TRhsOkj661j": "<p><strong>6 Flavor Bags</strong>. Discover &amp; find your go-to.</p>",
+        "text_38fCpVoQgCDypVlN": "<h3>1 FREE LIO</h3>",
+        "text_HTJXKPj1m7HKT7zN": "<h3>Journey</h3>",
+        "text_urhjRcxC8XyQbSGa": "<p><strong>6 Flavor Bags</strong>. Discover &amp; find your go-to.</p>",
+        "text_SUqAaKHTATepOkGw": "<h3>1 FREE LIO</h3>",
+        "text_N1NO30OdsB2GZDXP": "<h3>Journey</h3>",
+        "text_vRaU8l53jyAScGyG": "<p><strong>6 Flavor Bags</strong>. Discover &amp; find your go-to.</p>",
+        "text_7zaKNsAN1fEMABKG": "<h3>1 FREE LIO</h3>",
+        "text_dJ3FP7Uk53ep6xrg": "<h3>Journey</h3>",
+        "text_usZm4gX3v8KEVdoo": "<p><strong>6 Flavor Bags</strong>. Discover &amp; find your go-to.</p>",
+        "text_hbpEPRjRtwqEcAb8": "<h3>1 FREE LIO</h3>",
+        "text_58kRjfjTe62LhYU6": "<h3>FREEDOM</h3>",
+        "text_Wj6DHQbCLf4WNYGC": "<p><strong>12 Flavor Bags</strong>. Double up on every flavour.</p>",
+        "text_C58XlSIkAEvfMZ0U": "<h3>1 FREE LIO</h3>",
+        "text_pLF2fay3uu2CYCKU": "<h3>FREEDOM</h3>",
+        "text_xvUATvxm8sUSL1nv": "<p><strong>12 Flavor Bags</strong>. Double up on every flavour.</p>",
+        "text_OakWaKmGJJwTQXHk": "<h3>1 FREE LIO</h3>",
+        "text_T22AyRfdw9u36rGn": "<h3>FREEDOM</h3>",
+        "text_ZxnVA4LDRobfN2Du": "<p><strong>12 Flavor Bags</strong>. Double up on every flavour.</p>",
+        "text_AOZe2PbB6pPWtJZf": "<h3>1 FREE LIO</h3>",
+        "text_uQEyfiOBH3xIL0FE": "<h3>FREEDOM</h3>",
+        "text_Ta4ybIt5lMkgRmZr": "<p><strong>12 Flavor Bags</strong>. Double up on every flavour.</p>",
+        "text_cx212BnZzrWKZsPK": "<h3>1 FREE LIO</h3>",
+        "text_bgui5AqlsZGMP6t4": "<h3>Unstoppable</h3>",
+        "text_w7vEhNpVWzpw0vIz": "<p><strong>16 Flavor Bags</strong>. Never run out, unstoppable.</p>",
+        "text_Zz4vDpy2aWwecAMM": "<h3>1 FREE LIO</h3>",
+        "text_MzCEtO6zygf0JL2V": "<h3>Unstoppable</h3>",
+        "text_mtopxVjHCfykUNKc": "<p><strong>16 Flavor Bags</strong>. Never run out, unstoppable.</p>",
+        "text_oV9Qh8If0VVF8Lcr": "<h3>1 FREE LIO</h3>",
+        "text_LIg4RnCD1ZXa26O5": "<h3>Unstoppable</h3>",
+        "text_irTKi0aaTw5SdTqH": "<p><strong>16 Flavor Bags</strong>. Never run out, unstoppable.</p>",
+        "text_oMO4mMVieVRKKeUY": "<h3>1 FREE LIO</h3>",
+        "text_jjDO8o4IAcEKaWBL": "<h3>Unstoppable</h3>",
+        "text_lifjXUL1PasB7ie6": "<p><strong>16 Flavor Bags</strong>. Never run out, unstoppable.</p>",
+        "text_NN3dKrZW8ecpLDCo": "<h3>1 FREE LIO</h3>",
+        "text_etjNcD2Fe3dkRTfq": "<p>Add to cart</p>",
+        "text_R3QBJc1rMiLcVviE": "<p>Didn&apos;t quit in 30 Days? Money Back!</p>",
+        "text_pmxeA7cdRY4zO4LM": "<p>Free &amp; Fast Shipping</p>",
+        "text_3X1mavKbYMc2kark": "<p><strong>40% of people also add:</strong></p>",
+        "product_2rxVgkpyowaCBUch": "lio®-complete",
+        "text_wXv18tsn1zApqn5K": "<h3>Classic Complete </h3>",
+        "text_xx1FvdxPYoiSBjbW": "<p>60 days of Flavour Cores</p>",
+        "product_gPxJprNIhuKTHtq7": "lio®-diffuser",
+        "text_2JTp1o5Un1MbfVVd": "<h3>Classic Olive </h3>",
+        "text_FuJSbfQewmatLE5l": "<p>Premium Olive Wood</p>",
+        "product_VeXvJE0LuDyi7Bz8": "lio®-diffuser",
+        "text_HAIl5ZAIgte5PikS": "<h3>Classic Walnut </h3>",
+        "text_eX2QXaHxXwHreu1I": "<p>Premium Walnut Wood</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "instant_2_umtw4idkjq_xa_nav_4KNxfG": {
+      "type": "instant-2Umtw4idkjqXaNAV",
+      "name": "STICKY CTA",
+      "settings": {
+        "url_2MWJOnA9KR8FDxip": "#in4hEd7BEMDS7i5pP",
+        "text_feXt0eChlMcnc9GS": "<p>Claim my 1 +1  free</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
-    "instant_fih_w_wn_s_ao9j_ru_di_o_wgBL8P",
-    "1751929855fb4a4f89",
+    "instant_fih_w_wn_s_ao9j_ru_di_o_EwhJLr",
     "new_homepage_banner_gJJX6a",
     "infinite_section_FfHPEr",
-    "instant-ouCkfn1mqCQMe3UZ",
+    "instant_ou_ckfn1mq_cq_me3_uz_iqJQLi",
     "icon_text_1_V3ii4Q",
     "instant_ayc_l8_zs7zs_arn6_if_kRtc6E",
     "our_promise_awwXez",
@@ -472,7 +519,8 @@
     "instant_q_xz_qdr_ck_ki_cae_gkq_Q683gx",
     "simple_steps_8x9U8t",
     "instant_nwr_u_dx_xiop4_x_zc_rf_aeRtFr",
-    "instant_2_umtw4idkjq_xa_nav_znbqbD",
-    "ecom_faq_3BWThk"
+    "ecom_faq_3BWThk",
+    "instant_b7_z_ih_d_mj_cfd_glpzv_fnKf6J",
+    "instant_2_umtw4idkjq_xa_nav_4KNxfG"
   ]
 }

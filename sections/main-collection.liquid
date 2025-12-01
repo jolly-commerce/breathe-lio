@@ -172,7 +172,7 @@
                             {%- when 'promotion_video' -%}
                               {%- if block.settings.video -%}
                                 <video-media autoplay>
-                                  {{- block.settings.video | video_tag: playsinline: true, muted: true, loop: true, preload: 'metadata' -}}
+                                  {{- block.settings.video | video_tag: playsinline: true, muted: true, loop: true, preload: 'none' -}}
                                 </video-media>
                               {%- else -%}
                                 <video-media host="{{ block.settings.external_video_url.type }}" autoplay>

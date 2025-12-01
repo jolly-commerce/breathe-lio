@@ -8,10 +8,8 @@ For inquiries or permissions, contact daniel@section.store
 ---------------------------------------------------------
 {% endcomment %}
 
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
+<link rel="preload" href="...swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="...swiper-bundle.min.css"></noscript>
 
 {%- liquid 
   assign padding_horizontal = section.settings.padding_horizontal
@@ -804,7 +802,7 @@ For inquiries or permissions, contact daniel@section.store
             <div class="feature-thumbs-slide-{{ section.id }} swiper-slide">
               <div class="feature-thumbs-icon-{{ section.id }}">
                 {% if block.settings.custom_icon != blank %}
-                  <img src="{{ block.settings.custom_icon | image_url }}" alt="{{ block.settings.custom_icon.alt }}" {% if lazy %}loading="lazy"{% endif %}>
+                  <img loading="lazy" src="{{ block.settings.custom_icon | image_url }}" alt="{{ block.settings.custom_icon.alt }}" {% if lazy %}loading="lazy"{% endif %}>
                 {% else %}
                   {% case block.settings.icon %}
                     {% when 'atc' %}
@@ -1102,7 +1100,7 @@ For inquiries or permissions, contact daniel@section.store
                   <div class="feature-image-inner-{{ section.id }}">
                   
                     {% if block.settings.image != blank %}
-                      <img src="{{ block.settings.image | image_url }}" alt="{{ block.settings.image.alt }}" {% if lazy %}loading="lazy"{% endif %}>
+                      <img loading="lazy" src="{{ block.settings.image | image_url }}" alt="{{ block.settings.image.alt }}" {% if lazy %}loading="lazy"{% endif %}>
                     {% else %}
                       {{ 'image'| placeholder_svg_tag }}
                     {% endif %}

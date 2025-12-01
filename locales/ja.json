@@ -107,16 +107,16 @@
         "one": "{{ count }} カラー対応",
         "other": "{{ count }} カラー対応"
       },
-      "single": "単品",
-      "packs": "セット",
-      "adding": "追加中...",
-      "added": "追加しました！",
-      "error": "エラー",
-      "select_variant": "バリエーションを選択",
-      "no_pack_variants": "パックのバリエーションはありません",
-      "up_to_weeks": "最長 {{ weeks }} 週間",
-      "weeks": "週間",
-      "discount": "割引"
+      "single": "Single",
+      "packs": "Packs",
+      "adding": "Adding...",
+      "added": "Added!",
+      "error": "Error",
+      "select_variant": "Select a variant",
+      "no_pack_variants": "No pack variants available",
+      "up_to_weeks": "up to {{ weeks }} weeks",
+      "weeks": "weeks",
+      "discount": "discount"
     },
     "gallery": {
       "close": "閉じる",
@@ -333,9 +333,9 @@
       "title": "カート",
       "empty": "カートが空です",
       "item_count": {
+        "other": "{{ count }}個のアイテム",
         "zero": "{{ count }} items",
-        "one": "{{ count }} item",
-        "other": "{{ count }}個のアイテム"
+        "one": "{{ count }} item"
       },
       "continue_shopping": "ショッピングを開始する",
       "weight": "重量",

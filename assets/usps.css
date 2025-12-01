@@ -1,12 +1,3 @@
-/* USPs (Unique Selling Points) Styles */
-.usps-list {
-  display: none !important;
-}
-
-body.test_pdp009 .usps-list {
-  display: flex !important;
-}
-
 .usps-list {
   display: flex;
   gap: 10px;

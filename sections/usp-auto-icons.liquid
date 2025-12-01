@@ -72,11 +72,11 @@
           {% when 'usp' %}
             <div class="box-text-usp">
          {% if block.settings.icon != blank %}
-            <img
+            <img loading="lazy"
                   src="{{ block.settings.icon | image_url: width: 700 }}"
                 >
               {% else %}
-                <img
+                <img loading="lazy"
                   src="https://cdn.shopify.com/s/files/1/0856/1046/3574/files/new-tick.svg?v=1738050042"
                 >
           {% endif %}

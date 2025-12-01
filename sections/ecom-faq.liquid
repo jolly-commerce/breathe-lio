@@ -1,78 +1,84 @@
 {{ 'ecom-faq.css' | asset_url | stylesheet_tag: preload: true }}
 
-
-<style>
-  .ecom-faq {
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-
-    @media (min-width: 1280px) {
-      padding-top: {{ section.settings.padding_top_desktop }}px;
-      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
-    }
-  }
-h2.ecom-faq__title {
-    max-width: 290px;
-}
-@media (min-width: 1000px) {
-  h2.ecom-faq__title {
-    font-size: 55px;
-    letter-spacing: -1.28px;
-    margin-bottom: 40px;
-    max-width: 500px;
-    text-wrap: balance;
-}
-}  
-</style>
-
-<div class="ecom-faq">
-  <div class="ecom-faq__container container">
+<div class="ecom-faq" id="faq-{{ section.id }}">
+  <div class="ecom-faq__container">
     <div class="ecom-faq__header">
-      <h2 class="ecom-faq__title">{{ section.settings.title }} <span>{{ section.settings.high-title }}</span></h2>
+      <h2 class="ecom-faq__title">
+        {{ section.settings.title }} 
+        <span class="ecom-faq__title-highlight">{{ section.settings.high_title }}</span>
+      </h2>
+      
+      {% if section.settings.show_categories and section.blocks.size > 0 %}
+        <div class="ecom-faq__tabs">
+          <button class="ecom-faq__tab ecom-faq__tab--active" data-category="product">
+            {{ section.settings.category_1_name }}
+          </button>
+          <button class="ecom-faq__tab" data-category="general">
+            {{ section.settings.category_2_name }}
+          </button>
+        </div>
+      {% endif %}
     </div>
 
-    <div class="ecom-faq__questions-wrapper">
-      <div>
-        {% for block in section.blocks %}
-          {% assign middle = forloop.index | modulo: 2 %}
-          {% if middle == 1 %}
-           <div class="faq-accordion-item">
-            <div class="faq-accordion-header" data-target="{{ section.id }}-panel{{ forloop.index }}">
-              <div class="faq-acc-con">
-                <span>{{ block.settings.title }}</span>
-              </div>
-              <button class="faq-toggle"></button>
-            </div>
-            <div class="faq-accordion-panel" id="{{ section.id }}-panel{{ forloop.index }}">
-              <p>{{ block.settings['content'] }}</p>
-            </div>
+    <div class="ecom-faq__grid">
+      {% for block in section.blocks %}
+        <div class="ecom-faq__item" data-category="{{ block.settings.category }}" {{ block.shopify_attributes }}>
+          <button class="ecom-faq__question" data-index="{{ forloop.index }}">
+            <span>{{ block.settings.title }}</span>
+            <svg class="ecom-faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="ecom-faq__answer">
+            <div class="ecom-faq__answer-content">{{ block.settings.content }}</div>
           </div>
-          {% endif %}
-        {% endfor %}
-      </div>
-      <div>
-        {% for block in section.blocks %}
-          {% assign middle = forloop.index | modulo: 2 %}
-          {% if middle == 0 %}
-            <div class="faq-accordion-item">
-            <div class="faq-accordion-header" data-target="{{ section.id }}-panel{{ forloop.index }}">
-              <div class="faq-acc-con">
-                <span>{{ block.settings.title }}</span>
-              </div>
-              <button class="faq-toggle"></button>
-            </div>
-            <div class="faq-accordion-panel" id="{{ section.id }}-panel{{ forloop.index }}">
-              <p>{{ block.settings['content'] }}</p>
-            </div>
-          </div>
-          {% endif %}
-        {% endfor %}
-      </div>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </div>
+
+<script>
+(function() {
+  const faq = document.getElementById('faq-{{ section.id }}');
+  if (!faq) return;
+
+  // Accordion
+  faq.querySelectorAll('.ecom-faq__question').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const item = this.closest('.ecom-faq__item');
+      const isOpen = item.classList.contains('active');
+      
+      faq.querySelectorAll('.ecom-faq__item').forEach(i => i.classList.remove('active'));
+      if (!isOpen) item.classList.add('active');
+    });
+  });
+
+  // Category tabs
+  faq.querySelectorAll('.ecom-faq__tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      const category = this.dataset.category;
+      
+      faq.querySelectorAll('.ecom-faq__item').forEach(i => i.classList.remove('active'));
+      faq.querySelectorAll('.ecom-faq__tab').forEach(t => t.classList.remove('ecom-faq__tab--active'));
+      this.classList.add('ecom-faq__tab--active');
+      
+      faq.querySelectorAll('.ecom-faq__item').forEach(item => {
+        item.style.display = item.dataset.category === category ? '' : 'none';
+      });
+    });
+  });
+  
+  // Init first category
+  const firstTab = faq.querySelector('.ecom-faq__tab');
+  if (firstTab) {
+    const firstCategory = firstTab.dataset.category;
+    faq.querySelectorAll('.ecom-faq__item').forEach(item => {
+      if (item.dataset.category !== firstCategory) item.style.display = 'none';
+    });
+  }
+})();
+</script>
 
 {% schema %}
 {
@@ -80,56 +86,41 @@ h2.ecom-faq__title {
   "settings": [
     {
       "type": "header",
-      "content": "Paddings",
-      "info": "Paddings for the testimonials section"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "label": "Padding Top",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "default": 32
-    },
-    {
-      "type": "range",
-      "id": "padding_top_desktop",
-      "label": "Padding Top Desktop",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "default": 40
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "label": "Padding Bottom",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "default": 32
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom_desktop",
-      "label": "Padding Bottom Desktop",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "default": 40
+      "content": "Content"
     },
     {
       "type": "text",
       "id": "title",
       "label": "Title",
-      "default": "Frequently Asked Questions"
+      "default": "Frequently Asked"
     },
-     {
+    {
       "type": "text",
-      "id": "high-title",
-      "label": "highlighted Title",
-      "default": "answered"
+      "id": "high_title",
+      "label": "Highlighted Title",
+      "default": "Questions"
+    },
+    {
+      "type": "header",
+      "content": "Categories"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_categories",
+      "label": "Show Category Switcher",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "category_1_name",
+      "label": "Category 1 Name",
+      "default": "Product"
+    },
+    {
+      "type": "text",
+      "id": "category_2_name",
+      "label": "Category 2 Name",
+      "default": "General"
     }
   ],
   "blocks": [
@@ -138,16 +129,26 @@ h2.ecom-faq__title {
       "name": "Question",
       "settings": [
         {
+          "type": "select",
+          "id": "category",
+          "label": "Category",
+          "options": [
+            {"value": "product", "label": "Product"},
+            {"value": "general", "label": "General"}
+          ],
+          "default": "product"
+        },
+        {
           "type": "text",
           "id": "title",
-          "label": "Title",
-          "default": "Question"
+          "label": "Question",
+          "default": "How does it work?"
         },
         {
           "type": "richtext",
           "id": "content",
           "label": "Answer",
-          "default": "<p>Share some content to your customers about your products.</p>"
+          "default": "<p>Answer goes here</p>"
         }
       ]
     }
@@ -155,6 +156,16 @@ h2.ecom-faq__title {
   "presets": [
     {
       "name": "Ecom FAQ",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "category": "product",
+            "title": "How does BreatheLio work?",
+            "content": "<p>BreatheLio uses natural aromatherapy to help reduce cravings.</p>"
+          }
+        }
+      ]
     }
   ]
 }

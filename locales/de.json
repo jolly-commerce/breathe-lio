@@ -95,7 +95,7 @@
       "added_to_cart": "Zu Ihrem Warenkorb hinzugefügt!",
       "sold_out_badge": "Ausverkauft",
       "on_sale_badge": "Im Angebot",
-      "discount_badge_html": "Spare {{ savings }}",
+      "discount_badge_html": "Sie sparen {{ savings }}",
       "sku": "Artikelnummer:",
       "variant": "Variante",
       "view_in_space": "In Ihrem Raum anzeigen",
@@ -107,16 +107,16 @@
         "one": "{{ count }} Farbe verfügbar",
         "other": "{{ count }} Farben verfügbar"
       },
-      "single": "Einzeln",
-      "packs": "Pakete",
-      "adding": "Wird hinzugefügt...",
-      "added": "Hinzugefügt!",
       "error": "Fehler",
-      "select_variant": "Variante auswählen",
-      "no_pack_variants": "Keine Paketvarianten verfügbar",
-      "up_to_weeks": "bis zu {{ weeks }} Wochen",
-      "weeks": "Wochen",
-      "discount": "Rabatt"
+      "single": "Single",
+      "packs": "Packs",
+      "adding": "Adding...",
+      "added": "Added!",
+      "select_variant": "Select a variant",
+      "no_pack_variants": "No pack variants available",
+      "up_to_weeks": "up to {{ weeks }} weeks",
+      "weeks": "weeks",
+      "discount": "discount"
     },
     "gallery": {
       "close": "Galerie schließen",
@@ -138,8 +138,8 @@
     },
     "volume_pricing": {
       "title": "Mengenpreise",
-      "minimum": "{{ minimum_quantity }}+",
-      "price_at_each": "{{ price }}/Stück"
+      "price_at_each": "{{ price }}/Stück",
+      "minimum": "{{ minimum_quantity }}+"
     },
     "rating_count": {
       "zero": "Keine Bewertungen",
@@ -188,8 +188,8 @@
       "price_range_to": "zu",
       "price_filter_from": "Ab Preis",
       "price_filter_to": "Zu Preisen",
-      "price_filter": "{{ min_price }} - {{ max_price }}",
-      "availability_label": "Nur auf Lager"
+      "availability_label": "Nur auf Lager",
+      "price_filter": "{{ min_price }} - {{ max_price }}"
     }
   },
   "blog": {
@@ -333,9 +333,9 @@
       "title": "Warenkorb",
       "empty": "Ihr Warenkorb ist leer",
       "item_count": {
-        "zero": "{{ count }} Artikel",
         "one": "{{ count }} Artikel",
-        "other": "{{ count }} Artikel"
+        "other": "{{ count }} Artikel",
+        "zero": "{{ count }} Artikel"
       },
       "continue_shopping": "Weiter einkaufen",
       "weight": "Gewicht",
@@ -454,26 +454,26 @@
   "bundle_pack": {
     "button_select": "Auswählen",
     "button_add": "Hinzufügen",
-    "button_add_to_cart": "In den Warenkorb",
-    "button_adding_to_cart": "Wird in den Warenkorb gelegt...",
-    "summary_select_your_lio": "Wähle dein Lio",
+    "button_add_to_cart": "Zum Warenkorb hinzufügen",
+    "button_adding_to_cart": "Zum Warenkorb hinzufügen...",
+    "summary_select_your_lio": "Wählen Sie Ihr Lio",
     "selected_label": "Ausgewählt",
-    "tap_to_add": "Tippe auf +, um mehrere Geschmacksrichtungen hinzuzufügen",
+    "tap_to_add": "Tippen Sie auf +, um mehrere Geschmacksrichtungen hinzuzufügen",
     "optional_label": "Optional",
-    "info_money_back": "Nicht in 30 Tagen aufgehört? Geld-zurück-Garantie!",
-    "info_shipping": "Kostenloser & schneller Versand",
+    "info_money_back": "Haben Sie es nicht innerhalb von 30 Tagen aufgegeben? Geld zurück!",
+    "info_shipping": "Kostenlos und schnelle Lieferung",
     "success_added": "Erfolgreich zum Warenkorb hinzugefügt!",
-    "error_failed_add": "Zum Warenkorb hinzufügen fehlgeschlagen",
-    "error_network": "Netzwerkfehler. Bitte versuche es erneut.",
-    "select_minimum_flavors": "Wählen Sie mindestens {count} Geschmäcker",
+    "error_failed_add": "Fehler beim Hinzufügen zum Warenkorb",
+    "error_network": "Netzwerkfehler. Bitte versuchen Sie es erneut.",
+    "select_minimum_flavors": "Wählen Sie mindestens {count} Geschmacksrichtungen",
     "selected_cigarette": "Lio",
     "selected_flavors": "Geschmacksrichtungen",
     "selected_accessories": "Zubehör",
-    "total_price": "Summe",
-    "savoury": "Salzig",
-    "throat_hit": "Rostig",
-    "sweetness": "Süß",
-    "select_flavor": "Geschmack auswählen",
+    "total_price": "Gesamt",
+    "savoury": "Geschmacksrichtungen",
+    "throat_hit": "Geschmacksrichtungen",
+    "sweetness": "Geschmacksrichtungen",
+    "select_flavor": "Geschmacksrichtung auswählen",
     "close": "Schließen"
   }
 }

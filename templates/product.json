@@ -213,6 +213,33 @@
             "title": "Whats the price compared to cigarrettes ?",
             "content": "<p><strong>Costs 5x less than smoking<br/></strong>Switching to Lio can save you 5x compared to traditional smoking methods.</p>"
           }
+        },
+        "section_store_block_banner_rFaXVL": {
+          "type": "shopify://apps/section-store/blocks/block-banner/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "gap": 2,
+            "text_align": "center",
+            "link": "",
+            "use_image": false,
+            "icon": "rocket",
+            "image_size": 30,
+            "image_position": "left",
+            "icon_color": "#B82020",
+            "title_text": "<p>🚨 Don't be <strong>the last one</strong> to upgrade</p>",
+            "title_size": 14,
+            "title_color": "#B82020",
+            "body_text": "<p>Last 8 restocks sold out in less than a week. Act fast.</p>",
+            "body_size": 11,
+            "body_color": "#B82020",
+            "border": "dotted",
+            "border_thickness": 1,
+            "border_color": "#B82020",
+            "radius": 16,
+            "background": "#FFECEC",
+            "shadow": "none",
+            "padding_vertical": 12,
+            "padding_horizontal": 16
+          }
         }
       },
       "block_order": [
@@ -240,7 +267,8 @@
         "associated_products_JTkNnx",
         "faq_DnTHBM",
         "faq_MQ6BMV",
-        "faq_Vdy87z"
+        "faq_Vdy87z",
+        "section_store_block_banner_rFaXVL"
       ],
       "settings": {
         "full_width": true,

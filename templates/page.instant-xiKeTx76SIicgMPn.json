@@ -9,12 +9,62 @@
  */
 {
   "sections": {
+    "instant_xwqeccvo_cw_tuk_x35_hwp4rx": {
+      "type": "instant-XwqeccvoCWTukX35",
+      "name": "Dutch Header",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 52
+      }
+    },
+    "1763702841f2e1bb66": {
+      "type": "apps",
+      "blocks": {
+        "swipeup_stories_feed_KLXy4K": {
+          "type": "shopify://apps/swipeup/blocks/stories-feed/7b6d7967-af4c-461a-9edb-73155220c3a4",
+          "settings": {
+            "swipeup_section_id": "feed-70850",
+            "stories_feed_align": "center",
+            "product_title_enabled": true,
+            "stories_autoplay_video": "none",
+            "show_discount_badge": false,
+            "background_color": "#062907",
+            "background_gradient": "",
+            "border_color": "linear-gradient(225deg, rgba(138, 59, 238, 1), rgba(242, 0, 183, 1) 39%, rgba(254, 148, 2, 1) 91.67%)",
+            "viewer_default_muted": true,
+            "product_details_enabled": true,
+            "viewer_autoplay_next": false,
+            "viewer_open_cart_after_shop": false,
+            "mute_text": "Mute",
+            "unmute_text": "Unmute",
+            "shop_button_text": "Shop",
+            "custom_css": ""
+          }
+        }
+      },
+      "block_order": [
+        "swipeup_stories_feed_KLXy4K"
+      ],
+      "custom_css": [
+        ".apps-header {position: sticky; top: 0; max-height: 500px; z-index: 100;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": true,
+        "background": "#062907",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
     "instant-xiKeTx76SIicgMPn": {
       "type": "instant-xiKeTx76SIicgMPn",
       "settings": {}
     }
   },
   "order": [
+    "instant_xwqeccvo_cw_tuk_x35_hwp4rx",
+    "1763702841f2e1bb66",
     "instant-xiKeTx76SIicgMPn"
   ]
 }
