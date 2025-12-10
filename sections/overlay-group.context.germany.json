@@ -17,14 +17,13 @@
       "settings": {
         "products": [
           "lio®-classic-olive",
-          "lio®-classic-walnut",
+          "lio-diffusers",
           "lio®-aluminium-silver",
           "lio®-aluminium-black",
           "lio®-gen-2-olive",
           "lio®-gen-2-walnut"
         ]
-      },
-      "blocks": {}
+      }
     }
   }
 }
