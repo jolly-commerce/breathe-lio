@@ -346,7 +346,7 @@
       "order_note": "Bestelnotitie",
       "save_note": "Opslaan",
       "view_cart": "Bekijk winkelwagen",
-      "checkout": "Ga door naar afrekenen",
+      "checkout": "Veilig Afrekenen",
       "we_accept": "Wij accepteren",
       "taxes_and_shipping_policy_at_checkout_html": "Belastingen en <a href=\"{{ link }}\" class=\"link\">verzending</a> berekend bij het afrekenen",
       "taxes_included_but_shipping_at_checkout": "Belasting inbegrepen en verzendkosten worden berekend bij het afrekenen",
