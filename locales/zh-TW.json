@@ -379,6 +379,12 @@
       "error": "檢索運費時出現一個或多個錯誤："
     }
   },
+  "404": {
+    "general": {
+      "title": "找不到頁面",
+      "continue_shopping": "繼續購物"
+    }
+  },
   "search": {
     "general": {
       "title": "搜尋",

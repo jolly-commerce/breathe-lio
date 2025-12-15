@@ -391,6 +391,12 @@
       "error": "Napaka med pridobivanjem tarif za pošiljanje:"
     }
   },
+  "404": {
+    "general": {
+      "title": "Strani ni mogoče najti",
+      "continue_shopping": "Nadaljuj z nakupovanjem"
+    }
+  },
   "search": {
     "general": {
       "title": "Iskanje",

@@ -391,6 +391,12 @@
       "error": "Wystąpił co najmniej jeden błąd podczas pobierania metod dostawy:"
     }
   },
+  "404": {
+    "general": {
+      "title": "Nie znaleziono strony",
+      "continue_shopping": "Kontynuuj zakupy"
+    }
+  },
   "search": {
     "general": {
       "title": "Szukaj",

@@ -390,6 +390,12 @@
       "error": "Při načítání přepravních sazeb došlo k jedné nebo více chyb:"
     }
   },
+  "404": {
+    "general": {
+      "title": "Stránka nebyla nalezena",
+      "continue_shopping": "Pokračovat v nákupu"
+    }
+  },
   "search": {
     "general": {
       "title": "Hledat",

@@ -97,8 +97,8 @@
         "disabled": false,
         "settings": {}
       },
-      "5674012996228588682": {
-        "type": "shopify://apps/cartbot/blocks/cartbot-script-append/f7a44e3b-3901-4412-9d5a-3db0980a9db0",
+      "6065014864672580889": {
+        "type": "shopify://apps/amp-slide-cart-drawer/blocks/app-embed/0a410b8d-7dc4-4f2d-b4e8-c12d34fd2255",
         "disabled": true,
         "settings": {}
       }

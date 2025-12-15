@@ -379,6 +379,12 @@
       "error": "Une ou plusieurs erreurs se sont produites lors de la récupération des tarifs d'expédition :"
     }
   },
+  "404": {
+    "general": {
+      "title": "Page non trouvée",
+      "continue_shopping": "Continuer vos achats"
+    }
+  },
   "search": {
     "general": {
       "title": "Recherche",

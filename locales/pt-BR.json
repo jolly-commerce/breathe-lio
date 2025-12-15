@@ -379,6 +379,12 @@
       "error": "Um ou mais erros aconteceram durante a estimativa de frete:"
     }
   },
+  "404": {
+    "general": {
+      "title": "Página não encontrada",
+      "continue_shopping": "Continuar comprando"
+    }
+  },
   "search": {
     "general": {
       "title": "Pesquisar",

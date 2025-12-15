@@ -379,6 +379,12 @@
       "error": "Én eller flere feil oppstod under innhenting av fraktpriser:"
     }
   },
+  "404": {
+    "general": {
+      "title": "Fant ikke side",
+      "continue_shopping": "Fortsett shoppingen"
+    }
+  },
   "search": {
     "general": {
       "title": "Søk",

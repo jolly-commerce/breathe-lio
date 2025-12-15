@@ -385,6 +385,12 @@
       "error": "Nuskaitant siuntimo tarifus įvyko viena arba daugiau klaidų:"
     }
   },
+  "404": {
+    "general": {
+      "title": "Puslapis nerastas",
+      "continue_shopping": "Tęsti apsipirkimą"
+    }
+  },
   "search": {
     "general": {
       "title": "Paieška",

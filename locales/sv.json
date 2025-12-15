@@ -379,6 +379,12 @@
       "error": "Ett eller flera fel uppstod vid hämtning av fraktpriser:"
     }
   },
+  "404": {
+    "general": {
+      "title": "Sidan kan inte hittas",
+      "continue_shopping": "Fortsätt handla"
+    }
+  },
   "search": {
     "general": {
       "title": "Sök",

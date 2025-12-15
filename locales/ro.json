@@ -380,6 +380,12 @@
       "error": "La preluarea tarifelor de livrare au survenit una sau mai multe erori:"
     }
   },
+  "404": {
+    "general": {
+      "title": "Pagina nu a fost găsită",
+      "continue_shopping": "Continuă cumpărăturile"
+    }
+  },
   "search": {
     "general": {
       "title": "Caută",

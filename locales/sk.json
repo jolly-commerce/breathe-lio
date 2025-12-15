@@ -391,6 +391,12 @@
       "error": "Pri načítavaní prepravných sadzieb došlo k jednej alebo viacerým chybám:"
     }
   },
+  "404": {
+    "general": {
+      "title": "Stránka sa nenašla",
+      "continue_shopping": "Pokračovať v nákupe"
+    }
+  },
   "search": {
     "general": {
       "title": "Vyhľadávanie",

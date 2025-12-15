@@ -379,6 +379,12 @@
       "error": "Aprēķinot piegādes tarifus, radās viena vai vairākas kļūdas:"
     }
   },
+  "404": {
+    "general": {
+      "title": "Lapa nav atrasta",
+      "continue_shopping": "Turpināt iepirkšanos"
+    }
+  },
   "search": {
     "general": {
       "title": "Meklēšana",

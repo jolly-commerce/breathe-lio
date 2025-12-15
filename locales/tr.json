@@ -379,6 +379,12 @@
       "error": "Gönderi seçenekleri getirilirken bir veya daha fazla hata oluştu:"
     }
   },
+  "404": {
+    "general": {
+      "title": "Sayfa bulunamadı",
+      "continue_shopping": "Alışverişe devam edin"
+    }
+  },
   "search": {
     "general": {
       "title": "Ara",

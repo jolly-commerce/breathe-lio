@@ -379,6 +379,12 @@
       "error": "检索运费时出现一个或多个错误："
     }
   },
+  "404": {
+    "general": {
+      "title": "未找到页面",
+      "continue_shopping": "继续购物"
+    }
+  },
   "search": {
     "general": {
       "title": "搜索",

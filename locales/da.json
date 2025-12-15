@@ -379,6 +379,12 @@
       "error": "Der opstod en eller flere fejl under hentning af leveringspriser:"
     }
   },
+  "404": {
+    "general": {
+      "title": "Siden blev ikke fundet",
+      "continue_shopping": "Fortsæt med at handle"
+    }
+  },
   "search": {
     "general": {
       "title": "Søg",
