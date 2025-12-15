@@ -11,11 +11,12 @@
   "sections": {
     "ecom_highlight_info_jdheMn": {
       "type": "ecom-highlight-info",
+      "disabled": true,
       "name": "Ecom Highlight Info",
       "settings": {
         "show_check": false,
-        "reviews_text": "No Smoke, No Vapor, No Nicotine",
-        "title": "Quit Your Bad Habit in 30 Days with Lio, the world’s first Diffuser that uses natural aromas to replace both the ritual and the sensation.",
+        "reviews_text": "Join 100,000+ who quit the \"Bad Habit\"",
+        "title": "Quit in 30 Days. Or We Pay You. 🤝 \nThe world’s first diffuser that uses natural flavoured air to replace both the ritual and the sensation.",
         "title_font_size_mobile": 18,
         "title_font_size_tablet": 19,
         "title_font_size_desktop": 20,
@@ -174,8 +175,8 @@
             "icon_color": "#00b67c",
             "icon_size": 12,
             "ships_by_text": "Delivery on",
-            "shipping_within_days": 2,
-            "include_weekend": true,
+            "shipping_within_days": 1,
+            "include_weekend": false,
             "ships_by_font_size": 14,
             "ships_by_text_color": "#000000",
             "fast_shipping_text": "<strong>Free Shipping</strong>",

@@ -34,16 +34,16 @@
      height: 100%;
     color : var(--lio-white);
   }
- .new-home-slide-inner h2.h1 {
+ .new-home-slide-inner h3.h1 {
      color: var(--lio-white);
     z-index: 1;
-    font-size: 80px;
+    font-size: 64px;
     max-width: 700px;
     line-height: 0.9;
     letter-spacing: -1.2px;
     text-wrap: balance;
 }
-  .new-home-slide-inner h2.h1 span {
+  .new-home-slide-inner h3.h1 span {
     color:#bfedde;
    }
  .new-home-slide-inner p{
@@ -222,8 +222,8 @@ span.swiper-pagination-bullet {
     width: 100%;
   }
   
-  .new-home-slide-inner h2.h1 {
-    font-size: 36px;
+  .new-home-slide-inner h3.h1 {
+    font-size: 32px;
     letter-spacing: -0.5px;
     margin-bottom: 5px;
     max-width: 320px;
@@ -301,13 +301,13 @@ span.swiper-pagination-bullet {
   }
 }
 
-.new-home-slide-inner h2.h1 span {
+.new-home-slide-inner h3.h1 span {
   display: inline-block;
   animation: breathing 4s infinite ease-in-out;
   transform-origin: left center;
 }
   @media (max-width: 768px) {
-  .new-home-slide-inner h2.h1 span {
+  .new-home-slide-inner h3.h1 span {
     transform-origin: center;
   }
 }
@@ -361,10 +361,10 @@ span.swiper-pagination-bullet {
                 <p>{{ block.settings['trust-text'] }}</p>
               </div>
               
-              <h2 class="h1">
+              <h3 class="h1">
                 {{ block.settings.heading }} 
                 <span>{{ block.settings.highlighted-heading }}</span>
-              </h2>
+              </h3>
               
               {% if block.settings['sub-text'] != blank %}
                 <p>{{ block.settings['sub-text'] }}</p>

@@ -27,49 +27,6 @@
         "reviews_font_size_large": 18
       }
     },
-    "17642202553feb321c": {
-      "type": "apps",
-      "blocks": {
-        "section_store_block_banner_pyewpC": {
-          "type": "shopify://apps/section-store/blocks/block-banner/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
-          "settings": {
-            "gap": 2,
-            "text_align": "center",
-            "link": "",
-            "use_image": false,
-            "icon": "rocket",
-            "image_size": 30,
-            "image_position": "left",
-            "icon_color": "#b82020",
-            "title_text": "<p><strong>🚨 Double Your Cores! Only today! 🚨 <br/></strong>Buy 6 Flavour Bags, Get 6 for FREE! </p>",
-            "title_size": 18,
-            "title_color": "#b82020",
-            "body_text": "<p>Add 2 = Pay for 1</p>",
-            "body_size": 20,
-            "body_color": "#b82020",
-            "border": "none",
-            "border_thickness": 1,
-            "border_color": "#b82020",
-            "radius": 0,
-            "background": "#ffecec",
-            "shadow": "none",
-            "padding_vertical": 30,
-            "padding_horizontal": 16
-          }
-        }
-      },
-      "block_order": [
-        "section_store_block_banner_pyewpC"
-      ],
-      "settings": {
-        "full_width": true,
-        "remove_vertical_spacing": true,
-        "remove_horizontal_spacing": true,
-        "background": "#f5fff7",
-        "background_gradient": "",
-        "text_color": ""
-      }
-    },
     "featured_product_MPedwN": {
       "type": "featured-product",
       "blocks": {
@@ -236,33 +193,6 @@
             "size_chart_page": ""
           }
         },
-        "section_store_block_banner_jiTNMp": {
-          "type": "shopify://apps/section-store/blocks/block-banner/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
-          "settings": {
-            "gap": 2,
-            "text_align": "center",
-            "link": "",
-            "use_image": false,
-            "icon": "rocket",
-            "image_size": 30,
-            "image_position": "left",
-            "icon_color": "#b82020",
-            "title_text": "<p><strong>🚨 Double Your Cores! Only today! 🚨 </strong></p>",
-            "title_size": 14,
-            "title_color": "#b82020",
-            "body_text": "<p>Add 2 = Pay for 1</p>",
-            "body_size": 30,
-            "body_color": "#b82020",
-            "border": "dotted",
-            "border_thickness": 1,
-            "border_color": "#b82020",
-            "radius": 16,
-            "background": "#ffecec",
-            "shadow": "none",
-            "padding_vertical": 12,
-            "padding_horizontal": 16
-          }
-        },
         "buy_buttons_qAxN8c": {
           "type": "buy_buttons",
           "settings": {
@@ -362,7 +292,6 @@
         "section_store_block_benefits_list_aYGmNE",
         "section_store_block_shipping_info_8kxUWB",
         "variant_picker_mxzpqb",
-        "section_store_block_banner_jiTNMp",
         "buy_buttons_qAxN8c",
         "section_store_block_benefits_boxes_2_Y4t9RD",
         "section_store_block_countdown_timer_nnEnjz",
@@ -893,7 +822,6 @@
         "slide_jCCrqw": {
           "type": "slide",
           "settings": {
-            "video": "shopify://files/videos/default_8_mp4_V4.mp4",
             "video_url": "",
             "title": "Title",
             "stars_count": 5
@@ -902,7 +830,6 @@
         "slide_w9gwdq": {
           "type": "slide",
           "settings": {
-            "video": "shopify://files/videos/default_8_mp4_V8.mp4",
             "video_url": "",
             "title": "Title",
             "stars_count": 5
@@ -911,7 +838,6 @@
         "slide_43Yfep": {
           "type": "slide",
           "settings": {
-            "video": "shopify://files/videos/default_8_mp4_V11.mp4",
             "video_url": "",
             "title": "Title",
             "stars_count": 5
@@ -920,7 +846,6 @@
         "slide_RPr8hV": {
           "type": "slide",
           "settings": {
-            "video": "shopify://files/videos/1724386284_V1.mp4",
             "video_url": "",
             "title": "Title",
             "stars_count": 5
@@ -1274,7 +1199,6 @@
   },
   "order": [
     "ecom_highlight_info_jdheMn",
-    "17642202553feb321c",
     "featured_product_MPedwN",
     "main",
     "icon_text_1_zi8YeK",

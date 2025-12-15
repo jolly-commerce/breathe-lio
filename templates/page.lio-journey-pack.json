@@ -186,8 +186,8 @@
             "icon_color": "#00b67c",
             "icon_size": 12,
             "ships_by_text": "Delivery on",
-            "shipping_within_days": 3,
-            "include_weekend": true,
+            "shipping_within_days": 2,
+            "include_weekend": false,
             "ships_by_font_size": 14,
             "ships_by_text_color": "#000000",
             "fast_shipping_text": "<strong>Free Shipping</strong>",
@@ -222,6 +222,7 @@
         },
         "description_eFMpRm": {
           "type": "description",
+          "disabled": true,
           "settings": {
             "icon": "none",
             "icon_width": 20,
