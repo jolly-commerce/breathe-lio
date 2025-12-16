@@ -75,6 +75,31 @@ Supported variables
         {%- endfor -%}
       </ul>
     {%- endunless -%}
+        {% if line_item.properties.__is_subscription_selected == 'true' %}
+      {% if section.settings.subscription_icon != blank or section.settings.subscription_label != blank %}
+        <div class="jc-bg-mintCream jc-flex jc-gap-2 jc-items-center jc-justify-center jc-px-2 lg:jc-px-3 jc-py-1.5 jc-border jc-border-solid jc-border-munsell jc-rounded-xs jc-justify-self-end">
+          {%- if section.settings.subscription_icon != blank -%}
+            <div class="jc-w-4 jc-h-4 jc-aspect-square">
+              {%
+                render 'g-render-image',
+                class: 'jc-w-full jc-h-full jc-object-cover',
+                img_src: section.settings.subscription_icon | image_url: width: 20, height: 20,
+                img: section.settings.subscription_icon,
+                alt: section.settings.subscription_label,
+                width: '20',
+                height: '20',
+                loading: 'lazy'
+              %}
+            </div>
+          {%- endif -%}
+          {%- if section.settings.subscription_label != blank -%}
+            <p class="jc-font-poppins jc-text-xs lg:jc-text-base jc-leading-4 lg:jc-leading-5 jc-font-normal jc-text-britishRacingGreen">
+              {{ section.settings.subscription_label }}
+            </p>
+          {%- endif -%}
+        </div>
+      {% endif %}
+    {% endif %}
     {%- if line_item.line_level_discount_allocations != blank -%}
       <ul class="contents" role="list">
         {%- for discount_allocation in line_item.line_level_discount_allocations -%}

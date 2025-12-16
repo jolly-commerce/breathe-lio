@@ -4,17 +4,9 @@
 
   Snippets:
   - product-main-gallery
-  - product-main-price
-  - product-main-variant-picker
-  - product-main-subscription
-  - product-main-buy-buttons
-  - product-main-description-list
-  - product-main-best-reviews
-  - product-main-accordion
-  - product-main-recommendations
-  - product-main-features
-  - product-main-info-tabs
-  - product-main-sticky-atc
+  - product-main-pack-selector
+  - product-main-pack-selector-popup
+  - product-main-delivery-info
 {% endcomment %}
 {% style %}
   .background-{{ section.id }} {
@@ -139,7 +131,7 @@
 
 {% schema %}
 {
-  "name": "Product Main",
+  "name": "Bundle Main",
   "tag": "section",
   "settings": [
     {
@@ -242,19 +234,6 @@
       "type": "description",
       "name": "Description",
       "limit": 1
-    },
-    {
-      "type": "price",
-      "name": "Price",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "show_sale_badge",
-          "label": "Show/hide sale badge",
-          "default": false
-        }
-      ]
     },
     {
       "type": "gallery",
@@ -368,148 +347,7 @@
       ]
     },
     {
-      "type": "sticky_atc",
-      "name": "Sticky ATC",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "header",
-          "content": "Add to cart"
-        },
-        {
-          "type": "select",
-          "id": "add_to_cart_style",
-          "label": "Select button style",
-          "options": [
-            {
-              "value": "style1",
-              "label": "style 1"
-            },
-            {
-              "value": "style2",
-              "label": "style 2"
-            },
-            {
-              "value": "style3",
-              "label": "style 3"
-            }
-          ],
-          "default": "style1"
-        },
-        {
-          "type": "checkbox",
-          "id": "add_to_cart_display_price",
-          "label": "Enable price display in button",
-          "default": true
-        },
-        {
-          "type": "header",
-          "content": "Price"
-        },
-        {
-          "type": "checkbox",
-          "id": "enable_price",
-          "label": "Enable price display",
-          "default": true
-        }
-      ]
-    },
-    {
-      "type": "buy_buttons",
-      "name": "Buy buttons",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "header",
-          "content": "Add to cart"
-        },
-        {
-          "type": "checkbox",
-          "id": "enable_add_to_cart",
-          "label": "Enable button"
-        },
-        {
-          "type": "select",
-          "id": "add_to_cart_style",
-          "label": "Select button style",
-          "options": [
-            { "value": "style1", "label": "style 1" },
-            { "value": "style2", "label": "style 2" },
-            { "value": "style3", "label": "style 3" }
-          ],
-          "default": "style1"
-        },
-        {
-          "type": "checkbox",
-          "id": "add_to_cart_display_price",
-          "label": "Enable price display in button"
-        },
-        {
-          "type": "header",
-          "content": "Buy now"
-        },
-        {
-          "type": "checkbox",
-          "id": "enable_buy_now",
-          "label": "Enable button"
-        },
-        {
-          "type": "select",
-          "id": "buy_now_style",
-          "label": "Select button style",
-          "options": [
-            { "value": "style1", "label": "style 1" },
-            { "value": "style2", "label": "style 2" },
-            { "value": "style3", "label": "style 3" }
-          ],
-          "default": "style1"
-        },
-        {
-          "type": "checkbox",
-          "id": "buy_now_display_price",
-          "label": "Enable price display in button"
-        },
-        {
-          "type": "header",
-          "content": "Quantity selector"
-        },
-        {
-          "type": "checkbox",
-          "id": "enable_quantity_selector",
-          "label": "Enable quantity selector"
-        }
-      ]
-    },
-    {
       "type": "@app"
-    },
-    {
-      "type": "accordion",
-      "name": "Accordion",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "select",
-          "id": "dropdown_icon",
-          "label": "Dropdown icon",
-          "options": [
-            { "value": "arrow", "label": "Arrow" },
-            { "value": "plus_minus", "label": "Plus/Minus" }
-          ],
-          "default": "plus_minus"
-        },
-        {
-          "type": "select",
-          "id": "input_type",
-          "label": "Opening type",
-          "options": [
-            { "value": "radio", "label": "One" },
-            { "value": "checkbox", "label": "Multiple" }
-          ],
-          "info": "Opened accordions at the same time",
-          "default": "checkbox"
-        }
-      ]
     },
     {
       "type": "pack_selector",
@@ -829,7 +667,7 @@
   ],
   "presets": [
     {
-      "name": "Product Main",
+      "name": "Bundle Main",
       "blocks": [
         {
           "type": "title"
@@ -839,9 +677,6 @@
         },
         {
           "type": "description"
-        },
-        {
-          "type": "price"
         },
         {
           "type": "gallery"

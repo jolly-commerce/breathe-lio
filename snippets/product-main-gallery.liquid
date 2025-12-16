@@ -161,14 +161,7 @@
         <swiper-slide
           class="
             {{ slide_loading_class }}
-            {%- if root.settings.enable_lightbox -%}
-              jc-cursor-zoom-in
-            {%- endif -%}
-            lg:jc-px-1
           "
-          {%- if root.settings.enable_lightbox -%}
-            data-lightbox-open
-          {%- endif -%}
         >
           <div
             data-swiper-media-id="{{ media.id }}"
