@@ -46,6 +46,14 @@ Supported variables
       {%- endif -%}
 
       {%- render 'price-list', line_item: line_item -%}
+      
+      {%- comment -%} ADD SAVINGS BADGE HERE {%- endcomment -%}
+      {%- if line_item.original_price > line_item.final_price -%}
+        {%- assign line_item_savings = line_item.original_price | minus: line_item.final_price | times: line_item.quantity -%}
+        <div class="line-item-savings-badge">
+          You save {{ line_item_savings | money }}
+        </div>
+      {%- endif -%}
     </div>
 
     {%- unless line_item.product.has_only_default_variant or line_item.gift_card -%}
@@ -155,3 +163,16 @@ Supported variables
   {%- endif -%}
   {% endcomment %}
 </line-item>
+
+<style>
+.line-item-savings-badge {
+  display: inline-block;
+  background: #00a651;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 4px;
+}
+</style>
