@@ -101,6 +101,11 @@
         "type": "shopify://apps/upcart-cart-drawer/blocks/app-embed/af3da5fb-f5f7-40ec-8273-41bf50059d4b",
         "disabled": false,
         "settings": {}
+      },
+      "12429728106950981667": {
+        "type": "shopify://apps/blocky-fraud-blocker/blocks/app-embed/aa25b3bf-c2c5-4359-aa61-7836c225c5a9",
+        "disabled": false,
+        "settings": {}
       }
     }
   },
