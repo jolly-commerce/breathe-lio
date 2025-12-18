@@ -46,6 +46,14 @@ Supported variables
       {%- endif -%}
 
       {%- render 'price-list', line_item: line_item -%}
+      
+      {%- comment -%} Savings badge {%- endcomment -%}
+      {%- if line_item.original_price > line_item.final_price -%}
+        {%- assign line_item_savings = line_item.original_price | minus: line_item.final_price | times: line_item.quantity -%}
+        <span class="badge" style="background: #00a651; color: white;">
+          You save {{ line_item_savings | money }}
+        </span>
+      {%- endif -%}
     </div>
 
     {%- unless line_item.product.has_only_default_variant or line_item.gift_card -%}
@@ -116,9 +124,6 @@ Supported variables
       {%- if line_item.url_to_remove -%}
         <line-item-quantity class="h-stack justify-center gap-3">
          <div class="quan-button-group"> 
-             <style>
-       
-          </style>
           <button onclick="decreaseQuantity(this.nextElementSibling)">−</button>
         <input class="quantity-input" step="1" type="number" is="quantity-input" inputmode="numeric" {% if line_max_quantity %}max="{{ line_max_quantity }}"{% endif %} data-line-key="{{ line_item.key }}" aria-label="{{ 'cart.order.change_quantity' | t | escape }}" value="{{ line_item.quantity }}">
 <button onclick="increaseQuantity(this.previousElementSibling)">+</button>
