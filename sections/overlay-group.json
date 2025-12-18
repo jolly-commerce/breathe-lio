@@ -44,15 +44,14 @@
         "show_view_cart_button": false,
         "show_checkout_button": true,
         "recommendations_title": "Add Extra Cores",
-        "products": [
-          "double-your-cores"
-        ],
+        "products": [],
         "product_card_background": "#f2f2f2",
         "product_card_text_color": "",
         "shipping_cost_label": "Shipping cost",
         "shipping_free_label": "Free",
         "shipping_calculated_label": "Calculated at checkout",
-        "guarantee_label": "30-Day Money-Back Guarantee"
+        "guarantee_label": "30-Day Money-Back Guarantee",
+        "subscription_label": "Subscribed"
       }
     },
     "search-drawer": {
