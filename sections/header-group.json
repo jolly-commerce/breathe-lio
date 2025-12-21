@@ -114,22 +114,6 @@
             "high-text": "Lio Diffuser"
           }
         },
-        "menu_link_2_38MXiN": {
-          "type": "menu-link-2",
-          "settings": {
-            "url": "shopify://pages/sustainability",
-            "text": "Sustainability",
-            "high-text": ""
-          }
-        },
-        "menu_link_2_di8yQJ": {
-          "type": "menu-link-2",
-          "settings": {
-            "url": "shopify://pages/how-it-works",
-            "text": "how it",
-            "high-text": "works ?"
-          }
-        },
         "menu_link_2_f6gdyR": {
           "type": "menu-link-2",
           "settings": {
@@ -144,8 +128,6 @@
         "menu_link_X46cwK",
         "menu_link_a9EhKg",
         "menu_link_3phmm3",
-        "menu_link_2_38MXiN",
-        "menu_link_2_di8yQJ",
         "menu_link_2_f6gdyR"
       ],
       "custom_css": [],
