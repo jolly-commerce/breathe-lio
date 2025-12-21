@@ -85,8 +85,8 @@
         "menu_link_3phmm3": {
           "type": "menu-link",
           "settings": {
-            "url": "/collections/lio®-products/#diffusers",
-            "text": "Your Daily",
+            "url": "shopify://products/lio-diffusers",
+            "text": "Get Your",
             "high-text": "Diffuser"
           }
         },
