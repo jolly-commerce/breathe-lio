@@ -23,7 +23,7 @@
             "trust-text": "Rated 4.7 / 5  in 1000+ Reviews",
             "button-url": "shopify://products/new-lio-journey-pack",
             "button-text": "Start My Journey",
-            "sub-button-url": "shopify://products/get-more-cores",
+            "sub-button-url": "shopify://products/double-your-cores",
             "sub-button-text": "Order Refills",
             "free-text": ""
           }
@@ -67,6 +67,7 @@
         "section_store_block_review_summary_ycd6X6": {
           "type": "shopify://apps/section-store/blocks/block-review-summary/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
+            "star_style": "standard",
             "stars_custom": "shopify://shop_images/images_2_2.png",
             "stars_count": 5,
             "stars_size": 17,
@@ -98,6 +99,7 @@
             "second_text": "<p>Keep the hand-to-mouth habit</p>",
             "third_text": "<p>No smoke, no vape, no nicotine</p>",
             "fourth_text": "<p>Didn't quit within 30 days? Money back</p>",
+            "icon_selection": "icon_2",
             "icon_size": 20,
             "icon_color": "#00b67c",
             "text_size": 15,
@@ -221,6 +223,7 @@
             "third_sub_title": "people love it",
             "all_size": 19,
             "all_color": "#00b67c",
+            "font_weight": "700",
             "border": "none",
             "border_thickness": 1,
             "border_color": "#000000",
@@ -452,6 +455,7 @@
         },
         "section_store_block_banner_YQbwpy": {
           "type": "shopify://apps/section-store/blocks/block-banner/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "disabled": true,
           "settings": {
             "gap": 2,
             "text_align": "center",
@@ -480,6 +484,7 @@
         "section_store_block_review_summary_bbwyRD": {
           "type": "shopify://apps/section-store/blocks/block-review-summary/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
+            "star_style": "standard",
             "stars_custom": "shopify://shop_images/images_2_2.png",
             "stars_count": 5,
             "stars_size": 17,
@@ -511,6 +516,7 @@
             "second_text": "<p>Keep the hand-to-mouth habit</p>",
             "third_text": "<p>No smoke, no vape, no nicotine</p>",
             "fourth_text": "<p>Didn't quit within 30 days? Money back</p>",
+            "icon_selection": "icon_2",
             "icon_size": 20,
             "icon_color": "#00b67c",
             "text_size": 15,
@@ -606,33 +612,6 @@
             "size_chart_page": ""
           }
         },
-        "section_store_block_banner_JEhMpn": {
-          "type": "shopify://apps/section-store/blocks/block-banner/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
-          "settings": {
-            "gap": 2,
-            "text_align": "center",
-            "link": "",
-            "use_image": false,
-            "icon": "rocket",
-            "image_size": 30,
-            "image_position": "left",
-            "icon_color": "#b82020",
-            "title_text": "<p><strong>🚨 Double Your Cores! Only today! 🚨</strong></p>",
-            "title_size": 14,
-            "title_color": "#b82020",
-            "body_text": "<p>Add 2 = Pay for 1</p>",
-            "body_size": 30,
-            "body_color": "#b82020",
-            "border": "dotted",
-            "border_thickness": 1,
-            "border_color": "#b82020",
-            "radius": 16,
-            "background": "#ffecec",
-            "shadow": "none",
-            "padding_vertical": 12,
-            "padding_horizontal": 16
-          }
-        },
         "buy_buttons_66y6Hf": {
           "type": "buy_buttons",
           "settings": {
@@ -661,6 +640,7 @@
             "third_sub_title": "people love it",
             "all_size": 19,
             "all_color": "#00b67c",
+            "font_weight": "700",
             "border": "none",
             "border_thickness": 1,
             "border_color": "#000000",
@@ -732,7 +712,6 @@
         "section_store_block_product_info_wrapper_8Qfmx7",
         "description_rdK7fp",
         "variant_picker_cYPy93",
-        "section_store_block_banner_JEhMpn",
         "buy_buttons_66y6Hf",
         "section_store_block_benefits_boxes_2_DgAPTR",
         "section_store_block_countdown_timer_Vm8xP7",
