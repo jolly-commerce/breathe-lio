@@ -20,10 +20,34 @@
             "text": "Free Worldwide Shipping",
             "url": ""
           }
+        },
+        "message_JNqHkf": {
+          "type": "message",
+          "settings": {
+            "text": "#1 Flavored Air Device of Europe",
+            "url": ""
+          }
+        },
+        "message_zjk6Vc": {
+          "type": "message",
+          "settings": {
+            "text": "Made in The Netherlands",
+            "url": ""
+          }
+        },
+        "message_QHzV9E": {
+          "type": "message",
+          "settings": {
+            "text": "Family-Owned Wellness Brand",
+            "url": ""
+          }
         }
       },
       "block_order": [
-        "message_P7ppWj"
+        "message_P7ppWj",
+        "message_JNqHkf",
+        "message_zjk6Vc",
+        "message_QHzV9E"
       ],
       "settings": {
         "enable_sticky": false,
