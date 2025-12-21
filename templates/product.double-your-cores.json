@@ -111,6 +111,7 @@
         "section_store_block_review_summary_zAhg3x": {
           "type": "shopify://apps/section-store/blocks/block-review-summary/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
+            "star_style": "standard",
             "stars_custom": "shopify://shop_images/images_2_2.png",
             "stars_count": 5,
             "stars_size": 17,
@@ -142,6 +143,7 @@
             "second_text": "<p>Keep the hand-to-mouth habit</p>",
             "third_text": "<p>No smoke, no vape, no nicotine</p>",
             "fourth_text": "<p>Didn't quit within 30 days? Money back.</p>",
+            "icon_selection": "icon_2",
             "icon_size": 20,
             "icon_color": "#00b67c",
             "text_size": 15,
@@ -196,7 +198,7 @@
         "buy_buttons_qAxN8c": {
           "type": "buy_buttons",
           "settings": {
-            "show_payment_button": false,
+            "show_payment_button": true,
             "show_gift_card_recipient": true,
             "atc_button_background": "",
             "atc_button_text_color": "",
@@ -221,6 +223,7 @@
             "third_sub_title": "people love it",
             "all_size": 19,
             "all_color": "#00b67c",
+            "font_weight": "700",
             "border": "none",
             "border_thickness": 1,
             "border_color": "#000000",
@@ -393,6 +396,7 @@
         "section_store_block_review_summary_VBGpdP": {
           "type": "shopify://apps/section-store/blocks/block-review-summary/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
+            "star_style": "standard",
             "stars_count": 4,
             "stars_size": 17,
             "stars_gap": 2,
@@ -427,6 +431,7 @@
             "second_text": "<p>Keep the hand-to-mouth habit</p>",
             "third_text": "<p>No smoke, no vape, no nicotine</p>",
             "fourth_text": "<p>Didn't quit within 30 days? Money back. </p>",
+            "icon_selection": "icon_2",
             "icon_size": 20,
             "icon_color": "#00b67c",
             "text_size": 15,
@@ -588,6 +593,7 @@
             "third_sub_title": "people love it",
             "all_size": 19,
             "all_color": "#00b67c",
+            "font_weight": "700",
             "border": "none",
             "border_thickness": 1,
             "border_color": "#000000",
