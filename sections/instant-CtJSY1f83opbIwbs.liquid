@@ -1142,7 +1142,15 @@
                 	true
                 {%-	endif -%}
               "
-              ><div data-instant-type="text" class="instant-rich-text iy9HlMKk1sCwTC5lT"><p>€48</p></div
+              ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iy9HlMKk1sCwTC5lT">
+                {%- liquid
+                  assign variant_price = product_MJKjOH1NbKqLZ7e3_variant.price
+
+                  if product_MJKjOH1NbKqLZ7e3_variant.selected_selling_plan_allocation
+                    assign variant_price = product_MJKjOH1NbKqLZ7e3_variant.selected_selling_plan_allocation.price
+                  endif
+                -%}
+                {{- variant_price | money -}}</p
               ><div data-instant-type="text" class="instant-rich-text iLHULt2uv3qIB9L5V"><p>Toevoegen</p></div
               ><div data-instant-type="icon" class="igZKVgA7qonXXwK8J">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
@@ -1186,7 +1194,7 @@
           ><div class="iMgzMkhRqlGjUTCZC" data-instant-type="container"
             ><div data-instant-type="text" class="instant-rich-text iUPT0Bsww3hWQBU7b"><p>2026 Goede </p><p>Voornemens Pakket</p></div
             ><div class="iZt3fFtuaj1vvaytD" data-instant-type="container"
-              ><div data-instant-type="text" class="instant-rich-text iv1D8o18tQLIYamq9"><p>€240</p></div
+              ><div data-instant-type="text" class="instant-rich-text iv1D8o18tQLIYamq9"><p>Vanaf</p></div
               ><div data-instant-type="text" class="instant-rich-text iR6ZG9JQ5qfJ5zaYH"><p>€48</p></div></div
             ></div
           ><a class="i3nxfDfxpJs5q2Ly8" data-instant-type="container" href="#iMJKjOH1NbKqLZ7e3" data-instant-action-type="scroll-to-section" data-instant-action-id="MJKjOH1NbKqLZ7e3"
