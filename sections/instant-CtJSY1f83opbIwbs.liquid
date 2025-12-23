@@ -658,8 +658,11 @@
 
       assign product_MJKjOH1NbKqLZ7e3_image = product_MJKjOH1NbKqLZ7e3_variant.featured_image | default: product_MJKjOH1NbKqLZ7e3.featured_image
     -%}
-    <form class="iMJKjOH1NbKqLZ7e3" data-instant-type="container" id="iMJKjOH1NbKqLZ7e3" data-instant-form-product-url="{{ product_MJKjOH1NbKqLZ7e3.url }}" data-instant-form-variant-id="{{ product_MJKjOH1NbKqLZ7e3_variant.id }}" data-instant-form-product-id="{{ product_MJKjOH1NbKqLZ7e3.id }}"
-      ><div class="iScHq6tvpASJJwex9" data-instant-type="container"
+    <!--  -->
+    <!--  -->
+    {%- form 'product', product_MJKjOH1NbKqLZ7e3, conditionals: 'null', class: 'iMJKjOH1NbKqLZ7e3', data-instant-type: 'container', id: 'iMJKjOH1NbKqLZ7e3', data-instant-form-product-url: product_MJKjOH1NbKqLZ7e3.url, data-instant-form-variant-id: product_MJKjOH1NbKqLZ7e3_variant.id, data-instant-form-product-id: '{{ product_MJKjOH1NbKqLZ7e3.id }}' -%}
+      <!--  -->
+      <div class="iScHq6tvpASJJwex9" data-instant-type="container"
         ><div class="iRwW5W2L76gjJa0s6" data-instant-type="container"
           ><div class="ioKFpM4ZJk9OfhBrI" data-instant-type="container"
             ><div class="iYOCdzf8xWmVsdhHl" data-instant-type="container"
@@ -1340,6 +1343,10 @@
               ></div
             ><a class="ibZjuu68ewP2zfdiq" data-instant-type="container" href="" rel="noopener noreferrer"
               ><div data-instant-type="text" class="instant-rich-text i9RodV9IpxZAOwRb6"><p>Probeer 30 Dagen Risicoloos</p></div></a
+            ><div class="iqwwoJMHqD7oERHWk" data-instant-type="container"
+              ><div class="iLdwXsfQD7CrYGxVi" data-instant-type="container"
+                ><div data-instant-type="dynamic-checkout-button" class="i8JWq0Mowe5MgIzJm" data-instant-styles="none">{{ form | payment_button }}</div></div
+              ></div
             ><div class="iKt2MxvGflpv1AAWC" data-instant-type="container"
               ><div class="iNxFMQw0TWoGOoem5" data-instant-type="container"
                 ><div data-instant-type="icon" class="ivERaC59EfVKpJHEl">
@@ -1354,7 +1361,7 @@
                   </svg></div
                 ><div data-instant-type="text" class="instant-rich-text iXKbcDumq817boGKs"><p>Money Back Guarantee</p></div></div
               ></div
-            ></div
+            ><div data-instant-type="dynamic-checkout-button" class="iQ42zZF4bBaRr2NS8" data-instant-styles="none">{{ form | payment_button }}</div></div
           ></div
         ><div class="i5lx2JHndo6nXc02E" data-instant-type="container"
           ><div data-instant-type="image" class="ijZggN8e9R2sg8d9O"><img alt="{{ product_MJKjOH1NbKqLZ7e3_image.alt }}" src="{{ product_MJKjOH1NbKqLZ7e3_image | image_url: width: 1280 }}" data-instant-dynamic-content-source="FEATURED_IMAGE" width="{{ product_MJKjOH1NbKqLZ7e3_image.width }}" height="{{ product_MJKjOH1NbKqLZ7e3_image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_MJKjOH1NbKqLZ7e3_image | image_url: width: 1080 }} 1080w, {{ product_MJKjOH1NbKqLZ7e3_image | image_url: width: 828 }} 828w, {{ product_MJKjOH1NbKqLZ7e3_image | image_url: width: 750 }} 750w, {{ product_MJKjOH1NbKqLZ7e3_image | image_url: width: 640 }} 640w, {{ product_MJKjOH1NbKqLZ7e3_image | image_url: width: 360 }} 360w, {{ product_MJKjOH1NbKqLZ7e3_image | image_url: width: 1280 }} 1280w" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="{{ product_MJKjOH1NbKqLZ7e3_image.alt }}" src="{{ product_MJKjOH1NbKqLZ7e3_image | image_url: width: 1280 }}" data-instant-dynamic-content-source="FEATURED_IMAGE" width="{{ product_MJKjOH1NbKqLZ7e3_image.width }}" height="{{ product_MJKjOH1NbKqLZ7e3_image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_MJKjOH1NbKqLZ7e3_image | image_url: width: 1080 }} 1080w, {{ product_MJKjOH1NbKqLZ7e3_image | image_url: width: 828 }} 828w, {{ product_MJKjOH1NbKqLZ7e3_image | image_url: width: 750 }} 750w, {{ product_MJKjOH1NbKqLZ7e3_image | image_url: width: 640 }} 640w, {{ product_MJKjOH1NbKqLZ7e3_image | image_url: width: 360 }} 360w, {{ product_MJKjOH1NbKqLZ7e3_image | image_url: width: 1280 }} 1280w" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div></div
@@ -1366,8 +1373,12 @@
       <script type="application/json" id="options__MJKjOH1NbKqLZ7e3--{{ section.id }}">
         {{ product_MJKjOH1NbKqLZ7e3.options_with_values | json }}
       </script>
-      <!--  --></form
-    ><div class="ieEYnI8DRRXMrDvej instant-scroll-trigger instant-scroll-trigger--hidden instant-reveal--transform" data-instant-scroll-into-view-replay="false" data-instant-scroll-into-view-offset="1000" data-instant-type="container" id="ieEYnI8DRRXMrDvej"
+      <!--  -->
+      <input type="hidden" name="id" value="{{ product_MJKjOH1NbKqLZ7e3_variant.id }}"><input name="selling_plan" type="hidden" value="{{ product_MJKjOH1NbKqLZ7e3_variant.selected_selling_plan_allocation.selling_plan.id }}">
+      <!--  -->
+    {%- endform -%}
+    <!--  -->
+    <div class="ieEYnI8DRRXMrDvej instant-scroll-trigger instant-scroll-trigger--hidden instant-reveal--transform" data-instant-scroll-into-view-replay="false" data-instant-scroll-into-view-offset="1000" data-instant-type="container" id="ieEYnI8DRRXMrDvej"
       ><div class="iMDb4ZANCDZGXzXbN" data-instant-type="container"
         ><div class="ikR43GHS1JXl13aIo" data-instant-type="container"
           ><div class="iMgzMkhRqlGjUTCZC" data-instant-type="container"
