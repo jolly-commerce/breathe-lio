@@ -1164,21 +1164,62 @@
           ><div data-instant-type="text" class="instant-rich-text iXNmgT2r8t3ggYWWM"><p>🔒 Veilig betalen met:</p></div
           ><div data-instant-type="icon" class="i1K1NphuLWOCxZz3m"><img class="instant-icon instant-icon__payment-method" alt="ideal" width="38" height="24" src="{{ "ideal" | payment_type_img_url }}"></div><div data-instant-type="icon" class="i5wgpWdPUQOto2Pr0"><img class="instant-icon instant-icon__payment-method" alt="paypal" width="38" height="24" src="{{ "paypal" | payment_type_img_url }}"></div><div data-instant-type="icon" class="inq2iKuqkPCXlPClm"><img class="instant-icon instant-icon__payment-method" alt="bancontact" width="38" height="24" src="{{ "bancontact" | payment_type_img_url }}"></div><div data-instant-type="icon" class="iX34jyYa2b5e7DyO7"><img class="instant-icon instant-icon__payment-method" alt="maestro" width="38" height="24" src="{{ "maestro" | payment_type_img_url }}"></div><div data-instant-type="icon" class="iKaa1aEO9JuAEoUVl"><img class="instant-icon instant-icon__payment-method" alt="master" width="38" height="24" src="{{ "master" | payment_type_img_url }}"></div></div></div></div
     ><div class="iouz3jCIizKCK0OO5 instant-scroll-trigger instant-scroll-trigger--hidden instant-reveal--transform-fade" data-instant-scroll-into-view-replay="true" data-instant-scroll-into-view-offset="3250" data-instant-type="container" id="iouz3jCIizKCK0OO5"
-      ><div class="ifpoYNXD4RTyMEl2v" data-instant-type="container"
-        ><div class="iSC2Zn3jZrYDmaLcl" data-instant-type="container"
-          ><div class="i0FAKDCF0jG61UiSc" data-instant-type="container"
-            ><div data-instant-type="text" class="instant-rich-text iyVeaHR9QxFLiD1VV"><p>2026 Goede </p><p>Voornemens Pakket</p></div
-            ><div class="iQzee4TzgF4duE0ny" data-instant-type="container"
-              ><div data-instant-type="text" class="instant-rich-text ielua0p3Kei6cySxB"><p>Vanaf</p></div
-              ><div data-instant-type="text" class="instant-rich-text iFkfvT8glmUQFtyjh"><p>€48</p></div></div
-            ></div
-          ><a class="iKnOsoGQuhXoykqtj" data-instant-type="container" href="#iMJKjOH1NbKqLZ7e3" data-instant-action-type="scroll-to-section" data-instant-action-id="MJKjOH1NbKqLZ7e3"
-            ><div data-instant-type="text" class="instant-rich-text ibxRSCNZRCuJJ1GSz"><p>Probeer Nu</p></div
+      ><div class="ifpoYNXD4RTyMEl2v" data-instant-type="container">
+        {%- liquid
+          assign product_SC2Zn3jZrYDmaLcl_handle = 'lio®-nieuwjaars-vrijheids-programma-2026'
+          assign product_SC2Zn3jZrYDmaLcl = section.settings.product_SC2Zn3jZrYDmaLcl | default: all_products[product_SC2Zn3jZrYDmaLcl_handle]
+          assign product_SC2Zn3jZrYDmaLcl_variant = product_SC2Zn3jZrYDmaLcl.variants | where: 'id', 55399339622776 | first | default: product_SC2Zn3jZrYDmaLcl.selected_or_first_available_variant
+
+          if product_SC2Zn3jZrYDmaLcl.selected_variant
+            assign product_SC2Zn3jZrYDmaLcl_variant = product_SC2Zn3jZrYDmaLcl.selected_variant
+          endif
+
+          assign product_SC2Zn3jZrYDmaLcl_image = product_SC2Zn3jZrYDmaLcl_variant.featured_image | default: product_SC2Zn3jZrYDmaLcl.featured_image
+        -%}
+        <!--  -->
+        <!--  -->
+        {%- form 'product', product_SC2Zn3jZrYDmaLcl, conditionals: 'null', class: 'iSC2Zn3jZrYDmaLcl', data-instant-type: 'container', data-instant-initial-variant-id: '55399339622776', data-instant-form-product-url: product_SC2Zn3jZrYDmaLcl.url, data-instant-form-variant-id: product_SC2Zn3jZrYDmaLcl_variant.id, data-instant-form-product-id: '{{ product_SC2Zn3jZrYDmaLcl.id }}' -%}
+          <!--  -->
+          <!--  -->
+          {%- liquid
+            assign product_KnOsoGQuhXoykqtj_handle = 'lio®-nieuwjaars-vrijheids-programma-2026'
+            assign product_KnOsoGQuhXoykqtj = section.settings.product_KnOsoGQuhXoykqtj | default: all_products[product_KnOsoGQuhXoykqtj_handle]
+            assign product_KnOsoGQuhXoykqtj_variant = product_KnOsoGQuhXoykqtj.variants | where: 'id', 55399339622776 | first | default: product_KnOsoGQuhXoykqtj.selected_or_first_available_variant
+
+            if product_KnOsoGQuhXoykqtj.selected_variant
+              assign product_KnOsoGQuhXoykqtj_variant = product_KnOsoGQuhXoykqtj.selected_variant
+            endif
+
+            assign product_KnOsoGQuhXoykqtj_image = product_KnOsoGQuhXoykqtj_variant.featured_image | default: product_KnOsoGQuhXoykqtj.featured_image
+          -%}
+          <a
+            class="iKnOsoGQuhXoykqtj"
+            data-instant-type="container"
+            data-instant-initial-variant-id="55399339622776"
+            data-instant-form-product-url="{{ product_KnOsoGQuhXoykqtj.url }}"
+            data-instant-form-variant-id="{{ product_KnOsoGQuhXoykqtj_variant.id }}"
+            data-instant-form-product-id="{{ product_KnOsoGQuhXoykqtj.id }}"
+            href="{{ routes.cart_url }}/{{ product_KnOsoGQuhXoykqtj_variant.id }}:1?storefront=true"
+            rel="noopener noreferrer"
+            data-instant-action-type="redirect-to-cart"
+            data-instant-action-id="{{ product_KnOsoGQuhXoykqtj.id }}"
+            data-instant-action-variant-id="{{ product_KnOsoGQuhXoykqtj_variant.id }}"
+            data-instant-disabled="
+              {%- if product_KnOsoGQuhXoykqtj_variant.available == false -%}
+              	true
+              {%-	endif -%}
+            "
+            ><div data-instant-type="text" class="instant-rich-text ibxRSCNZRCuJJ1GSz"><p>Toevoegen</p></div
             ><div class="i9mW2UPI5KASD3PWx" data-instant-type="container"
               ><div data-instant-type="icon" class="i6kayX97hTyIjgvaU">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                   <title>bag-simple</title><path d="M216,64H176a48,48,0,0,0-96,0H40A16,16,0,0,0,24,80V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V80A16,16,0,0,0,216,64ZM128,32a32,32,0,0,1,32,32H96A32,32,0,0,1,128,32Zm88,168H40V80H216Z"></path>
-                </svg></div></div></a></div></div></div
+                </svg></div></div></a
+          ><div data-instant-type="dynamic-checkout-button" class="iOR5eB6GoNLJEOORA" data-instant-styles="none">{{ form | payment_button }}</div><input type="hidden" name="id" value="{{ product_SC2Zn3jZrYDmaLcl_variant.id }}"><input name="selling_plan" type="hidden" value="{{ product_SC2Zn3jZrYDmaLcl_variant.selected_selling_plan_allocation.selling_plan.id }}">
+          <!--  -->
+        {%- endform -%}
+        <!--  -->
+      </div></div
     ><div class="iriM5sa32mzpUH4fS" data-instant-type="container" id="iriM5sa32mzpUH4fS"
       ><div class="iJ3myel0GBefrTlzA" data-instant-type="container"
         ><div data-instant-type="text" class="instant-rich-text iN88ff4HqNRFik9Vi"><h3>Heb je vragen? Wij hebben antwoorden.</h3></div
