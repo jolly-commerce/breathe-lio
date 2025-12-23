@@ -650,7 +650,19 @@
           ><div data-instant-type="text" class="instant-rich-text iiqBw7obXQsj9j0zH"><p>Sec</p></div></div
         ></div
       ></div
-    ><div class="iMJKjOH1NbKqLZ7e3" data-instant-type="container" id="iMJKjOH1NbKqLZ7e3"
+    >
+    {%- liquid
+      assign product_MJKjOH1NbKqLZ7e3_handle = 'lio®-nieuwjaars-vrijheids-programma-2026'
+      assign product_MJKjOH1NbKqLZ7e3 = section.settings.product_MJKjOH1NbKqLZ7e3 | default: all_products[product_MJKjOH1NbKqLZ7e3_handle]
+      assign product_MJKjOH1NbKqLZ7e3_variant = product_MJKjOH1NbKqLZ7e3.selected_or_first_available_variant
+
+      if product_MJKjOH1NbKqLZ7e3.selected_variant
+        assign product_MJKjOH1NbKqLZ7e3_variant = product_MJKjOH1NbKqLZ7e3.selected_variant
+      endif
+
+      assign product_MJKjOH1NbKqLZ7e3_image = product_MJKjOH1NbKqLZ7e3_variant.featured_image | default: product_MJKjOH1NbKqLZ7e3.featured_image
+    -%}
+    <form class="iMJKjOH1NbKqLZ7e3" data-instant-type="container" id="iMJKjOH1NbKqLZ7e3" data-instant-form-product-url="{{ product_MJKjOH1NbKqLZ7e3.url }}" data-instant-form-variant-id="{{ product_MJKjOH1NbKqLZ7e3_variant.id }}" data-instant-form-product-id="{{ product_MJKjOH1NbKqLZ7e3.id }}"
       ><div class="iScHq6tvpASJJwex9" data-instant-type="container"
         ><div class="iRwW5W2L76gjJa0s6" data-instant-type="container"
           ><div class="iey2baYWgz9yRpTFW" data-instant-type="container"
@@ -658,9 +670,41 @@
           ><div class="iEOl342tuIxgSy2ci" data-instant-type="container"
             ><div data-instant-type="text" class="instant-rich-text icydCZNVXuFhD2emO"><h3>Jouw goed voornemen voor 2026. Maak het waar met ons complete 30 Dagen Naar Vrijheid Programma, inclusief volledige ondersteuning.</h3></div></div
           ><div class="ioKFpM4ZJk9OfhBrI" data-instant-type="container"
-            ><form class="iYOCdzf8xWmVsdhHl" data-instant-type="container" data-instant-form-product-url="/products/monstera"
+            ><div class="iYOCdzf8xWmVsdhHl" data-instant-type="container"
               ><div data-instant-type="text" class="instant-rich-text i4jogzDVKudO4YGfY"><h3>Selecteer je Lio:</h3></div
-              ><a class="iK4ykLOQNNVXyXAYw" data-instant-type="container" href="null" rel="noopener noreferrer"
+              ><div
+                class="instant-custom-variant-picker iK4ykLOQNNVXyXAYw"
+                data-instant-type="container"
+                data-instant-action-type="select-variant-option"
+                data-instant-option-value="
+                  {%- liquid
+                  	assign selected_options = product_MJKjOH1NbKqLZ7e3_variant.options
+                  	assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values | where : 'name', 'Lio ' | first
+                  	if selected_option == null
+                  		assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
+                  	endif
+
+                  	for variant in product_MJKjOH1NbKqLZ7e3.variants
+                  		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                  			assign selected_variant = variant
+                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
+                  			assign selected_variant = variant
+                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
+                  			assign selected_variant = variant
+                  		endif
+                  	endfor
+                  -%}{{- selected_option.values[0] | escape -}}
+                "
+                data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
+                data-instant-disabled="
+                  {%- liquid
+                  	assign is_not_available = false
+                  	if selected_variant.available == false
+                  		assign is_not_available = true
+                  	endif
+                  -%}{{- is_not_available -}}
+                "
                 ><div class="i1WbSJTAT33yxpzFL" data-instant-type="container"></div
                 ><div class="iKxDtzW23IXbKVduv" data-instant-type="container"
                   ><div data-instant-type="text" class="instant-rich-text i9BDDThJKX3hrWIPo"><h3>Lio Premium</h3></div
@@ -668,15 +712,350 @@
                 ><div data-instant-type="image" class="i7KHeeoKqObshHskf"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
                 ><div class="iurabKzbNhyj5p1GT" data-instant-type="container"
                   ><div data-instant-type="text" class="instant-rich-text i2gW5ibpeyQ7oJAc8"><p>✓ Verstelbare luchtstroom </p><p>✓ Langere smaakduur </p><p>✓ Magnetisch sluitsysteem </p><p>✓ Fidget-vriendelijk</p></div></div
-                ></a
-              ><a class="iAC9VUljHeacQR0T0" data-instant-type="container" href="null" rel="noopener noreferrer"
+                ></div
+              >
+              {%- liquid
+                assign style = ''
+
+                assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
+                assign selected_option_value = selected_option.values[0]
+
+                assign variant_has_option = false
+
+                if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option_value
+                  assign variant_has_option = true
+                endif
+
+                if variant_has_option != true
+                  assign style = 'style="display: none;"'
+                endif
+              -%}
+              <!--  -->
+              <!--  -->
+              {%- liquid
+                assign selected_options = product_MJKjOH1NbKqLZ7e3_variant.options
+                assign variants_option1 = product_MJKjOH1NbKqLZ7e3.variants | map: 'option1'
+                assign variants_option2 = product_MJKjOH1NbKqLZ7e3.variants | map: 'option2'
+                assign variants_option3 = product_MJKjOH1NbKqLZ7e3.variants | map: 'option3'
+                assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values | where: 'name', 'Lio ' | first
+
+                if selected_option == null
+                  assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
+                endif
+
+                assign selected_option_index = selected_option.position | minus: 1
+
+                assign hide_variant_picker = false
+
+                if product_MJKjOH1NbKqLZ7e3.has_only_default_variant or selected_option == null
+                  assign hide_variant_picker = true
+                endif
+              -%}
+              {%- unless hide_variant_picker -%}
+                <!--  -->
+                <fieldset class="instant-variant-picker icRoHZvqdQPgpO4Xx" data-instant-type="VARIANT_PICKER" {{- style -}} data-instant-conditional="true"
+                  ><div data-instant-type="text" class="instant-rich-text iRn1uEARRcmNU1fEI"><p>Kies kleur:</p></div
+                  ><button
+                    as="p"
+                    data-instant-type="text"
+                    class="ioNrublezzu74PmVZ"
+                    data-instant-action-type="select-variant-option"
+                    data-instant-option-value="
+                      {%- liquid
+                      	assign selected_options = product_MJKjOH1NbKqLZ7e3_variant.options
+                      	assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values | where : 'name', 'Lio ' | first
+                      	if selected_option == null
+                      		assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
+                      	endif
+
+                      	for variant in product_MJKjOH1NbKqLZ7e3.variants
+                      		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
+                      			assign selected_variant = variant
+                      		endif
+                      	endfor
+                      -%}{{- selected_option.values[0] | escape -}}
+                    "
+                    data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                    data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
+                    data-instant-disabled="
+                      {%- liquid
+                      	assign is_not_available = false
+                      	if selected_variant.available == false
+                      		assign is_not_available = true
+                      	endif
+                      -%}{{- is_not_available -}}
+                    "
+                    ><div class="instant-rich-text"><p>Zilver</p></div></button
+                  ><button
+                    as="p"
+                    data-instant-type="text"
+                    class="i5x4BkqIYMqdyvaUK"
+                    data-instant-action-type="select-variant-option"
+                    data-instant-option-value="
+                      {%- liquid
+                      	assign selected_options = product_MJKjOH1NbKqLZ7e3_variant.options
+                      	assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values | where : 'name', 'Lio ' | first
+                      	if selected_option == null
+                      		assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
+                      	endif
+
+                      	for variant in product_MJKjOH1NbKqLZ7e3.variants
+                      		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
+                      			assign selected_variant = variant
+                      		endif
+                      	endfor
+                      -%}{{- selected_option.values[0] | escape -}}
+                    "
+                    data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                    data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
+                    data-instant-disabled="
+                      {%- liquid
+                      	assign is_not_available = false
+                      	if selected_variant.available == false
+                      		assign is_not_available = true
+                      	endif
+                      -%}{{- is_not_available -}}
+                    "
+                    ><div class="instant-rich-text"><p>Zwart</p></div></button
+                  ></fieldset
+                >
+                <!--  -->
+              {%- endunless -%}
+              <!--  -->
+              <div
+                class="instant-custom-variant-picker iAC9VUljHeacQR0T0"
+                data-instant-type="container"
+                data-instant-action-type="select-variant-option"
+                data-instant-option-value="
+                  {%- liquid
+                  	assign selected_options = product_MJKjOH1NbKqLZ7e3_variant.options
+                  	assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values | where : 'name', 'Lio ' | first
+                  	if selected_option == null
+                  		assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
+                  	endif
+
+                  	for variant in product_MJKjOH1NbKqLZ7e3.variants
+                  		if selected_option.position == 1 and variant.option1 == selected_option.values[1] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                  			assign selected_variant = variant
+                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[1] and variant.option3 == selected_options[2]
+                  			assign selected_variant = variant
+                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[1]
+                  			assign selected_variant = variant
+                  		endif
+                  	endfor
+                  -%}{{- selected_option.values[1] | escape -}}
+                "
+                data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[1] -%}active{%- else -%}inactive{%- endif -%}"
+                data-instant-disabled="
+                  {%- liquid
+                  	assign is_not_available = false
+                  	if selected_variant.available == false
+                  		assign is_not_available = true
+                  	endif
+                  -%}{{- is_not_available -}}
+                "
                 ><div class="iY2Lgpz9pYOOorYjA" data-instant-type="container"></div
                 ><div class="ii4UQUsUnUkICM7pS" data-instant-type="container"
-                  ><div data-instant-type="text" class="instant-rich-text izt43ZxZBObwrm5CA"><h3>Lio Klassiek</h3></div
-                  ><div data-instant-type="text" class="instant-rich-text iqffUZK27x135NOaK"><p>Simpel en effectief. </p><p>Met ons originele </p><p>kern-systeem. </p></div></div
-                ><div data-instant-type="image" class="iaamyB5BHtUgeZlEz"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div><div data-instant-type="text" class="instant-rich-text iwhIfelEKoP1o4T6T"><p>✓ Handmatig systeem</p><p>✓ Eenvoudig in gebruik</p><p>✓ Compact en draagbaar</p><p>✗ Niet verstelbaar</p></div></a
-              ></form
-            ></div
+                  ><div data-instant-type="text" class="instant-rich-text izt43ZxZBObwrm5CA"><h3>Lio Origineel</h3></div
+                  ><div data-instant-type="text" class="instant-rich-text iqffUZK27x135NOaK"><p>Simpel en effectief. </p><p>met ons originele </p><p>kern-systeem.</p></div></div
+                ><div data-instant-type="image" class="iaamyB5BHtUgeZlEz"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/CoBVpT8WIZ9mqSoY/free-lio-silver-1042191.png?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div><div data-instant-type="text" class="instant-rich-text iwhIfelEKoP1o4T6T"><p>✓ Handmatig systeem</p><p>✓ Eenvoudig in gebruik</p><p>✓ Compact en draagbaar</p><p>✗ Niet verstelbaar</p></div></div
+              >
+              {%- liquid
+                assign style = ''
+
+                assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
+                assign selected_option_value = selected_option.values[0]
+
+                assign variant_has_option = false
+
+                if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option_value
+                  assign variant_has_option = true
+                endif
+
+                if variant_has_option == true
+                  assign style = 'style="display: none;"'
+                endif
+              -%}
+              <!--  -->
+              <!--  -->
+              {%- liquid
+                assign selected_options = product_MJKjOH1NbKqLZ7e3_variant.options
+                assign variants_option1 = product_MJKjOH1NbKqLZ7e3.variants | map: 'option1'
+                assign variants_option2 = product_MJKjOH1NbKqLZ7e3.variants | map: 'option2'
+                assign variants_option3 = product_MJKjOH1NbKqLZ7e3.variants | map: 'option3'
+                assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values | where: 'name', 'Lio ' | first
+
+                if selected_option == null
+                  assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
+                endif
+
+                assign selected_option_index = selected_option.position | minus: 1
+
+                assign hide_variant_picker = false
+
+                if product_MJKjOH1NbKqLZ7e3.has_only_default_variant or selected_option == null
+                  assign hide_variant_picker = true
+                endif
+              -%}
+              {%- unless hide_variant_picker -%}
+                <!--  -->
+                <fieldset class="instant-variant-picker iBzZCZm7rS9z5qphl" data-instant-type="VARIANT_PICKER" {{- style -}} data-instant-conditional="true"
+                  ><div data-instant-type="text" class="instant-rich-text i85h4h0qDfNN7E2n6"><p>Kies kleur:</p></div
+                  ><button
+                    as="p"
+                    data-instant-type="text"
+                    class="i3hgQFMLyCUpflEE1"
+                    data-instant-action-type="select-variant-option"
+                    data-instant-option-value="
+                      {%- liquid
+                      	assign selected_options = product_MJKjOH1NbKqLZ7e3_variant.options
+                      	assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values | where : 'name', 'Versie' | first
+                      	if selected_option == null
+                      		assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[1]
+                      	endif
+
+                      	for variant in product_MJKjOH1NbKqLZ7e3.variants
+                      		if selected_option.position == 1 and variant.option1 == selected_option.values[4] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[4] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[4]
+                      			assign selected_variant = variant
+                      		endif
+                      	endfor
+                      -%}{{- selected_option.values[4] | escape -}}
+                    "
+                    data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                    data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[4] -%}active{%- else -%}inactive{%- endif -%}"
+                    data-instant-disabled="
+                      {%- liquid
+                      	assign is_not_available = false
+                      	if selected_variant.available == false
+                      		assign is_not_available = true
+                      	endif
+                      -%}{{- is_not_available -}}
+                    "
+                    ><div class="instant-rich-text"><p>Olijf</p></div></button
+                  ><button
+                    as="p"
+                    data-instant-type="text"
+                    class="iSrST0D7IEe7WeNNQ"
+                    data-instant-action-type="select-variant-option"
+                    data-instant-option-value="
+                      {%- liquid
+                      	assign selected_options = product_MJKjOH1NbKqLZ7e3_variant.options
+                      	assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values | where : 'name', 'Versie' | first
+                      	if selected_option == null
+                      		assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[1]
+                      	endif
+
+                      	for variant in product_MJKjOH1NbKqLZ7e3.variants
+                      		if selected_option.position == 1 and variant.option1 == selected_option.values[5] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[5] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[5]
+                      			assign selected_variant = variant
+                      		endif
+                      	endfor
+                      -%}{{- selected_option.values[5] | escape -}}
+                    "
+                    data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                    data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[5] -%}active{%- else -%}inactive{%- endif -%}"
+                    data-instant-disabled="
+                      {%- liquid
+                      	assign is_not_available = false
+                      	if selected_variant.available == false
+                      		assign is_not_available = true
+                      	endif
+                      -%}{{- is_not_available -}}
+                    "
+                    ><div class="instant-rich-text"><p>Walnoot</p></div></button
+                  ><button
+                    as="p"
+                    data-instant-type="text"
+                    class="iuwf2rnzVNSRMaztb"
+                    data-instant-action-type="select-variant-option"
+                    data-instant-option-value="
+                      {%- liquid
+                      	assign selected_options = product_MJKjOH1NbKqLZ7e3_variant.options
+                      	assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values | where : 'name', 'Versie' | first
+                      	if selected_option == null
+                      		assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[1]
+                      	endif
+
+                      	for variant in product_MJKjOH1NbKqLZ7e3.variants
+                      		if selected_option.position == 1 and variant.option1 == selected_option.values[2] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[2] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[2]
+                      			assign selected_variant = variant
+                      		endif
+                      	endfor
+                      -%}{{- selected_option.values[2] | escape -}}
+                    "
+                    data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                    data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[2] -%}active{%- else -%}inactive{%- endif -%}"
+                    data-instant-disabled="
+                      {%- liquid
+                      	assign is_not_available = false
+                      	if selected_variant.available == false
+                      		assign is_not_available = true
+                      	endif
+                      -%}{{- is_not_available -}}
+                    "
+                    ><div class="instant-rich-text"><p>Zilver</p></div></button
+                  ><button
+                    as="p"
+                    data-instant-type="text"
+                    class="ikd5Pl9Fmrr5lRsEz"
+                    data-instant-action-type="select-variant-option"
+                    data-instant-option-value="
+                      {%- liquid
+                      	assign selected_options = product_MJKjOH1NbKqLZ7e3_variant.options
+                      	assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values | where : 'name', 'Versie' | first
+                      	if selected_option == null
+                      		assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[1]
+                      	endif
+
+                      	for variant in product_MJKjOH1NbKqLZ7e3.variants
+                      		if selected_option.position == 1 and variant.option1 == selected_option.values[3] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[3] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[3]
+                      			assign selected_variant = variant
+                      		endif
+                      	endfor
+                      -%}{{- selected_option.values[3] | escape -}}
+                    "
+                    data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                    data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[3] -%}active{%- else -%}inactive{%- endif -%}"
+                    data-instant-disabled="
+                      {%- liquid
+                      	assign is_not_available = false
+                      	if selected_variant.available == false
+                      		assign is_not_available = true
+                      	endif
+                      -%}{{- is_not_available -}}
+                    "
+                    ><div class="instant-rich-text"><p>Zwart</p></div></button
+                  ></fieldset
+                >
+                <!--  -->
+              {%- endunless -%}
+              <!--  -->
+            </div></div
           ><div class="iNEGV0g4HNQ9lHdnX" data-instant-type="container"
             ><div data-instant-type="text" class="instant-rich-text iOXI0xWbjWxJ9xMPC"><h3>Dit programma bevat</h3></div
             ><div class="ijf4IyOpvNFEJptc7" data-instant-type="container"
@@ -776,8 +1155,18 @@
               ><div data-instant-type="text" class="instant-rich-text ilcPA8QHVn3UBjekm"><h3>30 dagen</h3></div
               ><div data-instant-type="text" class="instant-rich-text inhA0jW9C0j3R9zKk"><h3>geld-terug-garantie</h3></div></div
             ></div
-          ><div data-instant-type="image" class="ijZggN8e9R2sg8d9O"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/static/collection/JN8Qb5UkeU8sN336/cxjAWLilsAnbhUHu-bundle.png?width=1080 1080w, https://cdn.instant.so/static/collection/JN8Qb5UkeU8sN336/cxjAWLilsAnbhUHu-bundle.png?width=828 828w, https://cdn.instant.so/static/collection/JN8Qb5UkeU8sN336/cxjAWLilsAnbhUHu-bundle.png?width=750 750w, https://cdn.instant.so/static/collection/JN8Qb5UkeU8sN336/cxjAWLilsAnbhUHu-bundle.png?width=640 640w, https://cdn.instant.so/static/collection/JN8Qb5UkeU8sN336/cxjAWLilsAnbhUHu-bundle.png?width=360 360w, https://cdn.instant.so/static/collection/JN8Qb5UkeU8sN336/cxjAWLilsAnbhUHu-bundle.png?width=1280 1280w" src="https://cdn.instant.so/static/collection/JN8Qb5UkeU8sN336/cxjAWLilsAnbhUHu-bundle.png?width=1280" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main"></div></div></div></div
-  ></div>
+          ><div data-instant-type="image" class="ijZggN8e9R2sg8d9O"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/static/collection/JN8Qb5UkeU8sN336/cxjAWLilsAnbhUHu-bundle.png?width=1080 1080w, https://cdn.instant.so/static/collection/JN8Qb5UkeU8sN336/cxjAWLilsAnbhUHu-bundle.png?width=828 828w, https://cdn.instant.so/static/collection/JN8Qb5UkeU8sN336/cxjAWLilsAnbhUHu-bundle.png?width=750 750w, https://cdn.instant.so/static/collection/JN8Qb5UkeU8sN336/cxjAWLilsAnbhUHu-bundle.png?width=640 640w, https://cdn.instant.so/static/collection/JN8Qb5UkeU8sN336/cxjAWLilsAnbhUHu-bundle.png?width=360 360w, https://cdn.instant.so/static/collection/JN8Qb5UkeU8sN336/cxjAWLilsAnbhUHu-bundle.png?width=1280 1280w" src="https://cdn.instant.so/static/collection/JN8Qb5UkeU8sN336/cxjAWLilsAnbhUHu-bundle.png?width=1280" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main"></div></div
+      ></div>
+      <!--  -->
+      <script type="application/json" id="variants__MJKjOH1NbKqLZ7e3--{{ section.id }}">
+        {{ product_MJKjOH1NbKqLZ7e3.variants | json }}
+      </script>
+      <script type="application/json" id="options__MJKjOH1NbKqLZ7e3--{{ section.id }}">
+        {{ product_MJKjOH1NbKqLZ7e3.options_with_values | json }}
+      </script>
+      <!--  -->
+    </form>
+  </div>
   <!-- prettier-ignore -->
   <script>(()=>{let t=window.Instant||{};if(!t.initializedAppEmbed&&!window.__instant_loading_core){window.__instant_loading_core=!0,t.initializedVersion="4.5.15",t.initialized=!0;let i=()=>{let i=(t,i)=>t.split(".").map(Number).reduce((t,e,n)=>t||e-i.split(".")[n],0),e=[...document.querySelectorAll(".__instant")].map(t=>t.getAttribute("data-instant-version")||"1.0.0").sort(i).pop()||"1.0.0",n=document.createElement("script");n.src="https://client.instant.so/scripts/instant-core.min.js?version="+e,document.body.appendChild(n),t.initializedVersion=e};"loading"!==document.readyState?i():document.addEventListener("DOMContentLoaded",i)}})();</script>
 </div>
