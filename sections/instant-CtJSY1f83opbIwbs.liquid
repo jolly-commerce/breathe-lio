@@ -261,7 +261,7 @@
             ><div class="ixZVuOVlBkC8lIGpr" data-instant-type="container"
               ><div data-instant-type="text" class="instant-rich-text iMmiPdRXE4BBOazoh"><h3>Selecteer je Lio:</h3></div
               ><div
-                class="instant-custom-variant-picker iLalrYtL1UOe60dzs"
+                class="instant-custom-variant-picker i7GnsyLiNzXsBUnC4"
                 data-instant-type="container"
                 data-instant-action-type="select-variant-option"
                 data-instant-option-value="
@@ -285,92 +285,6 @@
                 "
                 data-instant-option-name="{{ selected_option.name | url_param_escape }}"
                 data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
-                data-instant-disabled="
-                  {%- liquid
-                  	assign is_not_available = false
-                  	if selected_variant.available == false
-                  		assign is_not_available = true
-                  	endif
-                  -%}{{- is_not_available -}}
-                "
-                ><div class="iHVLlABQWPHFXZ65i" data-instant-type="container"></div
-                ><div class="iPoGkpR7phXi8a1AB" data-instant-type="container"
-                  ><div data-instant-type="text" class="instant-rich-text i0tThFQNuGJ38J76K"><h3>Lio Gen 2</h3><h3>Zilver</h3></div></div
-                ><div data-instant-type="image" conditionals="" class="ijg5hslLUnAI3QLx9"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
-                ><div class="iXav4UCSz3e2PJ7IE" data-instant-type="container"
-                  ><div data-instant-type="text" class="instant-rich-text iDVSCx88KsTQljFCG"
-                    ><p><strong>✓ RVS &amp; olijfhout</strong></p
-                    ><p>✓ Verstelbare luchtstroom</p><p>✓ Langere smaakduur </p><p>✓ Magnetisch sluitsysteem </p></div
-                  ></div
-                ></div
-              ><div
-                class="instant-custom-variant-picker iSsyUON2J1yFTLgDb"
-                data-instant-type="container"
-                data-instant-action-type="select-variant-option"
-                data-instant-option-value="
-                  {%- liquid
-                  	assign selected_options = product_MJKjOH1NbKqLZ7e3_variant.options
-                  	assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values | where : 'name', 'Lio' | first
-                  	if selected_option == null
-                  		assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
-                  	endif
-
-                  	for variant in product_MJKjOH1NbKqLZ7e3.variants
-                  		if selected_option.position == 1 and variant.option1 == selected_option.values[1] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
-                  			assign selected_variant = variant
-                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[1] and variant.option3 == selected_options[2]
-                  			assign selected_variant = variant
-                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[1]
-                  			assign selected_variant = variant
-                  		endif
-                  	endfor
-                  -%}{{- selected_option.values[1] | escape -}}
-                "
-                data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[1] -%}active{%- else -%}inactive{%- endif -%}"
-                data-instant-disabled="
-                  {%- liquid
-                  	assign is_not_available = false
-                  	if selected_variant.available == false
-                  		assign is_not_available = true
-                  	endif
-                  -%}{{- is_not_available -}}
-                "
-                ><div class="iCQcMmUTbynHZNJQB" data-instant-type="container"></div
-                ><div class="iQIi1DAtFWg76B1fS" data-instant-type="container"
-                  ><div data-instant-type="text" class="instant-rich-text inM7emAECviQoMKJj"><h3>Lio Gen 2</h3><h3>Zwart</h3></div></div
-                ><div data-instant-type="image" conditionals="" class="iMhtdxhL0fkPkDt08"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
-                ><div class="i5I3vSBfeE6h05iCD" data-instant-type="container"
-                  ><div data-instant-type="text" class="instant-rich-text isCYto1vKjJ5o2Ila"
-                    ><p><strong>✓ RVS &amp; walnoothout</strong></p
-                    ><p>✓ Verstelbare luchtstroom</p><p>✓ Langere smaakduur </p><p>✓ Magnetisch sluitsysteem </p></div
-                  ></div
-                ></div
-              ><div
-                class="instant-custom-variant-picker i7GnsyLiNzXsBUnC4"
-                data-instant-type="container"
-                data-instant-action-type="select-variant-option"
-                data-instant-option-value="
-                  {%- liquid
-                  	assign selected_options = product_MJKjOH1NbKqLZ7e3_variant.options
-                  	assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values | where : 'name', 'Lio' | first
-                  	if selected_option == null
-                  		assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
-                  	endif
-
-                  	for variant in product_MJKjOH1NbKqLZ7e3.variants
-                  		if selected_option.position == 1 and variant.option1 == selected_option.values[2] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
-                  			assign selected_variant = variant
-                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[2] and variant.option3 == selected_options[2]
-                  			assign selected_variant = variant
-                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[2]
-                  			assign selected_variant = variant
-                  		endif
-                  	endfor
-                  -%}{{- selected_option.values[2] | escape -}}
-                "
-                data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[2] -%}active{%- else -%}inactive{%- endif -%}"
                 data-instant-disabled="
                   {%- liquid
                   	assign is_not_available = false
@@ -403,6 +317,92 @@
                   	endif
 
                   	for variant in product_MJKjOH1NbKqLZ7e3.variants
+                  		if selected_option.position == 1 and variant.option1 == selected_option.values[1] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                  			assign selected_variant = variant
+                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[1] and variant.option3 == selected_options[2]
+                  			assign selected_variant = variant
+                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[1]
+                  			assign selected_variant = variant
+                  		endif
+                  	endfor
+                  -%}{{- selected_option.values[1] | escape -}}
+                "
+                data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[1] -%}active{%- else -%}inactive{%- endif -%}"
+                data-instant-disabled="
+                  {%- liquid
+                  	assign is_not_available = false
+                  	if selected_variant.available == false
+                  		assign is_not_available = true
+                  	endif
+                  -%}{{- is_not_available -}}
+                "
+                ><div class="iQYPDaJrWmv3MJNjW" data-instant-type="container"></div
+                ><div class="iXtNh4SYWFxg8eOpI" data-instant-type="container"
+                  ><div data-instant-type="text" class="instant-rich-text iQOIb5dm0p4wciWE5"><h3>Lio Origineel</h3><h3>Walnoot</h3></div></div
+                ><div data-instant-type="image" conditionals="" class="isi6V4XFL0GDSJbiz"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1EHze4omaECn0CP/free-lio-silver-1042191-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1EHze4omaECn0CP/free-lio-silver-1042191-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1EHze4omaECn0CP/free-lio-silver-1042191-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1EHze4omaECn0CP/free-lio-silver-1042191-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1EHze4omaECn0CP/free-lio-silver-1042191-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1EHze4omaECn0CP/free-lio-silver-1042191-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1EHze4omaECn0CP/free-lio-silver-1042191-2.webp?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N8MlWT1TmwTN5ode/free-lio-silver-1042191-5.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N8MlWT1TmwTN5ode/free-lio-silver-1042191-5.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N8MlWT1TmwTN5ode/free-lio-silver-1042191-5.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N8MlWT1TmwTN5ode/free-lio-silver-1042191-5.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N8MlWT1TmwTN5ode/free-lio-silver-1042191-5.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N8MlWT1TmwTN5ode/free-lio-silver-1042191-5.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N8MlWT1TmwTN5ode/free-lio-silver-1042191-5.webp?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                ><div class="icU7phP17RldqDuhl" data-instant-type="container"
+                  ><div data-instant-type="text" class="instant-rich-text iBwSaJ7CbmOuwJwyt"
+                    ><p><strong>✓ Premium walnoothout</strong></p
+                    ><p>✓ Iedere Lio is uniek</p><p>✓ Licht gewicht</p></div
+                  ></div
+                ></div
+              ><div
+                class="instant-custom-variant-picker iLalrYtL1UOe60dzs"
+                data-instant-type="container"
+                data-instant-action-type="select-variant-option"
+                data-instant-option-value="
+                  {%- liquid
+                  	assign selected_options = product_MJKjOH1NbKqLZ7e3_variant.options
+                  	assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values | where : 'name', 'Lio' | first
+                  	if selected_option == null
+                  		assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
+                  	endif
+
+                  	for variant in product_MJKjOH1NbKqLZ7e3.variants
+                  		if selected_option.position == 1 and variant.option1 == selected_option.values[2] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                  			assign selected_variant = variant
+                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[2] and variant.option3 == selected_options[2]
+                  			assign selected_variant = variant
+                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[2]
+                  			assign selected_variant = variant
+                  		endif
+                  	endfor
+                  -%}{{- selected_option.values[2] | escape -}}
+                "
+                data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[2] -%}active{%- else -%}inactive{%- endif -%}"
+                data-instant-disabled="
+                  {%- liquid
+                  	assign is_not_available = false
+                  	if selected_variant.available == false
+                  		assign is_not_available = true
+                  	endif
+                  -%}{{- is_not_available -}}
+                "
+                ><div class="iHVLlABQWPHFXZ65i" data-instant-type="container"></div
+                ><div class="iPoGkpR7phXi8a1AB" data-instant-type="container"
+                  ><div data-instant-type="text" class="instant-rich-text i0tThFQNuGJ38J76K"><h3>Lio Gen 2</h3><h3>Zilver</h3></div></div
+                ><div data-instant-type="image" conditionals="" class="ijg5hslLUnAI3QLx9"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/39j1w0hrSQ1MdGMv/free-lio-silver-1042191-4.webp?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                ><div class="iXav4UCSz3e2PJ7IE" data-instant-type="container"
+                  ><div data-instant-type="text" class="instant-rich-text iDVSCx88KsTQljFCG"
+                    ><p><strong>✓ RVS &amp; olijfhout</strong></p
+                    ><p>✓ Verstelbare luchtstroom</p><p>✓ Langere smaakduur </p><p>✓ Magnetisch sluitsysteem </p></div
+                  ></div
+                ></div
+              ><div
+                class="instant-custom-variant-picker iSsyUON2J1yFTLgDb"
+                data-instant-type="container"
+                data-instant-action-type="select-variant-option"
+                data-instant-option-value="
+                  {%- liquid
+                  	assign selected_options = product_MJKjOH1NbKqLZ7e3_variant.options
+                  	assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values | where : 'name', 'Lio' | first
+                  	if selected_option == null
+                  		assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
+                  	endif
+
+                  	for variant in product_MJKjOH1NbKqLZ7e3.variants
                   		if selected_option.position == 1 and variant.option1 == selected_option.values[3] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
                   			assign selected_variant = variant
                   		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[3] and variant.option3 == selected_options[2]
@@ -423,14 +423,14 @@
                   	endif
                   -%}{{- is_not_available -}}
                 "
-                ><div class="iQYPDaJrWmv3MJNjW" data-instant-type="container"></div
-                ><div class="iXtNh4SYWFxg8eOpI" data-instant-type="container"
-                  ><div data-instant-type="text" class="instant-rich-text iQOIb5dm0p4wciWE5"><h3>Lio Origineel</h3><h3>Walnoot</h3></div></div
-                ><div data-instant-type="image" conditionals="" class="isi6V4XFL0GDSJbiz"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1EHze4omaECn0CP/free-lio-silver-1042191-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1EHze4omaECn0CP/free-lio-silver-1042191-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1EHze4omaECn0CP/free-lio-silver-1042191-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1EHze4omaECn0CP/free-lio-silver-1042191-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1EHze4omaECn0CP/free-lio-silver-1042191-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1EHze4omaECn0CP/free-lio-silver-1042191-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1EHze4omaECn0CP/free-lio-silver-1042191-2.webp?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N8MlWT1TmwTN5ode/free-lio-silver-1042191-5.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N8MlWT1TmwTN5ode/free-lio-silver-1042191-5.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N8MlWT1TmwTN5ode/free-lio-silver-1042191-5.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N8MlWT1TmwTN5ode/free-lio-silver-1042191-5.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N8MlWT1TmwTN5ode/free-lio-silver-1042191-5.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N8MlWT1TmwTN5ode/free-lio-silver-1042191-5.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N8MlWT1TmwTN5ode/free-lio-silver-1042191-5.webp?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
-                ><div class="icU7phP17RldqDuhl" data-instant-type="container"
-                  ><div data-instant-type="text" class="instant-rich-text iBwSaJ7CbmOuwJwyt"
-                    ><p><strong>✓ Premium walnoothout</strong></p
-                    ><p>✓ Iedere Lio is uniek</p><p>✓ Licht gewicht</p></div
+                ><div class="iCQcMmUTbynHZNJQB" data-instant-type="container"></div
+                ><div class="iQIi1DAtFWg76B1fS" data-instant-type="container"
+                  ><div data-instant-type="text" class="instant-rich-text inM7emAECviQoMKJj"><h3>Lio Gen 2</h3><h3>Zwart</h3></div></div
+                ><div data-instant-type="image" conditionals="" class="iMhtdxhL0fkPkDt08"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/bcVuA2ELeXeNbq2p/free-lio-silver-1042191-3.webp?width=1280" width="700" height="700" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                ><div class="i5I3vSBfeE6h05iCD" data-instant-type="container"
+                  ><div data-instant-type="text" class="instant-rich-text isCYto1vKjJ5o2Ila"
+                    ><p><strong>✓ RVS &amp; walnoothout</strong></p
+                    ><p>✓ Verstelbare luchtstroom</p><p>✓ Langere smaakduur </p><p>✓ Magnetisch sluitsysteem </p></div
                   ></div
                 ></div
               ></div
@@ -444,7 +444,7 @@
                     assign style = ''
 
                     assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
-                    assign selected_option_value = selected_option.values[2]
+                    assign selected_option_value = selected_option.values[0]
 
                     assign variant_has_option = false
 
@@ -464,7 +464,7 @@
                     assign style = ''
 
                     assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
-                    assign selected_option_value = selected_option.values[3]
+                    assign selected_option_value = selected_option.values[1]
 
                     assign variant_has_option = false
 
@@ -484,7 +484,7 @@
                     assign style = ''
 
                     assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
-                    assign selected_option_value = selected_option.values[1]
+                    assign selected_option_value = selected_option.values[2]
 
                     assign variant_has_option = false
 
@@ -504,7 +504,7 @@
                     assign style = ''
 
                     assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
-                    assign selected_option_value = selected_option.values[0]
+                    assign selected_option_value = selected_option.values[3]
 
                     assign variant_has_option = false
 
@@ -595,7 +595,7 @@
               assign style = ''
 
               assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
-              assign selected_option_value = selected_option.values[0]
+              assign selected_option_value = selected_option.values[3]
 
               assign variant_has_option = false
 
@@ -626,7 +626,7 @@
               assign style = ''
 
               assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
-              assign selected_option_value = selected_option.values[1]
+              assign selected_option_value = selected_option.values[2]
 
               assign variant_has_option = false
 
@@ -657,7 +657,7 @@
               assign style = ''
 
               assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
-              assign selected_option_value = selected_option.values[2]
+              assign selected_option_value = selected_option.values[1]
 
               assign variant_has_option = false
 
@@ -688,7 +688,7 @@
               assign style = ''
 
               assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
-              assign selected_option_value = selected_option.values[3]
+              assign selected_option_value = selected_option.values[0]
 
               assign variant_has_option = false
 
@@ -840,147 +840,6 @@
                 ><div data-instant-type="text" class="instant-rich-text imnmcbomw5TLFH2t2"><p>WAT JE TERUGKRIJGT:</p></div
                 ><div data-instant-type="text" class="instant-rich-text ipN27ibXPsj1kKiSO"><p>✓ Hand-naar-Mond</p><p>✓ Die Prikkeling In Je Keel</p><p>✓ Het Moment Voor Jezelf</p><p>✓ De Ademhaling</p><p>✓ Natuurlijke Aroma&apos;s</p><p>✓ 0% Troep</p></div></div
               ></div
-            ></div
-          ></div
-        ></div
-      ></div
-    ><div class="izhTIjo9gpJpkiU2a" data-instant-type="container" id="izhTIjo9gpJpkiU2a"
-      ><div class="iARWZtq9XOEHaFzTL" data-instant-type="container"
-        ><div class="iENatMPdP85Wy4gYx" data-instant-type="container"
-          ><div class="ikCpGQPhhTgOyZHen" data-instant-type="container"
-            ><div data-instant-type="text" class="instant-rich-text i678dZxsKrUKdz5SN"><h3>Pak je de verslaving aan, </h3><h3>of ook de gewoonte?</h3></div
-            ><div data-instant-type="text" class="instant-rich-text iO2gQvBG21NeG9RBK"><p>Je gebruikte simpelweg de verkeerde oplossing voor het werkelijke probleem.</p></div></div
-          ><div class="iabDuoZFGjFRmRwRx" data-instant-type="container"
-            ><div class="iSElNBR9juNkn5StS" data-instant-type="container"
-              ><div class="iAMIvMop4RdNvJlvU" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iaRyVCpQU9pD6Z8Yk"><p>Scroll van Links naar Rechts</p></div></div
-              ><div class="iqqt0GELjlmeOPdre" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text i0t3tWyeYOiBv1qtf"><p>Kosten (3-Maanden)</p></div></div
-              ><div class="iZKmhhSIGZ1l9uLXh" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iJLzuP6CRfXcFZFG5"><p>Waar Gemaakt? </p></div></div
-              ><div class="iFn6LKnA7iTaIsTlb" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iyCVRAFAeWr2Tutcw"><p>Vervangt de Handeling?</p></div></div
-              ><div class="iMtwrtTkeBSzDU01z" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iFado7qNXb2NfTFK2"><p>Gezondheidsrisico&apos;s?</p></div></div
-              ><div class="ivPsZYuFcrfh1fgwh" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text i5VzEfXoym23eLkmP"><p>Kan overal gebruikt?</p></div></div
-              ><div class="i0QqWz0eVDprP1DOp" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iqqZAQ7NCDtAwLy7u"><p>Het Echte Gevoel</p></div></div
-              ><div class="i5h7liOm9FEgWdQng" data-instant-type="container"></div></div
-            ><div class="i7WrceBmVonlWL2HY" data-instant-type="container"
-              ><div class="iI8CkhFAjCuyq6jJR" data-instant-type="container"
-                ><div data-instant-type="image" class="iD1KQhS8Gjf9xxSG3"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tTWPLzL6oSMXqiOA/screenshot-2025-12-22-at-95227am-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tTWPLzL6oSMXqiOA/screenshot-2025-12-22-at-95227am-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tTWPLzL6oSMXqiOA/screenshot-2025-12-22-at-95227am-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tTWPLzL6oSMXqiOA/screenshot-2025-12-22-at-95227am-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tTWPLzL6oSMXqiOA/screenshot-2025-12-22-at-95227am-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tTWPLzL6oSMXqiOA/screenshot-2025-12-22-at-95227am-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tTWPLzL6oSMXqiOA/screenshot-2025-12-22-at-95227am-photoroom.png?width=1280" width="374" height="386" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main"></div><div data-instant-type="text" class="instant-rich-text iUmUyS3qbp7xDoJnF"><p>Pleisters</p></div></div
-              ><div class="iJxKxIillo9jrfpE5" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iRxIr1GwAqT4qDFtr"><p>€300+</p></div></div
-              ><div class="iE64gVSAv9gBwS6CT" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iSHQPAvveXFaFRklZ"
-                  ><p><strong>Internationaal</strong></p></div
-                ></div
-              ><div class="ixoiBfIn3BUaLbeOU" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text ieECipBsqYztF2kQL"
-                  ><p><em>Nee</em></p></div
-                ></div
-              ><div class="iCFypAdtJ4apF6aR4" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text ihko65izlP8XI5uyQ"
-                  ><p><em>Hoofdpijn, huidirritatie</em></p></div
-                ></div
-              ><div class="iDZzVyFIWl739n3U7" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text i5tCEvYKqCLa73Jpx"
-                  ><p><em>Ja</em></p></div
-                ></div
-              ><div class="ikE9vhX26DtX52tfB" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iSKwhv53izYR4caVb"
-                  ><p><em>"Ik Mis Iets"</em></p></div
-                ></div
-              ><div class="i6pXmUO4FOWKGgsAN" data-instant-type="container"></div></div
-            ><div class="iXSNzjCzFPlsQsTdj" data-instant-type="container"
-              ><div class="i9G3ApOMX9a8Ab76x" data-instant-type="container"
-                ><div data-instant-type="image" class="iqhkKAK6HK73XcPAA"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SeP1tQVEVjX1qKU9/geminigeneratedimage1gp7b81gp7b81gp7-1-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SeP1tQVEVjX1qKU9/geminigeneratedimage1gp7b81gp7b81gp7-1-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SeP1tQVEVjX1qKU9/geminigeneratedimage1gp7b81gp7b81gp7-1-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SeP1tQVEVjX1qKU9/geminigeneratedimage1gp7b81gp7b81gp7-1-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SeP1tQVEVjX1qKU9/geminigeneratedimage1gp7b81gp7b81gp7-1-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SeP1tQVEVjX1qKU9/geminigeneratedimage1gp7b81gp7b81gp7-1-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SeP1tQVEVjX1qKU9/geminigeneratedimage1gp7b81gp7b81gp7-1-1-photoroom.png?width=1280" width="1024" height="1024" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main"></div><div data-instant-type="text" class="instant-rich-text i2vS3PYCstEQX32D7"><p>Lio</p></div></div
-              ><div class="iOy1OX16fY53TqCFd" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iulgs0srM3mD6gdM6"><p>€49 (eenmalig)</p></div></div
-              ><div class="iT1BsckNxr3wNIWgh" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iWx8cOumfLkv2xroi"
-                  ><p><strong>Nederland</strong></p
-                  ><p><em>Eigen Fabriek</em></p></div
-                ></div
-              ><div class="i20ILl3sI1P56VIGf" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iyhaOfOP7selD0V87"
-                  ><p><strong>Jazeker!</strong></p></div
-                ></div
-              ><div class="iLPljuS1pkAvciAdc" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iwmp926GM77y6D5dG"
-                  ><p><strong>Nee! 100% Veilig</strong></p></div
-                ></div
-              ><div class="ifHwo9iOxRBS6dU0C" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iTiYepmYYxncD1ZwQ"><p>JA, vliegtuig, </p><p>kantoor, auto</p></div></div
-              ><div class="i0Jej3adfZ3LyIT7v" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iBG9AVbRt7ZpnxBxZ"
-                  ><p><strong>"Ik ben vrij"</strong></p></div
-                ></div
-              ><div class="i4NeVlI6UeAlqXQru" data-instant-type="container"></div></div
-            ><div class="iPyujvdJxsvTN1Jpm" data-instant-type="container"
-              ><div class="iTkRtJOqpBusWbvtl" data-instant-type="container"
-                ><div data-instant-type="image" class="i0ZjlzceoSS4wMtzf"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/w0MwLHd5qxSd6OT4/screenshot-2025-12-22-at-95522am-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/w0MwLHd5qxSd6OT4/screenshot-2025-12-22-at-95522am-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/w0MwLHd5qxSd6OT4/screenshot-2025-12-22-at-95522am-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/w0MwLHd5qxSd6OT4/screenshot-2025-12-22-at-95522am-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/w0MwLHd5qxSd6OT4/screenshot-2025-12-22-at-95522am-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/w0MwLHd5qxSd6OT4/screenshot-2025-12-22-at-95522am-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/w0MwLHd5qxSd6OT4/screenshot-2025-12-22-at-95522am-photoroom.png?width=1280" width="350" height="614" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main"></div><div data-instant-type="text" class="instant-rich-text iU82XDU45hFwjpKa8"><p>Vapen</p></div></div
-              ><div class="iwjuahAJ7wyFjaj6H" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text i0hpgGWJVI0tnexrZ"
-                  ><p><strong>€250</strong></p></div
-                ></div
-              ><div class="iZwuCgetv13zilg9e" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iWkPo3Mr8cfbbId5m"
-                  ><p><strong>China</strong></p
-                  ><p><em>Onbekende kwaliteit</em></p></div
-                ></div
-              ><div class="iBfBVzKqf33313ggy" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iSNYTQLlvGcRrbwuS"><p>Ja</p></div></div
-              ><div class="iYab7olQfgbWvvaXE" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text ic3Zx8RzGzGLk2qfD"
-                  ><p><em>Chemische </em></p><p><em>dampen</em></p></div
-                ></div
-              ><div class="iA0VuDQGSiposMg5y" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iQrHwkz6EljEUhc4A"
-                  ><p><strong>Nee</strong><em>, op veel </em></p><p><em>plekken verboden</em></p></div
-                ></div
-              ><div class="icAxNbYsr61EELJQ0" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text ienvafjutna6a58kl"
-                  ><p><em>"Ik ben nóg </em></p><p><em>verslaafd"</em></p></div
-                ></div
-              ><div class="iVkCPIqJ8dG8Pk0xT" data-instant-type="container"></div></div
-            ><div class="i9fCIrWG9FJkUXOC0" data-instant-type="container"
-              ><div class="iAaopxV471C83ci6v" data-instant-type="container"
-                ><div data-instant-type="image" class="iAPY6hoemSTXCyqsQ"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/m8moAonPwoCScrnD/screenshot-2025-12-22-at-95656am-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/m8moAonPwoCScrnD/screenshot-2025-12-22-at-95656am-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/m8moAonPwoCScrnD/screenshot-2025-12-22-at-95656am-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/m8moAonPwoCScrnD/screenshot-2025-12-22-at-95656am-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/m8moAonPwoCScrnD/screenshot-2025-12-22-at-95656am-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/m8moAonPwoCScrnD/screenshot-2025-12-22-at-95656am-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/m8moAonPwoCScrnD/screenshot-2025-12-22-at-95656am-photoroom.webp?width=1280" width="700" height="762" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main"></div><div data-instant-type="text" class="instant-rich-text iWhiMgkdHhcmeZbbk"><p>CHinese Imitaties </p><p>van Lio</p></div></div
-              ><div class="iKrvslWfxNWrM83Co" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iGSBIa9xLiNMWj1oT"
-                  ><p><strong>€30-50</strong></p
-                  ><p><em>Moet vervangen</em></p></div
-                ></div
-              ><div class="iCtU2cV9n5V16l60s" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text ijHkvqE8q01jgsY9m"
-                  ><p>C<strong>hina</strong></p
-                  ><p><em>Dropshipping</em></p></div
-                ></div
-              ><div class="iG40zn1VRiEdAstxW" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iUnvwHosBRCV4KXQN"><p>Ja</p></div></div
-              ><div class="iAsmb2zGzBOrFTmks" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iKlRF5vBuKRdrAU13"><p>Onbekende Chinese</p><p>Ingrediënten</p></div></div
-              ><div class="i9l8tHwznesJkCNpQ" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text i2v65VCdbXJQT8xNb"><p>Ja</p></div></div
-              ><div class="iWdvJfi5eCJX1rBzZ" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text ilbF3YFCDwDfZ01Ko"
-                  ><p><em>"Goedkope </em></p><p><em>Chinese troep"</em></p></div
-                ></div
-              ><div class="iQX7DfiCY9JbVnmCO" data-instant-type="container"></div></div
-            ><div class="iMCBGzWg5eZizffzo" data-instant-type="container"><div class="i0Adewd4SGM4J5GvT" data-instant-type="container"></div><div class="iYLHy2d8AjLDPWD0v" data-instant-type="container"></div><div class="igzdtV0m7M7FutiBH" data-instant-type="container"></div><div class="iwom85iJU0HKKdHLp" data-instant-type="container"></div><div class="iOHMvDj9s4QK2QK8P" data-instant-type="container"></div><div class="i7878wDZVDEtg5Sor" data-instant-type="container"></div><div class="iWHxHJKTDpNonIUQF" data-instant-type="container"></div></div></div></div></div></div
-    ><div class="ijHVhqs9pemlDbIBU" data-instant-type="container" id="ijHVhqs9pemlDbIBU"
-      ><div class="iSiETrPZf1cKNNamK" data-instant-type="container"
-        ><div class="iPQuLSqgO61XUzloI" data-instant-type="container"
-          ><div class="iBZJCMu0K7sN782ZR" data-instant-type="container"
-            ><div data-instant-type="image" class="irVLnQvfPFeX3eRkz"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SLUUteBDjSPrfarj/geminigeneratedimage9jf7rd9jf7rd9jf7.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SLUUteBDjSPrfarj/geminigeneratedimage9jf7rd9jf7rd9jf7.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SLUUteBDjSPrfarj/geminigeneratedimage9jf7rd9jf7rd9jf7.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SLUUteBDjSPrfarj/geminigeneratedimage9jf7rd9jf7rd9jf7.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SLUUteBDjSPrfarj/geminigeneratedimage9jf7rd9jf7rd9jf7.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SLUUteBDjSPrfarj/geminigeneratedimage9jf7rd9jf7rd9jf7.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SLUUteBDjSPrfarj/geminigeneratedimage9jf7rd9jf7rd9jf7.webp?width=1280" width="838" height="864" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main"></div></div
-          ><div class="ipYGnO0ReikihbvXm" data-instant-type="container"
-            ><div data-instant-type="text" class="instant-rich-text ipNiubn4pKJJ7RRej"><h3>Geproduceerd in Nederland, geen dropshipping.</h3></div
-            ><div data-instant-type="text" class="instant-rich-text iJpBJn4D3XUmOh6jz"><h3>Geen dropshipping. Geen Chinese massa-productie. Alleen Nederlands vakmanschap en volledige controle.</h3></div
-            ><div data-instant-type="text" class="instant-rich-text iXXiWin8rWqoDi05H"
-              ><p>Lio wordt vervaardigd in Nederland. Van de eerste schets tot het eindproduct, alles gebeurt onder ons eigen beheer. <strong>Waarom?</strong></p
-              ><p></p><p><strong>Omdat kwaliteit geen toevalstreffer mag zijn. </strong>Omdat elk detail ertoe doet. En omdat we willen dat je een product ontvangt waar we zelf volledig achter staan.</p></div
             ></div
           ></div
         ></div
@@ -1149,6 +1008,147 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
               <title>caret-left</title><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path>
             </svg></div></button></div></div
+    ><div class="izhTIjo9gpJpkiU2a" data-instant-type="container" id="izhTIjo9gpJpkiU2a"
+      ><div class="iARWZtq9XOEHaFzTL" data-instant-type="container"
+        ><div class="iENatMPdP85Wy4gYx" data-instant-type="container"
+          ><div class="ikCpGQPhhTgOyZHen" data-instant-type="container"
+            ><div data-instant-type="text" class="instant-rich-text i678dZxsKrUKdz5SN"><h3>Pak je de verslaving aan, </h3><h3>of ook de gewoonte?</h3></div
+            ><div data-instant-type="text" class="instant-rich-text iO2gQvBG21NeG9RBK"><p>Je gebruikte simpelweg de verkeerde oplossing voor het werkelijke probleem.</p></div></div
+          ><div class="iabDuoZFGjFRmRwRx" data-instant-type="container"
+            ><div class="iSElNBR9juNkn5StS" data-instant-type="container"
+              ><div class="iAMIvMop4RdNvJlvU" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iaRyVCpQU9pD6Z8Yk"><p>Scroll van Links naar Rechts</p></div></div
+              ><div class="iqqt0GELjlmeOPdre" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text i0t3tWyeYOiBv1qtf"><p>Kosten (3-Maanden)</p></div></div
+              ><div class="iZKmhhSIGZ1l9uLXh" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iJLzuP6CRfXcFZFG5"><p>Waar Gemaakt? </p></div></div
+              ><div class="iFn6LKnA7iTaIsTlb" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iyCVRAFAeWr2Tutcw"><p>Vervangt de Handeling?</p></div></div
+              ><div class="iMtwrtTkeBSzDU01z" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iFado7qNXb2NfTFK2"><p>Gezondheidsrisico&apos;s?</p></div></div
+              ><div class="ivPsZYuFcrfh1fgwh" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text i5VzEfXoym23eLkmP"><p>Kan overal gebruikt?</p></div></div
+              ><div class="i0QqWz0eVDprP1DOp" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iqqZAQ7NCDtAwLy7u"><p>Het Echte Gevoel</p></div></div
+              ><div class="i5h7liOm9FEgWdQng" data-instant-type="container"></div></div
+            ><div class="i7WrceBmVonlWL2HY" data-instant-type="container"
+              ><div class="iI8CkhFAjCuyq6jJR" data-instant-type="container"
+                ><div data-instant-type="image" class="iD1KQhS8Gjf9xxSG3"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tTWPLzL6oSMXqiOA/screenshot-2025-12-22-at-95227am-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tTWPLzL6oSMXqiOA/screenshot-2025-12-22-at-95227am-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tTWPLzL6oSMXqiOA/screenshot-2025-12-22-at-95227am-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tTWPLzL6oSMXqiOA/screenshot-2025-12-22-at-95227am-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tTWPLzL6oSMXqiOA/screenshot-2025-12-22-at-95227am-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tTWPLzL6oSMXqiOA/screenshot-2025-12-22-at-95227am-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tTWPLzL6oSMXqiOA/screenshot-2025-12-22-at-95227am-photoroom.png?width=1280" width="374" height="386" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main"></div><div data-instant-type="text" class="instant-rich-text iUmUyS3qbp7xDoJnF"><p>Pleisters</p></div></div
+              ><div class="iJxKxIillo9jrfpE5" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iRxIr1GwAqT4qDFtr"><p>€300+</p></div></div
+              ><div class="iE64gVSAv9gBwS6CT" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iSHQPAvveXFaFRklZ"
+                  ><p><strong>Internationaal</strong></p></div
+                ></div
+              ><div class="ixoiBfIn3BUaLbeOU" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text ieECipBsqYztF2kQL"
+                  ><p><em>Nee</em></p></div
+                ></div
+              ><div class="iCFypAdtJ4apF6aR4" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text ihko65izlP8XI5uyQ"
+                  ><p><em>Hoofdpijn, huidirritatie</em></p></div
+                ></div
+              ><div class="iDZzVyFIWl739n3U7" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text i5tCEvYKqCLa73Jpx"
+                  ><p><em>Ja</em></p></div
+                ></div
+              ><div class="ikE9vhX26DtX52tfB" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iSKwhv53izYR4caVb"
+                  ><p><em>"Ik Mis Iets"</em></p></div
+                ></div
+              ><div class="i6pXmUO4FOWKGgsAN" data-instant-type="container"></div></div
+            ><div class="iXSNzjCzFPlsQsTdj" data-instant-type="container"
+              ><div class="i9G3ApOMX9a8Ab76x" data-instant-type="container"
+                ><div data-instant-type="image" class="iqhkKAK6HK73XcPAA"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SeP1tQVEVjX1qKU9/geminigeneratedimage1gp7b81gp7b81gp7-1-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SeP1tQVEVjX1qKU9/geminigeneratedimage1gp7b81gp7b81gp7-1-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SeP1tQVEVjX1qKU9/geminigeneratedimage1gp7b81gp7b81gp7-1-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SeP1tQVEVjX1qKU9/geminigeneratedimage1gp7b81gp7b81gp7-1-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SeP1tQVEVjX1qKU9/geminigeneratedimage1gp7b81gp7b81gp7-1-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SeP1tQVEVjX1qKU9/geminigeneratedimage1gp7b81gp7b81gp7-1-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SeP1tQVEVjX1qKU9/geminigeneratedimage1gp7b81gp7b81gp7-1-1-photoroom.png?width=1280" width="1024" height="1024" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main"></div><div data-instant-type="text" class="instant-rich-text i2vS3PYCstEQX32D7"><p>Lio</p></div></div
+              ><div class="iOy1OX16fY53TqCFd" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iulgs0srM3mD6gdM6"><p>€49 (eenmalig)</p></div></div
+              ><div class="iT1BsckNxr3wNIWgh" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iWx8cOumfLkv2xroi"
+                  ><p><strong>Nederland</strong></p
+                  ><p><em>Eigen Fabriek</em></p></div
+                ></div
+              ><div class="i20ILl3sI1P56VIGf" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iyhaOfOP7selD0V87"
+                  ><p><strong>Jazeker!</strong></p></div
+                ></div
+              ><div class="iLPljuS1pkAvciAdc" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iwmp926GM77y6D5dG"
+                  ><p><strong>Nee! 100% Veilig</strong></p></div
+                ></div
+              ><div class="ifHwo9iOxRBS6dU0C" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iTiYepmYYxncD1ZwQ"><p>JA, vliegtuig, </p><p>kantoor, auto</p></div></div
+              ><div class="i0Jej3adfZ3LyIT7v" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iBG9AVbRt7ZpnxBxZ"
+                  ><p><strong>"Ik ben vrij"</strong></p></div
+                ></div
+              ><div class="i4NeVlI6UeAlqXQru" data-instant-type="container"></div></div
+            ><div class="iPyujvdJxsvTN1Jpm" data-instant-type="container"
+              ><div class="iTkRtJOqpBusWbvtl" data-instant-type="container"
+                ><div data-instant-type="image" class="i0ZjlzceoSS4wMtzf"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/w0MwLHd5qxSd6OT4/screenshot-2025-12-22-at-95522am-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/w0MwLHd5qxSd6OT4/screenshot-2025-12-22-at-95522am-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/w0MwLHd5qxSd6OT4/screenshot-2025-12-22-at-95522am-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/w0MwLHd5qxSd6OT4/screenshot-2025-12-22-at-95522am-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/w0MwLHd5qxSd6OT4/screenshot-2025-12-22-at-95522am-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/w0MwLHd5qxSd6OT4/screenshot-2025-12-22-at-95522am-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/w0MwLHd5qxSd6OT4/screenshot-2025-12-22-at-95522am-photoroom.png?width=1280" width="350" height="614" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main"></div><div data-instant-type="text" class="instant-rich-text iU82XDU45hFwjpKa8"><p>Vapen</p></div></div
+              ><div class="iwjuahAJ7wyFjaj6H" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text i0hpgGWJVI0tnexrZ"
+                  ><p><strong>€250</strong></p></div
+                ></div
+              ><div class="iZwuCgetv13zilg9e" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iWkPo3Mr8cfbbId5m"
+                  ><p><strong>China</strong></p
+                  ><p><em>Onbekende kwaliteit</em></p></div
+                ></div
+              ><div class="iBfBVzKqf33313ggy" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iSNYTQLlvGcRrbwuS"><p>Ja</p></div></div
+              ><div class="iYab7olQfgbWvvaXE" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text ic3Zx8RzGzGLk2qfD"
+                  ><p><em>Chemische </em></p><p><em>dampen</em></p></div
+                ></div
+              ><div class="iA0VuDQGSiposMg5y" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iQrHwkz6EljEUhc4A"
+                  ><p><strong>Nee</strong><em>, op veel </em></p><p><em>plekken verboden</em></p></div
+                ></div
+              ><div class="icAxNbYsr61EELJQ0" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text ienvafjutna6a58kl"
+                  ><p><em>"Ik ben nóg </em></p><p><em>verslaafd"</em></p></div
+                ></div
+              ><div class="iVkCPIqJ8dG8Pk0xT" data-instant-type="container"></div></div
+            ><div class="i9fCIrWG9FJkUXOC0" data-instant-type="container"
+              ><div class="iAaopxV471C83ci6v" data-instant-type="container"
+                ><div data-instant-type="image" class="iAPY6hoemSTXCyqsQ"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/m8moAonPwoCScrnD/screenshot-2025-12-22-at-95656am-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/m8moAonPwoCScrnD/screenshot-2025-12-22-at-95656am-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/m8moAonPwoCScrnD/screenshot-2025-12-22-at-95656am-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/m8moAonPwoCScrnD/screenshot-2025-12-22-at-95656am-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/m8moAonPwoCScrnD/screenshot-2025-12-22-at-95656am-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/m8moAonPwoCScrnD/screenshot-2025-12-22-at-95656am-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/m8moAonPwoCScrnD/screenshot-2025-12-22-at-95656am-photoroom.webp?width=1280" width="700" height="762" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main"></div><div data-instant-type="text" class="instant-rich-text iWhiMgkdHhcmeZbbk"><p>CHinese Imitaties </p><p>van Lio</p></div></div
+              ><div class="iKrvslWfxNWrM83Co" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iGSBIa9xLiNMWj1oT"
+                  ><p><strong>€30-50</strong></p
+                  ><p><em>Moet vervangen</em></p></div
+                ></div
+              ><div class="iCtU2cV9n5V16l60s" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text ijHkvqE8q01jgsY9m"
+                  ><p>C<strong>hina</strong></p
+                  ><p><em>Dropshipping</em></p></div
+                ></div
+              ><div class="iG40zn1VRiEdAstxW" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iUnvwHosBRCV4KXQN"><p>Ja</p></div></div
+              ><div class="iAsmb2zGzBOrFTmks" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iKlRF5vBuKRdrAU13"><p>Onbekende Chinese</p><p>Ingrediënten</p></div></div
+              ><div class="i9l8tHwznesJkCNpQ" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text i2v65VCdbXJQT8xNb"><p>Ja</p></div></div
+              ><div class="iWdvJfi5eCJX1rBzZ" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text ilbF3YFCDwDfZ01Ko"
+                  ><p><em>"Goedkope </em></p><p><em>Chinese troep"</em></p></div
+                ></div
+              ><div class="iQX7DfiCY9JbVnmCO" data-instant-type="container"></div></div
+            ><div class="iMCBGzWg5eZizffzo" data-instant-type="container"><div class="i0Adewd4SGM4J5GvT" data-instant-type="container"></div><div class="iYLHy2d8AjLDPWD0v" data-instant-type="container"></div><div class="igzdtV0m7M7FutiBH" data-instant-type="container"></div><div class="iwom85iJU0HKKdHLp" data-instant-type="container"></div><div class="iOHMvDj9s4QK2QK8P" data-instant-type="container"></div><div class="i7878wDZVDEtg5Sor" data-instant-type="container"></div><div class="iWHxHJKTDpNonIUQF" data-instant-type="container"></div></div></div></div></div></div
+    ><div class="ijHVhqs9pemlDbIBU" data-instant-type="container" id="ijHVhqs9pemlDbIBU"
+      ><div class="iSiETrPZf1cKNNamK" data-instant-type="container"
+        ><div class="iPQuLSqgO61XUzloI" data-instant-type="container"
+          ><div class="iBZJCMu0K7sN782ZR" data-instant-type="container"
+            ><div data-instant-type="image" class="irVLnQvfPFeX3eRkz"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SLUUteBDjSPrfarj/geminigeneratedimage9jf7rd9jf7rd9jf7.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SLUUteBDjSPrfarj/geminigeneratedimage9jf7rd9jf7rd9jf7.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SLUUteBDjSPrfarj/geminigeneratedimage9jf7rd9jf7rd9jf7.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SLUUteBDjSPrfarj/geminigeneratedimage9jf7rd9jf7rd9jf7.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SLUUteBDjSPrfarj/geminigeneratedimage9jf7rd9jf7rd9jf7.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SLUUteBDjSPrfarj/geminigeneratedimage9jf7rd9jf7rd9jf7.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SLUUteBDjSPrfarj/geminigeneratedimage9jf7rd9jf7rd9jf7.webp?width=1280" width="838" height="864" decoding="async" loading="lazy" fetchpriority="auto" class="instant-image instant-image__main"></div></div
+          ><div class="ipYGnO0ReikihbvXm" data-instant-type="container"
+            ><div data-instant-type="text" class="instant-rich-text ipNiubn4pKJJ7RRej"><h3>Geproduceerd in Nederland, geen dropshipping.</h3></div
+            ><div data-instant-type="text" class="instant-rich-text iJpBJn4D3XUmOh6jz"><h3>Geen dropshipping. Geen Chinese massa-productie. Alleen Nederlands vakmanschap en volledige controle.</h3></div
+            ><div data-instant-type="text" class="instant-rich-text iXXiWin8rWqoDi05H"
+              ><p>Lio wordt vervaardigd in Nederland. Van de eerste schets tot het eindproduct, alles gebeurt onder ons eigen beheer. <strong>Waarom?</strong></p
+              ><p></p><p><strong>Omdat kwaliteit geen toevalstreffer mag zijn. </strong>Omdat elk detail ertoe doet. En omdat we willen dat je een product ontvangt waar we zelf volledig achter staan.</p></div
+            ></div
+          ></div
+        ></div
+      ></div
     ><div class="i7DdUmjIHddg1TKoF" data-instant-type="container" id="i7DdUmjIHddg1TKoF"
       ><div class="iVp0VO8kDgWclPnDp" data-instant-type="container"
         ><div class="iga27DL7dAu7SrCB7" data-instant-type="container"
