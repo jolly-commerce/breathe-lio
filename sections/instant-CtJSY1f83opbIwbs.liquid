@@ -46,12 +46,12 @@
         <!--  -->
         {%- form 'product', product_hzzz9vud8rfGuRyv, conditionals: 'null', class: 'ihzzz9vud8rfGuRyv', data-instant-type: 'container', data-instant-initial-variant-id: '55399339786616', data-instant-form-product-url: product_hzzz9vud8rfGuRyv.url, data-instant-form-variant-id: product_hzzz9vud8rfGuRyv_variant.id, data-instant-form-product-id: '{{ product_hzzz9vud8rfGuRyv.id }}' -%}
           <!--  -->
-          <div data-instant-type="text" class="instant-rich-text iLtG9MUTX8G4aUASM"><h3>"Het is niet de nicotine die je mist. Het is het ritueel."</h3></div
+          <div data-instant-type="text" class="instant-rich-text iLtG9MUTX8G4aUASM"><h3>"Het is niet de nicotine die je mist, het is het ritueel."</h3></div
           ><div data-instant-type="text" class="instant-rich-text iB0JaMthJOO3cPExN"><h3>80% is de gewoonte, niet de nicotine. </h3><h3>2026 begint niet met lege handen,</h3><h3>maar met een nieuw ritueel.</h3></div
           ><a class="iehSUHZEz8CtizmuE" data-instant-type="container" href="#iBmd3TlGAGnPTorhj" data-instant-action-type="scroll-to-section" data-instant-action-id="Bmd3TlGAGnPTorhj"
             ><div data-instant-type="text" class="instant-rich-text iEtMfinfOUhFDkOOv"><p>Ontdek hoe het werkt</p></div></a
           ><div class="iFOOR8qXyIwyKpSUP" data-instant-type="container"
-            ><div data-instant-type="text" class="instant-rich-text i9OInZjcjfUsnsUSV"><p>🇳🇱 Geproduceerd in Nederland (Eigen Fabriek)</p><p>🚚 Gratis verzonden met PostNL (1-2 werkdagen)</p><p>🛡️ Betaal veilig met Ideal</p><p>⭐ 4.8/5 uit 2000+ Reviews</p></div></div
+            ><div data-instant-type="text" class="instant-rich-text i9OInZjcjfUsnsUSV"><p>🇳🇱 Geproduceerd in Nederland </p><p>🚚 Gratis verzonden met PostNL (1-2 werkdagen)</p><p>🛡️ Betaal veilig met Ideal</p><p>⭐ 4.8/5 uit 2000+ Reviews</p></div></div
           ><div data-instant-type="dynamic-checkout-button" class="iIYeJLzDGRnsxv1Xz" data-instant-styles="none">{{ form | payment_button }}</div><input type="hidden" name="id" value="{{ product_hzzz9vud8rfGuRyv_variant.id }}"><input name="selling_plan" type="hidden" value="{{ product_hzzz9vud8rfGuRyv_variant.selected_selling_plan_allocation.selling_plan.id }}">
           <!--  -->
         {%- endform -%}
@@ -83,7 +83,7 @@
               </svg></div></div
           ><div class="iOJeSnZsFb0vJ7P0g" data-instant-type="container"
             ><a as="p" data-instant-type="text" class="i3eqb85pSpGs9d2IS" href="#" rel="noopener noreferrer"
-              ><div class="instant-rich-text"><p>1359</p></div></a
+              ><div class="instant-rich-text"><p>2000+</p></div></a
             ><div data-instant-type="text" class="instant-rich-text iHB1aPunv9afydkVo"><p>geverifieerde 5-sterren reviews</p></div></div
           ></div
         ><div class="i4vkLBrIM5opMYtaN" data-instant-type="container"
@@ -917,7 +917,27 @@
                       assign variant_has_option = true
                     endif
 
-                    if variant_has_option == true
+                    if variant_has_option != true
+                      assign style = 'style="display: none;"'
+                    endif
+                  -%}
+                  <div class="iawoNENMxzCHGSkKC" data-instant-type="container" {{- style -}} data-instant-conditional="true"
+                    ><div data-instant-type="text" class="instant-rich-text icQHWNeSr6Bx1jIQQ"><p>€79</p></div
+                    ><div data-instant-type="text" class="instant-rich-text ixSmvZNEtIhG0fnCI"><p>€99.00</p></div></div
+                  >
+                  {%- liquid
+                    assign style = ''
+
+                    assign selected_option = product_MJKjOH1NbKqLZ7e3.options_with_values[0]
+                    assign selected_option_value = selected_option.values[0]
+
+                    assign variant_has_option = false
+
+                    if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option_value
+                      assign variant_has_option = true
+                    endif
+
+                    if variant_has_option != true
                       assign style = 'style="display: none;"'
                     endif
                   -%}
@@ -1007,7 +1027,7 @@
                   ><div data-instant-type="text" class="instant-rich-text intziC5cx1oWCYrpX"><p>€192</p></div></div
                 ></div
               ><div class="iDYqNGSI49nzxejqG" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text ieUYCKDuM3GRLDGcz"><p>Je betaald vandaag slechts</p></div
+                ><div data-instant-type="text" class="instant-rich-text ieUYCKDuM3GRLDGcz"><p>Je betaalt vandaag slechts</p></div
                 ><div class="iwvvC6mYorsT0uDVa" data-instant-type="container"
                   ><div data-instant-type="text" class="instant-rich-text ip75MLxtJvTCCIPxz"><p>€48</p></div></div
                 ></div
