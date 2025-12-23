@@ -741,18 +741,18 @@
                   	endif
 
                   	for variant in product_MJKjOH1NbKqLZ7e3.variants
-                  		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                  		if selected_option.position == 1 and variant.option1 == selected_option.values[1] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
                   			assign selected_variant = variant
-                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
+                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[1] and variant.option3 == selected_options[2]
                   			assign selected_variant = variant
-                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
+                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[1]
                   			assign selected_variant = variant
                   		endif
                   	endfor
-                  -%}{{- selected_option.values[0] | escape -}}
+                  -%}{{- selected_option.values[1] | escape -}}
                 "
                 data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
+                data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[1] -%}active{%- else -%}inactive{%- endif -%}"
                 data-instant-disabled="
                   {%- liquid
                   	assign is_not_available = false
