@@ -741,18 +741,18 @@
                   	endif
 
                   	for variant in product_MJKjOH1NbKqLZ7e3.variants
-                  		if selected_option.position == 1 and variant.option1 == selected_option.values[1] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                  		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
                   			assign selected_variant = variant
-                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[1] and variant.option3 == selected_options[2]
+                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
                   			assign selected_variant = variant
-                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[1]
+                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
                   			assign selected_variant = variant
                   		endif
                   	endfor
-                  -%}{{- selected_option.values[1] | escape -}}
+                  -%}{{- selected_option.values[0] | escape -}}
                 "
                 data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[1] -%}active{%- else -%}inactive{%- endif -%}"
+                data-instant-state="{%- if product_MJKjOH1NbKqLZ7e3_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
                 data-instant-disabled="
                   {%- liquid
                   	assign is_not_available = false
@@ -1062,6 +1062,24 @@
           ><div data-instant-type="icon" class="i1K1NphuLWOCxZz3m"><img class="instant-icon instant-icon__payment-method" alt="ideal" width="38" height="24" src="{{ "ideal" | payment_type_img_url }}"></div><div data-instant-type="icon" class="i5wgpWdPUQOto2Pr0"><img class="instant-icon instant-icon__payment-method" alt="paypal" width="38" height="24" src="{{ "paypal" | payment_type_img_url }}"></div><div data-instant-type="icon" class="inq2iKuqkPCXlPClm"><img class="instant-icon instant-icon__payment-method" alt="bancontact" width="38" height="24" src="{{ "bancontact" | payment_type_img_url }}"></div><div data-instant-type="icon" class="iX34jyYa2b5e7DyO7"><img class="instant-icon instant-icon__payment-method" alt="maestro" width="38" height="24" src="{{ "maestro" | payment_type_img_url }}"></div><div data-instant-type="icon" class="iKaa1aEO9JuAEoUVl"><img class="instant-icon instant-icon__payment-method" alt="master" width="38" height="24" src="{{ "master" | payment_type_img_url }}"></div></div></div></div
     ><div class="ieEYnI8DRRXMrDvej instant-scroll-trigger instant-scroll-trigger--hidden instant-reveal--transform" data-instant-scroll-into-view-replay="true" data-instant-scroll-into-view-offset="1000" data-instant-type="container" id="ieEYnI8DRRXMrDvej"
       ><div class="iMDb4ZANCDZGXzXbN" data-instant-type="container"
+        ><div class="isZ6fwNZAOUBPhyZp" data-instant-type="container"
+          ><div class="iyCu8GKkWh64Pcp4O" data-instant-type="container"
+            ><div class="irGDvpZpZIwKXlcwT" data-instant-countdown-date="Dec 31 2025 00:00" data-instant-countdown-time-zone="Europe/Amsterdam" data-instant-countdown-leading-zeros="true" data-instant-type="countdown"
+              ><div class="ii4kvHljFIYr3FVbm" data-instant-type="container"
+                ><p data-instant-dynamic-content-source="COUNTDOWN_DAYS" data-instant-type="text" conditionals="" class="iMmqeYebkOBxzw9JB"><span>&nbsp;</span></p
+                ><div data-instant-type="text" class="instant-rich-text iu8KlI4s0UVJx7Ieo"><p>Dagen</p></div></div
+              ><div class="iuHEDAMTDG0mLExQw" data-instant-type="container"
+                ><p data-instant-dynamic-content-source="COUNTDOWN_HOURS" data-instant-type="text" conditionals="" class="i9qo9VOrxXxBQVnzo"><span>&nbsp;</span></p
+                ><div data-instant-type="text" class="instant-rich-text iPzc7z7FoBaPyb4zZ"><p>UUR</p></div></div
+              ><div class="iiZ6uUSonJnZBQ74Q" data-instant-type="container"
+                ><p data-instant-dynamic-content-source="COUNTDOWN_MINUTES" data-instant-type="text" conditionals="" class="iauZprNPPDn0gDU0A"><span>&nbsp;</span></p
+                ><div data-instant-type="text" class="instant-rich-text ig621AwNsbj08DWD6"><p>Min</p></div></div
+              ><div class="iA0COnIRmLMLxGXhG" data-instant-type="container"
+                ><p data-instant-dynamic-content-source="COUNTDOWN_SECONDS" data-instant-type="text" conditionals="" class="inxXGknKqUYtfc9Bv"><span>&nbsp;</span></p
+                ><div data-instant-type="text" class="instant-rich-text i1OWtFGKURp548RWI"><p>Sec</p></div></div
+              ></div
+            ></div
+          ></div
         ><div class="ikR43GHS1JXl13aIo" data-instant-type="container"
           ><div class="iMgzMkhRqlGjUTCZC" data-instant-type="container"
             ><div data-instant-type="text" class="instant-rich-text iUPT0Bsww3hWQBU7b"><p>2026 Goede </p><p>Voornemens Pakket</p></div
