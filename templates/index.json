@@ -199,12 +199,6 @@
             "show_taxes_notice": false
           }
         },
-        "rating_DmeNn9": {
-          "type": "rating",
-          "settings": {
-            "show_empty": false
-          }
-        },
         "section_store_block_product_info_wrapper_b8EpYz": {
           "type": "shopify://apps/section-store/blocks/block-product-info-wrapper/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
@@ -344,7 +338,6 @@
         "section_store_block_benefits_list_fTJ4nF",
         "section_store_block_shipping_info_nRDKX8",
         "price_ixxbpG",
-        "rating_DmeNn9",
         "section_store_block_product_info_wrapper_b8EpYz",
         "description_DRn9C4",
         "variant_picker_6jmBW6",
