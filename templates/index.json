@@ -35,6 +35,59 @@
       "name": "new-homepage-banner",
       "settings": {}
     },
+    "icon_text_1_kVM4dK": {
+      "type": "icon-text-1",
+      "blocks": {
+        "usp_Mn4pWh": {
+          "type": "usp",
+          "settings": {
+            "title": "No nicotine",
+            "icon": "shopify://shop_images/1.svg"
+          }
+        },
+        "usp_MfDXKV": {
+          "type": "usp",
+          "settings": {
+            "title": "Plant-based",
+            "icon": "shopify://shop_images/2.svg"
+          }
+        },
+        "usp_qQeffE": {
+          "type": "usp",
+          "settings": {
+            "title": "No vapor",
+            "icon": "shopify://shop_images/3.svg"
+          }
+        },
+        "usp_XMczdi": {
+          "type": "usp",
+          "settings": {
+            "title": "Chemical-free",
+            "icon": "shopify://shop_images/4.svg"
+          }
+        },
+        "usp_HcKPU3": {
+          "type": "usp",
+          "settings": {
+            "title": "No toxins",
+            "icon": "shopify://shop_images/5.svg"
+          }
+        }
+      },
+      "block_order": [
+        "usp_Mn4pWh",
+        "usp_MfDXKV",
+        "usp_qQeffE",
+        "usp_XMczdi",
+        "usp_HcKPU3"
+      ],
+      "custom_css": [],
+      "name": "icon-text-1",
+      "settings": {
+        "heading": "No nicotine. No vapor. No smoke.",
+        "highlighted-heading": "Just natural air."
+      }
+    },
     "featured_product_YqCfNV": {
       "type": "featured-product",
       "blocks": {
@@ -303,7 +356,7 @@
       "name": "Featured product",
       "settings": {
         "full_width": true,
-        "product": "new-lio-journey-pack",
+        "product": "lio®-journey-pack-1",
         "desktop_media_width": 55,
         "desktop_media_layout": "carousel_thumbnails_left",
         "mobile_media_size": "expanded",
@@ -317,59 +370,6 @@
         "text_color": "",
         "input_background": "rgba(0,0,0,0)",
         "input_text_color": ""
-      }
-    },
-    "icon_text_1_kVM4dK": {
-      "type": "icon-text-1",
-      "blocks": {
-        "usp_Mn4pWh": {
-          "type": "usp",
-          "settings": {
-            "title": "No nicotine",
-            "icon": "shopify://shop_images/1.svg"
-          }
-        },
-        "usp_MfDXKV": {
-          "type": "usp",
-          "settings": {
-            "title": "Plant-based",
-            "icon": "shopify://shop_images/2.svg"
-          }
-        },
-        "usp_qQeffE": {
-          "type": "usp",
-          "settings": {
-            "title": "No vapor",
-            "icon": "shopify://shop_images/3.svg"
-          }
-        },
-        "usp_XMczdi": {
-          "type": "usp",
-          "settings": {
-            "title": "Chemical-free",
-            "icon": "shopify://shop_images/4.svg"
-          }
-        },
-        "usp_HcKPU3": {
-          "type": "usp",
-          "settings": {
-            "title": "No toxins",
-            "icon": "shopify://shop_images/5.svg"
-          }
-        }
-      },
-      "block_order": [
-        "usp_Mn4pWh",
-        "usp_MfDXKV",
-        "usp_qQeffE",
-        "usp_XMczdi",
-        "usp_HcKPU3"
-      ],
-      "custom_css": [],
-      "name": "icon-text-1",
-      "settings": {
-        "heading": "No nicotine. No vapor. No smoke.",
-        "highlighted-heading": "Just natural air."
       }
     },
     "infinite_section_W8PBf7": {
@@ -899,8 +899,8 @@
   },
   "order": [
     "new_homepage_banner_gFaJDm",
-    "featured_product_YqCfNV",
     "icon_text_1_kVM4dK",
+    "featured_product_YqCfNV",
     "infinite_section_W8PBf7",
     "our_promise_fTTciD",
     "featured_product_q6YpDh",
