@@ -18,7 +18,7 @@
     "block_shadow_horizontal_offset": -14,
     "block_shadow_vertical_offset": 18,
     "button_style": "fill",
-    "background": "#f5fff7",
+    "background": "#f2fffb",
     "text_color": "#002a15",
     "warning_color": "#eded5e",
     "header_background": "#f5fff7",
@@ -100,16 +100,6 @@
       "14952540001915115444": {
         "type": "shopify://apps/upcart-cart-drawer/blocks/app-embed/af3da5fb-f5f7-40ec-8273-41bf50059d4b",
         "disabled": false,
-        "settings": {}
-      },
-      "12429728106950981667": {
-        "type": "shopify://apps/blocky-fraud-blocker/blocks/app-embed/aa25b3bf-c2c5-4359-aa61-7836c225c5a9",
-        "disabled": true,
-        "settings": {}
-      },
-      "17533959386656333658": {
-        "type": "shopify://apps/easyban-country-blocker/blocks/easyban-blocker/6583aec2-8e90-464e-9601-efb6039a18f8",
-        "disabled": true,
         "settings": {}
       }
     }
