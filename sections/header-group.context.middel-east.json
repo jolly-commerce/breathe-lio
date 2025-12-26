@@ -12,11 +12,5 @@
   "context": {
     "market": "middel-east"
   },
-  "sections": {
-    "header": {
-      "disabled": false,
-      "settings": {},
-      "blocks": {}
-    }
-  }
+  "sections": {}
 }
