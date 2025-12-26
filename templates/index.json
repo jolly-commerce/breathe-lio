@@ -9,7 +9,7 @@
  */
 {
   "sections": {
-    "instant_ef_uk_slwx_u_zj9uba_y_RAnjEL": {
+    "instant_ef_uk_slwx_u_zj9uba_y_zE7NgF": {
       "type": "instant-EfUKSlwxUZj9ubaY",
       "name": "The Original Homepage",
       "settings": {
@@ -19,7 +19,8 @@
         "text_kv1jvyZTcJwYF613": "<p>START MY JOURNEY</p>",
         "url_6GRbeSqGAdYreWg6": "",
         "text_p72ECbY7Efi3iQ7v": "<p>ORDER CORES</p>",
-        "text_h60xY6BoEAYd7cTD": "<p>FREE SHIPPING FROM <strong>€20</strong></p>",
+        "text_s3FblBfU9YDtAE2K": "<p>FREE SHIPPING FROM <strong>€20</strong></p>",
+        "text_h60xY6BoEAYd7cTD": "<p>1-3 DAYS DELIVERY</p>",
         "text_vQcPflmKig1OOHpN": "<p>30 DAY MONEY BACK GUARANTEE</p>",
         "text_tqGReFRMMU7XHLg1": "<p>PRODUCED IN THE NETHERLANDS</p>",
         "text_OE822lSuCwB5UC2q": "<p>100.000+ HAPPY CUSTOMERS</p>",
@@ -54,17 +55,17 @@
       "name": "new-homepage-banner",
       "settings": {}
     },
-    "instant_pox5w_zfcs_a33_jh_tx_6RUQxj": {
+    "instant_pox5w_zfcs_a33_jh_tx_GngMhr": {
       "type": "instant-Pox5wZfcsA33JhTx",
       "name": "The Original Flavored Air",
       "settings": {
         "text_wVEiahtNVW32vmxf": "<h3><strong>FLAVORED AIR DEVICE</strong></h3>",
-        "text_3BPcIzugOVmRnvyJ": "<h3><strong>Guilt free. Zero nicotine, vapor or batteries.</strong></h3>",
+        "text_3BPcIzugOVmRnvyJ": "<h3><strong>The original 0% nicotine habit replacement that actually works.</strong></h3>",
         "text_8ARCR4ZssVT9o5AO": "<h3><strong>THE original</strong></h3>",
         "text_uT6xR734Z05dxm7s": "<h3><strong>100% Natural</strong></h3><h3><strong>ingredients</strong></h3>",
         "text_AV9emO6yQRcZOds3": "<h3><strong>EVERY PIECE</strong></h3><h3><strong>IS UNIQUE</strong></h3>",
         "text_Vuzsejzq5MN6hNdc": "<h3><strong>MIMICS  THat</strong></h3><h3><strong>FAMILIAR HABIT</strong></h3>",
-        "text_g4Q9MQxPmXY3yuxI": "<h3><strong>Use it anywhere</strong></h3><h3><strong>you'd like</strong></h3>",
+        "text_g4Q9MQxPmXY3yuxI": "<h3><strong>Use it anywhere</strong></h3><h3><strong>you&apos;d like</strong></h3>",
         "text_j0iInatEZPPEa9jG": "<h3><strong>No Batteries, </strong></h3><h3><strong>no smoke.</strong></h3>",
         "text_1v6mJ8HpKjEhorrc": "<h3><strong>100% Natural</strong></h3><h3><strong>ingredients</strong></h3>",
         "text_90mo1YAXTTtQPzWm": "<h3><strong>EVERY PIECE</strong></h3><h3><strong>IS UNIQUE</strong></h3>",
@@ -74,9 +75,11 @@
         "text_upITZvi1UrKBEu6v": "<h3><strong>100% Natural</strong></h3><h3><strong>ingredients</strong></h3>",
         "text_pODJ3nLTPSDKJrSs": "<h3><strong>EVERY PIECE</strong></h3><h3><strong>IS UNIQUE</strong></h3>",
         "text_2X2CYfLn2WXcGIRe": "<h3><strong>MIMICS  THat</strong></h3><h3><strong>FAMILIAR HABIT</strong></h3>",
-        "text_3nSq9Aq2JfonDYpU": "<h3><strong>Use it anywhere</strong></h3><h3><strong>you'd like</strong></h3>",
+        "text_3nSq9Aq2JfonDYpU": "<h3><strong>Use it anywhere</strong></h3><h3><strong>you&apos;d like</strong></h3>",
+        "url_kk6NlLZqPlsq3wM5": "",
+        "text_8OK6RCwG8kfXHzXs": "<p>SHOP NOW</p>",
         "url_yx1FCgKLmJv7QvDb": "",
-        "text_P5d6sy7T7dfqnUfW": "<p>SHOP JOURNEY PACK </p>",
+        "text_P5d6sy7T7dfqnUfW": "<p>HOW LIO WORKS</p>",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -1067,9 +1070,9 @@
     }
   },
   "order": [
-    "instant_ef_uk_slwx_u_zj9uba_y_RAnjEL",
+    "instant_ef_uk_slwx_u_zj9uba_y_zE7NgF",
     "new_homepage_banner_gFaJDm",
-    "instant_pox5w_zfcs_a33_jh_tx_6RUQxj",
+    "instant_pox5w_zfcs_a33_jh_tx_GngMhr",
     "icon_text_1_kVM4dK",
     "featured_product_YqCfNV",
     "infinite_section_W8PBf7",
