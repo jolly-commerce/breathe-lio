@@ -15,8 +15,16 @@
   "sections": {
     "instant_7_dgm_r5gj_yq_v_uw9_xm_V6jx6": {
       "type": "instant-7DgmR5gjYqVUw9Xm",
-      "disabled": true,
+      "disabled": false,
       "settings": {
+        "image_XkaZrufDuQaIk638": null,
+        "image_XkaZrufDuQaIk638_mobile": null,
+        "image_wgv4KOdXhEQBaQ7I": null,
+        "image_wgv4KOdXhEQBaQ7I_mobile": null,
+        "image_7IW74dbkdq2Hprci": null,
+        "image_7IW74dbkdq2Hprci_mobile": null,
+        "image_Gz8bws3A08cTDvt9": null,
+        "image_Gz8bws3A08cTDvt9_mobile": null,
         "video_UhsYE2PVimsAYAhQ": null,
         "text_B4UM2zmp9a4ra6nE": "<p>\"Het is voor mij dé uitkomst om van dat neurotische gedrag af te komen op een gezonde manier.\"</p>",
         "text_mZLa9u7CDTcuw78d": "<p>Anne (61) </p>",
@@ -41,7 +49,7 @@
         "video_q3ncXzdLFSJIH1Gy": null,
         "text_5KcBTIRS45559Smx": "<p>De Lio doet wonderen... mijn cravings zijn veel minder en ik heb de gewoonte aangeleerd om diep adem te halen.</p>",
         "text_IOCSVjazRKRaKq15": "<p>Marit (27) </p>",
-        "header-dce406f4d2ba20dbba75bef6917338cd": null,
+        "header-c08903103de9afe11a7405d40238bc56": null,
         "padding_top": 0,
         "padding_bottom": 0
       },
