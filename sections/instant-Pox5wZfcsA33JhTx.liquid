@@ -244,7 +244,12 @@
         ><div data-instant-type="text" class="instant-rich-text i8OK6RCwG8kfXHzXs"
           ><div>{{ section.settings.text_8OK6RCwG8kfXHzXs }}</div></div
         ></a
-      ><a class="iyx1FCgKLmJv7QvDb" data-instant-type="container" href="{{ section.settings.url_yx1FCgKLmJv7QvDb | default: '' }}" rel="noopener noreferrer"
+      >
+      {%- liquid
+        assign url_yx1FCgKLmJv7QvDb_handle = 'behaviorand'
+        assign url_yx1FCgKLmJv7QvDb = pages[url_yx1FCgKLmJv7QvDb_handle].url
+      -%}
+      <a class="iyx1FCgKLmJv7QvDb" data-instant-type="container" href="{{ section.settings.url_yx1FCgKLmJv7QvDb | default: url_yx1FCgKLmJv7QvDb }}" rel="noopener noreferrer"
         ><div data-instant-type="text" class="instant-rich-text iP5d6sy7T7dfqnUfW"
           ><div>{{ section.settings.text_P5d6sy7T7dfqnUfW }}</div></div
         ></a
@@ -536,6 +541,7 @@
         "text_3nSq9Aq2JfonDYpU": "<h3><strong>Use it anywhere</strong></h3><h3><strong>you&apos;d like</strong></h3>",
         "url_kk6NlLZqPlsq3wM5": "shopify://products/lio®-starterpack-2",
         "text_8OK6RCwG8kfXHzXs": "<p>SHOP NOW</p>",
+        "url_yx1FCgKLmJv7QvDb": "shopify://pages/behaviorand",
         "text_P5d6sy7T7dfqnUfW": "<p>HOW LIO WORKS</p>"
       }
     }
