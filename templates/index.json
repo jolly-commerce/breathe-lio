@@ -733,6 +733,7 @@
     },
     "benefits_section_KkixCJ": {
       "type": "benefits-section",
+      "disabled": true,
       "name": "benefits-section",
       "settings": {
         "heading": "The 6 reasons",
@@ -882,6 +883,7 @@
         "question_htK8yE",
         "question_zE9BfB"
       ],
+      "disabled": true,
       "name": "Ecom FAQ",
       "settings": {
         "title": "You asked we",
@@ -889,6 +891,72 @@
         "show_categories": true,
         "category_1_name": "Product",
         "category_2_name": "General"
+      }
+    },
+    "tabs_abdb7r": {
+      "type": "tabs",
+      "blocks": {
+        "tab_x9Nxzp": {
+          "type": "tab",
+          "settings": {
+            "title": "What does 'Flavoured Air' taste like?",
+            "content": "<p>Imagine the difference between biting into a fresh sprig of mint versus chewing sugary gum. Your bad habit coats your mouth with heavy, chemical sweeteners (like \"sticky soda\"). </p><p>Lio delivers a crisp, natural aromatic sensation. It is not an overpowering sugar-bomb; it is a refreshing, sensory \"shock\" designed to distract your brain from cravings without the guilt.</p>",
+            "page": ""
+          }
+        },
+        "tab_BAgGD7": {
+          "type": "tab",
+          "settings": {
+            "title": "How does Lio actually work?",
+            "content": "<p>Breaking a repetitive habit is hard because your hands and brain miss the ritual. Lio works by satisfying that \"loop\" in three ways:</p><ol><li><strong>The Resistance:</strong> Precision airflow mimics the physical drag sensation you are used to, engaging your deep breathing.</li><li><strong>The Ritual:</strong> The device keeps your hands busy and satisfies the oral fixation.</li><li><strong>The Sensory Shift:</strong> Natural aromatherapy distracts the brain and provides a moment of calm.</li></ol>",
+            "page": ""
+          }
+        },
+        "tab_rgGNhY": {
+          "type": "tab",
+          "settings": {
+            "title": "Is Lio safe to use?",
+            "content": "<p>Lio is built on a philosophy of \"Safety by Subtraction.\" We removed the electronics, the heating elements, harmful ingredients, and the batteries. You are simply inhaling ambient air passed through natural food-grade essential oils.</p><p><br/><em>Note:</em> All our products are produced under strict management in the Netherlands and Europe to ensure the highest quality standards.</p>",
+            "page": ""
+          }
+        },
+        "tab_QNHrUf": {
+          "type": "tab",
+          "settings": {
+            "title": "How often can I use it?",
+            "content": "<p>As often as you need a break. Because Lio contains <strong>zero calories and zero stimulants</strong>, there is no limit. You can use it throughout the day to find focus or calm tension without worrying about \"overdoing it\".</p>",
+            "page": ""
+          }
+        },
+        "tab_AJbEiq": {
+          "type": "tab",
+          "settings": {
+            "title": "How long does a Flavor Core last?",
+            "content": "<p>Each core is designed for 2–4 days of frequent use.</p><p><br/><em>Pro Tip:</em> With the <strong>Lio Gen 2</strong>, you can extend the life of your core by twisting the airflow dial completely closed when you aren't using it to lock in the aroma.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_x9Nxzp",
+        "tab_BAgGD7",
+        "tab_rgGNhY",
+        "tab_QNHrUf",
+        "tab_AJbEiq"
+      ],
+      "name": "Tabs",
+      "settings": {
+        "full_width": true,
+        "content_size": "medium",
+        "subheading": "Do you have any questions?",
+        "title": "We have answers.",
+        "text_alignment": "center",
+        "first_tab_open": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
       }
     }
   },
@@ -901,6 +969,7 @@
     "featured_product_q6YpDh",
     "benefits_section_KkixCJ",
     "1763697576b75fd508",
-    "ecom_faq_3gRGkD"
+    "ecom_faq_3gRGkD",
+    "tabs_abdb7r"
   ]
 }
