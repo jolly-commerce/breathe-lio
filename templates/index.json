@@ -899,7 +899,7 @@
         "tab_x9Nxzp": {
           "type": "tab",
           "settings": {
-            "title": "What does 'Flavoured Air' taste like?",
+            "title": "What does 'Flavored Air' taste like?",
             "content": "<p>Imagine the difference between biting into a fresh sprig of mint versus chewing sugary gum. Your bad habit coats your mouth with heavy, chemical sweeteners (like \"sticky soda\"). </p><p>Lio delivers a crisp, natural aromatic sensation. It is not an overpowering sugar-bomb; it is a refreshing, sensory \"shock\" designed to distract your brain from cravings without the guilt.</p>",
             "page": ""
           }
@@ -944,6 +944,7 @@
         "tab_QNHrUf",
         "tab_AJbEiq"
       ],
+      "disabled": true,
       "name": "Tabs",
       "settings": {
         "full_width": true,
@@ -958,6 +959,64 @@
         "heading_color": "",
         "heading_gradient": ""
       }
+    },
+    "instant_d7j_ypy_anh_os4_c2_xb_8BeXap": {
+      "type": "instant-d7jYpyAnhOs4C2Xb",
+      "name": "FAQ UAE",
+      "settings": {
+        "text_PSxKaNdpsHysdL8S": "<p><strong>We know what </strong></p><p><strong>you're thinking...</strong></p>",
+        "text_eB4vqh5a4hMm5oAN": "<p><strong>Click & Get the Answers</strong></p>",
+        "text_LHH7PY8pdhp3WVE8": "<h3>1. How does Lio work without nicotine? </h3>",
+        "text_wbBlapKYC0hzuzLH": "<h3>2. Will this actually satisfy my cravings? </h3>",
+        "text_CqDcNkNuMxUsK0MS": "<h3>3. I'm a heavy user, will this work for me?</h3>",
+        "text_IyBfeoSPxGFBBy9G": "<h3>4. How is this different from other methodes?</h3>",
+        "text_6IlWi831DVLP8rVE": "<h3>5. Is this just another wellness gimmick?</h3>",
+        "text_hfpp5ptsoQuGZp7W": "<h3>6. What if I get addicted to this instead?</h3>",
+        "text_VVEedM8gdbw3Et4N": "<h3>7. Is Lio safe? What are the ingredients?</h3>",
+        "text_RGqZ5WIMu0Bchpbu": "<h3>8. What if it doesn't work for me?</h3>",
+        "text_5MW5UGT3V6bVu76L": "<h3>9. How long does shipping take?</h3>",
+        "text_xAUF9H2XbUNmN1ZO": "<h3>10. How long does it last?</h3>",
+        "text_IqBNqpukyr4XtSL5": "<h3>11. It's too simple, how can this solve my addiction?</h3>",
+        "text_WmTRt8uS7aPuqDy1": "<h3>12. Why is this so expensive? </h3>",
+        "text_A3hugPc6XGmqVuOg": "<h3>How does Lio work </h3><h3>without nicotine?</h3>",
+        "text_QyvcYmzKvEoSHKmq": "<h3>Here's what nobody tells you: You're not addicted to nicotine. You're addicted to the RITUAL. <strong>The hand-to-mouth motion</strong>. The breathing pattern. The throat sensation. Nicotine leaves your system in 72 hours, but the ritual? That's what keeps you trapped for YEARS. Lio gives your brain the exact same ritual satisfaction while your body naturally detoxes.</h3>",
+        "text_2LiDwNcqgNFd9gbd": "<p>Close</p>",
+        "text_KmDHCSecsrSIGq1B": "<h3>What if I get addicted to this instread?</h3>",
+        "text_UObeJQW26H8AFCD0": "<h3><strong>Impossible</strong>. Lio contains zero addictive substances - no nicotine, no chemicals, just natural wood and food-grade flavors. Users naturally reduce usage over 2-4 weeks as new habits form. It's designed as a bridge to complete freedom, not a new dependency. Think of it like training wheels, you don't stay on them forever.</h3>",
+        "text_g61NygumrUCPPCpE": "<p>Close</p>",
+        "text_MF7fvzBrTf4ImkF8": "<h3>Is Lio safe? What are the ingredients?</h3>",
+        "text_BTlLOkY7U3Mlwgca": "<h3>Absolutely safe. Premium olive wood with natural essential oils. That's it.</h3><h3>Third-party lab tested. Zero nicotine, zero chemicals, zero batteries, zero combustion. You could literally eat the ingredients and be fine. Compare that to the 7,000+ chemicals in cigarettes or the unknown long-term effects of vaping. This is literally the safest thing you could put in your mouth.</h3><h3></h3><h3>Made from food-grade ingredients that have been used safely for centuries. No synthetic additives, no artificial flavors, no hidden substances. Use it anywhere, planes, offices, restaurants. No restrictions because there's nothing harmful to restrict.</h3><h3>Your health stays protected while your cravings get satisfied.</h3>",
+        "text_um20sqBI178T64MB": "<p>Close</p>",
+        "text_gHCUtX2NZsXReNRd": "<h3>What if it doesn't work for me?</h3>",
+        "text_tMpAtqCuWBiR65Ui": "<h3>Here's the deal:<strong> You need to give it 30 full days</strong>. Your brain will play tricks on you in the first week saying \"this isn't working.\"</h3><h3>That's normal. Your brain is used to getting nicotine hits. It takes time to accept that the ritual satisfaction alone is enough.</h3><h3></h3><h3>After 30 days of consistent use, if you're genuinely not satisfied with your progress, you have 7 days to request a full refund. No questions asked.</h3><h3></h3><h3>We require the 30 days because that's how long it takes to break the mental patterns.</h3><h3></h3><h3>People who quit after 3 days miss the breakthrough that happens in week 2-3.</h3><h3></h3><h3>The guarantee protects you, but the 30-day commitment protects your success. Most people who fail quit too early, right before it would have worked. <strong>Give yourself the full month. Your future self will thank you.</strong></h3>",
+        "text_Y64e8ukbC0vViHqj": "<p>Close</p>",
+        "text_p0HDKesjNFymdvdk": "<h3>How long does shipping take?</h3>",
+        "text_yLMLZnyDlbBVdGMi": "<h3><strong>We ship from UAE, so delivery is fast and local</strong>. Free shipping to your door. Most orders arrive within 1-2 business days across the Emirates.</h3><h3></h3><h3>We're actually working on 10-minute deliveries (not kidding), but we're not there yet. Soon though.</h3><h3></h3><h3><strong>If after 30 days it doesn't work for you, we'll organize pickup and return.</strong> You don't lift a finger, we handle everything and give you a full refund.</h3><h3></h3><h3>No shipping fees. No return fees. No hassle.</h3><h3>Order today, try it this week, decide next month. Everything is handled for you.</h3>",
+        "text_5XHVvdxlHH2jWI9T": "<p>Close</p>",
+        "text_PmStlPqPlZHwpNPt": "<h3>How long does it last?</h3>",
+        "text_fyVRYK31py8QNwQa": "<h3><strong>The device itself lasts years</strong>. Premium wood doesn't break down like plastic vapes or need battery replacements.</h3><h3></h3><h3><strong>Each flavor core lasts 1-3 days with regular use</strong>. Think of it like a tea bag, you inhale the natural oils until the flavor fades, then swap in a fresh core.</h3><h3></h3><h3><strong>Your Journey Pack includes 18 cores, giving you 60 days of use.</strong> After that, you just order refill cores, they're much cheaper than your current habit.</h3><h3></h3><h3>The wood device is built to last. The cores are consumed and replaced. Your freedom is permanent.</h3>",
+        "text_rPGzYBvdj3PGIp5b": "<p>Close</p>",
+        "text_SX5Ymp9rByxdtsN2": "<h3>Will this actually</h3><h3>satisfy my cravings?</h3>",
+        "text_7RqSN3hQJtCO7ayN": "<h3>The menthol cores provide the throat hit you're used to, while the inhalation mimics your exact breathing patterns. You still hold it, inhale, and exhale just like before. Your brain gets the sensory satisfaction it craves, but without harmful chemicals entering your body.</h3>",
+        "text_DbeJGwqqBU2VQuwN": "<p>Close</p>",
+        "text_sepP8e5XgNPB6FkH": "<h3>Why is this so expensive?</h3>",
+        "text_iC9PJxaWEILoZifu": "<h3><strong>Expensive compared to what?</strong></h3><h3></h3><h3>Your cigarettes: €8-12 daily </h3><h3>Your vaping: €50-80 monthly </h3><h3><strong>Lio: €49 once</strong></h3><h3></h3><h3>You spend more on your addiction in 3 days than Lio costs for 2+ months.</h3><h3></h3><h3><strong>You're not buying wood for €49.</strong> You're buying back €3600+ yearly, your lung capacity, and relationships not strained by smell and health fears.</h3><h3></h3><h3>The expensive choice is paying thousands yearly for slow self-destruction. </h3><h3></h3><h3><strong>€49 to potentially save thousands and regain your health, that's the investment of a lifetime. Plus 30-day guarantee. Full refund if it doesn't work.</strong></h3>",
+        "text_cZ7OUL6wRs7GheEe": "<p>Close</p>",
+        "text_8bxIgFiEY1sorYuq": "<h3>It's too simple, how can this solve my addiction?</h3>",
+        "text_CpDD51kYrSBOclk7": "<h3>Your brain thinks big problems need complicated solutions. That's why you've tried patches, gum, apps, hypnosis, none worked.</h3><h3></h3><h3>Here's the truth: Your addiction is 30% chemical, 70% ritual. Nicotine leaves your body in 72 hours. </h3><h3></h3><h3>The hand-to-mouth motion? You've done it 100,000+ times. Complex solutions fight chemistry with more chemistry. </h3><h3></h3><h3>Lio replaces the ritual your brain actually craves. Ahmed tried everything complicated. They all failed. Lio worked because when cravings hit, he just picked it up. Same motion, zero poison.</h3><h3></h3><h3><strong>The addiction industry profits from complexity.</strong> They need you believing it's impossibly hard so you keep buying their products.</h3><h3></h3><h3>The hardest part isn't finding the solution. It's accepting the solution can be this straightforward. <strong>Simple doesn't mean easy. Simple means it actually works.</strong></h3>",
+        "text_Cc1gVGgUTWQdhhit": "<p>Close</p>",
+        "text_r8MVB0SxMLqXCa2C": "<h3>I'm a heavy user, will this work for me?</h3>",
+        "text_FKqyOJevnexwRkx8": "<h3>Our best results come from the heaviest users. One customer smoked 60 cigarettes daily for 40 years and succeeded with Lio. If it works for extreme cases like these, it works for you. The heavier your habit, the more dramatic your relief.</h3>",
+        "text_ioHjW4y3VsiJLRrh": "<p>Close</p>",
+        "text_ONbCAaug9Fc8ZTTX": "<h3>How is this different from other methodes?</h3>",
+        "text_hPSVrsR8WCwLVSOU": "<h3>Patches and gums only address the 30% chemical addiction. Lio is the first solution to tackle the 70% behavioral addiction, the hand ritual, breathing patterns, and sensory memories that keep you trapped. It's not a \"better\" nicotine replacement, it's a completely different approach.</h3>",
+        "text_xYIiN8KYKXLQjg08": "<p>Close</p>",
+        "text_fjeCeQE6i3RRtVz0": "<h3>Is this just another wellness gimmick?</h3>",
+        "text_PsWWxHghb9wRDVdE": "<h3>Lio is backed by peer-reviewed studies from Duke University, Queen Mary University, and Columbia University showing that black pepper inhalation, sensorimotor replacement, and aromatherapy reduce cravings. We have 100,000+ users and clinical research, not Instagram testimonials.</h3>",
+        "text_oFOGN70jGglUAM4d": "<p>Close</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -970,6 +1029,7 @@
     "benefits_section_KkixCJ",
     "1763697576b75fd508",
     "ecom_faq_3gRGkD",
-    "tabs_abdb7r"
+    "tabs_abdb7r",
+    "instant_d7j_ypy_anh_os4_c2_xb_8BeXap"
   ]
 }
