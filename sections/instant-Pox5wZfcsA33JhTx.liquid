@@ -235,7 +235,12 @@
             ><div>{{ section.settings.text_3nSq9Aq2JfonDYpU }}</div></div
           ></div
         ></div
-      ><a class="ikk6NlLZqPlsq3wM5" data-instant-type="container" href="{{ section.settings.url_kk6NlLZqPlsq3wM5 | default: '' }}" rel="noopener noreferrer"
+      >
+      {%- liquid
+        assign url_kk6NlLZqPlsq3wM5_handle = 'lio®-starterpack-2'
+        assign url_kk6NlLZqPlsq3wM5 = all_products[url_kk6NlLZqPlsq3wM5_handle].url
+      -%}
+      <a class="ikk6NlLZqPlsq3wM5" data-instant-type="container" href="{{ section.settings.url_kk6NlLZqPlsq3wM5 | default: url_kk6NlLZqPlsq3wM5 }}" rel="noopener noreferrer"
         ><div data-instant-type="text" class="instant-rich-text i8OK6RCwG8kfXHzXs"
           ><div>{{ section.settings.text_8OK6RCwG8kfXHzXs }}</div></div
         ></a
@@ -529,6 +534,7 @@
         "text_pODJ3nLTPSDKJrSs": "<h3><strong>EVERY PIECE</strong></h3><h3><strong>IS UNIQUE</strong></h3>",
         "text_2X2CYfLn2WXcGIRe": "<h3><strong>MIMICS  THat</strong></h3><h3><strong>FAMILIAR HABIT</strong></h3>",
         "text_3nSq9Aq2JfonDYpU": "<h3><strong>Use it anywhere</strong></h3><h3><strong>you&apos;d like</strong></h3>",
+        "url_kk6NlLZqPlsq3wM5": "shopify://products/lio®-starterpack-2",
         "text_8OK6RCwG8kfXHzXs": "<p>SHOP NOW</p>",
         "text_P5d6sy7T7dfqnUfW": "<p>HOW LIO WORKS</p>"
       }
