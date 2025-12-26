@@ -346,6 +346,7 @@
         "section_store_block_countdown_timer_pXLeFr",
         "section_store_block_payment_icons_2_iHpXWi"
       ],
+      "disabled": true,
       "name": "Featured product",
       "settings": {
         "full_width": true,
