@@ -49,6 +49,7 @@
         "message_zjk6Vc",
         "message_QHzV9E"
       ],
+      "disabled": true,
       "settings": {
         "enable_sticky": false,
         "autoplay": true,
@@ -72,15 +73,15 @@
             "menu-name-2": "Learn",
             "layout": "horizontal",
             "submenu_style": "bold_heading",
-            "image_1": "shopify:\/\/shop_images\/mega-1.jpg",
+            "image_1": "shopify://shop_images/mega-1.jpg",
             "image_heading_1": "journey pack",
             "image_sub_heading_1": "Ease into calm, flavor-packed moments",
-            "image_link_1": "shopify:\/\/products\/new-lio-journey-pack",
+            "image_link_1": "shopify://products/new-lio-journey-pack",
             "image_url_text_1": "Shop Journey pack",
-            "image_2": "shopify:\/\/shop_images\/mega-2.jpg",
+            "image_2": "shopify://shop_images/mega-2.jpg",
             "image_heading_2": "Lio cores",
             "image_sub_heading_2": "Simple flavor, clean breath, full reset",
-            "image_link_2": "shopify:\/\/products\/flavour-box",
+            "image_link_2": "shopify://products/flavour-box",
             "image_url_text_2": "Shop Our Cores",
             "product": "",
             "product_card_background": "",
@@ -93,7 +94,7 @@
         "menu_link_X46cwK": {
           "type": "menu-link",
           "settings": {
-            "url": "shopify:\/\/products\/new-lio-journey-pack",
+            "url": "shopify://products/new-lio-journey-pack",
             "text": "Get",
             "high-text": "Journey Pack"
           }
@@ -101,7 +102,7 @@
         "menu_link_a9EhKg": {
           "type": "menu-link",
           "settings": {
-            "url": "shopify:\/\/products\/get-more-cores",
+            "url": "shopify://products/get-more-cores",
             "text": "Get More",
             "high-text": "Cores"
           }
@@ -109,7 +110,7 @@
         "menu_link_3phmm3": {
           "type": "menu-link",
           "settings": {
-            "url": "shopify:\/\/products\/lio-diffusers",
+            "url": "shopify://products/lio-diffusers",
             "text": "Order",
             "high-text": "Lio Diffuser"
           }
@@ -117,7 +118,7 @@
         "menu_link_2_f6gdyR": {
           "type": "menu-link-2",
           "settings": {
-            "url": "https:\/\/tally.so\/r\/wogk7M",
+            "url": "https://tally.so/r/wogk7M",
             "text": "Become",
             "high-text": "retailer"
           }
@@ -134,7 +135,7 @@
       "settings": {
         "enable_sticky": true,
         "hide_on_scroll": false,
-        "logo": "shopify:\/\/shop_images\/Logo_Lio2_1_1_7.png",
+        "logo": "shopify://shop_images/Logo_Lio2_1_1_7.png",
         "logo_max_width": 45,
         "logo_mobile_max_width": 40,
         "menu": "new-menu",

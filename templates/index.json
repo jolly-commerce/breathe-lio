@@ -9,6 +9,24 @@
  */
 {
   "sections": {
+    "instant_ef_uk_slwx_u_zj9uba_y_RAnjEL": {
+      "type": "instant-EfUKSlwxUZj9ubaY",
+      "name": "The Original Homepage",
+      "settings": {
+        "text_o4cdW4gdt5QTTkN5": "<h3><strong>Let&apos;s break</strong></h3><h3><strong>that bad habit</strong></h3>",
+        "text_1yOYDbJXWNnD4HrX": "<h3><strong>zero nicotine   •   no batteries •   no vapor   •   no calories</strong></h3>",
+        "url_AqNytFo8SK7OS39r": "",
+        "text_kv1jvyZTcJwYF613": "<p>START MY JOURNEY</p>",
+        "url_6GRbeSqGAdYreWg6": "",
+        "text_p72ECbY7Efi3iQ7v": "<p>ORDER CORES</p>",
+        "text_h60xY6BoEAYd7cTD": "<p>FREE SHIPPING FROM <strong>€20</strong></p>",
+        "text_vQcPflmKig1OOHpN": "<p>30 DAY MONEY BACK GUARANTEE</p>",
+        "text_tqGReFRMMU7XHLg1": "<p>PRODUCED IN THE NETHERLANDS</p>",
+        "text_OE822lSuCwB5UC2q": "<p>100.000+ HAPPY CUSTOMERS</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "new_homepage_banner_gFaJDm": {
       "type": "new-homepage-banner",
       "blocks": {
@@ -32,6 +50,7 @@
       "block_order": [
         "slide_jHyh9W"
       ],
+      "disabled": true,
       "name": "new-homepage-banner",
       "settings": {}
     },
@@ -1047,6 +1066,7 @@
     }
   },
   "order": [
+    "instant_ef_uk_slwx_u_zj9uba_y_RAnjEL",
     "new_homepage_banner_gFaJDm",
     "instant_pox5w_zfcs_a33_jh_tx_6RUQxj",
     "icon_text_1_kVM4dK",
