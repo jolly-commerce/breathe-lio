@@ -50,11 +50,20 @@
               ><div class="instant-rich-text"><p>About</p></div></a
             ></div
           ></div
-        ><div class="iHB88HSxR3WjP3JOp" data-instant-type="container"
-          ><a class="ixFDFZzgFQSWayGg3" data-instant-type="container" href="null" rel="noopener noreferrer"
-            ><div data-instant-type="text" class="instant-rich-text iaW4iUed0OxIVw1fB"><p>SHop journey pack</p></div
-            ><div class="i94Q3v29d5fZWc8Qv" data-instant-type="container"><img src="https://cdn.instant.fish/sites/kmQVS0N1pKkoBCOv/assets/Jjn163UDIMdj1pxE/ca4a04e8ab5005c4d24caba2ba5140e607c13d88.svg" class="instant-fill instant-image__fill" style="object-fit:cover" decoding="async" loading="eager" fetchpriority="auto"></div></a
-          ><a class="i5wRFooVAUyMbROpO" data-instant-type="container" href="null" rel="noopener noreferrer"
+        ><div class="iHB88HSxR3WjP3JOp" data-instant-type="container">
+          {%- liquid
+            assign url_xFDFZzgFQSWayGg3_handle = 'lio®-starterpack-2'
+            assign url_xFDFZzgFQSWayGg3 = all_products[url_xFDFZzgFQSWayGg3_handle].url
+          -%}
+          <a class="ixFDFZzgFQSWayGg3" data-instant-type="container" href="{{ url_xFDFZzgFQSWayGg3 }}" rel="noopener noreferrer"
+            ><div data-instant-type="text" class="instant-rich-text iaW4iUed0OxIVw1fB"><p>SHop NOW</p></div
+            ><div class="i94Q3v29d5fZWc8Qv" data-instant-type="container"><img src="https://cdn.instant.fish/sites/kmQVS0N1pKkoBCOv/assets/Jjn163UDIMdj1pxE/ca4a04e8ab5005c4d24caba2ba5140e607c13d88.svg" class="instant-fill instant-image__fill" style="object-fit:cover" decoding="async" loading="eager" fetchpriority="auto"></div
+          ></a>
+          {%- liquid
+            assign url_5wRFooVAUyMbROpO_handle = 'get-more-cores'
+            assign url_5wRFooVAUyMbROpO = all_products[url_5wRFooVAUyMbROpO_handle].url
+          -%}
+          <a class="i5wRFooVAUyMbROpO" data-instant-type="container" href="{{ url_5wRFooVAUyMbROpO }}" rel="noopener noreferrer"
             ><div data-instant-type="text" class="instant-rich-text i3kdd8niCxs0YPJL6"><p>order cores</p></div></a
           ><a conditionals="" class="idrmwsep57vncIF1Q" data-instant-type="container" href="{{ routes.cart_url }}" rel="noopener noreferrer" data-instant-action-type="trigger-cart"
             ><div data-instant-type="icon" class="iLKrfrcFgQbIiMVNw">
