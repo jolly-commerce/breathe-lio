@@ -889,10 +889,35 @@
         "category_1_name": "Product",
         "category_2_name": "General"
       }
+    },
+    "instant_7_dgm_r5gj_yq_v_uw9_xm_qYwyth": {
+      "type": "instant-7DgmR5gjYqVUw9Xm",
+      "name": "Dutch Reviews Widget",
+      "settings": {
+        "text_B4UM2zmp9a4ra6nE": "<p>\"Het is voor mij dé uitkomst om van dat neurotische gedrag af te komen op een gezonde manier.\"</p>",
+        "text_mZLa9u7CDTcuw78d": "<p>Anne (61) </p>",
+        "text_DXmacwK1LqhcYxLa": "<p>\"Lio geeft me een vervanger voor de handeling; dat maakt het succesvol\"</p>",
+        "text_tzry0NEae5zAZuAX": "<p>Bart (43) </p>",
+        "text_62BHgDYBiNSsGI1i": "<p>\"Ik had zo&apos;n behoefte aan dat momentje van even lekker buiten, even alleen zijn, even een mommy break.\"</p>",
+        "text_vlIUl6hwnQhAXXWW": "<p>Marlies (38)</p>",
+        "text_OuSyAU77g20jgh8q": "<p>\"Ik hoef niet meer in gevecht te zijn met mezelf... want als ik zin heb om te roken, pak ik deze.\"</p>",
+        "text_rj1zoyYRZbdMbaV3": "<p>Femke (32) </p>",
+        "text_ostvd3Wyiz8mhU9e": "<p>\"Ik was in het begin best sceptisch, maar ik ben nu heel enthousiast. Het helpt enorm om de gewoonte te doorbreken.\"</p>",
+        "text_cXiUD2PQLaDCIyyB": "<p>MICHAEL (55) </p>",
+        "text_HLsnoLFlmxtMNWSt": "<p>\"Ook ik heb me kunnen overtuigen, en ik heb er nog geen seconden spijt van\"</p>",
+        "text_XEfp7qGK5JgskSXI": "<p>Sophie (42) </p>",
+        "text_qsQxeLt2Zcg2zGTA": "<p>\"Ik ben 25 jaar een kettingroker geweest. Dit haalt echt de scherpe randjes ervan af op momenten dat je snakt naar een sigaret.\"</p>",
+        "text_HuDV2wFcNn9n4sXh": "<p>Hans (52) </p>",
+        "text_5KcBTIRS45559Smx": "<p>De Lio doet wonderen... mijn cravings zijn veel minder en ik heb de gewoonte aangeleerd om diep adem te halen.</p>",
+        "text_IOCSVjazRKRaKq15": "<p>Marit (27) </p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "new_homepage_banner_gFaJDm",
+    "instant_7_dgm_r5gj_yq_v_uw9_xm_qYwyth",
     "icon_text_1_kVM4dK",
     "featured_product_YqCfNV",
     "infinite_section_W8PBf7",
