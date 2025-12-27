@@ -8,104 +8,15 @@
  * ------------------------------------------------------------
  */
 {
+  "name": "Footer 1",
   "type": "footer",
-  "name": "Footer group",
   "sections": {
-    "footer_icons_Eb9Ty6": {
-      "type": "footer-icons",
-      "blocks": {
-        "icon_g63fmm": {
-          "type": "icon",
-          "settings": {
-            "image_icon": "shopify://shop_images/shipp.svg",
-            "text": "Worldiwde shipping",
-            "sub-text": "Rest easy after you order, we deliver fast and on time."
-          }
-        },
-        "icon_QtaBAz": {
-          "type": "icon",
-          "settings": {
-            "image_icon": "shopify://shop_images/customer-supp.svg",
-            "text": "customer support",
-            "sub-text": "Contact us whenever you need, 24 hours a day"
-          }
-        },
-        "icon_6mcAjA": {
-          "type": "icon",
-          "settings": {
-            "image_icon": "shopify://shop_images/secure-pay.svg",
-            "text": "Secured payments",
-            "sub-text": "We ensure payments are encrypted and fully secured"
-          }
-        },
-        "icon_YAYF7V": {
-          "type": "icon",
-          "settings": {
-            "image_icon": "shopify://shop_images/satisfied.svg",
-            "text": "Satisifed customers",
-            "sub-text": "We are proud to have already made over 80,000+ customers happy."
-          }
-        }
-      },
-      "block_order": [
-        "icon_g63fmm",
-        "icon_QtaBAz",
-        "icon_6mcAjA",
-        "icon_YAYF7V"
-      ],
-      "disabled": true,
-      "name": "footer-icons",
+    "instant-FwU08Hd6XP50g2C3": {
+      "type": "instant-FwU08Hd6XP50g2C3",
       "settings": {}
-    },
-    "footer": {
-      "type": "footer",
-      "blocks": {
-        "links_kUqD34": {
-          "type": "links",
-          "settings": {
-            "menu": "footer-menu",
-            "show_menu_title": true,
-            "menu_title": "Menu"
-          }
-        },
-        "links": {
-          "type": "links",
-          "settings": {
-            "menu": "footer-new-menu",
-            "show_menu_title": true,
-            "menu_title": "Important links"
-          }
-        },
-        "links_yV9Fcw": {
-          "type": "links",
-          "settings": {
-            "menu": "policies",
-            "show_menu_title": true,
-            "menu_title": "Legal"
-          }
-        }
-      },
-      "block_order": [
-        "links_kUqD34",
-        "links",
-        "links_yV9Fcw"
-      ],
-      "settings": {
-        "main-logo": "shopify://shop_images/Logo_Lio2_1_1_6.png",
-        "footer-text": "Good In, Bad Out.",
-        "disclaimer-text": "<p>Information on this site is provided for informational purposes only. It is not meant to substitute for medical advice from your physician or other medical professional. You should not use the information contained herein for diagnosing or treating a health problem or disease, or prescribing any medication. Carefully read all product documentation. If you have or suspect that you have a medical problem, promptly contact your regular health care provider.</p>",
-        "show_social_media": true,
-        "show_payment_icons": false,
-        "show_policy_links": false,
-        "show_country_selector": false,
-        "show_country_flag": false,
-        "show_country_name": false,
-        "show_locale_selector": true
-      }
     }
   },
   "order": [
-    "footer_icons_Eb9Ty6",
-    "footer"
+    "instant-FwU08Hd6XP50g2C3"
   ]
 }
