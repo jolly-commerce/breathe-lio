@@ -82,10 +82,15 @@
                 ><div data-instant-type="text" class="instant-rich-text iZH4PofD0svKIlHIv"
                   ><div>{{ section.settings.text_ZH4PofD0svKIlHIv }}</div></div
                 ></a
-              ><button class="iJTQiLx0d6ldiHp3A" data-instant-type="container" data-instant-action-type="open-overlay" data-instant-action-id="4OOO81IYrODnSfJ0"
+              >
+              {%- liquid
+                assign url_JTQiLx0d6ldiHp3A_handle = 'morereviews'
+                assign url_JTQiLx0d6ldiHp3A = pages[url_JTQiLx0d6ldiHp3A_handle].url
+              -%}
+              <a class="iJTQiLx0d6ldiHp3A" data-instant-type="container" href="{{ section.settings.url_JTQiLx0d6ldiHp3A | default: url_JTQiLx0d6ldiHp3A }}" rel="noopener noreferrer"
                 ><div data-instant-type="text" class="instant-rich-text iNlMttJvre1Gyr4np"
                   ><div>{{ section.settings.text_NlMttJvre1Gyr4np }}</div></div
-                ></button
+                ></a
               ></div
             ></div
           ><div class="iTpsV4T70cKxFHBHo" data-instant-type="container"
@@ -270,6 +275,11 @@
       "default": "<p>SHOP NOW</p>"
     },
     {
+      "type": "url",
+      "id": "url_JTQiLx0d6ldiHp3A",
+      "label": "Button URL"
+    },
+    {
       "type": "richtext",
       "id": "text_NlMttJvre1Gyr4np",
       "label": "Text",
@@ -414,6 +424,7 @@
         "text_TirDGluZjhacKn43": "<h3>Discover why 100.000+</h3><h3>people made the switch to Lio.</h3>",
         "url_smzRC7gBDBOH3XjV": "shopify://products/lio®-journey-pack-1",
         "text_ZH4PofD0svKIlHIv": "<p>SHOP NOW</p>",
+        "url_JTQiLx0d6ldiHp3A": "shopify://pages/morereviews",
         "text_NlMttJvre1Gyr4np": "<p>SEE MORE REVIEWS</p>",
         "text_P6YeEnH1fRYhhqeJ": "<p>\"I haven&apos;t come across something as good as this, nothing comes out, so I can use it anywhere. I&apos;m adding a few more years to my life.\"</p>",
         "text_GzBnImmE0KMDU8kZ": "<p>James (38) </p>",
