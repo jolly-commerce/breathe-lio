@@ -25,10 +25,19 @@
           ><div class="izEXBBveX73tEV5aS" data-instant-type="container"
             ><div data-instant-type="text" class="instant-rich-text ijoX9rgtC2TIZiQfC"><h3>OUR MISSION</h3></div
             ><div data-instant-type="text" class="instant-rich-text iNNs8Q6vwTKU5UB0R"><p>We believe everyone deserves freedom from the habits holding them back. That&apos;s why we&apos;re here, to help you reclaim control, one breath at a time.</p></div
-            ><div class="ihq8DD1DtIXLHchpR" data-instant-type="container"
-              ><a class="iBDMrKqFetC63Sr9P" data-instant-type="container" href="null" rel="noopener noreferrer"
+            ><div class="ihq8DD1DtIXLHchpR" data-instant-type="container">
+              {%- liquid
+                assign url_BDMrKqFetC63Sr9P_handle = 'lio®-journey-pack-1'
+                assign url_BDMrKqFetC63Sr9P = all_products[url_BDMrKqFetC63Sr9P_handle].url
+              -%}
+              <a class="iBDMrKqFetC63Sr9P" data-instant-type="container" href="{{ url_BDMrKqFetC63Sr9P }}" rel="noopener noreferrer"
                 ><div data-instant-type="text" class="instant-rich-text itPtOL8wULhYvOgY5"><p>Journey Packs</p></div></a
-              ><a class="iQP14Y4QIk88ivH7N" data-instant-type="container" href="null" rel="noopener noreferrer"
+              >
+              {%- liquid
+                assign url_QP14Y4QIk88ivH7N_handle = 'lio-diffusers'
+                assign url_QP14Y4QIk88ivH7N = all_products[url_QP14Y4QIk88ivH7N_handle].url
+              -%}
+              <a class="iQP14Y4QIk88ivH7N" data-instant-type="container" href="{{ url_QP14Y4QIk88ivH7N }}" rel="noopener noreferrer"
                 ><div data-instant-type="text" class="instant-rich-text iT6GVyZoviXprqL9b"><p>Lio Devices</p></div></a
               >
               {%- liquid
