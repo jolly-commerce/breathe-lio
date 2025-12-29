@@ -79,14 +79,15 @@
         "padding_bottom": 0
       }
     },
-    "instant_x_oetj8_hepve_arkr_v_zPDk9J": {
+    "instant_x_oetj8_hepve_arkr_v_EKnyNr": {
       "type": "instant-xOETJ8HepveArkrV",
       "name": "English Social Proof Vide",
       "settings": {
         "text_W9XjdX5PzrlIof6I": "<p>776</p>",
         "url_W9XjdX5PzrlIof6I": "#",
         "text_MrfZH0I2uGntLi8Z": "<p>Verified 5-star reviews*</p>",
-        "text_Ald70OWqr2WQHu7y": "<h3>\"I was sceptical... until I tried it\"\"</h3>",
+        "text_ZjKYfr3DMiysL4ec": "<h3>\"I was sceptical,</h3>",
+        "text_Ald70OWqr2WQHu7y": "<h3>until I tried it\"</h3>",
         "text_TirDGluZjhacKn43": "<h3>Discover why 100.000+</h3><h3>people made the switch to Lio.</h3>",
         "text_P6YeEnH1fRYhhqeJ": "<p>\"I haven&apos;t come across something as good as this, nothing comes out, so I can use it anywhere. I&apos;m adding a few more years to my life.\"</p>",
         "text_GzBnImmE0KMDU8kZ": "<p>James (38) </p>",
@@ -100,6 +101,23 @@
         "text_AITco7zlB8XaXnO3": "<p>Kamar (43) </p>",
         "text_SKYCaddhVWpDkVNs": "<p>\"I&apos;m on day 14 now and honestly it&apos;s been helping me. this a shot, it&apos;s the only thing that&apos;s ever helped me. Really good product.\"</p>",
         "text_JoZtt7zLdotgSMd4": "<p>MICHAEL (22) </p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "instant_6_ta2_uu_zb_jng9_i_bn7_NRTF6F": {
+      "type": "instant-6TA2UUZbJNG9IBn7",
+      "name": "Our Risk Reversal Section",
+      "settings": {
+        "text_RqeYeB830WbfWaJt": "<p>You can try lio</p>",
+        "text_rMvlqLcboGKkprue": "<p>30 DAYS </p><p>RISK FREE</p>",
+        "text_ZaClVx3vMwIHsUiP": "<p>Try it. If it doesn&apos;t help, email us.</p><p>Keep the Lio. Get your money back.</p>",
+        "url_gbrE9ibdXe9fIZpB": "",
+        "text_f3t0USZsCQL82gaH": "<p>TRY LIO NOW</p>",
+        "text_ZkontTpKKUP4KebK": "<p>WHY WE DO THIS</p>",
+        "text_tbIcHYIUFOJpDa0z": "<p><strong>30-Day Risk-Free Guarantee</strong></p>",
+        "text_k6Y2ck0qSoCeFdht": "<p>Because Lio works. 100,000+ people have already made the switch. We&apos;re confident that if you give it a real try, you&apos;ll see results. You have 30 days to use Lio and build your new routine. Real change takes time. We want you to give Lio a proper chance, not judge it after two days.</p><p><strong>Use it for a month. Build the habit. Then decide.</strong></p>",
+        "text_HXIOB9nBcQX6eDFy": "<p>Close</p>",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -434,19 +452,6 @@
         "text_color": "",
         "input_background": "rgba(0,0,0,0)",
         "input_text_color": ""
-      }
-    },
-    "our_promise_fTTciD": {
-      "type": "our-promise",
-      "name": "our-promise",
-      "settings": {
-        "image": "shopify://shop_images/card_1.png",
-        "heading": "Try 30 Days,",
-        "highlighted-heading": "Or Money Back.",
-        "sub-text": "<p>If you’re not satisfied after 30 days, we’ll give you a full refund, no questions asked.</p>",
-        "button-url": "shopify://products/new-lio-journey-pack",
-        "button-text": "Make The Switch",
-        "trust-text": ""
       }
     },
     "featured_product_q6YpDh": {
@@ -1028,31 +1033,16 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
-    },
-    "instant_6_ta2_uu_zb_jng9_i_bn7_NRTF6F": {
-      "type": "instant-6TA2UUZbJNG9IBn7",
-      "name": "Our Risk Reversal Section",
-      "settings": {
-        "text_RqeYeB830WbfWaJt": "<p>You can try lio</p>",
-        "text_rMvlqLcboGKkprue": "<p>30 DAYS </p><p>RISK FREE</p>",
-        "text_ZaClVx3vMwIHsUiP": "<p>Try it. If it doesn&apos;t help, email us.</p><p>Keep the Lio. Get your money back.</p>",
-        "url_gbrE9ibdXe9fIZpB": "",
-        "text_f3t0USZsCQL82gaH": "<p>TRY LIO NOW</p>",
-        "text_ZkontTpKKUP4KebK": "<p>WHY WE DO THIS</p>",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
     "instant_ef_uk_slwx_u_zj9uba_y_zE7NgF",
     "new_homepage_banner_gFaJDm",
     "instant_pox5w_zfcs_a33_jh_tx_GngMhr",
-    "instant_x_oetj8_hepve_arkr_v_zPDk9J",
+    "instant_x_oetj8_hepve_arkr_v_EKnyNr",
     "instant_6_ta2_uu_zb_jng9_i_bn7_NRTF6F",
     "icon_text_1_kVM4dK",
     "featured_product_YqCfNV",
-    "our_promise_fTTciD",
     "featured_product_q6YpDh",
     "benefits_section_KkixCJ",
     "1763697576b75fd508",
