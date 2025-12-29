@@ -73,8 +73,12 @@
                   ><div>{{ section.settings.text_ZaClVx3vMwIHsUiP }}</div></div
                 ></div
               ></div
-            ><div class="i0NwljlN3oybXIVSo" data-instant-type="container"
-              ><a class="igbrE9ibdXe9fIZpB" data-instant-type="container" href="{{ section.settings.url_gbrE9ibdXe9fIZpB | default: '' }}" rel="noopener noreferrer"
+            ><div class="i0NwljlN3oybXIVSo" data-instant-type="container">
+              {%- liquid
+                assign url_gbrE9ibdXe9fIZpB_handle = 'lio®-journey-pack-1'
+                assign url_gbrE9ibdXe9fIZpB = all_products[url_gbrE9ibdXe9fIZpB_handle].url
+              -%}
+              <a class="igbrE9ibdXe9fIZpB" data-instant-type="container" href="{{ section.settings.url_gbrE9ibdXe9fIZpB | default: url_gbrE9ibdXe9fIZpB }}" rel="noopener noreferrer"
                 ><div data-instant-type="text" class="instant-rich-text if3t0USZsCQL82gaH"
                   ><div>{{ section.settings.text_f3t0USZsCQL82gaH }}</div></div
                 ></a
@@ -255,6 +259,7 @@
         "text_RqeYeB830WbfWaJt": "<p>You can try lio</p>",
         "text_rMvlqLcboGKkprue": "<p>30 DAYS </p><p>RISK FREE</p>",
         "text_ZaClVx3vMwIHsUiP": "<p>Try Lio for a month. If it&apos;s not helping,</p><p>return it for a full refund, no questions asked.</p>",
+        "url_gbrE9ibdXe9fIZpB": "shopify://products/lio®-journey-pack-1",
         "text_f3t0USZsCQL82gaH": "<p>TRY LIO NOW</p>",
         "text_ZkontTpKKUP4KebK": "<p>WHY WE DO THIS</p>",
         "text_tbIcHYIUFOJpDa0z": "<p><strong>30-Day Risk-Free Guarantee</strong></p>",
