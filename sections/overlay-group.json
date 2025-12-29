@@ -34,6 +34,7 @@
     },
     "cart-drawer": {
       "type": "cart-drawer",
+      "disabled": true,
       "settings": {
         "cart-icon-1": "shopify://shop_images/trick.svg",
         "cart-usp-1": "60-Day Money-Back Guarantee",
