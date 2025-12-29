@@ -30,7 +30,12 @@
                 ><div data-instant-type="text" class="instant-rich-text itPtOL8wULhYvOgY5"><p>Journey Packs</p></div></a
               ><a class="iQP14Y4QIk88ivH7N" data-instant-type="container" href="null" rel="noopener noreferrer"
                 ><div data-instant-type="text" class="instant-rich-text iT6GVyZoviXprqL9b"><p>Lio Devices</p></div></a
-              ><a class="idc6WPep2o9eztej5" data-instant-type="container" href="null" rel="noopener noreferrer"
+              >
+              {%- liquid
+                assign url_dc6WPep2o9eztej5_handle = 'flavour-box'
+                assign url_dc6WPep2o9eztej5 = all_products[url_dc6WPep2o9eztej5_handle].url
+              -%}
+              <a class="idc6WPep2o9eztej5" data-instant-type="container" href="{{ url_dc6WPep2o9eztej5 }}" rel="noopener noreferrer"
                 ><div data-instant-type="text" class="instant-rich-text iMx7kvx9B3KKPSGso"><p>Flavour Cores</p></div></a
               ></div
             ></div
