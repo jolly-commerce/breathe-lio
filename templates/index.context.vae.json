@@ -12,16 +12,5 @@
   "context": {
     "market": "vae"
   },
-  "sections": {
-    "new_homepage_banner_gFaJDm": {
-      "settings": {},
-      "blocks": {
-        "slide_jHyh9W": {
-          "settings": {
-            "free-text": "🇦🇪Free Next Day Delivery in UAE🇦🇪"
-          }
-        }
-      }
-    }
-  }
+  "sections": {}
 }
