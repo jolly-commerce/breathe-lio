@@ -33,8 +33,19 @@
   </style>
   <div data-instant-type="root" class="iUidaV7p2IDK4yk2r"
     ><div class="i7N5EUr5tTtlrd15V" data-instant-type="container" id="i7N5EUr5tTtlrd15V"
-      ><div class="iD9rPY1Sd4HIKrwQq" data-instant-type="container"
-        ><div class="iBdbeMVtHjl7P3ioz" data-instant-type="container"
+      ><div class="iD9rPY1Sd4HIKrwQq" data-instant-type="container">
+        {%- liquid
+          assign product_BdbeMVtHjl7P3ioz_handle = 'lio®-journey-pack-1'
+          assign product_BdbeMVtHjl7P3ioz = section.settings.product_BdbeMVtHjl7P3ioz | default: all_products[product_BdbeMVtHjl7P3ioz_handle]
+          assign product_BdbeMVtHjl7P3ioz_variant = product_BdbeMVtHjl7P3ioz.selected_or_first_available_variant
+
+          if product_BdbeMVtHjl7P3ioz.selected_variant
+            assign product_BdbeMVtHjl7P3ioz_variant = product_BdbeMVtHjl7P3ioz.selected_variant
+          endif
+
+          assign product_BdbeMVtHjl7P3ioz_image = product_BdbeMVtHjl7P3ioz_variant.featured_image | default: product_BdbeMVtHjl7P3ioz.featured_image
+        -%}
+        <form class="iBdbeMVtHjl7P3ioz" data-instant-type="container" data-instant-form-product-url="{{ product_BdbeMVtHjl7P3ioz.url }}" data-instant-form-variant-id="{{ product_BdbeMVtHjl7P3ioz_variant.id }}" data-instant-form-product-id="{{ product_BdbeMVtHjl7P3ioz.id }}"
           ><div data-instant-type="text" class="instant-rich-text iBuS8EoI8zLOIQ1TE"
             ><div>{{ section.settings.text_BuS8EoI8zLOIQ1TE }}</div></div
           ><div class="imvmQnpKT2TrTM7ss" data-instant-type="container"
@@ -68,7 +79,7 @@
                 ><div>{{ section.settings.text_b06sEzES3qjsLHdu }}</div></div
               ></div
             ></div
-          ></div
+          ></form
         ></div
       ></div
     ></div
@@ -86,6 +97,11 @@
     ]
   },
   "settings": [
+    {
+      "type": "product",
+      "id": "product_BdbeMVtHjl7P3ioz",
+      "label": "Product"
+    },
     {
       "type": "richtext",
       "id": "text_BuS8EoI8zLOIQ1TE",
@@ -139,6 +155,7 @@
     {
       "name": "The Original Reviews",
       "settings": {
+        "product_BdbeMVtHjl7P3ioz": "lio®-journey-pack-1",
         "text_BuS8EoI8zLOIQ1TE": "<h3>TRUSTED BY OVER 100k customers</h3>",
         "text_Sznuzukx1oqAWRfU": "<p>4.6</p>",
         "text_081coR553XQ6mK1j": "<p>•</p>",
