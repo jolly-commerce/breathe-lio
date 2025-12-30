@@ -51,11 +51,21 @@
         ><div>{{ section.settings.text_o4cdW4gdt5QTTkN5 }}</div></div
       ><div data-instant-type="text" class="instant-rich-text i1yOYDbJXWNnD4HrX"
         ><div>{{ section.settings.text_1yOYDbJXWNnD4HrX }}</div></div
-      ><a class="iAqNytFo8SK7OS39r" data-instant-type="container" href="{{ section.settings.url_AqNytFo8SK7OS39r | default: '' }}" rel="noopener noreferrer"
+      >
+      {%- liquid
+        assign url_AqNytFo8SK7OS39r_handle = 'lio®-journey-pack-1'
+        assign url_AqNytFo8SK7OS39r = all_products[url_AqNytFo8SK7OS39r_handle].url
+      -%}
+      <a class="iAqNytFo8SK7OS39r" data-instant-type="container" href="{{ section.settings.url_AqNytFo8SK7OS39r | default: url_AqNytFo8SK7OS39r }}" rel="noopener noreferrer"
         ><div data-instant-type="text" class="instant-rich-text ikv1jvyZTcJwYF613"
           ><div>{{ section.settings.text_kv1jvyZTcJwYF613 }}</div></div
         ></a
-      ><a class="i6GRbeSqGAdYreWg6" data-instant-type="container" href="{{ section.settings.url_6GRbeSqGAdYreWg6 | default: '' }}" rel="noopener noreferrer"
+      >
+      {%- liquid
+        assign url_6GRbeSqGAdYreWg6_handle = 'get-more-cores'
+        assign url_6GRbeSqGAdYreWg6 = all_products[url_6GRbeSqGAdYreWg6_handle].url
+      -%}
+      <a class="i6GRbeSqGAdYreWg6" data-instant-type="container" href="{{ section.settings.url_6GRbeSqGAdYreWg6 | default: url_6GRbeSqGAdYreWg6 }}" rel="noopener noreferrer"
         ><div data-instant-type="text" class="instant-rich-text ip72ECbY7Efi3iQ7v"
           ><div>{{ section.settings.text_p72ECbY7Efi3iQ7v }}</div></div
         ></a
@@ -160,7 +170,9 @@
       "settings": {
         "text_o4cdW4gdt5QTTkN5": "<h3><strong>Let&apos;s break</strong></h3><h3><strong>that bad habit in 2026</strong></h3>",
         "text_1yOYDbJXWNnD4HrX": "<h3><strong>zero nicotine   •   no batteries •   no vapor   •   no calories</strong></h3>",
+        "url_AqNytFo8SK7OS39r": "shopify://products/lio®-journey-pack-1",
         "text_kv1jvyZTcJwYF613": "<p>START MY JOURNEY</p>",
+        "url_6GRbeSqGAdYreWg6": "shopify://products/get-more-cores",
         "text_p72ECbY7Efi3iQ7v": "<p>ORDER CORES</p>"
       }
     }
