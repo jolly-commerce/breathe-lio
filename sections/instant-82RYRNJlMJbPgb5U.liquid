@@ -45,6 +45,8 @@
           assign product_BdbeMVtHjl7P3ioz_image = product_BdbeMVtHjl7P3ioz_variant.featured_image | default: product_BdbeMVtHjl7P3ioz.featured_image
         -%}
         <form class="iBdbeMVtHjl7P3ioz" data-instant-type="container" data-instant-form-product-url="{{ product_BdbeMVtHjl7P3ioz.url }}" data-instant-form-variant-id="{{ product_BdbeMVtHjl7P3ioz_variant.id }}" data-instant-form-product-id="{{ product_BdbeMVtHjl7P3ioz.id }}"
+          ><div data-instant-type="text" class="instant-rich-text itBnF7hzwwuPzhyHq"
+            ><div>{{ section.settings.text_tBnF7hzwwuPzhyHq }}</div></div
           ><div data-instant-type="text" class="instant-rich-text iBuS8EoI8zLOIQ1TE"
             ><div>{{ section.settings.text_BuS8EoI8zLOIQ1TE }}</div></div
           ></form
@@ -72,9 +74,15 @@
     },
     {
       "type": "richtext",
+      "id": "text_tBnF7hzwwuPzhyHq",
+      "label": "Text",
+      "default": "<h3>TRUSTED BY OVER</h3>"
+    },
+    {
+      "type": "richtext",
       "id": "text_BuS8EoI8zLOIQ1TE",
       "label": "Text",
-      "default": "<h3>TRUSTED BY OVER 100k customers</h3>"
+      "default": "<h3>100k customers</h3>"
     },
     {
       "type": "header",
@@ -106,7 +114,8 @@
       "name": "The Original Reviews",
       "settings": {
         "product_BdbeMVtHjl7P3ioz": "lio®-journey-pack-1",
-        "text_BuS8EoI8zLOIQ1TE": "<h3>TRUSTED BY OVER 100k customers</h3>"
+        "text_tBnF7hzwwuPzhyHq": "<h3>TRUSTED BY OVER</h3>",
+        "text_BuS8EoI8zLOIQ1TE": "<h3>100k customers</h3>"
       }
     }
   ]
