@@ -50,6 +50,16 @@
           ><div data-instant-type="text" class="instant-rich-text iBuS8EoI8zLOIQ1TE"
             ><div>{{ section.settings.text_BuS8EoI8zLOIQ1TE }}</div></div
           ></form
+        ><div class="iJz9vyq4vZXxqZGP4" data-instant-type="container">
+          {%- liquid
+            assign url_y0OK5IhBLuBvOVsT_handle = 'lio®-journey-pack-1'
+            assign url_y0OK5IhBLuBvOVsT = all_products[url_y0OK5IhBLuBvOVsT_handle].url
+          -%}
+          <a class="iy0OK5IhBLuBvOVsT" data-instant-type="container" href="{{ section.settings.url_y0OK5IhBLuBvOVsT | default: url_y0OK5IhBLuBvOVsT }}" rel="noopener noreferrer"
+            ><div data-instant-type="text" class="instant-rich-text inUqKOZuD7neCYlGC"
+              ><div>{{ section.settings.text_nUqKOZuD7neCYlGC }}</div></div
+            ></a
+          ></div
         ></div
       ></div
     ></div
@@ -85,6 +95,17 @@
       "default": "<h3>100k customers</h3>"
     },
     {
+      "type": "url",
+      "id": "url_y0OK5IhBLuBvOVsT",
+      "label": "Button URL"
+    },
+    {
+      "type": "richtext",
+      "id": "text_nUqKOZuD7neCYlGC",
+      "label": "Text",
+      "default": "<p>TRY LIO NOW</p>"
+    },
+    {
       "type": "header",
       "content": "Section padding"
     },
@@ -115,7 +136,9 @@
       "settings": {
         "product_BdbeMVtHjl7P3ioz": "lio®-journey-pack-1",
         "text_tBnF7hzwwuPzhyHq": "<h3>TRUSTED BY OVER</h3>",
-        "text_BuS8EoI8zLOIQ1TE": "<h3>100k customers</h3>"
+        "text_BuS8EoI8zLOIQ1TE": "<h3>100k customers</h3>",
+        "url_y0OK5IhBLuBvOVsT": "shopify://products/lio®-journey-pack-1",
+        "text_nUqKOZuD7neCYlGC": "<p>TRY LIO NOW</p>"
       }
     }
   ]
