@@ -194,7 +194,7 @@
           "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
           "settings": {
             "only_photos": false,
-            "hide_thumbnails": false,
+            "hide_thumbnails": true,
             "product_handle": "",
             "aggregated": true,
             "data-limit": 20,
@@ -214,6 +214,17 @@
         "background_gradient": "",
         "text_color": ""
       }
+    },
+    "instant_82_ryrn_jl_m_jb_pgb5_u_VWLcUN": {
+      "type": "instant-82RYRNJlMJbPgb5U",
+      "name": "The Original Reviews",
+      "settings": {
+        "product_BdbeMVtHjl7P3ioz": "lio®-journey-pack-1",
+        "text_tBnF7hzwwuPzhyHq": "<h3>TRUSTED BY OVER</h3>",
+        "text_BuS8EoI8zLOIQ1TE": "<h3>100k customers</h3>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -223,6 +234,7 @@
     "instant_x_oetj8_hepve_arkr_v_EKnyNr",
     "instant_6_ta2_uu_zb_jng9_i_bn7_AjQ6VH",
     "instant_6x_bs_x_ih_h_qkcqi9b5_iGmBXb",
+    "instant_82_ryrn_jl_m_jb_pgb5_u_VWLcUN",
     "1767060052d2af84b7"
   ]
 }
