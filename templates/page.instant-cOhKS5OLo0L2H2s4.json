@@ -13,6 +13,36 @@
       "type": "instant-cOhKS5OLo0L2H2s4",
       "settings": {}
     },
+    "instant_x_oetj8_hepve_arkr_v_erYQct": {
+      "type": "instant-xOETJ8HepveArkrV",
+      "name": "English Social Proof Vide",
+      "settings": {
+        "text_W9XjdX5PzrlIof6I": "<p>776</p>",
+        "url_W9XjdX5PzrlIof6I": "#",
+        "text_MrfZH0I2uGntLi8Z": "<p>Verified 5-star reviews*</p>",
+        "text_ZjKYfr3DMiysL4ec": "<h3>\"I was sceptical,</h3>",
+        "text_Ald70OWqr2WQHu7y": "<h3>until I tried it\"</h3>",
+        "text_TirDGluZjhacKn43": "<h3>Discover why 100.000+</h3><h3>people made the switch to Lio.</h3>",
+        "url_smzRC7gBDBOH3XjV": "shopify://products/lio®-journey-pack-1",
+        "text_ZH4PofD0svKIlHIv": "<p>SHOP NOW</p>",
+        "url_JTQiLx0d6ldiHp3A": "shopify://pages/morereviews",
+        "text_NlMttJvre1Gyr4np": "<p>SEE MORE REVIEWS</p>",
+        "text_P6YeEnH1fRYhhqeJ": "<p>\"I haven&apos;t come across something as good as this, nothing comes out, so I can use it anywhere. I&apos;m adding a few more years to my life.\"</p>",
+        "text_GzBnImmE0KMDU8kZ": "<p>James (38) </p>",
+        "text_IwiPEDorpjt99AOH": "<p>\"I&apos;ve had the habit for the last 30 years. I&apos;ve been on this now for a week, loving it. I&apos;m not craving at all. No chemicals, it&apos;s all just flavored air. It&apos;s perfect, really good.\"</p>",
+        "text_m6wLkspAOIJ8J6n2": "<p>Anna (60) </p>",
+        "text_5PIxNmVzdOgCanBx": "<p>\"It blows my mind how a product like this in its simplicity hasn&apos;t existed since forever This is an awesome product I recommend highly.\"</p>",
+        "text_Bjy7bXuirmR8ytOe": "<p>Achmed (43) </p>",
+        "text_S5Gi7dOn7GylAB5O": "<p>\"The toughest part is the movement. This little gadget has saved me for the last 20 days. I just need my little Lio.\"</p>",
+        "text_U6PT0DtxLZrhot9p": "<p>Antonio (62) </p>",
+        "text_Y3i1nWNHjJoCLZER": "<p>\"It&apos;s insane, this stuff really helps. People came to me and asked what that was and they tried it. It really helps, I&apos;m really satisfied with it.\"</p>",
+        "text_AITco7zlB8XaXnO3": "<p>Kamar (43) </p>",
+        "text_SKYCaddhVWpDkVNs": "<p>\"I&apos;m on day 14 now and honestly it&apos;s been helping me. this a shot, it&apos;s the only thing that&apos;s ever helped me. Really good product.\"</p>",
+        "text_JoZtt7zLdotgSMd4": "<p>MICHAEL (22) </p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "instant_bt_hl_j6j_lwd5yz_k_db_wdXym8": {
       "type": "instant-BtHlJ6jLWD5yzKDb",
       "name": "TRUST SCIENCE",
@@ -83,6 +113,7 @@
   },
   "order": [
     "instant-cOhKS5OLo0L2H2s4",
+    "instant_x_oetj8_hepve_arkr_v_erYQct",
     "instant_bt_hl_j6j_lwd5yz_k_db_wdXym8",
     "instant_82_ryrn_jl_m_jb_pgb5_u_mbFYgE",
     "1767074739340a68a2"
