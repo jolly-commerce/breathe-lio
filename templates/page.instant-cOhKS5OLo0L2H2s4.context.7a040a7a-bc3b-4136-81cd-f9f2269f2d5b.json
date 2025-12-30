@@ -12,5 +12,66 @@
   "context": {
     "market": "7a040a7a-bc3b-4136-81cd-f9f2269f2d5b"
   },
-  "sections": {}
+  "sections": {
+    "instant_a_n_fxyua_v_hr_maf_ek1_CNHyK": {
+      "type": "instant-aNFxyuaVHrMafEk1",
+      "disabled": false,
+      "settings": {
+        "text_Wbbq32eqxRlILzCi": "<p>1000+</p>",
+        "url_Wbbq32eqxRlILzCi": "#",
+        "text_QwbMovbZEZCyixOl": "<p>5-sterren reviews</p>",
+        "text_sHadThcb9oNh0NHp": "<h3>\"Ik dacht </h3><h3>dat het </h3><h3>onzin was... </h3>",
+        "text_Wuq9rC3bbfSbrAfU": "<h3>tot ik het probeerde\"</h3>",
+        "text_XoaWoWSaVOCfiW2y": "<h3>Ontdek waarom 100.000+ </h3><h3>mensen kozen voor BreatheLio</h3>",
+        "url_Du6V9Ey4JBuNHl5M": "shopify://products/lio®-journey-pack-1",
+        "text_4hlL2dzuNhBQMTMI": "<p>PROBEER LIO</p>",
+        "url_YUdDlolbqQ0RH5Fv": "shopify://pages/morereviews",
+        "text_pzOxpXlMemm8UPAj": "<p>BEKIJK MEER REVIEWS</p>",
+        "video_3CP4yluaA1bgrRdr": null,
+        "text_2kBV6uMVdkyamp4h": "<p>\"Het is voor mij dé uitkomst om van dat neurotische gedrag af te komen op een gezonde manier.\"</p>",
+        "text_FK4DQGwkeNpBnp3s": "<p>Anne (61) </p>",
+        "video_H9EwBKXjh2v7wKQp": null,
+        "text_gPnvtf4Z9BJN2DWH": "<p>\"Lio geeft me een vervanger voor de handeling; dat maakt het succesvol\"</p>",
+        "text_VTu1zkoJJqR22O5K": "<p>Bart (43) </p>",
+        "video_RWbVqpGqzmHMHyTs": null,
+        "text_fw3cVIFMerIKxxSA": "<p>\"Ook ik heb me kunnen overtuigen, en ik heb er nog geen seconden spijt van\"</p>",
+        "text_NyDyH53ior6byTzN": "<p>Sophie (42) </p>",
+        "video_9AsLPQeo8Nk2P3A9": null,
+        "text_WA8RhhJMphOsGq9O": "<p>\"Ik had zo&apos;n behoefte aan dat momentje van even lekker buiten, even alleen zijn, even een mommy break.\"</p>",
+        "text_TDCslL2J9ZjSeQUq": "<p>Marlies (38)</p>",
+        "video_ls6hY9ri7e9Tiwil": null,
+        "text_BrXhQ9mi48xQNHvR": "<p>\"Ik hoef niet meer in gevecht te zijn met mezelf... want als ik zin heb om te roken, pak ik deze.\"</p>",
+        "text_RXEQptKQcDzaNXMq": "<p>Femke (32) </p>",
+        "video_3EDTtTyBTzTHggsH": null,
+        "text_PnmQRKfCcR4D1KYL": "<p>\"Ik was in het begin best sceptisch, maar ik ben nu heel enthousiast. Het helpt enorm om de gewoonte te doorbreken.\"</p>",
+        "text_rArdbl3eKTWelYCI": "<p>MICHAEL (55) </p>",
+        "video_k3hNuel9KpIBYloo": null,
+        "text_RoQx8Nz3kYs8PW2f": "<p>\"Ik ben 25 jaar een kettingroker geweest. Dit haalt echt de scherpe randjes ervan af op momenten dat je snakt naar een sigaret.\"</p>",
+        "text_IdbpA6q5Zj8iTuWi": "<p>Hans (52) </p>",
+        "video_v7iu7xwTyFEjCwQG": null,
+        "text_BdsRvlKDlEvG0OCq": "<p>De Lio doet wonderen... mijn cravings zijn veel minder en ik heb de gewoonte aangeleerd om diep adem te halen.</p>",
+        "text_ds0ohkLLXj0ZTo67": "<p>Marit (27) </p>",
+        "header-a931592256c837cf3deb17f165baebf2": null,
+        "padding_top": 0,
+        "padding_bottom": 0
+      },
+      "blocks": {},
+      "block_order": [],
+      "name": "Social Proof Videos Secti"
+    },
+    "instant_x_oetj8_hepve_arkr_v_erYQct": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    }
+  },
+  "order": [
+    "instant-cOhKS5OLo0L2H2s4",
+    "instant_x_oetj8_hepve_arkr_v_erYQct",
+    "instant_a_n_fxyua_v_hr_maf_ek1_CNHyK",
+    "instant_bt_hl_j6j_lwd5yz_k_db_wdXym8",
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_inRLW8",
+    "instant_82_ryrn_jl_m_jb_pgb5_u_7KYwQz",
+    "1767074739340a68a2"
+  ]
 }
