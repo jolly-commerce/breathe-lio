@@ -49,10 +49,15 @@
               ><div data-instant-type="text" class="instant-rich-text iFm7Sx4LsmyNq7ecf"
                 ><div>{{ section.settings.text_Fm7Sx4LsmyNq7ecf }}</div></div
               ></div
-            ><div class="iZQDo5h1tncqNXSoh" data-instant-type="container"
+            >
+            {%- liquid
+              assign url_ZQDo5h1tncqNXSoh_handle = 'liosupport'
+              assign url_ZQDo5h1tncqNXSoh = pages[url_ZQDo5h1tncqNXSoh_handle].url
+            -%}
+            <a class="iZQDo5h1tncqNXSoh" data-instant-type="container" href="{{ section.settings.url_ZQDo5h1tncqNXSoh | default: url_ZQDo5h1tncqNXSoh }}" rel="noopener noreferrer"
               ><div data-instant-type="text" class="instant-rich-text i51MVT4piI5MLF7a0"
                 ><div>{{ section.settings.text_51MVT4piI5MLF7a0 }}</div></div
-              ></div
+              ></a
             ></div
           ></div
         ><div class="i179628N3bWLHEEpM" data-instant-type="tabs-content"
@@ -366,10 +371,10 @@
             ><div data-instant-type="text" class="instant-rich-text inaIFGsRKNW6ZVFW0"
               ><div>{{ section.settings.text_naIFGsRKNW6ZVFW0 }}</div></div
             ></div
-          ><div class="iRCJ857bMxPSlKVdr" data-instant-type="container"
+          ><a class="iRCJ857bMxPSlKVdr" data-instant-type="container" href="{{ section.settings.url_RCJ857bMxPSlKVdr | default: 'mailto:support@breathelio.com' }}" rel="noopener noreferrer"
             ><div data-instant-type="text" class="instant-rich-text i3ScLgSQ4YGz6HbB6"
               ><div>{{ section.settings.text_3ScLgSQ4YGz6HbB6 }}</div></div
-            ></div
+            ></a
           ></div
         ></div
       ></div
@@ -399,6 +404,11 @@
       "id": "text_Fm7Sx4LsmyNq7ecf",
       "label": "Subtitle",
       "default": "<p>Still have questions?</p>"
+    },
+    {
+      "type": "url",
+      "id": "url_ZQDo5h1tncqNXSoh",
+      "label": "Button URL"
     },
     {
       "type": "richtext",
@@ -701,6 +711,11 @@
       "default": "<p>Still have questions?</p>"
     },
     {
+      "type": "url",
+      "id": "url_RCJ857bMxPSlKVdr",
+      "label": "Button URL"
+    },
+    {
       "type": "richtext",
       "id": "text_3ScLgSQ4YGz6HbB6",
       "label": "Text",
@@ -737,6 +752,7 @@
       "settings": {
         "text_XLlhigl3lQjAsmGl": "<h3>FAQ</h3>",
         "text_Fm7Sx4LsmyNq7ecf": "<p>Still have questions?</p>",
+        "url_ZQDo5h1tncqNXSoh": "shopify://pages/liosupport",
         "text_51MVT4piI5MLF7a0": "<p>Get in touch</p>",
         "text_xxgTYQmmQuYtZ0yt": "<h3>What does it taste like?</h3>",
         "text_gjXDppQvzHAYhhdk": "<p>If you&apos;re used to vapor, Lio may not be as strong as you&apos;d expect at first. Lio can be compared to a herbal tea if vapor was compared to a sticky soda. Not as sweet, and a lot more natural.</p>",
@@ -783,6 +799,7 @@
         "text_jUv3kJiN6MjH6Kd9": "<h3>What to do if my order didn&apos;t arrive?</h3>",
         "text_u7vNscYdvD47SV43": "<p>First, check your tracking information to see the current status of your delivery. If your order is delayed beyond the expected delivery window or shows as delivered but you haven&apos;t received it, contact us immediately at <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"mailto:support@breathelio.com\">support@breathelio.com</a> with your order number. Our team will investigate with the shipping carrier and ensure you receive your order or arrange a replacement.</p>",
         "text_naIFGsRKNW6ZVFW0": "<p>Still have questions?</p>",
+        "url_RCJ857bMxPSlKVdr": "mailto:support@breathelio.com",
         "text_3ScLgSQ4YGz6HbB6": "<p>Get in touch</p>"
       }
     }
