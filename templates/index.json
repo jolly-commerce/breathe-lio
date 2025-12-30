@@ -187,6 +187,17 @@
         "padding_bottom": 0
       }
     },
+    "instant_82_ryrn_jl_m_jb_pgb5_u_VWLcUN": {
+      "type": "instant-82RYRNJlMJbPgb5U",
+      "name": "The Original Reviews",
+      "settings": {
+        "product_BdbeMVtHjl7P3ioz": "lio®-journey-pack-1",
+        "text_tBnF7hzwwuPzhyHq": "<h3>TRUSTED BY OVER</h3>",
+        "text_BuS8EoI8zLOIQ1TE": "<h3>100k customers</h3>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "1767060052d2af84b7": {
       "type": "apps",
       "blocks": {
@@ -198,7 +209,7 @@
             "product_handle": "",
             "aggregated": true,
             "data-limit": 20,
-            "maxwidth": 1080,
+            "maxwidth": 1360,
             "is_sample": true
           }
         }
@@ -213,17 +224,6 @@
         "background": "",
         "background_gradient": "",
         "text_color": ""
-      }
-    },
-    "instant_82_ryrn_jl_m_jb_pgb5_u_VWLcUN": {
-      "type": "instant-82RYRNJlMJbPgb5U",
-      "name": "The Original Reviews",
-      "settings": {
-        "product_BdbeMVtHjl7P3ioz": "lio®-journey-pack-1",
-        "text_tBnF7hzwwuPzhyHq": "<h3>TRUSTED BY OVER</h3>",
-        "text_BuS8EoI8zLOIQ1TE": "<h3>100k customers</h3>",
-        "padding_top": 0,
-        "padding_bottom": 0
       }
     }
   },
