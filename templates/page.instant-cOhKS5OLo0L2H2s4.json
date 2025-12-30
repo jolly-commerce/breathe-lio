@@ -71,13 +71,15 @@
         "padding_bottom": 0
       }
     },
-    "instant_82_ryrn_jl_m_jb_pgb5_u_mbFYgE": {
+    "instant_82_ryrn_jl_m_jb_pgb5_u_7KYwQz": {
       "type": "instant-82RYRNJlMJbPgb5U",
       "name": "The Original Reviews",
       "settings": {
         "product_BdbeMVtHjl7P3ioz": "lio®-journey-pack-1",
         "text_tBnF7hzwwuPzhyHq": "<h3>TRUSTED BY OVER</h3>",
         "text_BuS8EoI8zLOIQ1TE": "<h3>100k customers</h3>",
+        "url_y0OK5IhBLuBvOVsT": "shopify://products/lio®-journey-pack-1",
+        "text_nUqKOZuD7neCYlGC": "<p>TRY LIO NOW</p>",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -115,7 +117,7 @@
     "instant-cOhKS5OLo0L2H2s4",
     "instant_x_oetj8_hepve_arkr_v_erYQct",
     "instant_bt_hl_j6j_lwd5yz_k_db_wdXym8",
-    "instant_82_ryrn_jl_m_jb_pgb5_u_mbFYgE",
+    "instant_82_ryrn_jl_m_jb_pgb5_u_7KYwQz",
     "1767074739340a68a2"
   ]
 }
