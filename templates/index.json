@@ -186,123 +186,6 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
-    },
-    "flavours_section_hg89EP": {
-      "type": "flavours-section",
-      "blocks": {
-        "flavor_TQCLYx": {
-          "type": "flavor",
-          "settings": {
-            "bg_color": "#529ec8",
-            "overlay_color": "#529ec8",
-            "image": "shopify://shop_images/minty-magic-3059916_aa96af58-33d4-435d-9c8b-8ad9eca5fcb4.webp",
-            "title": "Minty magic",
-            "copy": "",
-            "freshness": "",
-            "throat_hit": "",
-            "sweetness": "",
-            "freshness_val": 100,
-            "throat_hit_val": 90,
-            "sweetness_val": 50
-          }
-        },
-        "flavor_kbEEKx": {
-          "type": "flavor",
-          "settings": {
-            "bg_color": "",
-            "overlay_color": "",
-            "image": "shopify://shop_images/minty-magic-3059916_aa96af58-33d4-435d-9c8b-8ad9eca5fcb4.webp",
-            "title": "Peppery Mint",
-            "copy": "",
-            "freshness": "",
-            "throat_hit": "",
-            "sweetness": "",
-            "freshness_val": 50,
-            "throat_hit_val": 50,
-            "sweetness_val": 50
-          }
-        },
-        "flavor_FJ3cGC": {
-          "type": "flavor",
-          "settings": {
-            "bg_color": "",
-            "overlay_color": "",
-            "image": "shopify://shop_images/minty-magic-3059916_aa96af58-33d4-435d-9c8b-8ad9eca5fcb4.webp",
-            "title": "Cinnamon Spice",
-            "copy": "",
-            "freshness": "",
-            "throat_hit": "",
-            "sweetness": "",
-            "freshness_val": 50,
-            "throat_hit_val": 50,
-            "sweetness_val": 50
-          }
-        },
-        "flavor_J9L33e": {
-          "type": "flavor",
-          "settings": {
-            "bg_color": "",
-            "overlay_color": "",
-            "image": "shopify://shop_images/minty-magic-3059916_aa96af58-33d4-435d-9c8b-8ad9eca5fcb4.webp",
-            "title": "Ohh My Orange",
-            "copy": "",
-            "freshness": "",
-            "throat_hit": "",
-            "sweetness": "",
-            "freshness_val": 50,
-            "throat_hit_val": 50,
-            "sweetness_val": 50
-          }
-        },
-        "flavor_EWfMT3": {
-          "type": "flavor",
-          "disabled": true,
-          "settings": {
-            "bg_color": "#802043",
-            "overlay_color": "#7e2243",
-            "image": "shopify://shop_images/Mango_passion.png",
-            "title": "Mango Passion",
-            "copy": "",
-            "freshness": "",
-            "throat_hit": "",
-            "sweetness": "",
-            "freshness_val": 50,
-            "throat_hit_val": 50,
-            "sweetness_val": 50
-          }
-        },
-        "flavor_Erernx": {
-          "type": "flavor",
-          "settings": {
-            "bg_color": "",
-            "overlay_color": "",
-            "image": "shopify://shop_images/minty-magic-3059916_aa96af58-33d4-435d-9c8b-8ad9eca5fcb4.webp",
-            "title": "Razzy Berry",
-            "copy": "",
-            "freshness": "",
-            "throat_hit": "",
-            "sweetness": "",
-            "freshness_val": 50,
-            "throat_hit_val": 50,
-            "sweetness_val": 50
-          }
-        }
-      },
-      "block_order": [
-        "flavor_TQCLYx",
-        "flavor_kbEEKx",
-        "flavor_FJ3cGC",
-        "flavor_J9L33e",
-        "flavor_EWfMT3",
-        "flavor_Erernx"
-      ],
-      "name": "Flavours Slider",
-      "settings": {
-        "price-title": "",
-        "sub": "FLAVOUR CORES",
-        "heading": "What's your flavour?",
-        "url": ""
-      }
     }
   },
   "order": [
@@ -311,7 +194,6 @@
     "instant_pox5w_zfcs_a33_jh_tx_GngMhr",
     "instant_x_oetj8_hepve_arkr_v_EKnyNr",
     "instant_6_ta2_uu_zb_jng9_i_bn7_AjQ6VH",
-    "instant_6x_bs_x_ih_h_qkcqi9b5_iGmBXb",
-    "flavours_section_hg89EP"
+    "instant_6x_bs_x_ih_h_qkcqi9b5_iGmBXb"
   ]
 }
