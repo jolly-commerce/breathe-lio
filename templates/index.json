@@ -192,6 +192,7 @@
       "blocks": {
         "flavor_EWfMT3": {
           "type": "flavor",
+          "disabled": true,
           "settings": {
             "bg_color": "#802043",
             "overlay_color": "#7e2243",
