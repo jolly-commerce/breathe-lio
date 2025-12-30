@@ -209,7 +209,7 @@
             "product_handle": "",
             "aggregated": true,
             "data-limit": 20,
-            "maxwidth": 1280,
+            "maxwidth": 1200,
             "is_sample": true
           }
         }
