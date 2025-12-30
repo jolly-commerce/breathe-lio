@@ -126,6 +126,19 @@
         "padding_bottom": 0
       }
     },
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_TjgeRP": {
+      "type": "instant-uAnVLMfa9E8IUPzK",
+      "name": "HOW LIO WORKS ",
+      "settings": {
+        "text_dexOB6igRe9Eptbe": "<h3>Here’s how LIO works</h3>",
+        "text_2dI3MuIHWWHZJRsK": "<p>1: ZIP THE BAG </p>",
+        "text_n81CRw4pHvFx6kf7": "<p>2: FRAY THE CORE</p>",
+        "text_IToyPQTuctktKsiP": "<p>3: insert the core</p>",
+        "text_jmBe8RVHWUBx87sJ": "<p>4: Enjoy the relief</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "instant_6x_bs_x_ih_h_qkcqi9b5_iGmBXb": {
       "type": "instant-6xBsXIhHQkcqi9b5",
       "name": "Frequency Asked Questions",
@@ -225,19 +238,6 @@
         "background_gradient": "",
         "text_color": ""
       }
-    },
-    "instant_u_an_vl_mfa9_e8_iu_pz_k_yACQit": {
-      "type": "instant-uAnVLMfa9E8IUPzK",
-      "name": "HOW LIO WORKS ",
-      "settings": {
-        "text_dexOB6igRe9Eptbe": "<h3>Here’s how LIO works</h3>",
-        "text_2dI3MuIHWWHZJRsK": "<p>1: ZIP THE BAG </p>",
-        "text_n81CRw4pHvFx6kf7": "<p>2: FRAY THE CORE</p>",
-        "text_IToyPQTuctktKsiP": "<p>3: insert the core</p>",
-        "text_jmBe8RVHWUBx87sJ": "<p>4: Enjoy the relief</p>",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
@@ -246,7 +246,7 @@
     "instant_pox5w_zfcs_a33_jh_tx_GngMhr",
     "instant_x_oetj8_hepve_arkr_v_EKnyNr",
     "instant_6_ta2_uu_zb_jng9_i_bn7_AjQ6VH",
-    "instant_u_an_vl_mfa9_e8_iu_pz_k_yACQit",
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_TjgeRP",
     "instant_6x_bs_x_ih_h_qkcqi9b5_iGmBXb",
     "instant_82_ryrn_jl_m_jb_pgb5_u_VWLcUN",
     "1767060052d2af84b7"
