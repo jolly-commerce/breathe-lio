@@ -190,36 +190,19 @@
     "flavours_section_hg89EP": {
       "type": "flavours-section",
       "blocks": {
-        "flavor_EWfMT3": {
-          "type": "flavor",
-          "disabled": true,
-          "settings": {
-            "bg_color": "#802043",
-            "overlay_color": "#7e2243",
-            "image": "shopify://shop_images/Mango_passion.png",
-            "title": "Mango Passion",
-            "copy": "",
-            "freshness": "",
-            "throat_hit": "",
-            "sweetness": "",
-            "freshness_val": 50,
-            "throat_hit_val": 50,
-            "sweetness_val": 50
-          }
-        },
         "flavor_TQCLYx": {
           "type": "flavor",
           "settings": {
-            "bg_color": "",
-            "overlay_color": "",
+            "bg_color": "#529ec8",
+            "overlay_color": "#529ec8",
             "image": "shopify://shop_images/minty-magic-3059916_aa96af58-33d4-435d-9c8b-8ad9eca5fcb4.webp",
             "title": "Minty magic",
             "copy": "",
             "freshness": "",
             "throat_hit": "",
             "sweetness": "",
-            "freshness_val": 50,
-            "throat_hit_val": 50,
+            "freshness_val": 100,
+            "throat_hit_val": 90,
             "sweetness_val": 50
           }
         },
@@ -271,6 +254,23 @@
             "sweetness_val": 50
           }
         },
+        "flavor_EWfMT3": {
+          "type": "flavor",
+          "disabled": true,
+          "settings": {
+            "bg_color": "#802043",
+            "overlay_color": "#7e2243",
+            "image": "shopify://shop_images/Mango_passion.png",
+            "title": "Mango Passion",
+            "copy": "",
+            "freshness": "",
+            "throat_hit": "",
+            "sweetness": "",
+            "freshness_val": 50,
+            "throat_hit_val": 50,
+            "sweetness_val": 50
+          }
+        },
         "flavor_Erernx": {
           "type": "flavor",
           "settings": {
@@ -289,16 +289,16 @@
         }
       },
       "block_order": [
-        "flavor_EWfMT3",
         "flavor_TQCLYx",
         "flavor_kbEEKx",
         "flavor_FJ3cGC",
         "flavor_J9L33e",
+        "flavor_EWfMT3",
         "flavor_Erernx"
       ],
       "name": "Flavours Slider",
       "settings": {
-        "price-title": "shop now for",
+        "price-title": "",
         "sub": "flavour cores",
         "heading": "DISCOVER YOUR PERFECT FLAVOR",
         "url": ""
