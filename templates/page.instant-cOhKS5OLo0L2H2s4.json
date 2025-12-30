@@ -111,12 +111,26 @@
         "background_gradient": "",
         "text_color": ""
       }
+    },
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_inRLW8": {
+      "type": "instant-uAnVLMfa9E8IUPzK",
+      "name": "HOW LIO WORKS ",
+      "settings": {
+        "text_dexOB6igRe9Eptbe": "<h3>Here’s how LIO works</h3>",
+        "text_2dI3MuIHWWHZJRsK": "<p>1: ZIP THE BAG </p>",
+        "text_n81CRw4pHvFx6kf7": "<p>2: FRAY THE CORE</p>",
+        "text_IToyPQTuctktKsiP": "<p>3: insert the core</p>",
+        "text_jmBe8RVHWUBx87sJ": "<p>4: Enjoy the relief</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "instant-cOhKS5OLo0L2H2s4",
     "instant_x_oetj8_hepve_arkr_v_erYQct",
     "instant_bt_hl_j6j_lwd5yz_k_db_wdXym8",
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_inRLW8",
     "instant_82_ryrn_jl_m_jb_pgb5_u_7KYwQz",
     "1767074739340a68a2"
   ]
