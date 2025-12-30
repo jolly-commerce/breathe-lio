@@ -13,16 +13,6 @@
       "type": "instant-cOhKS5OLo0L2H2s4",
       "settings": {}
     },
-    "instant_nwr_u_dx_xiop4_x_zc_rf_VnmjNH": {
-      "type": "instant-nwrUDxXIOP4XZcRf",
-      "name": "LOOX REVIEWS",
-      "settings": {
-        "text_67M6c8SZyKKmkMTS": "<h3>100.000+ mensen maakte de switch</h3>",
-        "text_b7cR5hCCIWghXSa2": "<p>4,8/5 based on 1000+ reviews</p>",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "instant_bt_hl_j6j_lwd5yz_k_db_wdXym8": {
       "type": "instant-BtHlJ6jLWD5yzKDb",
       "name": "TRUST SCIENCE",
@@ -93,7 +83,6 @@
   },
   "order": [
     "instant-cOhKS5OLo0L2H2s4",
-    "instant_nwr_u_dx_xiop4_x_zc_rf_VnmjNH",
     "instant_bt_hl_j6j_lwd5yz_k_db_wdXym8",
     "instant_82_ryrn_jl_m_jb_pgb5_u_mbFYgE",
     "1767074739340a68a2"
