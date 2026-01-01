@@ -13,6 +13,49 @@
       "type": "instant-vJVb1Z7ZHuj8ueXW",
       "settings": {}
     },
+    "17672354120a621ccc": {
+      "type": "apps",
+      "blocks": {
+        "section_store_block_banner_YxWGcb": {
+          "type": "shopify://apps/section-store/blocks/block-banner/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "gap": 2,
+            "text_align": "center",
+            "link": "",
+            "use_image": false,
+            "icon": "rocket",
+            "image_size": 30,
+            "image_position": "left",
+            "icon_color": "#B82020",
+            "title_text": "<p>New Year, New You</p>",
+            "title_size": 24,
+            "title_color": "#00b67c",
+            "body_text": "<p>Only today, enjoy 25% off Flavour Cores, a little gift from us to support your journey.</p>",
+            "body_size": 16,
+            "body_color": "#00b67c",
+            "border": "dotted",
+            "border_thickness": 1,
+            "border_color": "#00b67c",
+            "radius": 10,
+            "background": "#e7fff7",
+            "shadow": "none",
+            "padding_vertical": 20,
+            "padding_horizontal": 20
+          }
+        }
+      },
+      "block_order": [
+        "section_store_block_banner_YxWGcb"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
     "ss_bundle_builder_5_ErCg6V": {
       "type": "ss-bundle-builder-5",
       "name": "SS - Bundle builder #5",
@@ -203,7 +246,7 @@
         "margin_bottom": 0,
         "margin_horizontal": 0,
         "margin_horizontal_mobile": 0,
-        "padding_top": 36,
+        "padding_top": 0,
         "padding_bottom": 36,
         "padding_horizontal": 5,
         "padding_horizontal_mobile": 1.5,
@@ -217,6 +260,7 @@
   },
   "order": [
     "instant-vJVb1Z7ZHuj8ueXW",
+    "17672354120a621ccc",
     "ss_bundle_builder_5_ErCg6V"
   ]
 }
