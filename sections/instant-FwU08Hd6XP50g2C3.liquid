@@ -54,7 +54,12 @@
                 ><div class="instant-rich-text"><p>Shop All</p></div></a
               ><a as="p" data-instant-type="text" class="iTN3IW8PuYwBfdebf" href="null" rel="noopener noreferrer"
                 ><div class="instant-rich-text"><p>Journey Packs</p></div></a
-              ><a as="p" data-instant-type="text" class="ih4QmmjR1n2wfnw8m" href="null" rel="noopener noreferrer"
+              >
+              {%- liquid
+                assign url_h4QmmjR1n2wfnw8m_handle = 'get-more-cores'
+                assign url_h4QmmjR1n2wfnw8m = all_products[url_h4QmmjR1n2wfnw8m_handle].url
+              -%}
+              <a as="p" data-instant-type="text" class="ih4QmmjR1n2wfnw8m" href="{{ url_h4QmmjR1n2wfnw8m }}" rel="noopener noreferrer"
                 ><div class="instant-rich-text"><p>Flavour Cores</p></div></a
               ><a as="p" data-instant-type="text" class="iBstGa0X7ZuyV1tI4" href="null" rel="noopener noreferrer"
                 ><div class="instant-rich-text"><p>Lio Devices</p></div></a
