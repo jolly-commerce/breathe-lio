@@ -61,7 +61,9 @@
               "lio-walnut",
               "lio-diffuser",
               "lio®-aluminium-black",
-              "lio®-aluminium-silver"
+              "lio®-aluminium-silver",
+              "lio®-gen-2-walnut",
+              "lio®-gen-2-olive"
             ],
             "step_2_title": "Step 2:",
             "step_2_subtitle": "Select your flavors",
@@ -682,6 +684,7 @@
       "settings": {
         "text_lfwOTQxMTMRSG1QL": "<h3>Lio diffuser?</h3>",
         "text_UFe3Olrd368XrYCk": "<h3>what is a</h3>",
+        "text_PfYZBLPuqMbjVPuy": "<p>Quitting bad habits isn’t easy, but Lio simplifies it by focusing on what truly works.</p><p></p><p>Unlike other solutions that rely on nicotine or chemicals, Lio helps you <strong>curb cravings naturally</strong> while preserving the familiar<strong> hand-to-mouth habit</strong>.</p><p></p><p>With Lio, you get a <strong>natural</strong>, <strong>stress-free way</strong> to break free, without side effects.</p><p></p>",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -1192,6 +1195,7 @@
         "question_Xa8UUH": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "What are the ingredients?",
             "content": "<p>Lio® Flavour Cores are crafted with 100% natural ingredients, offering a nicotine-free solution to help break harmful habits. Delivering clean, flavoured air without smoke, vapor, or chemicals, ensuring a safe, effective, and satisfying alternative for relieving cravings.</p>"
           }
@@ -1199,6 +1203,7 @@
         "question_ipPnxK": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "What does flavored air taste like?",
             "content": "<p>If you’re used to vapor, Lio might feel lighter at first—but it’s designed for a healthier future. Think of Lio as herbal tea compared to the sticky soda of vapor: less intense, more natural, and far better for you.</p>"
           }
@@ -1206,6 +1211,7 @@
         "question_BE4wCE": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "What are cores made of?",
             "content": "<p>Each Core fiber is medical grade polyester, infused in the fiber is our unique plant blend of pure essential oils from amazing farms we've partnered with around the world.</p>"
           }
@@ -1213,6 +1219,7 @@
         "question_fKTip9": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "How long do the Lio Cores last?",
             "content": "<p>Each Lio Core lasts 2-4 days, depending on your usage. Heavy users may need to replace the cores more frequently, but they are designed to provide lasting flavor and a satisfying experience.</p>"
           }
@@ -1220,6 +1227,7 @@
         "question_UMTRXM": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "How often can I use Lio?",
             "content": "<p>Use Lio as often as you like. If you experience any discomfort, please discontinue use and consult your physician.</p>"
           }
@@ -1227,6 +1235,7 @@
         "question_9PTRMQ": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "Is Lio safe to use?",
             "content": "<p>Lio is made with 100% natural ingredients and is completely free from nicotine, smoke, and harmful chemicals, making it a safe and healthier alternative for people trying to quit smoking or vaping.</p>"
           }
@@ -1234,6 +1243,7 @@
         "question_KBPhnx": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "Shipping & Refunds",
             "content": "<p><strong>Worldwide shipping - For Free<br/></strong>We ship worldwide from the Netherlands with free shipping on all orders. Delivery takes 2-3 days within Europe, 4-8 days outside Europe, and next-day delivery in the Middle East (from Dubai).<br/><br/><strong>The Money Back Guarantee</strong><br/>If you’ve used Lio™, commit to a 30 days to experience its benefits. After completing the 30-day journey, you have 7 days to request a refund if you’re not satisfied. This ensures you have enough time to fully explore its impact before making a decision.</p>"
           }
@@ -1241,6 +1251,7 @@
         "question_LG34Gj": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "How does Lio work?",
             "content": "<p>Lio works by replacing the hand-to-mouth fixation with naturally infused air, offering calming, refreshing flavors without nicotine, smoke, or chemicals. This action helps reduce the psychological need for smoking or vaping while keeping you engaged with familiar habits.</p>"
           }
@@ -1248,6 +1259,7 @@
         "question_KznXfV": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "Question",
             "content": "<p>Share some content to your customers about your products.</p>"
           }
@@ -1255,6 +1267,7 @@
         "question_kmmrPa": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "Can I use Lio anywhere?",
             "content": "<p>Yes! Lio produces no smoke, vapor, or harmful chemicals, so it can be used in most places where smoking or vaping are not allowed. Its discreet and clean design makes it a convenient, portable option to carry and use anywhere, whether you’re at home, work, or on the go.</p>"
           }
@@ -1262,6 +1275,7 @@
         "question_AnUeDn": {
           "type": "question",
           "settings": {
+            "category": "product",
             "title": "Can I use Lio anywhere?",
             "content": "<p>Yes! Lio produces no smoke, vapor, or harmful chemicals, so it can be used in most places where smoking or vaping are not allowed. Its discreet and clean design makes it a convenient, portable option to carry and use anywhere, whether you’re at home, work, or on the go.</p>"
           }
@@ -1281,12 +1295,11 @@
         "question_AnUeDn"
       ],
       "settings": {
-        "padding_top": 32,
-        "padding_top_desktop": 40,
-        "padding_bottom": 32,
-        "padding_bottom_desktop": 40,
         "title": "You asked we",
-        "high-title": "answered"
+        "high_title": "Questions",
+        "show_categories": true,
+        "category_1_name": "Product",
+        "category_2_name": "General"
       }
     },
     "custom_newsletter_Vr87pq": {
