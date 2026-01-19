@@ -80,7 +80,12 @@
                 ><div class="instant-rich-text"><p>How Lio Works</p></div></a
               ><a as="p" data-instant-type="text" class="iXuGj8NYncJQMdNMM" href="https://tally.so/r/wogk7M" rel="noopener noreferrer"
                 ><div class="instant-rich-text"><p>Wholesale</p></div></a
-              ><a as="p" data-instant-type="text" class="ivftBygnZX3hpVKuH" href="null" rel="noopener noreferrer"
+              >
+              {%- liquid
+                assign url_vftBygnZX3hpVKuH_handle = 'trustscience'
+                assign url_vftBygnZX3hpVKuH = pages[url_vftBygnZX3hpVKuH_handle].url
+              -%}
+              <a as="p" data-instant-type="text" class="ivftBygnZX3hpVKuH" href="{{ url_vftBygnZX3hpVKuH }}" rel="noopener noreferrer"
                 ><div class="instant-rich-text"><p>Science</p></div></a
               >
               {%- liquid
