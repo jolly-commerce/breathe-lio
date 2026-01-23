@@ -130,10 +130,10 @@
       ],
       "name": "Product Main",
       "settings": {
-        "product_main": "",
+        "product_main": "lio®-journey-pack-1",
         "padding_dsk_t": 40,
         "padding_dsk_b": 40,
-        "padding_mob_t": 20,
+        "padding_mob_t": 0,
         "padding_mob_b": 40,
         "background": "linear-gradient(180deg, rgba(245, 255, 247, 1), rgba(245, 255, 247, 1) 100%)"
       }
