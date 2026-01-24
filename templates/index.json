@@ -13,7 +13,7 @@
       "type": "instant-EfUKSlwxUZj9ubaY",
       "name": "The Original Homepage",
       "settings": {
-        "text_o4cdW4gdt5QTTkN5": "<h3><strong>Let&apos;s break</strong></h3><h3><strong>that bad habit in 2026</strong></h3>",
+        "text_o4cdW4gdt5QTTkN5": "<h3><strong>Let's break</strong></h3><h3><strong>that bad habit</strong></h3>",
         "text_1yOYDbJXWNnD4HrX": "<h3><strong>zero nicotine   •   no batteries •   no vapor   •   no calories</strong></h3>",
         "url_AqNytFo8SK7OS39r": "",
         "text_kv1jvyZTcJwYF613": "<p>START MY JOURNEY</p>",
@@ -105,6 +105,7 @@
         "text_AITco7zlB8XaXnO3": "<p>Kamar (43) </p>",
         "text_SKYCaddhVWpDkVNs": "<p>\"I&apos;m on day 14 now and honestly it&apos;s been helping me. this a shot, it&apos;s the only thing that&apos;s ever helped me. Really good product.\"</p>",
         "text_JoZtt7zLdotgSMd4": "<p>MICHAEL (22) </p>",
+        "text_qXeOLpwX82kp3onJ": "<p>Individual experiences vary. Lio is not a medical or smoking cessation device.</p>",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -173,6 +174,7 @@
       "settings": {
         "text_XLlhigl3lQjAsmGl": "<h3>FAQ</h3>",
         "text_Fm7Sx4LsmyNq7ecf": "<p>Still have questions?</p>",
+        "url_ZQDo5h1tncqNXSoh": "",
         "text_51MVT4piI5MLF7a0": "<p>Get in touch</p>",
         "tab_title_NEDiiHOu0ukoJGJ2": "Product & Experience",
         "text_xxgTYQmmQuYtZ0yt": "<h3>What does it taste like?</h3>",
@@ -223,6 +225,7 @@
         "text_jUv3kJiN6MjH6Kd9": "<h3>What to do if my order didn&apos;t arrive?</h3>",
         "text_u7vNscYdvD47SV43": "<p>First, check your tracking information to see the current status of your delivery. If your order is delayed beyond the expected delivery window or shows as delivered but you haven&apos;t received it, contact us immediately at <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"mailto:support@breathelio.com\">support@breathelio.com</a> with your order number. Our team will investigate with the shipping carrier and ensure you receive your order or arrange a replacement.</p>",
         "text_naIFGsRKNW6ZVFW0": "<p>Still have questions?</p>",
+        "url_RCJ857bMxPSlKVdr": "",
         "text_3ScLgSQ4YGz6HbB6": "<p>Get in touch</p>",
         "padding_top": 0,
         "padding_bottom": 0
@@ -235,6 +238,8 @@
         "product_BdbeMVtHjl7P3ioz": "lio®-journey-pack-1",
         "text_tBnF7hzwwuPzhyHq": "<h3>TRUSTED BY OVER</h3>",
         "text_BuS8EoI8zLOIQ1TE": "<h3>100k customers</h3>",
+        "url_y0OK5IhBLuBvOVsT": "",
+        "text_nUqKOZuD7neCYlGC": "<p>TRY LIO NOW</p>",
         "padding_top": 0,
         "padding_bottom": 0
       }
