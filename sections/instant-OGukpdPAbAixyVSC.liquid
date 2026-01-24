@@ -101,6 +101,16 @@
               ><div data-instant-type="text" class="instant-rich-text i6Y67gVsg38THgzaf"
                 ><div>{{ section.settings.text_6Y67gVsg38THgzaf }}</div></div
               ></div
+            ><div class="ifnCYBODrvVqHCi0g" data-instant-type="container"
+              ><div data-instant-type="image" class="ij3UmLFWZkzpbxiW1">
+                {%- if section.settings.image_j3UmLFWZkzpbxiW1 and section.settings.image_j3UmLFWZkzpbxiW1 != blank -%}
+                  {{ section.settings.image_j3UmLFWZkzpbxiW1 | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings.image_j3UmLFWZkzpbxiW1.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                {%- else -%}
+                  <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wrdokbjruP0scfir/screenshot-2026-01-24-at-52027pm-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wrdokbjruP0scfir/screenshot-2026-01-24-at-52027pm-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wrdokbjruP0scfir/screenshot-2026-01-24-at-52027pm-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wrdokbjruP0scfir/screenshot-2026-01-24-at-52027pm-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wrdokbjruP0scfir/screenshot-2026-01-24-at-52027pm-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wrdokbjruP0scfir/screenshot-2026-01-24-at-52027pm-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wrdokbjruP0scfir/screenshot-2026-01-24-at-52027pm-photoroom.webp?width=1280" width="1215" height="1215" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
+                {%- endif -%}</div
+              ><div data-instant-type="text" class="instant-rich-text iAqhzzkPVwrEi4BZN"
+                ><div>{{ section.settings.text_AqhzzkPVwrEi4BZN }}</div></div
+              ></div
             ><div class="ipHisZhYeGYzb6Omq" data-instant-type="container"
               ><div data-instant-type="image" class="iFppDeJbl0sfTvWQy">
                 {%- if section.settings.image_FppDeJbl0sfTvWQy and section.settings.image_FppDeJbl0sfTvWQy != blank -%}
@@ -189,6 +199,17 @@
     },
     {
       "type": "image_picker",
+      "id": "image_j3UmLFWZkzpbxiW1",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text_AqhzzkPVwrEi4BZN",
+      "label": "Text",
+      "default": "<h3>Throat hit</h3>"
+    },
+    {
+      "type": "image_picker",
       "id": "image_FppDeJbl0sfTvWQy",
       "label": "Image"
     },
@@ -196,7 +217,7 @@
       "type": "richtext",
       "id": "text_F9cAkdIVJLDna1iN",
       "label": "Text",
-      "default": "<h3>Same Sensation</h3>"
+      "default": "<h3>Hand-To-Mouth</h3>"
     },
     {
       "type": "image_picker",
@@ -247,7 +268,8 @@
         "text_3q0Spo77r5nCjnnb": "<h3>4.7/5 Based on 1256 Reviews</h3>",
         "text_XPOUNFNWnt6WYC87": "<h3>break that</h3><h3>bad habit</h3>",
         "text_6Y67gVsg38THgzaf": "<h3>100% Natural</h3>",
-        "text_F9cAkdIVJLDna1iN": "<h3>Same Sensation</h3>",
+        "text_AqhzzkPVwrEi4BZN": "<h3>Throat hit</h3>",
+        "text_F9cAkdIVJLDna1iN": "<h3>Hand-To-Mouth</h3>",
         "text_Qfak1sxqlRe0mcyj": "<h3>No Nicotine</h3>",
         "text_TaotLmAj5DJd1OaM": "<p>ORDER NOW </p>"
       }
