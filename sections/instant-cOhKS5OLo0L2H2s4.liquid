@@ -13,26 +13,14 @@
   <style>
     @font-face {
       font-family: 'Suncoast GROT';
-      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1Sulk2NJElEkjvl/suncoastgrot-medium.woff2') format('woff2');
-      font-weight: 500;
+      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/K0JrYp9I52Y6n111/suncoastgrot-bold.woff2') format('woff2');
+      font-weight: 700;
       font-display: swap;
     }
     @font-face {
       font-family: 'Suncoast GROT';
       src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/alokcA7207DUbdPy/suncoastgrot-light.woff2') format('woff2');
       font-weight: 300;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Suncoast GROT';
-      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/kw2A1XcxXbw6YSmv/anyconvcomsuncoastgrot-black.woff2') format('woff2');
-      font-weight: 900;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Suncoast GROT';
-      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/K0JrYp9I52Y6n111/suncoastgrot-bold.woff2') format('woff2');
-      font-weight: 700;
       font-display: swap;
     }
     @font-face {
@@ -66,117 +54,8 @@
         {{ section.settings['image_0me0CPaGOqIssEDa-4_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_0me0CPaGOqIssEDa-4_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
       {%- else -%}
         <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/scmwwaggrW7Bto3b/ezgifcom-animated-gif-maker.gif?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/scmwwaggrW7Bto3b/ezgifcom-animated-gif-maker.gif?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/scmwwaggrW7Bto3b/ezgifcom-animated-gif-maker.gif?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/scmwwaggrW7Bto3b/ezgifcom-animated-gif-maker.gif?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/scmwwaggrW7Bto3b/ezgifcom-animated-gif-maker.gif?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/scmwwaggrW7Bto3b/ezgifcom-animated-gif-maker.gif?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/scmwwaggrW7Bto3b/ezgifcom-animated-gif-maker.gif?width=1280" width="1920" height="70" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
-      {%- endif -%}</div
-    ><div id="ilAz7HeSDrsOjzc6w" class="instant-ticker-container ilAz7HeSDrsOjzc6w" data-instant-type="ticker" data-instant-ticker-is-reversed="false" data-instant-ticker-pause="false" data-instant-ticker-speed="50"
-      ><div class="instant-ticker"
-        ><div class="instant-ticker-initial-child-container"
-          ><div class="irxDDKbmKiqNszerN" data-instant-type="container"
-            ><div data-instant-type="text" class="instant-rich-text is785t6yde1NJWx4i"
-              ><div>{{ section.settings['text_s785t6yde1NJWx4i-4'] }}</div></div
-            ></div
-          ><div class="i5ICBGLcqyIgirxwA" data-instant-type="container"
-            ><div data-instant-type="text" class="instant-rich-text ioa13brQ1Xj1DnmW5"
-              ><div>{{ section.settings['text_oa13brQ1Xj1DnmW5-4'] }}</div></div
-            ></div
-          ><div class="ip2KsC7rHvKVCJW12" data-instant-type="container"
-            ><div data-instant-type="text" class="instant-rich-text iqIqK0O1h7Guhv6Ga"
-              ><div>{{ section.settings['text_qIqK0O1h7Guhv6Ga-4'] }}</div></div
-            ></div
-          ><div class="iQxyQxnm71GS9JxQB" data-instant-type="container"
-            ><div data-instant-type="text" class="instant-rich-text ifmmD8O81Gnbot2tc"
-              ><div>{{ section.settings['text_fmmD8O81Gnbot2tc-4'] }}</div></div
-            ></div
-          ></div
-        ></div
-      ><div class="instant-ticker"></div
-    ></div>
-    {%- liquid
-      assign loading = 'eager'
-      assign fetchpriority = 'auto'
-      if section.location == 'footer'
-        assign loading = 'lazy'
-      elsif section.location == 'header'
-        assign fetchpriority = 'high'
-      elsif section.location == 'template'
-        if section.index == 1
-          assign fetchpriority = 'high'
-        elsif section.index > 2
-          assign loading = 'lazy'
-        endif
-      endif
-    -%}
-    <div class="isaqvNZTt80zE8Y0j" data-instant-type="container" id="isaqvNZTt80zE8Y0j"
-      ><div class="i6UPDsnSVqzW3ukdD" data-instant-type="container"
-        ><div data-instant-type="image" class="iXTWwVFFAeDYmeDSu">
-          {%- if section.settings['image_XTWwVFFAeDYmeDSu-4'] and section.settings['image_XTWwVFFAeDYmeDSu-4'] != blank -%}
-            {{ section.settings['image_XTWwVFFAeDYmeDSu-4'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_XTWwVFFAeDYmeDSu-4'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-          {%- else -%}
-            <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/S3bPwtDktPnsFwLP/521a2778-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/S3bPwtDktPnsFwLP/521a2778-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/S3bPwtDktPnsFwLP/521a2778-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/S3bPwtDktPnsFwLP/521a2778-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/S3bPwtDktPnsFwLP/521a2778-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/S3bPwtDktPnsFwLP/521a2778-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/S3bPwtDktPnsFwLP/521a2778-1.webp?width=1280" width="1462" height="1462" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
-          {%- endif -%}</div
-        ><div data-instant-type="image" class="i4WDhkrPKSPaeVrgu">
-          {%- if section.settings['image_4WDhkrPKSPaeVrgu-4'] and section.settings['image_4WDhkrPKSPaeVrgu-4'] != blank -%}
-            {{ section.settings['image_4WDhkrPKSPaeVrgu-4'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_4WDhkrPKSPaeVrgu-4'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-          {%- else -%}
-            <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/6mTTP0VrPtMbjHNK/screenshot-2025-01-09-at-121915-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/6mTTP0VrPtMbjHNK/screenshot-2025-01-09-at-121915-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/6mTTP0VrPtMbjHNK/screenshot-2025-01-09-at-121915-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/6mTTP0VrPtMbjHNK/screenshot-2025-01-09-at-121915-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/6mTTP0VrPtMbjHNK/screenshot-2025-01-09-at-121915-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/6mTTP0VrPtMbjHNK/screenshot-2025-01-09-at-121915-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/6mTTP0VrPtMbjHNK/screenshot-2025-01-09-at-121915-1.webp?width=1280" width="1570" height="1233" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
-          {%- endif -%}
-          <!--  -->
-          {%- if section.settings['image_4WDhkrPKSPaeVrgu-4_mobile'] and section.settings['image_4WDhkrPKSPaeVrgu-4_mobile'] != blank -%}
-            {{ section.settings['image_4WDhkrPKSPaeVrgu-4_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_4WDhkrPKSPaeVrgu-4_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-          {%- else -%}
-            <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/S3bPwtDktPnsFwLP/521a2778-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/S3bPwtDktPnsFwLP/521a2778-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/S3bPwtDktPnsFwLP/521a2778-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/S3bPwtDktPnsFwLP/521a2778-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/S3bPwtDktPnsFwLP/521a2778-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/S3bPwtDktPnsFwLP/521a2778-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/S3bPwtDktPnsFwLP/521a2778-1.webp?width=1280" width="1462" height="1462" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
-          {%- endif -%}</div></div
-      ><div class="i6oKKAqynNSk2GME2" data-instant-type="container"
-        ><div class="iICAYfqym4sK67JKJ" data-instant-type="container"
-          ><div data-instant-type="image" class="in6kcCZe9AI0puAvG">
-            {%- if section.settings['image_n6kcCZe9AI0puAvG-4'] and section.settings['image_n6kcCZe9AI0puAvG-4'] != blank -%}
-              {{ section.settings['image_n6kcCZe9AI0puAvG-4'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_n6kcCZe9AI0puAvG-4'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SZjv9Cb6GEm6B64H/lio-logo-1.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SZjv9Cb6GEm6B64H/lio-logo-1.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SZjv9Cb6GEm6B64H/lio-logo-1.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SZjv9Cb6GEm6B64H/lio-logo-1.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SZjv9Cb6GEm6B64H/lio-logo-1.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SZjv9Cb6GEm6B64H/lio-logo-1.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SZjv9Cb6GEm6B64H/lio-logo-1.png?width=1280" width="140" height="143" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
-            {%- endif -%}</div
-          ><div data-instant-type="text" class="instant-rich-text iZFTuSJ1PU15yMylu"
-            ><div>{{ section.settings['text_ZFTuSJ1PU15yMylu-4'] }}</div></div
-          ><div data-instant-type="text" class="instant-rich-text icTZKBBf62BXER4xf"
-            ><div>{{ section.settings['text_cTZKBBf62BXER4xf-4'] }}</div></div
-          ><div class="idUwroaSxMI2dmyg9" data-instant-type="container"
-            ><div class="ipE5tR1FJ9ZVHl7NH" data-instant-type="container"
-              ><div data-instant-type="image" class="izMjhxxq9JeOLLWYn">
-                {%- if section.settings['image_zMjhxxq9JeOLLWYn-4'] and section.settings['image_zMjhxxq9JeOLLWYn-4'] != blank -%}
-                  {{ section.settings['image_zMjhxxq9JeOLLWYn-4'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_zMjhxxq9JeOLLWYn-4'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                {%- else -%}
-                  <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=1280" width="912" height="958" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
-                {%- endif -%}</div
-              ><div data-instant-type="text" class="instant-rich-text iCDGaEAKRDq5SRZuM"
-                ><div>{{ section.settings['text_CDGaEAKRDq5SRZuM-4'] }}</div></div
-              ></div
-            ><div class="iHXdWJPOwfxYWxQr0" data-instant-type="container"
-              ><div data-instant-type="image" class="iFwOQtsXpCySlALCU">
-                {%- if section.settings['image_FwOQtsXpCySlALCU-4'] and section.settings['image_FwOQtsXpCySlALCU-4'] != blank -%}
-                  {{ section.settings['image_FwOQtsXpCySlALCU-4'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_FwOQtsXpCySlALCU-4'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                {%- else -%}
-                  <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
-                {%- endif -%}</div
-              ><div data-instant-type="text" class="instant-rich-text i1Qz0J4n4EPhUhYW5"
-                ><div>{{ section.settings['text_1Qz0J4n4EPhUhYW5-4'] }}</div></div
-              ></div
-            ><div class="irP4bDhFweC0Ih7ZY" data-instant-type="container"
-              ><div data-instant-type="image" class="i3F8Qas68Z3Dy6QtC">
-                {%- if section.settings['image_3F8Qas68Z3Dy6QtC-4'] and section.settings['image_3F8Qas68Z3Dy6QtC-4'] != blank -%}
-                  {{ section.settings['image_3F8Qas68Z3Dy6QtC-4'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_3F8Qas68Z3Dy6QtC-4'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                {%- else -%}
-                  <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
-                {%- endif -%}</div
-              ><div data-instant-type="text" class="instant-rich-text iv5PhBdKDhDA0UNgn"
-                ><div>{{ section.settings['text_v5PhBdKDhDA0UNgn-4'] }}</div></div
-              ></div
-            ></div
-          ><a class="isFUaC946AkXVlbLA" data-instant-type="container" href="#ii6QfDrACVoIxn7EU" data-instant-action-type="scroll-to-section" data-instant-action-id="i6QfDrACVoIxn7EU"
-            ><div data-instant-type="text" class="instant-rich-text iHYa92Ncih3EzaHNG"
-              ><div>{{ section.settings['text_HYa92Ncih3EzaHNG-4'] }}</div></div
-            ></a
-          ></div
-        ></div
-      ></div
-    >
+      {%- endif -%}
+    </div>
     {%- liquid
       assign product_cLufvOEAuuEI1JEK-4_handle = 'lio®-starterspakket'
       assign product_cLufvOEAuuEI1JEK-4 = section.settings['product_cLufvOEAuuEI1JEK-4'] | default: all_products[product_cLufvOEAuuEI1JEK-4_handle]
@@ -2387,101 +2266,6 @@
       "label": "Image mobile"
     },
     {
-      "type": "richtext",
-      "id": "text_s785t6yde1NJWx4i-4",
-      "label": "Rating",
-      "default": "<p><strong>1-2 Days delivery time</strong></p>"
-    },
-    {
-      "type": "richtext",
-      "id": "text_oa13brQ1Xj1DnmW5-4",
-      "label": "Rating",
-      "default": "<p><strong>TRUsted by 100.000 customers</strong></p>"
-    },
-    {
-      "type": "richtext",
-      "id": "text_qIqK0O1h7Guhv6Ga-4",
-      "label": "Rating",
-      "default": "<p><strong>0% nicotine</strong></p>"
-    },
-    {
-      "type": "richtext",
-      "id": "text_fmmD8O81Gnbot2tc-4",
-      "label": "Rating",
-      "default": "<p><strong>Free shipping above €20</strong></p>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_XTWwVFFAeDYmeDSu-4",
-      "label": "Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_4WDhkrPKSPaeVrgu-4",
-      "label": "Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_4WDhkrPKSPaeVrgu-4_mobile",
-      "label": "Image mobile"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_n6kcCZe9AI0puAvG-4",
-      "label": "Image"
-    },
-    {
-      "type": "richtext",
-      "id": "text_ZFTuSJ1PU15yMylu-4",
-      "label": "Text",
-      "default": "<h3>4.7/5 Based on 1256 Reviews</h3>"
-    },
-    {
-      "type": "richtext",
-      "id": "text_cTZKBBf62BXER4xf-4",
-      "label": "Text",
-      "default": "<h3>break that</h3><h3>bad habit</h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_zMjhxxq9JeOLLWYn-4",
-      "label": "Image"
-    },
-    {
-      "type": "richtext",
-      "id": "text_CDGaEAKRDq5SRZuM-4",
-      "label": "Text",
-      "default": "<h3>100% Natural</h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_FwOQtsXpCySlALCU-4",
-      "label": "Image"
-    },
-    {
-      "type": "richtext",
-      "id": "text_1Qz0J4n4EPhUhYW5-4",
-      "label": "Text",
-      "default": "<h3>Same Sensation</h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_3F8Qas68Z3Dy6QtC-4",
-      "label": "Image"
-    },
-    {
-      "type": "richtext",
-      "id": "text_v5PhBdKDhDA0UNgn-4",
-      "label": "Text",
-      "default": "<h3>No Nicotine</h3>"
-    },
-    {
-      "type": "richtext",
-      "id": "text_HYa92Ncih3EzaHNG-4",
-      "label": "Text",
-      "default": "<p>ORDER NOW </p>"
-    },
-    {
       "type": "product",
       "id": "product_cLufvOEAuuEI1JEK-4",
       "label": "Product"
@@ -3324,16 +3108,6 @@
     {
       "name": "Journey Pack 2026",
       "settings": {
-        "text_s785t6yde1NJWx4i-4": "<p><strong>1-2 Days delivery time</strong></p>",
-        "text_oa13brQ1Xj1DnmW5-4": "<p><strong>TRUsted by 100.000 customers</strong></p>",
-        "text_qIqK0O1h7Guhv6Ga-4": "<p><strong>0% nicotine</strong></p>",
-        "text_fmmD8O81Gnbot2tc-4": "<p><strong>Free shipping above €20</strong></p>",
-        "text_ZFTuSJ1PU15yMylu-4": "<h3>4.7/5 Based on 1256 Reviews</h3>",
-        "text_cTZKBBf62BXER4xf-4": "<h3>break that</h3><h3>bad habit</h3>",
-        "text_CDGaEAKRDq5SRZuM-4": "<h3>100% Natural</h3>",
-        "text_1Qz0J4n4EPhUhYW5-4": "<h3>Same Sensation</h3>",
-        "text_v5PhBdKDhDA0UNgn-4": "<h3>No Nicotine</h3>",
-        "text_HYa92Ncih3EzaHNG-4": "<p>ORDER NOW </p>",
         "product_cLufvOEAuuEI1JEK-4": "lio®-starterspakket",
         "text_k86s8B0vVD8JsxEo-4": "<p>🇳🇱 Produced in NL</p>",
         "text_NaHN3lGXFKqNO4RK-4": "<p>🚫 0% Nicotine</p>",
