@@ -9,20 +9,29 @@
  */
 {
   "sections": {
+    "instant_o_gukpd_p_ab_aixy_vsc_dMYRde": {
+      "type": "instant-OGukpdPAbAixyVSC",
+      "name": "HERO SECTION ORIGINAL",
+      "settings": {
+        "text_2Ex1BPMG1yXBl1wb-1": "<p><strong>1-2 Days delivery time</strong></p>",
+        "text_Eps5GLTLw0AKWra9-1": "<p><strong>TRUsted by 100.000 customers</strong></p>",
+        "text_kSMowL98HJZqLMBZ-1": "<p><strong>0% nicotine</strong></p>",
+        "text_qmjExejwNDRspcSw-1": "<p><strong>Free shipping above €20</strong></p>",
+        "text_3q0Spo77r5nCjnnb-1": "<h3>4.7/5 Based on 1256 Reviews</h3>",
+        "text_XPOUNFNWnt6WYC87-1": "<h3>break that</h3><h3>bad habit</h3>",
+        "text_6Y67gVsg38THgzaf-1": "<h3>100% Natural</h3>",
+        "text_AqhzzkPVwrEi4BZN-1": "<h3>Throat hit</h3>",
+        "text_F9cAkdIVJLDna1iN-1": "<h3>Hand-To-Mouth</h3>",
+        "text_Qfak1sxqlRe0mcyj-1": "<h3>No Nicotine</h3>",
+        "text_TaotLmAj5DJd1OaM-1": "<p>ORDER NOW </p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "instant_c_oh_ks5_o_lo0_l2_h2s4_9gtUt3": {
       "type": "instant-cOhKS5OLo0L2H2s4",
       "name": "Journey Pack 2026",
       "settings": {
-        "text_MrhiFt76n20phNPX-4": "<p><strong>Shipped for free from the netherlands</strong></p>",
-        "text_fmmD8O81Gnbot2tc-4": "<p><strong>1-2 Days delivery time</strong></p>",
-        "text_h9z5kn5pyZIjE3aJ-4": "<p>trusted by 100.000+ people</p>",
-        "text_OfifVCdR8KUwe8MI-4": "<p><strong>100% Natural</strong></p>",
-        "text_KxShg50F471YLTTI-4": "<p><strong>NO tax or duties</strong></p>",
-        "text_HQa8jrJaRpF6Ks7q-4": "<p><strong>🌍 World No Tobacco Week</strong> </p><p><strong>44% OFF – This Week Only</strong></p>",
-        "text_JeuT7v9l9IEYDTin-4": "<h3><strong>Let's break that bad habit</strong></h3>",
-        "text_L6W2eHc4VkiRlCBE-4": "<p>Keep the hand-to-mouth sensation you love, powered only by plants.</p>",
-        "text_TjXHJnXQnYgzRNXa-4": "<p><strong>make the switch</strong></p>",
-        "text_V1k1KpZHEoPmjHjf-4": "<p>Trusted by 100,000+ people</p>",
         "product_cLufvOEAuuEI1JEK-4": "lio®-starterspakket",
         "text_k86s8B0vVD8JsxEo-4": "<p>🇳🇱 Produced in The Netherlands</p>",
         "text_NaHN3lGXFKqNO4RK-4": "<p>🚫 0% Nicotine</p>",
@@ -297,6 +306,7 @@
     }
   },
   "order": [
+    "instant_o_gukpd_p_ab_aixy_vsc_dMYRde",
     "instant_c_oh_ks5_o_lo0_l2_h2s4_9gtUt3",
     "instant_6x_bs_x_ih_h_qkcqi9b5_CxMYiP",
     "instant_6_ta2_uu_zb_jng9_i_bn7_ndUr9P",
