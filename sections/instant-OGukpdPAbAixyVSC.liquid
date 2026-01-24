@@ -25,6 +25,12 @@
   <style>
     @font-face {
       font-family: 'Suncoast GROT';
+      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1Sulk2NJElEkjvl/suncoastgrot-medium.woff2') format('woff2');
+      font-weight: 500;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Suncoast GROT';
       src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/alokcA7207DUbdPy/suncoastgrot-light.woff2') format('woff2');
       font-weight: 300;
       font-display: swap;
@@ -35,14 +41,31 @@
       font-weight: 900;
       font-display: swap;
     }
-    @font-face {
-      font-family: 'Suncoast GROT';
-      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1Sulk2NJElEkjvl/suncoastgrot-medium.woff2') format('woff2');
-      font-weight: 500;
-      font-display: swap;
-    }
   </style>
-  <div data-instant-type="root" class="iB86CVzstM347WY3G">
+  <div data-instant-type="root" class="iB86CVzstM347WY3G"
+    ><div id="iOwCTVyjMqzr1CEW1" class="instant-ticker-container iOwCTVyjMqzr1CEW1" data-instant-type="ticker" data-instant-ticker-is-reversed="false" data-instant-ticker-pause="false" data-instant-ticker-speed="50"
+      ><div class="instant-ticker"
+        ><div class="instant-ticker-initial-child-container"
+          ><div class="ic3pzg7TVRIpH8LsZ" data-instant-type="container"
+            ><div data-instant-type="text" class="instant-rich-text i2Ex1BPMG1yXBl1wb"
+              ><div>{{ section.settings['text_2Ex1BPMG1yXBl1wb-1'] }}</div></div
+            ></div
+          ><div class="i4ez0dOxKtkP0nxoU" data-instant-type="container"
+            ><div data-instant-type="text" class="instant-rich-text iEps5GLTLw0AKWra9"
+              ><div>{{ section.settings['text_Eps5GLTLw0AKWra9-1'] }}</div></div
+            ></div
+          ><div class="iYIgx0MXEWYI5DbsZ" data-instant-type="container"
+            ><div data-instant-type="text" class="instant-rich-text ikSMowL98HJZqLMBZ"
+              ><div>{{ section.settings['text_kSMowL98HJZqLMBZ-1'] }}</div></div
+            ></div
+          ><div class="ielMTjsOwhDDme97B" data-instant-type="container"
+            ><div data-instant-type="text" class="instant-rich-text iqmjExejwNDRspcSw"
+              ><div>{{ section.settings['text_qmjExejwNDRspcSw-1'] }}</div></div
+            ></div
+          ></div
+        ></div
+      ><div class="instant-ticker"></div
+    ></div>
     {%- liquid
       assign loading = 'eager'
       assign fetchpriority = 'auto'
@@ -155,6 +178,30 @@
   },
   "settings": [
     {
+      "type": "richtext",
+      "id": "text_2Ex1BPMG1yXBl1wb-1",
+      "label": "Rating",
+      "default": "<p><strong>1-2 Days delivery time</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_Eps5GLTLw0AKWra9-1",
+      "label": "Rating",
+      "default": "<p><strong>TRUsted by 100.000 customers</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_kSMowL98HJZqLMBZ-1",
+      "label": "Rating",
+      "default": "<p><strong>0% nicotine</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_qmjExejwNDRspcSw-1",
+      "label": "Rating",
+      "default": "<p><strong>Free shipping above €20</strong></p>"
+    },
+    {
       "type": "image_picker",
       "id": "image_NqCBmbvBnKGHjKwh-1",
       "label": "Image"
@@ -265,6 +312,10 @@
     {
       "name": "HERO SECTION ORIGINAL",
       "settings": {
+        "text_2Ex1BPMG1yXBl1wb-1": "<p><strong>1-2 Days delivery time</strong></p>",
+        "text_Eps5GLTLw0AKWra9-1": "<p><strong>TRUsted by 100.000 customers</strong></p>",
+        "text_kSMowL98HJZqLMBZ-1": "<p><strong>0% nicotine</strong></p>",
+        "text_qmjExejwNDRspcSw-1": "<p><strong>Free shipping above €20</strong></p>",
         "text_3q0Spo77r5nCjnnb-1": "<h3>4.7/5 Based on 1256 Reviews</h3>",
         "text_XPOUNFNWnt6WYC87-1": "<h3>break that</h3><h3>bad habit</h3>",
         "text_6Y67gVsg38THgzaf-1": "<h3>100% Natural</h3>",
