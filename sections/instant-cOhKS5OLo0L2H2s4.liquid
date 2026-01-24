@@ -127,12 +127,16 @@
           {%- endif -%}</div></div
       ><div class="i6oKKAqynNSk2GME2" data-instant-type="container"
         ><div class="iICAYfqym4sK67JKJ" data-instant-type="container"
+          ><div data-instant-type="image" class="in6kcCZe9AI0puAvG">
+            {%- if section.settings['image_n6kcCZe9AI0puAvG-4'] and section.settings['image_n6kcCZe9AI0puAvG-4'] != blank -%}
+              {{ section.settings['image_n6kcCZe9AI0puAvG-4'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_n6kcCZe9AI0puAvG-4'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+            {%- else -%}
+              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SZjv9Cb6GEm6B64H/lio-logo-1.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SZjv9Cb6GEm6B64H/lio-logo-1.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SZjv9Cb6GEm6B64H/lio-logo-1.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SZjv9Cb6GEm6B64H/lio-logo-1.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SZjv9Cb6GEm6B64H/lio-logo-1.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SZjv9Cb6GEm6B64H/lio-logo-1.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SZjv9Cb6GEm6B64H/lio-logo-1.png?width=1280" width="140" height="143" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
+            {%- endif -%}</div
           ><div data-instant-type="text" class="instant-rich-text iZFTuSJ1PU15yMylu"
             ><div>{{ section.settings['text_ZFTuSJ1PU15yMylu-4'] }}</div></div
           ><div data-instant-type="text" class="instant-rich-text icTZKBBf62BXER4xf"
             ><div>{{ section.settings['text_cTZKBBf62BXER4xf-4'] }}</div></div
-          ><div data-instant-type="text" class="instant-rich-text iUDjLPSHgXyZCkBKj"
-            ><div>{{ section.settings['text_UDjLPSHgXyZCkBKj-4'] }}</div></div
           ><div class="idUwroaSxMI2dmyg9" data-instant-type="container"
             ><div class="ipE5tR1FJ9ZVHl7NH" data-instant-type="container"
               ><div data-instant-type="image" class="izMjhxxq9JeOLLWYn">
@@ -165,9 +169,9 @@
                 ><div>{{ section.settings['text_v5PhBdKDhDA0UNgn-4'] }}</div></div
               ></div
             ></div
-          ><a class="iewHB9DsJyM2Yh5cM" data-instant-type="container" href="#icLufvOEAuuEI1JEK" data-instant-action-type="scroll-to-section" data-instant-action-id="cLufvOEAuuEI1JEK"
-            ><div data-instant-type="text" class="instant-rich-text icYHzPxQQnUSianMJ"
-              ><div>{{ section.settings['text_cYHzPxQQnUSianMJ-4'] }}</div></div
+          ><a class="isFUaC946AkXVlbLA" data-instant-type="container" href="#ii6QfDrACVoIxn7EU" data-instant-action-type="scroll-to-section" data-instant-action-id="i6QfDrACVoIxn7EU"
+            ><div data-instant-type="text" class="instant-rich-text iHYa92Ncih3EzaHNG"
+              ><div>{{ section.settings['text_HYa92Ncih3EzaHNG-4'] }}</div></div
             ></a
           ></div
         ></div
@@ -2422,6 +2426,11 @@
       "label": "Image mobile"
     },
     {
+      "type": "image_picker",
+      "id": "image_n6kcCZe9AI0puAvG-4",
+      "label": "Image"
+    },
+    {
       "type": "richtext",
       "id": "text_ZFTuSJ1PU15yMylu-4",
       "label": "Text",
@@ -2431,13 +2440,7 @@
       "type": "richtext",
       "id": "text_cTZKBBf62BXER4xf-4",
       "label": "Text",
-      "default": "<h3>break THAT bad habit</h3>"
-    },
-    {
-      "type": "richtext",
-      "id": "text_UDjLPSHgXyZCkBKj-4",
-      "label": "Text",
-      "default": "<h3>Or get your money back</h3>"
+      "default": "<h3>break that</h3><h3>bad habit</h3>"
     },
     {
       "type": "image_picker",
@@ -2459,7 +2462,7 @@
       "type": "richtext",
       "id": "text_1Qz0J4n4EPhUhYW5-4",
       "label": "Text",
-      "default": "<h3>Oral Sensation</h3>"
+      "default": "<h3>Same Sensation</h3>"
     },
     {
       "type": "image_picker",
@@ -2474,7 +2477,7 @@
     },
     {
       "type": "richtext",
-      "id": "text_cYHzPxQQnUSianMJ-4",
+      "id": "text_HYa92Ncih3EzaHNG-4",
       "label": "Text",
       "default": "<p>ORDER NOW </p>"
     },
@@ -3326,12 +3329,11 @@
         "text_qIqK0O1h7Guhv6Ga-4": "<p><strong>0% nicotine</strong></p>",
         "text_fmmD8O81Gnbot2tc-4": "<p><strong>Free shipping above €20</strong></p>",
         "text_ZFTuSJ1PU15yMylu-4": "<h3>4.7/5 Based on 1256 Reviews</h3>",
-        "text_cTZKBBf62BXER4xf-4": "<h3>break THAT bad habit</h3>",
-        "text_UDjLPSHgXyZCkBKj-4": "<h3>Or get your money back</h3>",
+        "text_cTZKBBf62BXER4xf-4": "<h3>break that</h3><h3>bad habit</h3>",
         "text_CDGaEAKRDq5SRZuM-4": "<h3>100% Natural</h3>",
-        "text_1Qz0J4n4EPhUhYW5-4": "<h3>Oral Sensation</h3>",
+        "text_1Qz0J4n4EPhUhYW5-4": "<h3>Same Sensation</h3>",
         "text_v5PhBdKDhDA0UNgn-4": "<h3>No Nicotine</h3>",
-        "text_cYHzPxQQnUSianMJ-4": "<p>ORDER NOW </p>",
+        "text_HYa92Ncih3EzaHNG-4": "<p>ORDER NOW </p>",
         "product_cLufvOEAuuEI1JEK-4": "lio®-starterspakket",
         "text_k86s8B0vVD8JsxEo-4": "<p>🇳🇱 Produced in The Netherlands</p>",
         "text_NaHN3lGXFKqNO4RK-4": "<p>🚫 0% Nicotine</p>",
