@@ -53,7 +53,41 @@
         endif
       endif
     -%}
-    <div class="iefOn8CkJVAc2e0Un" data-instant-type="container" id="iefOn8CkJVAc2e0Un">
+    <div class="iefOn8CkJVAc2e0Un" data-instant-type="container" id="iefOn8CkJVAc2e0Un"
+      ><div class="i2eY0TbbnfC0L2SCZ" data-instant-type="container"
+        ><div data-instant-type="image" class="i18AgZFEXn2mZCQzy">
+          {%- if section.settings.image_18AgZFEXn2mZCQzy and section.settings.image_18AgZFEXn2mZCQzy != blank -%}
+            {{ section.settings.image_18AgZFEXn2mZCQzy | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_18AgZFEXn2mZCQzy.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+          {%- else -%}
+            <img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
+          {%- endif -%}
+          <!--  -->
+          {%- if section.settings.image_18AgZFEXn2mZCQzy_mobile and section.settings.image_18AgZFEXn2mZCQzy_mobile != blank -%}
+            {{ section.settings.image_18AgZFEXn2mZCQzy_mobile | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings.image_18AgZFEXn2mZCQzy_mobile.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+          {%- else -%}
+            <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=1280" width="1152" height="321" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
+          {%- endif -%}</div
+        ><div class="iGK73gEWj0QFq0Q7C" data-instant-countdown-date="Jan 31 2026 19:28" data-instant-countdown-time-zone="Etc/UTC" data-instant-countdown-leading-zeros="true" data-instant-type="countdown"
+          ><div data-instant-type="text" class="instant-rich-text iJ6NyzHyY66ZMXhUJ"
+            ><div>{{ section.settings.text_J6NyzHyY66ZMXhUJ }}</div></div
+          ><div class="ihEnfSWKXR2kuOwSl" data-instant-type="container"
+            ><p data-instant-dynamic-content-source="COUNTDOWN_DAYS" data-instant-type="text" conditionals="" class="iZJRBZ5t7eoPpm0Yh"><span>&nbsp;</span></p
+            ><div data-instant-type="text" class="instant-rich-text i4RUoh8ZOzwRib2Ie"
+              ><div>{{ section.settings.text_4RUoh8ZOzwRib2Ie }}</div></div
+            ></div
+          ><div class="iUt6GDT0rsFYPekWY" data-instant-type="container"
+            ><p data-instant-dynamic-content-source="COUNTDOWN_HOURS" data-instant-type="text" conditionals="" class="ioCSv5gzUoW0r8mDn"><span>&nbsp;</span></p
+            ><div data-instant-type="text" class="instant-rich-text iXkW5f9AmFrtbQynb"
+              ><div>{{ section.settings.text_XkW5f9AmFrtbQynb }}</div></div
+            ></div
+          ><div class="iBk9tYfh0lw1PGavk" data-instant-type="container"
+            ><p data-instant-dynamic-content-source="COUNTDOWN_MINUTES" data-instant-type="text" conditionals="" class="iuiErN5hyGpooOsoC"><span>&nbsp;</span></p
+            ><div data-instant-type="text" class="instant-rich-text iVvoaMurCfCrYlBWs"
+              ><div>{{ section.settings.text_VvoaMurCfCrYlBWs }}</div></div
+            ></div
+          ></div
+        ></div
+      >
       {%- liquid
         assign product_HC6gzv7sVtpPWiyS_handle = 'journey-pack-3'
         assign product_HC6gzv7sVtpPWiyS = section.settings.product_HC6gzv7sVtpPWiyS | default: all_products[product_HC6gzv7sVtpPWiyS_handle]
@@ -67,10 +101,10 @@
       -%}
       <form class="iHC6gzv7sVtpPWiyS" data-instant-type="container" data-instant-initial-variant-id="55430541312376" data-instant-form-product-url="{{ product_HC6gzv7sVtpPWiyS.url }}" data-instant-form-variant-id="{{ product_HC6gzv7sVtpPWiyS_variant.id }}" data-instant-form-product-id="{{ product_HC6gzv7sVtpPWiyS.id }}"
         ><div class="iecY5UCdzlNSE7EpP" data-instant-type="container"
-          ><button data-instant-type="image" class="i0zAdTHSCi5BTc76r" data-instant-action-type="open-overlay" data-instant-action-id="E7dNaWtBC0AEIKfF-lightbox" type="button"><img alt="{{ product_HC6gzv7sVtpPWiyS_image.alt }}" src="{{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 1280 }}" data-instant-dynamic-content-source="FEATURED_IMAGE" width="{{ product_HC6gzv7sVtpPWiyS_image.width }}" height="{{ product_HC6gzv7sVtpPWiyS_image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 1080 }} 1080w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 828 }} 828w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 750 }} 750w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 640 }} 640w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 360 }} 360w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main"></button
-          ><div data-state="closed" data-instant-overlay-pointer-events="AUTO" data-instant-type="overlay" class="iE7dNaWtBC0AEIKfF-lightbox instant-overlay instant-overlay--lightbox" id="iE7dNaWtBC0AEIKfF-lightbox" style="z-index:1000"
+          ><button data-instant-type="image" class="i0zAdTHSCi5BTc76r" data-instant-action-type="open-overlay" data-instant-action-id="9zzxKRmvrct19lNf-lightbox" type="button"><img alt="{{ product_HC6gzv7sVtpPWiyS_image.alt }}" src="{{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 1280 }}" data-instant-dynamic-content-source="FEATURED_IMAGE" width="{{ product_HC6gzv7sVtpPWiyS_image.width }}" height="{{ product_HC6gzv7sVtpPWiyS_image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 1080 }} 1080w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 828 }} 828w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 750 }} 750w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 640 }} 640w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 360 }} 360w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main"></button
+          ><div data-state="closed" data-instant-overlay-pointer-events="AUTO" data-instant-type="overlay" class="i9zzxKRmvrct19lNf-lightbox instant-overlay instant-overlay--lightbox" id="i9zzxKRmvrct19lNf-lightbox" style="z-index:1000"
             ><img alt="{{ product_HC6gzv7sVtpPWiyS_image.alt }}" src="{{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 3840 }}" data-instant-dynamic-content-source="FEATURED_IMAGE" width="{{ product_HC6gzv7sVtpPWiyS_image.width }}" height="{{ product_HC6gzv7sVtpPWiyS_image.height }}" sizes="(max-width: 3840px) 100vw, 3840px" srcSet="{{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 2048 }} 2048w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 1920 }} 1920w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 1200 }} 1200w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 1080 }} 1080w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 828 }} 828w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 750 }} 750w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 640 }} 640w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 360 }} 360w, {{ product_HC6gzv7sVtpPWiyS_image | image_url: width: 3840 }} 3840w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main" style="object-fit:contain"
-            ><button class="instant-overlay--lightbox__button-close" aria-label="Close lightbox" data-instant-action-type="open-overlay" data-instant-action-id="E7dNaWtBC0AEIKfF-lightbox">
+            ><button class="instant-overlay--lightbox__button-close" aria-label="Close lightbox" data-instant-action-type="open-overlay" data-instant-action-id="9zzxKRmvrct19lNf-lightbox">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="rgba(0, 0, 0, 1)" viewBox="0 0 256 256">
                 <path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path>
               </svg></button></div
@@ -165,18 +199,6 @@
                       {%- if forloop.length > 0 -%}
                         {%- assign repeater_index_ypvGbyueWNolCGdS = forloop.index0 -%}
                         <div class="instant-slider-slide iypvGbyueWNolCGdS" data-instant-type="slider-slide"
-                          ><div data-instant-type="image" class="iSSEE9jzc2QG4q7sM">
-                            {%- if section.settings.image_SSEE9jzc2QG4q7sM and section.settings.image_SSEE9jzc2QG4q7sM != blank -%}
-                              {{ section.settings.image_SSEE9jzc2QG4q7sM | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_SSEE9jzc2QG4q7sM.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                            {%- else -%}
-                              <img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
-                            {%- endif -%}
-                            <!--  -->
-                            {%- if section.settings.image_SSEE9jzc2QG4q7sM_mobile and section.settings.image_SSEE9jzc2QG4q7sM_mobile != blank -%}
-                              {{ section.settings.image_SSEE9jzc2QG4q7sM_mobile | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings.image_SSEE9jzc2QG4q7sM_mobile.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                            {%- else -%}
-                              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=1280" width="1152" height="321" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
-                            {%- endif -%}</div
                           ><div data-instant-type="image" class="iUndt6mfbgnDEz3vT"><img alt="{{ image.alt }}" src="{{ image | image_url: width: 1280 }}" data-instant-dynamic-content-source="REPEATER" data-instant-repeater-id="ypvGbyueWNolCGdS" data-instant-repeater-index="{{ repeater_index_ypvGbyueWNolCGdS }}" width="{{ image.width }}" height="{{ image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ image | image_url: width: 1080 }} 1080w, {{ image | image_url: width: 828 }} 828w, {{ image | image_url: width: 750 }} 750w, {{ image | image_url: width: 640 }} 640w, {{ image | image_url: width: 360 }} 360w, {{ image | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="{{ image.alt }}" src="{{ image | image_url: width: 1280 }}" data-instant-dynamic-content-source="REPEATER" data-instant-repeater-id="ypvGbyueWNolCGdS" data-instant-repeater-index="{{ repeater_index_ypvGbyueWNolCGdS }}" width="{{ image.width }}" height="{{ image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ image | image_url: width: 1080 }} 1080w, {{ image | image_url: width: 828 }} 828w, {{ image | image_url: width: 750 }} 750w, {{ image | image_url: width: 640 }} 640w, {{ image | image_url: width: 360 }} 360w, {{ image | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div><div class="instant-slider-container iuo0Nne1eJ6PX8ohr" data-instant-type="slider-container"></div
                         ></div>
                       {%- endif -%}
@@ -687,19 +709,43 @@
   },
   "settings": [
     {
-      "type": "product",
-      "id": "product_HC6gzv7sVtpPWiyS",
-      "label": "Container"
-    },
-    {
       "type": "image_picker",
-      "id": "image_SSEE9jzc2QG4q7sM",
+      "id": "image_18AgZFEXn2mZCQzy",
       "label": "Image"
     },
     {
       "type": "image_picker",
-      "id": "image_SSEE9jzc2QG4q7sM_mobile",
+      "id": "image_18AgZFEXn2mZCQzy_mobile",
       "label": "Image mobile"
+    },
+    {
+      "type": "richtext",
+      "id": "text_J6NyzHyY66ZMXhUJ",
+      "label": "Text",
+      "default": "<p>REMAINING</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_4RUoh8ZOzwRib2Ie",
+      "label": "Label",
+      "default": "<p>DAYS</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_XkW5f9AmFrtbQynb",
+      "label": "Label",
+      "default": "<p>HRS</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_VvoaMurCfCrYlBWs",
+      "label": "Label",
+      "default": "<p>Mins</p>"
+    },
+    {
+      "type": "product",
+      "id": "product_HC6gzv7sVtpPWiyS",
+      "label": "Container"
     },
     {
       "type": "richtext",
@@ -781,7 +827,7 @@
       "type": "richtext",
       "id": "text_x4TG9HW758YWcftx",
       "label": "Description",
-      "default": "<p>30-days of flavor cores</p><p>Carry Case</p><p>Habit Tracker</p>"
+      "default": "<p>60-days of flavor cores</p><p>Carry Case</p><p>Habit Tracker</p>"
     },
     {
       "type": "image_picker",
@@ -946,6 +992,10 @@
     {
       "name": "Section 40",
       "settings": {
+        "text_J6NyzHyY66ZMXhUJ": "<p>REMAINING</p>",
+        "text_4RUoh8ZOzwRib2Ie": "<p>DAYS</p>",
+        "text_XkW5f9AmFrtbQynb": "<p>HRS</p>",
+        "text_VvoaMurCfCrYlBWs": "<p>Mins</p>",
         "product_HC6gzv7sVtpPWiyS": "journey-pack-3",
         "text_T0TB51QHeEictU0t": "<p>#1</p>",
         "text_la4qUcV0InTFKuXt": "<p>Flavored</p><p>Air Device</p>",
@@ -958,7 +1008,7 @@
         "text_pa1e98XXI6dyJMhJ": "<p>Includes Lio device + flavour cores + free shipping</p>",
         "text_8nHYUS1BRb1WOxJm": "<h3>Lio Olive • 60 Days</h3>",
         "text_sSeXPxf07n1jz6Ha": "<p>double the cores <strong>for free</strong></p>",
-        "text_x4TG9HW758YWcftx": "<p>30-days of flavor cores</p><p>Carry Case</p><p>Habit Tracker</p>",
+        "text_x4TG9HW758YWcftx": "<p>60-days of flavor cores</p><p>Carry Case</p><p>Habit Tracker</p>",
         "text_uoeKzi0h88li3byE": "<h3>Lio Walnut • 60 Days</h3>",
         "text_VTU6jguap5yVcMtd": "<p>double the cores <strong>for free</strong></p>",
         "text_XB3dD2Z9tCw2AOIs": "<p>60-day supply of Cores</p><p>Carry Case</p><p>Habit Tracker</p>",
