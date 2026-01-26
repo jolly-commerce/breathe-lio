@@ -29,8 +29,48 @@
         "padding_bottom": 0
       }
     },
+    "instant_ruqy_rpa_ux_iyzza15_cbRJrd": {
+      "type": "instant-RuqyRpaUxIYZZA15",
+      "name": "Section 40",
+      "settings": {
+        "product_HC6gzv7sVtpPWiyS": "journey-pack-3",
+        "text_T0TB51QHeEictU0t": "<p>#1</p>",
+        "text_la4qUcV0InTFKuXt": "<p>Flavored</p><p>Air Device</p>",
+        "text_SiWacyYk0bwVVWyG": "<p><a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://www.google.com\">4.9 • 1,234 reviews</a></p>",
+        "text_6l2ZHHe25BpQtZZC": "<p>Daily ritual replacement designed to ease cravings, reduce stress, and support habit change—building calmer breathing, fewer triggers, and healthier routines.</p>",
+        "text_kKHu5VeFXhZcoJ85": "<p>bestseller</p>",
+        "text_2wdlUdzFiIMgIDPA": "<p>10% off with LIO10</p>",
+        "text_HN3mf5zzSsxw1Uha": "<p>only €0,30 a day</p>",
+        "text_AkESP0RE3mmilKmC": "<p>Save €20</p>",
+        "text_pa1e98XXI6dyJMhJ": "<p>Includes Lio device + flavour cores + free shipping</p>",
+        "text_8nHYUS1BRb1WOxJm": "<h3>Lio Olive • 60 Days</h3>",
+        "text_sSeXPxf07n1jz6Ha": "<p>double the cores <strong>for free</strong></p>",
+        "text_x4TG9HW758YWcftx": "<p>30-days of flavor cores</p><p>Carry Case</p><p>30-day Habit Tracker</p>",
+        "text_uoeKzi0h88li3byE": "<h3>Lio Walnut • 60 Days</h3>",
+        "text_VTU6jguap5yVcMtd": "<p>double the cores <strong>for free</strong></p>",
+        "text_XB3dD2Z9tCw2AOIs": "<p>60-day supply of Cores</p><p>Carry Case</p><p>30-day Habit Tracker</p>",
+        "text_ekMiNTFZ8Vtm5qhX": "<p>Select add-on</p>",
+        "url_jIOGE1p4nYoKpB2H": "",
+        "text_Bz9o3zp8D1habEBt": "<p>Add</p>",
+        "url_j7e0HcntVEr8ZmEe": "",
+        "text_mByuy8sjtALV1zWe": "<p>Add</p>",
+        "url_8S566v6MmlksNXfg": "",
+        "text_Gmpk9vbnb9Vcndn2": "<p>Add</p>",
+        "text_3wr33Jdu1xdqRm4o": "<p>Add To Cart</p>",
+        "text_Y3l3l42V9NmZhEIu": "<p>30-day risk-free guarantee. Free NL shipping.</p>",
+        "text_ThUqOQYf74v9sJTY": "<p>Benefits</p>",
+        "text_z8nMuB5xH4jpdxm8": "<ul><li><p>Helps manage cravings and habitual urges</p></li><li><p>Reduces stress through calming breathing</p></li><li><p>Replaces hand-to-mouth rituals</p></li><li><p>Supports building healthier routines over time</p></li><li><p>Immediate sensory relief with natural aromatics</p></li><li><p>Use anywhere, no batteries, no vapor, no charging</p></li><li><p>Made with 100% natural ingredients</p></li></ul>",
+        "text_vy2zcsF73hFqMFbu": "<p>Description</p>",
+        "text_6TMZ2M8h1bo5pDHZ": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>",
+        "text_CvKWeoAUvhHuDL4L": "<p>How to use</p>",
+        "text_2sit8gKRFkgXmWYA": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "instant_c_oh_ks5_o_lo0_l2_h2s4_9gtUt3": {
       "type": "instant-cOhKS5OLo0L2H2s4",
+      "disabled": true,
       "name": "Journey Pack 2026",
       "settings": {
         "product_cLufvOEAuuEI1JEK-4": "lio®-starterspakket",
@@ -308,6 +348,7 @@
   },
   "order": [
     "instant_o_gukpd_p_ab_aixy_vsc_dMYRde",
+    "instant_ruqy_rpa_ux_iyzza15_cbRJrd",
     "instant_c_oh_ks5_o_lo0_l2_h2s4_9gtUt3",
     "instant_6x_bs_x_ih_h_qkcqi9b5_CxMYiP",
     "instant_6_ta2_uu_zb_jng9_i_bn7_ndUr9P",
