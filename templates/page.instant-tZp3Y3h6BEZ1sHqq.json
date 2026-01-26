@@ -12,9 +12,209 @@
     "instant-tZp3Y3h6BEZ1sHqq": {
       "type": "instant-tZp3Y3h6BEZ1sHqq",
       "settings": {}
+    },
+    "instant_6x_bs_x_ih_h_qkcqi9b5_CkF94k": {
+      "type": "instant-6xBsXIhHQkcqi9b5",
+      "name": "Frequency Asked Questions",
+      "settings": {
+        "text_XLlhigl3lQjAsmGl": "<h3>FAQ</h3>",
+        "text_Fm7Sx4LsmyNq7ecf": "<p>Still have questions?</p>",
+        "url_ZQDo5h1tncqNXSoh": "shopify://pages/liosupport",
+        "text_51MVT4piI5MLF7a0": "<p>Get in touch</p>",
+        "tab_title_NEDiiHOu0ukoJGJ2": "Product & Experience",
+        "text_xxgTYQmmQuYtZ0yt": "<h3>What does it taste like?</h3>",
+        "text_gjXDppQvzHAYhhdk": "<p>If you're used to vapor, Lio may not be as strong as you'd expect at first. Lio can be compared to a herbal tea if vapor was compared to a sticky soda. Not as sweet, and a lot more natural.</p>",
+        "text_n0ldEFlc1uhHzXnq": "<h3>What is Lio?</h3>",
+        "text_R8IkbtGrbvrVm07W": "<p>Lio is a natural habit-breaking device that uses aromatherapy to support behavioral change without nicotine, chemicals, or harmful additives. It works through olfactory engagement, the science of how scent influences your brain and behavior.</p>",
+        "text_ogvCJxGGfTvpyphk": "<h3>How does Lio work?</h3>",
+        "text_FMPm5Eit6Ov93X2G": "<p>Stopping a bad habit cold turkey is challenging. Lio helps by replacing your hand-to-mouth ritual, encouraging deep breaths, engaging your sense of smell, and providing immediate sensory satisfaction with natural aromatherapy. You're breathing nothing but clean air infused with natural plant aromatics, no nicotine, no chemicals, no vapor.</p>",
+        "text_OTfSsTtIoveySVyb": "<h3>How can something with no nicotine actually work?</h3>",
+        "text_FYZCZwlIJcziKwbn": "<p>Here's what most people don't know: habits aren't just about the substance. Research shows behavioral patterns play a major role, the hand-to-mouth motion, the deep breathing, the sensory triggers. Lio targets these behavioral patterns by providing a natural ritual replacement. Your brain doesn't just crave the substance, it craves the entire experience. That's why customers say it \"works like magic\" even without nicotine.</p>",
+        "text_NgFxUQ5ZmocemyNP": "<h3>This looks like another wellness gimmick. Is it really different?</h3>",
+        "text_Ef0TgmjZFhqxaCFI": "<p>Lio isn't based on Instagram trends. It's designed based on principles of olfactory science and behavioral psychology, combined with traditional aromatherapy practices. We have served 100,000+ customers across 50+ countries. Our devices are produced in the Netherlands with premium-quality materials. This is a wellness device informed by behavioral science, not a lifestyle accessory.</p>",
+        "text_g4sR5gDX1VhUIiYG": "<h3>Will Lio satisfy the ritual aspects of my habit?</h3>",
+        "text_tv8bdwKz4GJ7cP0p": "<p>Lio is designed to address the behavioral and sensory aspects of your habit: the satisfaction from natural aromatics, the hand-to-mouth ritual, the calming effect of deep breathing, and the immediate sensory reward. You're not resisting the urge, you're replacing it with a healthier pattern. As one customer said: \"The sensory satisfaction is surprisingly effective.\"</p>",
+        "text_qskGcfv7oOia8hnS": "<h3>Will it work for my specific habit?</h3>",
+        "text_CdmXG6ZZFjr144wo": "<p>Lio works for any behavior driven by ritual and sensory triggers: repetitive hand-to-mouth behaviors, stress-related patterns, oral fixations, and habitual routines. The common thread isn't the substance, it's the pattern. If your habit involves repetitive motion and immediate sensory gratification, Lio's ritual replacement approach can help.</p>",
+        "tab_title_EzgcnF7MLdzarsTf": "SAFETY & INGREDIENTS",
+        "text_xNLgV0v7IM73nB1y": "<h3>Is Lio safe?</h3>",
+        "text_HcBQ93CKxxk4rdOm": "<p>Yes. Multiple 3rd party toxicology reports and studies have been done on the inhalation of the plant compounds we use. We're committed to funding ongoing research. BreatheLio offers a natural, chemical-free approach to changing habits.</p>",
+        "text_pNa3x3Z5wRO0Hb7s": "<h3>What are Flavour Cores made of?</h3>",
+        "text_fX4dG9Lkec9O1Og5": "<p>Each Core is made from premium-quality polyester fiber infused with 100% organic natural essential oils from IFRA-certified EU farms. We use premium-grade aromatics from certified manufacturers and natural plant extracts like peppermint, black pepper, cinnamon, and botanical aromas. Everything is blended in The Netherlands where we combine science and aromatherapy to create sophisticated, natural formulations.</p>",
+        "text_uSDHoqJKix0ZDbih": "<h3>Does Lio contain nicotine?</h3>",
+        "text_TXOY8bl8CCM9xHdv": "<p>No. Lio is 100% nicotine-free. You're breathing pure air with natural aromatics while satisfying the behavioral patterns that make change so difficult.</p>",
+        "text_7h5Ii3mj90Iv7LHa": "<h3>Is Lio vegan and allergen-free?</h3>",
+        "text_A278UNVYKPOYhccO": "<p>Yes! Every aroma is 100% natural, vegan, and allergen-free. Safe to use anywhere, anytime, even after you've brushed your teeth.</p>",
+        "text_XD4qnzdlUEkcZf0y": "<h3>Where do your ingredients come from?</h3>",
+        "text_vlWQuaNYfngS9u8r": "<p>All ingredients come from European IFRA-certified farms. Our premium-grade aromatics are produced by certified manufacturers within the EU, extracted from natural ingredients only. If you're used to vapor, Lio may not be as strong as you'd expect at first. Lio can be compared to a herbal tea if vapor was compared to a sticky soda. Not as sweet, and a lot more natural.</p>",
+        "tab_title_LXoOgNeKik7BrtAy": "USAGE & RESULTS",
+        "text_ILWHfUA6SjHPWKjJ": "<h3>How do the Flavour Cores work?</h3>",
+        "text_46NemNwWQfPfcEgY": "<p>Each Core contains natural essential oils and plant extracts held in a premium-quality fiber matrix. As you inhale, air flows through the Core and picks up natural aromatics that engage your olfactory system, providing sensory satisfaction while you work on changing behavioral patterns.</p>",
+        "text_gbHnbNcMOMrJ5QPF": "<h3>How long do Flavour Cores last?</h3>",
+        "text_Mo27W9byB16cOmzl": "<p>Each Core pack contains 3 Cores, providing 10+ days of flavor.</p>",
+        "text_EPooubRoa5qJjDnM": "<h3>How often can I use Lio?</h3>",
+        "text_4QdwpLAjbA8w6hdS": "<p>As often as you like, anywhere, anytime, even after you've brushed your teeth! Please note: if Lio is negatively affecting you, stop and contact your physician.</p>",
+        "text_rDvIwVsB1MBVdQ4k": "<h3>What results can I expect?</h3>",
+        "text_YKGVJZBwSdKiw97f": "<p>We've served 100,000+ customers across 50+ countries. Every person's journey is different. Some users notice changes quickly, while others take more time. It's not magic, changing any habit takes commitment. Many users find the first few days challenging, but Lio provides ritual replacement during the transition period. As you continue using Lio, the behavioral support becomes more effective and the process gets easier.</p>",
+        "tab_title_U7YNGNh7Ww7JQKEi": "SHIPPING & RETURNS",
+        "text_FznwyH4lJtHmPgbN": "<h3>Do you offer free shipping?</h3>",
+        "text_ldICCYGCNPCmbTag": "<p>Yes! Free shipping on all orders from €20.</p>",
+        "text_jCL1JHnlKjibw6M8": "<h3>How fast is delivery?</h3>",
+        "text_WBZBwGyCyRZo83SH": "<p>We provide 1-3 days delivery across our shipping regions.</p>",
+        "text_plFLnuarTcqIppy6": "<h3>Where is Lio produced and shipped from?</h3>",
+        "text_IGYtCzeGIvsGHYTa": "<p>Lio devices are produced in the Netherlands using the highest quality standards. We don't dropship, everything is manufactured locally and shipped directly from our Netherlands facility by our trusted shipping partners. You'll receive tracking information once your order is dispatched.</p>",
+        "text_N98aExawHYBrpC6E": "<h3>What is your return policy?</h3>",
+        "text_AH83tpWdS8guFEHI": "<p>We offer a 30-day money-back guarantee. If you're not satisfied with Lio, you can return it within 30 days for a full refund. Try Lio risk-free for 30 days. If it doesn't help you break your habit, we'll refund your purchase. No questions asked.</p>",
+        "text_nW2ADXwQopnga0mi": "<h3>How do I claim my money back?</h3>",
+        "text_srD4DGNvvaJUKZyD": "<p>To request a refund under our 30-day money-back guarantee, contact our support team at <a href=\"mailto:support@breathelio.com\" target=\"_blank\">support@breathelio.com</a> with your order number and reason for return. We'll provide you with return instructions. Once we receive your returned item, we'll process your full refund within 5-7 business days. No hassle, no complicated forms—just reach out and we'll take care of you.</p>",
+        "text_jUv3kJiN6MjH6Kd9": "<h3>What to do if my order didn't arrive?</h3>",
+        "text_u7vNscYdvD47SV43": "<p>First, check your tracking information to see the current status of your delivery. If your order is delayed beyond the expected delivery window or shows as delivered but you haven't received it, contact us immediately at <a href=\"mailto:support@breathelio.com\" target=\"_blank\">support@breathelio.com</a> with your order number. Our team will investigate with the shipping carrier and ensure you receive your order or arrange a replacement.</p>",
+        "text_naIFGsRKNW6ZVFW0": "<p>Still have questions?</p>",
+        "url_RCJ857bMxPSlKVdr": "mailto:support@breathelio.com",
+        "text_3ScLgSQ4YGz6HbB6": "<p>Get in touch</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "instant_6_ta2_uu_zb_jng9_i_bn7_YwMxCF": {
+      "type": "instant-6TA2UUZbJNG9IBn7",
+      "name": "Our Risk Reversal Section",
+      "settings": {
+        "text_RqeYeB830WbfWaJt": "<p>You can try lio</p>",
+        "text_rMvlqLcboGKkprue": "<p>30 DAYS </p><p>RISK FREE</p>",
+        "text_ZaClVx3vMwIHsUiP": "<p>Try Lio for a month. If it&apos;s not helping,</p><p>return it for a full refund, no questions asked.</p>",
+        "url_gbrE9ibdXe9fIZpB": "shopify://products/lio®-journey-pack-1",
+        "text_f3t0USZsCQL82gaH": "<p>TRY LIO NOW</p>",
+        "text_ZkontTpKKUP4KebK": "<p>WHY WE DO THIS</p>",
+        "text_tbIcHYIUFOJpDa0z": "<p><strong>30-Day Risk-Free Guarantee</strong></p>",
+        "text_k6Y2ck0qSoCeFdht": "<p>Because Lio works. 100,000+ people have already made the switch. We&apos;re confident that if you give it a real try, you&apos;ll see results. You have 30 days to use Lio and build your new routine. Real change takes time. We want you to give Lio a proper chance, not judge it after two days.</p><p><strong>Use it for a month. Build the habit. Then decide.</strong></p>",
+        "text_HXIOB9nBcQX6eDFy": "<p>Close</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "instant_x_oetj8_hepve_arkr_v_HGj4dQ": {
+      "type": "instant-xOETJ8HepveArkrV",
+      "name": "English Social Proof Vide",
+      "settings": {
+        "text_W9XjdX5PzrlIof6I": "<p>776</p>",
+        "url_W9XjdX5PzrlIof6I": "#",
+        "text_MrfZH0I2uGntLi8Z": "<p>Verified 5-star reviews*</p>",
+        "text_ZjKYfr3DMiysL4ec": "<h3>\"I was sceptical,</h3>",
+        "text_Ald70OWqr2WQHu7y": "<h3>until I tried it\"</h3>",
+        "text_TirDGluZjhacKn43": "<h3>Discover why 100.000+</h3><h3>people made the switch to Lio.</h3>",
+        "url_smzRC7gBDBOH3XjV": "shopify://products/lio®-journey-pack-1",
+        "text_ZH4PofD0svKIlHIv": "<p>SHOP NOW</p>",
+        "url_JTQiLx0d6ldiHp3A": "shopify://pages/morereviews",
+        "text_NlMttJvre1Gyr4np": "<p>SEE MORE REVIEWS</p>",
+        "text_P6YeEnH1fRYhhqeJ": "<p>\"I haven&apos;t come across something as good as this, nothing comes out, so I can use it anywhere. I&apos;m adding a few more years to my life.\"</p>",
+        "text_GzBnImmE0KMDU8kZ": "<p>James (38) </p>",
+        "text_IwiPEDorpjt99AOH": "<p>\"I&apos;ve had the habit for the last 30 years. I&apos;ve been on this now for a week, loving it. I&apos;m not craving at all. No chemicals, it&apos;s all just flavored air. It&apos;s perfect, really good.\"</p>",
+        "text_m6wLkspAOIJ8J6n2": "<p>Anna (60) </p>",
+        "text_5PIxNmVzdOgCanBx": "<p>\"It blows my mind how a product like this in its simplicity hasn&apos;t existed since forever This is an awesome product I recommend highly.\"</p>",
+        "text_Bjy7bXuirmR8ytOe": "<p>Achmed (43) </p>",
+        "text_S5Gi7dOn7GylAB5O": "<p>\"The toughest part is the movement. This little gadget has saved me for the last 20 days. I just need my little Lio.\"</p>",
+        "text_U6PT0DtxLZrhot9p": "<p>Antonio (62) </p>",
+        "text_Y3i1nWNHjJoCLZER": "<p>\"It&apos;s insane, this stuff really helps. People came to me and asked what that was and they tried it. It really helps, I&apos;m really satisfied with it.\"</p>",
+        "text_AITco7zlB8XaXnO3": "<p>Kamar (43) </p>",
+        "text_SKYCaddhVWpDkVNs": "<p>\"I&apos;m on day 14 now and honestly it&apos;s been helping me. this a shot, it&apos;s the only thing that&apos;s ever helped me. Really good product.\"</p>",
+        "text_JoZtt7zLdotgSMd4": "<p>MICHAEL (22) </p>",
+        "text_qXeOLpwX82kp3onJ": "<p>Individual experiences vary. Lio is not a medical or smoking cessation device.</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "instant_bt_hl_j6j_lwd5yz_k_db_rDqrFH": {
+      "type": "instant-BtHlJ6jLWD5yzKDb",
+      "name": "TRUST SCIENCE",
+      "settings": {
+        "text_yU72ZwJsyVO0FMlB": "<p><strong>DON&apos;T TRUST US. </strong></p><p><strong>TRUST SCIENCE.</strong></p>",
+        "text_3cnUv8AmCRdMOaPx": "<p><em>Swipe to understand how </em></p><p><em>habits actually work →</em></p>",
+        "url_IVUVxXMuiH6QkhVP": "",
+        "text_OHwMLoToSAbp1OAR": "<p><strong>YOUR HABITS RUN ON AUTOPILOT</strong></p>",
+        "text_p7MKIJNa43sldAjI": "<p>40% of what you do daily is automatic, your brain&apos;s just pressing \"play\" on programmed routines.</p><p></p><p><strong>Fun fact:</strong> You&apos;ve repeated your bad habit 10,000+ times. That&apos;s why willpower alone has a 95% failure rate.</p>",
+        "url_HXRLnyTJSy303FRu": "",
+        "text_YnWMjctHA8FTvu04": "<p><strong>YOU&apos;RE IN THE HABIT LOOP</strong></p>",
+        "text_FXoDdeLo278LuZn7": "<p>Every habit follows the same pattern:</p><p></p><p><strong>Trigger</strong> → You feel stress </p><p><strong>Craving</strong> → You want relief <strong>Routine</strong> → You do the habit <strong>Reward</strong> → You feel better</p><p></p><p><strong>Why Lio works:</strong> It keeps the loop intact but swaps the routine for something healthier.</p>",
+        "url_RbsNqRJtYNMmeMnt": "",
+        "text_ZVqd6knHnTM3oGy1": "<p><strong>THE RITUAL IS THE ADDICTION</strong></p>",
+        "text_l5olT2NYLAianEvD": "<p>The physical act, hand-to-mouth movement, the breath, familiar sensation. is deeply ingrained, separate from any substance.</p><p></p><p><strong>Lio targets this:</strong> Same motion. Same breath. Same satisfaction. Just without harmful substances.</p>",
+        "url_bk6glz978TGKW9ou": "",
+        "text_D4Znr4N6rqACMGFo": "<p><strong>SCENT INFLUENCES BRAIN CHEMISTRY</strong></p>",
+        "text_iUDCc2H8mEMzkd2Y": "<p>Olfactory conditioning is the science of how smell affects behavior. Scent connects directly to your brain&apos;s emotional center.</p><p></p><p><strong>The mechanism:</strong> Natural aromatics travel to your olfactory system, helping manage cravings and reduce stress instantly.</p>",
+        "url_SIEFIsPMtErOUl9g": "",
+        "text_XZ5oeYZhA7YAdxDU": "<p><strong>CHANGE IS A PROCESS</strong></p>",
+        "text_YVqMnYhKhBaplv7T": "<p>Behavioral change moves through stages. Most methods fail during the maintenance phase. </p><p></p><p><strong>Awareness → Planning → Action → Maintenance. </strong></p><p></p><p><strong>Lio&apos;s role:</strong> Provides consistent support, making the transition less abrupt and more sustainable.</p>",
+        "url_cGINamzI0Ddy91S1": "",
+        "text_rJvBMIPJG1SsGD0o": "<p><strong>100,000+ CUSTOMERS</strong></p>",
+        "text_yPpxLOwp2FhzwnAF": "<p>Real people. Real results. This approach is grounded in established research on olfactory conditioning and behavioral psychology.</p><p></p><p><strong>The difference:</strong> Working with your brain&apos;s natural patterns instead of fighting against them.</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_KkHJP9": {
+      "type": "instant-uAnVLMfa9E8IUPzK",
+      "name": "HOW LIO WORKS ",
+      "settings": {
+        "text_dexOB6igRe9Eptbe": "<h3>Here’s how LIO works</h3>",
+        "text_2dI3MuIHWWHZJRsK": "<p>1: ZIP THE BAG </p>",
+        "text_n81CRw4pHvFx6kf7": "<p>2: FRAY THE CORE</p>",
+        "text_IToyPQTuctktKsiP": "<p>3: insert the core</p>",
+        "text_jmBe8RVHWUBx87sJ": "<p>4: Enjoy the relief</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "instant_82_ryrn_jl_m_jb_pgb5_u_FF6DTW": {
+      "type": "instant-82RYRNJlMJbPgb5U",
+      "name": "The Original Reviews",
+      "settings": {
+        "product_BdbeMVtHjl7P3ioz": "lio®-journey-pack-1",
+        "text_tBnF7hzwwuPzhyHq": "<h3>TRUSTED BY OVER</h3>",
+        "text_BuS8EoI8zLOIQ1TE": "<h3>100k customers</h3>",
+        "url_y0OK5IhBLuBvOVsT": "shopify://products/lio®-journey-pack-1",
+        "text_nUqKOZuD7neCYlGC": "<p>TRY LIO NOW</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "176943885816b03231": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_agg_section_dyw4FE": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "only_photos": false,
+            "hide_thumbnails": true,
+            "product_handle": "",
+            "aggregated": true,
+            "data-limit": 20,
+            "maxwidth": 1080,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_agg_section_dyw4FE"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
     }
   },
   "order": [
-    "instant-tZp3Y3h6BEZ1sHqq"
+    "instant-tZp3Y3h6BEZ1sHqq",
+    "instant_6x_bs_x_ih_h_qkcqi9b5_CkF94k",
+    "instant_6_ta2_uu_zb_jng9_i_bn7_YwMxCF",
+    "instant_x_oetj8_hepve_arkr_v_HGj4dQ",
+    "instant_bt_hl_j6j_lwd5yz_k_db_rDqrFH",
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_KkHJP9",
+    "instant_82_ryrn_jl_m_jb_pgb5_u_FF6DTW",
+    "176943885816b03231"
   ]
 }
