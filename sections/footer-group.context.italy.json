@@ -1,0 +1,41 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "instant-gOeLBi4Eg7vhn77S": {
+      "settings": {
+        "text_8YWVLxnusli0AM2m-3": "<p>Il tuo ordine ha diritto alla spedizione gratuita</p>",
+        "text_FxSAyOyrqNs8G70q-3": "<p>Il tuo carrello è vuoto</p>",
+        "text_Fza66DOLztmwajWY-3": "<p>Continua lo shopping</p>",
+        "text_7GBF4XMSBA2XG3bI-3": "<p>Fantastico, il tuo corpo ti ringrazierà.</p>",
+        "text_6KONaG3EFKYHRR6E-3": "<p>Rimuovi</p>",
+        "image_g2MwuPSphLmxvDwm-3": "shopify://shop_images/ezgif.com-crop_4.gif",
+        "image_g2MwuPSphLmxvDwm-3_mobile": "shopify://shop_images/ezgif.com-crop_4.gif",
+        "text_ebFtQk8OylTnmgwe-3": "<p>RIMANENTI</p>",
+        "text_3Fk9sVVISTYP7a8s-3": "<p>GIORNI</p>",
+        "text_7a87Ct6dWiPWELQV-3": "<p>ORE</p>",
+        "text_zShLOy6ycoUSnCdt-3": "<p>MINUTI</p>",
+        "text_TWmRlA8sGUYSVFZN-3": "<p>SECONDI</p>",
+        "text_wS9nWnYkTVkh5vqR-3": "<p>Sconto</p>",
+        "text_BzGqIPfOSI1aOUyJ-3": "<p>Tempi di consegna</p>",
+        "text_Z6Et51XFumsX2ToW-3": "<p>2–3 giorni</p>",
+        "text_eneEkATEHBw3GWEA-3": "<p>Spedizione</p>",
+        "text_zNitSqoPuQcvPjDy-3": "<p>GRATIS</p>",
+        "text_PcSZuW9I9MfAwx9H-3": "<p>Totale</p>",
+        "text_YEwjk97NghiQgeKG-3": "<p>I codici sconto vengono applicati al checkout</p>"
+      },
+      "blocks": {}
+    }
+  },
+  "context": {
+    "market": "italy"
+  },
+  "parent": "footer-group.json"
+}
