@@ -21,6 +21,8 @@
         "text_Fza66DOLztmwajWY-3": "<p>Ga verder met winkelen</p>",
         "text_7GBF4XMSBA2XG3bI-3": "<p>Geweldig, je lichaam zal je dankbaar zijn.</p>",
         "text_6KONaG3EFKYHRR6E-3": "<p>Verwijderen</p>",
+        "image_g2MwuPSphLmxvDwm-3": null,
+        "image_g2MwuPSphLmxvDwm-3_mobile": null,
         "text_ebFtQk8OylTnmgwe-3": "<p>RESTTIJD</p>",
         "text_3Fk9sVVISTYP7a8s-3": "<p>DAGEN</p>",
         "text_7a87Ct6dWiPWELQV-3": "<p>UREN</p>",
@@ -34,9 +36,7 @@
         "text_PcSZuW9I9MfAwx9H-3": "<p>Totaal</p>",
         "text_YEwjk97NghiQgeKG-3": "<p>Kortingscodes worden toegepast bij het afrekenen.</p>",
         "text_2IDNVUS8vOcdOL6q-3": "<p>Totaal</p>",
-        "text_2pYM59Gq8rVxU3vp-3": "<p>Veilig Afrekenen</p>",
-        "image_g2MwuPSphLmxvDwm-3": "shopify://shop_images/ezgif.com-crop_5.gif",
-        "image_g2MwuPSphLmxvDwm-3_mobile": "shopify://shop_images/ezgif.com-crop_5.gif"
+        "text_2pYM59Gq8rVxU3vp-3": "<p>Veilig Afrekenen</p>"
       },
       "blocks": {}
     }
