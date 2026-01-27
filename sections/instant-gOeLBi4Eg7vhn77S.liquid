@@ -10,8 +10,23 @@
   -%}
   {{ 'instant-gOeLBi4Eg7vhn77S.css' | asset_url | stylesheet_tag: preload: preload -}}
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"
-  ><div data-instant-type="root" class="iTIAYzdPXEDR7p3XF"
-    ><div class="i3Ge05r2LmsrM3OK6" data-state="closed" data-instant-overlay-pointer-events="AUTO" data-instant-type="overlay" id="i3Ge05r2LmsrM3OK6"
+  ><div data-instant-type="root" class="iTIAYzdPXEDR7p3XF">
+    {%- liquid
+      assign loading = 'eager'
+      assign fetchpriority = 'auto'
+      if section.location == 'footer'
+        assign loading = 'lazy'
+      elsif section.location == 'header'
+        assign fetchpriority = 'high'
+      elsif section.location == 'template'
+        if section.index == 1
+          assign fetchpriority = 'high'
+        elsif section.index > 2
+          assign loading = 'lazy'
+        endif
+      endif
+    -%}
+    <div class="i3Ge05r2LmsrM3OK6" data-state="closed" data-instant-overlay-pointer-events="AUTO" data-instant-type="overlay" id="i3Ge05r2LmsrM3OK6"
       ><div class="iWlIa4ZL1LynwbYoY" data-instant-type="container"
         ><div class="iskggC14YZFcAGITc" data-instant-type="container"
           ><div class="iU2inIXbNkcGcxLj0" data-instant-type="container"
@@ -31,7 +46,8 @@
                 endif
               -%}
               <div class="iKQZkOW5RqAsdkTyI" data-instant-type="container" {{- style -}} data-instant-conditional="true"
-                ><div data-instant-type="text" class="instant-rich-text igm3As4bw7onfE4xL"><p>Cart</p></div
+                ><div data-instant-type="text" class="instant-rich-text igm3As4bw7onfE4xL"
+                  ><div>{{ section.settings['text_gm3As4bw7onfE4xL-1'] }}</div></div
                 ><div class="iSXX9IRvkt3BdNusL" data-instant-type="container">
                   {%- liquid
                     assign style = ''
@@ -116,8 +132,12 @@
               endif
             -%}
             <div class="iiqRrgEvmSk9EHXry" data-instant-type="container" {{- style -}} data-instant-conditional="true"
-              ><div data-instant-type="text" class="instant-rich-text ixvJM1BF0SnV7Q0Da"><p>Shop</p></div
-              ><p data-instant-dynamic-content-source="CART_REWARD_AMOUNT_LEFT" data-instant-type="text" class="irWBK1AvY6uRZjXjg">{{ threshold_for_market | minus: cart.total_price | at_least: 0 | money }}</p><div data-instant-type="text" conditionals="" class="instant-rich-text i27Z6lGvjI01huxO4"><p>more for Free shipping</p></div></div
+              ><div data-instant-type="text" class="instant-rich-text ixvJM1BF0SnV7Q0Da"
+                ><div>{{ section.settings['text_xvJM1BF0SnV7Q0Da-1'] }}</div></div
+              ><p data-instant-dynamic-content-source="CART_REWARD_AMOUNT_LEFT" data-instant-type="text" class="irWBK1AvY6uRZjXjg">{{ threshold_for_market | minus: cart.total_price | at_least: 0 | money }}</p
+              ><div data-instant-type="text" conditionals="" class="instant-rich-text i27Z6lGvjI01huxO4"
+                ><div>{{ section.settings['text_27Z6lGvjI01huxO4-1'] }}</div></div
+              ></div
             >
             {%- liquid
               assign style = ''
@@ -127,7 +147,9 @@
               endif
             -%}
             <div class="iypBeGREgtCm1x49D" data-instant-type="container" {{- style -}} data-instant-conditional="true"
-              ><div data-instant-type="text" conditionals="" class="instant-rich-text i8YWVLxnusli0AM2m"><p>Your order qualifies for FREE delivery</p></div></div
+              ><div data-instant-type="text" conditionals="" class="instant-rich-text i8YWVLxnusli0AM2m"
+                ><div>{{ section.settings['text_8YWVLxnusli0AM2m-1'] }}</div></div
+              ></div
             ><div class="ibqlqzSHqUMm846s0" data-instant-type="container"
               ><div class="idE1D4AVlmW0azSoN" data-instant-type="cart-reward-progression" style="--instant-cart-reward-progress-width:{{ percentage_for_market }}%"></div
               ><div conditionals="" class="itP9ETTajEQZZGBjA" data-instant-type="container"
@@ -158,9 +180,12 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
               <title>shopping-cart-simple</title><path d="M96,216a16,16,0,1,1-16-16A16,16,0,0,1,96,216Zm88-16a16,16,0,1,0,16,16A16,16,0,0,0,184,200ZM231.65,74.35l-28.53,92.71A23.89,23.89,0,0,1,180.18,184H84.07A24.11,24.11,0,0,1,61,166.59L24.82,40H8A8,8,0,0,1,8,24H24.82A16.08,16.08,0,0,1,40.21,35.6L48.32,64H224a8,8,0,0,1,7.65,10.35ZM213.17,80H52.89l23.49,82.2a8,8,0,0,0,7.69,5.8h96.11a8,8,0,0,0,7.65-5.65Z"></path>
             </svg></div
-          ><div data-instant-type="text" class="instant-rich-text iFxSAyOyrqNs8G70q"><p>Your cart is empty</p></div
-          ><a class="ikCQw2oKA8fw3A5oE" data-instant-type="container" href="/collections/all" rel="noopener noreferrer"
-            ><div data-instant-type="text" class="instant-rich-text iFza66DOLztmwajWY"><p>Continue shopping</p></div></a
+          ><div data-instant-type="text" class="instant-rich-text iFxSAyOyrqNs8G70q"
+            ><div>{{ section.settings['text_FxSAyOyrqNs8G70q-1'] }}</div></div
+          ><a class="ikCQw2oKA8fw3A5oE" data-instant-type="container" href="{{ section.settings.url_kCQw2oKA8fw3A5oE-1 | default: '/collections/all' }}" rel="noopener noreferrer"
+            ><div data-instant-type="text" class="instant-rich-text iFza66DOLztmwajWY"
+              ><div>{{ section.settings['text_Fza66DOLztmwajWY-1'] }}</div></div
+            ></a
           ></div
         >
         {%- liquid
@@ -193,7 +218,7 @@
                     assign item_image = item_variant.featured_image | default: item_product.featured_image
                   -%}
                   <form class="iUzO8sDy9ItRlZWiq" data-instant-type="container" data-instant-repeater-index="{{ repeater_index }}" data-instant-repeater-type="CART_ITEMS" data-instant-form-product-url="{{ item.product.url }}" data-instant-form-variant-id="{{ item_variant.id }}" data-instant-form-product-id="{{ item_product.id }}" data-instant-form-line-item-key="{{ item.key }}"
-                    ><div data-instant-type="image" class="iDBIL4TtFo62tCvuJ"><img alt="{{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image.alt }}" src="{{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image | image_url: width: 1280 }}" data-instant-dynamic-content-source="FEATURED_IMAGE" width="{{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image.width }}" height="{{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image | image_url: width: 1080 }} 1080w, {{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image | image_url: width: 828 }} 828w, {{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image | image_url: width: 750 }} 750w, {{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image | image_url: width: 640 }} 640w, {{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image | image_url: width: 360 }} 360w, {{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image | image_url: width: 1280 }} 1280w" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main"></div
+                    ><div data-instant-type="image" class="iDBIL4TtFo62tCvuJ"><img alt="{{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image.alt }}" src="{{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image | image_url: width: 1280 }}" data-instant-dynamic-content-source="FEATURED_IMAGE" width="{{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image.width }}" height="{{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image | image_url: width: 1080 }} 1080w, {{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image | image_url: width: 828 }} 828w, {{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image | image_url: width: 750 }} 750w, {{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image | image_url: width: 640 }} 640w, {{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image | image_url: width: 360 }} 360w, {{ item.product.selected_or_first_available_variant.featured_image | default: item.product.featured_image | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main"></div
                     ><div class="ibNiS5iOAPCg9o3ij" data-instant-type="container"
                       ><div class="iHnu5h6g3MDccDyiT" data-instant-type="container"
                         ><a as="p" data-instant-type="text" class="imDGtlGMOGbPYFvCh" href="{{ item_product.url }}" rel="noopener noreferrer" data-instant-action-type="open-page"
@@ -218,7 +243,8 @@
                           >
                             {{- compare_at_price | money -}}
                           </span> </div
-                        ><div data-instant-type="text" class="instant-rich-text i7GBF4XMSBA2XG3bI"><p>Great, your body will thank you.</p></div
+                        ><div data-instant-type="text" class="instant-rich-text i7GBF4XMSBA2XG3bI"
+                          ><div>{{ section.settings['text_7GBF4XMSBA2XG3bI-1'] }}</div></div
                         ><p data-instant-dynamic-content-source="VARIANT_TITLE" data-instant-type="text" class="iSoyxQkfJUy6HwO1j">
                           {%- unless item_product.has_only_default_variant %}{{ item_variant.title }}{% endunless -%}
                         </p></div
@@ -237,7 +263,9 @@
                                   <title>plus</title><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"></path>
                                 </svg></div></button></div
                           ><button as="p" data-instant-type="text" class="i6KONaG3EFKYHRR6E" data-instant-action-type="adjust-line-item-quantity" data-instant-action-line-item-key="{{ item.key }}"
-                            ><div class="instant-rich-text"><p>Remove</p></div></button
+                            ><div class="instant-rich-text"
+                              ><div>{{ section.settings['text_6KONaG3EFKYHRR6E-1'] }}</div></div
+                            ></button
                           ></div
                         ></div
                       ></div
@@ -256,45 +284,73 @@
               {%- endfor -%}
               <!--  -->
               <div class="ioPTx9Dq6r1ML5Tcu" data-instant-type="container"
-                ><div data-instant-type="image" class="ig2MwuPSphLmxvDwm"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/3ZaTDpg4Nv5VGxN7/ezgifcom-crop-2.gif?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/3ZaTDpg4Nv5VGxN7/ezgifcom-crop-2.gif?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/3ZaTDpg4Nv5VGxN7/ezgifcom-crop-2.gif?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/3ZaTDpg4Nv5VGxN7/ezgifcom-crop-2.gif?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/3ZaTDpg4Nv5VGxN7/ezgifcom-crop-2.gif?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/3ZaTDpg4Nv5VGxN7/ezgifcom-crop-2.gif?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/3ZaTDpg4Nv5VGxN7/ezgifcom-crop-2.gif?width=1280" width="670" height="68" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=1280" width="1152" height="321" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                ><div data-instant-type="image" class="ig2MwuPSphLmxvDwm">
+                  {%- if section.settings['image_g2MwuPSphLmxvDwm-1'] and section.settings['image_g2MwuPSphLmxvDwm-1'] != blank -%}
+                    {{ section.settings['image_g2MwuPSphLmxvDwm-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_g2MwuPSphLmxvDwm-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                  {%- else -%}
+                    <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/3ZaTDpg4Nv5VGxN7/ezgifcom-crop-2.gif?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/3ZaTDpg4Nv5VGxN7/ezgifcom-crop-2.gif?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/3ZaTDpg4Nv5VGxN7/ezgifcom-crop-2.gif?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/3ZaTDpg4Nv5VGxN7/ezgifcom-crop-2.gif?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/3ZaTDpg4Nv5VGxN7/ezgifcom-crop-2.gif?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/3ZaTDpg4Nv5VGxN7/ezgifcom-crop-2.gif?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/3ZaTDpg4Nv5VGxN7/ezgifcom-crop-2.gif?width=1280" width="670" height="68" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
+                  {%- endif -%}
+                  <!--  -->
+                  {%- if section.settings['image_g2MwuPSphLmxvDwm-1_mobile'] and section.settings['image_g2MwuPSphLmxvDwm-1_mobile'] != blank -%}
+                    {{ section.settings['image_g2MwuPSphLmxvDwm-1_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_g2MwuPSphLmxvDwm-1_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                  {%- else -%}
+                    <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GtZHQ2FDhD1wpomD/ezgifcom-crop-3.gif?width=1280" width="1152" height="321" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
+                  {%- endif -%}</div
                 ><div class="ixzJ3T3vojDGGtBRt" data-instant-countdown-date="Jan 31 2026 19:28" data-instant-countdown-time-zone="Etc/UTC" data-instant-countdown-leading-zeros="true" data-instant-type="countdown"
-                  ><div data-instant-type="text" class="instant-rich-text iebFtQk8OylTnmgwe"><p>REMAINING</p></div
+                  ><div data-instant-type="text" class="instant-rich-text iebFtQk8OylTnmgwe"
+                    ><div>{{ section.settings['text_ebFtQk8OylTnmgwe-1'] }}</div></div
                   ><div class="iDNa3BXEEf1rfgSd2" data-instant-type="container"
                     ><p data-instant-dynamic-content-source="COUNTDOWN_DAYS" data-instant-type="text" conditionals="" class="in2QFTzybbcpc4jss"><span>&nbsp;</span></p
-                    ><div data-instant-type="text" class="instant-rich-text i3Fk9sVVISTYP7a8s"><p>DAYS</p></div></div
+                    ><div data-instant-type="text" class="instant-rich-text i3Fk9sVVISTYP7a8s"
+                      ><div>{{ section.settings['text_3Fk9sVVISTYP7a8s-1'] }}</div></div
+                    ></div
                   ><div class="iELANFVb7nveetLLB" data-instant-type="container"
                     ><p data-instant-dynamic-content-source="COUNTDOWN_HOURS" data-instant-type="text" conditionals="" class="iBGJdBasPXqY26m1R"><span>&nbsp;</span></p
-                    ><div data-instant-type="text" class="instant-rich-text i7a87Ct6dWiPWELQV"><p>HRS</p></div></div
+                    ><div data-instant-type="text" class="instant-rich-text i7a87Ct6dWiPWELQV"
+                      ><div>{{ section.settings['text_7a87Ct6dWiPWELQV-1'] }}</div></div
+                    ></div
                   ><div class="i4AoHVNg5ytqtCBaw" data-instant-type="container"
                     ><p data-instant-dynamic-content-source="COUNTDOWN_MINUTES" data-instant-type="text" conditionals="" class="iDM1nOMPGo8u5If2d"><span>&nbsp;</span></p
-                    ><div data-instant-type="text" class="instant-rich-text izShLOy6ycoUSnCdt"><p>Mins</p></div></div
+                    ><div data-instant-type="text" class="instant-rich-text izShLOy6ycoUSnCdt"
+                      ><div>{{ section.settings['text_zShLOy6ycoUSnCdt-1'] }}</div></div
+                    ></div
                   ></div
                 ></div
               ><div class="iMeHIOd1WGVrVCCKi" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iTWmRlA8sGUYSVFZN"><p>Subtotal</p></div
+                ><div data-instant-type="text" class="instant-rich-text iTWmRlA8sGUYSVFZN"
+                  ><div>{{ section.settings['text_TWmRlA8sGUYSVFZN-1'] }}</div></div
                 ><div class="iINZDToKlxGbNwJSj" data-instant-type="container"
                   ><p data-instant-dynamic-content-source="CART_SUBTOTAL_PRICE" data-instant-type="text" class="irHOJGiU43RHukqHg">{{ cart.items_subtotal_price | money }}</p></div
                 ></div
               ><div class="iGk61Viq33QC4yVtN" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iBzGqIPfOSI1aOUyJ"><p>Discount</p></div
-                ><div data-instant-type="text" class="instant-rich-text iZ6Et51XFumsX2ToW"><p>-</p></div
+                ><div data-instant-type="text" class="instant-rich-text iBzGqIPfOSI1aOUyJ"
+                  ><div>{{ section.settings['text_BzGqIPfOSI1aOUyJ-1'] }}</div></div
+                ><div data-instant-type="text" class="instant-rich-text iZ6Et51XFumsX2ToW"
+                  ><div>{{ section.settings['text_Z6Et51XFumsX2ToW-1'] }}</div></div
                 ><div class="i7fdXoddou7M1YnVg" data-instant-type="container"
                   ><p data-instant-dynamic-content-source="CART_TOTAL_DISCOUNT" data-instant-type="text" class="iUZeEIatohNZBv5CK">{{ cart.total_discount | money }}</p></div
                 ></div
               ><div class="iwVynlWmgi2MUJHL8" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text ieneEkATEHBw3GWEA"><p>Shipping</p></div
-                ><div data-instant-type="text" class="instant-rich-text izNitSqoPuQcvPjDy"><p>FREE</p></div></div
+                ><div data-instant-type="text" class="instant-rich-text ieneEkATEHBw3GWEA"
+                  ><div>{{ section.settings['text_eneEkATEHBw3GWEA-1'] }}</div></div
+                ><div data-instant-type="text" class="instant-rich-text izNitSqoPuQcvPjDy"
+                  ><div>{{ section.settings['text_zNitSqoPuQcvPjDy-1'] }}</div></div
+                ></div
               ><div class="iCgdxHJYxRxmEuhjw" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iPcSZuW9I9MfAwx9H"><p>Total</p></div
+                ><div data-instant-type="text" class="instant-rich-text iPcSZuW9I9MfAwx9H"
+                  ><div>{{ section.settings['text_PcSZuW9I9MfAwx9H-1'] }}</div></div
                 ><p data-instant-dynamic-content-source="CART_TOTAL_PRICE" data-instant-type="text" class="icoLmXgRMwCF7eevs">{{ cart.total_price | money }}</p></div
               ><div class="ispbhso9tpzZ7wqF2" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iYEwjk97NghiQgeKG"><p>Discount codes applied at checkout</p></div></div
+                ><div data-instant-type="text" class="instant-rich-text iYEwjk97NghiQgeKG"
+                  ><div>{{ section.settings['text_YEwjk97NghiQgeKG-1'] }}</div></div
+                ></div
               ><div class="i3kToPWjRF4kQAD0T" data-instant-type="container"
                 ><div data-instant-type="icon" class="iguivOyzl9yDwhe2K"><img class="instant-icon instant-icon__payment-method" alt="apple_pay" width="38" height="24" src="{{ "apple_pay" | payment_type_img_url }}"></div><div data-instant-type="icon" class="iZISpGvKkQMVaLtpG"><img class="instant-icon instant-icon__payment-method" alt="ideal" width="38" height="24" src="{{ "ideal" | payment_type_img_url }}"></div><div data-instant-type="icon" class="irfrO202TOFDCyLVe"><img class="instant-icon instant-icon__payment-method" alt="sofort" width="38" height="24" src="{{ "sofort" | payment_type_img_url }}"></div><div data-instant-type="icon" class="ilAP6QvFGFclNcUMH"><img class="instant-icon instant-icon__payment-method" alt="bancontact" width="38" height="24" src="{{ "bancontact" | payment_type_img_url }}"></div><div data-instant-type="icon" class="ipesy7m5XeAm7OJ2R"><img class="instant-icon instant-icon__payment-method" alt="visa" width="38" height="24" src="{{ "visa" | payment_type_img_url }}"></div><div data-instant-type="icon" class="iimHjP81aCCLuYfKY"><img class="instant-icon instant-icon__payment-method" alt="master" width="38" height="24" src="{{ "master" | payment_type_img_url }}"></div><div data-instant-type="icon" class="iCRX3mNsGFDzvEkIJ"><img class="instant-icon instant-icon__payment-method" alt="american_express" width="38" height="24" src="{{ "american_express" | payment_type_img_url }}"></div><div data-instant-type="icon" class="ie7dvMqRMVCRs6Gmf"><img class="instant-icon instant-icon__payment-method" alt="paypal" width="38" height="24" src="{{ "paypal" | payment_type_img_url }}"></div><div data-instant-type="icon" class="ir2NVbM8f7JxIXf9H"><img class="instant-icon instant-icon__payment-method" alt="klarna" width="38" height="24" src="{{ "klarna" | payment_type_img_url }}"></div></div></div
             ><div class="iX8O4w0PZgGmmA0dI" data-instant-type="container"
               ><div class="instant-slider-container i3kFrqhKq8L4KKoRP" data-instant-type="slider-container"
                 ><div class="iJg4YCNlWTNmXOnb6" data-instant-type="container"
-                  ><div data-instant-type="text" class="instant-rich-text iShIdDB6auayBXxIQ"><p>Customers Also Bought</p></div
+                  ><div data-instant-type="text" class="instant-rich-text iShIdDB6auayBXxIQ"
+                    ><div>{{ section.settings['text_ShIdDB6auayBXxIQ-1'] }}</div></div
                   ><div class="ik6W7NhvRT3VhrR0H" data-instant-type="container"
                     ><button class="instant-slider-button instant-slider-button-prev instant-slider-NQvsqBtWYdp1fSYr-button-prev i3CWHd8P9q0VWOZcY" data-instant-type="slider-button-prev" type="button"
                       ><div data-instant-type="icon" class="iZTRnN1PgJUc1IFiD">
@@ -323,11 +379,13 @@
                               assign product_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image
                             -%}
                             <form class="instant-slider-slide isxHh4oRseJgc8pcF" data-instant-type="slider-slide" data-instant-repeater-index="{{ repeater_index }}" data-instant-product-recommendations-item="sxHh4oRseJgc8pcF" data-instant-form-product-url="{{ product.url }}" data-instant-form-variant-id="{{ product.selected_or_first_available_variant.id }}" data-instant-form-product-id="{{ product.id }}"
-                              ><div data-instant-type="image" class="iCog2XocFQpeKBJ37"><img alt="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image.alt }}" src="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 1280 }}" data-instant-dynamic-content-source="FEATURED_IMAGE" width="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image.width }}" height="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 1080 }} 1080w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 828 }} 828w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 750 }} 750w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 640 }} 640w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 360 }} 360w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 1280 }} 1280w" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main"></div
+                              ><div data-instant-type="image" class="iCog2XocFQpeKBJ37"><img alt="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image.alt }}" src="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 1280 }}" data-instant-dynamic-content-source="FEATURED_IMAGE" width="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image.width }}" height="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 1080 }} 1080w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 828 }} 828w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 750 }} 750w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 640 }} 640w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 360 }} 360w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main"></div
                               ><div class="iBbyYAmUBeDPLzLXk" data-instant-type="container"
                                 ><div class="iRTcR0xAgMV0FBN1Z" data-instant-type="container"
                                   ><a as="p" data-instant-type="text" class="icUpYiOBUH3TdoBCx" href="{{ product.url }}" rel="noopener noreferrer" data-instant-action-type="open-page"
-                                    ><div class="instant-rich-text"><p>Cleaning Kit</p></div></a
+                                    ><div class="instant-rich-text"
+                                      ><div>{{ section.settings['text_cUpYiOBUH3TdoBCx-1'] }}</div></div
+                                    ></a
                                   ></div
                                 ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iPFLVFZo3Rv9H4ZMA">
                                   {%- liquid
@@ -356,7 +414,9 @@
                                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                                     <title>plus</title><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"></path>
                                   </svg></div
-                                ><div data-instant-type="text" class="instant-rich-text iDSOCclwL7g1TLXpJ"><p>Add</p></div></a
+                                ><div data-instant-type="text" class="instant-rich-text iDSOCclwL7g1TLXpJ"
+                                  ><div>{{ section.settings['text_DSOCclwL7g1TLXpJ-1'] }}</div></div
+                                ></a
                               ></form
                             >
                           {%- endif -%}
@@ -369,7 +429,8 @@
             ></div
           ><div class="izmuFsjyerngTkrLh" data-instant-type="container"
             ><div class="iLe2dodUwT7inp0Xj" data-instant-type="container"
-              ><div data-instant-type="text" class="instant-rich-text i2IDNVUS8vOcdOL6q"><p>Total</p></div
+              ><div data-instant-type="text" class="instant-rich-text i2IDNVUS8vOcdOL6q"
+                ><div>{{ section.settings['text_2IDNVUS8vOcdOL6q-1'] }}</div></div
               ><div class="iBrjXOja9OjivTHHU" data-instant-type="container"
                 ><p data-instant-dynamic-content-source="CART_TOTAL_PRICE" data-instant-type="text" class="idqItEyReVI8hbVRl">{{ cart.total_price | money }}</p>
 
@@ -396,7 +457,9 @@
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>lock</title><path d="M208,84H172V56a44,44,0,0,0-88,0V84H48A12,12,0,0,0,36,96V208a12,12,0,0,0,12,12H208a12,12,0,0,0,12-12V96A12,12,0,0,0,208,84ZM92,56a36,36,0,0,1,72,0V84H92ZM212,208a4,4,0,0,1-4,4H48a4,4,0,0,1-4-4V96a4,4,0,0,1,4-4H208a4,4,0,0,1,4,4Zm-76-56a8,8,0,1,1-8-8A8,8,0,0,1,136,152Z"></path>
                   </svg></div
-                ><div data-instant-type="text" class="instant-rich-text i2pYM59Gq8rVxU3vp"><p>SECURE Checkout</p></div></a
+                ><div data-instant-type="text" class="instant-rich-text i2pYM59Gq8rVxU3vp"
+                  ><div>{{ section.settings['text_2pYM59Gq8rVxU3vp-1'] }}</div></div
+                ></a
               ></div
             ></div
           ></div
@@ -409,6 +472,205 @@
 </div>
 {% schema %}
 {
-  "name": "Cart 1"
+  "name": "Italian Cart",
+  "tag": "section",
+  "enabled_on": {
+    "groups": [
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text_gm3As4bw7onfE4xL-1",
+      "label": "Text",
+      "default": "<p>Cart</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_xvJM1BF0SnV7Q0Da-1",
+      "label": "Text",
+      "default": "<p>Shop</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_27Z6lGvjI01huxO4-1",
+      "label": "Text",
+      "default": "<p>more for Free shipping</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_8YWVLxnusli0AM2m-1",
+      "label": "Text",
+      "default": "<p>Your order qualifies for FREE delivery</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_FxSAyOyrqNs8G70q-1",
+      "label": "Text",
+      "default": "<p>Your cart is empty</p>"
+    },
+    {
+      "type": "url",
+      "id": "url_kCQw2oKA8fw3A5oE-1",
+      "label": "Button URL"
+    },
+    {
+      "type": "richtext",
+      "id": "text_Fza66DOLztmwajWY-1",
+      "label": "Text",
+      "default": "<p>Continue shopping</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_7GBF4XMSBA2XG3bI-1",
+      "label": "Text",
+      "default": "<p>Great, your body will thank you.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_6KONaG3EFKYHRR6E-1",
+      "label": "Text",
+      "default": "<p>Remove</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_g2MwuPSphLmxvDwm-1",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_g2MwuPSphLmxvDwm-1_mobile",
+      "label": "Image mobile"
+    },
+    {
+      "type": "richtext",
+      "id": "text_ebFtQk8OylTnmgwe-1",
+      "label": "Text",
+      "default": "<p>REMAINING</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_3Fk9sVVISTYP7a8s-1",
+      "label": "Label",
+      "default": "<p>DAYS</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_7a87Ct6dWiPWELQV-1",
+      "label": "Label",
+      "default": "<p>HRS</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_zShLOy6ycoUSnCdt-1",
+      "label": "Label",
+      "default": "<p>Mins</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_TWmRlA8sGUYSVFZN-1",
+      "label": "Text",
+      "default": "<p>Subtotal</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_BzGqIPfOSI1aOUyJ-1",
+      "label": "Text",
+      "default": "<p>Discount</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_Z6Et51XFumsX2ToW-1",
+      "label": "Text",
+      "default": "<p>-</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_eneEkATEHBw3GWEA-1",
+      "label": "Text",
+      "default": "<p>Shipping</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_zNitSqoPuQcvPjDy-1",
+      "label": "Text",
+      "default": "<p>FREE</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_PcSZuW9I9MfAwx9H-1",
+      "label": "Text",
+      "default": "<p>Total</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_YEwjk97NghiQgeKG-1",
+      "label": "Text",
+      "default": "<p>Discount codes applied at checkout</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_ShIdDB6auayBXxIQ-1",
+      "label": "Text",
+      "default": "<p>Customers Also Bought</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_cUpYiOBUH3TdoBCx-1",
+      "label": "Text",
+      "default": "<p>Cleaning Kit</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_DSOCclwL7g1TLXpJ-1",
+      "label": "Text",
+      "default": "<p>Add</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_2IDNVUS8vOcdOL6q-1",
+      "label": "Text",
+      "default": "<p>Total</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_2pYM59Gq8rVxU3vp-1",
+      "label": "Text",
+      "default": "<p>SECURE Checkout</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Italian Cart",
+      "settings": {
+        "text_gm3As4bw7onfE4xL-1": "<p>Cart</p>",
+        "text_xvJM1BF0SnV7Q0Da-1": "<p>Shop</p>",
+        "text_27Z6lGvjI01huxO4-1": "<p>more for Free shipping</p>",
+        "text_8YWVLxnusli0AM2m-1": "<p>Your order qualifies for FREE delivery</p>",
+        "text_FxSAyOyrqNs8G70q-1": "<p>Your cart is empty</p>",
+        "url_kCQw2oKA8fw3A5oE-1": "/collections/all",
+        "text_Fza66DOLztmwajWY-1": "<p>Continue shopping</p>",
+        "text_7GBF4XMSBA2XG3bI-1": "<p>Great, your body will thank you.</p>",
+        "text_6KONaG3EFKYHRR6E-1": "<p>Remove</p>",
+        "text_ebFtQk8OylTnmgwe-1": "<p>REMAINING</p>",
+        "text_3Fk9sVVISTYP7a8s-1": "<p>DAYS</p>",
+        "text_7a87Ct6dWiPWELQV-1": "<p>HRS</p>",
+        "text_zShLOy6ycoUSnCdt-1": "<p>Mins</p>",
+        "text_TWmRlA8sGUYSVFZN-1": "<p>Subtotal</p>",
+        "text_BzGqIPfOSI1aOUyJ-1": "<p>Discount</p>",
+        "text_Z6Et51XFumsX2ToW-1": "<p>-</p>",
+        "text_eneEkATEHBw3GWEA-1": "<p>Shipping</p>",
+        "text_zNitSqoPuQcvPjDy-1": "<p>FREE</p>",
+        "text_PcSZuW9I9MfAwx9H-1": "<p>Total</p>",
+        "text_YEwjk97NghiQgeKG-1": "<p>Discount codes applied at checkout</p>",
+        "text_ShIdDB6auayBXxIQ-1": "<p>Customers Also Bought</p>",
+        "text_cUpYiOBUH3TdoBCx-1": "<p>Cleaning Kit</p>",
+        "text_DSOCclwL7g1TLXpJ-1": "<p>Add</p>",
+        "text_2IDNVUS8vOcdOL6q-1": "<p>Total</p>",
+        "text_2pYM59Gq8rVxU3vp-1": "<p>SECURE Checkout</p>"
+      }
+    }
+  ]
 }
 {% endschema %}
