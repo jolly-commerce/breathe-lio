@@ -8,15 +8,15 @@
  * ------------------------------------------------------------
  */
 {
-  "name": "The New Header Lio",
+  "name": "Header",
   "type": "header",
   "sections": {
-    "instant-0hPUuJ1NCR7Kgw41": {
-      "type": "instant-0hPUuJ1NCR7Kgw41",
+    "instant-4YfiNehOfk3CaIcS": {
+      "type": "instant-4YfiNehOfk3CaIcS",
       "settings": {}
     }
   },
   "order": [
-    "instant-0hPUuJ1NCR7Kgw41"
+    "instant-4YfiNehOfk3CaIcS"
   ]
 }
