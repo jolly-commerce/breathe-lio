@@ -336,7 +336,14 @@
                 ><div class="iINZDToKlxGbNwJSj" data-instant-type="container"
                   ><p data-instant-dynamic-content-source="CART_SUBTOTAL_PRICE" data-instant-type="text" class="irHOJGiU43RHukqHg">{{ cart.items_subtotal_price | money }}</p></div
                 ></div
-              ><div class="iXDymgIyI77dMrxZz" data-instant-type="container"
+              >
+              {%- liquid
+                assign style = ''
+                if cart.total_discount <= 0
+                  assign style = 'style="display: none;"'
+                endif
+              -%}
+              <div class="iXDymgIyI77dMrxZz" data-instant-type="container" {{- style -}} data-instant-conditional="true"
                 ><div data-instant-type="text" class="instant-rich-text iwS9nWnYkTVkh5vqR"
                   ><div>{{ section.settings['text_wS9nWnYkTVkh5vqR-3'] }}</div></div
                 ><div data-instant-type="text" class="instant-rich-text idKDNnv76bGdyg3I2"
