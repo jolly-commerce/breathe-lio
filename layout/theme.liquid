@@ -355,5 +355,29 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
   });
 </script>
 
+
+<script>
+  document.addEventListener(
+    "click",
+    (e) => {
+      const link = e.target.closest('a[href^="#scroll-"]');
+      if (!link) return;
+
+      const href = link.getAttribute("href");
+      if (!href || href === "#") return;
+
+      e.preventDefault();
+
+      const targetClass = href.slice(1); // remove #
+      const target = document.querySelector("." + CSS.escape(targetClass));
+
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    },
+    true // <-- CAPTURE mode (important)
+  );
+</script>
+
     </body>
   </html>
