@@ -11,6 +11,11 @@
   "sections": {
     "instant-tZp3Y3h6BEZ1sHqq": {
       "settings": {
+        "image_DVyK1ZwgjBeEJWQH-4_mobile": "shopify://shop_images/ezgif.com-crop_4.gif",
+        "text_FlpILU3O5s8trHYl-4": "<p>RIMANENTE</p>",
+        "text_6rS8hi9STTlqCSSm-4": "<p>GIORNI</p>",
+        "text_6vmcXcNMfxaQtp25-4": "<p>ORE</p>",
+        "text_ygck6yK9DLBAzqLW-4": "<p>Minuti</p>",
         "product_peNRCeA05khTMV2g-4": "pacchetto-completo",
         "text_7Zc3vhRUIpk97opM-4": "<p>Diffusore</p><p>Di Aromi</p>",
         "text_css42mRmOnLkUtTT-4": "<p><strong>Senza nicotina. </strong>Lio è un diffusore portatile in legno, infuso con botaniche naturali per rallentare il respiro e calmare il corpo. Tienilo in mano, inspira e ritrova l’equilibrio.</p>",
@@ -19,11 +24,13 @@
         "text_zxxhSBukgUIJdxpN-4": "<p>solo €0,30 al giorno</p>",
         "text_DR1sp3Zy47XdYZdV-4": "<p>salva</p>",
         "text_yjdUQ3TlosRzjpTK-4": "<p>Include diffusore Lio + nuclei di aromi + spedizione gratuita</p>",
-        "image_DVyK1ZwgjBeEJWQH-4_mobile": "shopify://shop_images/ezgif.com-crop_4.gif",
-        "text_FlpILU3O5s8trHYl-4": "<p>RIMANENTE</p>",
-        "text_6rS8hi9STTlqCSSm-4": "<p>GIORNI</p>",
-        "text_6vmcXcNMfxaQtp25-4": "<p>ORE</p>",
-        "text_ygck6yK9DLBAzqLW-4": "<p>Minuti</p>"
+        "text_saV4ekjrlTDrD5Ty-4": "<p>best seller</p>",
+        "text_wBbtRrrK8cM6TvI1-4": "<p><strong>Lio Ulivo • 60 giorni</strong></p>",
+        "text_WlkfRYcvaiY0Y6nQ-4": "<p>Raddoppia gli aromi, <strong>gratis</strong></p>",
+        "text_O2yCwBWvtGc3QH4t-4": "<p>Raddoppia gli aromi, <strong>gratis</strong></p>",
+        "text_lklWPq6sshSSctcv-4": "<p>Lio Noce • 60 giorni</p>",
+        "text_q65dtRQSbkW66Fn3-4": "<p>Aromi per 60 giorni</p><p>Custodia </p><p>Tracker delle abitudini</p>",
+        "text_YZs6YqNuTootYu8v-4": "<p>Aromi per 60 giorni</p><p>Custodia </p><p>Tracker delle abitudini</p>"
       },
       "blocks": {}
     }
