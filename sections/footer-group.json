@@ -14,14 +14,9 @@
     "instant-FwU08Hd6XP50g2C3": {
       "type": "instant-FwU08Hd6XP50g2C3",
       "settings": {}
-    },
-    "instant-gOeLBi4Eg7vhn77S": {
-      "type": "instant-gOeLBi4Eg7vhn77S",
-      "settings": {}
     }
   },
   "order": [
-    "instant-FwU08Hd6XP50g2C3",
-    "instant-gOeLBi4Eg7vhn77S"
+    "instant-FwU08Hd6XP50g2C3"
   ]
 }
