@@ -194,9 +194,35 @@
           ><div data-instant-type="text" class="instant-rich-text ihdqEs3eVnxQX64yp"
             ><p><strong>Replace the physical "hand-to-mouth" reflex instantly.</strong> Lio® uses plant-powered sensory hits and engineered air resistance to mimic the habit you love, <strong>without the toxins, chemicals, or nicotine you hate</strong>. </p></div
           ><div class="iiak29YOyKAuIbYCY" data-instant-type="container"
-            ><div class="i4JUfdBuuzyiqDjc3" data-instant-type="container"
-              ><div data-instant-type="text" conditionals="" class="instant-rich-text i6chhbn25IftTVISc"
-                ><p>30% off with <strong>LASTCHANCE30</strong></p></div
+            ><div class="i4JUfdBuuzyiqDjc3" data-instant-type="container">
+              {%- liquid
+                assign style = ''
+
+                assign compare_at_price = product_BKqp4h8tQBAfats6_variant.compare_at_price
+                assign variant_price = product_BKqp4h8tQBAfats6_variant.price
+
+                if product_BKqp4h8tQBAfats6_variant.selected_selling_plan_allocation
+                  assign compare_at_price = product_BKqp4h8tQBAfats6_variant.selected_selling_plan_allocation.compare_at_price
+                  assign variant_price = product_BKqp4h8tQBAfats6_variant.selected_selling_plan_allocation.price
+                endif
+
+                assign saved_amount = compare_at_price | minus: variant_price | times: 100 | divided_by: compare_at_price
+
+                if compare_at_price <= variant_price or saved_amount <= 0 or compare_at_price == null
+                  assign style = 'style="display: none;"'
+                endif
+              -%}
+              <span
+                data-instant-dynamic-content-source="SAVED_PERCENTAGE"
+                class="iJ9TX3lgcwzsCscFI"
+                {{- style -}}
+              >
+                {{- saved_amount -}}
+                %
+              </span>
+
+              <div data-instant-type="text" conditionals="" class="instant-rich-text i6chhbn25IftTVISc"
+                ><p>off with <strong>LASTCHANCE</strong></p></div
               ></div
             ><div class="i0rFjCxQUBAN28DK4" data-instant-type="container"
               ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iqpkOshb0qmWBkY3E">
@@ -240,7 +266,7 @@
               data-instant-type="container"
               href="{{ routes.cart_url }}/{{ product_BKqp4h8tQBAfats6_variant.id }}:1?storefront=true"
               rel="noopener noreferrer"
-              data-instant-action-type="redirect-to-cart"
+              data-instant-action-type="add-to-cart"
               data-instant-action-id="{{ product_BKqp4h8tQBAfats6.id }}"
               data-instant-action-variant-id="{{ product_BKqp4h8tQBAfats6_variant.id }}"
               data-instant-disabled="
@@ -248,7 +274,7 @@
                 	true
                 {%-	endif -%}
               "
-              ><div data-instant-type="text" class="instant-rich-text ijIXrStFoERIfb7Wx"><p>PROCEED TO CHECKOUT</p></div></a
+              ><div data-instant-type="text" class="instant-rich-text ijIXrStFoERIfb7Wx"><p>ADD TO CART</p></div></a
             ></div
           ><div class="i9SxIT6r4bCfm3z2e" data-instant-type="container"
             ><div data-instant-type="text" class="instant-rich-text iikR78DUvil7J7OQi"><p>30-day risk-free guarantee. Free shipping.</p></div></div
