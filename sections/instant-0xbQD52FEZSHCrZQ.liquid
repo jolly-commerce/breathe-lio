@@ -274,8 +274,40 @@
                 	true
                 {%-	endif -%}
               "
-              ><div data-instant-type="text" class="instant-rich-text ijIXrStFoERIfb7Wx"><p>ADD TO CART</p></div></a
-            ></div
+              ><div data-instant-type="text" class="instant-rich-text ivjbiavaCcWcLYacu"><p>ADD TO CART</p></div
+              ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="i2uxIFoaYKW41Xgr5">
+                {%- liquid
+                  assign variant_price = product_BKqp4h8tQBAfats6_variant.price
+
+                  if product_BKqp4h8tQBAfats6_variant.selected_selling_plan_allocation
+                    assign variant_price = product_BKqp4h8tQBAfats6_variant.selected_selling_plan_allocation.price
+                  endif
+                -%}
+                {{- variant_price | money -}}
+              </p>
+
+              {%- liquid
+                assign style = ''
+                assign compare_at_price = product_BKqp4h8tQBAfats6_variant.compare_at_price
+                assign variant_price = product_BKqp4h8tQBAfats6_variant.price
+
+                if product_BKqp4h8tQBAfats6_variant.selected_selling_plan_allocation
+                  assign compare_at_price = product_BKqp4h8tQBAfats6_variant.selected_selling_plan_allocation.compare_at_price
+                  assign variant_price = product_BKqp4h8tQBAfats6_variant.selected_selling_plan_allocation.price
+                endif
+
+                if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
+                  assign style = 'style="display: none;"'
+                endif
+              -%}
+              <span
+                data-instant-dynamic-content-source="COMPARE_AT"
+                class="ijIXrStFoERIfb7Wx"
+                {{- style -}}
+              >
+                {{- compare_at_price | money -}}
+              </span>
+            </a></div
           ><div class="i9SxIT6r4bCfm3z2e" data-instant-type="container"
             ><div data-instant-type="text" class="instant-rich-text iikR78DUvil7J7OQi"><p>30-day risk-free guarantee. Free shipping.</p></div></div
           ><div class="iSoUSnSSVZvl5ZqYy" data-instant-type="accordion-container" data-is-first-open="false" data-is-multi-open-enabled="false"
