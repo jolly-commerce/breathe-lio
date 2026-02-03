@@ -248,7 +248,7 @@ box-shadow:
   color : var(--lio-yellow);
   box-shadow:             
     -0px 0px 0px 0px var(--lio-dark-green),
-  -0px 0px 0px 0px var(--lio-yellow); 
+    -0px 0px 0px 0px var(--lio-yellow); /* ADD SEMICOLON */
   -webkit-box-shadow:
     -0px 0px 0px 0px var(--lio-dark-green),
     -0px 0px 0px 0px var(--lio-yellow);
