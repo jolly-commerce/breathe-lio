@@ -22,12 +22,30 @@
     endif
   -%}
   {{ 'instant-0e3wY1pWK0EtDnQF.css' | asset_url | stylesheet_tag: preload: preload -}}
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&amp;family=Bricolage+Grotesque:wght@500;800&amp;display=swap" rel="stylesheet"
-  ><div data-instant-type="root" class="ia9PVi152GA7GkTn5"
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&amp;display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Suncoast GROT';
+      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/K0JrYp9I52Y6n111/suncoastgrot-bold.woff2') format('woff2');
+      font-weight: 700;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Suncoast GROT';
+      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/alokcA7207DUbdPy/suncoastgrot-light.woff2') format('woff2');
+      font-weight: 300;
+      font-display: swap;
+    }
+  </style>
+  <div data-instant-type="root" class="ia9PVi152GA7GkTn5"
     ><div class="iGmcbOqO2wMLcOItv" data-instant-type="container" id="iGmcbOqO2wMLcOItv"
       ><div class="iZlzjkfsGdQXTcAHM" data-instant-type="container"
         ><div data-instant-type="text" class="instant-rich-text iwI8eaGmLKclbey25"
           ><div>{{ section.settings.text_wI8eaGmLKclbey25 }}</div></div
+        ><div class="i1x0UhUW9WwNzFc7Z" data-instant-type="container"
+          ><div data-instant-type="text" class="instant-rich-text i96TuW9BpGk0JKjMn"
+            ><div>{{ section.settings.text_96TuW9BpGk0JKjMn }}</div></div
+          ></div
         ></div
       ><div class="iobLOqut9fpRtgYzQ" data-instant-countdown-minutes="14" data-instant-countdown-is-persistent="true" data-instant-countdown-leading-zeros="true" data-instant-type="countdown"
         ><div class="i411uilrrVC0kECu1" data-instant-countdown-minutes="15" data-instant-countdown-is-persistent="true" data-instant-countdown-leading-zeros="true" data-instant-type="countdown"
@@ -68,7 +86,13 @@
       "type": "richtext",
       "id": "text_wI8eaGmLKclbey25",
       "label": "Text",
-      "default": "<p>❄️ WINTER CLEARANCE SALE! 💳</p><p><strong>UP TO 43% OFF ENDS IN:</strong></p>"
+      "default": "<p>WINTER SALE ⛄❄️</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_96TuW9BpGk0JKjMn",
+      "label": "Text",
+      "default": "<p>Up to 43% off ends in</p>"
     },
     {
       "type": "richtext",
@@ -117,7 +141,8 @@
     {
       "name": "Countdown 15 Min",
       "settings": {
-        "text_wI8eaGmLKclbey25": "<p>❄️ WINTER CLEARANCE SALE! 💳</p><p><strong>UP TO 43% OFF ENDS IN:</strong></p>",
+        "text_wI8eaGmLKclbey25": "<p>WINTER SALE ⛄❄️</p>",
+        "text_96TuW9BpGk0JKjMn": "<p>Up to 43% off ends in</p>",
         "text_2qnXET8gRApP8PNg": "<p>HRS</p>",
         "text_QCWV2NSotHcFKfEE": "<p>Mins</p>",
         "text_lS1nXJW9d5dq6gXH": "<p>Secs</p>"
