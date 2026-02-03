@@ -43,14 +43,14 @@ p{
   font-size : 20px;
   letter-spacing: -0.3px;
  
-box-shadow:             
+  box-shadow:             
     -3px 4px 0px 0px var(--lio-dark-green),
-  -4px 5px 0px 0px var(--lio-button); 
+    -4px 5px 0px 0px var(--lio-button); /* ADD SEMICOLON */
   -webkit-box-shadow:
     -3px 4px 0px 0px var(--lio-dark-green),
     -4px 5px 0px 0px var(--lio-button);
   -moz-box-shadow:
-      -3px 4px 0px 0px var(--lio-dark-green),
+    -3px 4px 0px 0px var(--lio-dark-green),
     -4px 5px 0px 0px var(--lio-button);
   margin : 0px 0px 8px 4px;
   transition : all 0.3s ease;
