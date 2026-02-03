@@ -58,9 +58,9 @@ p{
 .gradient-button:hover{
   background : var(--lio-dark-green);
   color : var(--lio-light-green);
-  box-shadow:             
+box-shadow:             
     -0px 0px 0px 0px var(--lio-dark-green),
-  -0px 0px 0px 0px var(--lio-light-green); 
+    -0px 0px 0px 0px var(--lio-light-green); /* ADD SEMICOLON */
   -webkit-box-shadow:
     -0px 0px 0px 0px var(--lio-dark-green),
     -0px 0px 0px 0px var(--lio-light-green);
@@ -231,10 +231,10 @@ line-item-quantity{
     font-size: 23px;
     letter-spacing: -1px;
     font-weight: 600;
-  box-shadow:             
+box-shadow:             
     -3px 4px 0px 0px var(--lio-dark-green),
-  -4px 5px 0px 0px var(--lio-yellow); 
-  -webkit-box-shadow:
+    -4px 5px 0px 0px var(--lio-yellow); /* ADD SEMICOLON */
+-webkit-box-shadow:
     -3px 4px 0px 0px var(--lio-dark-green),
     -4px 5px 0px 0px var(--lio-yellow);
   -moz-box-shadow:
