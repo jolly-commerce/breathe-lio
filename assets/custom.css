@@ -36,7 +36,7 @@ p{
 }
 .gradient-button{
   background : var(--lio-button);
-  color : var(--lio-white); );
+  color : var(--lio-white); 
   padding : 12px 50px;
   border-radius : 15px;
   font-weight : 600;
