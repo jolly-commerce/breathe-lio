@@ -212,6 +212,33 @@
             "padding_vertical": 6,
             "padding_horizontal": 15
           }
+        },
+        "section_store_block_benefits_boxes_2_FwYmnY": {
+          "type": "shopify://apps/section-store/blocks/block-benefits-boxes-2/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "cards_design": "vertical",
+            "cards_row": "3",
+            "card_align": "center",
+            "first_icon": "credit_card",
+            "first_title": "Try 30-Day",
+            "first_sub_title": "Risk Free",
+            "second_icon": "shield_check",
+            "second_title": "Fast & Free",
+            "second_sub_title": "Shipping",
+            "third_icon": "earth",
+            "third_title": "Trusted by",
+            "third_sub_title": "100.000 people",
+            "all_size": 19,
+            "all_color": "#000000",
+            "font_weight": "700",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "cards_bg_color": "",
+            "padding_vertical": 0,
+            "padding_horizontal": 0
+          }
         }
       },
       "block_order": [
@@ -223,7 +250,8 @@
         "separator_QXJ3wn",
         "section_store_block_product_info_wrapper_7wwfVw",
         "buy_buttons_d7wDkN",
-        "section_store_block_shipping_info_8rpnt8"
+        "section_store_block_shipping_info_8rpnt8",
+        "section_store_block_benefits_boxes_2_FwYmnY"
       ],
       "name": "Featured product",
       "settings": {
