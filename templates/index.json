@@ -177,10 +177,6 @@
             "padding_right": 20
           }
         },
-        "quantity_selector_rVEzMe": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
         "buy_buttons_d7wDkN": {
           "type": "buy_buttons",
           "settings": {
@@ -192,9 +188,30 @@
             "payment_button_text_color": ""
           }
         },
-        "pickup_availability_h3yCDh": {
-          "type": "pickup_availability",
-          "settings": {}
+        "section_store_block_shipping_info_8rpnt8": {
+          "type": "shopify://apps/section-store/blocks/block-shipping-info/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "use_dot": true,
+            "icon_color": "#00b67c",
+            "icon_size": 12,
+            "ships_by_text": "Delivered by",
+            "shipping_within_days": 2,
+            "include_weekend": true,
+            "ships_by_font_size": 14,
+            "ships_by_text_color": "#000",
+            "fast_shipping_text": "COUNTRY_FLAG <strong>Fast</strong> COUNTRY_CODE Shipping",
+            "allow_all_countries": true,
+            "allowed_countries": "US,CH,DE,AT,FR,IT",
+            "fast_shipping_text_for_rest_countries": "Fast International Shipping",
+            "fast_shipping_text_color": "#000",
+            "border_style": "none",
+            "border_width": 1,
+            "border_color": "#000",
+            "border_radius": 8,
+            "bg_color": "#f6f6f6",
+            "padding_vertical": 6,
+            "padding_horizontal": 15
+          }
         }
       },
       "block_order": [
@@ -205,9 +222,8 @@
         "kaching_bundles_app_block_jKc7TU",
         "separator_QXJ3wn",
         "section_store_block_product_info_wrapper_7wwfVw",
-        "quantity_selector_rVEzMe",
         "buy_buttons_d7wDkN",
-        "pickup_availability_h3yCDh"
+        "section_store_block_shipping_info_8rpnt8"
       ],
       "name": "Featured product",
       "settings": {
