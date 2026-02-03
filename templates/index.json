@@ -23,6 +23,106 @@
         "padding_bottom": 0
       }
     },
+    "featured_product_aFXfVN": {
+      "type": "featured-product",
+      "blocks": {
+        "title_Byb4RU": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h2"
+          }
+        },
+        "badges_C7NPx6": {
+          "type": "badges",
+          "settings": {}
+        },
+        "price_UAgqWF": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "kaching_bundles_app_block_jKc7TU": {
+          "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
+          "settings": {
+            "product": "{{section.settings.product}}",
+            "manual_deal_block_id": ""
+          }
+        },
+        "separator_QXJ3wn": {
+          "type": "separator",
+          "settings": {}
+        },
+        "description_QrLKFn": {
+          "type": "description",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "collapse_content": false
+          }
+        },
+        "variant_picker_dqyacn": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector_rVEzMe": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_d7wDkN": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "pickup_availability_h3yCDh": {
+          "type": "pickup_availability",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title_Byb4RU",
+        "badges_C7NPx6",
+        "price_UAgqWF",
+        "kaching_bundles_app_block_jKc7TU",
+        "separator_QXJ3wn",
+        "description_QrLKFn",
+        "variant_picker_dqyacn",
+        "quantity_selector_rVEzMe",
+        "buy_buttons_d7wDkN",
+        "pickup_availability_h3yCDh"
+      ],
+      "name": "Featured product",
+      "settings": {
+        "full_width": true,
+        "product": "journey-pack-3",
+        "desktop_media_width": 55,
+        "desktop_media_layout": "carousel_thumbnails_left",
+        "mobile_media_size": "expanded",
+        "mobile_carousel_control": "free_scroll",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
+      }
+    },
     "new_homepage_banner_gFaJDm": {
       "type": "new-homepage-banner",
       "blocks": {
@@ -271,123 +371,11 @@
         "background_gradient": "",
         "text_color": ""
       }
-    },
-    "featured_product_B7Axqn": {
-      "type": "featured-product",
-      "blocks": {
-        "vendor_6bTkqP": {
-          "type": "vendor",
-          "settings": {}
-        },
-        "title_x4nnL6": {
-          "type": "title",
-          "settings": {
-            "heading_tag": "h2"
-          }
-        },
-        "badges_CcXJKW": {
-          "type": "badges",
-          "settings": {}
-        },
-        "price_agbFB3": {
-          "type": "price",
-          "settings": {
-            "show_taxes_notice": false
-          }
-        },
-        "kaching_bundles_app_block_ETcm6W": {
-          "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
-          "settings": {
-            "product": "{{section.settings.product}}",
-            "manual_deal_block_id": ""
-          }
-        },
-        "rating_qdygij": {
-          "type": "rating",
-          "settings": {
-            "show_empty": false
-          }
-        },
-        "separator_rBLgE9": {
-          "type": "separator",
-          "settings": {}
-        },
-        "description_7fqpct": {
-          "type": "description",
-          "settings": {
-            "icon": "none",
-            "icon_width": 20,
-            "collapse_content": false
-          }
-        },
-        "variant_picker_NaAiLm": {
-          "type": "variant_picker",
-          "disabled": true,
-          "settings": {
-            "hide_sold_out_variants": false,
-            "stack_blocks": true,
-            "selector_style": "block",
-            "swatch_selector_style": "swatch",
-            "variant_image_options": "",
-            "size_chart_page": ""
-          }
-        },
-        "quantity_selector_prTTkT": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons_4UdBMB": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_payment_button": false,
-            "show_gift_card_recipient": true,
-            "atc_button_background": "",
-            "atc_button_text_color": "",
-            "payment_button_background": "",
-            "payment_button_text_color": ""
-          }
-        },
-        "pickup_availability_fPqdGT": {
-          "type": "pickup_availability",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "vendor_6bTkqP",
-        "title_x4nnL6",
-        "badges_CcXJKW",
-        "price_agbFB3",
-        "kaching_bundles_app_block_ETcm6W",
-        "rating_qdygij",
-        "separator_rBLgE9",
-        "description_7fqpct",
-        "variant_picker_NaAiLm",
-        "quantity_selector_prTTkT",
-        "buy_buttons_4UdBMB",
-        "pickup_availability_fPqdGT"
-      ],
-      "name": "Featured product",
-      "settings": {
-        "full_width": true,
-        "product": "journey-pack-3",
-        "desktop_media_width": 55,
-        "desktop_media_layout": "carousel_thumbnails_left",
-        "mobile_media_size": "expanded",
-        "mobile_carousel_control": "floating_dots",
-        "enable_video_autoplay": true,
-        "enable_video_looping": false,
-        "enable_image_zoom": true,
-        "max_image_zoom_level": 3,
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "input_background": "rgba(0,0,0,0)",
-        "input_text_color": ""
-      }
     }
   },
   "order": [
     "instant_ef_uk_slwx_u_zj9uba_y_gfEByD",
+    "featured_product_aFXfVN",
     "new_homepage_banner_gFaJDm",
     "instant_pox5w_zfcs_a33_jh_tx_GngMhr",
     "instant_x_oetj8_hepve_arkr_v_EKnyNr",
@@ -396,7 +384,6 @@
     "instant_bt_hl_j6j_lwd5yz_k_db_f6TtaB",
     "instant_6x_bs_x_ih_h_qkcqi9b5_mmqXQg",
     "instant_82_ryrn_jl_m_jb_pgb5_u_VWLcUN",
-    "1767060052d2af84b7",
-    "featured_product_B7Axqn"
+    "1767060052d2af84b7"
   ]
 }
