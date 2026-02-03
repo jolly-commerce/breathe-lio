@@ -107,14 +107,6 @@
             "heading_tag": "h2"
           }
         },
-        "description_FC9HXA": {
-          "type": "description",
-          "settings": {
-            "icon": "none",
-            "icon_width": 20,
-            "collapse_content": false
-          }
-        },
         "section_store_block_review_summary_zAhg3x": {
           "type": "shopify://apps/section-store/blocks/block-review-summary/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
@@ -140,6 +132,14 @@
             "background_gradient": "",
             "padding_vertical": 0,
             "padding_horizontal": 0
+          }
+        },
+        "description_FC9HXA": {
+          "type": "description",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "collapse_content": false
           }
         },
         "section_store_block_benefits_list_aYGmNE": {
@@ -332,8 +332,8 @@
         "section_store_block_sticky_atc_r6KCAD",
         "section_store_block_product_info_wrapper_8Rtpwq",
         "title_WNTY8C",
-        "description_FC9HXA",
         "section_store_block_review_summary_zAhg3x",
+        "description_FC9HXA",
         "section_store_block_benefits_list_aYGmNE",
         "kaching_bundles_app_block_nmjeQT",
         "variant_picker_mxzpqb",
