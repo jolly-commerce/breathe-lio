@@ -195,8 +195,16 @@
             "padding_horizontal": 15
           }
         },
+        "kaching_bundles_app_block_nmjeQT": {
+          "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
+          "settings": {
+            "product": "{{section.settings.product}}",
+            "manual_deal_block_id": ""
+          }
+        },
         "variant_picker_mxzpqb": {
           "type": "variant_picker",
+          "disabled": true,
           "settings": {
             "hide_sold_out_variants": false,
             "stack_blocks": true,
@@ -333,6 +341,7 @@
         "section_store_block_review_summary_zAhg3x",
         "section_store_block_benefits_list_aYGmNE",
         "section_store_block_shipping_info_8kxUWB",
+        "kaching_bundles_app_block_nmjeQT",
         "variant_picker_mxzpqb",
         "section_store_block_banner_jiTNMp",
         "buy_buttons_qAxN8c",
@@ -343,7 +352,7 @@
       "name": "Featured product",
       "settings": {
         "full_width": true,
-        "product": "lio®-journey-pack-1",
+        "product": "journey-pack-3",
         "desktop_media_width": 55,
         "desktop_media_layout": "carousel_thumbnails_left",
         "mobile_media_size": "expanded",
