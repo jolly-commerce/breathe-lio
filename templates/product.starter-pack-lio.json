@@ -1092,6 +1092,19 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "instant_0e3w_y1p_wk0_et_dn_qf_bTUjRb": {
+      "type": "instant-0e3wY1pWK0EtDnQF",
+      "name": "Countdown 15 Min",
+      "settings": {
+        "text_wI8eaGmLKclbey25": "<p>WINTER SALE ⛄❄️</p>",
+        "text_96TuW9BpGk0JKjMn": "<p>Up to 43% off ends in</p>",
+        "text_2qnXET8gRApP8PNg": "<p>HRS</p>",
+        "text_QCWV2NSotHcFKfEE": "<p>Mins</p>",
+        "text_lS1nXJW9d5dq6gXH": "<p>Secs</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -1107,6 +1120,7 @@
     "grid_review_qVbHK9",
     "instant_6x_bs_x_ih_h_qkcqi9b5_RVUk6F",
     "17641264294cf71736",
-    "instant_6_ta2_uu_zb_jng9_i_bn7_zG7qRF"
+    "instant_6_ta2_uu_zb_jng9_i_bn7_zG7qRF",
+    "instant_0e3w_y1p_wk0_et_dn_qf_bTUjRb"
   ]
 }
