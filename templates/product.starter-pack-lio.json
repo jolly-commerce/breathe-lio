@@ -107,16 +107,12 @@
             "heading_tag": "h2"
           }
         },
-        "price_h7CCmM": {
-          "type": "price",
+        "description_FC9HXA": {
+          "type": "description",
           "settings": {
-            "show_taxes_notice": false
-          }
-        },
-        "rating_JG3Gwf": {
-          "type": "rating",
-          "settings": {
-            "show_empty": false
+            "icon": "none",
+            "icon_width": 20,
+            "collapse_content": false
           }
         },
         "section_store_block_review_summary_zAhg3x": {
@@ -168,31 +164,6 @@
             "background_gradient": "",
             "padding_vertical": 0,
             "padding_horizontal": 0
-          }
-        },
-        "section_store_block_shipping_info_8kxUWB": {
-          "type": "shopify://apps/section-store/blocks/block-shipping-info/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
-          "settings": {
-            "use_dot": true,
-            "icon_color": "#00b67c",
-            "icon_size": 12,
-            "ships_by_text": "Delivery on",
-            "shipping_within_days": 1,
-            "include_weekend": false,
-            "ships_by_font_size": 14,
-            "ships_by_text_color": "#000000",
-            "fast_shipping_text": "<strong>Free Shipping</strong>",
-            "allow_all_countries": true,
-            "allowed_countries": "US,CH,DE,AT,FR,IT",
-            "fast_shipping_text_for_rest_countries": "Fast International Shipping",
-            "fast_shipping_text_color": "#00b67c",
-            "border_style": "none",
-            "border_width": 1,
-            "border_color": "#000000",
-            "border_radius": 8,
-            "bg_color": "#e6fdea",
-            "padding_vertical": 6,
-            "padding_horizontal": 15
           }
         },
         "kaching_bundles_app_block_nmjeQT": {
@@ -251,6 +222,31 @@
             "atc_button_text_color": "",
             "payment_button_background": "",
             "payment_button_text_color": ""
+          }
+        },
+        "section_store_block_shipping_info_8kxUWB": {
+          "type": "shopify://apps/section-store/blocks/block-shipping-info/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "use_dot": true,
+            "icon_color": "#00b67c",
+            "icon_size": 12,
+            "ships_by_text": "Delivery on",
+            "shipping_within_days": 1,
+            "include_weekend": false,
+            "ships_by_font_size": 14,
+            "ships_by_text_color": "#000000",
+            "fast_shipping_text": "<strong>Free Shipping</strong>",
+            "allow_all_countries": true,
+            "allowed_countries": "US,CH,DE,AT,FR,IT",
+            "fast_shipping_text_for_rest_countries": "Fast International Shipping",
+            "fast_shipping_text_color": "#00b67c",
+            "border_style": "none",
+            "border_width": 1,
+            "border_color": "#000000",
+            "border_radius": 8,
+            "bg_color": "#e6fdea",
+            "padding_vertical": 6,
+            "padding_horizontal": 15
           }
         },
         "section_store_block_benefits_boxes_2_Y4t9RD": {
@@ -336,15 +332,14 @@
         "section_store_block_sticky_atc_r6KCAD",
         "section_store_block_product_info_wrapper_8Rtpwq",
         "title_WNTY8C",
-        "price_h7CCmM",
-        "rating_JG3Gwf",
+        "description_FC9HXA",
         "section_store_block_review_summary_zAhg3x",
         "section_store_block_benefits_list_aYGmNE",
-        "section_store_block_shipping_info_8kxUWB",
         "kaching_bundles_app_block_nmjeQT",
         "variant_picker_mxzpqb",
         "section_store_block_banner_jiTNMp",
         "buy_buttons_qAxN8c",
+        "section_store_block_shipping_info_8kxUWB",
         "section_store_block_benefits_boxes_2_Y4t9RD",
         "section_store_block_countdown_timer_nnEnjz",
         "section_store_block_payment_icons_2_GhdkTi"
