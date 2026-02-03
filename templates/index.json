@@ -142,12 +142,6 @@
             "collapse_content": false
           }
         },
-        "price_UAgqWF": {
-          "type": "price",
-          "settings": {
-            "show_taxes_notice": false
-          }
-        },
         "kaching_bundles_app_block_jKc7TU": {
           "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
           "settings": {
@@ -208,7 +202,6 @@
         "title_Byb4RU",
         "section_store_block_review_summary_q8tVYC",
         "description_QrLKFn",
-        "price_UAgqWF",
         "kaching_bundles_app_block_jKc7TU",
         "separator_QXJ3wn",
         "section_store_block_product_info_wrapper_7wwfVw",
