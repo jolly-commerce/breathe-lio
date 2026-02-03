@@ -953,19 +953,22 @@ transform: rotate(0deg);
     color: black;
 }
 body .product-gallery__cursor {
-    opacity: 1 !important;
-    visibility: visible;
-    translate: unset!important;
-    position: absolute;
-    top: 40%;
-    left: 33px!important;
-    right: 28px!important;
-    background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/cursor-svg.svg?v=1748257749");
-    background-size: contain;
-    background-position: center;
-    height: 45px;
-    scale: unset!important;
-    background-repeat: no-repeat;
+  opacity: 1 !important;
+  visibility: visible;
+  position: absolute;
+  top: 40%;
+
+  left: 33px !important;
+  right: auto !important;
+
+  width: calc(100% - 61px); /* 33 + 28 */
+  max-width: 100%;
+
+  background: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/cursor-svg.svg?v=1748257749") no-repeat center;
+  background-size: contain;
+
+  height: 45px;
+  transform: none !important; /* safer than translate/scale props */
 }
 body .product-gallery__cursor>div {
     display: none;
