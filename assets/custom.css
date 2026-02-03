@@ -289,7 +289,7 @@ box-shadow:
 .product-info__buy-buttons button.button.button--xl{
   box-shadow:             
     -3px 4px 0px 0px var(--lio-dark-green),
-  -4px 5px 0px 0px var(--lio-yellow); 
+    -4px 5px 0px 0px var(--lio-yellow); /* ADD SEMICOLON */
   -webkit-box-shadow:
     -3px 4px 0px 0px var(--lio-dark-green),
     -4px 5px 0px 0px var(--lio-yellow);
