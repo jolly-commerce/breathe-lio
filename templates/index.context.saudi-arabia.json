@@ -12,5 +12,13 @@
     "market": "saudi-arabia"
   },
   "parent": "index.json",
-  "sections": {}
+  "sections": {
+    "instant_ef_uk_slwx_u_zj9uba_y_gfEByD": {
+      "settings": {
+        "image_9mCNAimoVLylZu4L": "shopify://shop_images/Screenshot_2026-02-04_at_4.28.44_PM.webp",
+        "image_9mCNAimoVLylZu4L_mobile": "shopify://shop_images/Screenshot_2026-02-04_at_4.28.44_PM.webp"
+      },
+      "blocks": {}
+    }
+  }
 }
