@@ -13,15 +13,17 @@
   },
   "parent": "index.json",
   "sections": {
-    "featured_product_aFXfVN": {
+    "instant_ef_uk_slwx_u_zj9uba_y_gfEByD": {
       "settings": {
-        "product": "pacchetto-viaggio-lio"
+        "text_o4cdW4gdt5QTTkN5": "<p>Spezza la cattiva abitudine</p>",
+        "url_6GRbeSqGAdYreWg6": "https://breathelio.com/it-it/products/lio-flavor-cores",
+        "url_AqNytFo8SK7OS39r": "https://breathelio.com/it-it#shopify-section-template--24734867358072__featured_product_aFXfVN"
       },
       "blocks": {}
     },
-    "instant_ef_uk_slwx_u_zj9uba_y_gfEByD": {
+    "featured_product_aFXfVN": {
       "settings": {
-        "text_o4cdW4gdt5QTTkN5": "<p>Spezza la cattiva abitudine</p>"
+        "product": "pacchetto-viaggio-lio"
       },
       "blocks": {}
     }
