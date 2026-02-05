@@ -16,41 +16,10 @@
     "featured_product_PyYniN": {
       "type": "featured-product",
       "blocks": {
-        "vendor_YxUR7Y": {
-          "type": "vendor",
-          "settings": {}
-        },
         "title_mRdbcR": {
           "type": "title",
           "settings": {
             "heading_tag": "h2"
-          }
-        },
-        "badges_a6aHUC": {
-          "type": "badges",
-          "settings": {}
-        },
-        "price_9ECzwf": {
-          "type": "price",
-          "settings": {
-            "show_taxes_notice": false
-          }
-        },
-        "rating_BfwbnN": {
-          "type": "rating",
-          "settings": {
-            "show_empty": false
-          }
-        },
-        "separator_mNGUzr": {
-          "type": "separator",
-          "settings": {}
-        },
-        "kaching_bundles_app_block_wxFYKF": {
-          "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
-          "settings": {
-            "product": "{{section.settings.product}}",
-            "manual_deal_block_id": ""
           }
         },
         "description_caJUPC": {
@@ -61,15 +30,11 @@
             "collapse_content": false
           }
         },
-        "variant_picker_xCdzMb": {
-          "type": "variant_picker",
+        "kaching_bundles_app_block_wxFYKF": {
+          "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
           "settings": {
-            "hide_sold_out_variants": false,
-            "stack_blocks": true,
-            "selector_style": "block",
-            "swatch_selector_style": "swatch",
-            "variant_image_options": "",
-            "size_chart_page": ""
+            "product": "{{section.settings.product}}",
+            "manual_deal_block_id": ""
           }
         },
         "quantity_selector_Yy96Ve": {
@@ -79,7 +44,7 @@
         "buy_buttons_KfXpdk": {
           "type": "buy_buttons",
           "settings": {
-            "show_payment_button": true,
+            "show_payment_button": false,
             "show_gift_card_recipient": true,
             "atc_button_background": "",
             "atc_button_text_color": "",
@@ -93,15 +58,9 @@
         }
       },
       "block_order": [
-        "vendor_YxUR7Y",
         "title_mRdbcR",
-        "badges_a6aHUC",
-        "price_9ECzwf",
-        "rating_BfwbnN",
-        "separator_mNGUzr",
-        "kaching_bundles_app_block_wxFYKF",
         "description_caJUPC",
-        "variant_picker_xCdzMb",
+        "kaching_bundles_app_block_wxFYKF",
         "quantity_selector_Yy96Ve",
         "buy_buttons_KfXpdk",
         "pickup_availability_4wHaRx"
