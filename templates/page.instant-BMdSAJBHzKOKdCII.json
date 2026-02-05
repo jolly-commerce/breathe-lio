@@ -52,6 +52,33 @@
             "payment_button_text_color": ""
           }
         },
+        "section_store_block_benefits_boxes_2_9qe4VW": {
+          "type": "shopify://apps/section-store/blocks/block-benefits-boxes-2/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "cards_design": "vertical",
+            "cards_row": "3",
+            "card_align": "center",
+            "first_icon": "credit_card",
+            "first_title": "Morgen in huis",
+            "first_sub_title": "met PostNL",
+            "second_icon": "shield_check",
+            "second_title": "Gratis Verzending",
+            "second_sub_title": "boven €20",
+            "third_icon": "earth",
+            "third_title": "Niet goed?",
+            "third_sub_title": "Geld terug!",
+            "all_size": 19,
+            "all_color": "#000000",
+            "font_weight": "700",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "cards_bg_color": "",
+            "padding_vertical": 0,
+            "padding_horizontal": 0
+          }
+        },
         "pickup_availability_4wHaRx": {
           "type": "pickup_availability",
           "settings": {}
@@ -63,6 +90,7 @@
         "kaching_bundles_app_block_wxFYKF",
         "quantity_selector_Yy96Ve",
         "buy_buttons_KfXpdk",
+        "section_store_block_benefits_boxes_2_9qe4VW",
         "pickup_availability_4wHaRx"
       ],
       "name": "Featured product",
