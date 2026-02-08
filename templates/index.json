@@ -151,6 +151,38 @@
             "button_shadow_color": "#000000"
           }
         },
+        "button_tCbqyk": {
+          "type": "button",
+          "settings": {
+            "button": "Get Cores",
+            "url": "",
+            "open_in_new_tab": false,
+            "button_style": "non_outline",
+            "button_custom": false,
+            "button_font": "josefin_sans_n4",
+            "button_size": 14,
+            "button_size_mobile": 14,
+            "button_advanced": true,
+            "button_height": 100,
+            "button_padding_horizontal": 40,
+            "button_padding_horizontal_mobile": 44,
+            "button_padding_vertical": 20,
+            "button_padding_vertical_mobile": 14,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_mt": 24,
+            "button_mt_mobile": 0,
+            "button_custom_styling": true,
+            "button_full_width_mobile": false,
+            "button_color": "#00b67c",
+            "button_hover_color": "#ffffff",
+            "button_bg_color": "#effffa",
+            "button_bg_hover_color": "#00cf8d",
+            "button_border_color": "#1a1a1a",
+            "button_border_hover_color": "#1a1a1a",
+            "button_shadow_color": "#000000"
+          }
+        },
         "verified_miymzm": {
           "type": "verified",
           "settings": {
@@ -179,6 +211,7 @@
         "feature_Uc7Wkd",
         "feature_p8qLpT",
         "button_34NdgV",
+        "button_tCbqyk",
         "verified_miymzm"
       ],
       "name": "SS - Hero pro 💎",
