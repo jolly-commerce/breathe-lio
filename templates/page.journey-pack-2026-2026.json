@@ -530,7 +530,9 @@
         "video_qPHNVU": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/1724386284_V1_V1.mp4",
             "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "poster": "shopify://shop_images/Screenshot_2026-02-08_at_7.30.34_PM.png",
             "modal_heading": "<h4>Heading</h4>",
             "modal_text": "<p>Text</p>"
           }
