@@ -1095,6 +1095,7 @@
     },
     "instant_0e3w_y1p_wk0_et_dn_qf_bTUjRb": {
       "type": "instant-0e3wY1pWK0EtDnQF",
+      "disabled": true,
       "name": "Countdown 15 Min",
       "settings": {
         "text_wI8eaGmLKclbey25": "<p>WINTER SALE ⛄❄️</p>",
