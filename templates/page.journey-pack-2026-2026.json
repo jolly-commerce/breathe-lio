@@ -520,7 +520,9 @@
         "video_pa9mND": {
           "type": "video",
           "settings": {
+            "video": "shopify://files/videos/1724386284_V1_V5_82253b7d-0d1e-4874-a6b8-0dc95fa28abe.mp4",
             "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "poster": "shopify://shop_images/Screenshot_2026-02-08_at_7.28.56_PM.png",
             "modal_heading": "<h4>Heading</h4>",
             "modal_text": "<p>Text</p>"
           }
