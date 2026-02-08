@@ -123,7 +123,7 @@
           "type": "button",
           "settings": {
             "button": "Get Started with Lio",
-            "url": "",
+            "url": "shopify://products/journey-pack-3",
             "open_in_new_tab": false,
             "button_style": "non_outline",
             "button_custom": false,
