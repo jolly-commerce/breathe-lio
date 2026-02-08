@@ -81,7 +81,7 @@
             "heading_accent_font": "playfair_n4",
             "heading_size": 56,
             "heading_size_mobile": 36,
-            "heading_advanced": false,
+            "heading_advanced": true,
             "heading_height": 130,
             "heading_mt": 8,
             "heading_mt_mobile": 8,
