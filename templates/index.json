@@ -39,6 +39,39 @@
             "caption_border_color": "#FFFFFF"
           }
         },
+        "review_Wwph9Q": {
+          "type": "review",
+          "settings": {
+            "stars_count": 4.5,
+            "stars_size": 16,
+            "stars_size_mobile": 14,
+            "stars_gap": 2,
+            "review": "<p>Rated 4.7/5 by 1,000+ reviews</p>",
+            "review_custom": false,
+            "review_font": "josefin_sans_n4",
+            "review_size": 14,
+            "review_size_mobile": 12,
+            "review_advanced": true,
+            "review_height": 130,
+            "review_mt": 0,
+            "review_mt_mobile": 16,
+            "background": false,
+            "review_bg_opacity": 0,
+            "enable_blur": true,
+            "review_radius": 10,
+            "review_border_thickness": 1,
+            "review_padding_horizontal": 12,
+            "review_padding_horizontal_mobile": 12,
+            "review_padding_vertical": 8,
+            "review_padding_vertical_mobile": 8,
+            "review_color": "#FFFFFF",
+            "review_bg_color": "#ffffff",
+            "review_border_color": "#FFFFFF",
+            "stars_color": "#FFFFFF",
+            "stars_bg_color": "#00B67A",
+            "stars_bg_half_color": "#DDDDDD"
+          }
+        },
         "heading_4U3xdC": {
           "type": "heading",
           "settings": {
@@ -54,39 +87,6 @@
             "heading_mt_mobile": 8,
             "heading_color": "#FFFFFF",
             "heading_accent_color": "#00cf8d"
-          }
-        },
-        "review_Wwph9Q": {
-          "type": "review",
-          "settings": {
-            "stars_count": 4.5,
-            "stars_size": 16,
-            "stars_size_mobile": 14,
-            "stars_gap": 2,
-            "review": "<p>Rated 4.7/5 by 1,000+ reviews</p>",
-            "review_custom": false,
-            "review_font": "josefin_sans_n4",
-            "review_size": 14,
-            "review_size_mobile": 12,
-            "review_advanced": false,
-            "review_height": 130,
-            "review_mt": 0,
-            "review_mt_mobile": 0,
-            "background": true,
-            "review_bg_opacity": 0.3,
-            "enable_blur": true,
-            "review_radius": 10,
-            "review_border_thickness": 1,
-            "review_padding_horizontal": 12,
-            "review_padding_horizontal_mobile": 12,
-            "review_padding_vertical": 8,
-            "review_padding_vertical_mobile": 8,
-            "review_color": "#FFFFFF",
-            "review_bg_color": "#FFFFFF",
-            "review_border_color": "#FFFFFF",
-            "stars_color": "#FFFFFF",
-            "stars_bg_color": "#00B67A",
-            "stars_bg_half_color": "#DDDDDD"
           }
         },
         "text_kGnYDQ": {
@@ -205,8 +205,8 @@
       },
       "block_order": [
         "caption_MrqL6B",
-        "heading_4U3xdC",
         "review_Wwph9Q",
+        "heading_4U3xdC",
         "text_kGnYDQ",
         "feature_Uc7Wkd",
         "feature_p8qLpT",
