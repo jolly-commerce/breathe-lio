@@ -146,6 +146,7 @@
           "type": "feature",
           "settings": {
             "icon": "face_smile_2",
+            "custom_icon": "shopify://shop_images/images_12_-Photoroom.png",
             "text": "Icy throat feel"
           }
         },
