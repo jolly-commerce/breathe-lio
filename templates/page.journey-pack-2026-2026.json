@@ -146,6 +146,14 @@
           "type": "feature",
           "settings": {
             "icon": "face_smile_2",
+            "custom_icon": "shopify://shop_images/Screenshot_2025-12-26_at_2.10.21_PM_4.webp",
+            "text": "Use anywhere"
+          }
+        },
+        "feature_U34ig3": {
+          "type": "feature",
+          "settings": {
+            "icon": "face_smile_2",
             "custom_icon": "shopify://shop_images/images_12_-Photoroom.png",
             "text": "Icy throat feel"
           }
@@ -242,6 +250,7 @@
         "feature_YeMtGM",
         "feature_9DNYHq",
         "feature_YVxgbJ",
+        "feature_U34ig3",
         "button_B9VWyk",
         "button_37q3wt",
         "verified_qF6qB9"
@@ -250,7 +259,7 @@
       "settings": {
         "hero_height": "fixed_height",
         "hero_fixed_height": 600,
-        "hero_fixed_height_mobile": 760,
+        "hero_fixed_height_mobile": 800,
         "content_max_width": 50,
         "enable_split_layout": false,
         "content_align": "left",
