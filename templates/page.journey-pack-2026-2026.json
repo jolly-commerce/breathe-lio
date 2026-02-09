@@ -588,13 +588,33 @@
             "page": ""
           }
         },
-        "collapsible_text_iXh88B": {
+        "collapsible_text_m4ELzi": {
           "type": "collapsible_text",
           "settings": {
             "icon": "picto-timer",
             "icon_width": 20,
             "title": "How long do Flavor Cores last?",
             "content": "<p>Each Flavor Core lasts <strong>around 2–3 days of regular use</strong>, depending on frequency and airflow setting.</p><p>Core packs are designed so you always have fresh flavor on hand, without daily refills or charging.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_iXh88B": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "picto-leaf",
+            "icon_width": 20,
+            "title": "What are Lio Cores made of?",
+            "content": "<p>Each Core is made from a <strong>medical-grade fiber</strong>, infused with a carefully balanced blend of natural plant aromas and essential oils.</p><p>No liquids. No combustion. No batteries.<br/><br/>Just air, flavored naturally.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_pH8GBL": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "picto-shield",
+            "icon_width": 20,
+            "title": "Is Lio safe?",
+            "content": "<p><strong>Lio is designed with safety first.</strong></p><p>The materials and plant-based aromas used in Lio Cores are carefully selected, and we continuously review ingredient quality and sourcing. We are committed to transparency and ongoing improvement.</p>",
             "page": ""
           }
         },
@@ -614,7 +634,9 @@
         "collapsible_text_yj8JN3",
         "collapsible_text_zpkbyz",
         "collapsible_text_EzBbkQ",
+        "collapsible_text_m4ELzi",
         "collapsible_text_iXh88B",
+        "collapsible_text_pH8GBL",
         "pickup_availability_Q3LtaT"
       ],
       "name": "Featured product",
