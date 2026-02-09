@@ -312,11 +312,12 @@
         "item_R6xfeV": {
           "type": "item",
           "settings": {
-            "stretch_image": true,
-            "link_text": "",
+            "image": "shopify://shop_images/images_15_-Photoroom.webp",
+            "stretch_image": false,
+            "link_text": "No Nicotine",
             "link_url": "",
-            "background": "",
-            "text_color": "#ffffff",
+            "background": "#fafffe",
+            "text_color": "#002b1e",
             "overlay_color": "#000000",
             "overlay_opacity": 0
           }
@@ -369,7 +370,7 @@
         "full_width": false,
         "block_size": "medium",
         "subheading": "",
-        "title": "Freefom",
+        "title": "Freedom from smoke, nicotine and toxins.",
         "content": "",
         "link_url": "",
         "link_text": "",
