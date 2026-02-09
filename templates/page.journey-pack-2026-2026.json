@@ -332,25 +332,12 @@
             "overlay_opacity": 0
           }
         },
-        "item_6gtbNr": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/images_12_-Photoroom.png",
-            "stretch_image": false,
-            "link_text": "Icy throat feeling",
-            "link_url": "",
-            "background": "#ffffff",
-            "text_color": "#002a15",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
         "item_N4PPm3": {
           "type": "item",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_po4hrmpo4hrmpo4h-Photoroom_4_1.webp",
             "stretch_image": false,
-            "link_text": "Curb bad habit urges",
+            "link_text": "Curb vaping urges",
             "link_url": "",
             "background": "#ffffff",
             "text_color": "#002a15",
@@ -364,6 +351,19 @@
             "image": "shopify://shop_images/Gemini_Generated_Image_po4hrmpo4hrmpo4h-Photoroom_4.webp",
             "stretch_image": false,
             "link_text": "Curb sweet cravings",
+            "link_url": "",
+            "background": "#ffffff",
+            "text_color": "#002a15",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_6gtbNr": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/images_12_-Photoroom.png",
+            "stretch_image": false,
+            "link_text": "Icy throat feeling",
             "link_url": "",
             "background": "#ffffff",
             "text_color": "#002a15",
@@ -478,9 +478,9 @@
       },
       "block_order": [
         "item_dxcQhW",
-        "item_6gtbNr",
         "item_N4PPm3",
         "item_CTYmFJ",
+        "item_6gtbNr",
         "item_fXLaa8",
         "item_R6xfeV",
         "item_kk98NW",
