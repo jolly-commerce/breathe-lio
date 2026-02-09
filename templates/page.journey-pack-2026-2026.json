@@ -191,7 +191,7 @@
             "button_padding_vertical_mobile": 14,
             "button_radius": 100,
             "button_border_thickness": 1,
-            "button_mt": 0,
+            "button_mt": 20,
             "button_mt_mobile": 0,
             "button_custom_styling": true,
             "button_full_width_mobile": false,
