@@ -558,13 +558,13 @@
             "payment_button_text_color": ""
           }
         },
-        "collapsible_text_V39BfL": {
+        "collapsible_text_yj8JN3": {
           "type": "collapsible_text",
           "settings": {
             "icon": "none",
             "icon_width": 20,
-            "title": "Title",
-            "content": "<p>Share some content to your customers about your products.</p>",
+            "title": "What does flavored air taste like?",
+            "content": "<p>If you’re used to vaping or smoking, flavored air may feel lighter at first. That’s intentional.<br/><br/>Lio delivers a clean, refreshing taste with a gentle throat sensation, not sweetness, not vapor, just air infused with natural aromas.</p><p>If vaping is like a sugary soda, flavored air is closer to herbal tea: more subtle, more natural, and easier to enjoy throughout the day.</p>",
             "page": ""
           }
         },
@@ -581,7 +581,7 @@
         "description_nTNHNr",
         "kaching_bundles_app_block_fAmtRw",
         "buy_buttons_kmXUqM",
-        "collapsible_text_V39BfL",
+        "collapsible_text_yj8JN3",
         "pickup_availability_Q3LtaT"
       ],
       "name": "Featured product",
