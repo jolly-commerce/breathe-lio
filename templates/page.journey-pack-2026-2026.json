@@ -571,10 +571,30 @@
         "collapsible_text_zpkbyz": {
           "type": "collapsible_text",
           "settings": {
-            "icon": "picto-leaf",
+            "icon": "picto-question",
             "icon_width": 20,
             "title": "How does Lio work?",
             "content": "<p>Lio produces <strong>no smoke, no vapor, and no aerosol,</strong> just flavored air.</p><p>Breaking a habit isn’t only about removing substances. Your brain is attached to the <em>ritual</em>.<br/><br/><strong>Lio works by replacing the hand-to-mouth motion, while providing a satisfying inhale with natural flavor.<br/></strong></p><p>It helps redirect everyday urges without nicotine, batteries, or combustion.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_EzBbkQ": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "picto-timer",
+            "icon_width": 20,
+            "title": "How often can I use Lio?",
+            "content": "<p><strong>As often as you like.</strong></p><p>Lio contains no nicotine, no vapor, and no smoke.<br/><br/>Listen to your body, if you ever feel discomfort, stop using it and consult a healthcare professional.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_iXh88B": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "picto-timer",
+            "icon_width": 20,
+            "title": "How long do Flavor Cores last?",
+            "content": "<p>Each Flavor Core lasts <strong>around 2–3 days of regular use</strong>, depending on frequency and airflow setting.</p><p>Core packs are designed so you always have fresh flavor on hand, without daily refills or charging.</p>",
             "page": ""
           }
         },
@@ -593,6 +613,8 @@
         "buy_buttons_kmXUqM",
         "collapsible_text_yj8JN3",
         "collapsible_text_zpkbyz",
+        "collapsible_text_EzBbkQ",
+        "collapsible_text_iXh88B",
         "pickup_availability_Q3LtaT"
       ],
       "name": "Featured product",
