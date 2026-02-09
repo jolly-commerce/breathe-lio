@@ -348,6 +348,16 @@
             "payment_button_text_color": ""
           }
         },
+        "collapsible_text_V39BfL": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Title",
+            "content": "<p>Share some content to your customers about your products.</p>",
+            "page": ""
+          }
+        },
         "pickup_availability_Q3LtaT": {
           "type": "pickup_availability",
           "settings": {}
@@ -361,6 +371,7 @@
         "description_nTNHNr",
         "kaching_bundles_app_block_fAmtRw",
         "buy_buttons_kmXUqM",
+        "collapsible_text_V39BfL",
         "pickup_availability_Q3LtaT"
       ],
       "name": "Featured product",
