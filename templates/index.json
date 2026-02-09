@@ -115,6 +115,13 @@
         "feature_p8qLpT": {
           "type": "feature",
           "settings": {
+            "icon": "star_sparkle",
+            "text": "No battery"
+          }
+        },
+        "feature_Ddt68R": {
+          "type": "feature",
+          "settings": {
             "icon": "leaf",
             "text": "100% Natural"
           }
@@ -210,6 +217,7 @@
         "text_kGnYDQ",
         "feature_Uc7Wkd",
         "feature_p8qLpT",
+        "feature_Ddt68R",
         "button_34NdgV",
         "button_tCbqyk",
         "verified_miymzm"
