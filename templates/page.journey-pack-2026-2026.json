@@ -130,14 +130,24 @@
           "type": "feature",
           "settings": {
             "icon": "leaf",
-            "text": "100% Natural"
+            "custom_icon": "shopify://shop_images/images_15_-Photoroom.webp",
+            "text": "No Vapor"
+          }
+        },
+        "feature_9DNYHq": {
+          "type": "feature",
+          "settings": {
+            "icon": "leaf",
+            "custom_icon": "shopify://shop_images/Screenshot_2025-12-26_at_2.07.54_PM-Photoroom.webp",
+            "text": "Natural Flavor"
           }
         },
         "feature_YVxgbJ": {
           "type": "feature",
           "settings": {
             "icon": "face_smile_2",
-            "text": "No Vapor"
+            "custom_icon": "shopify://shop_images/images_12_-Photoroom.png",
+            "text": "Icy throat feel"
           }
         },
         "button_B9VWyk": {
@@ -230,6 +240,7 @@
         "heading_FEYtrT",
         "text_YnYJXa",
         "feature_YeMtGM",
+        "feature_9DNYHq",
         "feature_YVxgbJ",
         "button_B9VWyk",
         "button_37q3wt",
