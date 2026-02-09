@@ -492,7 +492,7 @@
       ],
       "name": "Image link blocks",
       "settings": {
-        "full_width": false,
+        "full_width": true,
         "block_size": "medium",
         "subheading": "",
         "title": "Flavored air with a satisfying throat hit.",
