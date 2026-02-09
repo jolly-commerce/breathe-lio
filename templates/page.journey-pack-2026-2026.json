@@ -322,12 +322,12 @@
         "item_R6xfeV": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/images_15_-Photoroom.webp",
+            "image": "shopify://shop_images/images_12_-Photoroom.png",
             "stretch_image": false,
-            "link_text": "No Nicotine",
+            "link_text": "Icy throat feeling",
             "link_url": "",
-            "background": "#fafffe",
-            "text_color": "#002b1e",
+            "background": "#ffffff",
+            "text_color": "#002a15",
             "overlay_color": "#000000",
             "overlay_opacity": 0
           }
@@ -335,11 +335,12 @@
         "item_fXLaa8": {
           "type": "item",
           "settings": {
-            "stretch_image": true,
-            "link_text": "",
+            "image": "shopify://shop_images/Screenshot_2025-12-26_at_2.07.54_PM-Photoroom.webp",
+            "stretch_image": false,
+            "link_text": "Natural  Flavors",
             "link_url": "",
-            "background": "",
-            "text_color": "#ffffff",
+            "background": "#ffffff",
+            "text_color": "#002a15",
             "overlay_color": "#000000",
             "overlay_opacity": 0
           }
@@ -380,7 +381,7 @@
         "full_width": false,
         "block_size": "medium",
         "subheading": "",
-        "title": "Freedom from smoke, nicotine and toxins.",
+        "title": "Flavored air with a satisfying throat hit.",
         "content": "",
         "link_url": "",
         "link_text": "",
