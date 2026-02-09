@@ -146,7 +146,6 @@
           "type": "feature",
           "settings": {
             "icon": "face_smile_2",
-            "custom_icon": "shopify://shop_images/images_12_-Photoroom.png",
             "text": "Icy throat feel"
           }
         },
@@ -305,6 +304,80 @@
         "border_thickness": 0,
         "section_radius": 0,
         "lazy": true
+      }
+    },
+    "image_link_blocks_tee6wd": {
+      "type": "image-link-blocks",
+      "blocks": {
+        "item_R6xfeV": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_fXLaa8": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_b7bgCV": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_MCdAe3": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "item_R6xfeV",
+        "item_fXLaa8",
+        "item_b7bgCV",
+        "item_MCdAe3"
+      ],
+      "name": "Image link blocks",
+      "settings": {
+        "full_width": false,
+        "block_size": "medium",
+        "subheading": "",
+        "title": "Freedom from smoke, nicotine and toxins",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
       }
     },
     "featured_product_9i8GjA": {
@@ -804,6 +877,7 @@
   "order": [
     "instant_o_gukpd_p_ab_aixy_vsc_dMYRde",
     "ss_hero_pro_BqCGUx",
+    "image_link_blocks_tee6wd",
     "featured_product_9i8GjA",
     "video_iqY6P3",
     "instant_6x_bs_x_ih_h_qkcqi9b5_CxMYiP",
