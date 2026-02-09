@@ -296,38 +296,6 @@
         "lazy": true
       }
     },
-    "video_iqY6P3": {
-      "type": "video",
-      "blocks": {
-        "play_xxjD6d": {
-          "type": "play",
-          "settings": {}
-        },
-        "heading_ygbRjQ": {
-          "type": "heading",
-          "settings": {
-            "text": "How Lio works",
-            "heading_tag": "h1"
-          }
-        }
-      },
-      "block_order": [
-        "play_xxjD6d",
-        "heading_ygbRjQ"
-      ],
-      "name": "Video",
-      "settings": {
-        "full_width": true,
-        "allow_transparent_header": false,
-        "autoplay": false,
-        "video_size": "auto",
-        "video": "shopify://files/videos/fef86c5d-1fb5-4f33-90c1-aa573f0c7ded.mp4",
-        "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "text_color": "#ffffff",
-        "overlay_color": "#000000",
-        "overlay_opacity": 30
-      }
-    },
     "featured_product_9i8GjA": {
       "type": "featured-product",
       "blocks": {
@@ -423,6 +391,38 @@
         "text_color": "",
         "input_background": "rgba(0,0,0,0)",
         "input_text_color": ""
+      }
+    },
+    "video_iqY6P3": {
+      "type": "video",
+      "blocks": {
+        "play_xxjD6d": {
+          "type": "play",
+          "settings": {}
+        },
+        "heading_ygbRjQ": {
+          "type": "heading",
+          "settings": {
+            "text": "How Lio works",
+            "heading_tag": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "play_xxjD6d",
+        "heading_ygbRjQ"
+      ],
+      "name": "Video",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "autoplay": false,
+        "video_size": "auto",
+        "video": "shopify://files/videos/fef86c5d-1fb5-4f33-90c1-aa573f0c7ded.mp4",
+        "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
       }
     },
     "instant_6x_bs_x_ih_h_qkcqi9b5_CxMYiP": {
@@ -793,8 +793,8 @@
   "order": [
     "instant_o_gukpd_p_ab_aixy_vsc_dMYRde",
     "ss_hero_pro_BqCGUx",
-    "video_iqY6P3",
     "featured_product_9i8GjA",
+    "video_iqY6P3",
     "instant_6x_bs_x_ih_h_qkcqi9b5_CxMYiP",
     "instant_6_ta2_uu_zb_jng9_i_bn7_ndUr9P",
     "instant_x_oetj8_hepve_arkr_v_erYQct",
