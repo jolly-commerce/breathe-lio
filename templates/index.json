@@ -109,21 +109,23 @@
           "type": "feature",
           "settings": {
             "icon": "face_smile_2",
+            "custom_icon": "shopify://shop_images/images_15_-Photoroom.webp",
             "text": "No Vapor"
           }
         },
         "feature_p8qLpT": {
           "type": "feature",
           "settings": {
-            "icon": "earth",
-            "text": "Use anywhere"
+            "icon": "none",
+            "text": "❄️Cooling"
           }
         },
         "feature_Ddt68R": {
           "type": "feature",
           "settings": {
             "icon": "leaf",
-            "text": "100% Natural"
+            "custom_icon": "shopify://shop_images/Screenshot_2025-12-26_at_2.07.54_PM-Photoroom.webp",
+            "text": "Natural Flavor"
           }
         },
         "button_34NdgV": {
