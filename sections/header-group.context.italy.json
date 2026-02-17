@@ -12,41 +12,5 @@
     "market": "italy"
   },
   "parent": "header-group.json",
-  "sections": {
-    "instant-0hPUuJ1NCR7Kgw41": {
-      "settings": {
-        "text_lQlnooRLso2lIvZw-1": "<p>SPEDIZIONE GRATUITA DA €20</p>",
-        "text_L15p32fJ3585QA19-1": "<p>CONSEGNA IN 1–3 GIORNI</p>",
-        "text_7fN6qtk1UPjVSPk2-1": "<p>GARANZIA SODDISFATTI O RIMBORSATI 30 GIORNI</p>",
-        "text_4ddORMBGKTTXcWb0-1": "<p>PRODOTTO NEI PAESI BASSI</p>",
-        "text_Z8TOyWFanH9Yvu7n-1": "<p>OLTRE 100.000 CLIENTI FELICI</p>",
-        "text_HxIdeVafbDinmHOo-1": "<p>Prodotti</p>",
-        "text_sgaaKpla4xAhpkTN-1": "<p>Scopri</p>",
-        "text_KZ0RY8fKTEauNhf8-1": "<p>Contatti</p>",
-        "text_aW4iUed0OxIVw1fB-1": "<p>ACQUISTA ORA</p>",
-        "text_3kdd8niCxs0YPJL6-1": "<p>ORDINA I CORE</p>",
-        "text_DEsfSZiJCeda5Qvy-1": "<p>KIT INIZIALE</p>",
-        "text_jEI08xH23I0rpoem-1": "<p>CORE AROMATICI</p>",
-        "text_LI6n687e5nKJOaxm-1": "<p>DISPOSITIVI LIO</p>",
-        "text_W4gBFuITxtYHejjK-1": "<p>ACCESSORI</p>",
-        "text_ZbyedkXg9vlm45zW-1": "<p>La nostra storia</p>",
-        "text_fEY2BSuXS7QK1Qwy-1": "<p>Come funziona Lio</p>",
-        "text_Fum9CkdYZxsb9tuM-1": "<p>La scienza</p>",
-        "text_WJIu4XCL8IC7psaz-1": "<p>Impatto sulla sostenibilità</p>",
-        "text_eYbkRKLAZAfWqeix-1": "<p>Recensioni</p>",
-        "text_qVzsjSO2zkZn7ES2-1": "<p>ACCESSORI</p>",
-        "text_uGSsupWfVmM4KJuW-1": "<p>TRACCIA IL MIO ORDINE</p>",
-        "text_7mPSMJ788tZSIQH9-1": "<p>Vendita all’ingrosso</p>",
-        "text_YDvn9Blzs2Xw0Zg5-1": "<p>Contattaci</p>",
-        "text_TDHEjwHdPqiXX0m1-1": "<p>Prodotti</p>",
-        "text_dYXQ5ZO21HBFQNXJ-1": "<p>KIT INIZIALE </p>",
-        "text_uUbxFPez2naIltNO-1": "<p>CORE AROMATICI</p>",
-        "text_UHHlSMdAOvpo6l0P-1": "<p>DISPOSITIVI LIO</p>",
-        "text_2wQ0a9poKdUj53qW-1": "<p>ACCESSORI</p>",
-        "url_xFDFZzgFQSWayGg3-1": "https://breathelio.com/it-it#shopify-section-template--24734867358072__featured_product_aFXfVN",
-        "url_5wRFooVAUyMbROpO-1": "https://breathelio.com/it-it/products/lio-flavor-cores"
-      },
-      "blocks": {}
-    }
-  }
+  "sections": {}
 }
