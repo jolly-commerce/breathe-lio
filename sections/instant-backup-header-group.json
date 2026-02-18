@@ -1,0 +1,164 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message_P7ppWj": {
+          "type": "message",
+          "settings": {
+            "text": "Free Worldwide Shipping",
+            "url": ""
+          }
+        },
+        "message_JNqHkf": {
+          "type": "message",
+          "settings": {
+            "text": "#1 Flavored Air Device",
+            "url": ""
+          }
+        },
+        "message_zjk6Vc": {
+          "type": "message",
+          "settings": {
+            "text": "Made in The Netherlands",
+            "url": ""
+          }
+        },
+        "message_QHzV9E": {
+          "type": "message",
+          "settings": {
+            "text": "Family-Owned Wellness Brand",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "message_P7ppWj",
+        "message_JNqHkf",
+        "message_zjk6Vc",
+        "message_QHzV9E"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_sticky": false,
+        "autoplay": true,
+        "cycle_speed": 5,
+        "text_size": "text-base",
+        "navigation_mode": "arrows",
+        "scrolling_speed": 10,
+        "background": "#00b67c",
+        "background_gradient": "",
+        "text_color": "#ffffff"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_8HQQkY": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_item": "Shop now",
+            "menu-name-1": "Shop",
+            "menu-name-2": "Learn",
+            "layout": "horizontal",
+            "submenu_style": "bold_heading",
+            "image_1": "shopify:\/\/shop_images\/mega-1.jpg",
+            "image_heading_1": "journey pack",
+            "image_sub_heading_1": "Ease into calm, flavor-packed moments",
+            "image_link_1": "shopify:\/\/products\/new-lio-journey-pack",
+            "image_url_text_1": "Shop Journey pack",
+            "image_2": "shopify:\/\/shop_images\/mega-2.jpg",
+            "image_heading_2": "Lio cores",
+            "image_sub_heading_2": "Simple flavor, clean breath, full reset",
+            "image_link_2": "shopify:\/\/products\/flavour-box",
+            "image_url_text_2": "Shop Our Cores",
+            "product": "",
+            "product_card_background": "",
+            "product_card_text_color": "",
+            "promo_content_layout": "grid",
+            "stretch_promo": false,
+            "drawer_link_image": "hide"
+          }
+        },
+        "menu_link_X46cwK": {
+          "type": "menu-link",
+          "settings": {
+            "url": "shopify:\/\/products\/new-lio-journey-pack",
+            "text": "Get",
+            "high-text": "Journey Pack"
+          }
+        },
+        "menu_link_a9EhKg": {
+          "type": "menu-link",
+          "settings": {
+            "url": "shopify:\/\/products\/get-more-cores",
+            "text": "Get More",
+            "high-text": "Cores"
+          }
+        },
+        "menu_link_3phmm3": {
+          "type": "menu-link",
+          "settings": {
+            "url": "shopify:\/\/products\/lio-diffusers",
+            "text": "Order",
+            "high-text": "Lio Diffuser"
+          }
+        },
+        "menu_link_2_f6gdyR": {
+          "type": "menu-link-2",
+          "settings": {
+            "url": "https:\/\/tally.so\/r\/wogk7M",
+            "text": "Become",
+            "high-text": "retailer"
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_8HQQkY",
+        "menu_link_X46cwK",
+        "menu_link_a9EhKg",
+        "menu_link_3phmm3",
+        "menu_link_2_f6gdyR"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "enable_sticky": true,
+        "hide_on_scroll": false,
+        "logo": "shopify:\/\/shop_images\/Logo_Lio2_1_1_7.png",
+        "logo_max_width": 45,
+        "logo_mobile_max_width": 40,
+        "menu": "new-menu",
+        "sidebar_menu": "",
+        "mobile_menu_extra": "new-menu",
+        "menu_open_trigger": "hover",
+        "opening_from": "left",
+        "layout": "logo_center_navigation_inline",
+        "show_social_media": true,
+        "show_locale_selector": false,
+        "show_country_selector": true,
+        "show_country_flag": false,
+        "show_country_name": false,
+        "transparent_header_text_color": "#ffffff",
+        "reduce_padding": true,
+        "background_opacity": 100,
+        "background_blur_radius": 0
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
