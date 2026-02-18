@@ -326,7 +326,19 @@
                 ></div
               ></div
             ><div class="iY8mnbMxP3L1MCamO" data-instant-type="container"
-              ><a class="i26rZHBKkEpiogHgj" data-instant-type="container" href="{{ section.settings.url_26rZHBKkEpiogHgj-1 | default: 'null' }}" rel="noopener noreferrer"
+              ><a
+                class="i26rZHBKkEpiogHgj"
+                data-instant-type="container"
+                href="{{ routes.cart_url }}/{{ product_pEnQSBy7yUyjWlLy-1_variant.id }}:1?storefront=true"
+                rel="noopener noreferrer"
+                data-instant-action-type="add-to-cart"
+                data-instant-action-id="{{ product_pEnQSBy7yUyjWlLy-1.id }}"
+                data-instant-action-variant-id="{{ product_pEnQSBy7yUyjWlLy-1_variant.id }}"
+                data-instant-disabled="
+                  {%- if product_pEnQSBy7yUyjWlLy-1_variant.available == false -%}
+                  	true
+                  {%-	endif -%}
+                "
                 ><div data-instant-type="text" class="instant-rich-text i3nI9syVqKHLh1q9c"
                   ><div>{{ section.settings['text_3nI9syVqKHLh1q9c-1'] }}</div></div
                 ></a
@@ -742,11 +754,6 @@
       "id": "text_AsWbKxlcR9YicPP8-1",
       "label": "Text",
       "default": "<p>AED 280</p>"
-    },
-    {
-      "type": "url",
-      "id": "url_26rZHBKkEpiogHgj-1",
-      "label": "Button URL"
     },
     {
       "type": "richtext",
