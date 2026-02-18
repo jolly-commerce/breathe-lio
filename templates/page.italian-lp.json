@@ -67,7 +67,7 @@
             "stars_size": 16,
             "stars_size_mobile": 14,
             "stars_gap": 2,
-            "review": "<p>Rated 4.7/5 by 1,000+ reviews</p>",
+            "review": "<p>100K+ hanno già scelto Lio</p>",
             "review_custom": false,
             "review_font": "josefin_sans_n4",
             "review_size": 14,
@@ -96,14 +96,14 @@
         "heading_FEYtrT": {
           "type": "heading",
           "settings": {
-            "heading": "<h1>Upgrade the ritual with <strong>0% nicotine</strong></h1>",
+            "heading": "<p>Migliora il tuo rituale. <strong>Senza nicotina.</strong></p>",
             "heading_custom": false,
             "heading_font": "josefin_sans_n4",
             "heading_accent_font": "playfair_n4",
             "heading_size": 56,
             "heading_size_mobile": 36,
-            "heading_advanced": false,
-            "heading_height": 130,
+            "heading_advanced": true,
+            "heading_height": 120,
             "heading_mt": 8,
             "heading_mt_mobile": 8,
             "heading_color": "#ffffff",
@@ -130,14 +130,14 @@
           "type": "feature",
           "settings": {
             "icon": "leaf",
-            "text": "100% Natural"
+            "text": "100% naturale"
           }
         },
         "feature_YVxgbJ": {
           "type": "feature",
           "settings": {
             "icon": "face_smile_2",
-            "text": "No Vapor"
+            "text": "Nessun vapore"
           }
         },
         "button_37q3wt": {
@@ -178,7 +178,7 @@
             "icon_size": 16,
             "icon_size_mobile": 16,
             "icon": "shield_check",
-            "text": "<p>30-Day Money-Back Guarantee</p>",
+            "text": "<p>90 giorni soddisfatti o rimborsati</p>",
             "text_custom": false,
             "text_font": "josefin_sans_n4",
             "text_size": 14,
@@ -517,6 +517,8 @@
         "loox_reviews_loox_agg_section_FxbYj8": {
           "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
           "settings": {
+            "reviews_to_display": "",
+            "default_tab": "automatic",
             "only_photos": false,
             "hide_thumbnails": true,
             "product_handle": "",
