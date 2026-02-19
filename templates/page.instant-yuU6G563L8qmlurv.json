@@ -22,12 +22,6 @@
             "heading_tag": "h2"
           }
         },
-        "price_MUMtYi": {
-          "type": "price",
-          "settings": {
-            "show_taxes_notice": false
-          }
-        },
         "description_NKXTHN": {
           "type": "description",
           "settings": {
@@ -54,6 +48,59 @@
             "payment_button_text_color": ""
           }
         },
+        "section_store_block_benefits_boxes_2_U8YHdy": {
+          "type": "shopify://apps/section-store/blocks/block-benefits-boxes-2/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "cards_design": "vertical",
+            "cards_row": "3",
+            "card_align": "center",
+            "first_icon": "credit_card",
+            "first_title": "24 Hours",
+            "first_sub_title": "UAE Delivery",
+            "second_icon": "shield_check",
+            "second_title": "30-Day",
+            "second_sub_title": "Money Back",
+            "third_icon": "earth",
+            "third_title": "Trusted by 100K+",
+            "third_sub_title": "Lio Fans",
+            "all_size": 19,
+            "all_color": "#000000",
+            "font_weight": "700",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "cards_bg_color": "",
+            "padding_vertical": 0,
+            "padding_horizontal": 0
+          }
+        },
+        "section_store_block_countdown_timer_GLchME": {
+          "type": "shopify://apps/section-store/blocks/block-countdown-timer/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
+          "settings": {
+            "hour": 23,
+            "minute": 44,
+            "second": 0,
+            "progress_start": 70,
+            "action_on_complete": "hide",
+            "number_size": 15,
+            "number_color": "#000000",
+            "text": "<h3><strong>The 30% Ramadan Sale ends in:</strong></h3>",
+            "text_size": 14,
+            "text_color": "#000000",
+            "progress_default_color": "#ebe9eb",
+            "progress_active_color": "#00b67c",
+            "border": "none",
+            "border_thickness": 1,
+            "border_color": "#000000",
+            "radius": 0,
+            "background": "",
+            "padding_top": 4,
+            "padding_bottom": 4,
+            "padding_left": 0,
+            "padding_right": 0
+          }
+        },
         "pickup_availability_b4GLxR": {
           "type": "pickup_availability",
           "settings": {}
@@ -61,10 +108,11 @@
       },
       "block_order": [
         "title_xH4WnK",
-        "price_MUMtYi",
         "description_NKXTHN",
         "kaching_bundles_app_block_NNnkzr",
         "buy_buttons_zhndWg",
+        "section_store_block_benefits_boxes_2_U8YHdy",
+        "section_store_block_countdown_timer_GLchME",
         "pickup_availability_b4GLxR"
       ],
       "name": "Featured product",
@@ -85,10 +133,55 @@
         "input_background": "rgba(0,0,0,0)",
         "input_text_color": ""
       }
+    },
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_tqhKLE": {
+      "type": "instant-uAnVLMfa9E8IUPzK",
+      "name": "HOW LIO WORKS ",
+      "settings": {
+        "text_dexOB6igRe9Eptbe": "<h3>Here’s how LIO works</h3>",
+        "text_2dI3MuIHWWHZJRsK": "<p>1: ZIP THE BAG </p>",
+        "text_n81CRw4pHvFx6kf7": "<p>2: FRAY THE CORE</p>",
+        "text_IToyPQTuctktKsiP": "<p>3: insert the core</p>",
+        "text_jmBe8RVHWUBx87sJ": "<p>4: Enjoy the relief</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1771472280e0350d7d": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_agg_section_yAPnXF": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "reviews_to_display": "",
+            "default_tab": "automatic",
+            "only_photos": false,
+            "hide_thumbnails": true,
+            "product_handle": "",
+            "aggregated": true,
+            "data-limit": 20,
+            "maxwidth": 1360,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_agg_section_yAPnXF"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
     }
   },
   "order": [
     "instant-yuU6G563L8qmlurv",
-    "featured_product_gJze4K"
+    "featured_product_gJze4K",
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_tqhKLE",
+    "1771472280e0350d7d"
   ]
 }
