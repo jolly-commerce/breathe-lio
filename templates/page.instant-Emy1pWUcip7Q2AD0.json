@@ -237,34 +237,48 @@
         "padding_bottom": 0
       }
     },
-    "ss_comparison_table_6_XwxaLP": {
+    "ss_comparison_table_6_4fXjh3": {
       "type": "ss-comparison-table-6",
       "blocks": {
-        "list_item_NrWiJn": {
+        "list_item_98Rwkc": {
           "type": "list_item",
           "settings": {
             "text": "Satisfying throat hit"
           }
         },
-        "list_item_HVAnyG": {
+        "list_item_R4Pd4g": {
           "type": "list_item",
           "settings": {
             "text": "Battery and nicotine-free"
           }
         },
-        "list_item_tVjQ39": {
+        "list_item_MPHJD4": {
           "type": "list_item",
           "settings": {
             "text": "Natural hand-to-mouth ritual"
           }
         },
-        "list_item_8H4EqE": {
+        "list_item_pUxXhQ": {
           "type": "list_item",
           "settings": {
             "text": "100% Plant-based"
           }
         },
-        "table_row_e7BPzJ": {
+        "table_row_MhUxed": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Cost",
+            "first_column": "€48 one time",
+            "first_column_icon": "none",
+            "second_column": "€200+ <br>monthly",
+            "second_column_icon": "none",
+            "third_column": "",
+            "third_column_icon": "check",
+            "four_column": "",
+            "four_column_icon": "none"
+          }
+        },
+        "table_row_GQc9XA": {
           "type": "table_row",
           "settings": {
             "row_heading": "Throat hit",
@@ -278,7 +292,7 @@
             "four_column_icon": "none"
           }
         },
-        "table_row_JPq8Xa": {
+        "table_row_rFCV4G": {
           "type": "table_row",
           "settings": {
             "row_heading": "Oral Fixation",
@@ -292,7 +306,7 @@
             "four_column_icon": "none"
           }
         },
-        "table_row_7jHz7T": {
+        "table_row_TMxVnT": {
           "type": "table_row",
           "settings": {
             "row_heading": "No Nicotine",
@@ -306,7 +320,7 @@
             "four_column_icon": "none"
           }
         },
-        "table_row_xQzjqQ": {
+        "table_row_WYxx44": {
           "type": "table_row",
           "settings": {
             "row_heading": "All Natural",
@@ -320,7 +334,7 @@
             "four_column_icon": "none"
           }
         },
-        "table_row_RTDzpz": {
+        "table_row_UxVym8": {
           "type": "table_row",
           "settings": {
             "row_heading": "3rd Party Tested",
@@ -334,7 +348,7 @@
             "four_column_icon": "none"
           }
         },
-        "table_row_rtEmqk": {
+        "table_row_WQqpyL": {
           "type": "table_row",
           "settings": {
             "row_heading": "No Battery",
@@ -348,7 +362,7 @@
             "four_column_icon": "none"
           }
         },
-        "table_row_EJzqUF": {
+        "table_row_AfNADB": {
           "type": "table_row",
           "settings": {
             "row_heading": "Use Anywhere",
@@ -362,7 +376,7 @@
             "four_column_icon": "none"
           }
         },
-        "table_row_qNBDbW": {
+        "table_row_WHKDwF": {
           "type": "table_row",
           "settings": {
             "row_heading": "Affordable",
@@ -378,18 +392,19 @@
         }
       },
       "block_order": [
-        "list_item_NrWiJn",
-        "list_item_HVAnyG",
-        "list_item_tVjQ39",
-        "list_item_8H4EqE",
-        "table_row_e7BPzJ",
-        "table_row_JPq8Xa",
-        "table_row_7jHz7T",
-        "table_row_xQzjqQ",
-        "table_row_RTDzpz",
-        "table_row_rtEmqk",
-        "table_row_EJzqUF",
-        "table_row_qNBDbW"
+        "list_item_98Rwkc",
+        "list_item_R4Pd4g",
+        "list_item_MPHJD4",
+        "list_item_pUxXhQ",
+        "table_row_MhUxed",
+        "table_row_GQc9XA",
+        "table_row_rFCV4G",
+        "table_row_TMxVnT",
+        "table_row_WYxx44",
+        "table_row_UxVym8",
+        "table_row_WQqpyL",
+        "table_row_AfNADB",
+        "table_row_WHKDwF"
       ],
       "name": "SS - Comparison table #6",
       "settings": {
@@ -565,7 +580,7 @@
     "instant-Emy1pWUcip7Q2AD0",
     "ss_testimonial_8_DmtG79",
     "instant_u_an_vl_mfa9_e8_iu_pz_k_784Eqr",
-    "ss_comparison_table_6_XwxaLP",
+    "ss_comparison_table_6_4fXjh3",
     "instant_82_ryrn_jl_m_jb_pgb5_u_rbVKNP",
     "177148521009cbab4f"
   ]
