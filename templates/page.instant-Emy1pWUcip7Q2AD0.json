@@ -264,11 +264,11 @@
             "text": "100% Plant-based"
           }
         },
-        "table_row_MhUxed": {
+        "table_row_zmME7R": {
           "type": "table_row",
           "settings": {
             "row_heading": "Cost",
-            "first_column": "€48 one time",
+            "first_column": "€48 <br>one time",
             "first_column_icon": "none",
             "second_column": "€200+ <br>monthly",
             "second_column_icon": "none",
@@ -302,6 +302,20 @@
             "second_column_icon": "check",
             "third_column": "",
             "third_column_icon": "none",
+            "four_column": "",
+            "four_column_icon": "none"
+          }
+        },
+        "table_row_MhUxed": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Safety",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "check",
             "four_column": "",
             "four_column_icon": "none"
           }
@@ -396,9 +410,10 @@
         "list_item_R4Pd4g",
         "list_item_MPHJD4",
         "list_item_pUxXhQ",
-        "table_row_MhUxed",
+        "table_row_zmME7R",
         "table_row_GQc9XA",
         "table_row_rFCV4G",
+        "table_row_MhUxed",
         "table_row_TMxVnT",
         "table_row_WYxx44",
         "table_row_UxVym8",
