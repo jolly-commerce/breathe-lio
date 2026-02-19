@@ -16,72 +16,102 @@
     "ss_testimonial_8_Y66eWg": {
       "type": "ss-testimonial-8",
       "blocks": {
-        "testimonials_XDyzfA": {
-          "type": "testimonials",
-          "settings": {
-            "stars_count": 5,
-            "heading": "I love it! 😍",
-            "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
-            "author_date": "Cathrine"
-          }
-        },
-        "testimonials_j7kMi8": {
-          "type": "testimonials",
-          "settings": {
-            "stars_count": 5,
-            "heading": "I love it! 😍",
-            "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
-            "author_date": "Cathrine"
-          }
-        },
-        "testimonials_8aFBTX": {
-          "type": "testimonials",
-          "settings": {
-            "stars_count": 5,
-            "heading": "I love it! 😍",
-            "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
-            "author_date": "Cathrine"
-          }
-        },
-        "testimonials_atB7JN": {
-          "type": "testimonials",
-          "settings": {
-            "stars_count": 5,
-            "heading": "I love it! 😍",
-            "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
-            "author_date": "Cathrine"
-          }
-        },
-        "testimonials_DGDGLC": {
-          "type": "testimonials",
-          "settings": {
-            "stars_count": 5,
-            "heading": "I love it! 😍",
-            "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
-            "author_date": "Cathrine"
-          }
-        },
         "testimonials_HfgzBj": {
           "type": "testimonials",
           "settings": {
             "stars_count": 5,
-            "heading": "I love it! 😍",
-            "text": "I was initially hesitant to switch from my usual brand to this new one, but I'm so glad I did! This product has exceeded my expectations. It's not only affordable but also incredibly efficient. The quality is top-notch, and it's user-friendly.",
-            "author_date": "Cathrine"
+            "heading": "Ma è davvero solo aria??",
+            "text": "Ero super scettico. Un mio amico ne aveva uno, l'ho provato e sono andato dritto a casa a ordinare il kit iniziale. È difficile da spiegare, ma gli oli essenziali creano davvero quel \"kick\" in gola. Non è una v*pe, non è una sigaretta... è meglio. 5 stelle.",
+            "author_date": "Kevin B."
+          }
+        },
+        "testimonials_Rk8mJB": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Discreto ed elegante",
+            "text": "Lavoro in un ufficio abbastanza formale e poter fare un respiro veloce alla scrivania senza nuvole di vapore ovunque è fantastico. Nessuno capisce cos'è, sembra una penna di lusso o qualcosa del genere. Molto soddisfatta dell'acquisto.",
+            "author_date": "Michelle P."
+          }
+        },
+        "testimonials_gRLdUJ": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Mille volte meglio di gomme o cerotti",
+            "text": "Le ho provate tutte. Le gomme sanno di pepe e i cerotti non servono a nulla per la gestualità. Questo è il primo prodotto che imita davvero la SENSAZIONE di fumare. Il peso del legno è piacevole e i core alla cannella sono i miei preferiti. 10/10.",
+            "author_date": "Robert L."
+          }
+        },
+        "testimonials_heLBJ4": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Un salvavita per chi guida molto",
+            "text": "Ho 45 minuti di macchina per andare al lavoro ed era sempre il momento in cui fumavo di più. Lio ha cambiato tutto. Tiene le mani occupate e dà lo stesso \"hit\" senza far puzzare la macchina di posacenere. E finalmente niente cavi che girano per il cruscotto. Magari l'avessi scoperto prima.",
+            "author_date": "Sarah W."
+          }
+        },
+        "testimonials_DdbQjP": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Funziona davvero lol",
+            "text": "Dico la verità, l'ho comprato più che altro perché il legno era figo e mi ero stufato della v*pe che perdeva liquido in tasca. Non pensavo che l'aria facesse davvero qualcosa, invece il core alla menta è sorprendentemente forte. Dà quel colpo in gola proprio come serve. Da provare se volete darci un taglio",
+            "author_date": "Jason D."
+          }
+        },
+        "testimonials_RLW9EK": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Addio \"odore di fumo\" in casa! 🏠",
+            "text": "Mio marito è finalmente felice. Posso usare Lio sul divano mentre guardiamo un film e l'unica cosa che si sente è un leggero profumo di menta freschissima. È il pezzo mancante del puzzle per chi vuole smettere ma non vuole rinunciare al piacere del rituale.",
+            "author_date": "Sara L."
+          }
+        },
+        "testimonials_BqHNbe": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Un oggetto bellissimo da tenere in mano",
+            "text": "La qualità del legno è pazzesca. Si vede che c'è cura, tipico stile che piace a noi. È diventato il mio compagno inseparabile durante i viaggi in auto e le cene con gli amici. Non puzza, non sporca e mi fa risparmiare un sacco di soldi. Cosa chiedere di più?",
+            "author_date": "Pietro S."
+          }
+        },
+        "testimonials_qDPb66": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Che dire... incredibile!",
+            "text": "Ero la classica scettica: \"Ma figurati se l'aria mi dà soddisfazione\". Mi sono dovuta ricredere subito. Quel colpo in gola ghiacciato è esattamente quello che cercavo. Ora mi godo il mio caffè al bar senza l'odore di tabacco che mi rovina il vestito. Una rivoluzione!",
+            "author_date": "Elena V."
+          }
+        },
+        "testimonials_yarJci": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Finalmente la libertà! 🇮🇹",
+            "text": "Basta rincorrere una presa di corrente o impazzire perché la batteria è scarica proprio sul più bello. Con Lio ho riscoperto il piacere del gesto, ma in totale libertà. Lo porto con me durante la passeggiata in centro e nessuno nota nulla. Elegante, discreto e di una classe infinita. Bravo Lio!",
+            "author_date": "Luca B."
           }
         }
       },
       "block_order": [
-        "testimonials_XDyzfA",
-        "testimonials_j7kMi8",
-        "testimonials_8aFBTX",
-        "testimonials_atB7JN",
-        "testimonials_DGDGLC",
-        "testimonials_HfgzBj"
+        "testimonials_HfgzBj",
+        "testimonials_Rk8mJB",
+        "testimonials_gRLdUJ",
+        "testimonials_heLBJ4",
+        "testimonials_DdbQjP",
+        "testimonials_RLW9EK",
+        "testimonials_BqHNbe",
+        "testimonials_qDPb66",
+        "testimonials_yarJci"
       ],
       "name": "SS - Testimonial #8",
       "settings": {
-        "heading": "Our customers tell it better than we do!",
+        "heading": "<b>I nostri clienti lo dicono meglio di noi!</b>",
         "heading_custom": false,
         "heading_font": "josefin_sans_n4",
         "heading_size": 40,
@@ -104,7 +134,7 @@
         "stars_size_mobile": 24,
         "stars_gap": 5,
         "stars_align": "center",
-        "text": "<p>based on <strong>1 067</strong> reviews</p>",
+        "text": "<p>based on <strong>1067</strong> reviews</p>",
         "text_custom": false,
         "text_font": "josefin_sans_n4",
         "text_size": 20,
