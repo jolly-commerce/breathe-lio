@@ -223,10 +223,69 @@
         "border_thickness": 0,
         "lazy": true
       }
+    },
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_784Eqr": {
+      "type": "instant-uAnVLMfa9E8IUPzK",
+      "name": "HOW LIO WORKS ",
+      "settings": {
+        "text_dexOB6igRe9Eptbe": "<h3>Here’s how LIO works</h3>",
+        "text_2dI3MuIHWWHZJRsK": "<p>1: ZIP THE BAG </p>",
+        "text_n81CRw4pHvFx6kf7": "<p>2: FRAY THE CORE</p>",
+        "text_IToyPQTuctktKsiP": "<p>3: insert the core</p>",
+        "text_jmBe8RVHWUBx87sJ": "<p>4: Enjoy the relief</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "instant_82_ryrn_jl_m_jb_pgb5_u_rbVKNP": {
+      "type": "instant-82RYRNJlMJbPgb5U",
+      "name": "The Original Reviews",
+      "settings": {
+        "product_BdbeMVtHjl7P3ioz": "lio®-journey-pack-1",
+        "text_tBnF7hzwwuPzhyHq": "<h3>TRUSTED BY OVER</h3>",
+        "text_BuS8EoI8zLOIQ1TE": "<h3>100k customers</h3>",
+        "url_y0OK5IhBLuBvOVsT": "",
+        "text_nUqKOZuD7neCYlGC": "<p>TRY LIO NOW</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "177148521009cbab4f": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_agg_section_4D7rrR": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "reviews_to_display": "",
+            "default_tab": "automatic",
+            "only_photos": false,
+            "hide_thumbnails": true,
+            "product_handle": "",
+            "aggregated": true,
+            "data-limit": 20,
+            "maxwidth": 1080,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_agg_section_4D7rrR"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
     }
   },
   "order": [
     "instant-Emy1pWUcip7Q2AD0",
-    "ss_testimonial_8_DmtG79"
+    "ss_testimonial_8_DmtG79",
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_784Eqr",
+    "instant_82_ryrn_jl_m_jb_pgb5_u_rbVKNP",
+    "177148521009cbab4f"
   ]
 }
