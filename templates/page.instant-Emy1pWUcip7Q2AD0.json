@@ -389,20 +389,6 @@
             "four_column": "",
             "four_column_icon": "none"
           }
-        },
-        "table_row_WHKDwF": {
-          "type": "table_row",
-          "settings": {
-            "row_heading": "Affordable",
-            "first_column": "",
-            "first_column_icon": "check",
-            "second_column": "",
-            "second_column_icon": "cross",
-            "third_column": "",
-            "third_column_icon": "none",
-            "four_column": "",
-            "four_column_icon": "none"
-          }
         }
       },
       "block_order": [
@@ -418,8 +404,7 @@
         "table_row_WYxx44",
         "table_row_UxVym8",
         "table_row_WQqpyL",
-        "table_row_AfNADB",
-        "table_row_WHKDwF"
+        "table_row_AfNADB"
       ],
       "name": "SS - Comparison table #6",
       "settings": {
@@ -464,9 +449,9 @@
         "button_mt": 50,
         "button_mt_mobile": 32,
         "button_padding_vertical": 16,
-        "button_padding_vertical_mobile": 16,
+        "button_padding_vertical_mobile": 22,
         "button_padding_horizontal": 24,
-        "button_padding_horizontal_mobile": 24,
+        "button_padding_horizontal_mobile": 18,
         "button_radius": 100,
         "button_border_thickness": 0,
         "button_style": "non_outline",
@@ -487,12 +472,12 @@
         "table_heading_size_mobile": 16,
         "table_heading_height": 150,
         "table_heading_align": "center",
-        "table_heading_padding_horizontal": 18,
-        "table_heading_padding_horizontal_mobile": 18,
+        "table_heading_padding_horizontal": 20,
+        "table_heading_padding_horizontal_mobile": 14,
         "table_heading_padding_vertical": 18,
         "table_heading_padding_vertical_mobile": 18,
         "table_row_padding_horizontal": 14,
-        "table_row_padding_horizontal_mobile": 14,
+        "table_row_padding_horizontal_mobile": 12,
         "table_row_padding_vertical": 16,
         "table_row_padding_vertical_mobile": 16,
         "table_row_heading_custom": false,
