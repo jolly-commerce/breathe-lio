@@ -12,9 +12,221 @@
     "instant-Emy1pWUcip7Q2AD0": {
       "type": "instant-Emy1pWUcip7Q2AD0",
       "settings": {}
+    },
+    "ss_testimonial_8_DmtG79": {
+      "type": "ss-testimonial-8",
+      "blocks": {
+        "testimonials_jkjijz": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "It actually survives a night out",
+            "text": "I tried to switch to those heated sticks, but the smell of 'burnt popcorn' was driving everyone in my house crazy. Switched to Lio on a whim. The botanical cores smell like actual plants, not chemicals, and the scent vanishes in two seconds. It’s also saved me a fortune, I was spending €150 a month on pods, now I just grab a pack of cores every few weeks.",
+            "author_date": "Luca M., Italy"
+          }
+        },
+        "testimonials_iqezan": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "It actually survives a night out.",
+            "text": "Anyone who uses heated t#bacco knows the pain of your device dying at a bar and having to buy a pack of c#garettes just to get through the night. With Lio, there’s literally nothing to break or charge. I took it to a wedding last weekend and it was a lifesaver. It’s simple, it’s mechanical, and it just works. My lungs feel way clearer after just two weeks.",
+            "author_date": "Niklas H., Sweden"
+          }
+        },
+        "testimonials_8J8yby": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Discreet enough for the office.",
+            "text": "I hated that 'v#per' look, standing outside in the cold just for a hit. I use Lio right at my desk in London or during long meetings. No one even looks twice because there’s no cloud and no smell. It’s just... air. But it has that 'kick' at the back of the throat that actually stops the panic when I want a cigarette. Shipping was surprisingly fast too, arrived in 3 days.",
+            "author_date": "Sarah J., United Kingdom"
+          }
+        },
+        "testimonials_ftT6f9": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Finally, something that isn't a plastic toy",
+            "text": "I was fed up with my v#pe constantly leaking in my bag or running out of battery right when I got off the train in Brussels. Lio is a different league. The wood feels solid and expensive in your hand, more like a high-end pen than a 'device.' It’s weird how much the weight helps with the craving, and the peppermint hit is actually sharp enough to satisfy. Best €48 I’ve spent in a long time.",
+            "author_date": "Marc D., Belgium"
+          }
+        },
+        "testimonials_KqadKH": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Finally, no more smell",
+            "text": "My partner hated the smell of my heated tobacco device, that weird, toasted scent that sticks to your hair and clothes. Switched to Lio and the problem is gone. It smells like a fresh botanical garden for about three seconds, then it's gone. I use it at my desk in the office and nobody even notices. 10/10 for discretion.",
+            "author_date": "Marc-Antoine L., France"
+          }
+        },
+        "testimonials_KnP63g": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "The 'Social' lifesaver",
+            "text": "I only used to smoke when I was out at bars with friends in Dublin. I missed the 'hand-to-mouth' habit more than the nicotine itself. Lio replaces the ritual perfectly. I can still hang out, hold something that feels premium, and not wake up the next morning with a heavy chest. Plus, I’ve saved about €80 in the first month alone.",
+            "author_date": "Sean O., Ireland"
+          }
+        },
+        "testimonials_AgEcai": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "The 'Cold Kick' is no joke⭐",
+            "text": "I’ll be honest, I thought 'flavored air' was a scam. But the peppermint core gives you this icy, sharp sensation that mimics the throat hit perfectly. It’s not 'smoke,' but your brain thinks it is. I’ve gone from a pack-a-day habit to just using Lio with my morning espresso. If you’re on the fence, just get it. The refund policy is there, but you won't need it.",
+            "author_date": "Pieter de V., Netherlands"
+          }
+        }
+      },
+      "block_order": [
+        "testimonials_jkjijz",
+        "testimonials_iqezan",
+        "testimonials_8J8yby",
+        "testimonials_ftT6f9",
+        "testimonials_KqadKH",
+        "testimonials_KnP63g",
+        "testimonials_AgEcai"
+      ],
+      "name": "SS - Testimonial #8",
+      "settings": {
+        "heading": "Our customers tell it better than we do!",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 40,
+        "heading_size_mobile": 24,
+        "heading_height": 130,
+        "heading_align": "center",
+        "rating_text": "Excellent",
+        "rating_text_custom": false,
+        "rating_text_font": "josefin_sans_n4",
+        "rating_text_size": 24,
+        "rating_text_size_mobile": 20,
+        "rating_text_height": 130,
+        "rating": 4.8,
+        "rating_hide": false,
+        "rating_text_hide": false,
+        "rating_text_mt": 16,
+        "rating_align": "center",
+        "stars_count": 5,
+        "stars_size": 28,
+        "stars_size_mobile": 24,
+        "stars_gap": 5,
+        "stars_align": "center",
+        "text": "<p>based on <strong>1067</strong> reviews</p>",
+        "text_custom": false,
+        "text_font": "josefin_sans_n4",
+        "text_size": 20,
+        "text_size_mobile": 16,
+        "text_height": 130,
+        "text_align": "center",
+        "text_mt": 16,
+        "slider_width": 80,
+        "slider_view": 3,
+        "slider_view_mobile": 1.2,
+        "slider_gap": 20,
+        "slider_gap_mobile": 20,
+        "slider_mt": 36,
+        "card_padding_vertical": 32,
+        "card_padding_vertical_mobile": 24,
+        "card_padding_horizontal": 40,
+        "card_padding_horizontal_mobile": 24,
+        "card_radius": 16,
+        "card_border_thickness": 0,
+        "card_shadow": true,
+        "card_heading_custom": false,
+        "card_heading_font": "josefin_sans_n4",
+        "card_heading_size": 24,
+        "card_heading_size_mobile": 20,
+        "card_heading_height": 130,
+        "card_heading_align": "center",
+        "card_heading_mt": 16,
+        "card_text_custom": false,
+        "card_text_font": "josefin_sans_n4",
+        "card_text_size": 14,
+        "card_text_size_mobile": 14,
+        "card_text_height": 150,
+        "card_text_align": "center",
+        "card_text_mt": 16,
+        "card_text_more": "View more",
+        "card_text_less": "View Less",
+        "card_count_words": 20,
+        "card_author_date_text_custom": false,
+        "card_author_date_text_font": "josefin_sans_n4",
+        "card_author_date_text_size": 16,
+        "card_author_date_text_size_mobile": 16,
+        "card_author_date_text_height": 130,
+        "card_author_date_text_align": "center",
+        "card_author_date_text_mt": 16,
+        "arrow_show_desktop": true,
+        "arrow_show_mobile": false,
+        "arrow_size": 50,
+        "arrow_size_mobile": 50,
+        "arrow_icon_size": 28,
+        "arrow_icon_size_mobile": 28,
+        "arrow_border_thickness": 0,
+        "dots_show_desktop": false,
+        "dots_show_mobile": false,
+        "dots_size": 12,
+        "dots_size_mobile": 12,
+        "button": "View All",
+        "button_url": "",
+        "new_tab": false,
+        "button_custom": false,
+        "button_font": "josefin_sans_n4",
+        "button_size": 16,
+        "button_size_mobile": 14,
+        "button_height": 100,
+        "button_padding_vertical": 20,
+        "button_padding_horizontal": 16,
+        "button_radius": 8,
+        "button_border_thickness": 0,
+        "button_mt": 24,
+        "button_align": "center",
+        "button_color": "#FFFFFF",
+        "button_hover_color": "#FFFFFF",
+        "button_bg_color": "#121212",
+        "button_bg_hover_color": "#121212",
+        "button_border_color": "#121212",
+        "button_border_hover_color": "#121212",
+        "card_heading_color": "#121212",
+        "card_text_color": "#121212",
+        "card_author_date_text_color": "#121212",
+        "card_bg_color": "#FFFFFF",
+        "card_border_color": "#121212",
+        "card_shadow_color": "#00B67A",
+        "arrow_color": "#121212",
+        "arrow_hover_color": "#121212",
+        "arrow_bg_color": "#FFFFFF",
+        "arrow_bg_hover_color": "#FFFFFF",
+        "arrow_border_color": "#121212",
+        "arrow_border_hover_color": "#121212",
+        "dots_color": "#121212",
+        "stars_color": "#FFFFFF",
+        "stars_bg_color": "#00B67A",
+        "stars_bg_half_color": "#DDDDDD",
+        "heading_color": "#121212",
+        "rating_text_color": "#121212",
+        "text_color": "#121212",
+        "background_color": "#FFFFFF",
+        "background_gradient": "linear-gradient(180deg, rgba(206, 239, 199, 1), rgba(255, 255, 255, 1) 100%)",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": true,
+        "content_width": 1500,
+        "border_thickness": 0,
+        "lazy": true
+      }
     }
   },
   "order": [
-    "instant-Emy1pWUcip7Q2AD0"
+    "instant-Emy1pWUcip7Q2AD0",
+    "ss_testimonial_8_DmtG79"
   ]
 }
