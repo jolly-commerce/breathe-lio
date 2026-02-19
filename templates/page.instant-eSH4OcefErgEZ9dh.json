@@ -111,7 +111,7 @@
       ],
       "name": "SS - Testimonial #8",
       "settings": {
-        "heading": "<b>I nostri clienti lo dicono meglio di noi!</b>",
+        "heading": "I nostri clienti lo dicono meglio di noi!",
         "heading_custom": false,
         "heading_font": "josefin_sans_n4",
         "heading_size": 40,
@@ -190,7 +190,7 @@
         "dots_show_mobile": false,
         "dots_size": 12,
         "dots_size_mobile": 12,
-        "button": "Order Now",
+        "button": "ORDINA ORA",
         "button_url": "#il2tSZbumZnfnV2bC",
         "new_tab": false,
         "button_custom": false,
@@ -244,6 +244,256 @@
         "lazy": true
       }
     },
+    "ss_comparison_table_6_i3NwaG": {
+      "type": "ss-comparison-table-6",
+      "blocks": {
+        "list_item_pW4UGQ": {
+          "type": "list_item",
+          "settings": {
+            "text": "Colpo in gola soddisfacente"
+          }
+        },
+        "list_item_YejwwT": {
+          "type": "list_item",
+          "settings": {
+            "text": "Senza batteria e nicotina"
+          }
+        },
+        "list_item_dxFykD": {
+          "type": "list_item",
+          "settings": {
+            "text": "Rituale mano-bocca naturale"
+          }
+        },
+        "list_item_Y6JitU": {
+          "type": "list_item",
+          "settings": {
+            "text": "100% Vegetale"
+          }
+        },
+        "table_row_7XYEyD": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Optimized Dosing",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "none",
+            "four_column": "",
+            "four_column_icon": "none"
+          }
+        },
+        "table_row_EWpjdz": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Plant Based",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "none",
+            "four_column": "",
+            "four_column_icon": "none"
+          }
+        },
+        "table_row_C3d7gx": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Low Sugar",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "none",
+            "four_column": "",
+            "four_column_icon": "none"
+          }
+        },
+        "table_row_NFAH36": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Simple Ingredients",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "none",
+            "four_column": "",
+            "four_column_icon": "none"
+          }
+        },
+        "table_row_4CpMeg": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "3rd Party Tested",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "none",
+            "four_column": "",
+            "four_column_icon": "none"
+          }
+        },
+        "table_row_fA4mMX": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Delicious Taste",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "none",
+            "four_column": "",
+            "four_column_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "list_item_pW4UGQ",
+        "list_item_YejwwT",
+        "list_item_dxFykD",
+        "list_item_Y6JitU",
+        "table_row_7XYEyD",
+        "table_row_EWpjdz",
+        "table_row_C3d7gx",
+        "table_row_NFAH36",
+        "table_row_4CpMeg",
+        "table_row_fA4mMX"
+      ],
+      "name": "SS - Comparison table #6",
+      "settings": {
+        "body_gap": 32,
+        "body_gap_mobile": 32,
+        "content_horizontal_align": "start",
+        "content_horizontal_align_mobile": "center",
+        "heading": "<p>Lio <strong>vs Il Vecchio Modo</strong></p>",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 52,
+        "heading_size_mobile": 32,
+        "heading_height": 130,
+        "text": "<p>Non è una nuova sigaretta elettronica. È una categoria a sé stante: il <strong>Rituale di Benessere</strong>. Mentre gli altri riscaldano sostanze chimiche, Lio utilizza solo aria e natura.</p>",
+        "text_custom": false,
+        "text_font": "josefin_sans_n4",
+        "text_size": 18,
+        "text_size_mobile": 18,
+        "text_height": 150,
+        "text_mt": 16,
+        "list_mt": 48,
+        "list_mt_mobile": 32,
+        "list_gap": 24,
+        "list_gap_mobile": 24,
+        "list_hide_mobile": true,
+        "icon_size": 28,
+        "icon_size_mobile": 28,
+        "icon_margin_right": 16,
+        "list_text_custom": false,
+        "list_text_font": "josefin_sans_n4",
+        "list_text_size": 20,
+        "list_text_size_mobile": 18,
+        "list_text_height": 150,
+        "button": "ORDINA ORA",
+        "button_url": "#il2tSZbumZnfnV2bC",
+        "button_custom": false,
+        "button_font": "josefin_sans_n4",
+        "button_size": 18,
+        "button_size_mobile": 18,
+        "button_height": 100,
+        "button_width": 305,
+        "button_mt": 50,
+        "button_mt_mobile": 32,
+        "button_padding_vertical": 16,
+        "button_padding_vertical_mobile": 16,
+        "button_padding_horizontal": 24,
+        "button_padding_horizontal_mobile": 24,
+        "button_radius": 100,
+        "button_border_thickness": 0,
+        "button_style": "non_outline",
+        "button_position_mobile": "bottom",
+        "table_columns": 2,
+        "table_column_active": "1",
+        "table_radius": 16,
+        "table_border_thickness": 1,
+        "first_heading": "SECTION STORE",
+        "second_heading": "Other Brands",
+        "third_heading": "Other",
+        "four_heading": "Other",
+        "table_heading_image_size": 100,
+        "table_heading_image_size_mobile": 80,
+        "table_heading_custom": false,
+        "table_heading_font": "assistant_n4",
+        "table_heading_size": 20,
+        "table_heading_size_mobile": 16,
+        "table_heading_height": 150,
+        "table_heading_align": "center",
+        "table_heading_padding_horizontal": 18,
+        "table_heading_padding_horizontal_mobile": 18,
+        "table_heading_padding_vertical": 18,
+        "table_heading_padding_vertical_mobile": 18,
+        "table_row_padding_horizontal": 14,
+        "table_row_padding_horizontal_mobile": 14,
+        "table_row_padding_vertical": 16,
+        "table_row_padding_vertical_mobile": 16,
+        "table_row_heading_custom": false,
+        "table_row_heading_font": "assistant_n4",
+        "table_row_heading_size": 16,
+        "table_row_heading_size_mobile": 16,
+        "table_row_heading_height": 150,
+        "table_row_heading_width_mobile": 66,
+        "table_row_heading_align": "left",
+        "table_row_text_custom": false,
+        "table_row_text_font": "assistant_n4",
+        "table_row_text_size": 20,
+        "table_row_text_size_mobile": 16,
+        "table_row_text_height": 150,
+        "table_row_text_align": "center",
+        "table_row_image_size": 24,
+        "table_row_image_size_mobile": 24,
+        "heading_color": "#121212",
+        "text_color": "#121212",
+        "icon_color": "#121212",
+        "list_text_color": "#121212",
+        "button_color": "#FFFFFF",
+        "button_hover_color": "#00b67c",
+        "button_bg_color": "#00b67c",
+        "button_bg_hover_color": "#002a15",
+        "button_border_color": "#002a15",
+        "button_border_hover_color": "#002a15",
+        "table_heading_active_color": "#FFFFFF",
+        "table_row_active_text_color": "#FFFFFF",
+        "table_heading_bg_active_color": "#002a15",
+        "table_column_active_bg_color": "#002a15",
+        "table_active_border_color": "#f7fcf4",
+        "table_heading_color": "#002a15",
+        "table_row_heading_color": "#002a15",
+        "table_row_text_color": "#002a15",
+        "table_border_color": "#002a15",
+        "background_color": "#f8fdf5",
+        "background_gradient": "",
+        "border_color": "#002a15",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": false,
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
     "1771476282966df95d": {
       "type": "apps",
       "blocks": {
@@ -278,6 +528,7 @@
   "order": [
     "instant-eSH4OcefErgEZ9dh",
     "ss_testimonial_8_Y66eWg",
+    "ss_comparison_table_6_i3NwaG",
     "1771476282966df95d"
   ]
 }
