@@ -1,0 +1,65 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "instant-MOq4U6IIUwpbUirY": {
+      "type": "instant-MOq4U6IIUwpbUirY",
+      "settings": {}
+    },
+    "instant_82_ryrn_jl_m_jb_pgb5_u_pBBeLL": {
+      "type": "instant-82RYRNJlMJbPgb5U",
+      "name": "The Original Reviews",
+      "settings": {
+        "product_BdbeMVtHjl7P3ioz": "lio®-journey-pack-1",
+        "text_tBnF7hzwwuPzhyHq": "<h3>TRUSTED BY OVER</h3>",
+        "text_BuS8EoI8zLOIQ1TE": "<h3>100k customers</h3>",
+        "url_y0OK5IhBLuBvOVsT": "#i25KiCy0jm5iNnXLc",
+        "text_nUqKOZuD7neCYlGC": "<p>TRY LIO NOW</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "17714962193a91f9ca": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_agg_section_W9P33A": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "reviews_to_display": "",
+            "default_tab": "automatic",
+            "only_photos": false,
+            "hide_thumbnails": true,
+            "product_handle": "",
+            "aggregated": true,
+            "data-limit": 20,
+            "maxwidth": 1080,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_agg_section_W9P33A"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "instant-MOq4U6IIUwpbUirY",
+    "instant_82_ryrn_jl_m_jb_pgb5_u_pBBeLL",
+    "17714962193a91f9ca"
+  ]
+}
