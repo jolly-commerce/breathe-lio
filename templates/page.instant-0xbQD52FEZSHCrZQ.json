@@ -11,10 +11,35 @@
   "sections": {
     "instant-0xbQD52FEZSHCrZQ": {
       "type": "instant-0xbQD52FEZSHCrZQ",
+      "disabled": true,
       "settings": {}
+    },
+    "instant_ruqy_rpa_ux_iyzza15_HVEnd8": {
+      "type": "instant-RuqyRpaUxIYZZA15",
+      "name": "Section 40",
+      "settings": {
+        "text_J6NyzHyY66ZMXhUJ": "<p>REMAINING</p>",
+        "text_4RUoh8ZOzwRib2Ie": "<p>DAYS</p>",
+        "text_XkW5f9AmFrtbQynb": "<p>HRS</p>",
+        "text_VvoaMurCfCrYlBWs": "<p>Mins</p>",
+        "product_HC6gzv7sVtpPWiyS": "the-journey-pack-3",
+        "text_6l2ZHHe25BpQtZZC": "<p>Daily ritual replacement designed to ease cravings, reduce stress, and support habit change.</p>",
+        "text_AkESP0RE3mmilKmC": "<p>30% OFF TODAY</p>",
+        "text_ztGbo4ZTXS7o4W7T": "<p>START TODAY</p>",
+        "text_3wr33Jdu1xdqRm4o": "<p>ONE-TIME-PURCHASE</p>",
+        "text_Y3l3l42V9NmZhEIu": "<p>€29 Refill Ships in 30 Days</p><p>Adjust Shipments or Cancel Anytime</p><p>Free Europe Shipping</p>",
+        "text_Dz1L7PE5GWqFHO35": "<p>Benefits</p>",
+        "text_kn8c91ykcrKlkowz": "<ul><li><p>Helps manage cravings and habitual urges</p></li><li><p>Reduces stress through calming breathing</p></li><li><p>Replaces hand-to-mouth rituals</p></li><li><p>Supports building healthier routines over time</p></li><li><p>Immediate sensory relief with natural aromatics</p></li><li><p>Use anywhere, no batteries, no vapor, no charging</p></li><li><p>Made with 100% natural ingredients</p></li></ul>",
+        "text_vy2zcsF73hFqMFbu": "<p>Flavors</p>",
+        "text_6TMZ2M8h1bo5pDHZ": "<ul><li><p>100% natural plant-based aromatics</p></li><li><p>Sourced from IFRA-certified EU farms</p></li><li><p>Third-party tested for quality and safety</p></li><li><p>Free from nicotine, toxins, vapor, and chemicals</p><p></p></li></ul><p></p><p><strong>Peppery Mint</strong></p><p><em>Peppermint (Mentha piperita), Eucalyptus (Eucalyptus globulus), Black Pepper (Piper nigrum)</em> </p><p></p><p>Cool peppermint with fresh eucalyptus and a subtle black-pepper kick, crisp on the inhale, clean on the finish, and instantly refreshing.</p><p></p><p><strong>Cinnamon Spice</strong></p><p><em>Cinnamon (Cinnamomum verum), Peppermint (Mentha piperita)</em> </p><p></p><p>Warm cinnamon balanced with smooth peppermint, gently spicy, cozy, and deeply satisfying with every breath.</p><p></p><p><strong>Minty Magic</strong></p><p><em>Peppermint (Mentha piperita)</em></p><p>Pure, classic peppermint, bright, icy fresh, and clean with a smooth throat feel that keeps you coming back.</p>",
+        "text_CvKWeoAUvhHuDL4L": "<p>How to use</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
+    "instant_ruqy_rpa_ux_iyzza15_HVEnd8",
     "instant-0xbQD52FEZSHCrZQ"
   ]
 }
