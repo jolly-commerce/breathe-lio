@@ -12,9 +12,533 @@
     "instant-9qznVf6fMEtmTzWf": {
       "type": "instant-9qznVf6fMEtmTzWf",
       "settings": {}
+    },
+    "ss_testimonial_8_qdznc9": {
+      "type": "ss-testimonial-8",
+      "blocks": {
+        "testimonials_BVRAdP": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Ma è davvero solo aria??",
+            "text": "Ero super scettico. Un mio amico ne aveva uno, l'ho provato e sono andato dritto a casa a ordinare il kit iniziale. È difficile da spiegare, ma gli oli essenziali creano davvero quel \"kick\" in gola. Non è una v*pe, non è una sigaretta... è meglio. 5 stelle.",
+            "author_date": "Kevin B."
+          }
+        },
+        "testimonials_dzjKPJ": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Discreto ed elegante",
+            "text": "Lavoro in un ufficio abbastanza formale e poter fare un respiro veloce alla scrivania senza nuvole di vapore ovunque è fantastico. Nessuno capisce cos'è, sembra una penna di lusso o qualcosa del genere. Molto soddisfatta dell'acquisto.",
+            "author_date": "Michelle P."
+          }
+        },
+        "testimonials_eNCcQJ": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Mille volte meglio di gomme o cerotti",
+            "text": "Le ho provate tutte. Le gomme sanno di pepe e i cerotti non servono a nulla per la gestualità. Questo è il primo prodotto che imita davvero la SENSAZIONE di fumare. Il peso del legno è piacevole e i core alla cannella sono i miei preferiti. 10/10.",
+            "author_date": "Robert L."
+          }
+        },
+        "testimonials_VCXXzy": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Un salvavita per chi guida molto",
+            "text": "Ho 45 minuti di macchina per andare al lavoro ed era sempre il momento in cui fumavo di più. Lio ha cambiato tutto. Tiene le mani occupate e dà lo stesso \"hit\" senza far puzzare la macchina di posacenere. E finalmente niente cavi che girano per il cruscotto. Magari l'avessi scoperto prima.",
+            "author_date": "Sarah W."
+          }
+        },
+        "testimonials_KWVxpQ": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Funziona davvero lol",
+            "text": "Dico la verità, l'ho comprato più che altro perché il legno era figo e mi ero stufato della v*pe che perdeva liquido in tasca. Non pensavo che l'aria facesse davvero qualcosa, invece il core alla menta è sorprendentemente forte. Dà quel colpo in gola proprio come serve. Da provare se volete darci un taglio",
+            "author_date": "Jason D."
+          }
+        },
+        "testimonials_cpVWaT": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Addio \"odore di fumo\" in casa! 🏠",
+            "text": "Mio marito è finalmente felice. Posso usare Lio sul divano mentre guardiamo un film e l'unica cosa che si sente è un leggero profumo di menta freschissima. È il pezzo mancante del puzzle per chi vuole smettere ma non vuole rinunciare al piacere del rituale.",
+            "author_date": "Sara L."
+          }
+        },
+        "testimonials_Ge6QWN": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Un oggetto bellissimo da tenere in mano",
+            "text": "La qualità del legno è pazzesca. Si vede che c'è cura, tipico stile che piace a noi. È diventato il mio compagno inseparabile durante i viaggi in auto e le cene con gli amici. Non puzza, non sporca e mi fa risparmiare un sacco di soldi. Cosa chiedere di più?",
+            "author_date": "Pietro S."
+          }
+        },
+        "testimonials_e6zdTt": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "Che dire... incredibile!",
+            "text": "Ero la classica scettica: \"Ma figurati se l'aria mi dà soddisfazione\". Mi sono dovuta ricredere subito. Quel colpo in gola ghiacciato è esattamente quello che cercavo. Ora mi godo il mio caffè al bar senza l'odore di tabacco che mi rovina il vestito. Una rivoluzione!",
+            "author_date": "Elena V."
+          }
+        },
+        "testimonials_wNb3KA": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "I love it!!!",
+            "text": "Add customer reviews and testimonials to highlight the positive experiences they’ve had with your store.",
+            "author_date": "Author's name – date"
+          }
+        },
+        "testimonials_JNbtir": {
+          "type": "testimonials",
+          "settings": {
+            "stars_count": 5,
+            "heading": "I love it!!!",
+            "text": "Add customer reviews and testimonials to highlight the positive experiences they’ve had with your store.",
+            "author_date": "Author's name – date"
+          }
+        }
+      },
+      "block_order": [
+        "testimonials_BVRAdP",
+        "testimonials_dzjKPJ",
+        "testimonials_eNCcQJ",
+        "testimonials_VCXXzy",
+        "testimonials_KWVxpQ",
+        "testimonials_cpVWaT",
+        "testimonials_Ge6QWN",
+        "testimonials_e6zdTt",
+        "testimonials_wNb3KA",
+        "testimonials_JNbtir"
+      ],
+      "name": "SS - Testimonial #8",
+      "settings": {
+        "heading": "I nostri clienti lo dicono meglio di noi!",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 40,
+        "heading_size_mobile": 24,
+        "heading_height": 130,
+        "heading_align": "center",
+        "rating_text": "Eccellente",
+        "rating_text_custom": false,
+        "rating_text_font": "josefin_sans_n4",
+        "rating_text_size": 24,
+        "rating_text_size_mobile": 20,
+        "rating_text_height": 130,
+        "rating": 4.8,
+        "rating_hide": false,
+        "rating_text_hide": false,
+        "rating_text_mt": 16,
+        "rating_align": "center",
+        "stars_count": 5,
+        "stars_size": 28,
+        "stars_size_mobile": 24,
+        "stars_gap": 5,
+        "stars_align": "center",
+        "text": "<p>basato su oltre <strong>1000 recensioni</strong></p>",
+        "text_custom": false,
+        "text_font": "josefin_sans_n4",
+        "text_size": 20,
+        "text_size_mobile": 16,
+        "text_height": 130,
+        "text_align": "center",
+        "text_mt": 16,
+        "slider_width": 80,
+        "slider_view": 3,
+        "slider_view_mobile": 1.2,
+        "slider_gap": 20,
+        "slider_gap_mobile": 20,
+        "slider_mt": 36,
+        "card_padding_vertical": 32,
+        "card_padding_vertical_mobile": 24,
+        "card_padding_horizontal": 40,
+        "card_padding_horizontal_mobile": 24,
+        "card_radius": 16,
+        "card_border_thickness": 0,
+        "card_shadow": true,
+        "card_heading_custom": false,
+        "card_heading_font": "josefin_sans_n4",
+        "card_heading_size": 24,
+        "card_heading_size_mobile": 20,
+        "card_heading_height": 130,
+        "card_heading_align": "center",
+        "card_heading_mt": 16,
+        "card_text_custom": false,
+        "card_text_font": "josefin_sans_n4",
+        "card_text_size": 14,
+        "card_text_size_mobile": 14,
+        "card_text_height": 150,
+        "card_text_align": "center",
+        "card_text_mt": 16,
+        "card_text_more": "",
+        "card_text_less": "",
+        "card_count_words": 20,
+        "card_author_date_text_custom": false,
+        "card_author_date_text_font": "josefin_sans_n4",
+        "card_author_date_text_size": 16,
+        "card_author_date_text_size_mobile": 16,
+        "card_author_date_text_height": 130,
+        "card_author_date_text_align": "center",
+        "card_author_date_text_mt": 16,
+        "arrow_show_desktop": true,
+        "arrow_show_mobile": false,
+        "arrow_size": 50,
+        "arrow_size_mobile": 50,
+        "arrow_icon_size": 28,
+        "arrow_icon_size_mobile": 28,
+        "arrow_border_thickness": 0,
+        "dots_show_desktop": false,
+        "dots_show_mobile": false,
+        "dots_size": 12,
+        "dots_size_mobile": 12,
+        "button": "",
+        "button_url": "",
+        "new_tab": false,
+        "button_custom": false,
+        "button_font": "josefin_sans_n4",
+        "button_size": 16,
+        "button_size_mobile": 14,
+        "button_height": 100,
+        "button_padding_vertical": 20,
+        "button_padding_horizontal": 16,
+        "button_radius": 8,
+        "button_border_thickness": 0,
+        "button_mt": 24,
+        "button_align": "center",
+        "button_color": "#FFFFFF",
+        "button_hover_color": "#FFFFFF",
+        "button_bg_color": "#121212",
+        "button_bg_hover_color": "#121212",
+        "button_border_color": "#121212",
+        "button_border_hover_color": "#121212",
+        "card_heading_color": "#121212",
+        "card_text_color": "#121212",
+        "card_author_date_text_color": "#121212",
+        "card_bg_color": "#FFFFFF",
+        "card_border_color": "#121212",
+        "card_shadow_color": "#00B67A",
+        "arrow_color": "#121212",
+        "arrow_hover_color": "#121212",
+        "arrow_bg_color": "#FFFFFF",
+        "arrow_bg_hover_color": "#FFFFFF",
+        "arrow_border_color": "#121212",
+        "arrow_border_hover_color": "#121212",
+        "dots_color": "#121212",
+        "stars_color": "#FFFFFF",
+        "stars_bg_color": "#00B67A",
+        "stars_bg_half_color": "#DDDDDD",
+        "heading_color": "#121212",
+        "rating_text_color": "#121212",
+        "text_color": "#121212",
+        "background_color": "#FFFFFF",
+        "background_gradient": "linear-gradient(180deg, rgba(206, 239, 199, 1), rgba(255, 255, 255, 1) 100%)",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": true,
+        "content_width": 1500,
+        "border_thickness": 0,
+        "lazy": true
+      }
+    },
+    "17719422141ae546e9": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_agg_section_GHUR6K": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "reviews_to_display": "",
+            "default_tab": "automatic",
+            "only_photos": false,
+            "hide_thumbnails": true,
+            "product_handle": "",
+            "aggregated": true,
+            "data-limit": 20,
+            "maxwidth": 1440,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_agg_section_GHUR6K"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "ss_comparison_table_6_TtC8Aq": {
+      "type": "ss-comparison-table-6",
+      "blocks": {
+        "list_item_RL63ti": {
+          "type": "list_item",
+          "settings": {
+            "text": "Fall asleep quicker"
+          }
+        },
+        "list_item_EbQJH9": {
+          "type": "list_item",
+          "settings": {
+            "text": "Relax & Restorative sleep"
+          }
+        },
+        "list_item_LVTxUy": {
+          "type": "list_item",
+          "settings": {
+            "text": "Wake up refreshed"
+          }
+        },
+        "list_item_GGmknB": {
+          "type": "list_item",
+          "settings": {
+            "text": "Plant based"
+          }
+        },
+        "table_row_cqqadN": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Optimized Dosing",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "none",
+            "four_column": "",
+            "four_column_icon": "none"
+          }
+        },
+        "table_row_3p6AWK": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Plant Based",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "none",
+            "four_column": "",
+            "four_column_icon": "none"
+          }
+        },
+        "table_row_6aCdhi": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Low Sugar",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "none",
+            "four_column": "",
+            "four_column_icon": "none"
+          }
+        },
+        "table_row_3d7kpE": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Simple Ingredients",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "none",
+            "four_column": "",
+            "four_column_icon": "none"
+          }
+        },
+        "table_row_EVmL7j": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "3rd Party Tested",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "none",
+            "four_column": "",
+            "four_column_icon": "none"
+          }
+        },
+        "table_row_HUMHBg": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Delicious Taste",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "none",
+            "four_column": "",
+            "four_column_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "list_item_RL63ti",
+        "list_item_EbQJH9",
+        "list_item_LVTxUy",
+        "list_item_GGmknB",
+        "table_row_cqqadN",
+        "table_row_3p6AWK",
+        "table_row_6aCdhi",
+        "table_row_3d7kpE",
+        "table_row_EVmL7j",
+        "table_row_HUMHBg"
+      ],
+      "name": "SS - Comparison table #6",
+      "settings": {
+        "body_gap": 32,
+        "body_gap_mobile": 32,
+        "content_horizontal_align": "start",
+        "content_horizontal_align_mobile": "center",
+        "heading": "<p><em>US</em> <strong>vs Other Brands</strong></p>",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 52,
+        "heading_size_mobile": 32,
+        "heading_height": 130,
+        "text": "<p>We pride ourselves in our quality and focus on sleep, we cannot say the same for others.</p>",
+        "text_custom": false,
+        "text_font": "josefin_sans_n4",
+        "text_size": 18,
+        "text_size_mobile": 18,
+        "text_height": 150,
+        "text_mt": 16,
+        "list_mt": 48,
+        "list_mt_mobile": 32,
+        "list_gap": 24,
+        "list_gap_mobile": 24,
+        "list_hide_mobile": true,
+        "icon_size": 28,
+        "icon_size_mobile": 28,
+        "icon_margin_right": 16,
+        "list_text_custom": false,
+        "list_text_font": "josefin_sans_n4",
+        "list_text_size": 20,
+        "list_text_size_mobile": 18,
+        "list_text_height": 150,
+        "button": "TRY DEEP DREAMS",
+        "button_url": "",
+        "button_custom": false,
+        "button_font": "josefin_sans_n4",
+        "button_size": 18,
+        "button_size_mobile": 18,
+        "button_height": 100,
+        "button_width": 305,
+        "button_mt": 50,
+        "button_mt_mobile": 32,
+        "button_padding_vertical": 16,
+        "button_padding_vertical_mobile": 16,
+        "button_padding_horizontal": 24,
+        "button_padding_horizontal_mobile": 24,
+        "button_radius": 100,
+        "button_border_thickness": 0,
+        "button_style": "non_outline",
+        "button_position_mobile": "bottom",
+        "table_columns": 2,
+        "table_column_active": "1",
+        "table_radius": 16,
+        "table_border_thickness": 1,
+        "first_heading": "SECTION STORE",
+        "second_heading": "Other Brands",
+        "third_heading": "Other",
+        "four_heading": "Other",
+        "table_heading_image_size": 100,
+        "table_heading_image_size_mobile": 80,
+        "table_heading_custom": false,
+        "table_heading_font": "assistant_n4",
+        "table_heading_size": 20,
+        "table_heading_size_mobile": 16,
+        "table_heading_height": 150,
+        "table_heading_align": "center",
+        "table_heading_padding_horizontal": 18,
+        "table_heading_padding_horizontal_mobile": 18,
+        "table_heading_padding_vertical": 18,
+        "table_heading_padding_vertical_mobile": 18,
+        "table_row_padding_horizontal": 14,
+        "table_row_padding_horizontal_mobile": 14,
+        "table_row_padding_vertical": 16,
+        "table_row_padding_vertical_mobile": 16,
+        "table_row_heading_custom": false,
+        "table_row_heading_font": "assistant_n4",
+        "table_row_heading_size": 16,
+        "table_row_heading_size_mobile": 16,
+        "table_row_heading_height": 150,
+        "table_row_heading_width_mobile": 66,
+        "table_row_heading_align": "left",
+        "table_row_text_custom": false,
+        "table_row_text_font": "assistant_n4",
+        "table_row_text_size": 20,
+        "table_row_text_size_mobile": 16,
+        "table_row_text_height": 150,
+        "table_row_text_align": "center",
+        "table_row_image_size": 24,
+        "table_row_image_size_mobile": 24,
+        "heading_color": "#121212",
+        "text_color": "#121212",
+        "icon_color": "#121212",
+        "list_text_color": "#121212",
+        "button_color": "#FFFFFF",
+        "button_hover_color": "#dad0ff",
+        "button_bg_color": "#16142B",
+        "button_bg_hover_color": "#16142B",
+        "button_border_color": "#16142B",
+        "button_border_hover_color": "#16142B",
+        "table_heading_active_color": "#FFFFFF",
+        "table_row_active_text_color": "#FFFFFF",
+        "table_heading_bg_active_color": "#2D2B43",
+        "table_column_active_bg_color": "#2D2B43",
+        "table_active_border_color": "#DAD0FF",
+        "table_heading_color": "#1A192E",
+        "table_row_heading_color": "#1A192E",
+        "table_row_text_color": "#1A192E",
+        "table_border_color": "#2D2B43",
+        "background_color": "#F6F3FF",
+        "background_gradient": "",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": false,
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
     }
   },
   "order": [
-    "instant-9qznVf6fMEtmTzWf"
+    "instant-9qznVf6fMEtmTzWf",
+    "ss_testimonial_8_qdznc9",
+    "17719422141ae546e9",
+    "ss_comparison_table_6_TtC8Aq"
   ]
 }
