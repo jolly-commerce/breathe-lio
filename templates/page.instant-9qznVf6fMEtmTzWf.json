@@ -290,35 +290,35 @@
         "list_item_RL63ti": {
           "type": "list_item",
           "settings": {
-            "text": "Fall asleep quicker"
+            "text": "Colpo in gola soddisfacente"
           }
         },
         "list_item_EbQJH9": {
           "type": "list_item",
           "settings": {
-            "text": "Relax & Restorative sleep"
+            "text": "Senza batteria e nicotina"
           }
         },
         "list_item_LVTxUy": {
           "type": "list_item",
           "settings": {
-            "text": "Wake up refreshed"
+            "text": "Rituale mano-bocca naturale"
           }
         },
         "list_item_GGmknB": {
           "type": "list_item",
           "settings": {
-            "text": "Plant based"
+            "text": "100% Vegetale"
           }
         },
         "table_row_cqqadN": {
           "type": "table_row",
           "settings": {
-            "row_heading": "Optimized Dosing",
+            "row_heading": "Colpo alla gola",
             "first_column": "",
             "first_column_icon": "check",
             "second_column": "",
-            "second_column_icon": "cross",
+            "second_column_icon": "check",
             "third_column": "",
             "third_column_icon": "none",
             "four_column": "",
@@ -328,7 +328,21 @@
         "table_row_3p6AWK": {
           "type": "table_row",
           "settings": {
-            "row_heading": "Plant Based",
+            "row_heading": "Fissazione orale",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "check",
+            "third_column": "",
+            "third_column_icon": "none",
+            "four_column": "",
+            "four_column_icon": "none"
+          }
+        },
+        "table_row_jbmrFX": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Senza Nicotina",
             "first_column": "",
             "first_column_icon": "check",
             "second_column": "",
@@ -342,7 +356,7 @@
         "table_row_6aCdhi": {
           "type": "table_row",
           "settings": {
-            "row_heading": "Low Sugar",
+            "row_heading": "Usalo Ovunque",
             "first_column": "",
             "first_column_icon": "check",
             "second_column": "",
@@ -356,7 +370,7 @@
         "table_row_3d7kpE": {
           "type": "table_row",
           "settings": {
-            "row_heading": "Simple Ingredients",
+            "row_heading": "Nessuna Batteria",
             "first_column": "",
             "first_column_icon": "check",
             "second_column": "",
@@ -370,7 +384,7 @@
         "table_row_EVmL7j": {
           "type": "table_row",
           "settings": {
-            "row_heading": "3rd Party Tested",
+            "row_heading": "Risparmia denaro",
             "first_column": "",
             "first_column_icon": "check",
             "second_column": "",
@@ -384,7 +398,7 @@
         "table_row_HUMHBg": {
           "type": "table_row",
           "settings": {
-            "row_heading": "Delicious Taste",
+            "row_heading": "Tutto naturale",
             "first_column": "",
             "first_column_icon": "check",
             "second_column": "",
@@ -403,6 +417,7 @@
         "list_item_GGmknB",
         "table_row_cqqadN",
         "table_row_3p6AWK",
+        "table_row_jbmrFX",
         "table_row_6aCdhi",
         "table_row_3d7kpE",
         "table_row_EVmL7j",
@@ -414,13 +429,13 @@
         "body_gap_mobile": 32,
         "content_horizontal_align": "start",
         "content_horizontal_align_mobile": "center",
-        "heading": "<p><em>US</em> <strong>vs Other Brands</strong></p>",
+        "heading": "<p>Lio <strong>vs Il Vecchio Modo</strong></p>",
         "heading_custom": false,
         "heading_font": "josefin_sans_n4",
         "heading_size": 52,
         "heading_size_mobile": 32,
         "heading_height": 130,
-        "text": "<p>We pride ourselves in our quality and focus on sleep, we cannot say the same for others.</p>",
+        "text": "<p>Non è una nuova sigaretta elettronica. È una categoria a sé stante: il <strong>Rituale di Benessere</strong>. Mentre gli altri riscaldano sostanze chimiche, Lio utilizza solo aria e natura.</p>",
         "text_custom": false,
         "text_font": "josefin_sans_n4",
         "text_size": 18,
@@ -440,7 +455,7 @@
         "list_text_size": 20,
         "list_text_size_mobile": 18,
         "list_text_height": 150,
-        "button": "TRY DEEP DREAMS",
+        "button": "",
         "button_url": "",
         "button_custom": false,
         "button_font": "josefin_sans_n4",
@@ -462,8 +477,8 @@
         "table_column_active": "1",
         "table_radius": 16,
         "table_border_thickness": 1,
-        "first_heading": "SECTION STORE",
-        "second_heading": "Other Brands",
+        "first_heading": "Lio",
+        "second_heading": "Others",
         "third_heading": "Other",
         "four_heading": "Other",
         "table_heading_image_size": 100,
@@ -502,21 +517,21 @@
         "icon_color": "#121212",
         "list_text_color": "#121212",
         "button_color": "#FFFFFF",
-        "button_hover_color": "#dad0ff",
-        "button_bg_color": "#16142B",
-        "button_bg_hover_color": "#16142B",
-        "button_border_color": "#16142B",
-        "button_border_hover_color": "#16142B",
+        "button_hover_color": "#00b67c",
+        "button_bg_color": "#001f16",
+        "button_bg_hover_color": "#001f16",
+        "button_border_color": "#001f16",
+        "button_border_hover_color": "#001f16",
         "table_heading_active_color": "#FFFFFF",
         "table_row_active_text_color": "#FFFFFF",
-        "table_heading_bg_active_color": "#2D2B43",
-        "table_column_active_bg_color": "#2D2B43",
-        "table_active_border_color": "#DAD0FF",
-        "table_heading_color": "#1A192E",
-        "table_row_heading_color": "#1A192E",
-        "table_row_text_color": "#1A192E",
-        "table_border_color": "#2D2B43",
-        "background_color": "#F6F3FF",
+        "table_heading_bg_active_color": "#001f16",
+        "table_column_active_bg_color": "#001f16",
+        "table_active_border_color": "#00b67c",
+        "table_heading_color": "#001f16",
+        "table_row_heading_color": "#001f16",
+        "table_row_text_color": "#001f16",
+        "table_border_color": "#001f16",
+        "background_color": "#ffffff",
         "background_gradient": "",
         "border_color": "#121212",
         "margin_top": 0,
