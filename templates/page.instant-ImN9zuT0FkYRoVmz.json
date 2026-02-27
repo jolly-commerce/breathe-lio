@@ -12,9 +12,33 @@
     "instant-ImN9zuT0FkYRoVmz": {
       "type": "instant-ImN9zuT0FkYRoVmz",
       "settings": {}
+    },
+    "instant_ylk_pdk0_ml_th_x5_l_gm_Jg4H9y": {
+      "type": "instant-ylkPDK0MlThX5LGm",
+      "name": "The Lio Plus Technology",
+      "settings": {
+        "text_gC0xmaHCpPbjVYFA": "<h3><strong>LIO PLUS</strong></h3>",
+        "text_sr0gmtH0Rl6fPXqC": "<h3><strong>THE NEXT EVOLUTION</strong></h3>",
+        "text_cZoF0vewSZWS4wsI": "<h3>No more core fraying, oily fingers, or cores falling out. With adjustable airflow, a stainless steel interior, and consistent flavor every time.</h3>",
+        "url_Igx8wYJXmMVeG2kv": "#iEb5gC5QhCEHg0vsG",
+        "text_rpn99O89HT6vPssr": "<p>GET LIO PLUS</p>",
+        "text_aQbgUSBx3T87yi1b": "<h3><strong>FLOW DOTS</strong></h3>",
+        "text_Q46F01XjOX29q7O9": "<h3><strong>ADJUSTABLE AIRLFOW</strong></h3>",
+        "text_yIMCErJjyqqQCSjY": "<h3>FlowDots are silicone inserts that secure your core and let you adjust airflow to match your preference. Choose different sizes for a tighter cigarette-like pull or a smoother vape-style inhale.</h3>",
+        "url_uWCJ6aBMmnWbTgpN": "#iEb5gC5QhCEHg0vsG",
+        "text_BMo7lBYfHXtHHXAx": "<p>GET LIO PLUS</p>",
+        "text_M8qs5XE4LdOAeVrk": "<h3><strong>FREE GIFTS WORTH €50</strong></h3>",
+        "text_WnAderfc8y8CICgQ": "<h3><strong>EVERY STARTER pACK COMES WITH</strong></h3>",
+        "text_ViOknePR13E2RiVW": "<h3><strong>Ready to upgrade?</strong></h3>",
+        "url_6bFXmzwEr6Y3cJmo": "#iEb5gC5QhCEHg0vsG",
+        "text_1oZXygi3649EOKkO": "<p>GET LIO PLUS</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
-    "instant-ImN9zuT0FkYRoVmz"
+    "instant-ImN9zuT0FkYRoVmz",
+    "instant_ylk_pdk0_ml_th_x5_l_gm_Jg4H9y"
   ]
 }
