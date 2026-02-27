@@ -30,8 +30,23 @@
       font-display: swap;
     }
   </style>
-  <div data-instant-type="root" class="iYMeugrMVSgADIhUH"
-    ><div class="icOizl8HHCJ7jYCWi" data-instant-type="container" id="icOizl8HHCJ7jYCWi"
+  <div data-instant-type="root" class="iYMeugrMVSgADIhUH">
+    {%- liquid
+      assign loading = 'eager'
+      assign fetchpriority = 'auto'
+      if section.location == 'footer'
+        assign loading = 'lazy'
+      elsif section.location == 'header'
+        assign fetchpriority = 'high'
+      elsif section.location == 'template'
+        if section.index == 1
+          assign fetchpriority = 'high'
+        elsif section.index > 2
+          assign loading = 'lazy'
+        endif
+      endif
+    -%}
+    <div class="icOizl8HHCJ7jYCWi" data-instant-type="container" id="icOizl8HHCJ7jYCWi"
       ><div class="i7LwCnAIpxng2OS5C" data-instant-type="container"
         ><div class="iM9AKcwe9V7DigQR8" data-instant-type="container"
           ><div class="instant-slider-container iL2TKkyq2kqNdW35r" data-instant-type="slider-container"
@@ -42,7 +57,7 @@
               <div class="instant-slider iYLwqb0xwYGgP6nfg" data-instant-slider-id="YLwqb0xwYGgP6nfg" id="iYLwqb0xwYGgP6nfg" data-instant-type="slider"
                 ><div class="instant-slider-wrapper"
                   ><div class="instant-slider-slide ibXjkmnQcla7sNS4m" data-instant-type="slider-slide"
-                    ><div data-instant-type="image" class="iP71WNDCoxTSoknrV"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" loading="eager" fetchpriority="high" class="instant-image__fallback instant-image instant-image__main"></div></div></div></div
+                    ><div data-instant-type="image" class="iP71WNDCoxTSoknrV"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main"></div></div></div></div
               ><button class="instant-slider-button instant-slider-button-prev instant-slider-YLwqb0xwYGgP6nfg-button-prev ircaUyX5sKkqqvyAQ" data-instant-type="slider-button-prev" type="button"
                 ><div data-instant-type="icon" class="iBuJ18INX5G8IGERB">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
@@ -60,7 +75,7 @@
               <div class="instant-slider instant-slider-thumbs iDLbkSN9PCA2RAmsc" data-instant-slider-id="YLwqb0xwYGgP6nfg" id="iDLbkSN9PCA2RAmsc" data-instant-type="thumbnails"
                 ><div class="instant-slider-wrapper"
                   ><div class="instant-slider-slide iXUKWZJmMq5Oh2cIC" data-instant-type="slider-slide"
-                    ><div data-instant-type="image" class="iE3NI6Qqj8tLYUqHl"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" loading="eager" fetchpriority="high" class="instant-image__fallback instant-image instant-image__main"></div></div></div></div
+                    ><div data-instant-type="image" class="iE3NI6Qqj8tLYUqHl"><img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image__fallback instant-image instant-image__main"></div></div></div></div
               ><button class="instant-slider-button instant-slider-button-prev instant-slider-DLbkSN9PCA2RAmsc-button-prev is1j47HVgeoRFm2dT" data-instant-type="slider-button-prev" type="button"
                 ><div data-instant-type="icon" class="iYVA55Dsx0LycZdli">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
@@ -95,69 +110,114 @@
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>star</title><path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
                   </svg></div></div
-              ><div data-instant-type="text" class="instant-rich-text ibcHm5dtKuFaKAO7V"><p>(4.9 stars) • 234 reviews</p></div></div
+              ><div data-instant-type="text" class="instant-rich-text ibcHm5dtKuFaKAO7V"
+                ><div>{{ section.settings['text_bcHm5dtKuFaKAO7V-1'] }}</div></div
+              ></div
             ><div class="ivOxSITO9zhmsAErO" data-instant-type="container"
-              ><div data-instant-type="text" class="instant-rich-text iWujxXQTNnB08cKT4"><p>NEW</p></div
+              ><div data-instant-type="text" class="instant-rich-text iWujxXQTNnB08cKT4"
+                ><div>{{ section.settings['text_WujxXQTNnB08cKT4-1'] }}</div></div
               ><p data-instant-dynamic-content-source="TITLE" data-instant-type="text" class="iXq6ulreXmtsUjves">Product title</p></div
             ></div
           ><div class="iLujBDnt33cCfHS3h" data-instant-type="container"
             ><div class="ibgg9TJpa2Jnfb5aS" data-instant-type="container"
-              ><div data-instant-type="text" class="instant-rich-text il330XllEBSaZlp7T"><p>Select your COLOUR:</p></div
+              ><div data-instant-type="text" class="instant-rich-text il330XllEBSaZlp7T"
+                ><div>{{ section.settings['text_l330XllEBSaZlp7T-1'] }}</div></div
               ><div class="i0UvOOy5Q3Yata1nH" data-instant-type="container"
                 ><div class="instant-custom-variant-picker iSf1Y9U5ImujmQkOt" data-instant-type="container" data-instant-action-type="select-variant-option" data-instant-option-value="Olive" data-instant-option-name="Lio Plus" data-instant-state="inactive"
-                  ><div data-instant-type="image" class="i22iZqd1maNHoOKgJ"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main"></div
+                  ><div data-instant-type="image" class="i22iZqd1maNHoOKgJ">
+                    {%- if section.settings['image_22iZqd1maNHoOKgJ-1'] and section.settings['image_22iZqd1maNHoOKgJ-1'] != blank -%}
+                      {{ section.settings['image_22iZqd1maNHoOKgJ-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_22iZqd1maNHoOKgJ-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280" width="1072" height="1072" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
+                    {%- endif -%}</div
                   ><div class="ihszrBUG3BUKjmfjv" data-instant-type="container"
                     ><div data-instant-type="text" class="instant-rich-text iff8yPTzDLLjAPoAo"
-                      ><p><strong>Lio Plus</strong></p></div
+                      ><div>{{ section.settings['text_ff8yPTzDLLjAPoAo-1'] }}</div></div
                     ><div data-instant-type="text" class="instant-rich-text ia3YwIC3sIWtTvnpB"
-                      ><p><strong>OLIVE</strong></p></div
+                      ><div>{{ section.settings['text_a3YwIC3sIWtTvnpB-1'] }}</div></div
                     ></div
                   ><div class="iqLbHdiO2Fqn7ubM4" data-instant-type="container"></div></div
                 ><div class="instant-custom-variant-picker iOPmEsJKHpCHv8kie" data-instant-type="container" data-instant-action-type="select-variant-option" data-instant-option-value="Walnut" data-instant-option-name="Lio Plus" data-instant-state="inactive"
-                  ><div data-instant-type="image" class="ilLWZAbjkIugZxhny"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=1280" width="1074" height="1081" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main"></div
+                  ><div data-instant-type="image" class="ilLWZAbjkIugZxhny">
+                    {%- if section.settings['image_lLWZAbjkIugZxhny-1'] and section.settings['image_lLWZAbjkIugZxhny-1'] != blank -%}
+                      {{ section.settings['image_lLWZAbjkIugZxhny-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_lLWZAbjkIugZxhny-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=1280" width="1074" height="1081" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
+                    {%- endif -%}</div
                   ><div class="igIms8bklitPZm4Pe" data-instant-type="container"
                     ><div data-instant-type="text" class="instant-rich-text iGfIADrLsHLY9Wz2R"
-                      ><p><strong>Lio Plus</strong></p></div
+                      ><div>{{ section.settings['text_GfIADrLsHLY9Wz2R-1'] }}</div></div
                     ><div class="iSrI7r1hnWFF0PckA" data-instant-type="container"
                       ><div data-instant-type="text" class="instant-rich-text idYj50zKkwm4vFmH5"
-                        ><p><strong>WALNUT</strong></p></div
+                        ><div>{{ section.settings['text_dYj50zKkwm4vFmH5-1'] }}</div></div
                       ></div
                     ></div
                   ></div
                 ></div
-              ><div data-instant-type="text" class="instant-rich-text i6fQxfA60U1rG2fG8"><p>Select your BUNDLE:</p></div
+              ><div data-instant-type="text" class="instant-rich-text i6fQxfA60U1rG2fG8"
+                ><div>{{ section.settings['text_6fQxfA60U1rG2fG8-1'] }}</div></div
               ><div class="iDK8GogpNN4WdjEn5" data-instant-type="container"
                 ><div class="instant-custom-variant-picker iEqsDEaRm0qSEh7ej" data-instant-type="container" data-instant-action-type="select-variant-option" data-instant-option-value="30 Day Supply" data-instant-option-name="Cores Bundle" data-instant-state="inactive"
-                  ><div data-instant-type="image" class="i6W7HNKDEZDh4HVue"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main"></div
+                  ><div data-instant-type="image" class="i6W7HNKDEZDh4HVue">
+                    {%- if section.settings['image_6W7HNKDEZDh4HVue-1'] and section.settings['image_6W7HNKDEZDh4HVue-1'] != blank -%}
+                      {{ section.settings['image_6W7HNKDEZDh4HVue-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_6W7HNKDEZDh4HVue-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280" width="1072" height="1072" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
+                    {%- endif -%}</div
                   ><div class="iOQApzkQ4caqkigPm" data-instant-type="container"
                     ><div class="iwYWRNRim1txfvO1p" data-instant-type="container"
-                      ><div data-instant-type="text" class="instant-rich-text ipHTYCdakUq2mZQSG"><p>Starter pack | 30 Days</p></div
-                      ><div data-instant-type="text" class="instant-rich-text ihucXrbg13Wqk6ihY"><p>POPULAR</p></div></div
+                      ><div data-instant-type="text" class="instant-rich-text ipHTYCdakUq2mZQSG"
+                        ><div>{{ section.settings['text_pHTYCdakUq2mZQSG-1'] }}</div></div
+                      ><div data-instant-type="text" class="instant-rich-text ihucXrbg13Wqk6ihY"
+                        ><div>{{ section.settings['text_hucXrbg13Wqk6ihY-1'] }}</div></div
+                      ></div
                     ><div class="iR3F1OoEfLJuO91jC" data-instant-type="container"
-                      ><div data-instant-type="text" class="instant-rich-text iR3LCzQT6lFnmllkY"><p>Lio Plus + 30 Days of Cores + Free gifts worth €40 </p></div></div
+                      ><div data-instant-type="text" class="instant-rich-text iR3LCzQT6lFnmllkY"
+                        ><div>{{ section.settings['text_R3LCzQT6lFnmllkY-1'] }}</div></div
+                      ></div
                     ></div
                   ><div class="icT8hUJyptBjEKQJ3" data-instant-type="container"></div><div class="i64A36cgpnvemE0SM" data-instant-type="container"></div></div
                 ><div class="instant-custom-variant-picker iUy61XwwkHQUBI9FD" data-instant-type="container" data-instant-action-type="select-variant-option" data-instant-option-value="90 Day Supply" data-instant-option-name="Cores Bundle" data-instant-state="inactive"
-                  ><div data-instant-type="image" class="i21KnBIEU6GcGceAm"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main"></div
+                  ><div data-instant-type="image" class="i21KnBIEU6GcGceAm">
+                    {%- if section.settings['image_21KnBIEU6GcGceAm-1'] and section.settings['image_21KnBIEU6GcGceAm-1'] != blank -%}
+                      {{ section.settings['image_21KnBIEU6GcGceAm-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_21KnBIEU6GcGceAm-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280" width="1072" height="1072" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
+                    {%- endif -%}</div
                   ><div class="ipNGmhkSLcNYGG0JL" data-instant-type="container"
                     ><div class="ifJG5jxpYYS2Ejedl" data-instant-type="container"
-                      ><div data-instant-type="text" class="instant-rich-text iH0LY1ULpAxoeB5X7"><p>Best Value Pack | 90 Days</p></div></div
+                      ><div data-instant-type="text" class="instant-rich-text iH0LY1ULpAxoeB5X7"
+                        ><div>{{ section.settings['text_H0LY1ULpAxoeB5X7-1'] }}</div></div
+                      ></div
                     ><div class="iqPEWAPzJFKRo9x0B" data-instant-type="container"
-                      ><div data-instant-type="text" class="instant-rich-text ihX2i3bswaxKENG1D"><p>Lio Plus + 90 Days of Cores + Free gifts worth €40 </p></div></div
+                      ><div data-instant-type="text" class="instant-rich-text ihX2i3bswaxKENG1D"
+                        ><div>{{ section.settings['text_hX2i3bswaxKENG1D-1'] }}</div></div
+                      ></div
                     ></div
                   ><div class="iiIjJ3QMe1OliXAhb" data-instant-type="container"></div><div class="ivyBOGNgUV7TxlBz6" data-instant-type="container"></div></div
                 ><div class="instant-custom-variant-picker ia2QMC71RXBtbri8L" data-instant-type="container" data-instant-action-type="select-variant-option" data-instant-option-value="Device Only" data-instant-option-name="Cores Bundle" data-instant-state="inactive"
-                  ><div data-instant-type="image" class="i0AoTzrXKV0h6FWT7"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main"></div
+                  ><div data-instant-type="image" class="i0AoTzrXKV0h6FWT7">
+                    {%- if section.settings['image_0AoTzrXKV0h6FWT7-1'] and section.settings['image_0AoTzrXKV0h6FWT7-1'] != blank -%}
+                      {{ section.settings['image_0AoTzrXKV0h6FWT7-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_0AoTzrXKV0h6FWT7-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280" width="1072" height="1072" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
+                    {%- endif -%}</div
                   ><div class="iqEN1jbbwrhVjCBQA" data-instant-type="container"
                     ><div class="i2w5TUS6fo0DxOO22" data-instant-type="container"
-                      ><div data-instant-type="text" class="instant-rich-text iOoSB2OF50EJIpnKt"><p>DEVICE ONLY</p></div></div
+                      ><div data-instant-type="text" class="instant-rich-text iOoSB2OF50EJIpnKt"
+                        ><div>{{ section.settings['text_OoSB2OF50EJIpnKt-1'] }}</div></div
+                      ></div
                     ><div class="i8wMhVrVEkzl9ZKsl" data-instant-type="container"
-                      ><div data-instant-type="text" class="instant-rich-text iMJfvzOoODIRNqjth"><p>Lio Plus (No Cores)</p></div></div
+                      ><div data-instant-type="text" class="instant-rich-text iMJfvzOoODIRNqjth"
+                        ><div>{{ section.settings['text_MJfvzOoODIRNqjth-1'] }}</div></div
+                      ></div
                     ></div
                   ><div class="iDhb6oYB2v93AqGXJ" data-instant-type="container"></div><div class="iuepEuBvKe0Lr4HpB" data-instant-type="container"></div></div></div></div></div
           ><div class="iU7LouR0h043XqzcI" data-instant-type="container"
             ><div class="iVzFCNynaF2numfrn" data-instant-type="container"
-              ><div data-instant-type="text" class="instant-rich-text iitwZ1SkRakUK8l0h"><p>Add To Cart</p></div></div
+              ><div data-instant-type="text" class="instant-rich-text iitwZ1SkRakUK8l0h"
+                ><div>{{ section.settings['text_itwZ1SkRakUK8l0h-1'] }}</div></div
+              ></div
             ></div
           ><div class="iqrx1aqd4kOh24q6R" data-instant-type="container"
             ><div class="iim39EC6e3wvYTULR" data-instant-type="container"
@@ -165,50 +225,65 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                   <title>circle</title><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Z"></path>
                 </svg></div
-              ><div data-instant-type="text" class="instant-rich-text iQCBJNGmqWYOtj6BI"><p>Lorem ipsum dolor sit amet</p></div></div
+              ><div data-instant-type="text" class="instant-rich-text iQCBJNGmqWYOtj6BI"
+                ><div>{{ section.settings['text_QCBJNGmqWYOtj6BI-1'] }}</div></div
+              ></div
             ><div class="ihXXiEz5WDDS8moKm" data-instant-type="container"
               ><div data-instant-type="icon" class="i1xEA7dKtS5yYek0b">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                   <title>circle</title><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Z"></path>
                 </svg></div
-              ><div data-instant-type="text" class="instant-rich-text i95Iwhr5Lw627Z8hJ"><p>Lorem ipsum dolor sit amet</p></div></div
+              ><div data-instant-type="text" class="instant-rich-text i95Iwhr5Lw627Z8hJ"
+                ><div>{{ section.settings['text_95Iwhr5Lw627Z8hJ-1'] }}</div></div
+              ></div
             ><div class="i0cvoEUNNjoXqJQEv" data-instant-type="container"
               ><div data-instant-type="icon" class="ib9YRbp0wV6v8QSXs">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                   <title>circle</title><path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Z"></path>
                 </svg></div
-              ><div data-instant-type="text" class="instant-rich-text ipeE3KG16LfzkyeYW"><p>Lorem ipsum dolor sit amet</p></div></div
+              ><div data-instant-type="text" class="instant-rich-text ipeE3KG16LfzkyeYW"
+                ><div>{{ section.settings['text_peE3KG16LfzkyeYW-1'] }}</div></div
+              ></div
             ></div
           ><div class="iHbErjB5Kf1HEpv72" data-instant-type="accordion-container" data-is-first-open="false" data-is-multi-open-enabled="false"
             ><div data-state="closed" class="iwSA3247Oo6sEKCKS" data-instant-type="accordion-item"
               ><button class="iN9RzaHDb3w7hlcPR" data-instant-type="accordion-header" type="button"
-                ><div data-instant-type="text" class="instant-rich-text iEJYPNTihh5QaRIZr"><p>Features &amp; Specifications</p></div
+                ><div data-instant-type="text" class="instant-rich-text iEJYPNTihh5QaRIZr"
+                  ><div>{{ section.settings['text_EJYPNTihh5QaRIZr-1'] }}</div></div
                 ><div data-instant-type="icon" class="ibV3pGlFG2a4ZfCgu">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>caret-down</title><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
                   </svg></div></button
               ><div class="iGjdEnPHgftrk5Dea" data-instant-type="accordion-content" style="--instant-accordion-content-height:auto;--instant-accordion-content-width:auto"
-                ><div data-instant-type="text" class="instant-rich-text i7Ulq2dPydFTRiOPk"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p></div></div
+                ><div data-instant-type="text" class="instant-rich-text i7Ulq2dPydFTRiOPk"
+                  ><div>{{ section.settings['text_7Ulq2dPydFTRiOPk-1'] }}</div></div
+                ></div
               ></div
             ><div data-state="closed" class="i2kJYCHJJh39LcpKA" data-instant-type="accordion-item"
               ><button class="i1poPmVg7ig8MyhYo" data-instant-type="accordion-header" type="button"
-                ><div data-instant-type="text" class="instant-rich-text iHkzzOQb49Y7jqkZi"><p>Description</p></div
+                ><div data-instant-type="text" class="instant-rich-text iHkzzOQb49Y7jqkZi"
+                  ><div>{{ section.settings['text_HkzzOQb49Y7jqkZi-1'] }}</div></div
                 ><div data-instant-type="icon" class="iFt6hbf4DyAulmNfM">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>caret-down</title><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
                   </svg></div></button
               ><div class="i5WFgENh0aCtZeOMJ" data-instant-type="accordion-content" style="--instant-accordion-content-height:auto;--instant-accordion-content-width:auto"
-                ><div data-instant-type="text" class="instant-rich-text iQlRJarMna42px06p"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p></div></div
+                ><div data-instant-type="text" class="instant-rich-text iQlRJarMna42px06p"
+                  ><div>{{ section.settings['text_QlRJarMna42px06p-1'] }}</div></div
+                ></div
               ></div
             ><div data-state="closed" class="im6orvPd2R722OsDp" data-instant-type="accordion-item"
               ><button class="iJpgOqrVNExBb2ChY" data-instant-type="accordion-header" type="button"
-                ><div data-instant-type="text" class="instant-rich-text iVsv6BbZvqI0N9xlu"><p>How to use</p></div
+                ><div data-instant-type="text" class="instant-rich-text iVsv6BbZvqI0N9xlu"
+                  ><div>{{ section.settings['text_Vsv6BbZvqI0N9xlu-1'] }}</div></div
                 ><div data-instant-type="icon" class="i26rXVoXCBZjxqYAT">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>caret-down</title><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
                   </svg></div></button
               ><div class="iKxcuuYU6DCvk9urI" data-instant-type="accordion-content" style="--instant-accordion-content-height:auto;--instant-accordion-content-width:auto"
-                ><div data-instant-type="text" class="instant-rich-text iFyXerH4lGYnqqvQd"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p></div></div
+                ><div data-instant-type="text" class="instant-rich-text iFyXerH4lGYnqqvQd"
+                  ><div>{{ section.settings['text_FyXerH4lGYnqqvQd-1'] }}</div></div
+                ></div
               ></div
             ></div
           ></div
@@ -221,6 +296,221 @@
 </div>
 {% schema %}
 {
-  "name": "Page 64"
+  "name": "Page 64",
+  "tag": "section",
+  "enabled_on": {
+    "templates": [
+      "*"
+    ]
+  },
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text_bcHm5dtKuFaKAO7V-1",
+      "label": "Rating",
+      "default": "<p>(4.9 stars) • 234 reviews</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_WujxXQTNnB08cKT4-1",
+      "label": "Text",
+      "default": "<p>NEW</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_l330XllEBSaZlp7T-1",
+      "label": "Text",
+      "default": "<p>Select your COLOUR:</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_22iZqd1maNHoOKgJ-1",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text_ff8yPTzDLLjAPoAo-1",
+      "label": "Text",
+      "default": "<p><strong>Lio Plus</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_a3YwIC3sIWtTvnpB-1",
+      "label": "Text",
+      "default": "<p><strong>OLIVE</strong></p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_lLWZAbjkIugZxhny-1",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text_GfIADrLsHLY9Wz2R-1",
+      "label": "Text",
+      "default": "<p><strong>Lio Plus</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_dYj50zKkwm4vFmH5-1",
+      "label": "Text",
+      "default": "<p><strong>WALNUT</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_6fQxfA60U1rG2fG8-1",
+      "label": "Text",
+      "default": "<p>Select your BUNDLE:</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_6W7HNKDEZDh4HVue-1",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text_pHTYCdakUq2mZQSG-1",
+      "label": "Text",
+      "default": "<p>Starter pack | 30 Days</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_hucXrbg13Wqk6ihY-1",
+      "label": "Text",
+      "default": "<p>POPULAR</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_R3LCzQT6lFnmllkY-1",
+      "label": "Text",
+      "default": "<p>Lio Plus + 30 Days of Cores + Free gifts worth €40 </p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_21KnBIEU6GcGceAm-1",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text_H0LY1ULpAxoeB5X7-1",
+      "label": "Text",
+      "default": "<p>Best Value Pack | 90 Days</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_hX2i3bswaxKENG1D-1",
+      "label": "Text",
+      "default": "<p>Lio Plus + 90 Days of Cores + Free gifts worth €40 </p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_0AoTzrXKV0h6FWT7-1",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text_OoSB2OF50EJIpnKt-1",
+      "label": "Text",
+      "default": "<p>DEVICE ONLY</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_MJfvzOoODIRNqjth-1",
+      "label": "Text",
+      "default": "<p>Lio Plus (No Cores)</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_itwZ1SkRakUK8l0h-1",
+      "label": "Text",
+      "default": "<p>Add To Cart</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_QCBJNGmqWYOtj6BI-1",
+      "label": "Text",
+      "default": "<p>Lorem ipsum dolor sit amet</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_95Iwhr5Lw627Z8hJ-1",
+      "label": "Text",
+      "default": "<p>Lorem ipsum dolor sit amet</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_peE3KG16LfzkyeYW-1",
+      "label": "Text",
+      "default": "<p>Lorem ipsum dolor sit amet</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_EJYPNTihh5QaRIZr-1",
+      "label": "Text",
+      "default": "<p>Features &amp; Specifications</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_7Ulq2dPydFTRiOPk-1",
+      "label": "Text",
+      "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_HkzzOQb49Y7jqkZi-1",
+      "label": "Text",
+      "default": "<p>Description</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_QlRJarMna42px06p-1",
+      "label": "Text",
+      "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_Vsv6BbZvqI0N9xlu-1",
+      "label": "Text",
+      "default": "<p>How to use</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_FyXerH4lGYnqqvQd-1",
+      "label": "Text",
+      "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page 64",
+      "settings": {
+        "text_bcHm5dtKuFaKAO7V-1": "<p>(4.9 stars) • 234 reviews</p>",
+        "text_WujxXQTNnB08cKT4-1": "<p>NEW</p>",
+        "text_l330XllEBSaZlp7T-1": "<p>Select your COLOUR:</p>",
+        "text_ff8yPTzDLLjAPoAo-1": "<p><strong>Lio Plus</strong></p>",
+        "text_a3YwIC3sIWtTvnpB-1": "<p><strong>OLIVE</strong></p>",
+        "text_GfIADrLsHLY9Wz2R-1": "<p><strong>Lio Plus</strong></p>",
+        "text_dYj50zKkwm4vFmH5-1": "<p><strong>WALNUT</strong></p>",
+        "text_6fQxfA60U1rG2fG8-1": "<p>Select your BUNDLE:</p>",
+        "text_pHTYCdakUq2mZQSG-1": "<p>Starter pack | 30 Days</p>",
+        "text_hucXrbg13Wqk6ihY-1": "<p>POPULAR</p>",
+        "text_R3LCzQT6lFnmllkY-1": "<p>Lio Plus + 30 Days of Cores + Free gifts worth €40 </p>",
+        "text_H0LY1ULpAxoeB5X7-1": "<p>Best Value Pack | 90 Days</p>",
+        "text_hX2i3bswaxKENG1D-1": "<p>Lio Plus + 90 Days of Cores + Free gifts worth €40 </p>",
+        "text_OoSB2OF50EJIpnKt-1": "<p>DEVICE ONLY</p>",
+        "text_MJfvzOoODIRNqjth-1": "<p>Lio Plus (No Cores)</p>",
+        "text_itwZ1SkRakUK8l0h-1": "<p>Add To Cart</p>",
+        "text_QCBJNGmqWYOtj6BI-1": "<p>Lorem ipsum dolor sit amet</p>",
+        "text_95Iwhr5Lw627Z8hJ-1": "<p>Lorem ipsum dolor sit amet</p>",
+        "text_peE3KG16LfzkyeYW-1": "<p>Lorem ipsum dolor sit amet</p>",
+        "text_EJYPNTihh5QaRIZr-1": "<p>Features &amp; Specifications</p>",
+        "text_7Ulq2dPydFTRiOPk-1": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>",
+        "text_HkzzOQb49Y7jqkZi-1": "<p>Description</p>",
+        "text_QlRJarMna42px06p-1": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>",
+        "text_Vsv6BbZvqI0N9xlu-1": "<p>How to use</p>",
+        "text_FyXerH4lGYnqqvQd-1": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>"
+      }
+    }
+  ]
 }
 {% endschema %}
