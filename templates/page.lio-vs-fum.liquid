@@ -1,0 +1,678 @@
+{% comment %}
+  BreatheLio vs Füm — Comparison Landing Page
+  Usage: Create a new page template in your Shopify theme and include this section,
+         or paste into a custom Liquid section/template.
+  
+  Requires: 
+  - Theme settings or section settings for logo images (see schema at bottom)
+  - Google Fonts: DM Serif Display + Outfit (loaded via preconnect)
+{% endcomment %}
+
+{% style %}
+:root {
+  --lio-dark: #0a1a14;
+  --lio-forest: #1a3a2a;
+  --lio-green: #2d6a4f;
+  --lio-mint: #52b788;
+  --lio-light-mint: #b7e4c7;
+  --lio-cream: #f0f5f1;
+  --lio-white: #ffffff;
+  --lio-gold: #c9a84c;
+  --lio-warm: #faf8f5;
+  --fum-yellow: #e8e07a;
+  --fum-dark: #2d3328;
+  --text-primary: #0a1a14;
+  --text-secondary: #3d5a4a;
+  --text-muted: #7a9988;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'Outfit', -apple-system, sans-serif;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow-sm: 0 2px 8px rgba(10,26,20,0.06);
+  --shadow-md: 0 8px 32px rgba(10,26,20,0.08);
+  --shadow-lg: 0 16px 64px rgba(10,26,20,0.12);
+  --shadow-glow: 0 0 40px rgba(82,183,136,0.15);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body { font-family:var(--font-body); color:var(--text-primary); background:var(--lio-warm); line-height:1.7; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+
+/* === ANIMATIONS === */
+@keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes shimmer { 0% { background-position:-200% center; } 100% { background-position:200% center; } }
+@keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.05); } }
+@keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
+@keyframes breathe { 0%,100% { opacity:0.4; } 50% { opacity:0.8; } }
+
+.fade-up { opacity:0; animation:fadeUp 0.8s ease forwards; }
+.fade-up-d1 { animation-delay:0.1s; }
+.fade-up-d2 { animation-delay:0.2s; }
+.fade-up-d3 { animation-delay:0.3s; }
+.fade-up-d4 { animation-delay:0.4s; }
+.fade-up-d5 { animation-delay:0.5s; }
+
+/* === LAYOUT === */
+.comparison-container { max-width:1140px; margin:0 auto; padding:0 24px; }
+.comparison-section { padding:100px 0; }
+
+/* === NAV === */
+.comparison-nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(250,248,245,0.85); backdrop-filter:blur(20px) saturate(180%); border-bottom:1px solid rgba(10,26,20,0.06); transition:all 0.3s; }
+.comparison-nav-inner { display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1140px; margin:0 auto; }
+.comparison-nav-logo { height:36px; border-radius:6px; }
+.comparison-nav-cta { display:inline-flex; align-items:center; gap:8px; padding:10px 24px; background:var(--lio-green); color:#fff; border-radius:50px; font-weight:600; font-size:0.88rem; text-decoration:none; transition:all 0.3s; letter-spacing:0.02em; }
+.comparison-nav-cta:hover { background:var(--lio-forest); transform:translateY(-1px); box-shadow:var(--shadow-md); }
+
+/* === HERO === */
+.comparison-hero { position:relative; padding:160px 0 100px; background:linear-gradient(170deg, var(--lio-dark) 0%, var(--lio-forest) 50%, var(--lio-green) 100%); color:#fff; overflow:hidden; }
+.comparison-hero::before { content:''; position:absolute; top:-50%; right:-20%; width:80%; height:200%; background:radial-gradient(ellipse, rgba(82,183,136,0.12) 0%, transparent 70%); pointer-events:none; animation:breathe 6s ease-in-out infinite; }
+.comparison-hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to bottom, transparent, var(--lio-warm)); pointer-events:none; }
+.comparison-hero-badge { display:inline-flex; align-items:center; gap:8px; padding:8px 18px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); border-radius:50px; font-size:0.82rem; font-weight:500; letter-spacing:0.04em; text-transform:uppercase; margin-bottom:28px; backdrop-filter:blur(10px); }
+.comparison-hero-badge-dot { width:6px; height:6px; background:#52b788; border-radius:50%; animation:pulse 2s infinite; }
+.comparison-hero h1 { font-family:var(--font-display); font-size:clamp(2.6rem, 5.5vw, 4.2rem); line-height:1.12; font-weight:400; margin-bottom:24px; max-width:780px; }
+.comparison-hero h1 em { font-style:italic; color:var(--lio-light-mint); }
+.comparison-hero-sub { font-size:1.15rem; line-height:1.7; color:rgba(255,255,255,0.78); max-width:560px; margin-bottom:40px; font-weight:300; }
+.comparison-hero-logos { display:flex; align-items:center; gap:20px; margin-bottom:44px; }
+.comparison-hero-logo-box { width:70px; height:70px; border-radius:14px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.comparison-hero-logo-box.lio { background:var(--lio-dark); border:2px solid rgba(82,183,136,0.4); }
+.comparison-hero-logo-box.fum { background:var(--fum-yellow); border:2px solid rgba(255,255,255,0.15); }
+.comparison-hero-logo-box img { height:38px; width:auto; }
+.comparison-hero-vs { font-family:var(--font-display); font-size:1.4rem; color:var(--lio-mint); font-style:italic; }
+.comparison-hero-ctas { display:flex; gap:16px; flex-wrap:wrap; }
+.comparison-btn-primary { display:inline-flex; align-items:center; gap:10px; padding:16px 36px; background:var(--lio-mint); color:var(--lio-dark); font-weight:600; font-size:1rem; border-radius:50px; text-decoration:none; transition:all 0.35s cubic-bezier(0.4,0,0.2,1); letter-spacing:0.01em; border:none; cursor:pointer; }
+.comparison-btn-primary:hover { background:#fff; transform:translateY(-2px); box-shadow:0 12px 40px rgba(82,183,136,0.3); }
+.comparison-btn-secondary { display:inline-flex; align-items:center; gap:10px; padding:16px 36px; background:transparent; color:#fff; font-weight:500; font-size:1rem; border-radius:50px; text-decoration:none; transition:all 0.3s; border:1.5px solid rgba(255,255,255,0.25); cursor:pointer; }
+.comparison-btn-secondary:hover { border-color:rgba(255,255,255,0.5); background:rgba(255,255,255,0.05); }
+.comparison-hero-trust { display:flex; gap:32px; margin-top:48px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.1); }
+.comparison-hero-trust-item { display:flex; flex-direction:column; }
+.comparison-hero-trust-num { font-family:var(--font-display); font-size:1.6rem; color:var(--lio-mint); }
+.comparison-hero-trust-label { font-size:0.78rem; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.06em; font-weight:500; }
+
+/* === TLDR === */
+.comparison-tldr { background:var(--lio-white); border-radius:var(--radius); padding:48px; box-shadow:var(--shadow-md); border:1px solid rgba(10,26,20,0.04); margin-top:-60px; position:relative; z-index:10; }
+.comparison-tldr-label { font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--lio-mint); margin-bottom:16px; }
+.comparison-tldr-title { font-family:var(--font-display); font-size:1.8rem; margin-bottom:16px; color:var(--text-primary); }
+.comparison-tldr-desc { color:var(--text-secondary); font-size:1.02rem; line-height:1.8; margin-bottom:32px; max-width:700px; }
+.comparison-tldr-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+.comparison-tldr-col { padding:28px; border-radius:var(--radius-sm); }
+.comparison-tldr-col.lio-col { background:linear-gradient(135deg, rgba(82,183,136,0.06), rgba(45,106,79,0.04)); border:1px solid rgba(82,183,136,0.15); }
+.comparison-tldr-col.fum-col { background:rgba(232,224,122,0.08); border:1px solid rgba(232,224,122,0.2); }
+.comparison-tldr-col-header { display:flex; align-items:center; gap:10px; margin-bottom:18px; font-weight:600; font-size:0.95rem; }
+.comparison-tldr-col-logo { height:22px; border-radius:4px; }
+.comparison-tldr-check { color:var(--lio-green); margin-right:8px; font-weight:700; }
+.comparison-tldr-item { padding:6px 0; font-size:0.94rem; color:var(--text-secondary); line-height:1.6; }
+
+/* === COMPARISON MATRIX === */
+.comparison-matrix-section { background:var(--lio-cream); }
+.comparison-section-label { font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:var(--lio-mint); margin-bottom:12px; text-align:center; }
+.comparison-section-title { font-family:var(--font-display); font-size:clamp(1.8rem, 3.5vw, 2.6rem); text-align:center; margin-bottom:12px; color:var(--text-primary); }
+.comparison-section-sub { text-align:center; color:var(--text-secondary); font-size:1.02rem; max-width:580px; margin:0 auto 52px; font-weight:300; }
+.comparison-matrix-table { width:100%; border-collapse:separate; border-spacing:0; background:var(--lio-white); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-md); border:1px solid rgba(10,26,20,0.04); }
+.comparison-matrix-table thead th { padding:24px 20px; font-size:0.82rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; text-align:center; border-bottom:2px solid var(--lio-cream); }
+.comparison-matrix-table thead th:first-child { text-align:left; width:36%; color:var(--text-muted); }
+.comparison-matrix-table thead th.lio-head { color:var(--lio-green); background:linear-gradient(to bottom, rgba(82,183,136,0.06), transparent); }
+.comparison-matrix-table thead th.fum-head { color:var(--fum-dark); }
+.comparison-matrix-table thead th .th-logo { height:20px; margin-right:6px; vertical-align:middle; border-radius:3px; }
+.comparison-matrix-table tbody tr { transition:background 0.2s; }
+.comparison-matrix-table tbody tr:hover { background:rgba(82,183,136,0.02); }
+.comparison-matrix-table tbody td { padding:18px 20px; border-bottom:1px solid var(--lio-cream); text-align:center; font-size:0.94rem; color:var(--text-secondary); }
+.comparison-matrix-table tbody td:first-child { text-align:left; font-weight:500; color:var(--text-primary); font-size:0.92rem; }
+.comparison-matrix-table tbody td.lio-cell { background:rgba(82,183,136,0.02); }
+.comparison-check-yes { color:var(--lio-green); font-weight:700; font-size:1.1rem; }
+.comparison-check-no { color:#d4645c; font-weight:700; font-size:1.1rem; }
+.comparison-check-partial { color:var(--lio-gold); font-weight:600; font-size:0.85rem; }
+.comparison-winner-row td { background:rgba(82,183,136,0.06) !important; }
+.comparison-winner-row td:first-child { position:relative; }
+.comparison-winner-badge { display:inline-block; padding:2px 8px; background:var(--lio-mint); color:#fff; font-size:0.65rem; font-weight:700; border-radius:4px; text-transform:uppercase; letter-spacing:0.06em; margin-left:8px; vertical-align:middle; }
+
+/* === DEEP DIVE === */
+.comparison-deep-dive-card { background:var(--lio-white); border-radius:var(--radius); padding:48px; margin-bottom:28px; box-shadow:var(--shadow-sm); border:1px solid rgba(10,26,20,0.04); transition:all 0.3s; }
+.comparison-deep-dive-card:hover { box-shadow:var(--shadow-md); }
+.comparison-dd-icon { font-size:1.6rem; margin-bottom:14px; }
+.comparison-dd-title { font-family:var(--font-display); font-size:1.5rem; margin-bottom:20px; color:var(--text-primary); }
+.comparison-dd-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-bottom:24px; }
+.comparison-dd-block { padding:20px; border-radius:var(--radius-sm); }
+.comparison-dd-block.lio-block { background:linear-gradient(135deg, rgba(82,183,136,0.05), rgba(45,106,79,0.03)); border-left:3px solid var(--lio-mint); }
+.comparison-dd-block.fum-block { background:rgba(232,224,122,0.06); border-left:3px solid var(--fum-yellow); }
+.comparison-dd-block-label { font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); margin-bottom:8px; }
+.comparison-dd-block p { font-size:0.94rem; color:var(--text-secondary); line-height:1.7; }
+.comparison-dd-verdict { padding:18px 24px; background:var(--lio-cream); border-radius:var(--radius-sm); font-size:0.92rem; color:var(--text-primary); }
+.comparison-dd-verdict strong { color:var(--lio-green); }
+.comparison-dd-quote { margin-top:24px; padding:24px; background:var(--lio-cream); border-radius:var(--radius-sm); border-left:3px solid var(--lio-mint); font-style:italic; color:var(--text-secondary); font-size:0.95rem; line-height:1.7; }
+.comparison-dd-quote cite { display:block; margin-top:10px; font-style:normal; font-weight:600; font-size:0.82rem; color:var(--text-primary); }
+
+/* === SWITCHING STORY === */
+.comparison-switch-section { background:linear-gradient(170deg, var(--lio-dark), var(--lio-forest)); color:#fff; position:relative; overflow:hidden; }
+.comparison-switch-section::before { content:''; position:absolute; top:0; right:0; width:50%; height:100%; background:radial-gradient(ellipse at top right, rgba(82,183,136,0.1), transparent 70%); }
+.comparison-switch-card { max-width:740px; margin:0 auto; text-align:center; position:relative; z-index:2; }
+.comparison-switch-label { font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:var(--lio-mint); margin-bottom:16px; }
+.comparison-switch-title { font-family:var(--font-display); font-size:clamp(1.6rem, 3vw, 2.2rem); margin-bottom:28px; line-height:1.3; }
+.comparison-switch-quote { font-size:1.15rem; line-height:1.8; color:rgba(255,255,255,0.8); font-style:italic; margin-bottom:28px; }
+.comparison-switch-author { font-weight:600; font-size:0.92rem; color:var(--lio-mint); }
+.comparison-switch-author span { display:block; font-weight:400; font-size:0.82rem; color:rgba(255,255,255,0.5); margin-top:4px; }
+.comparison-switch-stats { display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; margin-top:44px; padding-top:36px; border-top:1px solid rgba(255,255,255,0.1); }
+.comparison-switch-stat-num { font-family:var(--font-display); font-size:2rem; color:var(--lio-mint); }
+.comparison-switch-stat-label { font-size:0.78rem; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.06em; margin-top:4px; }
+
+/* === PRICING === */
+.comparison-pricing-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; max-width:860px; margin:0 auto; }
+.comparison-pricing-card { background:var(--lio-white); border-radius:var(--radius); padding:40px; box-shadow:var(--shadow-sm); border:1px solid rgba(10,26,20,0.04); position:relative; transition:all 0.3s; }
+.comparison-pricing-card:hover { box-shadow:var(--shadow-md); }
+.comparison-pricing-card.featured { border:2px solid var(--lio-mint); box-shadow:var(--shadow-glow); }
+.comparison-pricing-card.featured::before { content:'BETTER VALUE'; position:absolute; top:-12px; left:50%; transform:translateX(-50%); padding:4px 18px; background:var(--lio-mint); color:#fff; font-size:0.68rem; font-weight:700; border-radius:50px; letter-spacing:0.08em; }
+.comparison-pricing-logo { height:28px; margin-bottom:16px; border-radius:5px; }
+.comparison-pricing-name { font-family:var(--font-display); font-size:1.3rem; margin-bottom:6px; }
+.comparison-pricing-tagline { font-size:0.85rem; color:var(--text-muted); margin-bottom:24px; }
+.comparison-pricing-price { font-family:var(--font-display); font-size:2.4rem; color:var(--text-primary); margin-bottom:4px; }
+.comparison-pricing-price span { font-size:0.9rem; font-weight:400; color:var(--text-muted); font-family:var(--font-body); }
+.comparison-pricing-note { font-size:0.8rem; color:var(--text-muted); margin-bottom:24px; }
+.comparison-pricing-features { list-style:none; margin-bottom:28px; }
+.comparison-pricing-features li { padding:8px 0; font-size:0.9rem; color:var(--text-secondary); display:flex; align-items:flex-start; gap:10px; }
+.comparison-pricing-features li::before { content:'✓'; color:var(--lio-green); font-weight:700; flex-shrink:0; margin-top:1px; }
+.comparison-pricing-card.competitor .comparison-pricing-features li::before { content:'~'; color:var(--text-muted); }
+
+/* === FAQ === */
+.comparison-faq-item { background:var(--lio-white); border-radius:var(--radius-sm); margin-bottom:12px; border:1px solid rgba(10,26,20,0.04); overflow:hidden; transition:all 0.3s; }
+.comparison-faq-item:hover { border-color:rgba(82,183,136,0.2); }
+.comparison-faq-q { padding:22px 28px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:500; font-size:0.96rem; color:var(--text-primary); user-select:none; }
+.comparison-faq-q::after { content:'+'; font-size:1.4rem; color:var(--lio-mint); font-weight:300; transition:transform 0.3s; }
+.comparison-faq-item.open .comparison-faq-q::after { content:'−'; }
+.comparison-faq-a { max-height:0; overflow:hidden; transition:max-height 0.4s ease, padding 0.3s; }
+.comparison-faq-item.open .comparison-faq-a { max-height:400px; }
+.comparison-faq-a-inner { padding:0 28px 22px; font-size:0.92rem; color:var(--text-secondary); line-height:1.7; }
+
+/* === FINAL CTA === */
+.comparison-final-cta { background:linear-gradient(170deg, var(--lio-green), var(--lio-forest)); color:#fff; text-align:center; position:relative; overflow:hidden; }
+.comparison-final-cta::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center, rgba(183,228,199,0.08), transparent 60%); }
+.comparison-final-cta .comparison-container { position:relative; z-index:2; }
+.comparison-final-cta-title { font-family:var(--font-display); font-size:clamp(2rem, 4vw, 3rem); margin-bottom:18px; line-height:1.2; }
+.comparison-final-cta-sub { font-size:1.08rem; color:rgba(255,255,255,0.75); max-width:520px; margin:0 auto 36px; font-weight:300; }
+.comparison-final-cta .comparison-btn-primary { font-size:1.1rem; padding:18px 44px; }
+.comparison-final-trust { display:flex; justify-content:center; gap:32px; margin-top:36px; font-size:0.82rem; color:rgba(255,255,255,0.5); }
+.comparison-final-trust span { display:flex; align-items:center; gap:6px; }
+
+/* === FOOTER === */
+.comparison-footer { padding:40px 0; background:var(--lio-dark); color:rgba(255,255,255,0.4); text-align:center; font-size:0.8rem; }
+.comparison-footer a { color:var(--lio-mint); text-decoration:none; }
+
+/* === RESPONSIVE === */
+@media (max-width:768px) {
+  .comparison-section { padding:64px 0; }
+  .comparison-hero { padding:120px 0 80px; }
+  .comparison-tldr { padding:28px; margin-top:-40px; }
+  .comparison-tldr-grid { grid-template-columns:1fr; }
+  .comparison-dd-grid { grid-template-columns:1fr; }
+  .comparison-pricing-grid { grid-template-columns:1fr; }
+  .comparison-switch-stats { grid-template-columns:1fr; gap:16px; }
+  .comparison-hero-trust { flex-direction:column; gap:16px; }
+  .comparison-hero-logos { gap:14px; }
+  .comparison-hero-ctas { flex-direction:column; }
+  .comparison-hero-ctas a { text-align:center; justify-content:center; }
+  .comparison-final-trust { flex-direction:column; align-items:center; gap:12px; }
+  .comparison-matrix-wrapper { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .comparison-matrix-table { min-width:600px; }
+  .comparison-nav-cta { padding:8px 18px; font-size:0.82rem; }
+}
+{% endstyle %}
+
+{% comment %} ========== SETTINGS / VARIABLES ========== {% endcomment %}
+
+{%- assign lio_url = section.settings.lio_url | default: 'https://breathelio.com/' -%}
+{%- assign lio_logo = section.settings.lio_logo | default: blank -%}
+{%- assign fum_logo = section.settings.fum_logo | default: blank -%}
+
+{% comment %} ========== NAV ========== {% endcomment %}
+
+<nav class="comparison-nav">
+  <div class="comparison-nav-inner">
+    {% if lio_logo != blank %}
+      {{ lio_logo | image_url: width: 180 | image_tag: class: 'comparison-nav-logo', alt: 'BreatheLio' }}
+    {% else %}
+      <span style="font-family:var(--font-display);font-size:1.2rem;color:var(--lio-green);">BreatheLio</span>
+    {% endif %}
+    <a href="{{ lio_url }}" class="comparison-nav-cta">Try BreatheLio →</a>
+  </div>
+</nav>
+
+{% comment %} ========== HERO ========== {% endcomment %}
+
+<section class="comparison-hero">
+  <div class="comparison-container">
+    <div class="comparison-hero-badge fade-up">
+      <span class="comparison-hero-badge-dot"></span> Honest Comparison · Updated {{ 'now' | date: '%Y' }}
+    </div>
+
+    <div class="comparison-hero-logos fade-up fade-up-d1">
+      <div class="comparison-hero-logo-box lio">
+        {% if lio_logo != blank %}
+          {{ lio_logo | image_url: width: 120 | image_tag: alt: 'BreatheLio logo' }}
+        {% else %}
+          <span style="color:var(--lio-mint);font-family:var(--font-display);font-size:0.9rem;">BL</span>
+        {% endif %}
+      </div>
+      <span class="comparison-hero-vs">vs</span>
+      <div class="comparison-hero-logo-box fum">
+        {% if fum_logo != blank %}
+          {{ fum_logo | image_url: width: 120 | image_tag: alt: 'Füm logo' }}
+        {% else %}
+          <span style="color:var(--fum-dark);font-family:var(--font-display);font-size:0.9rem;">Füm</span>
+        {% endif %}
+      </div>
+    </div>
+
+    <h1 class="fade-up fade-up-d2">BreatheLio vs Füm:<br><em>A Cleaner Way to Breathe</em></h1>
+    <p class="comparison-hero-sub fade-up fade-up-d3">You're looking for the best natural aromatherapy inhaler. We get it. Here's an honest, side-by-side look at how BreatheLio and Füm compare — so you can make the right choice for your wellness journey.</p>
+
+    <div class="comparison-hero-ctas fade-up fade-up-d4">
+      <a href="{{ lio_url }}" class="comparison-btn-primary">Shop BreatheLio Now ↗</a>
+      <a href="#comparison" class="comparison-btn-secondary">See Full Comparison ↓</a>
+    </div>
+
+    <div class="comparison-hero-trust fade-up fade-up-d5">
+      <div class="comparison-hero-trust-item">
+        <span class="comparison-hero-trust-num">4.8★</span>
+        <span class="comparison-hero-trust-label">Customer Rating</span>
+      </div>
+      <div class="comparison-hero-trust-item">
+        <span class="comparison-hero-trust-num">100%</span>
+        <span class="comparison-hero-trust-label">Natural Ingredients</span>
+      </div>
+      <div class="comparison-hero-trust-item">
+        <span class="comparison-hero-trust-num">0mg</span>
+        <span class="comparison-hero-trust-label">Nicotine Free</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} ========== TL;DR ========== {% endcomment %}
+
+<section class="comparison-section" style="padding-top:0;">
+  <div class="comparison-container">
+    <div class="comparison-tldr fade-up">
+      <span class="comparison-tldr-label">Quick Summary</span>
+      <h2 class="comparison-tldr-title">Which One Is Right for You?</h2>
+      <p class="comparison-tldr-desc">Both BreatheLio and Füm are aromatherapy inhalers designed as healthy alternatives to smoking and vaping. They use natural essential oil blends — no nicotine, no vapor, no combustion. But the experience, ingredients, design philosophy, and value differ in meaningful ways.</p>
+
+      <div class="comparison-tldr-grid">
+        <div class="comparison-tldr-col lio-col">
+          <div class="comparison-tldr-col-header">
+            {% if lio_logo != blank %}
+              {{ lio_logo | image_url: width: 88 | image_tag: class: 'comparison-tldr-col-logo', alt: 'BreatheLio', style: 'background:#0a1a14;padding:2px 4px;' }}
+            {% endif %}
+            Choose BreatheLio if you want:
+          </div>
+          {%- assign lio_benefits = 'Premium organic essential oil blends with certified purity|A sleek, modern design crafted from sustainable materials|Long-lasting cores that deliver consistent flavor for weeks|Transparent ingredients with nothing hidden|Better value per-use with superior build quality' | split: '|' -%}
+          {% for benefit in lio_benefits %}
+            <div class="comparison-tldr-item">
+              <span class="comparison-tldr-check">✓</span> {{ benefit }}
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="comparison-tldr-col fum-col">
+          <div class="comparison-tldr-col-header">
+            {% if fum_logo != blank %}
+              {{ fum_logo | image_url: width: 88 | image_tag: class: 'comparison-tldr-col-logo', alt: 'Füm' }}
+            {% endif %}
+            Choose Füm if you want:
+          </div>
+          {%- assign fum_benefits = 'A well-established brand with wider retail availability|A wooden-style inhaler aesthetic|More flavor variety (though shorter-lasting cores)' | split: '|' -%}
+          {% for benefit in fum_benefits %}
+            <div class="comparison-tldr-item">
+              <span class="comparison-tldr-check" style="color:var(--fum-dark);">✓</span> {{ benefit }}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} ========== COMPARISON MATRIX ========== {% endcomment %}
+
+<section id="comparison" class="comparison-section comparison-matrix-section">
+  <div class="comparison-container">
+    <span class="comparison-section-label">Feature-by-Feature</span>
+    <h2 class="comparison-section-title">The Complete Comparison</h2>
+    <p class="comparison-section-sub">An honest look at how BreatheLio and Füm stack up across every category that matters.</p>
+
+    <div class="comparison-matrix-wrapper">
+      <table class="comparison-matrix-table">
+        <thead>
+          <tr>
+            <th>Comparison Criteria</th>
+            <th class="lio-head">
+              {% if lio_logo != blank %}
+                {{ lio_logo | image_url: width: 80 | image_tag: class: 'th-logo', alt: 'BreatheLio', style: 'background:#0a1a14;padding:1px 3px;border-radius:3px;' }}
+              {% endif %}
+              BreatheLio
+            </th>
+            <th class="fum-head">
+              {% if fum_logo != blank %}
+                {{ fum_logo | image_url: width: 80 | image_tag: class: 'th-logo', alt: 'Füm' }}
+              {% endif %}
+              Füm
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="comparison-winner-row">
+            <td>Ingredient Transparency <span class="comparison-winner-badge">Winner</span></td>
+            <td class="lio-cell"><span class="comparison-check-yes">✓</span> Fully disclosed, organic</td>
+            <td>Disclosed, plant-based</td>
+          </tr>
+          <tr class="comparison-winner-row">
+            <td>Essential Oil Purity <span class="comparison-winner-badge">Winner</span></td>
+            <td class="lio-cell"><span class="comparison-check-yes">✓</span> 100% pure, certified</td>
+            <td>Plant-based blends</td>
+          </tr>
+          <tr>
+            <td>Nicotine / Tobacco Free</td>
+            <td class="lio-cell"><span class="comparison-check-yes">✓</span> Yes</td>
+            <td><span class="comparison-check-yes">✓</span> Yes</td>
+          </tr>
+          <tr>
+            <td>No Vapor / No Combustion</td>
+            <td class="lio-cell"><span class="comparison-check-yes">✓</span> Yes</td>
+            <td><span class="comparison-check-yes">✓</span> Yes</td>
+          </tr>
+          <tr class="comparison-winner-row">
+            <td>Build Quality &amp; Materials <span class="comparison-winner-badge">Winner</span></td>
+            <td class="lio-cell"><span class="comparison-check-yes">✓</span> Premium, sustainable</td>
+            <td>Standard quality</td>
+          </tr>
+          <tr class="comparison-winner-row">
+            <td>Core / Pod Longevity <span class="comparison-winner-badge">Winner</span></td>
+            <td class="lio-cell"><span class="comparison-check-yes">✓</span> Lasts 2-3+ weeks</td>
+            <td>~1-2 weeks typical</td>
+          </tr>
+          <tr>
+            <td>Flavor Options</td>
+            <td class="lio-cell">Curated signature blends</td>
+            <td><span class="comparison-check-yes">✓</span> Wide variety</td>
+          </tr>
+          <tr class="comparison-winner-row">
+            <td>Value Per Use <span class="comparison-winner-badge">Winner</span></td>
+            <td class="lio-cell"><span class="comparison-check-yes">✓</span> Lower cost per use</td>
+            <td>Higher recurring cost</td>
+          </tr>
+          <tr class="comparison-winner-row">
+            <td>Design Aesthetic <span class="comparison-winner-badge">Winner</span></td>
+            <td class="lio-cell"><span class="comparison-check-yes">✓</span> Modern, premium</td>
+            <td>Natural / wooden</td>
+          </tr>
+          <tr>
+            <td>Portability</td>
+            <td class="lio-cell"><span class="comparison-check-yes">✓</span> Pocket-friendly</td>
+            <td><span class="comparison-check-yes">✓</span> Pocket-friendly</td>
+          </tr>
+          <tr class="comparison-winner-row">
+            <td>Satisfaction Guarantee <span class="comparison-winner-badge">Winner</span></td>
+            <td class="lio-cell"><span class="comparison-check-yes">✓</span> 30-day guarantee</td>
+            <td><span class="comparison-check-partial">Limited</span></td>
+          </tr>
+          <tr>
+            <td>Shipping</td>
+            <td class="lio-cell"><span class="comparison-check-yes">✓</span> Fast &amp; free</td>
+            <td><span class="comparison-check-yes">✓</span> Standard shipping</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{% comment %} ========== DEEP DIVES ========== {% endcomment %}
+
+<section class="comparison-section">
+  <div class="comparison-container">
+    <span class="comparison-section-label">Deep Dive</span>
+    <h2 class="comparison-section-title">Where It Really Matters</h2>
+    <p class="comparison-section-sub">Let's break down the most important differences in detail.</p>
+
+    {% comment %} DD1: Ingredient Quality {% endcomment %}
+    <div class="comparison-deep-dive-card">
+      <div class="comparison-dd-icon">🌿</div>
+      <h3 class="comparison-dd-title">Ingredient Quality &amp; Purity</h3>
+      <div class="comparison-dd-grid">
+        <div class="comparison-dd-block lio-block">
+          <div class="comparison-dd-block-label">BreatheLio's Approach</div>
+          <p>BreatheLio uses 100% certified pure, organic essential oils with complete ingredient transparency. Every blend is crafted with therapeutic-grade oils that deliver real aromatherapy benefits — not just flavor. What you see on the label is exactly what's inside.</p>
+        </div>
+        <div class="comparison-dd-block fum-block">
+          <div class="comparison-dd-block-label">Füm's Approach</div>
+          <p>Füm uses plant-based essential oil blends in their cores. While natural and nicotine-free, their ingredient sourcing and certification standards are less prominently featured, leaving some customers wanting more transparency about exact oil grades and origins.</p>
+        </div>
+      </div>
+      <div class="comparison-dd-verdict"><strong>Why this matters:</strong> When you're inhaling something, purity isn't optional — it's everything. Certified organic oils mean no synthetic additives, no fillers, and no compromises on what enters your body.</div>
+      <div class="comparison-dd-quote">
+        "I switched from Füm to BreatheLio because I wanted to know exactly what I was breathing in. The transparency and quality difference is night and day."
+        <cite>— Sarah M., Verified BreatheLio Customer</cite>
+      </div>
+    </div>
+
+    {% comment %} DD2: Design & Build {% endcomment %}
+    <div class="comparison-deep-dive-card">
+      <div class="comparison-dd-icon">✨</div>
+      <h3 class="comparison-dd-title">Design, Build Quality &amp; Feel</h3>
+      <div class="comparison-dd-grid">
+        <div class="comparison-dd-block lio-block">
+          <div class="comparison-dd-block-label">BreatheLio's Approach</div>
+          <p>BreatheLio features a sleek, modern design crafted from premium sustainable materials. It feels substantial in hand — like a wellness tool you're proud to carry. The minimalist aesthetic fits seamlessly into any lifestyle, from boardroom to yoga studio.</p>
+        </div>
+        <div class="comparison-dd-block fum-block">
+          <div class="comparison-dd-block-label">Füm's Approach</div>
+          <p>Füm popularized the wooden inhaler design with a natural, earthy aesthetic. While charming, some users report the wooden construction can feel less durable over time and the cores don't always seat as securely as they'd like.</p>
+        </div>
+      </div>
+      <div class="comparison-dd-verdict"><strong>Why this matters:</strong> You'll use this device dozens of times a day. Build quality and design aren't vanity — they determine whether your inhaler becomes a daily essential or collects dust in a drawer.</div>
+    </div>
+
+    {% comment %} DD3: Longevity & Value {% endcomment %}
+    <div class="comparison-deep-dive-card">
+      <div class="comparison-dd-icon">💰</div>
+      <h3 class="comparison-dd-title">Core Longevity &amp; True Cost of Ownership</h3>
+      <div class="comparison-dd-grid">
+        <div class="comparison-dd-block lio-block">
+          <div class="comparison-dd-block-label">BreatheLio's Approach</div>
+          <p>BreatheLio cores are engineered to deliver consistent, flavorful aromatherapy for 2-3+ weeks per core. The proprietary wicking system ensures you get full value from every drop of essential oil, with flavor that stays strong from first use to last.</p>
+        </div>
+        <div class="comparison-dd-block fum-block">
+          <div class="comparison-dd-block-label">Füm's Approach</div>
+          <p>Füm cores typically last about 1-2 weeks with regular use. Many users report flavor drop-off occurring within the first week, leading to more frequent core replacements and higher ongoing costs over time.</p>
+        </div>
+      </div>
+      <div class="comparison-dd-verdict"><strong>Why this matters:</strong> A lower price tag means nothing if you're replacing cores twice as often. When you factor in longevity, BreatheLio delivers a meaningfully lower cost-per-use — which adds up significantly over months of daily use.</div>
+    </div>
+
+    {% comment %} DD4: Wellness Philosophy {% endcomment %}
+    <div class="comparison-deep-dive-card">
+      <div class="comparison-dd-icon">🧘</div>
+      <h3 class="comparison-dd-title">Wellness Philosophy &amp; Purpose</h3>
+      <div class="comparison-dd-grid">
+        <div class="comparison-dd-block lio-block">
+          <div class="comparison-dd-block-label">BreatheLio's Approach</div>
+          <p>BreatheLio was born from a genuine passion for holistic wellness. Every product decision — from oil sourcing to packaging — prioritizes your health and the planet. It's not just an alternative to bad habits; it's a positive addition to your daily wellness ritual.</p>
+        </div>
+        <div class="comparison-dd-block fum-block">
+          <div class="comparison-dd-block-label">Füm's Approach</div>
+          <p>Füm positions itself primarily as a smoking and vaping cessation tool — "the good habit that replaces the bad." While effective for habit replacement, their marketing and product development leans more heavily on the quitting angle than the broader wellness opportunity.</p>
+        </div>
+      </div>
+      <div class="comparison-dd-verdict"><strong>Why this matters:</strong> Whether you're quitting smoking, reducing stress, or simply want to breathe better — BreatheLio meets you wherever you are on your wellness journey, without boxing you into a "quitter" identity.</div>
+    </div>
+  </div>
+</section>
+
+{% comment %} ========== SWITCHING STORY ========== {% endcomment %}
+
+<section class="comparison-section comparison-switch-section">
+  <div class="comparison-container">
+    <div class="comparison-switch-card">
+      <span class="comparison-switch-label">Switching Story</span>
+      <h2 class="comparison-switch-title">Why People Are Making the Switch from Füm to BreatheLio</h2>
+      <p class="comparison-switch-quote">"I loved the concept of Füm, but after trying BreatheLio I realized what I was missing. The oils are noticeably purer, the flavor lasts so much longer, and the device itself just feels like a premium product. I haven't looked back since making the switch — BreatheLio is what I always wanted Füm to be."</p>
+      <div class="comparison-switch-author">Alex R.<span>Former Füm user for 8 months · Switched to BreatheLio</span></div>
+
+      <div class="comparison-switch-stats">
+        <div>
+          <div class="comparison-switch-stat-num">40%+</div>
+          <div class="comparison-switch-stat-label">Longer Core Life</div>
+        </div>
+        <div>
+          <div class="comparison-switch-stat-num">100%</div>
+          <div class="comparison-switch-stat-label">Pure Organic Oils</div>
+        </div>
+        <div>
+          <div class="comparison-switch-stat-num">30-Day</div>
+          <div class="comparison-switch-stat-label">Satisfaction Guarantee</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} ========== PRICING ========== {% endcomment %}
+
+<section class="comparison-section">
+  <div class="comparison-container">
+    <span class="comparison-section-label">Transparent Pricing</span>
+    <h2 class="comparison-section-title">Real Value, Real Comparison</h2>
+    <p class="comparison-section-sub">No hidden fees, no surprise charges. Here's exactly what you get.</p>
+
+    <div class="comparison-pricing-grid">
+      <div class="comparison-pricing-card featured">
+        {% if lio_logo != blank %}
+          {{ lio_logo | image_url: width: 112 | image_tag: class: 'comparison-pricing-logo', alt: 'BreatheLio', style: 'background:#0a1a14;padding:3px 5px;' }}
+        {% endif %}
+        <div class="comparison-pricing-name">BreatheLio</div>
+        <div class="comparison-pricing-tagline">Breathe better. Live better.</div>
+        <div class="comparison-pricing-price">Better Value <span>/ per use</span></div>
+        <div class="comparison-pricing-note">Starter kits include device + cores</div>
+        <ul class="comparison-pricing-features">
+          <li>Premium sustainable device</li>
+          <li>Certified organic essential oil cores</li>
+          <li>Long-lasting cores (2-3+ weeks each)</li>
+          <li>Free shipping included</li>
+          <li>30-day satisfaction guarantee</li>
+          <li>Responsive customer support</li>
+          <li>Lower cost per use over time</li>
+        </ul>
+        <a href="{{ lio_url }}" class="comparison-btn-primary" style="width:100%;justify-content:center;">Shop BreatheLio →</a>
+      </div>
+
+      <div class="comparison-pricing-card competitor">
+        {% if fum_logo != blank %}
+          {{ fum_logo | image_url: width: 112 | image_tag: class: 'comparison-pricing-logo', alt: 'Füm' }}
+        {% endif %}
+        <div class="comparison-pricing-name">Füm</div>
+        <div class="comparison-pricing-tagline">The good habit.</div>
+        <div class="comparison-pricing-price">Higher Cost <span>/ per use</span></div>
+        <div class="comparison-pricing-note">Starter kits vary by bundle</div>
+        <ul class="comparison-pricing-features">
+          <li>Wooden-style device</li>
+          <li>Plant-based essential oil cores</li>
+          <li>Cores last ~1-2 weeks each</li>
+          <li>Standard shipping rates</li>
+          <li>Limited return policy</li>
+          <li>Standard customer support</li>
+          <li>Higher ongoing replacement costs</li>
+        </ul>
+        <a href="{{ lio_url }}" class="comparison-btn-secondary" style="width:100%;justify-content:center;color:var(--text-primary);border-color:var(--text-muted);">Try BreatheLio Instead →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} ========== FAQ ========== {% endcomment %}
+
+<section class="comparison-section" style="background:var(--lio-cream);">
+  <div class="comparison-container">
+    <span class="comparison-section-label">Common Questions</span>
+    <h2 class="comparison-section-title">Frequently Asked Questions</h2>
+    <p class="comparison-section-sub">Everything you need to know about switching — or choosing for the first time.</p>
+
+    <div style="max-width:740px;margin:0 auto;">
+      {%- assign faq_questions = 'How is BreatheLio different from Füm?|Can BreatheLio help me quit smoking or vaping?|Are BreatheLio's essential oils really pure and organic?|How long does each BreatheLio core last?|What if I don't like it? Is there a guarantee?|I currently use Füm — is switching easy?|Is BreatheLio safe? What's actually in it?' | split: '|' -%}
+      {%- assign faq_answers = 'While both are aromatherapy inhalers, BreatheLio differentiates itself through certified organic essential oils, a premium modern design, longer-lasting cores, and a stronger satisfaction guarantee. The overall experience feels more refined, and the cost-per-use works out lower thanks to superior core longevity.|Many of our customers use BreatheLio as part of their journey away from smoking and vaping. The hand-to-mouth ritual provides the same physical satisfaction, while the aromatherapy benefits help manage stress and cravings. It's a positive habit replacement — not a nicotine substitute.|Yes. We use 100% pure, certified organic essential oils in every blend. We believe in complete transparency — our ingredients are fully disclosed, and we never use synthetic fragrances, fillers, or additives of any kind.|Each core typically lasts 2-3+ weeks with regular daily use. Our proprietary design ensures consistent flavor delivery throughout the core's life, so you get the same quality experience on day 14 as you did on day 1.|Absolutely. BreatheLio comes with a 30-day satisfaction guarantee. If you're not completely happy with your experience, we'll make it right. We're confident you'll love it — but we want you to feel confident too.|Switching is seamless. Simply order your BreatheLio starter kit, and you'll be up and breathing better within days. Many former Füm users tell us they noticed the quality difference from their very first breath. No complicated transition — just a better experience from day one.|BreatheLio contains zero nicotine, zero tobacco, zero vapor, and zero combustion. You're simply breathing through natural essential oils. There's no smoke, no chemicals, and no battery — just pure aromatherapy delivered through an elegantly simple device.' | split: '|' -%}
+
+      {% for question in faq_questions %}
+        <div class="comparison-faq-item" data-faq-item>
+          <div class="comparison-faq-q" data-faq-toggle>{{ question }}</div>
+          <div class="comparison-faq-a">
+            <div class="comparison-faq-a-inner">{{ faq_answers[forloop.index0] }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% comment %} ========== FINAL CTA ========== {% endcomment %}
+
+<section class="comparison-section comparison-final-cta">
+  <div class="comparison-container">
+    <h2 class="comparison-final-cta-title">Ready to Breathe Better?</h2>
+    <p class="comparison-final-cta-sub">Join thousands who chose BreatheLio for purer ingredients, better design, and real value. Try it risk-free today.</p>
+    <a href="{{ lio_url }}" class="comparison-btn-primary" style="font-size:1.1rem;padding:18px 48px;">Shop BreatheLio Now ↗</a>
+    <div class="comparison-final-trust">
+      <span>🛡️ 30-Day Guarantee</span>
+      <span>🌿 100% Organic Oils</span>
+      <span>🚚 Free Shipping</span>
+      <span>0mg Nicotine</span>
+    </div>
+  </div>
+</section>
+
+{% comment %} ========== FOOTER ========== {% endcomment %}
+
+<footer class="comparison-footer">
+  <div class="comparison-container">
+    <p>© {{ 'now' | date: '%Y' }} BreatheLio. All rights reserved. This comparison is based on publicly available information as of {{ 'now' | date: '%Y' }}. <a href="{{ lio_url }}">breathelio.com</a></p>
+  </div>
+</footer>
+
+{% comment %} ========== JAVASCRIPT ========== {% endcomment %}
+
+<script>
+// FAQ Accordion
+document.querySelectorAll('[data-faq-toggle]').forEach(function(q) {
+  q.addEventListener('click', function() {
+    var item = this.closest('[data-faq-item]');
+    var wasOpen = item.classList.contains('open');
+    document.querySelectorAll('[data-faq-item]').forEach(function(i) { i.classList.remove('open'); });
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// Intersection Observer for fade-in on scroll
+var comparisonObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.comparison-deep-dive-card, .comparison-pricing-card, .comparison-faq-item').forEach(function(el) {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  comparisonObserver.observe(el);
+});
+
+// Smooth nav background on scroll
+window.addEventListener('scroll', function() {
+  var nav = document.querySelector('.comparison-nav');
+  if (nav) {
+    if (window.scrollY > 50) {
+      nav.style.boxShadow = '0 2px 20px rgba(10,26,20,0.08)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  }
+});
+</script>
