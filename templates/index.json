@@ -163,7 +163,7 @@
         "button_tCbqyk": {
           "type": "button",
           "settings": {
-            "button": "Get Cores",
+            "button": "<b>GET CORES</b>",
             "url": "shopify://products/lio-flavor-cores",
             "open_in_new_tab": false,
             "button_style": "non_outline",
