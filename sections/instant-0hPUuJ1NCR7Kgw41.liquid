@@ -122,13 +122,20 @@
               {%- endif -%}</div
           ></a>
           {%- liquid
-            assign url_5wRFooVAUyMbROpO-1_handle = 'get-more-cores'
-            assign url_5wRFooVAUyMbROpO-1 = all_products[url_5wRFooVAUyMbROpO-1_handle].url
+            assign product_5wRFooVAUyMbROpO-1_handle = 'lio-flavor-cores'
+            assign product_5wRFooVAUyMbROpO-1 = section.settings['product_5wRFooVAUyMbROpO-1'] | default: all_products[product_5wRFooVAUyMbROpO-1_handle]
+            assign product_5wRFooVAUyMbROpO-1_variant = product_5wRFooVAUyMbROpO-1.selected_or_first_available_variant
+
+            if product_5wRFooVAUyMbROpO-1.selected_variant
+              assign product_5wRFooVAUyMbROpO-1_variant = product_5wRFooVAUyMbROpO-1.selected_variant
+            endif
+
+            assign product_5wRFooVAUyMbROpO-1_image = product_5wRFooVAUyMbROpO-1_variant.featured_image | default: product_5wRFooVAUyMbROpO-1.featured_image
           -%}
-          <a class="i5wRFooVAUyMbROpO" data-instant-type="container" href="{{ section.settings.url_5wRFooVAUyMbROpO-1 | default: url_5wRFooVAUyMbROpO-1 }}" rel="noopener noreferrer"
+          <form class="i5wRFooVAUyMbROpO" data-instant-type="container" data-instant-form-product-url="{{ product_5wRFooVAUyMbROpO-1.url }}" data-instant-form-variant-id="{{ product_5wRFooVAUyMbROpO-1_variant.id }}" data-instant-form-product-id="{{ product_5wRFooVAUyMbROpO-1.id }}" rel="noopener noreferrer" data-instant-action-type="open-page" data-instant-href="{{ product_5wRFooVAUyMbROpO-1.url }}"
             ><div data-instant-type="text" class="instant-rich-text i3kdd8niCxs0YPJL6"
               ><div>{{ section.settings['text_3kdd8niCxs0YPJL6-1'] }}</div></div
-            ></a
+            ></form
           ><a conditionals="" class="idrmwsep57vncIF1Q" data-instant-type="container" href="{{ routes.cart_url }}" rel="noopener noreferrer" data-instant-action-type="open-cart"
             ><div data-instant-type="icon" class="iLKrfrcFgQbIiMVNw">
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
@@ -189,7 +196,7 @@
               {%- endif -%}
               <!--  -->
               {%- liquid
-                assign url_jEI08xH23I0rpoem-1_handle = 'get-more-cores'
+                assign url_jEI08xH23I0rpoem-1_handle = 'lio-flavor-cores'
                 assign url_jEI08xH23I0rpoem-1 = all_products[url_jEI08xH23I0rpoem-1_handle].url
               -%}
               <a as="p" data-instant-type="text" class="ijEI08xH23I0rpoem" href="{{ section.settings.url_jEI08xH23I0rpoem-1 | default: url_jEI08xH23I0rpoem-1 }}" rel="noopener noreferrer"
@@ -1185,9 +1192,9 @@
       "label": "ArrowRight"
     },
     {
-      "type": "url",
-      "id": "url_5wRFooVAUyMbROpO-1",
-      "label": "Button URL"
+      "type": "product",
+      "id": "product_5wRFooVAUyMbROpO-1",
+      "label": "Button"
     },
     {
       "type": "richtext",
@@ -2254,12 +2261,12 @@
         "text_KZ0RY8fKTEauNhf8-1": "<p>Contact</p>",
         "url_xFDFZzgFQSWayGg3-1": "https://breathelio.com/products/journey-pack-3",
         "text_aW4iUed0OxIVw1fB-1": "<p>SHop NOW</p>",
-        "url_5wRFooVAUyMbROpO-1": "shopify://products/get-more-cores",
+        "product_5wRFooVAUyMbROpO-1": "lio-flavor-cores",
         "text_3kdd8niCxs0YPJL6-1": "<p>order cores</p>",
         "text_DEsfSZiJCeda5Qvy-1": "<p>JOURNEY PACKS</p>",
         "url_DEsfSZiJCeda5Qvy-1": "shopify://products/lio®-journey-pack-1",
         "text_jEI08xH23I0rpoem-1": "<p>FLAVOUR CORES</p>",
-        "url_jEI08xH23I0rpoem-1": "shopify://products/get-more-cores",
+        "url_jEI08xH23I0rpoem-1": "shopify://products/lio-flavor-cores",
         "text_LI6n687e5nKJOaxm-1": "<p>LIO DEVICES</p>",
         "url_LI6n687e5nKJOaxm-1": "shopify://products/lio-diffusers",
         "text_W4gBFuITxtYHejjK-1": "<p>accessories</p>",
