@@ -748,11 +748,52 @@
                       ><div class="iAOZhfhCKsOh0hPnr" data-instant-type="container"
                         ><div class="i9GXvS7VOllGScLYk" data-instant-type="container"
                           ><div class="iB3S0R6bIkMrO2esQ" data-instant-type="container"
-                            ><div data-instant-type="text" class="instant-rich-text iNUb9NvjDDnTwyF0H"><h3>Minty Flavors</h3></div
-                            ><div data-instant-type="text" class="instant-rich-text iEVNipcEx0JeexUb6"><h3>Most Popular</h3></div></div
-                          ><div data-instant-type="text" class="instant-rich-text iuXxl6BslN5L4HSw8"
-                            ><p><em>Complete Bundle · Adjustable airflow · premium carry set</em></p></div
-                          ></div
+                            ><div data-instant-type="text" class="instant-rich-text iNUb9NvjDDnTwyF0H"><h3>Minty</h3></div
+                            ><div data-instant-type="text" class="instant-rich-text iEVNipcEx0JeexUb6"><h3>Best choice</h3></div></div
+                          ><div data-instant-type="text" class="instant-rich-text iuXxl6BslN5L4HSw8"><p>Cool, refreshing menthol-style sensation. Perfect if you want the familiar throat feel.</p></div></div
+                        ></div
+                      ></div
+                    ></div
+                  ><div
+                    class="instant-custom-variant-picker instant-slider-slide itajvICi3lqCpUBfR"
+                    data-instant-type="slider-slide"
+                    data-instant-action-type="select-variant-option"
+                    data-instant-option-value="
+                      {%- liquid
+                      	assign selected_options = product_HDyVlxXMxatNmYkK_variant.options
+                      	assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values | where : 'name', 'Version' | first
+                      	if selected_option == null
+                      		assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[0]
+                      	endif
+
+                      	for variant in product_HDyVlxXMxatNmYkK.variants
+                      		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
+                      			assign selected_variant = variant
+                      		endif
+                      	endfor
+                      -%}{{- selected_option.values[0] | escape -}}
+                    "
+                    data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                    data-instant-state="{%- if product_HDyVlxXMxatNmYkK_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
+                    data-instant-disabled="
+                      {%- liquid
+                      	assign is_not_available = false
+                      	if selected_variant.available == false
+                      		assign is_not_available = true
+                      	endif
+                      -%}{{- is_not_available -}}
+                    "
+                    ><div class="itYw3AAJKZgM97vHQ" data-instant-type="container"></div><div data-instant-type="image" conditionals="" class="i7qU0cXYkBt0UoniA"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/KdL4bz0z2YkLZdly/chatgpt-image-mar-6-2026-085144-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/KdL4bz0z2YkLZdly/chatgpt-image-mar-6-2026-085144-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/KdL4bz0z2YkLZdly/chatgpt-image-mar-6-2026-085144-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/KdL4bz0z2YkLZdly/chatgpt-image-mar-6-2026-085144-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/KdL4bz0z2YkLZdly/chatgpt-image-mar-6-2026-085144-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/KdL4bz0z2YkLZdly/chatgpt-image-mar-6-2026-085144-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/KdL4bz0z2YkLZdly/chatgpt-image-mar-6-2026-085144-pm.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                    ><div class="ivYmfprC1UNMVK2uh" data-instant-type="container"
+                      ><div class="ikuWIyyUwkJwvRV7j" data-instant-type="container"
+                        ><div class="iEJayyzLwSDb48EHm" data-instant-type="container"
+                          ><div class="iuvF2LKX4pd9O8qid" data-instant-type="container"
+                            ><div data-instant-type="text" class="instant-rich-text ixAqad5HOjCnGVep8"><h3>Mixed</h3></div></div
+                          ><div data-instant-type="text" class="instant-rich-text itX9r8YvXfft3k38O"><p>Minty + Fruity in one bundle. Discover your favorite flavor.</p></div></div
                         ></div
                       ></div
                     ></div
@@ -789,16 +830,14 @@
                       	endif
                       -%}{{- is_not_available -}}
                     "
-                    ><div class="ionTwzmKchnsDN7PR" data-instant-type="container"></div><div data-instant-type="image" conditionals="" class="il6s6upkWKsjktFKH"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                    ><div class="ionTwzmKchnsDN7PR" data-instant-type="container"></div><div data-instant-type="image" conditionals="" class="il6s6upkWKsjktFKH"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRMMefCOrlkLv0Mm/chatgpt-image-mar-6-2026-085152-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRMMefCOrlkLv0Mm/chatgpt-image-mar-6-2026-085152-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRMMefCOrlkLv0Mm/chatgpt-image-mar-6-2026-085152-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRMMefCOrlkLv0Mm/chatgpt-image-mar-6-2026-085152-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRMMefCOrlkLv0Mm/chatgpt-image-mar-6-2026-085152-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRMMefCOrlkLv0Mm/chatgpt-image-mar-6-2026-085152-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRMMefCOrlkLv0Mm/chatgpt-image-mar-6-2026-085152-pm.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
                     ><div class="iBryt0xWhU23M8kTl" data-instant-type="container"
                       ><div class="iWHGEHnLIekW1SOzX" data-instant-type="container"
                         ><div class="iuTcqVvA4iANrUFxL" data-instant-type="container"
+                          ><div data-instant-type="text" class="instant-rich-text iUvi5RQrmzXYTnqcj"><p>May be weaker</p></div
                           ><div class="i5GSJxYYMB4k2kVhN" data-instant-type="container"
-                            ><div data-instant-type="text" class="instant-rich-text iBGd3T9kSQbTYr2O9"><h3>Minty Flavors</h3></div
-                            ><div data-instant-type="text" class="instant-rich-text iOhuNCtWWtTd2IGoc"><h3>Most Popular</h3></div></div
-                          ><div data-instant-type="text" class="instant-rich-text iUvi5RQrmzXYTnqcj"
-                            ><p><em>Complete Bundle · Adjustable airflow · premium carry set</em></p></div
-                          ></div
+                            ><div data-instant-type="text" class="instant-rich-text iBGd3T9kSQbTYr2O9"><h3>Fruity</h3></div></div
+                          ><div data-instant-type="text" class="instant-rich-text iZf2BGW4ffVfny43X"><p>Subtle natural fruit aromas.Light &amp; sweet.</p></div></div
                         ></div
                       ></div
                     ></div
