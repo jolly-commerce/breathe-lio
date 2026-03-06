@@ -23,10 +23,60 @@
       assign product_HDyVlxXMxatNmYkK_image = product_HDyVlxXMxatNmYkK_variant.featured_image | default: product_HDyVlxXMxatNmYkK.featured_image
     -%}
     <form class="iHDyVlxXMxatNmYkK" data-instant-type="container" id="iHDyVlxXMxatNmYkK" data-instant-form-product-url="{{ product_HDyVlxXMxatNmYkK.url }}" data-instant-form-variant-id="{{ product_HDyVlxXMxatNmYkK_variant.id }}" data-instant-form-product-id="{{ product_HDyVlxXMxatNmYkK.id }}"
-      ><div class="iE6t95PyUlI1h9dJz" data-instant-type="container"
-        ><div class="iF6d7r8q3BeE7hrNe" data-instant-type="container"
+      ><div class="iE6t95PyUlI1h9dJz" data-instant-type="container">
+        {%- liquid
+          assign style = ''
+
+          assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[0]
+          assign selected_option_value = selected_option.values[2]
+
+          assign variant_has_option = false
+
+          if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
+            assign variant_has_option = true
+          endif
+
+          if variant_has_option != true
+            assign style = 'style="display: none;"'
+          endif
+        -%}
+        <div class="iNA41fUgYpHW6LScn" data-instant-type="container" {{- style -}} data-instant-conditional="true"
+          ><div class="iD0okTdxmfpLXNIJU" data-instant-type="container"
+            ><div data-instant-type="image" class="i7Kv1IjTeHXiiEdF0"><img alt="{{ product_HDyVlxXMxatNmYkK_image.alt }}" src="{{ product_HDyVlxXMxatNmYkK_image | image_url: width: 1280 }}" data-instant-dynamic-content-source="FEATURED_IMAGE" width="{{ product_HDyVlxXMxatNmYkK_image.width }}" height="{{ product_HDyVlxXMxatNmYkK_image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_HDyVlxXMxatNmYkK_image | image_url: width: 1080 }} 1080w, {{ product_HDyVlxXMxatNmYkK_image | image_url: width: 828 }} 828w, {{ product_HDyVlxXMxatNmYkK_image | image_url: width: 750 }} 750w, {{ product_HDyVlxXMxatNmYkK_image | image_url: width: 640 }} 640w, {{ product_HDyVlxXMxatNmYkK_image | image_url: width: 360 }} 360w, {{ product_HDyVlxXMxatNmYkK_image | image_url: width: 1280 }} 1280w" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main"></div></div
+          ><div class="iuFgKTz4xAZFeSou1" data-instant-type="container"
+            ><div class="iboxsEGroYHa1sTuZ" data-instant-type="container"
+              ><div data-instant-type="image" class="iS6l83KaRermFKUOB">
+                {%- if product_HDyVlxXMxatNmYkK.images[1] != blank -%}<img alt="{{ product_HDyVlxXMxatNmYkK.images[1].alt }}" src="{{ product_HDyVlxXMxatNmYkK.images[1] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_HDyVlxXMxatNmYkK.images[1].width }}" height="{{ product_HDyVlxXMxatNmYkK.images[1].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_HDyVlxXMxatNmYkK.images[1] | image_url: width: 1080 }} 1080w, {{ product_HDyVlxXMxatNmYkK.images[1] | image_url: width: 828 }} 828w, {{ product_HDyVlxXMxatNmYkK.images[1] | image_url: width: 750 }} 750w, {{ product_HDyVlxXMxatNmYkK.images[1] | image_url: width: 640 }} 640w, {{ product_HDyVlxXMxatNmYkK.images[1] | image_url: width: 360 }} 360w, {{ product_HDyVlxXMxatNmYkK.images[1] | image_url: width: 1280 }} 1280w" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" loading="eager" fetchpriority="high" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}</div></div
+            ><div class="iSfeBXbxrLqZRTbgA" data-instant-type="container"
+              ><div data-instant-type="image" class="i1KHi3fx89yukqqHt">
+                {%- if product_HDyVlxXMxatNmYkK.images[3] != blank -%}<img alt="{{ product_HDyVlxXMxatNmYkK.images[3].alt }}" src="{{ product_HDyVlxXMxatNmYkK.images[3] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_HDyVlxXMxatNmYkK.images[3].width }}" height="{{ product_HDyVlxXMxatNmYkK.images[3].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_HDyVlxXMxatNmYkK.images[3] | image_url: width: 1080 }} 1080w, {{ product_HDyVlxXMxatNmYkK.images[3] | image_url: width: 828 }} 828w, {{ product_HDyVlxXMxatNmYkK.images[3] | image_url: width: 750 }} 750w, {{ product_HDyVlxXMxatNmYkK.images[3] | image_url: width: 640 }} 640w, {{ product_HDyVlxXMxatNmYkK.images[3] | image_url: width: 360 }} 360w, {{ product_HDyVlxXMxatNmYkK.images[3] | image_url: width: 1280 }} 1280w" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" loading="eager" fetchpriority="high" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}</div></div></div
+          ><div class="iL1eyyAQGpWM9vEWt" data-instant-type="container"
+            ><div class="if19yOhmE3w2wbNcd" data-instant-type="container"
+              ><div data-instant-type="image" class="iH2T8JaawmLUlHOOW">
+                {%- if product_HDyVlxXMxatNmYkK.images[4] != blank -%}<img alt="{{ product_HDyVlxXMxatNmYkK.images[4].alt }}" src="{{ product_HDyVlxXMxatNmYkK.images[4] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_HDyVlxXMxatNmYkK.images[4].width }}" height="{{ product_HDyVlxXMxatNmYkK.images[4].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_HDyVlxXMxatNmYkK.images[4] | image_url: width: 1080 }} 1080w, {{ product_HDyVlxXMxatNmYkK.images[4] | image_url: width: 828 }} 828w, {{ product_HDyVlxXMxatNmYkK.images[4] | image_url: width: 750 }} 750w, {{ product_HDyVlxXMxatNmYkK.images[4] | image_url: width: 640 }} 640w, {{ product_HDyVlxXMxatNmYkK.images[4] | image_url: width: 360 }} 360w, {{ product_HDyVlxXMxatNmYkK.images[4] | image_url: width: 1280 }} 1280w" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" loading="eager" fetchpriority="high" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}</div></div
+            ><div class="iVyKAHe0Dp1dk2uC3" data-instant-type="container"
+              ><div data-instant-type="image" class="iauUMzSaGwt6ogixH">
+                {%- if product_HDyVlxXMxatNmYkK.images[2] != blank -%}<img alt="{{ product_HDyVlxXMxatNmYkK.images[2].alt }}" src="{{ product_HDyVlxXMxatNmYkK.images[2] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_HDyVlxXMxatNmYkK.images[2].width }}" height="{{ product_HDyVlxXMxatNmYkK.images[2].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_HDyVlxXMxatNmYkK.images[2] | image_url: width: 1080 }} 1080w, {{ product_HDyVlxXMxatNmYkK.images[2] | image_url: width: 828 }} 828w, {{ product_HDyVlxXMxatNmYkK.images[2] | image_url: width: 750 }} 750w, {{ product_HDyVlxXMxatNmYkK.images[2] | image_url: width: 640 }} 640w, {{ product_HDyVlxXMxatNmYkK.images[2] | image_url: width: 360 }} 360w, {{ product_HDyVlxXMxatNmYkK.images[2] | image_url: width: 1280 }} 1280w" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" loading="eager" fetchpriority="high" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}</div></div></div
+        ></div>
+        {%- liquid
+          assign style = ''
+
+          assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[0]
+          assign selected_option_value = selected_option.values[0]
+
+          assign variant_has_option = false
+
+          if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
+            assign variant_has_option = true
+          endif
+
+          if variant_has_option != true
+            assign style = 'style="display: none;"'
+          endif
+        -%}
+        <div class="iF6d7r8q3BeE7hrNe" data-instant-type="container" {{- style -}} data-instant-conditional="true"
           ><div class="iQHSJpG4J6nbbSeRt" data-instant-type="container"
-            ><div data-instant-type="image" class="igc0u2SGskgtjtn6f"><img alt="{{ product_HDyVlxXMxatNmYkK_image.alt }}" src="{{ product_HDyVlxXMxatNmYkK_image | image_url: width: 1280 }}" data-instant-dynamic-content-source="FEATURED_IMAGE" width="{{ product_HDyVlxXMxatNmYkK_image.width }}" height="{{ product_HDyVlxXMxatNmYkK_image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_HDyVlxXMxatNmYkK_image | image_url: width: 1080 }} 1080w, {{ product_HDyVlxXMxatNmYkK_image | image_url: width: 828 }} 828w, {{ product_HDyVlxXMxatNmYkK_image | image_url: width: 750 }} 750w, {{ product_HDyVlxXMxatNmYkK_image | image_url: width: 640 }} 640w, {{ product_HDyVlxXMxatNmYkK_image | image_url: width: 360 }} 360w, {{ product_HDyVlxXMxatNmYkK_image | image_url: width: 1280 }} 1280w" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main"></div></div
+            ><div data-instant-type="image" class="igc0u2SGskgtjtn6f"><img alt="{{ product_HDyVlxXMxatNmYkK_image.alt }}" src="{{ product_HDyVlxXMxatNmYkK_image | image_url: width: 1280 }}" data-instant-dynamic-content-source="FEATURED_IMAGE" width="{{ product_HDyVlxXMxatNmYkK_image.width }}" height="{{ product_HDyVlxXMxatNmYkK_image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_HDyVlxXMxatNmYkK_image | image_url: width: 1080 }} 1080w, {{ product_HDyVlxXMxatNmYkK_image | image_url: width: 828 }} 828w, {{ product_HDyVlxXMxatNmYkK_image | image_url: width: 750 }} 750w, {{ product_HDyVlxXMxatNmYkK_image | image_url: width: 640 }} 640w, {{ product_HDyVlxXMxatNmYkK_image | image_url: width: 360 }} 360w, {{ product_HDyVlxXMxatNmYkK_image | image_url: width: 1280 }} 1280w" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" src="{{ '3_5c9fc8c5-1f88-4053-ad05-96be8b61e25d.jpg' | file_img_url: '1280x' }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ '3_5c9fc8c5-1f88-4053-ad05-96be8b61e25d.jpg' | file_img_url: '1080x' }} 1080w, {{ '3_5c9fc8c5-1f88-4053-ad05-96be8b61e25d.jpg' | file_img_url: '828x' }} 828w, {{ '3_5c9fc8c5-1f88-4053-ad05-96be8b61e25d.jpg' | file_img_url: '750x' }} 750w, {{ '3_5c9fc8c5-1f88-4053-ad05-96be8b61e25d.jpg' | file_img_url: '640x' }} 640w, {{ '3_5c9fc8c5-1f88-4053-ad05-96be8b61e25d.jpg' | file_img_url: '360x' }} 360w, {{ '3_5c9fc8c5-1f88-4053-ad05-96be8b61e25d.jpg' | file_img_url: '1280x' }} 1280w" width="1500" height="1500" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div></div
           ><div class="ibGFvW3csN2om1KKi" data-instant-type="container"
             ><div class="imNWzhlNp6fI763QQ" data-instant-type="container"
               ><div data-instant-type="image" class="iLmBfw6rTywG1Tbyr">
@@ -77,7 +127,37 @@
                   {{- style -}}
                 >
                   {{- compare_at_price | money -}}
-                </span> </div
+                </span>
+
+                <div class="i7Co3eGhFvqgk4vCx" data-instant-type="container">
+                  {%- liquid
+                    assign style = ''
+
+                    assign compare_at_price = product_HDyVlxXMxatNmYkK_variant.compare_at_price
+                    assign variant_price = product_HDyVlxXMxatNmYkK_variant.price
+
+                    if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
+                      assign compare_at_price = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.compare_at_price
+                      assign variant_price = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.price
+                    endif
+
+                    assign saved_amount = compare_at_price | minus: variant_price | times: 100 | divided_by: compare_at_price
+
+                    if compare_at_price <= variant_price or saved_amount <= 0 or compare_at_price == null
+                      assign style = 'style="display: none;"'
+                    endif
+                  -%}
+                  <span
+                    data-instant-dynamic-content-source="SAVED_PERCENTAGE"
+                    class="ijOMH4Z85rXQoE7y2"
+                    {{- style -}}
+                  >
+                    {{- saved_amount -}}
+                    %
+                  </span>
+
+                  <div data-instant-type="text" class="instant-rich-text iD0DjCf5v4M9IxsBW"><p>OFF</p></div></div
+                ></div
               ><div class="i4Ocfrzta3xfnIxAd" data-instant-type="container"
                 ><div class="iWDGyGNfL6M6S2EB9" data-instant-type="container"
                   ><div data-instant-type="icon" class="i0MTV7aQ1i0NMdyM2">
@@ -137,11 +217,32 @@
             ></div
           ><div class="iHazbbyOr4wDxa1BK" data-instant-type="container"
             ><div class="ihcLZnxEQPRNafm7T" data-instant-type="container"
-              ><div data-instant-type="text" class="instant-rich-text izJKS8mS2cgCbU3IQ"><p>Version:</p></div
-              ><p data-instant-dynamic-content-source="OPTION1" data-instant-type="text" class="iqzmFvHfP7uW6UMlI">{{ product_HDyVlxXMxatNmYkK_variant.option1 }}</p></div
-            ><div class="iZtqFdSLxF9zU5v87" data-instant-type="container"
+              ><div data-instant-type="text" class="instant-rich-text izJKS8mS2cgCbU3IQ"
+                ><ol
+                  ><li><p>Select your Lio:</p></li></ol
+                ></div
+              ><p data-instant-dynamic-content-source="OPTION1" data-instant-type="text" class="iFEJtVxqS4Ea5LY8C">{{ product_HDyVlxXMxatNmYkK_variant.option1 }}</p
+              ><div class="ixTlDN9I3QvcxJ2Fh" data-instant-type="container"
+                ><div class="iXebYsp2SVsBSwRHb" data-instant-type="container"
+                  ><div class="iwwbeAYVWawVUxALF" data-instant-type="container"
+                    ><button class="iVO82KwvGd0HBTKK7" data-instant-type="container" data-instant-action-type="open-dropdown" data-instant-state="inactive" data-instant-action-id="mTvpBVzRbq1ESUPk" data-instant-action-on-hover=""
+                      ><div data-instant-type="icon" class="i0psK1gk0jDKvaMzn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
+                          <title>question</title><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,168a12,12,0,1,1,12-12A12,12,0,0,1,128,192Zm8-48.72V144a8,8,0,0,1-16,0v-8a8,8,0,0,1,8-8c13.23,0,24-9,24-20s-10.77-20-24-20-24,9-24,20v4a8,8,0,0,1-16,0v-4c0-19.85,17.94-36,40-36s40,16.15,40,36C168,125.38,154.24,139.93,136,143.28Z"></path>
+                        </svg></div></button
+                    ><div class="instant-dropdown--wrapper" data-state="closed"
+                      ><div class="imTvpBVzRbq1ESUPk" data-instant-dropdown-placement="top" data-instant-dropdown-offset="2" data-instant-type="dropdown"
+                        ><div data-instant-type="text" class="instant-rich-text itnWJgTrGzFl40Cw5"><p>This is a tooltip</p></div></div
+                      ></div
+                    ></div
+                  ><div data-instant-type="text" class="instant-rich-text it2pWfqscd45v6qmU"
+                    ><p><strong>See what&apos;s included in Classic</strong></p></div
+                  ></div
+                ></div
+              ></div
+            ><div class="iE52fdonVnVSMjLQw" data-instant-type="container"
               ><div
-                class="instant-custom-variant-picker iMmD6egIpcyxScq2I"
+                class="instant-custom-variant-picker iH7fCYi4izvwet5cf"
                 data-instant-type="container"
                 data-instant-action-type="select-variant-option"
                 data-instant-option-value="
@@ -173,30 +274,100 @@
                   	endif
                   -%}{{- is_not_available -}}
                 "
-                ><div class="iBprzAzvfReuyRtvw" data-instant-type="container"></div><div data-instant-type="image" class="iNKsTLw9EsiUu7UJz"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/C8MTMTW7PHO1fVms/chatgpt-image-mar-6-2026-032223-pm-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/C8MTMTW7PHO1fVms/chatgpt-image-mar-6-2026-032223-pm-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/C8MTMTW7PHO1fVms/chatgpt-image-mar-6-2026-032223-pm-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/C8MTMTW7PHO1fVms/chatgpt-image-mar-6-2026-032223-pm-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/C8MTMTW7PHO1fVms/chatgpt-image-mar-6-2026-032223-pm-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/C8MTMTW7PHO1fVms/chatgpt-image-mar-6-2026-032223-pm-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/C8MTMTW7PHO1fVms/chatgpt-image-mar-6-2026-032223-pm-photoroom.webp?width=1280" width="952" height="952" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
-                ><div class="i02LdXlJGcExdvGse" data-instant-type="container"
-                  ><div data-instant-type="text" class="instant-rich-text iZCYNBkrEN5JGySGQ"><h3>Lio Classic</h3></div
-                  ><div data-instant-type="text" class="instant-rich-text ixLzVnL3dG6oODo35"><p>Description of the option</p></div></div
-                ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iubbqtYj7hHffMnsF">
-                  {%- liquid
-                    assign variant_price = selected_variant.price
+                ><div class="iftDJSZi3Lj0QdtUK" data-instant-type="container"></div>
+                {%- liquid
+                  assign style = ''
 
-                    if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
-                      for allocation in selected_variant.selling_plan_allocations
-                        assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
-                        assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
+                  assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
+                  assign selected_option_value = selected_option.values[0]
 
-                        if selling_plan_by_interval != null
-                          assign variant_price = allocation.price
-                          break
+                  assign variant_has_option = false
+
+                  if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
+                    assign variant_has_option = true
+                  endif
+
+                  if variant_has_option != true
+                    assign style = 'style="display: none;"'
+                  endif
+                -%}
+                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iC46jnnOMsN0BbfpW"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/C8MTMTW7PHO1fVms/chatgpt-image-mar-6-2026-032223-pm-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/C8MTMTW7PHO1fVms/chatgpt-image-mar-6-2026-032223-pm-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/C8MTMTW7PHO1fVms/chatgpt-image-mar-6-2026-032223-pm-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/C8MTMTW7PHO1fVms/chatgpt-image-mar-6-2026-032223-pm-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/C8MTMTW7PHO1fVms/chatgpt-image-mar-6-2026-032223-pm-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/C8MTMTW7PHO1fVms/chatgpt-image-mar-6-2026-032223-pm-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/C8MTMTW7PHO1fVms/chatgpt-image-mar-6-2026-032223-pm-photoroom.webp?width=1280" width="952" height="952" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div>
+                {%- liquid
+                  assign style = ''
+
+                  assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
+                  assign selected_option_value = selected_option.values[1]
+
+                  assign variant_has_option = false
+
+                  if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
+                    assign variant_has_option = true
+                  endif
+
+                  if variant_has_option != true
+                    assign style = 'style="display: none;"'
+                  endif
+                -%}
+                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="inQDOwcFITRhbj0c6"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P6e3QdbpduQi5y71/chatgpt-image-mar-6-2026-032223-pm-photoroom-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P6e3QdbpduQi5y71/chatgpt-image-mar-6-2026-032223-pm-photoroom-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P6e3QdbpduQi5y71/chatgpt-image-mar-6-2026-032223-pm-photoroom-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P6e3QdbpduQi5y71/chatgpt-image-mar-6-2026-032223-pm-photoroom-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P6e3QdbpduQi5y71/chatgpt-image-mar-6-2026-032223-pm-photoroom-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P6e3QdbpduQi5y71/chatgpt-image-mar-6-2026-032223-pm-photoroom-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P6e3QdbpduQi5y71/chatgpt-image-mar-6-2026-032223-pm-photoroom-2.webp?width=1280" width="923" height="923" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                ><div class="iTkPLBtNhiEftU8W8" data-instant-type="container"
+                  ><div data-instant-type="text" class="instant-rich-text iiwzqWDeTsrNYicPF"><h3>Lio Classic</h3></div
+                  ><div data-instant-type="text" class="instant-rich-text iqG8GYMVOVPMSNJLt"
+                    ><p><em>The original wooden breathing habit tool</em></p></div
+                  ></div
+                ><div class="iRBIKBTEUF8IGoR47" data-instant-type="container"
+                  ><div class="iBwZ7BdUACOQkaIUv" data-instant-type="container"
+                    ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iEvz7oaUz3NI8eZer">
+                      {%- liquid
+                        assign variant_price = selected_variant.price
+
+                        if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
+                          for allocation in selected_variant.selling_plan_allocations
+                            assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
+                            assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
+
+                            if selling_plan_by_interval != null
+                              assign variant_price = allocation.price
+                              break
+                            endif
+                          endfor
                         endif
-                      endfor
-                    endif
-                  -%}
-                  {{- variant_price | money -}}
-                </p></div
+                      -%}
+                      {{- variant_price | money -}}
+                    </p>
+
+                    {%- liquid
+                      assign style = ''
+                      assign compare_at_price = selected_variant.compare_at_price
+                      assign variant_price = selected_variant.price
+
+                      if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
+                        for allocation in selected_variant.selling_plan_allocations
+                          assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
+                          assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
+
+                          if selling_plan_by_interval != null
+                            assign compare_at_price = allocation.compare_at_price
+                            assign variant_price = allocation.price
+                            break
+                          endif
+                        endfor
+                      endif
+
+                      if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
+                        assign style = 'style="display: none;"'
+                      endif
+                    -%}
+                    <span
+                      data-instant-dynamic-content-source="COMPARE_AT"
+                      class="i5oTarBD0uFRaIIvT"
+                      {{- style -}}
+                    >
+                      {{- compare_at_price | money -}}
+                    </span>
+                  </div></div
+                ></div
               ><div
-                class="instant-custom-variant-picker iuKSYCy5hAZt0corR"
+                class="instant-custom-variant-picker iSQ3bzOrnGSkUjcS9"
                 data-instant-type="container"
                 data-instant-action-type="select-variant-option"
                 data-instant-option-value="
@@ -228,34 +399,104 @@
                   	endif
                   -%}{{- is_not_available -}}
                 "
-                ><div class="iMaIJDdN0dbQzpNXt" data-instant-type="container"></div><div data-instant-type="image" class="iQJdl6fuWDBjMm1Oa"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MiwbxEeRQ08Y03NC/chatgpt-image-mar-6-2026-030046-pm-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MiwbxEeRQ08Y03NC/chatgpt-image-mar-6-2026-030046-pm-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MiwbxEeRQ08Y03NC/chatgpt-image-mar-6-2026-030046-pm-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MiwbxEeRQ08Y03NC/chatgpt-image-mar-6-2026-030046-pm-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MiwbxEeRQ08Y03NC/chatgpt-image-mar-6-2026-030046-pm-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MiwbxEeRQ08Y03NC/chatgpt-image-mar-6-2026-030046-pm-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MiwbxEeRQ08Y03NC/chatgpt-image-mar-6-2026-030046-pm-photoroom.webp?width=1280" width="1164" height="1164" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
-                ><div class="ia54DERzYuCfTyjH0" data-instant-type="container"
-                  ><div class="iOqwBrbWius1MzUcy" data-instant-type="container"
-                    ><div class="iT7GF0I2L25sWhYZp" data-instant-type="container"
-                      ><div data-instant-type="text" class="instant-rich-text iHEnxxq20g39iFXNY"><h3>Lio Plus</h3></div
-                      ><div data-instant-type="text" class="instant-rich-text i4vb66x9pDcwaXpyI"><h3>Most Chosen</h3></div></div
-                    ><div data-instant-type="text" class="instant-rich-text i8pg73cue1ww9FEZK"><p>The complete Lio ritual</p></div></div
+                ><div class="iFttnoAKxbTVew6VH" data-instant-type="container"></div>
+                {%- liquid
+                  assign style = ''
+
+                  assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
+                  assign selected_option_value = selected_option.values[0]
+
+                  assign variant_has_option = false
+
+                  if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
+                    assign variant_has_option = true
+                  endif
+
+                  if variant_has_option != true
+                    assign style = 'style="display: none;"'
+                  endif
+                -%}
+                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="isfTNpUqeY2KHCcJe"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MiwbxEeRQ08Y03NC/chatgpt-image-mar-6-2026-030046-pm-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MiwbxEeRQ08Y03NC/chatgpt-image-mar-6-2026-030046-pm-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MiwbxEeRQ08Y03NC/chatgpt-image-mar-6-2026-030046-pm-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MiwbxEeRQ08Y03NC/chatgpt-image-mar-6-2026-030046-pm-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MiwbxEeRQ08Y03NC/chatgpt-image-mar-6-2026-030046-pm-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MiwbxEeRQ08Y03NC/chatgpt-image-mar-6-2026-030046-pm-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MiwbxEeRQ08Y03NC/chatgpt-image-mar-6-2026-030046-pm-photoroom.webp?width=1280" width="1164" height="1164" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div>
+                {%- liquid
+                  assign style = ''
+
+                  assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
+                  assign selected_option_value = selected_option.values[1]
+
+                  assign variant_has_option = false
+
+                  if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
+                    assign variant_has_option = true
+                  endif
+
+                  if variant_has_option != true
+                    assign style = 'style="display: none;"'
+                  endif
+                -%}
+                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iTBUXSxzk5xsGY235"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/geFCR7uIYUkHzCCC/chatgpt-image-mar-6-2026-070830-pm-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/geFCR7uIYUkHzCCC/chatgpt-image-mar-6-2026-070830-pm-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/geFCR7uIYUkHzCCC/chatgpt-image-mar-6-2026-070830-pm-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/geFCR7uIYUkHzCCC/chatgpt-image-mar-6-2026-070830-pm-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/geFCR7uIYUkHzCCC/chatgpt-image-mar-6-2026-070830-pm-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/geFCR7uIYUkHzCCC/chatgpt-image-mar-6-2026-070830-pm-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/geFCR7uIYUkHzCCC/chatgpt-image-mar-6-2026-070830-pm-photoroom.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                ><div class="iKEiElPiUkn3yRu4N" data-instant-type="container"
+                  ><div class="iBylTPEaQvgyYwSkN" data-instant-type="container"
+                    ><div class="iXMx1k7R8isxQCRdu" data-instant-type="container"
+                      ><div data-instant-type="text" class="instant-rich-text iztER0zPiRvoPDFqO"><h3>Lio Plus</h3></div
+                      ><div data-instant-type="text" class="instant-rich-text iA2LnOItchdwCl1eb"><h3>Most Popular</h3></div></div
+                    ><div data-instant-type="text" class="instant-rich-text imGJSbVf9gFuWxDUA"
+                      ><p><em>Complete Bundle · Adjustable airflow · premium carry set</em></p></div
+                    ></div
                   ></div
-                ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="i95Tw07YLweNuNb28">
-                  {%- liquid
-                    assign variant_price = selected_variant.price
+                ><div class="iyrvygNZDI9NlZrQs" data-instant-type="container"
+                  ><div class="iu2RckvA6toglDYqJ" data-instant-type="container"
+                    ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iZAWR8Y71QyWVlUTf">
+                      {%- liquid
+                        assign variant_price = selected_variant.price
 
-                    if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
-                      for allocation in selected_variant.selling_plan_allocations
-                        assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
-                        assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
+                        if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
+                          for allocation in selected_variant.selling_plan_allocations
+                            assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
+                            assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
 
-                        if selling_plan_by_interval != null
-                          assign variant_price = allocation.price
-                          break
+                            if selling_plan_by_interval != null
+                              assign variant_price = allocation.price
+                              break
+                            endif
+                          endfor
                         endif
-                      endfor
-                    endif
-                  -%}
-                  {{- variant_price | money -}}
-                </p></div
+                      -%}
+                      {{- variant_price | money -}}
+                    </p>
+
+                    {%- liquid
+                      assign style = ''
+                      assign compare_at_price = selected_variant.compare_at_price
+                      assign variant_price = selected_variant.price
+
+                      if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
+                        for allocation in selected_variant.selling_plan_allocations
+                          assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
+                          assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
+
+                          if selling_plan_by_interval != null
+                            assign compare_at_price = allocation.compare_at_price
+                            assign variant_price = allocation.price
+                            break
+                          endif
+                        endfor
+                      endif
+
+                      if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
+                        assign style = 'style="display: none;"'
+                      endif
+                    -%}
+                    <span
+                      data-instant-dynamic-content-source="COMPARE_AT"
+                      class="i7V1CFgFLMIOKFRkX"
+                      {{- style -}}
+                    >
+                      {{- compare_at_price | money -}}
+                    </span>
+                  </div></div
+                ></div
               ><div
-                class="instant-custom-variant-picker iu2REYYowv0rjCck3"
+                class="instant-custom-variant-picker iFRDrppIrlY3TpV1H"
                 data-instant-type="container"
                 data-instant-action-type="select-variant-option"
                 data-instant-option-value="
@@ -287,7 +528,7 @@
                   	endif
                   -%}{{- is_not_available -}}
                 "
-                ><div class="imAEfTS9IzCPyV9qB" data-instant-type="container"></div>
+                ><div class="iNRzTyfLdny1mtl7t" data-instant-type="container"></div>
                 {%- liquid
                   assign style = ''
 
@@ -304,7 +545,7 @@
                     assign style = 'style="display: none;"'
                   endif
                 -%}
-                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iH3H9CoIrHq9hFTpt"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SCcid5J8rojh9oPP/chatgpt-image-mar-6-2026-045613-pm-1-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SCcid5J8rojh9oPP/chatgpt-image-mar-6-2026-045613-pm-1-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SCcid5J8rojh9oPP/chatgpt-image-mar-6-2026-045613-pm-1-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SCcid5J8rojh9oPP/chatgpt-image-mar-6-2026-045613-pm-1-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SCcid5J8rojh9oPP/chatgpt-image-mar-6-2026-045613-pm-1-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SCcid5J8rojh9oPP/chatgpt-image-mar-6-2026-045613-pm-1-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SCcid5J8rojh9oPP/chatgpt-image-mar-6-2026-045613-pm-1-photoroom.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div>
+                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iS5dO8pBii6TuTxkf"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SCcid5J8rojh9oPP/chatgpt-image-mar-6-2026-045613-pm-1-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SCcid5J8rojh9oPP/chatgpt-image-mar-6-2026-045613-pm-1-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SCcid5J8rojh9oPP/chatgpt-image-mar-6-2026-045613-pm-1-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SCcid5J8rojh9oPP/chatgpt-image-mar-6-2026-045613-pm-1-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SCcid5J8rojh9oPP/chatgpt-image-mar-6-2026-045613-pm-1-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SCcid5J8rojh9oPP/chatgpt-image-mar-6-2026-045613-pm-1-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SCcid5J8rojh9oPP/chatgpt-image-mar-6-2026-045613-pm-1-photoroom.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div>
                 {%- liquid
                   assign style = ''
 
@@ -321,39 +562,78 @@
                     assign style = 'style="display: none;"'
                   endif
                 -%}
-                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="inbMYB5t6NGpwCtbm"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/902sDFRqeUA1GhXl/chatgpt-image-mar-6-2026-045613-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/902sDFRqeUA1GhXl/chatgpt-image-mar-6-2026-045613-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/902sDFRqeUA1GhXl/chatgpt-image-mar-6-2026-045613-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/902sDFRqeUA1GhXl/chatgpt-image-mar-6-2026-045613-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/902sDFRqeUA1GhXl/chatgpt-image-mar-6-2026-045613-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/902sDFRqeUA1GhXl/chatgpt-image-mar-6-2026-045613-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/902sDFRqeUA1GhXl/chatgpt-image-mar-6-2026-045613-pm.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
-                ><div class="ioX3IoHTv8BcxmzWw" data-instant-type="container"
-                  ><div class="ifR1Lj2WvnovjTThf" data-instant-type="container"
-                    ><div class="i3lJvULiRkfi6gmxE" data-instant-type="container"
-                      ><div data-instant-type="text" class="instant-rich-text iZmOp7iud7vKEV1mu"><h3>Lio Pro</h3></div
-                      ><div data-instant-type="text" class="instant-rich-text iXSDDTEvCRMZlrEeE"><h3>Most Value</h3></div></div
-                    ><div data-instant-type="text" class="instant-rich-text iUFjOr1oeexdmf3J4"><p>Description of the option</p></div></div
+                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iipGyOP4QEo9TEiL3"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/902sDFRqeUA1GhXl/chatgpt-image-mar-6-2026-045613-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/902sDFRqeUA1GhXl/chatgpt-image-mar-6-2026-045613-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/902sDFRqeUA1GhXl/chatgpt-image-mar-6-2026-045613-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/902sDFRqeUA1GhXl/chatgpt-image-mar-6-2026-045613-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/902sDFRqeUA1GhXl/chatgpt-image-mar-6-2026-045613-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/902sDFRqeUA1GhXl/chatgpt-image-mar-6-2026-045613-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/902sDFRqeUA1GhXl/chatgpt-image-mar-6-2026-045613-pm.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                ><div class="iG7uf3WnG6iAObHbZ" data-instant-type="container"
+                  ><div class="i5ZkgbgRJZYlz2v3t" data-instant-type="container"
+                    ><div class="iiTChejjGJNxYonhi" data-instant-type="container"
+                      ><div data-instant-type="text" class="instant-rich-text iTaB86xfO9PaYrtZX"><h3>Lio Pro</h3></div
+                      ><div data-instant-type="text" class="instant-rich-text iGJmShk808sUCJYeP"
+                        ><h3><strong>Best Experience</strong></h3></div
+                      ></div
+                    ><div data-instant-type="text" class="instant-rich-text i2LlGsGOxtDVAti6p"
+                      ><p><em>Adjustable airflow · magnetic fidget · premium carry set</em></p></div
+                    ></div
                   ></div
-                ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iE9y4wru9FENlVBa4">
-                  {%- liquid
-                    assign variant_price = selected_variant.price
+                ><div class="ihgALSf2FF2AAidQX" data-instant-type="container"
+                  ><div class="iG1WP6DQIFsrgVNu8" data-instant-type="container"
+                    ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="i2DygbNWaO90JzJ8Y">
+                      {%- liquid
+                        assign variant_price = selected_variant.price
 
-                    if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
-                      for allocation in selected_variant.selling_plan_allocations
-                        assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
-                        assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
+                        if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
+                          for allocation in selected_variant.selling_plan_allocations
+                            assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
+                            assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
 
-                        if selling_plan_by_interval != null
-                          assign variant_price = allocation.price
-                          break
+                            if selling_plan_by_interval != null
+                              assign variant_price = allocation.price
+                              break
+                            endif
+                          endfor
                         endif
-                      endfor
-                    endif
-                  -%}
-                  {{- variant_price | money -}}
-                </p></div
+                      -%}
+                      {{- variant_price | money -}}
+                    </p>
+
+                    {%- liquid
+                      assign style = ''
+                      assign compare_at_price = selected_variant.compare_at_price
+                      assign variant_price = selected_variant.price
+
+                      if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
+                        for allocation in selected_variant.selling_plan_allocations
+                          assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
+                          assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
+
+                          if selling_plan_by_interval != null
+                            assign compare_at_price = allocation.compare_at_price
+                            assign variant_price = allocation.price
+                            break
+                          endif
+                        endfor
+                      endif
+
+                      if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
+                        assign style = 'style="display: none;"'
+                      endif
+                    -%}
+                    <span
+                      data-instant-dynamic-content-source="COMPARE_AT"
+                      class="i5MrOme0K0ZTkZa0U"
+                      {{- style -}}
+                    >
+                      {{- compare_at_price | money -}}
+                    </span>
+                  </div></div
+                ></div
               ></div
-            ><div class="ipVaOpyD2wspz6n0I" data-instant-type="container"
-              ><div data-instant-type="text" class="instant-rich-text ixql2ny5iZylW6DYK"><p>Material:</p></div
-              ><p data-instant-dynamic-content-source="OPTION2" data-instant-type="text" class="iFjJGmyofKXAhqHex">{{ product_HDyVlxXMxatNmYkK_variant.option2 }}</p></div
-            ><div class="iAayuYRWm1weKsYlX" data-instant-type="container"
+            ><div conditionals="" class="ivoRLfCZiLsi4bBBW" data-instant-type="container"
+              ><div data-instant-type="text" class="instant-rich-text iYJSTrZDEA2SfBC6S"
+                ><p><strong>2. Choose your wood:</strong></p></div
+              ><p data-instant-dynamic-content-source="OPTION2" data-instant-type="text" class="ieE4rFtSG01uofuhs">{{ product_HDyVlxXMxatNmYkK_variant.option2 }}</p></div
+            ><div class="iSB5JZsbn4gvHkOt0" data-instant-type="container"
               ><div
-                class="instant-custom-variant-picker iWTI7eb9ak75Oq1qG"
+                class="instant-custom-variant-picker ih9XMWeYhXhJLhXnr"
                 data-instant-type="container"
                 data-instant-action-type="select-variant-option"
                 data-instant-option-value="
@@ -385,9 +665,9 @@
                   	endif
                   -%}{{- is_not_available -}}
                 "
-                ><div data-instant-type="image" class="iUr48w8roy0BpmIzM"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=1280" width="1208" height="643" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div></div
+                ><div data-instant-type="image" class="iXXTPABLBloaP6Njr"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=1280" width="1208" height="643" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div></div
               ><div
-                class="instant-custom-variant-picker iJLM3tHeomsbGlsAm"
+                class="instant-custom-variant-picker ivh7xh0KDq1QG90Hk"
                 data-instant-type="container"
                 data-instant-action-type="select-variant-option"
                 data-instant-option-value="
@@ -419,7 +699,113 @@
                   	endif
                   -%}{{- is_not_available -}}
                 "
-                ><div data-instant-type="image" class="ij36iC3iWFgTtCJvk"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=1280" width="1208" height="643" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div></div></div></div
+                ><div data-instant-type="image" class="inXhCsdHHSZ4XuHkA"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=1280" width="1208" height="643" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div></div></div
+            ><div class="ipVaOpyD2wspz6n0I" data-instant-type="container"
+              ><div data-instant-type="text" class="instant-rich-text ixql2ny5iZylW6DYK"
+                ><p><strong>3. Choose your flavor bundle:</strong></p></div
+              ><p data-instant-dynamic-content-source="OPTION2" data-instant-type="text" class="iFjJGmyofKXAhqHex">{{ product_HDyVlxXMxatNmYkK_variant.option2 }}</p></div
+            ><div class="i84Rl4BomGnjNIqqd" data-instant-type="container">
+              <script type="application/json" id="instant-slider-iHcyd1UayHyWvBagl-params">
+                { "breakpoints": { "0": { "speed": 300, "direction": "horizontal", "autoHeight": false, "slidesPerView": "auto", "freeMode": false, "centeredSlides": false, "centerInsufficientSlides": false, "spaceBetween": 0 }, "576": { "speed": 300, "direction": "horizontal", "autoHeight": false, "slidesPerView": 1, "freeMode": false, "centeredSlides": true, "centerInsufficientSlides": true, "spaceBetween": 24 } }, "navigation": false, "watchOverflow": true, "a11y": false, "containerModifierClass": "instant-slider-", "noSwipingClass": "instant-slider-no-swiping", "slideClass": "instant-slider-slide", "slideBlankClass": "instant-slider-slide-blank", "slideActiveClass": "instant-slider-slide-active", "slideVisibleClass": "instant-slider-slide-visible", "slideFullyVisibleClass": "instant-slider-slide-fully-visible", "slideNextClass": "instant-slider-slide-next", "slidePrevClass": "instant-slider-slide-prev", "wrapperClass": "instant-slider-wrapper", "lazyPreloaderClass": "instant-slider-lazy-preloader", "on": {} }
+              </script>
+              <div class="instant-slider iHcyd1UayHyWvBagl" id="iHcyd1UayHyWvBagl" data-instant-type="slider"
+                ><div class="instant-slider-wrapper"
+                  ><div
+                    class="instant-custom-variant-picker instant-slider-slide iKuMiOb6SiQuDNkK1"
+                    data-instant-type="slider-slide"
+                    data-instant-action-type="select-variant-option"
+                    data-instant-option-value="
+                      {%- liquid
+                      	assign selected_options = product_HDyVlxXMxatNmYkK_variant.options
+                      	assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values | where : 'name', 'Version' | first
+                      	if selected_option == null
+                      		assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[0]
+                      	endif
+
+                      	for variant in product_HDyVlxXMxatNmYkK.variants
+                      		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
+                      			assign selected_variant = variant
+                      		endif
+                      	endfor
+                      -%}{{- selected_option.values[0] | escape -}}
+                    "
+                    data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                    data-instant-state="{%- if product_HDyVlxXMxatNmYkK_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
+                    data-instant-disabled="
+                      {%- liquid
+                      	assign is_not_available = false
+                      	if selected_variant.available == false
+                      		assign is_not_available = true
+                      	endif
+                      -%}{{- is_not_available -}}
+                    "
+                    ><div class="iqG7PF2DiXLl7ZZw1" data-instant-type="container"></div><div data-instant-type="image" conditionals="" class="iLZAoLOZMm1xxjURz"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                    ><div class="iFAy5w47mKdkcvE0z" data-instant-type="container"
+                      ><div class="iAOZhfhCKsOh0hPnr" data-instant-type="container"
+                        ><div class="i9GXvS7VOllGScLYk" data-instant-type="container"
+                          ><div class="iB3S0R6bIkMrO2esQ" data-instant-type="container"
+                            ><div data-instant-type="text" class="instant-rich-text iNUb9NvjDDnTwyF0H"><h3>Minty Flavors</h3></div
+                            ><div data-instant-type="text" class="instant-rich-text iEVNipcEx0JeexUb6"><h3>Most Popular</h3></div></div
+                          ><div data-instant-type="text" class="instant-rich-text iuXxl6BslN5L4HSw8"
+                            ><p><em>Complete Bundle · Adjustable airflow · premium carry set</em></p></div
+                          ></div
+                        ></div
+                      ></div
+                    ></div
+                  ><div
+                    class="instant-custom-variant-picker instant-slider-slide iLWXzBtetDlFRBUGM"
+                    data-instant-type="slider-slide"
+                    data-instant-action-type="select-variant-option"
+                    data-instant-option-value="
+                      {%- liquid
+                      	assign selected_options = product_HDyVlxXMxatNmYkK_variant.options
+                      	assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values | where : 'name', 'Version' | first
+                      	if selected_option == null
+                      		assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[0]
+                      	endif
+
+                      	for variant in product_HDyVlxXMxatNmYkK.variants
+                      		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
+                      			assign selected_variant = variant
+                      		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
+                      			assign selected_variant = variant
+                      		endif
+                      	endfor
+                      -%}{{- selected_option.values[0] | escape -}}
+                    "
+                    data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                    data-instant-state="{%- if product_HDyVlxXMxatNmYkK_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
+                    data-instant-disabled="
+                      {%- liquid
+                      	assign is_not_available = false
+                      	if selected_variant.available == false
+                      		assign is_not_available = true
+                      	endif
+                      -%}{{- is_not_available -}}
+                    "
+                    ><div class="ionTwzmKchnsDN7PR" data-instant-type="container"></div><div data-instant-type="image" conditionals="" class="il6s6upkWKsjktFKH"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                    ><div class="iBryt0xWhU23M8kTl" data-instant-type="container"
+                      ><div class="iWHGEHnLIekW1SOzX" data-instant-type="container"
+                        ><div class="iuTcqVvA4iANrUFxL" data-instant-type="container"
+                          ><div class="i5GSJxYYMB4k2kVhN" data-instant-type="container"
+                            ><div data-instant-type="text" class="instant-rich-text iBGd3T9kSQbTYr2O9"><h3>Minty Flavors</h3></div
+                            ><div data-instant-type="text" class="instant-rich-text iOhuNCtWWtTd2IGoc"><h3>Most Popular</h3></div></div
+                          ><div data-instant-type="text" class="instant-rich-text iUvi5RQrmzXYTnqcj"
+                            ><p><em>Complete Bundle · Adjustable airflow · premium carry set</em></p></div
+                          ></div
+                        ></div
+                      ></div
+                    ></div
+                  ></div
+                ></div
+              ></div
+            ></div
           ><div class="ieCRxXXt55Pga7SZr" data-instant-type="container"
             ><div class="instant-slider-container iri5CFQwKfmwAqbFI" data-instant-type="slider-container">
               {%- liquid
@@ -439,7 +825,7 @@
                 endif
               -%}
               <div data-instant-type="text" class="instant-rich-text i3MZBdDDd6MEMGB8F" {{- style -}} data-instant-conditional="true"
-                ><p><strong>73% of people succeed with the program</strong></p></div
+                ><p><strong>73% succeed with the 90-day reset</strong></p></div
               >
               {%- liquid
                 assign style = ''
@@ -459,229 +845,190 @@
               -%}
               <div data-instant-type="text" class="instant-rich-text iXEOfVAukCk6odqwC" {{- style -}} data-instant-conditional="true"
                 ><p><strong>Reset program added ✓</strong></p></div
-              ><div class="iKe3P4pJDIerVRGHh" data-instant-type="container">
-                <script type="application/json" id="instant-slider-irPrFL4MW2B9Hbuvk-params">
-                  { "breakpoints": { "0": { "speed": 300, "direction": "horizontal", "autoHeight": false, "slidesPerView": 1, "freeMode": false, "centeredSlides": true, "centerInsufficientSlides": true, "spaceBetween": 24 }, "576": { "speed": 300, "direction": "horizontal", "autoHeight": false, "slidesPerView": 1, "freeMode": false, "centeredSlides": true, "centerInsufficientSlides": true, "spaceBetween": 24 } }, "navigation": false, "watchOverflow": true, "a11y": false, "containerModifierClass": "instant-slider-", "noSwipingClass": "instant-slider-no-swiping", "slideClass": "instant-slider-slide", "slideBlankClass": "instant-slider-slide-blank", "slideActiveClass": "instant-slider-slide-active", "slideVisibleClass": "instant-slider-slide-visible", "slideFullyVisibleClass": "instant-slider-slide-fully-visible", "slideNextClass": "instant-slider-slide-next", "slidePrevClass": "instant-slider-slide-prev", "wrapperClass": "instant-slider-wrapper", "lazyPreloaderClass": "instant-slider-lazy-preloader", "on": {} }
-                </script>
-                <div class="instant-slider irPrFL4MW2B9Hbuvk" data-instant-slider-id="rPrFL4MW2B9Hbuvk" id="irPrFL4MW2B9Hbuvk" data-instant-type="slider"
-                  ><div class="instant-slider-wrapper"
-                    ><div class="instant-slider-slide iWDBqaAdH83f01vM8" data-instant-type="slider-slide"
-                      ><div class="inPIhEPrDwHY0Bd8Y" data-instant-type="container"
-                        ><div data-instant-type="text" class="instant-rich-text iy0Mi52JqGoj2F7lc"
-                          ><p><strong>90-Day Reset Program</strong></p></div
-                        ><div class="iAFmfU590AGXUXKM4" data-instant-type="container">
+              >
+              <script type="application/json" id="instant-slider-iiCUzyMd0XAJv58fl-params">
+                { "breakpoints": { "0": { "speed": 300, "direction": "horizontal", "autoHeight": false, "slidesPerView": 1, "freeMode": false, "centeredSlides": true, "centerInsufficientSlides": true, "spaceBetween": 24 }, "576": { "speed": 300, "direction": "horizontal", "autoHeight": false, "slidesPerView": 1, "freeMode": false, "centeredSlides": true, "centerInsufficientSlides": true, "spaceBetween": 24 } }, "navigation": false, "watchOverflow": true, "a11y": false, "containerModifierClass": "instant-slider-", "noSwipingClass": "instant-slider-no-swiping", "slideClass": "instant-slider-slide", "slideBlankClass": "instant-slider-slide-blank", "slideActiveClass": "instant-slider-slide-active", "slideVisibleClass": "instant-slider-slide-visible", "slideFullyVisibleClass": "instant-slider-slide-fully-visible", "slideNextClass": "instant-slider-slide-next", "slidePrevClass": "instant-slider-slide-prev", "wrapperClass": "instant-slider-wrapper", "lazyPreloaderClass": "instant-slider-lazy-preloader", "on": {} }
+              </script>
+              <div class="instant-slider iiCUzyMd0XAJv58fl" data-instant-slider-id="iCUzyMd0XAJv58fl" id="iiCUzyMd0XAJv58fl" data-instant-type="slider"
+                ><div class="instant-slider-wrapper"
+                  ><div class="instant-slider-slide iJoEHpSkQYBLmVq3l" data-instant-type="slider-slide"
+                    ><div class="iQHo9JaPby9x8i96H" data-instant-type="container"
+                      ><div data-instant-type="text" class="instant-rich-text i5Vew8kOyZE0PgF82"
+                        ><p><strong>90-Day Reset Program</strong></p></div
+                      ></div
+                    >
+                    {%- liquid
+                      assign style = ''
+
+                      assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[2]
+                      assign selected_option_value = selected_option.values[0]
+
+                      assign variant_has_option = false
+
+                      if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
+                        assign variant_has_option = true
+                      endif
+
+                      if variant_has_option != true
+                        assign style = 'style="display: none;"'
+                      endif
+                    -%}
+                    <div
+                      class="instant-custom-variant-picker iMBTEGeH2P2k7Ptxr"
+                      data-instant-type="container"
+                      {{- style -}}
+                      data-instant-conditional="true"
+                      data-instant-action-type="select-variant-option"
+                      data-instant-option-value="
+                        {%- liquid
+                        	assign selected_options = product_HDyVlxXMxatNmYkK_variant.options
+                        	assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values | where : 'name', 'Program' | first
+                        	if selected_option == null
+                        		assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[2]
+                        	endif
+
+                        	for variant in product_HDyVlxXMxatNmYkK.variants
+                        		if selected_option.position == 1 and variant.option1 == selected_option.values[1] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                        			assign selected_variant = variant
+                        		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[1] and variant.option3 == selected_options[2]
+                        			assign selected_variant = variant
+                        		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[1]
+                        			assign selected_variant = variant
+                        		endif
+                        	endfor
+                        -%}{{- selected_option.values[1] | escape -}}
+                      "
+                      data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                      data-instant-state="{%- if product_HDyVlxXMxatNmYkK_variant.options contains selected_option.values[1] -%}active{%- else -%}inactive{%- endif -%}"
+                      data-instant-disabled="
+                        {%- liquid
+                        	assign is_not_available = false
+                        	if selected_variant.available == false
+                        		assign is_not_available = true
+                        	endif
+                        -%}{{- is_not_available -}}
+                      "
+                      ><div data-instant-type="text" class="instant-rich-text iyPrrowgVvtFIEn3h"><p>Add for €9 </p></div><div data-instant-type="text" class="instant-rich-text ip4eFJHp9xl63c1fw"><p>€39</p></div></div
+                    >
+                    {%- liquid
+                      assign style = ''
+
+                      assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[2]
+                      assign selected_option_value = selected_option.values[1]
+
+                      assign variant_has_option = false
+
+                      if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
+                        assign variant_has_option = true
+                      endif
+
+                      if variant_has_option != true
+                        assign style = 'style="display: none;"'
+                      endif
+                    -%}
+                    <div
+                      class="instant-custom-variant-picker i6HkfwbTRjDy7CspX"
+                      data-instant-type="container"
+                      {{- style -}}
+                      data-instant-conditional="true"
+                      data-instant-action-type="select-variant-option"
+                      data-instant-option-value="
+                        {%- liquid
+                        	assign selected_options = product_HDyVlxXMxatNmYkK_variant.options
+                        	assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values | where : 'name', 'Program' | first
+                        	if selected_option == null
+                        		assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[2]
+                        	endif
+
+                        	for variant in product_HDyVlxXMxatNmYkK.variants
+                        		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                        			assign selected_variant = variant
+                        		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
+                        			assign selected_variant = variant
+                        		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
+                        			assign selected_variant = variant
+                        		endif
+                        	endfor
+                        -%}{{- selected_option.values[0] | escape -}}
+                      "
+                      data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                      data-instant-state="{%- if product_HDyVlxXMxatNmYkK_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
+                      data-instant-disabled="
+                        {%- liquid
+                        	assign is_not_available = false
+                        	if selected_variant.available == false
+                        		assign is_not_available = true
+                        	endif
+                        -%}{{- is_not_available -}}
+                      "
+                      ><div data-instant-type="text" class="instant-rich-text iDQcWeF1NbyHRlC84"
+                        ><p><strong>Remove program</strong></p></div
+                      ></div
+                    ></div
+                  ><div class="instant-slider-slide itGY7SPCtoqmMBbHS" data-instant-type="slider-slide"
+                    ><div data-instant-type="image" class="iXUlhKizFPMf8f821">
+                      {%- if product_HDyVlxXMxatNmYkK.images[0] != blank -%}<img alt="{{ product_HDyVlxXMxatNmYkK.images[0].alt }}" src="{{ product_HDyVlxXMxatNmYkK.images[0] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_HDyVlxXMxatNmYkK.images[0].width }}" height="{{ product_HDyVlxXMxatNmYkK.images[0].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_HDyVlxXMxatNmYkK.images[0] | image_url: width: 1080 }} 1080w, {{ product_HDyVlxXMxatNmYkK.images[0] | image_url: width: 828 }} 828w, {{ product_HDyVlxXMxatNmYkK.images[0] | image_url: width: 750 }} 750w, {{ product_HDyVlxXMxatNmYkK.images[0] | image_url: width: 640 }} 640w, {{ product_HDyVlxXMxatNmYkK.images[0] | image_url: width: 360 }} 360w, {{ product_HDyVlxXMxatNmYkK.images[0] | image_url: width: 1280 }} 1280w" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" loading="eager" fetchpriority="high" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}</div
+                    ><div class="iYo2dm1MNSh6NxAn5" data-instant-type="container"
+                      ><p data-instant-dynamic-content-source="TITLE" data-instant-type="text" class="ipPamisSBLucxgYa6">{{ product_HDyVlxXMxatNmYkK.title }}</p
+                      ><div class="ijUMdyr11M3tGrhiy" data-instant-type="container">
+                        {%- liquid
+                          assign style = ''
+                          assign compare_at_price = product_HDyVlxXMxatNmYkK_variant.compare_at_price
+                          assign variant_price = product_HDyVlxXMxatNmYkK_variant.price
+
+                          if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
+                            assign compare_at_price = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.compare_at_price
+                            assign variant_price = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.price
+                          endif
+
+                          if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
+                            assign style = 'style="display: none;"'
+                          endif
+                        -%}
+                        <span
+                          data-instant-dynamic-content-source="COMPARE_AT"
+                          class="irCFx1FgpVoVJVRSQ"
+                          {{- style -}}
+                        >
+                          {{- compare_at_price | money -}}
+                        </span>
+
+                        <p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iAFTbfatilTIIMSqm">
                           {%- liquid
-                            assign style = ''
-                            assign compare_at_price = product_HDyVlxXMxatNmYkK_variant.compare_at_price
                             assign variant_price = product_HDyVlxXMxatNmYkK_variant.price
 
                             if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
-                              assign compare_at_price = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.compare_at_price
                               assign variant_price = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.price
                             endif
-
-                            if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
-                              assign style = 'style="display: none;"'
-                            endif
                           -%}
-                          <span
-                            data-instant-dynamic-content-source="COMPARE_AT"
-                            class="iO6NFwtHSEyd3TBDL"
-                            {{- style -}}
-                          >
-                            {{- compare_at_price | money -}}
-                          </span>
-
-                          <p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iJp8w9ulqoFz7RFxB">
-                            {%- liquid
-                              assign variant_price = product_HDyVlxXMxatNmYkK_variant.price
-
-                              if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
-                                assign variant_price = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.price
-                              endif
-                            -%}
-                            {{- variant_price | money -}}
-                          </p></div
-                        ></div
-                      >
-                      {%- liquid
-                        assign style = ''
-
-                        assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[2]
-                        assign selected_option_value = selected_option.values[0]
-
-                        assign variant_has_option = false
-
-                        if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
-                          assign variant_has_option = true
-                        endif
-
-                        if variant_has_option != true
-                          assign style = 'style="display: none;"'
-                        endif
-                      -%}
-                      <div
-                        class="instant-custom-variant-picker iJbA7LzbjFeSAL1DK"
-                        data-instant-type="container"
-                        {{- style -}}
-                        data-instant-conditional="true"
-                        data-instant-action-type="select-variant-option"
-                        data-instant-option-value="
-                          {%- liquid
-                          	assign selected_options = product_HDyVlxXMxatNmYkK_variant.options
-                          	assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values | where : 'name', 'Program' | first
-                          	if selected_option == null
-                          		assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[2]
-                          	endif
-
-                          	for variant in product_HDyVlxXMxatNmYkK.variants
-                          		if selected_option.position == 1 and variant.option1 == selected_option.values[1] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
-                          			assign selected_variant = variant
-                          		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[1] and variant.option3 == selected_options[2]
-                          			assign selected_variant = variant
-                          		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[1]
-                          			assign selected_variant = variant
-                          		endif
-                          	endfor
-                          -%}{{- selected_option.values[1] | escape -}}
-                        "
-                        data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                        data-instant-state="{%- if product_HDyVlxXMxatNmYkK_variant.options contains selected_option.values[1] -%}active{%- else -%}inactive{%- endif -%}"
-                        data-instant-disabled="
-                          {%- liquid
-                          	assign is_not_available = false
-                          	if selected_variant.available == false
-                          		assign is_not_available = true
-                          	endif
-                          -%}{{- is_not_available -}}
-                        "
-                        ><div data-instant-type="text" class="instant-rich-text iiTvoMv5ZO42guZKY"
-                          ><p><strong>Add for €19 </strong></p></div
-                        ><div data-instant-type="text" class="instant-rich-text i2mdWTPdhEJWSmnOC"
-                          ><p><strong>€39</strong></p></div
-                        ></div
-                      >
-                      {%- liquid
-                        assign style = ''
-
-                        assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[2]
-                        assign selected_option_value = selected_option.values[1]
-
-                        assign variant_has_option = false
-
-                        if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
-                          assign variant_has_option = true
-                        endif
-
-                        if variant_has_option != true
-                          assign style = 'style="display: none;"'
-                        endif
-                      -%}
-                      <div
-                        class="instant-custom-variant-picker iwTqvPtdFSAYFKsSL"
-                        data-instant-type="container"
-                        {{- style -}}
-                        data-instant-conditional="true"
-                        data-instant-action-type="select-variant-option"
-                        data-instant-option-value="
-                          {%- liquid
-                          	assign selected_options = product_HDyVlxXMxatNmYkK_variant.options
-                          	assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values | where : 'name', 'Program' | first
-                          	if selected_option == null
-                          		assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[2]
-                          	endif
-
-                          	for variant in product_HDyVlxXMxatNmYkK.variants
-                          		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
-                          			assign selected_variant = variant
-                          		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
-                          			assign selected_variant = variant
-                          		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
-                          			assign selected_variant = variant
-                          		endif
-                          	endfor
-                          -%}{{- selected_option.values[0] | escape -}}
-                        "
-                        data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                        data-instant-state="{%- if product_HDyVlxXMxatNmYkK_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
-                        data-instant-disabled="
-                          {%- liquid
-                          	assign is_not_available = false
-                          	if selected_variant.available == false
-                          		assign is_not_available = true
-                          	endif
-                          -%}{{- is_not_available -}}
-                        "
-                        ><div data-instant-type="text" class="instant-rich-text ibrR4xLyRCSOHl4g3"
-                          ><p><strong>Remove program</strong></p></div
-                        ></div
+                          {{- variant_price | money -}}
+                        </p></div
                       ></div
-                    ><div class="instant-slider-slide igIf8bDmijLy6lGJI" data-instant-type="slider-slide"
-                      ><div data-instant-type="image" class="i5hHZdKm3uACyMguu">
-                        {%- if product_HDyVlxXMxatNmYkK.images[0] != blank -%}<img alt="{{ product_HDyVlxXMxatNmYkK.images[0].alt }}" src="{{ product_HDyVlxXMxatNmYkK.images[0] | image_url: width: 1280 }}" data-instant-dynamic-content-source="IMAGE_AT_INDEX" width="{{ product_HDyVlxXMxatNmYkK.images[0].width }}" height="{{ product_HDyVlxXMxatNmYkK.images[0].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product_HDyVlxXMxatNmYkK.images[0] | image_url: width: 1080 }} 1080w, {{ product_HDyVlxXMxatNmYkK.images[0] | image_url: width: 828 }} 828w, {{ product_HDyVlxXMxatNmYkK.images[0] | image_url: width: 750 }} 750w, {{ product_HDyVlxXMxatNmYkK.images[0] | image_url: width: 640 }} 640w, {{ product_HDyVlxXMxatNmYkK.images[0] | image_url: width: 360 }} 360w, {{ product_HDyVlxXMxatNmYkK.images[0] | image_url: width: 1280 }} 1280w" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" loading="eager" fetchpriority="high" class="instant-image__fallback instant-image instant-image__main">{%- endif -%}</div
-                      ><div class="iEHKVSnJ3l64sgZbL" data-instant-type="container"
-                        ><p data-instant-dynamic-content-source="TITLE" data-instant-type="text" class="i82xZRp2STgZwQYda">{{ product_HDyVlxXMxatNmYkK.title }}</p
-                        ><div class="ibFuEskndKJBlzvqA" data-instant-type="container">
-                          {%- liquid
-                            assign style = ''
-                            assign compare_at_price = product_HDyVlxXMxatNmYkK_variant.compare_at_price
-                            assign variant_price = product_HDyVlxXMxatNmYkK_variant.price
-
-                            if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
-                              assign compare_at_price = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.compare_at_price
-                              assign variant_price = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.price
-                            endif
-
-                            if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
-                              assign style = 'style="display: none;"'
-                            endif
-                          -%}
-                          <span
-                            data-instant-dynamic-content-source="COMPARE_AT"
-                            class="iB8ZnFsR81fYrHBVC"
-                            {{- style -}}
-                          >
-                            {{- compare_at_price | money -}}
-                          </span>
-
-                          <p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="imSn2hnw2szvmxqgI">
-                            {%- liquid
-                              assign variant_price = product_HDyVlxXMxatNmYkK_variant.price
-
-                              if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
-                                assign variant_price = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.price
-                              endif
-                            -%}
-                            {{- variant_price | money -}}
-                          </p></div
-                        ></div
-                      ><a
-                        class="ieqwM1EMmd4YeSdEB"
-                        data-instant-type="container"
-                        href="{{ routes.cart_url }}/{{ product_HDyVlxXMxatNmYkK_variant.id }}:1?storefront=true"
-                        rel="noopener noreferrer"
-                        data-instant-action-type="add-to-instant-cart"
-                        data-instant-action-id="{{ product_HDyVlxXMxatNmYkK.id }}"
-                        data-instant-action-variant-id="{{ product_HDyVlxXMxatNmYkK_variant.id }}"
-                        data-instant-disabled="
-                          {%- if product_HDyVlxXMxatNmYkK_variant.available == false -%}
-                          	true
-                          {%-	endif -%}
-                        "
-                        ><div data-instant-type="text" class="instant-rich-text i4cipoBy5Ln1KPO9b"><p>Add</p></div></a
-                      ></div
+                    ><a
+                      class="iXLTU3AWO07oapD0G"
+                      data-instant-type="container"
+                      href="{{ routes.cart_url }}/{{ product_HDyVlxXMxatNmYkK_variant.id }}:1?storefront=true"
+                      rel="noopener noreferrer"
+                      data-instant-action-type="add-to-instant-cart"
+                      data-instant-action-id="{{ product_HDyVlxXMxatNmYkK.id }}"
+                      data-instant-action-variant-id="{{ product_HDyVlxXMxatNmYkK_variant.id }}"
+                      data-instant-disabled="
+                        {%- if product_HDyVlxXMxatNmYkK_variant.available == false -%}
+                        	true
+                        {%-	endif -%}
+                      "
+                      ><div data-instant-type="text" class="instant-rich-text iQpfgMsKDXR40BjLK"><p>Add</p></div></a
                     ></div
                   ></div
                 ></div
-              ></div
-            ></div
+              ><div class="iKe3P4pJDIerVRGHh" data-instant-type="container"></div></div></div
           ><div class="in42H3fLMf9wtThlZ" data-instant-type="container"
             ><a
               class="iRFY0kWVeXMJMese9"
               data-instant-type="container"
               href="{{ routes.cart_url }}/{{ product_HDyVlxXMxatNmYkK_variant.id }}:1?storefront=true"
               rel="noopener noreferrer"
-              data-instant-action-type="redirect-to-cart"
+              data-instant-action-type="add-to-cart"
               data-instant-action-id="{{ product_HDyVlxXMxatNmYkK.id }}"
               data-instant-action-variant-id="{{ product_HDyVlxXMxatNmYkK_variant.id }}"
               data-instant-disabled="
