@@ -17,12 +17,6 @@
       font-weight: 300;
       font-display: swap;
     }
-    @font-face {
-      font-family: 'Suncoast GROT';
-      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/b1Sulk2NJElEkjvl/suncoastgrot-medium.woff2') format('woff2');
-      font-weight: 500;
-      font-display: swap;
-    }
   </style>
   <div data-instant-type="root" class="iTIAYzdPXEDR7p3XF">
     {%- liquid
@@ -410,7 +404,7 @@
               ></div
             ></div
           ><div class="iBC2LesMpdNazkspi" data-instant-type="container"
-            ><div class="iQxxmhYOKxB5H5nZs" data-instant-type="container">
+            ><div class="iLJ77x1h5aEwMlRKG" data-instant-type="container">
               <!--  -->
               {%- for item in cart.items -%}
                 {%- if forloop.length > 0 and item.properties['_instant-hidden'] != 'true' -%}
@@ -423,14 +417,14 @@
                     assign item_variant = item.variant
                     assign item_image = item_variant.featured_image | default: item_product.featured_image
                   -%}
-                  <form class="iUzO8sDy9ItRlZWiq" data-instant-type="container" data-instant-repeater-index="{{ repeater_index }}" data-instant-repeater-type="CART_ITEMS" data-instant-form-product-url="{{ item.product.url }}" data-instant-form-variant-id="{{ item_variant.id }}" data-instant-form-product-id="{{ item_product.id }}" data-instant-form-line-item-key="{{ item.key }}"
-                    ><div data-instant-type="image" class="iDBIL4TtFo62tCvuJ"><img alt="{{ item_image.alt }}" src="{{ item_image | image_url: width: 1280 }}" data-instant-dynamic-content-source="FEATURED_IMAGE" width="{{ item_image.width }}" height="{{ item_image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ item_image | image_url: width: 1080 }} 1080w, {{ item_image | image_url: width: 828 }} 828w, {{ item_image | image_url: width: 750 }} 750w, {{ item_image | image_url: width: 640 }} 640w, {{ item_image | image_url: width: 360 }} 360w, {{ item_image | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main"></div
-                    ><div class="ibNiS5iOAPCg9o3ij" data-instant-type="container"
-                      ><div class="iHnu5h6g3MDccDyiT" data-instant-type="container"
-                        ><a as="p" data-instant-type="text" class="imDGtlGMOGbPYFvCh" href="{{ item_product.url }}" rel="noopener noreferrer" data-instant-action-type="open-page"
+                  <form class="iC3r7S4kUxAAlprTj" data-instant-type="container" data-instant-repeater-index="{{ repeater_index }}" data-instant-repeater-type="CART_ITEMS" data-instant-form-product-url="{{ item.product.url }}" data-instant-form-variant-id="{{ item_variant.id }}" data-instant-form-product-id="{{ item_product.id }}" data-instant-form-line-item-key="{{ item.key }}"
+                    ><div data-instant-type="image" class="ipBSWdFx7muNrcLwh"><img alt="{{ item_image.alt }}" src="{{ item_image | image_url: width: 1280 }}" data-instant-dynamic-content-source="FEATURED_IMAGE" width="{{ item_image.width }}" height="{{ item_image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ item_image | image_url: width: 1080 }} 1080w, {{ item_image | image_url: width: 828 }} 828w, {{ item_image | image_url: width: 750 }} 750w, {{ item_image | image_url: width: 640 }} 640w, {{ item_image | image_url: width: 360 }} 360w, {{ item_image | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main"></div
+                    ><div class="idUFoFG1AQswSVG1J" data-instant-type="container"
+                      ><div class="ijl4V3yJPE61GQALn" data-instant-type="container"
+                        ><a as="p" data-instant-type="text" class="i8rguQDFnv4cfDv4Y" href="{{ item_product.url }}" rel="noopener noreferrer" data-instant-action-type="open-page"
                           ><span data-instant-dynamic-content-source="TITLE">{{ item_product.title }}</span></a
-                        ><div class="ikw3S4q0LeWyFFsYd" data-instant-type="container"
-                          ><p data-instant-dynamic-content-source="TOTAL_PRICE" data-instant-type="text" class="il8hMawOzc8cS1VXb">{{ item.final_line_price | money }}</p>
+                        ><div class="ijIct6NUzmZShQvU5" data-instant-type="container"
+                          ><p data-instant-dynamic-content-source="TOTAL_PRICE" data-instant-type="text" class="iHfajjqrIKfB8fQnq">{{ item.final_line_price | money }}</p>
 
                           {%- liquid
                             assign style = ''
@@ -444,43 +438,43 @@
                           -%}
                           <span
                             data-instant-dynamic-content-source="TOTAL_COMPARE_AT"
-                            class="iWatB1q9wY4KLwFLg"
+                            class="iElgh2gidLnpqQlnM"
                             {{- style -}}
                           >
                             {{- compare_at_price | money -}}
                           </span> </div
-                        ><div data-instant-type="text" class="instant-rich-text i7GBF4XMSBA2XG3bI"
-                          ><div>{{ section.settings['text_7GBF4XMSBA2XG3bI-3'] }}</div></div
-                        ><p data-instant-dynamic-content-source="VARIANT_TITLE" data-instant-type="text" class="iSoyxQkfJUy6HwO1j">
+                        ><div data-instant-type="text" class="instant-rich-text iuzpFjDjHm21oSRS0"
+                          ><div>{{ section.settings['text_uzpFjDjHm21oSRS0-3'] }}</div></div
+                        ><p data-instant-dynamic-content-source="VARIANT_TITLE" data-instant-type="text" class="iD3Isl1b5tYwNkE1y">
                           {%- unless item_product.has_only_default_variant %}{{ item_variant.title }}{% endunless -%}
                         </p></div
-                      ><div class="ih3PU9rTTPJRgEGmF" data-instant-type="container"
-                        ><div class="iowYlWNjChABYajyB" data-instant-type="container"
-                          ><div class="ibiuUcyR4RdDR02Kq" data-instant-type="container"
-                            ><button type="button" class="instant-quantity-button isV0OCopMox0Fhq0e" data-instant-type="quantity-button" data-instant-action-type="quantity-decrement"
-                              ><div data-instant-type="icon" class="iSvMEV4eGKzPHHPSu">
+                      ><div class="iXdvvgXLwZjPfoHfd" data-instant-type="container"
+                        ><div class="izUtZVe6ET5bvs3pw" data-instant-type="container"
+                          ><div class="ihxtWc4sP9KmlxpCW" data-instant-type="container"
+                            ><button type="button" class="instant-quantity-button izWUEyJol6bJhIgzZ" data-instant-type="quantity-button" data-instant-action-type="quantity-decrement"
+                              ><div data-instant-type="icon" class="i65Y65Yb8cowbfkWQ">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                                   <title>minus</title><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path>
                                 </svg></div></button
-                            ><input name="quantity" type="number" step="1" min="0" max="999" class="instant-quantity-input iQd0Opm0ZDOe3FKih" data-instant-dynamic-content-source="QUANTITY_SELECT" id="Qd0Opm0ZDOe3FKih_{{ repeater_index }}" value="{{ item.quantity }}"
-                            ><button type="button" class="instant-quantity-button isFi98mfaFkaeDLVR" data-instant-type="quantity-button" data-instant-action-type="quantity-increment"
-                              ><div data-instant-type="icon" class="ipchw3THbf47v2Tvz">
+                            ><input name="quantity" type="number" step="1" min="0" max="999" class="instant-quantity-input iigzgBigkJ7jKwvit" data-instant-dynamic-content-source="QUANTITY_SELECT" id="igzgBigkJ7jKwvit_{{ repeater_index }}" value="{{ item.quantity }}"
+                            ><button type="button" class="instant-quantity-button iQEBjz1ZEEJi1oltL" data-instant-type="quantity-button" data-instant-action-type="quantity-increment"
+                              ><div data-instant-type="icon" class="iicSnvoWsGvn3Rgip">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                                   <title>plus</title><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"></path>
                                 </svg></div></button></div
-                          ><button as="p" data-instant-type="text" class="i6KONaG3EFKYHRR6E" data-instant-action-type="adjust-line-item-quantity" data-instant-action-line-item-key="{{ item.key }}"
+                          ><button as="p" data-instant-type="text" class="iCs5hPLJYW7f06HMV" data-instant-action-type="adjust-line-item-quantity" data-instant-action-line-item-key="{{ item.key }}"
                             ><div class="instant-rich-text"
-                              ><div>{{ section.settings['text_6KONaG3EFKYHRR6E-3'] }}</div></div
+                              ><div>{{ section.settings['text_Cs5hPLJYW7f06HMV-3'] }}</div></div
                             ></button
                           ></div
                         ></div
                       ></div
                     >
                     <!--  -->
-                    <script type="application/json" id="variants__UzO8sDy9ItRlZWiq_{{ repeater_index }}--{{ section.id }}">
+                    <script type="application/json" id="variants__C3r7S4kUxAAlprTj_{{ repeater_index }}--{{ section.id }}">
                       {{ item_product.variants | json }}
                     </script>
-                    <script type="application/json" id="options__UzO8sDy9ItRlZWiq_{{ repeater_index }}--{{ section.id }}">
+                    <script type="application/json" id="options__C3r7S4kUxAAlprTj_{{ repeater_index }}--{{ section.id }}">
                       {{ item_product.options_with_values | json }}
                     </script>
                     <!--  -->
@@ -488,14 +482,8 @@
                   <!--  -->
                 {%- endif -%}
               {%- endfor -%}
-              <!--  -->
-              <div class="iMeHIOd1WGVrVCCKi" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iTWmRlA8sGUYSVFZN"
-                  ><div>{{ section.settings['text_TWmRlA8sGUYSVFZN-3'] }}</div></div
-                ><div class="iINZDToKlxGbNwJSj" data-instant-type="container"
-                  ><p data-instant-dynamic-content-source="CART_SUBTOTAL_PRICE" data-instant-type="text" class="irHOJGiU43RHukqHg">{{ cart.items_subtotal_price | money }}</p></div
-                ></div
-              >
+              <!--  --></div
+            ><div class="iQxxmhYOKxB5H5nZs" data-instant-type="container">
               {%- liquid
                 assign style = ''
                 if cart.total_discount <= 0
@@ -522,10 +510,6 @@
                 ><div data-instant-type="text" class="instant-rich-text izNitSqoPuQcvPjDy"
                   ><div>{{ section.settings['text_zNitSqoPuQcvPjDy-3'] }}</div></div
                 ></div
-              ><div class="iCgdxHJYxRxmEuhjw" data-instant-type="container"
-                ><div data-instant-type="text" class="instant-rich-text iPcSZuW9I9MfAwx9H"
-                  ><div>{{ section.settings['text_PcSZuW9I9MfAwx9H-3'] }}</div></div
-                ><p data-instant-dynamic-content-source="CART_TOTAL_PRICE" data-instant-type="text" class="icoLmXgRMwCF7eevs">{{ cart.total_price | money }}</p></div
               ><div class="ispbhso9tpzZ7wqF2" data-instant-type="container"
                 ><div data-instant-type="text" class="instant-rich-text iYEwjk97NghiQgeKG"
                   ><div>{{ section.settings['text_YEwjk97NghiQgeKG-3'] }}</div></div
@@ -704,21 +688,15 @@
     },
     {
       "type": "richtext",
-      "id": "text_7GBF4XMSBA2XG3bI-3",
+      "id": "text_uzpFjDjHm21oSRS0-3",
       "label": "Text",
       "default": "<p>Great, your body will thank you.</p>"
     },
     {
       "type": "richtext",
-      "id": "text_6KONaG3EFKYHRR6E-3",
+      "id": "text_Cs5hPLJYW7f06HMV-3",
       "label": "Text",
       "default": "<p>Remove</p>"
-    },
-    {
-      "type": "richtext",
-      "id": "text_TWmRlA8sGUYSVFZN-3",
-      "label": "Text",
-      "default": "<p>Subtotal</p>"
     },
     {
       "type": "richtext",
@@ -754,13 +732,7 @@
       "type": "richtext",
       "id": "text_zNitSqoPuQcvPjDy-3",
       "label": "Text",
-      "default": "<p>FREE</p>"
-    },
-    {
-      "type": "richtext",
-      "id": "text_PcSZuW9I9MfAwx9H-3",
-      "label": "Text",
-      "default": "<p><strong>Total</strong></p>"
+      "default": "<p>Free</p>"
     },
     {
       "type": "richtext",
@@ -809,16 +781,14 @@
         "text_MEtGkimtcyGhPM7J-3": "<p>Shop</p>",
         "text_LrcrjKgCP2jfHQ0l-3": "<p>more for a</p>",
         "text_3Vne4wHJJ74NH7Nz-3": "<p><strong>You&apos;ve unlocked a free Lio Classic!</strong></p>",
-        "text_7GBF4XMSBA2XG3bI-3": "<p>Great, your body will thank you.</p>",
-        "text_6KONaG3EFKYHRR6E-3": "<p>Remove</p>",
-        "text_TWmRlA8sGUYSVFZN-3": "<p>Subtotal</p>",
+        "text_uzpFjDjHm21oSRS0-3": "<p>Great, your body will thank you.</p>",
+        "text_Cs5hPLJYW7f06HMV-3": "<p>Remove</p>",
         "text_wS9nWnYkTVkh5vqR-3": "<p>Discount</p>",
         "text_dKDNnv76bGdyg3I2-3": "<p>-</p>",
         "text_BzGqIPfOSI1aOUyJ-3": "<p>Delivery Time</p>",
         "text_Z6Et51XFumsX2ToW-3": "<p>2 to 3 days</p>",
         "text_eneEkATEHBw3GWEA-3": "<p>Shipping cost</p>",
-        "text_zNitSqoPuQcvPjDy-3": "<p>FREE</p>",
-        "text_PcSZuW9I9MfAwx9H-3": "<p><strong>Total</strong></p>",
+        "text_zNitSqoPuQcvPjDy-3": "<p>Free</p>",
         "text_YEwjk97NghiQgeKG-3": "<p>Discount codes applied at checkout</p>",
         "text_ShIdDB6auayBXxIQ-3": "<p>Customers Also Bought</p>",
         "text_cUpYiOBUH3TdoBCx-3": "<p>Cleaning Kit</p>",
