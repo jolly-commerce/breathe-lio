@@ -950,40 +950,7 @@
                             ><div data-instant-type="text" class="instant-rich-text ixAqad5HOjCnGVep8"><h3>Minty • 60-Day Supply</h3></div></div
                           ><div data-instant-type="text" class="instant-rich-text itX9r8YvXfft3k38O"><p>Minty + Fruity in one bundle. Discover your favorite flavor.</p></div></div
                         ></div
-                      ><div
-                        conditionals=""
-                        class="instant-custom-variant-picker iYRd2ZkOQT6Kzn3OV"
-                        data-instant-type="container"
-                        data-instant-action-type="select-variant-option"
-                        data-instant-option-value="
-                          {%- liquid
-                          	assign selected_options = product_HDyVlxXMxatNmYkK_variant.options
-                          	assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values | where : 'name', 'Flavor Bundle' | first
-                          	if selected_option == null
-                          		assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[2]
-                          	endif
-
-                          	for variant in product_HDyVlxXMxatNmYkK.variants
-                          		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
-                          			assign selected_variant = variant
-                          		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
-                          			assign selected_variant = variant
-                          		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
-                          			assign selected_variant = variant
-                          		endif
-                          	endfor
-                          -%}{{- selected_option.values[0] | escape -}}
-                        "
-                        data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                        data-instant-state="{%- if product_HDyVlxXMxatNmYkK_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
-                        data-instant-disabled="
-                          {%- liquid
-                          	assign is_not_available = false
-                          	if selected_variant.available == false
-                          		assign is_not_available = true
-                          	endif
-                          -%}{{- is_not_available -}}
-                        "
+                      ><div conditionals="" class="iYRd2ZkOQT6Kzn3OV" data-instant-type="container"
                         ><div data-instant-type="text" class="instant-rich-text iQ5NhCDUm2Zl7Yiob"><p>Add for €19 </p></div><div data-instant-type="text" class="instant-rich-text ij0IXZH45CJAzTPTP"><p>€39</p></div></div
                       ></div
                     ></div
@@ -1073,40 +1040,7 @@
                             ><div data-instant-type="text" class="instant-rich-text iBGd3T9kSQbTYr2O9"><h3>Fruity • 90-Day Supply</h3></div></div
                           ><div data-instant-type="text" class="instant-rich-text iZf2BGW4ffVfny43X"><p>Subtle natural fruit aromas. Light &amp; sweet.</p></div></div
                         ></div
-                      ><div
-                        conditionals=""
-                        class="instant-custom-variant-picker ikby7lkrAC5ad6Jhl"
-                        data-instant-type="container"
-                        data-instant-action-type="select-variant-option"
-                        data-instant-option-value="
-                          {%- liquid
-                          	assign selected_options = product_HDyVlxXMxatNmYkK_variant.options
-                          	assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values | where : 'name', 'Flavor Bundle' | first
-                          	if selected_option == null
-                          		assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[2]
-                          	endif
-
-                          	for variant in product_HDyVlxXMxatNmYkK.variants
-                          		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
-                          			assign selected_variant = variant
-                          		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
-                          			assign selected_variant = variant
-                          		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
-                          			assign selected_variant = variant
-                          		endif
-                          	endfor
-                          -%}{{- selected_option.values[0] | escape -}}
-                        "
-                        data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                        data-instant-state="{%- if product_HDyVlxXMxatNmYkK_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
-                        data-instant-disabled="
-                          {%- liquid
-                          	assign is_not_available = false
-                          	if selected_variant.available == false
-                          		assign is_not_available = true
-                          	endif
-                          -%}{{- is_not_available -}}
-                        "
+                      ><div conditionals="" class="ikby7lkrAC5ad6Jhl" data-instant-type="container"
                         ><div data-instant-type="text" class="instant-rich-text i3lBxU8pEtCRFAwdH"><p>Add for €29 </p></div><div data-instant-type="text" class="instant-rich-text iRvxyZgHFxrF20xPI"><p>€59</p></div></div
                       ></div
                     ></div
