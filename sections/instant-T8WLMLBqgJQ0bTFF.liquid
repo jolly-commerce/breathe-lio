@@ -903,40 +903,7 @@
                           ><div class="iB3S0R6bIkMrO2esQ" data-instant-type="container"
                             ><div data-instant-type="text" class="instant-rich-text iNUb9NvjDDnTwyF0H"><h3>Minty • 90-Day Supply</h3></div></div
                           ><div data-instant-type="text" class="instant-rich-text iuXxl6BslN5L4HSw8"><p>Cool, refreshing menthol-style sensation. </p></div
-                          ><div
-                            conditionals=""
-                            class="instant-custom-variant-picker iQBOKLFu7E3AngUWI"
-                            data-instant-type="container"
-                            data-instant-action-type="select-variant-option"
-                            data-instant-option-value="
-                              {%- liquid
-                              	assign selected_options = product_HDyVlxXMxatNmYkK_variant.options
-                              	assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values | where : 'name', 'Flavor Bundle' | first
-                              	if selected_option == null
-                              		assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[2]
-                              	endif
-
-                              	for variant in product_HDyVlxXMxatNmYkK.variants
-                              		if selected_option.position == 1 and variant.option1 == selected_option.values[1] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
-                              			assign selected_variant = variant
-                              		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[1] and variant.option3 == selected_options[2]
-                              			assign selected_variant = variant
-                              		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[1]
-                              			assign selected_variant = variant
-                              		endif
-                              	endfor
-                              -%}{{- selected_option.values[1] | escape -}}
-                            "
-                            data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                            data-instant-state="{%- if product_HDyVlxXMxatNmYkK_variant.options contains selected_option.values[1] -%}active{%- else -%}inactive{%- endif -%}"
-                            data-instant-disabled="
-                              {%- liquid
-                              	assign is_not_available = false
-                              	if selected_variant.available == false
-                              		assign is_not_available = true
-                              	endif
-                              -%}{{- is_not_available -}}
-                            "
+                          ><div conditionals="" class="iQBOKLFu7E3AngUWI" data-instant-type="container"
                             ><div data-instant-type="text" class="instant-rich-text itAlCJwFuKRpgsA7s"><p>Add for €29 </p></div><div data-instant-type="text" class="instant-rich-text iZE1GqSJWWCKM1vM8"><p>€59</p></div></div
                           ></div
                         ></div
