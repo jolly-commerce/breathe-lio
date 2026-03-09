@@ -503,29 +503,6 @@
 
                   <div data-instant-type="text" class="instant-rich-text iD0DjCf5v4M9IxsBW"><p>OFF</p></div></div
                 ></div
-              ><div class="i4Ocfrzta3xfnIxAd" data-instant-type="container"
-                ><div class="iWDGyGNfL6M6S2EB9" data-instant-type="container"
-                  ><div data-instant-type="icon" class="i0MTV7aQ1i0NMdyM2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
-                      <title>star</title><path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
-                    </svg></div
-                  ><div data-instant-type="icon" class="ihMxZqXb5hWRHZIe0">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
-                      <title>star</title><path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
-                    </svg></div
-                  ><div data-instant-type="icon" class="iikbi3g5AFYQe3hqn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
-                      <title>star</title><path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
-                    </svg></div
-                  ><div data-instant-type="icon" class="i1LWrLEmJ48NnhPeB">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
-                      <title>star</title><path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
-                    </svg></div
-                  ><div data-instant-type="icon" class="iEE1kNf6ETg9TWQkd">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
-                      <title>star</title><path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
-                    </svg></div></div
-                ><div data-instant-type="text" class="instant-rich-text iY7IIVON4sKei5m4J"><p>6000+ reviews</p></div></div
               ></div
             ></div
           ><div class="itE5pT3yahfWMnJr2" data-instant-type="container"
@@ -557,7 +534,7 @@
               ><p data-instant-dynamic-content-source="OPTION1" data-instant-type="text" class="iFEJtVxqS4Ea5LY8C">{{ product_HDyVlxXMxatNmYkK_variant.option1 }}</p></div
             ><div class="iE52fdonVnVSMjLQw" data-instant-type="container"
               ><div
-                class="instant-custom-variant-picker iH7fCYi4izvwet5cf"
+                class="instant-custom-variant-picker io8e6Gjy1nYusNKel"
                 data-instant-type="container"
                 data-instant-action-type="select-variant-option"
                 data-instant-option-value="
@@ -589,6 +566,349 @@
                   	endif
                   -%}{{- is_not_available -}}
                 "
+                ><div class="igS4mwNaAuG0SJFbF" data-instant-type="container"></div>
+                {%- liquid
+                  assign style = ''
+
+                  assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
+                  assign selected_option_value = selected_option.values[0]
+
+                  assign variant_has_option = false
+
+                  if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
+                    assign variant_has_option = true
+                  endif
+
+                  if variant_has_option != true
+                    assign style = 'style="display: none;"'
+                  endif
+                -%}
+                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="icGQDYsyLBfqX0fx7"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=1280" width="937" height="937" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=1280" width="937" height="937" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div>
+                {%- liquid
+                  assign style = ''
+
+                  assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
+                  assign selected_option_value = selected_option.values[1]
+
+                  assign variant_has_option = false
+
+                  if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
+                    assign variant_has_option = true
+                  endif
+
+                  if variant_has_option != true
+                    assign style = 'style="display: none;"'
+                  endif
+                -%}
+                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iXqMsZPntcbJMUP7M"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                ><div class="ilLc20IvO2G8RZA4J" data-instant-type="container"
+                  ><div data-instant-type="text" class="instant-rich-text inAqRfgJpnirtcMUW"><h3>Lio Classic</h3></div
+                  ><div data-instant-type="text" conditionals="" class="instant-rich-text iCiBw6ZjYS8WhtQX5"><p>Fixed Airflow </p></div></div
+                ><div class="iHASX0lmutpJvwCnK" data-instant-type="container"
+                  ><div class="i8Tyj9vpAS9KWDX1p" data-instant-type="container"
+                    ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iitTO6iYKqhZcU8xg">
+                      {%- liquid
+                        assign variant_price = selected_variant.price
+
+                        if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
+                          for allocation in selected_variant.selling_plan_allocations
+                            assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
+                            assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
+
+                            if selling_plan_by_interval != null
+                              assign variant_price = allocation.price
+                              break
+                            endif
+                          endfor
+                        endif
+                      -%}
+                      {{- variant_price | money -}}
+                    </p>
+
+                    {%- liquid
+                      assign style = ''
+                      assign compare_at_price = selected_variant.compare_at_price
+                      assign variant_price = selected_variant.price
+
+                      if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
+                        for allocation in selected_variant.selling_plan_allocations
+                          assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
+                          assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
+
+                          if selling_plan_by_interval != null
+                            assign compare_at_price = allocation.compare_at_price
+                            assign variant_price = allocation.price
+                            break
+                          endif
+                        endfor
+                      endif
+
+                      if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
+                        assign style = 'style="display: none;"'
+                      endif
+                    -%}
+                    <span
+                      data-instant-dynamic-content-source="COMPARE_AT"
+                      class="ihiCL6ApSs4C48soT"
+                      {{- style -}}
+                    >
+                      {{- compare_at_price | money -}}
+                    </span>
+                  </div></div
+                ></div
+              >
+              {%- liquid
+                assign style = ''
+
+                assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[0]
+                assign selected_option_value = selected_option.values[1]
+
+                assign variant_has_option = false
+
+                if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
+                  assign variant_has_option = true
+                endif
+
+                if variant_has_option != true
+                  assign style = 'style="display: none;"'
+                endif
+              -%}
+              <div class="iPFyqdfiectigS9T6" data-instant-type="container" {{- style -}} data-instant-conditional="true"
+                ><div class="ifnGR17FHX9hJeTyQ" data-instant-type="container"
+                  ><div class="iC8v2v34aJtuJuuoC" data-instant-type="container">
+                    {%- liquid
+                      assign style = ''
+
+                      assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
+                      assign selected_option_value = selected_option.values[0]
+
+                      assign variant_has_option = false
+
+                      if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
+                        assign variant_has_option = true
+                      endif
+
+                      if variant_has_option != true
+                        assign style = 'style="display: none;"'
+                      endif
+                    -%}
+                    <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iUWRMJCve4Pkr0mEF"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div>
+                    {%- liquid
+                      assign style = ''
+
+                      assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
+                      assign selected_option_value = selected_option.values[1]
+
+                      assign variant_has_option = false
+
+                      if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
+                        assign variant_has_option = true
+                      endif
+
+                      if variant_has_option != true
+                        assign style = 'style="display: none;"'
+                      endif
+                    -%}
+                    <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="igSzSjy6SNUGs7yGu"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                    ><div data-instant-type="text" class="instant-rich-text iQJAQ454YCxNSMvE8"
+                      ><h3><strong>Free carry case</strong></h3></div
+                    ></div
+                  ></div
+                ></div
+              ><div
+                class="instant-custom-variant-picker i4tR7LBW397Cp8qf9"
+                data-instant-type="container"
+                data-instant-action-type="select-variant-option"
+                data-instant-option-value="
+                  {%- liquid
+                  	assign selected_options = product_HDyVlxXMxatNmYkK_variant.options
+                  	assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values | where : 'name', 'Version' | first
+                  	if selected_option == null
+                  		assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[0]
+                  	endif
+
+                  	for variant in product_HDyVlxXMxatNmYkK.variants
+                  		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                  			assign selected_variant = variant
+                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
+                  			assign selected_variant = variant
+                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
+                  			assign selected_variant = variant
+                  		endif
+                  	endfor
+                  -%}{{- selected_option.values[0] | escape -}}
+                "
+                data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                data-instant-state="{%- if product_HDyVlxXMxatNmYkK_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
+                data-instant-disabled="
+                  {%- liquid
+                  	assign is_not_available = false
+                  	if selected_variant.available == false
+                  		assign is_not_available = true
+                  	endif
+                  -%}{{- is_not_available -}}
+                "
+                ><div class="iPKpCZXXmj0GTgvpB" data-instant-type="container"></div>
+                {%- liquid
+                  assign style = ''
+
+                  assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
+                  assign selected_option_value = selected_option.values[0]
+
+                  assign variant_has_option = false
+
+                  if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
+                    assign variant_has_option = true
+                  endif
+
+                  if variant_has_option != true
+                    assign style = 'style="display: none;"'
+                  endif
+                -%}
+                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="in517Kg31bpHv7mji"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=1280" width="937" height="937" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=1280" width="937" height="937" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div>
+                {%- liquid
+                  assign style = ''
+
+                  assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
+                  assign selected_option_value = selected_option.values[1]
+
+                  assign variant_has_option = false
+
+                  if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
+                    assign variant_has_option = true
+                  endif
+
+                  if variant_has_option != true
+                    assign style = 'style="display: none;"'
+                  endif
+                -%}
+                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="ixhP1UKivBcH3Ve4h"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                ><div class="iiQapOHwnv1brBpSR" data-instant-type="container"
+                  ><div class="i6z793E9i8grgJYcS" data-instant-type="container"
+                    ><div data-instant-type="text" class="instant-rich-text iR5gNIOgbmsUpbzux"><h3>Lio Plus</h3></div
+                    ><div data-instant-type="text" class="instant-rich-text ipY5DQOKVZI5NBwjH"><h3>Most Popular</h3></div></div
+                  ><div data-instant-type="text" conditionals="" class="instant-rich-text ihXOjrqqTzLzKUlGu"><p>Adjustable Airflow</p></div></div
+                ><div class="iyqtYLnGxVHNiCR5L" data-instant-type="container"
+                  ><div class="iTgJd8qfyg3A3fk8J" data-instant-type="container"
+                    ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iOoiB8AoICUbZv2KH">
+                      {%- liquid
+                        assign variant_price = selected_variant.price
+
+                        if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
+                          for allocation in selected_variant.selling_plan_allocations
+                            assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
+                            assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
+
+                            if selling_plan_by_interval != null
+                              assign variant_price = allocation.price
+                              break
+                            endif
+                          endfor
+                        endif
+                      -%}
+                      {{- variant_price | money -}}
+                    </p>
+
+                    {%- liquid
+                      assign style = ''
+                      assign compare_at_price = selected_variant.compare_at_price
+                      assign variant_price = selected_variant.price
+
+                      if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
+                        for allocation in selected_variant.selling_plan_allocations
+                          assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
+                          assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
+
+                          if selling_plan_by_interval != null
+                            assign compare_at_price = allocation.compare_at_price
+                            assign variant_price = allocation.price
+                            break
+                          endif
+                        endfor
+                      endif
+
+                      if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
+                        assign style = 'style="display: none;"'
+                      endif
+                    -%}
+                    <span
+                      data-instant-dynamic-content-source="COMPARE_AT"
+                      class="iXpKfsABB4nGuv9K8"
+                      {{- style -}}
+                    >
+                      {{- compare_at_price | money -}}
+                    </span>
+                  </div></div
+                ></div
+              >
+              {%- liquid
+                assign style = ''
+
+                assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[0]
+                assign selected_option_value = selected_option.values[0]
+
+                assign variant_has_option = false
+
+                if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
+                  assign variant_has_option = true
+                endif
+
+                if variant_has_option != true
+                  assign style = 'style="display: none;"'
+                endif
+              -%}
+              <div class="iZdufLMJfZG6DM9rf" data-instant-type="container" {{- style -}} data-instant-conditional="true"
+                ><div class="ikg5xTNoUv81zbOTl" data-instant-type="container"
+                  ><div class="iEClyCIfiN2d6eNe1" data-instant-type="container"
+                    ><div data-instant-type="image" conditionals="" class="iAQ8ySqVWx5jDUECy"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                    ><div data-instant-type="text" class="instant-rich-text iuEenEXdYCPyjBdcI"
+                      ><h3><strong>Airflow Dots</strong></h3></div
+                    ></div
+                  ><div class="iHHt40wZJ7zDKTN1V" data-instant-type="container"
+                    ><div data-instant-type="image" conditionals="" class="if5dClQwpVOKP0v7w"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                    ><div data-instant-type="text" class="instant-rich-text iA32MtqFxeMZPERVq"
+                      ><h3><strong>Free travel bag</strong></h3></div
+                    ></div
+                  ><div class="igJ1NhC46X9IQm14L" data-instant-type="container"
+                    ><div data-instant-type="image" conditionals="" class="ihGnY1A9X5vT3FSyg"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                    ><div data-instant-type="text" class="instant-rich-text ipkXIPC6yNyhkremf"
+                      ><h3><strong>Free leather case</strong></h3></div
+                    ></div
+                  ></div
+                ></div
+              ><div
+                class="instant-custom-variant-picker iH7fCYi4izvwet5cf"
+                data-instant-type="container"
+                data-instant-action-type="select-variant-option"
+                data-instant-option-value="
+                  {%- liquid
+                  	assign selected_options = product_HDyVlxXMxatNmYkK_variant.options
+                  	assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values | where : 'name', 'Version' | first
+                  	if selected_option == null
+                  		assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[0]
+                  	endif
+
+                  	for variant in product_HDyVlxXMxatNmYkK.variants
+                  		if selected_option.position == 1 and variant.option1 == selected_option.values[2] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                  			assign selected_variant = variant
+                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[2] and variant.option3 == selected_options[2]
+                  			assign selected_variant = variant
+                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[2]
+                  			assign selected_variant = variant
+                  		endif
+                  	endfor
+                  -%}{{- selected_option.values[2] | escape -}}
+                "
+                data-instant-option-name="{{ selected_option.name | url_param_escape }}"
+                data-instant-state="{%- if product_HDyVlxXMxatNmYkK_variant.options contains selected_option.values[2] -%}active{%- else -%}inactive{%- endif -%}"
+                data-instant-disabled="
+                  {%- liquid
+                  	assign is_not_available = false
+                  	if selected_variant.available == false
+                  		assign is_not_available = true
+                  	endif
+                  -%}{{- is_not_available -}}
+                "
                 ><div class="iftDJSZi3Lj0QdtUK" data-instant-type="container"></div>
                 {%- liquid
                   assign style = ''
@@ -606,7 +926,7 @@
                     assign style = 'style="display: none;"'
                   endif
                 -%}
-                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iC46jnnOMsN0BbfpW"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gbXYNCC87Ihin98e/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-3.webp?width=1280" width="937" height="937" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div>
+                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="i5JNnMNEcg2y0J8a4"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div>
                 {%- liquid
                   assign style = ''
 
@@ -623,10 +943,12 @@
                     assign style = 'style="display: none;"'
                   endif
                 -%}
-                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="inQDOwcFITRhbj0c6"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/FlTuwm8aDWN5hr7x/chatgpt-image-mar-7-2026-031723-pm.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="inQDOwcFITRhbj0c6"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
                 ><div class="iTkPLBtNhiEftU8W8" data-instant-type="container"
-                  ><div data-instant-type="text" class="instant-rich-text iiwzqWDeTsrNYicPF"><h3>Lio Classic</h3></div
-                  ><div data-instant-type="text" conditionals="" class="instant-rich-text iqG8GYMVOVPMSNJLt"><p>Fixed Airflow </p></div></div
+                  ><div class="iB7hXtUspX1oVOmlY" data-instant-type="container"
+                    ><div data-instant-type="text" class="instant-rich-text iQu7hOfudUvUHu0ah"><h3>Lio Pro</h3></div
+                    ><div data-instant-type="text" class="instant-rich-text iKq4FtpvX3DMmlwED"><h3>Most Value</h3></div></div
+                  ><div data-instant-type="text" conditionals="" class="instant-rich-text iqG8GYMVOVPMSNJLt"><p>Adjustable Airflow</p><p>Magnetic Fidgeting</p></div></div
                 ><div class="iRBIKBTEUF8IGoR47" data-instant-type="container"
                   ><div class="iBwZ7BdUACOQkaIUv" data-instant-type="container"
                     ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iEvz7oaUz3NI8eZer">
@@ -684,362 +1006,6 @@
                 assign style = ''
 
                 assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[0]
-                assign selected_option_value = selected_option.values[1]
-
-                assign variant_has_option = false
-
-                if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
-                  assign variant_has_option = true
-                endif
-
-                if variant_has_option != true
-                  assign style = 'style="display: none;"'
-                endif
-              -%}
-              <div class="iPFyqdfiectigS9T6" data-instant-type="container" {{- style -}} data-instant-conditional="true"
-                ><div class="ifnGR17FHX9hJeTyQ" data-instant-type="container"
-                  ><div class="iC8v2v34aJtuJuuoC" data-instant-type="container">
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
-                      assign selected_option_value = selected_option.values[0]
-
-                      assign variant_has_option = false
-
-                      if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iUWRMJCve4Pkr0mEF"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/yiSVTgB1pb3AxCDA/screenshot-2026-03-05-at-30544pm-4.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div>
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
-                      assign selected_option_value = selected_option.values[1]
-
-                      assign variant_has_option = false
-
-                      if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="igSzSjy6SNUGs7yGu"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/x4KZxFqUEWRtORPx/chatgpt-image-mar-7-2026-031723-pm-2.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
-                    ><div data-instant-type="text" class="instant-rich-text iQJAQ454YCxNSMvE8"
-                      ><h3><strong>Free carry case</strong></h3></div
-                    ></div
-                  ></div
-                ></div
-              ><div
-                class="instant-custom-variant-picker iSQ3bzOrnGSkUjcS9"
-                data-instant-type="container"
-                data-instant-action-type="select-variant-option"
-                data-instant-option-value="
-                  {%- liquid
-                  	assign selected_options = product_HDyVlxXMxatNmYkK_variant.options
-                  	assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values | where : 'name', 'Version' | first
-                  	if selected_option == null
-                  		assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[0]
-                  	endif
-
-                  	for variant in product_HDyVlxXMxatNmYkK.variants
-                  		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
-                  			assign selected_variant = variant
-                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
-                  			assign selected_variant = variant
-                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
-                  			assign selected_variant = variant
-                  		endif
-                  	endfor
-                  -%}{{- selected_option.values[0] | escape -}}
-                "
-                data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                data-instant-state="{%- if product_HDyVlxXMxatNmYkK_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
-                data-instant-disabled="
-                  {%- liquid
-                  	assign is_not_available = false
-                  	if selected_variant.available == false
-                  		assign is_not_available = true
-                  	endif
-                  -%}{{- is_not_available -}}
-                "
-                ><div class="iFttnoAKxbTVew6VH" data-instant-type="container"></div>
-                {%- liquid
-                  assign style = ''
-
-                  assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
-                  assign selected_option_value = selected_option.values[0]
-
-                  assign variant_has_option = false
-
-                  if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
-                    assign variant_has_option = true
-                  endif
-
-                  if variant_has_option != true
-                    assign style = 'style="display: none;"'
-                  endif
-                -%}
-                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="isfTNpUqeY2KHCcJe"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lFZyJpNmFkAOATLd/chatgpt-image-feb-27-2026-105804-am-1-photoroom-1-2.webp?width=1280" width="937" height="937" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div>
-                {%- liquid
-                  assign style = ''
-
-                  assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
-                  assign selected_option_value = selected_option.values[1]
-
-                  assign variant_has_option = false
-
-                  if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
-                    assign variant_has_option = true
-                  endif
-
-                  if variant_has_option != true
-                    assign style = 'style="display: none;"'
-                  endif
-                -%}
-                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iTBUXSxzk5xsGY235"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ESmpQpNuNwvcpjiZ/chatgpt-image-mar-7-2026-032152-pm-1.png?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
-                ><div class="iKEiElPiUkn3yRu4N" data-instant-type="container"
-                  ><div class="iBylTPEaQvgyYwSkN" data-instant-type="container"
-                    ><div class="iXMx1k7R8isxQCRdu" data-instant-type="container"
-                      ><div data-instant-type="text" class="instant-rich-text iztER0zPiRvoPDFqO"><h3>Lio Plus</h3></div
-                      ><div data-instant-type="text" class="instant-rich-text iA2LnOItchdwCl1eb"><h3>Most Popular</h3></div></div
-                    ><div data-instant-type="text" conditionals="" class="instant-rich-text imGJSbVf9gFuWxDUA"><p>Adjustable Airflow</p></div></div
-                  ></div
-                ><div class="iyrvygNZDI9NlZrQs" data-instant-type="container"
-                  ><div class="iu2RckvA6toglDYqJ" data-instant-type="container"
-                    ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iZAWR8Y71QyWVlUTf">
-                      {%- liquid
-                        assign variant_price = selected_variant.price
-
-                        if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
-                          for allocation in selected_variant.selling_plan_allocations
-                            assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
-                            assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
-
-                            if selling_plan_by_interval != null
-                              assign variant_price = allocation.price
-                              break
-                            endif
-                          endfor
-                        endif
-                      -%}
-                      {{- variant_price | money -}}
-                    </p>
-
-                    {%- liquid
-                      assign style = ''
-                      assign compare_at_price = selected_variant.compare_at_price
-                      assign variant_price = selected_variant.price
-
-                      if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
-                        for allocation in selected_variant.selling_plan_allocations
-                          assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
-                          assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
-
-                          if selling_plan_by_interval != null
-                            assign compare_at_price = allocation.compare_at_price
-                            assign variant_price = allocation.price
-                            break
-                          endif
-                        endfor
-                      endif
-
-                      if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <span
-                      data-instant-dynamic-content-source="COMPARE_AT"
-                      class="i7V1CFgFLMIOKFRkX"
-                      {{- style -}}
-                    >
-                      {{- compare_at_price | money -}}
-                    </span>
-                  </div></div
-                ></div
-              >
-              {%- liquid
-                assign style = ''
-
-                assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[0]
-                assign selected_option_value = selected_option.values[0]
-
-                assign variant_has_option = false
-
-                if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
-                  assign variant_has_option = true
-                endif
-
-                if variant_has_option != true
-                  assign style = 'style="display: none;"'
-                endif
-              -%}
-              <div class="iQkH9afkbWaEstVrj" data-instant-type="container" {{- style -}} data-instant-conditional="true"
-                ><div class="ikWPz1jZUg0plWLos" data-instant-type="container"
-                  ><div class="ijBdFAaJopYuakmZO" data-instant-type="container"
-                    ><div data-instant-type="image" conditionals="" class="iSgJr81VoDoO6xneP"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
-                    ><div data-instant-type="text" class="instant-rich-text iximRjIi57GVzYv7B"
-                      ><h3><strong>Airflow</strong></h3
-                      ><h3><strong>Dots</strong></h3></div
-                    ></div
-                  ><div class="iWXMXCeFfI9tFBUCX" data-instant-type="container"
-                    ><div data-instant-type="image" conditionals="" class="iSsPI15EyaQJl8Gh5"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
-                    ><div data-instant-type="text" class="instant-rich-text iMQuGnsco2M4RT8FM"
-                      ><h3><strong>Free</strong></h3
-                      ><h3><strong>travel</strong></h3
-                      ><h3><strong>bag</strong></h3></div
-                    ></div
-                  ><div class="ibVZSmWQgN5rneUtk" data-instant-type="container"
-                    ><div data-instant-type="image" conditionals="" class="ifgLXyCjFZ7fgtLvL"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
-                    ><div data-instant-type="text" class="instant-rich-text iMsGqK41Mvlly80BD"
-                      ><h3><strong>Free</strong></h3
-                      ><h3><strong>leather</strong></h3
-                      ><h3><strong>case</strong></h3></div
-                    ></div
-                  ></div
-                ></div
-              ><div
-                class="instant-custom-variant-picker iFRDrppIrlY3TpV1H"
-                data-instant-type="container"
-                data-instant-action-type="select-variant-option"
-                data-instant-option-value="
-                  {%- liquid
-                  	assign selected_options = product_HDyVlxXMxatNmYkK_variant.options
-                  	assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values | where : 'name', 'Version' | first
-                  	if selected_option == null
-                  		assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[0]
-                  	endif
-
-                  	for variant in product_HDyVlxXMxatNmYkK.variants
-                  		if selected_option.position == 1 and variant.option1 == selected_option.values[2] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
-                  			assign selected_variant = variant
-                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[2] and variant.option3 == selected_options[2]
-                  			assign selected_variant = variant
-                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[2]
-                  			assign selected_variant = variant
-                  		endif
-                  	endfor
-                  -%}{{- selected_option.values[2] | escape -}}
-                "
-                data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                data-instant-state="{%- if product_HDyVlxXMxatNmYkK_variant.options contains selected_option.values[2] -%}active{%- else -%}inactive{%- endif -%}"
-                data-instant-disabled="
-                  {%- liquid
-                  	assign is_not_available = false
-                  	if selected_variant.available == false
-                  		assign is_not_available = true
-                  	endif
-                  -%}{{- is_not_available -}}
-                "
-                ><div class="iNRzTyfLdny1mtl7t" data-instant-type="container"></div>
-                {%- liquid
-                  assign style = ''
-
-                  assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
-                  assign selected_option_value = selected_option.values[0]
-
-                  assign variant_has_option = false
-
-                  if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
-                    assign variant_has_option = true
-                  endif
-
-                  if variant_has_option != true
-                    assign style = 'style="display: none;"'
-                  endif
-                -%}
-                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iS5dO8pBii6TuTxkf"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/P63PnZkBhxAg65Gu/chatgpt-image-mar-6-2026-032703-pm.png?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div>
-                {%- liquid
-                  assign style = ''
-
-                  assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
-                  assign selected_option_value = selected_option.values[1]
-
-                  assign variant_has_option = false
-
-                  if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
-                    assign variant_has_option = true
-                  endif
-
-                  if variant_has_option != true
-                    assign style = 'style="display: none;"'
-                  endif
-                -%}
-                <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iipGyOP4QEo9TEiL3"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9IxS7M3xi9WVfqLn/chatgpt-image-mar-7-2026-032448-pm.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
-                ><div class="iG7uf3WnG6iAObHbZ" data-instant-type="container"
-                  ><div class="i5ZkgbgRJZYlz2v3t" data-instant-type="container"
-                    ><div class="iiTChejjGJNxYonhi" data-instant-type="container"
-                      ><div data-instant-type="text" class="instant-rich-text iTaB86xfO9PaYrtZX"><h3>Lio Pro</h3></div
-                      ><div data-instant-type="text" class="instant-rich-text iGJmShk808sUCJYeP"
-                        ><h3><strong>Best Experience</strong></h3></div
-                      ></div
-                    ><div data-instant-type="text" conditionals="" class="instant-rich-text i2LlGsGOxtDVAti6p"><p>Adjustable Airflow</p><p>Magnetic Fidgeting</p></div></div
-                  ></div
-                ><div class="ihgALSf2FF2AAidQX" data-instant-type="container"
-                  ><div class="iG1WP6DQIFsrgVNu8" data-instant-type="container"
-                    ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="i2DygbNWaO90JzJ8Y">
-                      {%- liquid
-                        assign variant_price = selected_variant.price
-
-                        if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
-                          for allocation in selected_variant.selling_plan_allocations
-                            assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
-                            assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
-
-                            if selling_plan_by_interval != null
-                              assign variant_price = allocation.price
-                              break
-                            endif
-                          endfor
-                        endif
-                      -%}
-                      {{- variant_price | money -}}
-                    </p>
-
-                    {%- liquid
-                      assign style = ''
-                      assign compare_at_price = selected_variant.compare_at_price
-                      assign variant_price = selected_variant.price
-
-                      if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
-                        for allocation in selected_variant.selling_plan_allocations
-                          assign selected_selling_plan_option = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.selling_plan.options | first
-                          assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
-
-                          if selling_plan_by_interval != null
-                            assign compare_at_price = allocation.compare_at_price
-                            assign variant_price = allocation.price
-                            break
-                          endif
-                        endfor
-                      endif
-
-                      if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <span
-                      data-instant-dynamic-content-source="COMPARE_AT"
-                      class="i5MrOme0K0ZTkZa0U"
-                      {{- style -}}
-                    >
-                      {{- compare_at_price | money -}}
-                    </span>
-                  </div></div
-                ></div
-              >
-              {%- liquid
-                assign style = ''
-
-                assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[0]
                 assign selected_option_value = selected_option.values[2]
 
                 assign variant_has_option = false
@@ -1052,60 +1018,22 @@
                   assign style = 'style="display: none;"'
                 endif
               -%}
-              <div class="iBCKyAbATEnqBfcKO" data-instant-type="container" {{- style -}} data-instant-conditional="true"
-                ><div class="ivuEZ2vs8YQXOm0Wm" data-instant-type="container"
-                  ><div class="ikfE8Ii4Hh8EmRyPq" data-instant-type="container"
-                    ><div data-instant-type="image" conditionals="" class="iZx4QAi5DKvrDo53B"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
-                    ><div data-instant-type="text" class="instant-rich-text iYVvMn6Ce9LIXgpEk"
-                      ><h3><strong>Airflow</strong></h3
-                      ><h3><strong>Dots</strong></h3></div
+              <div class="iQkH9afkbWaEstVrj" data-instant-type="container" {{- style -}} data-instant-conditional="true"
+                ><div class="iMauIV1gFoR047zoH" data-instant-type="container"
+                  ><div class="iNTtohsy7eTbBCXIP" data-instant-type="container"
+                    ><div data-instant-type="image" conditionals="" class="i2we5r60OLZnIKExi"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qqzO3y7BWHSnYkGM/screenshot-2026-03-09-at-43016pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qqzO3y7BWHSnYkGM/screenshot-2026-03-09-at-43016pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qqzO3y7BWHSnYkGM/screenshot-2026-03-09-at-43016pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qqzO3y7BWHSnYkGM/screenshot-2026-03-09-at-43016pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qqzO3y7BWHSnYkGM/screenshot-2026-03-09-at-43016pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qqzO3y7BWHSnYkGM/screenshot-2026-03-09-at-43016pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/qqzO3y7BWHSnYkGM/screenshot-2026-03-09-at-43016pm.webp?width=1280" width="628" height="629" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Ex9RvZIFReSa8rYL/screenshot-2026-03-05-at-30544pm-3.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                    ><div data-instant-type="text" class="instant-rich-text iHclnJe3lboBGZD11"
+                      ><h3><strong>Free Cleaning Kit</strong></h3></div
                     ></div
-                  ><div class="ifSfZiHntIYYwor27" data-instant-type="container"
-                    ><div data-instant-type="image" conditionals="" class="iFqVuQWVg5fjOMWwe"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
-                    ><div data-instant-type="text" class="instant-rich-text iHwMPdnzf8ZUsMqB1"
-                      ><h3><strong>Free</strong></h3
-                      ><h3><strong>travel</strong></h3
-                      ><h3><strong>bag</strong></h3></div
+                  ><div class="ilx8uPQ2v3ihXVOEu" data-instant-type="container"
+                    ><div data-instant-type="image" conditionals="" class="iBBN9Jrw9IiykPzaC"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/gboBZWeTGKVXVQN7/screenshot-2026-03-05-at-30544pm-2.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                    ><div data-instant-type="text" class="instant-rich-text iyK7PAAk3Lcy4CesK"
+                      ><h3><strong>Free travel bag</strong></h3></div
                     ></div
-                  ><div class="iLPokML28TckWC1VU" data-instant-type="container">
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
-                      assign selected_option_value = selected_option.values[0]
-
-                      assign variant_has_option = false
-
-                      if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="iuwsVh50ZIrrJfJ9L"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9pAlTJN1FzZtlh7E/chatgpt-image-mar-7-2026-032448-pm-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9pAlTJN1FzZtlh7E/chatgpt-image-mar-7-2026-032448-pm-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9pAlTJN1FzZtlh7E/chatgpt-image-mar-7-2026-032448-pm-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9pAlTJN1FzZtlh7E/chatgpt-image-mar-7-2026-032448-pm-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9pAlTJN1FzZtlh7E/chatgpt-image-mar-7-2026-032448-pm-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9pAlTJN1FzZtlh7E/chatgpt-image-mar-7-2026-032448-pm-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/9pAlTJN1FzZtlh7E/chatgpt-image-mar-7-2026-032448-pm-1-photoroom.png?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div>
-                    {%- liquid
-                      assign style = ''
-
-                      assign selected_option = product_HDyVlxXMxatNmYkK.options_with_values[1]
-                      assign selected_option_value = selected_option.values[1]
-
-                      assign variant_has_option = false
-
-                      if product_HDyVlxXMxatNmYkK_variant.options contains selected_option_value
-                        assign variant_has_option = true
-                      endif
-
-                      if variant_has_option != true
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <div data-instant-type="image" {{- style -}} data-instant-conditional="true" class="ixEdWh2Kj8cdjyPc3"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/M6XKyiBfhFRrlH32/chatgpt-image-mar-7-2026-032448-pm-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/M6XKyiBfhFRrlH32/chatgpt-image-mar-7-2026-032448-pm-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/M6XKyiBfhFRrlH32/chatgpt-image-mar-7-2026-032448-pm-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/M6XKyiBfhFRrlH32/chatgpt-image-mar-7-2026-032448-pm-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/M6XKyiBfhFRrlH32/chatgpt-image-mar-7-2026-032448-pm-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/M6XKyiBfhFRrlH32/chatgpt-image-mar-7-2026-032448-pm-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/M6XKyiBfhFRrlH32/chatgpt-image-mar-7-2026-032448-pm-1.webp?width=1280" width="1024" height="1024" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
-                    ><div data-instant-type="text" class="instant-rich-text i6x1tO5lJqIvQFNNc"
-                      ><h3><strong>Free</strong></h3
-                      ><h3><strong>leather</strong></h3
-                      ><h3><strong>case</strong></h3></div
+                  ><div class="ikitBKIpMhU4iuRml" data-instant-type="container"
+                    ><div data-instant-type="image" conditionals="" class="icGjqCxsnrHKtV35U"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MNG8g0ppIULQfmFG/screenshot-2026-03-05-at-30544pm-1.webp?width=1280" width="706" height="708" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                    ><div data-instant-type="text" class="instant-rich-text i8WIlgIPCW5AYTO1J"
+                      ><h3><strong>Free leather case</strong></h3></div
                     ></div
                   ></div
                 ></div
@@ -1148,7 +1076,7 @@
                   	endif
                   -%}{{- is_not_available -}}
                 "
-                ><div data-instant-type="image" class="inXhCsdHHSZ4XuHkA"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=1280" width="1208" height="643" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div></div
+                ><div data-instant-type="image" class="inXhCsdHHSZ4XuHkA"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=1280" width="1208" height="643" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/jafUoM6AwhF9siD3/screenshot-2026-03-06-at-24054pm-1.webp?width=1280" width="1208" height="643" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div></div
               ><div
                 class="instant-custom-variant-picker ih9XMWeYhXhJLhXnr"
                 data-instant-type="container"
@@ -1182,7 +1110,7 @@
                   	endif
                   -%}{{- is_not_available -}}
                 "
-                ><div data-instant-type="image" class="iXXTPABLBloaP6Njr"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=1280" width="1208" height="643" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div></div></div
+                ><div data-instant-type="image" class="iXXTPABLBloaP6Njr"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=1280" width="1208" height="643" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/tz0lnHaZ3wwQRQ5g/screenshot-2026-03-06-at-24054pm.webp?width=1280" width="1208" height="643" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div></div></div
             ><div class="ipVaOpyD2wspz6n0I" data-instant-type="container"
               ><div data-instant-type="text" class="instant-rich-text ixql2ny5iZylW6DYK"
                 ><p><strong>3. Choose flavor bundle:</strong></p></div
@@ -1235,6 +1163,8 @@
                           ><div class="iCtuTYBcmIEFIkcP3" data-instant-type="container"
                             ><div data-instant-type="text" class="instant-rich-text iO5046uZYuqsG58Hw"><h3>Minty • 30-Day Supply</h3></div></div
                           ><div data-instant-type="text" class="instant-rich-text iB6py9TMQCN01rXxo"><p>Cool, refreshing menthol-style sensation. </p></div></div
+                        ><div data-instant-type="text" class="instant-rich-text i5uGZRSkOVR2wxdtF"
+                          ><p><strong>Free Gift</strong></p></div
                         ></div
                       ></div
                     ></div
@@ -1279,10 +1209,7 @@
                             ><div data-instant-type="text" class="instant-rich-text iz3n2x4IZSW94UHNJ"><h3>Best Results</h3></div></div
                           ><div class="iB3S0R6bIkMrO2esQ" data-instant-type="container"
                             ><div data-instant-type="text" class="instant-rich-text iNUb9NvjDDnTwyF0H"><h3>Minty • 90-Day Supply</h3></div></div
-                          ><div data-instant-type="text" class="instant-rich-text iuXxl6BslN5L4HSw8"><p>Cool, refreshing menthol-style sensation. </p></div
-                          ><div conditionals="" class="iQBOKLFu7E3AngUWI" data-instant-type="container"
-                            ><div data-instant-type="text" class="instant-rich-text itAlCJwFuKRpgsA7s"><p>Add for €29 </p></div><div data-instant-type="text" class="instant-rich-text iZE1GqSJWWCKM1vM8"><p>€59</p></div></div
-                          ></div
+                          ><div data-instant-type="text" class="instant-rich-text iuCKcFdjlL99bHOtl"><p>Cool, refreshing menthol-style sensation. </p></div><div data-instant-type="text" class="instant-rich-text iuXxl6BslN5L4HSw8"><p>Add for €29</p></div></div
                         ></div
                       ></div
                     ></div
@@ -1324,11 +1251,10 @@
                       ><div class="ikuWIyyUwkJwvRV7j" data-instant-type="container"
                         ><div class="iEJayyzLwSDb48EHm" data-instant-type="container"
                           ><div class="iuvF2LKX4pd9O8qid" data-instant-type="container"
-                            ><div data-instant-type="text" class="instant-rich-text ixAqad5HOjCnGVep8"><h3>Minty • 60-Day Supply</h3></div></div
-                          ><div data-instant-type="text" class="instant-rich-text itX9r8YvXfft3k38O"><p>Minty + Fruity in one bundle. Discover your favorite flavor.</p></div></div
+                            ><div data-instant-type="text" class="instant-rich-text ixAqad5HOjCnGVep8"><h3>Mixed • 60-Day Supply</h3></div></div
+                          ><div data-instant-type="text" class="instant-rich-text itX9r8YvXfft3k38O"><p>Discover your favorite flavor.</p></div
+                          ><div data-instant-type="text" class="instant-rich-text in7INUuxS1ZqFCK9i"><p>Add for €19</p></div></div
                         ></div
-                      ><div conditionals="" class="iYRd2ZkOQT6Kzn3OV" data-instant-type="container"
-                        ><div data-instant-type="text" class="instant-rich-text iQ5NhCDUm2Zl7Yiob"><p>Add for €19 </p></div><div data-instant-type="text" class="instant-rich-text ij0IXZH45CJAzTPTP"><p>€39</p></div></div
                       ></div
                     ></div
                   ><div
@@ -1373,6 +1299,8 @@
                             ><div data-instant-type="text" class="instant-rich-text igM5yGsDrwQAFBSmI"><h3>Fruity • 30-Day Supply</h3></div></div
                           ><div data-instant-type="text" class="instant-rich-text irsI9hNsupVDJUoc7"><p>Subtle natural fruit aromas. Light &amp; sweet.</p></div></div
                         ></div
+                      ><div data-instant-type="text" class="instant-rich-text iDCToYPKoo1B40Tcm"
+                        ><p><strong>Free Gift</strong></p></div
                       ></div
                     ></div
                   ><div
@@ -1415,10 +1343,9 @@
                           ><div data-instant-type="text" class="instant-rich-text iUvi5RQrmzXYTnqcj"><p>May be weaker</p></div
                           ><div class="i5GSJxYYMB4k2kVhN" data-instant-type="container"
                             ><div data-instant-type="text" class="instant-rich-text iBGd3T9kSQbTYr2O9"><h3>Fruity • 90-Day Supply</h3></div></div
-                          ><div data-instant-type="text" class="instant-rich-text iZf2BGW4ffVfny43X"><p>Subtle natural fruit aromas. Light &amp; sweet.</p></div></div
+                          ><div data-instant-type="text" class="instant-rich-text iZf2BGW4ffVfny43X"><p>Subtle natural fruit aromas. Light &amp; sweet.</p></div
+                          ><div data-instant-type="text" class="instant-rich-text iM5LUVRX4TLDzjTTE"><p>Add for €29</p></div></div
                         ></div
-                      ><div conditionals="" class="ikby7lkrAC5ad6Jhl" data-instant-type="container"
-                        ><div data-instant-type="text" class="instant-rich-text i3lBxU8pEtCRFAwdH"><p>Add for €29 </p></div><div data-instant-type="text" class="instant-rich-text iRvxyZgHFxrF20xPI"><p>€59</p></div></div
                       ></div
                     ></div
                   ></div
