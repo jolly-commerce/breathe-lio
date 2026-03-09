@@ -12,5 +12,36 @@
     "market": "7a040a7a-bc3b-4136-81cd-f9f2269f2d5b"
   },
   "parent": "page.instant-ImN9zuT0FkYRoVmz.json",
-  "sections": {}
+  "sections": {
+    "instant-ImN9zuT0FkYRoVmz": {
+      "settings": {
+        "text_i00Z1R53ds7Oy65a-1": "<p>(4.8 sterren) • 1000+ reviews</p>",
+        "text_TX9YITxSO4wuHIgV-1": "<p>✔ Geen cores die eruit vallen</p><p>✔ Instelbare luchtstroomregeling</p><p>✔ Roestvrijstalen binnenkant</p><p>✔ Constante smaak, elke keer weer</p><p>✔ Cadeaus ter waarde van €35</p>",
+        "text_2FaAhSYmnzv3QjEN-1": "<p>Selecteer je kleur:</p>",
+        "text_FOpelL43My18bahT-1": "<p><strong>OLIJF</strong></p>",
+        "text_oGCeYnN6yyptEffX-1": "<p><strong>WALNOOT</strong></p>",
+        "text_063Gpp4bwgru9PzN-1": "<p>SELECTEER JE BUNDEL:</p>",
+        "text_CZxtt6XS21Fx2ngn-1": "<p>90 Dagen Startpakket</p>",
+        "text_fNUCO07ZbeVmfW4X-1": "<p>Lio Plus + 90 Dagen aan Cores + Cadeaus ter waarde van €35</p>",
+        "text_Ce7EeHShZKys29ZP-1": "<p><strong>Lio Plus + 30 Dagen aan Cores + Cadeaus ter waarde van €35</strong></p>",
+        "text_Be71a8vkcXFgz0f2-1": "<p>30 Dagen Startpakket</p>",
+        "text_iS4Rwp0SQYRI8S3O-1": "<p>Populair</p>",
+        "text_S6FNcFIgE4uguoFp-1": "<p>Walnoot (Enkele Lio)</p>",
+        "text_PZVrqgjgrWcqv8Vx-1": "<p>Lio Plus (Geen Cores) + <strong>Cadeaus ter waarde van €35</strong></p>",
+        "text_ZWCBtF9mwZafmvOS-1": "<p>90 Dagen Startpakket</p>",
+        "text_iyT1plDDvKh3Frx0-1": "<p>Lio Plus + 90 Dagen aan Cores + <strong>Cadeaus ter waarde van €35</strong></p>",
+        "text_7RH9pssCopX25zub-1": "<p>30 Dagen Startpakket</p>",
+        "text_PZheIuu0uu9xjB3r-1": "<p>Lio Plus + 30 Dagen aan Cores + <strong>Cadeaus ter waarde van €35</strong></p>",
+        "text_zisRDcCrMgyvE98K-1": "<p>Populair</p>",
+        "text_kJn7onC6jnVAxd4j-1": "<p>Olijf (Enkele Lio)</p>",
+        "text_ToeVoEs1M6O3giVx-1": "<p>Lio Plus (Geen Cores) + <strong>Cadeaus ter waarde van €35</strong></p>",
+        "text_8UaUOmjFJkNxUMAc-1": "<p>Toevoegen</p>",
+        "text_iWhaMud1s3t5NxJX-1": "<p><strong>Iedere bestelling komt met cadeaus ter waarde van €35</strong></p>",
+        "text_kcXzm4KfC2j6XLSO-1": "<p>30-Dagen Geld Terug Garantie</p>",
+        "text_MSbE668G4F8VIiuP-1": "<p>Gratis Verzending NL & BE</p>",
+        "text_hrbK5JYxXuBRrLjv-1": "<p>Vertrouwd door 100.000+ mensen</p>"
+      },
+      "blocks": {}
+    }
+  }
 }
