@@ -38,17 +38,33 @@
   </style>
   <div data-instant-type="root" class="iVUvvOukolMu75aKW">
     {%- liquid
-      assign product_Eb5gC5QhCEHg0vsG_handle = 'lio-plus-packs'
-      assign product_Eb5gC5QhCEHg0vsG = section.settings.product_Eb5gC5QhCEHg0vsG | default: all_products[product_Eb5gC5QhCEHg0vsG_handle]
-      assign product_Eb5gC5QhCEHg0vsG_variant = product_Eb5gC5QhCEHg0vsG.selected_or_first_available_variant
+      assign product_Eb5gC5QhCEHg0vsG-1_handle = 'lio-plus-packs'
+      assign product_Eb5gC5QhCEHg0vsG-1 = section.settings['product_Eb5gC5QhCEHg0vsG-1'] | default: all_products[product_Eb5gC5QhCEHg0vsG-1_handle]
+      assign product_Eb5gC5QhCEHg0vsG-1_variant = product_Eb5gC5QhCEHg0vsG-1.selected_or_first_available_variant
 
-      if product_Eb5gC5QhCEHg0vsG.selected_variant
-        assign product_Eb5gC5QhCEHg0vsG_variant = product_Eb5gC5QhCEHg0vsG.selected_variant
+      if product_Eb5gC5QhCEHg0vsG-1.selected_variant
+        assign product_Eb5gC5QhCEHg0vsG-1_variant = product_Eb5gC5QhCEHg0vsG-1.selected_variant
       endif
 
-      assign product_Eb5gC5QhCEHg0vsG_image = product_Eb5gC5QhCEHg0vsG_variant.featured_image | default: product_Eb5gC5QhCEHg0vsG.featured_image
+      assign product_Eb5gC5QhCEHg0vsG-1_image = product_Eb5gC5QhCEHg0vsG-1_variant.featured_image | default: product_Eb5gC5QhCEHg0vsG-1.featured_image
     -%}
-    <form class="iEb5gC5QhCEHg0vsG" data-instant-type="container" id="iEb5gC5QhCEHg0vsG" data-instant-form-product-url="{{ product_Eb5gC5QhCEHg0vsG.url }}" data-instant-form-variant-id="{{ product_Eb5gC5QhCEHg0vsG_variant.id }}" data-instant-form-product-id="{{ product_Eb5gC5QhCEHg0vsG.id }}"
+    <!--  -->
+    {%- liquid
+      assign loading = 'eager'
+      assign fetchpriority = 'auto'
+      if section.location == 'footer'
+        assign loading = 'lazy'
+      elsif section.location == 'header'
+        assign fetchpriority = 'high'
+      elsif section.location == 'template'
+        if section.index == 1
+          assign fetchpriority = 'high'
+        elsif section.index > 2
+          assign loading = 'lazy'
+        endif
+      endif
+    -%}
+    <form class="iEb5gC5QhCEHg0vsG" data-instant-type="container" id="iEb5gC5QhCEHg0vsG" data-instant-form-product-url="{{ product_Eb5gC5QhCEHg0vsG-1.url }}" data-instant-form-variant-id="{{ product_Eb5gC5QhCEHg0vsG-1_variant.id }}" data-instant-form-product-id="{{ product_Eb5gC5QhCEHg0vsG-1.id }}"
       ><div class="iqe4chK7Zecz3fm8k" data-instant-type="container"
         ><div class="iHbWXa6W9hm0EDLF7" data-instant-type="container"
           ><div class="instant-slider-container inlImVcEN37HYjnrZ" data-instant-type="slider-container"
@@ -60,9 +76,9 @@
                 ><div class="instant-slider-wrapper">
                   {%- liquid
                     assign images_without_variant = '' | split: ''
-                    assign featured_image = product_Eb5gC5QhCEHg0vsG_variant.featured_image | default: product_Eb5gC5QhCEHg0vsG_image
+                    assign featured_image = product_Eb5gC5QhCEHg0vsG-1_variant.featured_image | default: product_Eb5gC5QhCEHg0vsG-1_image
 
-                    for image in product_Eb5gC5QhCEHg0vsG.images
+                    for image in product_Eb5gC5QhCEHg0vsG-1.images
                       if image.id != featured_image.id
                         assign image_element = image | sort
                         assign images_without_variant = images_without_variant | concat: image_element
@@ -75,7 +91,7 @@
                     {%- if forloop.length > 0 -%}
                       {%- assign repeater_index_82FvUOrrsD299bjk = forloop.index0 -%}
                       <div class="instant-slider-slide i82FvUOrrsD299bjk" data-instant-type="slider-slide"
-                        ><div data-instant-type="image" class="iDa68CJbMXsK805pl"><img alt="{{ image.alt }}" src="{{ image | image_url: width: 1280 }}" data-instant-dynamic-content-source="REPEATER" data-instant-repeater-id="82FvUOrrsD299bjk" data-instant-repeater-index="{{ repeater_index_82FvUOrrsD299bjk }}" width="{{ image.width }}" height="{{ image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ image | image_url: width: 1080 }} 1080w, {{ image | image_url: width: 828 }} 828w, {{ image | image_url: width: 750 }} 750w, {{ image | image_url: width: 640 }} 640w, {{ image | image_url: width: 360 }} 360w, {{ image | image_url: width: 1280 }} 1280w" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main"></div
+                        ><div data-instant-type="image" class="iDa68CJbMXsK805pl"><img alt="{{ image.alt }}" src="{{ image | image_url: width: 1280 }}" data-instant-dynamic-content-source="REPEATER" data-instant-repeater-id="82FvUOrrsD299bjk" data-instant-repeater-index="{{ repeater_index_82FvUOrrsD299bjk }}" width="{{ image.width }}" height="{{ image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ image | image_url: width: 1080 }} 1080w, {{ image | image_url: width: 828 }} 828w, {{ image | image_url: width: 750 }} 750w, {{ image | image_url: width: 640 }} 640w, {{ image | image_url: width: 360 }} 360w, {{ image | image_url: width: 1280 }} 1280w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main"></div
                       ></div>
                     {%- endif -%}
                   {%- endfor -%}</div></div
@@ -97,9 +113,9 @@
                 ><div class="instant-slider-wrapper">
                   {%- liquid
                     assign images_without_variant = '' | split: ''
-                    assign featured_image = product_Eb5gC5QhCEHg0vsG_variant.featured_image | default: product_Eb5gC5QhCEHg0vsG_image
+                    assign featured_image = product_Eb5gC5QhCEHg0vsG-1_variant.featured_image | default: product_Eb5gC5QhCEHg0vsG-1_image
 
-                    for image in product_Eb5gC5QhCEHg0vsG.images
+                    for image in product_Eb5gC5QhCEHg0vsG-1.images
                       if image.id != featured_image.id
                         assign image_element = image | sort
                         assign images_without_variant = images_without_variant | concat: image_element
@@ -112,7 +128,7 @@
                     {%- if forloop.length > 0 -%}
                       {%- assign repeater_index_scNxTL5JePITa8WP = forloop.index0 -%}
                       <div class="instant-slider-slide iscNxTL5JePITa8WP" data-instant-type="slider-slide"
-                        ><div data-instant-type="image" class="itdkf0REaPFI4r82R"><img alt="{{ image.alt }}" src="{{ image | image_url: width: 640 }}" data-instant-dynamic-content-source="REPEATER" data-instant-repeater-id="scNxTL5JePITa8WP" data-instant-repeater-index="{{ repeater_index_scNxTL5JePITa8WP }}" width="{{ image.width }}" height="{{ image.height }}" sizes="(max-width: 640px) 100vw, 640px" srcSet="{{ image | image_url: width: 360 }} 360w, {{ image | image_url: width: 640 }} 640w" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main"></div
+                        ><div data-instant-type="image" class="itdkf0REaPFI4r82R"><img alt="{{ image.alt }}" src="{{ image | image_url: width: 640 }}" data-instant-dynamic-content-source="REPEATER" data-instant-repeater-id="scNxTL5JePITa8WP" data-instant-repeater-index="{{ repeater_index_scNxTL5JePITa8WP }}" width="{{ image.width }}" height="{{ image.height }}" sizes="(max-width: 640px) 100vw, 640px" srcSet="{{ image | image_url: width: 360 }} 360w, {{ image | image_url: width: 640 }} 640w" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main"></div
                       ></div>
                     {%- endif -%}
                   {%- endfor -%}</div></div
@@ -150,17 +166,19 @@
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>star</title><path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
                   </svg></div></div
-              ><div data-instant-type="text" class="instant-rich-text ii00Z1R53ds7Oy65a"><p>(4.8 stars) • 1000+ reviews</p></div></div
+              ><div data-instant-type="text" class="instant-rich-text ii00Z1R53ds7Oy65a"
+                ><div>{{ section.settings['text_i00Z1R53ds7Oy65a-1'] }}</div></div
+              ></div
             ><div class="i12BHxOGFGinjb2Gt" data-instant-type="container"
-              ><p data-instant-dynamic-content-source="TITLE" data-instant-type="text" class="iv2HCQzuLlZS5Vwsm">{{ product_Eb5gC5QhCEHg0vsG.title }}</p
+              ><p data-instant-dynamic-content-source="TITLE" data-instant-type="text" class="iv2HCQzuLlZS5Vwsm">{{ product_Eb5gC5QhCEHg0vsG-1.title }}</p
               ><div class="iHUYWtJ7nYJ8yapf8" data-instant-type="container"
                 ><div class="i9p8b1wMWWHtJFYio" data-instant-type="container"
                   ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="im5ikhmGLPbgNPTUK">
                     {%- liquid
-                      assign variant_price = product_Eb5gC5QhCEHg0vsG_variant.price
+                      assign variant_price = product_Eb5gC5QhCEHg0vsG-1_variant.price
 
-                      if product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation
-                        assign variant_price = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.price
+                      if product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation
+                        assign variant_price = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.price
                       endif
                     -%}
                     {{- variant_price | money -}}
@@ -168,12 +186,12 @@
 
                   {%- liquid
                     assign style = ''
-                    assign compare_at_price = product_Eb5gC5QhCEHg0vsG_variant.compare_at_price
-                    assign variant_price = product_Eb5gC5QhCEHg0vsG_variant.price
+                    assign compare_at_price = product_Eb5gC5QhCEHg0vsG-1_variant.compare_at_price
+                    assign variant_price = product_Eb5gC5QhCEHg0vsG-1_variant.price
 
-                    if product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation
-                      assign compare_at_price = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.compare_at_price
-                      assign variant_price = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.price
+                    if product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation
+                      assign compare_at_price = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.compare_at_price
+                      assign variant_price = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.price
                     endif
 
                     if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
@@ -193,12 +211,12 @@
                   {%- liquid
                     assign style = ''
 
-                    assign compare_at_price = product_Eb5gC5QhCEHg0vsG_variant.compare_at_price
-                    assign variant_price = product_Eb5gC5QhCEHg0vsG_variant.price
+                    assign compare_at_price = product_Eb5gC5QhCEHg0vsG-1_variant.compare_at_price
+                    assign variant_price = product_Eb5gC5QhCEHg0vsG-1_variant.price
 
-                    if product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation
-                      assign compare_at_price = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.compare_at_price
-                      assign variant_price = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.price
+                    if product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation
+                      assign compare_at_price = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.compare_at_price
+                      assign variant_price = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.price
                     endif
 
                     assign saved_amount = compare_at_price | minus: variant_price | times: 100 | divided_by: compare_at_price
@@ -217,12 +235,13 @@
                   </span>
                 </div></div
               ><div data-instant-type="text" class="instant-rich-text iTX9YITxSO4wuHIgV"
-                ><p>✔ No more core fraying</p><p>✔ Adjustable airflow control</p><p>✔ Stainless steel interior</p><p>✔ Consistent flavor, every time</p><p>✔ <strong>€35 worth of gifts</strong></p></div
+                ><div>{{ section.settings['text_TX9YITxSO4wuHIgV-1'] }}</div></div
               ></div
             ></div
           ><div class="iuiD4YrHo81MDbNVV" data-instant-type="container"
             ><div class="iUvsHggDsf0rDavzj" data-instant-type="container"
-              ><div data-instant-type="text" class="instant-rich-text i2FaAhSYmnzv3QjEN"><p>Select your COLOUR:</p></div
+              ><div data-instant-type="text" class="instant-rich-text i2FaAhSYmnzv3QjEN"
+                ><div>{{ section.settings['text_2FaAhSYmnzv3QjEN-1'] }}</div></div
               ><div class="ifqC4AzYpRE9LIHcy" data-instant-type="container"
                 ><div
                   class="instant-custom-variant-picker ijf8LUdZ5sk1t6vpJ"
@@ -230,13 +249,13 @@
                   data-instant-action-type="select-variant-option"
                   data-instant-option-value="
                     {%- liquid
-                    	assign selected_options = product_Eb5gC5QhCEHg0vsG_variant.options
-                    	assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values | where : 'name', 'Lio Plus' | first
+                    	assign selected_options = product_Eb5gC5QhCEHg0vsG-1_variant.options
+                    	assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values | where : 'name', 'Lio Plus' | first
                     	if selected_option == null
-                    		assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values[0]
+                    		assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values[0]
                     	endif
 
-                    	for variant in product_Eb5gC5QhCEHg0vsG.variants
+                    	for variant in product_Eb5gC5QhCEHg0vsG-1.variants
                     		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
                     			assign selected_variant = variant
                     		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
@@ -248,7 +267,7 @@
                     -%}{{- selected_option.values[0] | escape -}}
                   "
                   data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                  data-instant-state="{%- if product_Eb5gC5QhCEHg0vsG_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
+                  data-instant-state="{%- if product_Eb5gC5QhCEHg0vsG-1_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
                   data-instant-disabled="
                     {%- liquid
                     	assign is_not_available = false
@@ -257,12 +276,17 @@
                     	endif
                     -%}{{- is_not_available -}}
                   "
-                  ><div data-instant-type="image" class="iPFOETCXJolQlVq23"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main"></div
+                  ><div data-instant-type="image" class="iPFOETCXJolQlVq23">
+                    {%- if section.settings['image_PFOETCXJolQlVq23-1'] and section.settings['image_PFOETCXJolQlVq23-1'] != blank -%}
+                      {{ section.settings['image_PFOETCXJolQlVq23-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_PFOETCXJolQlVq23-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/45FXx1og3YNhwLI5/chatgpt-image-feb-27-2026-105804-am.webp?width=1280" width="1072" height="1072" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
+                    {%- endif -%}</div
                   ><div class="iLk7JkmLi8wojbVyp" data-instant-type="container"
                     ><div data-instant-type="text" class="instant-rich-text i2kwFoixp1MBMMTpm"
-                      ><p><strong>Lio Plus</strong></p></div
+                      ><div>{{ section.settings['text_2kwFoixp1MBMMTpm-1'] }}</div></div
                     ><div data-instant-type="text" class="instant-rich-text iFOpelL43My18bahT"
-                      ><p><strong>OLIVE</strong></p></div
+                      ><div>{{ section.settings['text_FOpelL43My18bahT-1'] }}</div></div
                     ></div
                   ><div class="iaGPJPDE8ilthByr3" data-instant-type="container"></div></div
                 ><div
@@ -271,13 +295,13 @@
                   data-instant-action-type="select-variant-option"
                   data-instant-option-value="
                     {%- liquid
-                    	assign selected_options = product_Eb5gC5QhCEHg0vsG_variant.options
-                    	assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values | where : 'name', 'Lio Plus' | first
+                    	assign selected_options = product_Eb5gC5QhCEHg0vsG-1_variant.options
+                    	assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values | where : 'name', 'Lio Plus' | first
                     	if selected_option == null
-                    		assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values[0]
+                    		assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values[0]
                     	endif
 
-                    	for variant in product_Eb5gC5QhCEHg0vsG.variants
+                    	for variant in product_Eb5gC5QhCEHg0vsG-1.variants
                     		if selected_option.position == 1 and variant.option1 == selected_option.values[1] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
                     			assign selected_variant = variant
                     		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[1] and variant.option3 == selected_options[2]
@@ -289,7 +313,7 @@
                     -%}{{- selected_option.values[1] | escape -}}
                   "
                   data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                  data-instant-state="{%- if product_Eb5gC5QhCEHg0vsG_variant.options contains selected_option.values[1] -%}active{%- else -%}inactive{%- endif -%}"
+                  data-instant-state="{%- if product_Eb5gC5QhCEHg0vsG-1_variant.options contains selected_option.values[1] -%}active{%- else -%}inactive{%- endif -%}"
                   data-instant-disabled="
                     {%- liquid
                     	assign is_not_available = false
@@ -298,27 +322,34 @@
                     	endif
                     -%}{{- is_not_available -}}
                   "
-                  ><div data-instant-type="image" class="i2gzkxL8QWAomGLKL"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=1280" width="1074" height="1081" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main"></div
+                  ><div data-instant-type="image" class="i2gzkxL8QWAomGLKL">
+                    {%- if section.settings['image_2gzkxL8QWAomGLKL-1'] and section.settings['image_2gzkxL8QWAomGLKL-1'] != blank -%}
+                      {{ section.settings['image_2gzkxL8QWAomGLKL-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_2gzkxL8QWAomGLKL-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/lRgeYNQYCj1w7PvO/whatsapp-image-2026-02-27-at-102249-1.webp?width=1280" width="1074" height="1081" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
+                    {%- endif -%}</div
                   ><div class="i0KSaPluVXuyUbc5W" data-instant-type="container"
                     ><div data-instant-type="text" class="instant-rich-text ilkD18ZVl9FAHqmxf"
-                      ><p><strong>Lio Plus</strong></p></div
+                      ><div>{{ section.settings['text_lkD18ZVl9FAHqmxf-1'] }}</div></div
                     ><div class="izXcnn8KzKdCHRT7O" data-instant-type="container"
                       ><div data-instant-type="text" class="instant-rich-text ioGCeYnN6yyptEffX"
-                        ><p><strong>WALNUT</strong></p></div
+                        ><div>{{ section.settings['text_oGCeYnN6yyptEffX-1'] }}</div></div
                       ></div
                     ></div
                   ></div
                 ></div
-              ><div data-instant-type="text" class="instant-rich-text i063Gpp4bwgru9PzN"><p>Select your BUNDLE:</p></div>
+              ><div data-instant-type="text" class="instant-rich-text i063Gpp4bwgru9PzN"
+                ><div>{{ section.settings['text_063Gpp4bwgru9PzN-1'] }}</div></div
+              >
               {%- liquid
                 assign style = ''
 
-                assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values[0]
+                assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values[0]
                 assign selected_option_value = selected_option.values[1]
 
                 assign variant_has_option = false
 
-                if product_Eb5gC5QhCEHg0vsG_variant.options contains selected_option_value
+                if product_Eb5gC5QhCEHg0vsG-1_variant.options contains selected_option_value
                   assign variant_has_option = true
                 endif
 
@@ -333,13 +364,13 @@
                   data-instant-action-type="select-variant-option"
                   data-instant-option-value="
                     {%- liquid
-                    	assign selected_options = product_Eb5gC5QhCEHg0vsG_variant.options
-                    	assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values | where : 'name', 'Cores Bundle' | first
+                    	assign selected_options = product_Eb5gC5QhCEHg0vsG-1_variant.options
+                    	assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values | where : 'name', 'Cores Bundle' | first
                     	if selected_option == null
-                    		assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values[1]
+                    		assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values[1]
                     	endif
 
-                    	for variant in product_Eb5gC5QhCEHg0vsG.variants
+                    	for variant in product_Eb5gC5QhCEHg0vsG-1.variants
                     		if selected_option.position == 1 and variant.option1 == selected_option.values[2] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
                     			assign selected_variant = variant
                     		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[2] and variant.option3 == selected_options[2]
@@ -351,7 +382,7 @@
                     -%}{{- selected_option.values[2] | escape -}}
                   "
                   data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                  data-instant-state="{%- if product_Eb5gC5QhCEHg0vsG_variant.options contains selected_option.values[2] -%}active{%- else -%}inactive{%- endif -%}"
+                  data-instant-state="{%- if product_Eb5gC5QhCEHg0vsG-1_variant.options contains selected_option.values[2] -%}active{%- else -%}inactive{%- endif -%}"
                   data-instant-disabled="
                     {%- liquid
                     	assign is_not_available = false
@@ -360,13 +391,26 @@
                     	endif
                     -%}{{- is_not_available -}}
                   "
-                  ><div data-instant-type="image" class="iyjcBdIqLtLm2obTn"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                  ><div data-instant-type="image" class="iyjcBdIqLtLm2obTn">
+                    {%- if section.settings['image_yjcBdIqLtLm2obTn-1'] and section.settings['image_yjcBdIqLtLm2obTn-1'] != blank -%}
+                      {{ section.settings['image_yjcBdIqLtLm2obTn-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_yjcBdIqLtLm2obTn-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=1280" width="1072" height="1072" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
+                    {%- endif -%}
+                    <!--  -->
+                    {%- if section.settings['image_yjcBdIqLtLm2obTn-1_mobile'] and section.settings['image_yjcBdIqLtLm2obTn-1_mobile'] != blank -%}
+                      {{ section.settings['image_yjcBdIqLtLm2obTn-1_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_yjcBdIqLtLm2obTn-1_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/5Lspy262CRTz1zfd/chatgpt-image-feb-27-2026-105804-am-4.webp?width=1280" width="1072" height="1072" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
+                    {%- endif -%}</div
                   ><div class="iPOxp1reR3kVQcwBr" data-instant-type="container"
                     ><div class="iwRjwYIOi4KyrJYru" data-instant-type="container"
-                      ><div data-instant-type="text" class="instant-rich-text iCZxtt6XS21Fx2ngn"><p>90 Day Starter Pack</p></div></div
+                      ><div data-instant-type="text" class="instant-rich-text iCZxtt6XS21Fx2ngn"
+                        ><div>{{ section.settings['text_CZxtt6XS21Fx2ngn-1'] }}</div></div
+                      ></div
                     ><div class="ib6vauB9km07q1SRF" data-instant-type="container"
                       ><div data-instant-type="text" class="instant-rich-text ifNUCO07ZbeVmfW4X"
-                        ><p>Lio Plus + 90 Days of Cores + <strong>Free gifts worth €35</strong></p></div
+                        ><div>{{ section.settings['text_fNUCO07ZbeVmfW4X-1'] }}</div></div
                       ></div
                     ></div
                   ><div class="icw6I7YWckrQCIMki" data-instant-type="container"
@@ -375,9 +419,9 @@
                         {%- liquid
                           assign variant_price = selected_variant.price
 
-                          if product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation
+                          if product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation
                             for allocation in selected_variant.selling_plan_allocations
-                              assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.selling_plan.options | first
+                              assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.selling_plan.options | first
                               assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
 
                               if selling_plan_by_interval != null
@@ -395,9 +439,9 @@
                         assign compare_at_price = selected_variant.compare_at_price
                         assign variant_price = selected_variant.price
 
-                        if product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation
+                        if product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation
                           for allocation in selected_variant.selling_plan_allocations
-                            assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.selling_plan.options | first
+                            assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.selling_plan.options | first
                             assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
 
                             if selling_plan_by_interval != null
@@ -427,13 +471,13 @@
                   data-instant-action-type="select-variant-option"
                   data-instant-option-value="
                     {%- liquid
-                    	assign selected_options = product_Eb5gC5QhCEHg0vsG_variant.options
-                    	assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values | where : 'name', 'Cores Bundle' | first
+                    	assign selected_options = product_Eb5gC5QhCEHg0vsG-1_variant.options
+                    	assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values | where : 'name', 'Cores Bundle' | first
                     	if selected_option == null
-                    		assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values[1]
+                    		assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values[1]
                     	endif
 
-                    	for variant in product_Eb5gC5QhCEHg0vsG.variants
+                    	for variant in product_Eb5gC5QhCEHg0vsG-1.variants
                     		if selected_option.position == 1 and variant.option1 == selected_option.values[1] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
                     			assign selected_variant = variant
                     		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[1] and variant.option3 == selected_options[2]
@@ -445,7 +489,7 @@
                     -%}{{- selected_option.values[1] | escape -}}
                   "
                   data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                  data-instant-state="{%- if product_Eb5gC5QhCEHg0vsG_variant.options contains selected_option.values[1] -%}active{%- else -%}inactive{%- endif -%}"
+                  data-instant-state="{%- if product_Eb5gC5QhCEHg0vsG-1_variant.options contains selected_option.values[1] -%}active{%- else -%}inactive{%- endif -%}"
                   data-instant-disabled="
                     {%- liquid
                     	assign is_not_available = false
@@ -454,25 +498,39 @@
                     	endif
                     -%}{{- is_not_available -}}
                   "
-                  ><div data-instant-type="image" class="iT5C9pNGZJrhqYg0q"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                  ><div data-instant-type="image" class="iT5C9pNGZJrhqYg0q">
+                    {%- if section.settings['image_T5C9pNGZJrhqYg0q-1'] and section.settings['image_T5C9pNGZJrhqYg0q-1'] != blank -%}
+                      {{ section.settings['image_T5C9pNGZJrhqYg0q-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_T5C9pNGZJrhqYg0q-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=1280" width="1072" height="1072" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
+                    {%- endif -%}
+                    <!--  -->
+                    {%- if section.settings['image_T5C9pNGZJrhqYg0q-1_mobile'] and section.settings['image_T5C9pNGZJrhqYg0q-1_mobile'] != blank -%}
+                      {{ section.settings['image_T5C9pNGZJrhqYg0q-1_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_T5C9pNGZJrhqYg0q-1_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N3pd2Kel8Zh2f8jk/chatgpt-image-feb-27-2026-105804-am-1-1.webp?width=1280" width="1072" height="1072" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
+                    {%- endif -%}</div
                   ><div class="iOC82QoXGBvPLvV3j" data-instant-type="container"
                     ><div class="iIMkT142ED6exGYfS" data-instant-type="container"
-                      ><div data-instant-type="text" class="instant-rich-text iBe71a8vkcXFgz0f2"><p>30 Day Starter Pack</p></div></div
+                      ><div data-instant-type="text" class="instant-rich-text iBe71a8vkcXFgz0f2"
+                        ><div>{{ section.settings['text_Be71a8vkcXFgz0f2-1'] }}</div></div
+                      ></div
                     ><div class="ikYIItONeoXrCXX6F" data-instant-type="container"
                       ><div data-instant-type="text" class="instant-rich-text iCe7EeHShZKys29ZP"
-                        ><p>Lio Plus + 30 Days of Cores + <strong>Free gifts worth €35</strong></p></div
+                        ><div>{{ section.settings['text_Ce7EeHShZKys29ZP-1'] }}</div></div
                       ></div
                     ></div
                   ><div class="i292r6T03JqwHFQSj" data-instant-type="container"></div><div class="ifVF6fMiCcDVlG24J" data-instant-type="container"></div
                   ><div class="iOTdelqFV92tlmlIT" data-instant-type="container"
-                    ><div data-instant-type="text" class="instant-rich-text iiS4Rwp0SQYRI8S3O"><p>POPULAR</p></div
+                    ><div data-instant-type="text" class="instant-rich-text iiS4Rwp0SQYRI8S3O"
+                      ><div>{{ section.settings['text_iS4Rwp0SQYRI8S3O-1'] }}</div></div
                     ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="i3fDMruEPJOjiISrO">
                       {%- liquid
                         assign variant_price = selected_variant.price
 
-                        if product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation
+                        if product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation
                           for allocation in selected_variant.selling_plan_allocations
-                            assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.selling_plan.options | first
+                            assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.selling_plan.options | first
                             assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
 
                             if selling_plan_by_interval != null
@@ -490,9 +548,9 @@
                       assign compare_at_price = selected_variant.compare_at_price
                       assign variant_price = selected_variant.price
 
-                      if product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation
+                      if product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation
                         for allocation in selected_variant.selling_plan_allocations
-                          assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.selling_plan.options | first
+                          assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.selling_plan.options | first
                           assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
 
                           if selling_plan_by_interval != null
@@ -521,13 +579,13 @@
                   data-instant-action-type="select-variant-option"
                   data-instant-option-value="
                     {%- liquid
-                    	assign selected_options = product_Eb5gC5QhCEHg0vsG_variant.options
-                    	assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values | where : 'name', 'Cores Bundle' | first
+                    	assign selected_options = product_Eb5gC5QhCEHg0vsG-1_variant.options
+                    	assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values | where : 'name', 'Cores Bundle' | first
                     	if selected_option == null
-                    		assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values[1]
+                    		assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values[1]
                     	endif
 
-                    	for variant in product_Eb5gC5QhCEHg0vsG.variants
+                    	for variant in product_Eb5gC5QhCEHg0vsG-1.variants
                     		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
                     			assign selected_variant = variant
                     		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
@@ -539,7 +597,7 @@
                     -%}{{- selected_option.values[0] | escape -}}
                   "
                   data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                  data-instant-state="{%- if product_Eb5gC5QhCEHg0vsG_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
+                  data-instant-state="{%- if product_Eb5gC5QhCEHg0vsG-1_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
                   data-instant-disabled="
                     {%- liquid
                     	assign is_not_available = false
@@ -548,13 +606,26 @@
                     	endif
                     -%}{{- is_not_available -}}
                   "
-                  ><div data-instant-type="image" class="ihmCdL6FdwS2iBIu1"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div
+                  ><div data-instant-type="image" class="ihmCdL6FdwS2iBIu1">
+                    {%- if section.settings['image_hmCdL6FdwS2iBIu1-1'] and section.settings['image_hmCdL6FdwS2iBIu1-1'] != blank -%}
+                      {{ section.settings['image_hmCdL6FdwS2iBIu1-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_hmCdL6FdwS2iBIu1-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1280" width="1072" height="1072" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
+                    {%- endif -%}
+                    <!--  -->
+                    {%- if section.settings['image_hmCdL6FdwS2iBIu1-1_mobile'] and section.settings['image_hmCdL6FdwS2iBIu1-1_mobile'] != blank -%}
+                      {{ section.settings['image_hmCdL6FdwS2iBIu1-1_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_hmCdL6FdwS2iBIu1-1_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/SW8DVuZ5Gs8YO64o/chatgpt-image-feb-27-2026-105804-am-1-photoroom.webp?width=1280" width="1072" height="1072" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
+                    {%- endif -%}</div
                   ><div class="ioiusR7vo0YzzeRTd" data-instant-type="container"
                     ><div class="iWvTIO61EXBGihAOz" data-instant-type="container"
-                      ><div data-instant-type="text" class="instant-rich-text iS6FNcFIgE4uguoFp"><p>Walnut (Device Only)</p></div></div
+                      ><div data-instant-type="text" class="instant-rich-text iS6FNcFIgE4uguoFp"
+                        ><div>{{ section.settings['text_S6FNcFIgE4uguoFp-1'] }}</div></div
+                      ></div
                     ><div class="iZI76durGEL3cSqVg" data-instant-type="container"
                       ><div data-instant-type="text" class="instant-rich-text iPZVrqgjgrWcqv8Vx"
-                        ><p>Lio Plus (No Cores) + <strong>Free gifts worth €35</strong></p></div
+                        ><div>{{ section.settings['text_PZVrqgjgrWcqv8Vx-1'] }}</div></div
                       ></div
                     ></div
                   ><div class="imIc3i5tWvXpGdRIc" data-instant-type="container"></div><div class="iixHMNkDz6QY4H3Nk" data-instant-type="container"></div
@@ -563,9 +634,9 @@
                       {%- liquid
                         assign variant_price = selected_variant.price
 
-                        if product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation
+                        if product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation
                           for allocation in selected_variant.selling_plan_allocations
-                            assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.selling_plan.options | first
+                            assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.selling_plan.options | first
                             assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
 
                             if selling_plan_by_interval != null
@@ -583,9 +654,9 @@
                       assign compare_at_price = selected_variant.compare_at_price
                       assign variant_price = selected_variant.price
 
-                      if product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation
+                      if product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation
                         for allocation in selected_variant.selling_plan_allocations
-                          assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.selling_plan.options | first
+                          assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.selling_plan.options | first
                           assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
 
                           if selling_plan_by_interval != null
@@ -613,12 +684,12 @@
               {%- liquid
                 assign style = ''
 
-                assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values[0]
+                assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values[0]
                 assign selected_option_value = selected_option.values[0]
 
                 assign variant_has_option = false
 
-                if product_Eb5gC5QhCEHg0vsG_variant.options contains selected_option_value
+                if product_Eb5gC5QhCEHg0vsG-1_variant.options contains selected_option_value
                   assign variant_has_option = true
                 endif
 
@@ -633,13 +704,13 @@
                   data-instant-action-type="select-variant-option"
                   data-instant-option-value="
                     {%- liquid
-                    	assign selected_options = product_Eb5gC5QhCEHg0vsG_variant.options
-                    	assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values | where : 'name', 'Cores Bundle' | first
+                    	assign selected_options = product_Eb5gC5QhCEHg0vsG-1_variant.options
+                    	assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values | where : 'name', 'Cores Bundle' | first
                     	if selected_option == null
-                    		assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values[1]
+                    		assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values[1]
                     	endif
 
-                    	for variant in product_Eb5gC5QhCEHg0vsG.variants
+                    	for variant in product_Eb5gC5QhCEHg0vsG-1.variants
                     		if selected_option.position == 1 and variant.option1 == selected_option.values[2] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
                     			assign selected_variant = variant
                     		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[2] and variant.option3 == selected_options[2]
@@ -651,7 +722,7 @@
                     -%}{{- selected_option.values[2] | escape -}}
                   "
                   data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                  data-instant-state="{%- if product_Eb5gC5QhCEHg0vsG_variant.options contains selected_option.values[2] -%}active{%- else -%}inactive{%- endif -%}"
+                  data-instant-state="{%- if product_Eb5gC5QhCEHg0vsG-1_variant.options contains selected_option.values[2] -%}active{%- else -%}inactive{%- endif -%}"
                   data-instant-disabled="
                     {%- liquid
                     	assign is_not_available = false
@@ -660,13 +731,20 @@
                     	endif
                     -%}{{- is_not_available -}}
                   "
-                  ><div data-instant-type="image" class="imhNPXLo03XOdjmYK"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/dSx36tU75AFqOOwo/chatgpt-image-feb-27-2026-105804-am-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/dSx36tU75AFqOOwo/chatgpt-image-feb-27-2026-105804-am-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/dSx36tU75AFqOOwo/chatgpt-image-feb-27-2026-105804-am-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/dSx36tU75AFqOOwo/chatgpt-image-feb-27-2026-105804-am-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/dSx36tU75AFqOOwo/chatgpt-image-feb-27-2026-105804-am-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/dSx36tU75AFqOOwo/chatgpt-image-feb-27-2026-105804-am-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/dSx36tU75AFqOOwo/chatgpt-image-feb-27-2026-105804-am-2.webp?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main"></div
+                  ><div data-instant-type="image" class="imhNPXLo03XOdjmYK">
+                    {%- if section.settings['image_mhNPXLo03XOdjmYK-1'] and section.settings['image_mhNPXLo03XOdjmYK-1'] != blank -%}
+                      {{ section.settings['image_mhNPXLo03XOdjmYK-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_mhNPXLo03XOdjmYK-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/dSx36tU75AFqOOwo/chatgpt-image-feb-27-2026-105804-am-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/dSx36tU75AFqOOwo/chatgpt-image-feb-27-2026-105804-am-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/dSx36tU75AFqOOwo/chatgpt-image-feb-27-2026-105804-am-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/dSx36tU75AFqOOwo/chatgpt-image-feb-27-2026-105804-am-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/dSx36tU75AFqOOwo/chatgpt-image-feb-27-2026-105804-am-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/dSx36tU75AFqOOwo/chatgpt-image-feb-27-2026-105804-am-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/dSx36tU75AFqOOwo/chatgpt-image-feb-27-2026-105804-am-2.webp?width=1280" width="1072" height="1072" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
+                    {%- endif -%}</div
                   ><div class="iOYqnHdnvmmx7nRQo" data-instant-type="container"
                     ><div class="idjiwwMA6HOVgxH4b" data-instant-type="container"
-                      ><div data-instant-type="text" class="instant-rich-text iZWCBtF9mwZafmvOS"><p>90 Day Starter Pack</p></div></div
+                      ><div data-instant-type="text" class="instant-rich-text iZWCBtF9mwZafmvOS"
+                        ><div>{{ section.settings['text_ZWCBtF9mwZafmvOS-1'] }}</div></div
+                      ></div
                     ><div class="i9JsYYapYewUiTvnk" data-instant-type="container"
                       ><div data-instant-type="text" class="instant-rich-text iiyT1plDDvKh3Frx0"
-                        ><p>Lio Plus + 90 Days of Cores +<strong> Free gifts worth €35</strong></p></div
+                        ><div>{{ section.settings['text_iyT1plDDvKh3Frx0-1'] }}</div></div
                       ></div
                     ></div
                   ><div class="iGc3dFPhTbdbjjskN" data-instant-type="container"></div><div class="iyIWBvJB1vclNqZZ9" data-instant-type="container"></div
@@ -675,9 +753,9 @@
                       {%- liquid
                         assign variant_price = selected_variant.price
 
-                        if product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation
+                        if product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation
                           for allocation in selected_variant.selling_plan_allocations
-                            assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.selling_plan.options | first
+                            assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.selling_plan.options | first
                             assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
 
                             if selling_plan_by_interval != null
@@ -695,9 +773,9 @@
                       assign compare_at_price = selected_variant.compare_at_price
                       assign variant_price = selected_variant.price
 
-                      if product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation
+                      if product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation
                         for allocation in selected_variant.selling_plan_allocations
-                          assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.selling_plan.options | first
+                          assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.selling_plan.options | first
                           assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
 
                           if selling_plan_by_interval != null
@@ -726,13 +804,13 @@
                   data-instant-action-type="select-variant-option"
                   data-instant-option-value="
                     {%- liquid
-                    	assign selected_options = product_Eb5gC5QhCEHg0vsG_variant.options
-                    	assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values | where : 'name', 'Cores Bundle' | first
+                    	assign selected_options = product_Eb5gC5QhCEHg0vsG-1_variant.options
+                    	assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values | where : 'name', 'Cores Bundle' | first
                     	if selected_option == null
-                    		assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values[1]
+                    		assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values[1]
                     	endif
 
-                    	for variant in product_Eb5gC5QhCEHg0vsG.variants
+                    	for variant in product_Eb5gC5QhCEHg0vsG-1.variants
                     		if selected_option.position == 1 and variant.option1 == selected_option.values[1] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
                     			assign selected_variant = variant
                     		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[1] and variant.option3 == selected_options[2]
@@ -744,7 +822,7 @@
                     -%}{{- selected_option.values[1] | escape -}}
                   "
                   data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                  data-instant-state="{%- if product_Eb5gC5QhCEHg0vsG_variant.options contains selected_option.values[1] -%}active{%- else -%}inactive{%- endif -%}"
+                  data-instant-state="{%- if product_Eb5gC5QhCEHg0vsG-1_variant.options contains selected_option.values[1] -%}active{%- else -%}inactive{%- endif -%}"
                   data-instant-disabled="
                     {%- liquid
                     	assign is_not_available = false
@@ -753,25 +831,33 @@
                     	endif
                     -%}{{- is_not_available -}}
                   "
-                  ><div data-instant-type="image" class="iTYvknp5NYY6y4UZM"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MqUYhR9rXB85y3bN/chatgpt-image-feb-27-2026-105804-am-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MqUYhR9rXB85y3bN/chatgpt-image-feb-27-2026-105804-am-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MqUYhR9rXB85y3bN/chatgpt-image-feb-27-2026-105804-am-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MqUYhR9rXB85y3bN/chatgpt-image-feb-27-2026-105804-am-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MqUYhR9rXB85y3bN/chatgpt-image-feb-27-2026-105804-am-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MqUYhR9rXB85y3bN/chatgpt-image-feb-27-2026-105804-am-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MqUYhR9rXB85y3bN/chatgpt-image-feb-27-2026-105804-am-1.webp?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main"></div
+                  ><div data-instant-type="image" class="iTYvknp5NYY6y4UZM">
+                    {%- if section.settings['image_TYvknp5NYY6y4UZM-1'] and section.settings['image_TYvknp5NYY6y4UZM-1'] != blank -%}
+                      {{ section.settings['image_TYvknp5NYY6y4UZM-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_TYvknp5NYY6y4UZM-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MqUYhR9rXB85y3bN/chatgpt-image-feb-27-2026-105804-am-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MqUYhR9rXB85y3bN/chatgpt-image-feb-27-2026-105804-am-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MqUYhR9rXB85y3bN/chatgpt-image-feb-27-2026-105804-am-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MqUYhR9rXB85y3bN/chatgpt-image-feb-27-2026-105804-am-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MqUYhR9rXB85y3bN/chatgpt-image-feb-27-2026-105804-am-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MqUYhR9rXB85y3bN/chatgpt-image-feb-27-2026-105804-am-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MqUYhR9rXB85y3bN/chatgpt-image-feb-27-2026-105804-am-1.webp?width=1280" width="1072" height="1072" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
+                    {%- endif -%}</div
                   ><div class="ibppVgUzPd4QEVQPU" data-instant-type="container"
                     ><div class="iKCcL4QLabham1atR" data-instant-type="container"
-                      ><div data-instant-type="text" class="instant-rich-text i7RH9pssCopX25zub"><p>30 Day Starter Pack</p></div></div
+                      ><div data-instant-type="text" class="instant-rich-text i7RH9pssCopX25zub"
+                        ><div>{{ section.settings['text_7RH9pssCopX25zub-1'] }}</div></div
+                      ></div
                     ><div class="i9Vs11GdwQ1UftJVs" data-instant-type="container"
                       ><div data-instant-type="text" class="instant-rich-text iPZheIuu0uu9xjB3r"
-                        ><p>Lio Plus + 30 Days of Cores + <strong>Free gifts worth €35</strong></p></div
+                        ><div>{{ section.settings['text_PZheIuu0uu9xjB3r-1'] }}</div></div
                       ></div
                     ></div
                   ><div class="iB73zNt9MWuCN3Rq8" data-instant-type="container"></div><div class="iy55UvfEEKNyHGSr3" data-instant-type="container"></div
                   ><div class="i1pmOS1uMY98F8CbA" data-instant-type="container"
-                    ><div data-instant-type="text" class="instant-rich-text izisRDcCrMgyvE98K"><p>POPULAR</p></div
+                    ><div data-instant-type="text" class="instant-rich-text izisRDcCrMgyvE98K"
+                      ><div>{{ section.settings['text_zisRDcCrMgyvE98K-1'] }}</div></div
                     ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iBUbZmkO5MYXIZLOI">
                       {%- liquid
                         assign variant_price = selected_variant.price
 
-                        if product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation
+                        if product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation
                           for allocation in selected_variant.selling_plan_allocations
-                            assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.selling_plan.options | first
+                            assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.selling_plan.options | first
                             assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
 
                             if selling_plan_by_interval != null
@@ -789,9 +875,9 @@
                       assign compare_at_price = selected_variant.compare_at_price
                       assign variant_price = selected_variant.price
 
-                      if product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation
+                      if product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation
                         for allocation in selected_variant.selling_plan_allocations
-                          assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.selling_plan.options | first
+                          assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.selling_plan.options | first
                           assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
 
                           if selling_plan_by_interval != null
@@ -820,13 +906,13 @@
                   data-instant-action-type="select-variant-option"
                   data-instant-option-value="
                     {%- liquid
-                    	assign selected_options = product_Eb5gC5QhCEHg0vsG_variant.options
-                    	assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values | where : 'name', 'Cores Bundle' | first
+                    	assign selected_options = product_Eb5gC5QhCEHg0vsG-1_variant.options
+                    	assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values | where : 'name', 'Cores Bundle' | first
                     	if selected_option == null
-                    		assign selected_option = product_Eb5gC5QhCEHg0vsG.options_with_values[1]
+                    		assign selected_option = product_Eb5gC5QhCEHg0vsG-1.options_with_values[1]
                     	endif
 
-                    	for variant in product_Eb5gC5QhCEHg0vsG.variants
+                    	for variant in product_Eb5gC5QhCEHg0vsG-1.variants
                     		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
                     			assign selected_variant = variant
                     		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
@@ -838,7 +924,7 @@
                     -%}{{- selected_option.values[0] | escape -}}
                   "
                   data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                  data-instant-state="{%- if product_Eb5gC5QhCEHg0vsG_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
+                  data-instant-state="{%- if product_Eb5gC5QhCEHg0vsG-1_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
                   data-instant-disabled="
                     {%- liquid
                     	assign is_not_available = false
@@ -847,13 +933,20 @@
                     	endif
                     -%}{{- is_not_available -}}
                   "
-                  ><div data-instant-type="image" class="ipL07Wm1btVew1Fo4"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main"></div
+                  ><div data-instant-type="image" class="ipL07Wm1btVew1Fo4">
+                    {%- if section.settings['image_pL07Wm1btVew1Fo4-1'] and section.settings['image_pL07Wm1btVew1Fo4-1'] != blank -%}
+                      {{ section.settings['image_pL07Wm1btVew1Fo4-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main', alt: section.settings['image_pL07Wm1btVew1Fo4-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+                    {%- else -%}
+                      <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/RxJfuQvseflMkIfu/chatgpt-image-feb-27-2026-105804-am-1-photoroom.png?width=1280" width="1072" height="1072" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main">
+                    {%- endif -%}</div
                   ><div class="inL7FjCMq7jokK6G2" data-instant-type="container"
                     ><div class="i3d1tbkd0IyYrXocD" data-instant-type="container"
-                      ><div data-instant-type="text" class="instant-rich-text ikJn7onC6jnVAxd4j"><p>Olive (Device Only)</p></div></div
+                      ><div data-instant-type="text" class="instant-rich-text ikJn7onC6jnVAxd4j"
+                        ><div>{{ section.settings['text_kJn7onC6jnVAxd4j-1'] }}</div></div
+                      ></div
                     ><div class="ilLdOWIaUe9y16DIR" data-instant-type="container"
                       ><div data-instant-type="text" class="instant-rich-text iToeVoEs1M6O3giVx"
-                        ><p>Lio Plus (No Cores) + <strong>Free gifts worth €35</strong></p></div
+                        ><div>{{ section.settings['text_ToeVoEs1M6O3giVx-1'] }}</div></div
                       ></div
                     ></div
                   ><div class="idKrpfvS0OdAaVaAw" data-instant-type="container"></div><div class="iTnL20frsswmMezyJ" data-instant-type="container"></div
@@ -862,9 +955,9 @@
                       {%- liquid
                         assign variant_price = selected_variant.price
 
-                        if product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation
+                        if product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation
                           for allocation in selected_variant.selling_plan_allocations
-                            assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.selling_plan.options | first
+                            assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.selling_plan.options | first
                             assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
 
                             if selling_plan_by_interval != null
@@ -882,9 +975,9 @@
                       assign compare_at_price = selected_variant.compare_at_price
                       assign variant_price = selected_variant.price
 
-                      if product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation
+                      if product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation
                         for allocation in selected_variant.selling_plan_allocations
-                          assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG_variant.selected_selling_plan_allocation.selling_plan.options | first
+                          assign selected_selling_plan_option = product_Eb5gC5QhCEHg0vsG-1_variant.selected_selling_plan_allocation.selling_plan.options | first
                           assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
 
                           if selling_plan_by_interval != null
@@ -913,108 +1006,139 @@
               ><a
                 class="isXWWoKZCrrjQQzma"
                 data-instant-type="container"
-                href="{{ routes.cart_url }}/{{ product_Eb5gC5QhCEHg0vsG_variant.id }}:1?storefront=true"
+                href="{{ routes.cart_url }}/{{ product_Eb5gC5QhCEHg0vsG-1_variant.id }}:1?storefront=true"
                 rel="noopener noreferrer"
                 data-instant-action-type="add-to-cart"
-                data-instant-action-id="{{ product_Eb5gC5QhCEHg0vsG.id }}"
-                data-instant-action-variant-id="{{ product_Eb5gC5QhCEHg0vsG_variant.id }}"
+                data-instant-action-id="{{ product_Eb5gC5QhCEHg0vsG-1.id }}"
+                data-instant-action-variant-id="{{ product_Eb5gC5QhCEHg0vsG-1_variant.id }}"
                 data-instant-disabled="
-                  {%- if product_Eb5gC5QhCEHg0vsG_variant.available == false -%}
+                  {%- if product_Eb5gC5QhCEHg0vsG-1_variant.available == false -%}
                   	true
                   {%-	endif -%}
                 "
-                ><div data-instant-type="text" class="instant-rich-text i8UaUOmjFJkNxUMAc"><p>Add To Cart</p></div></a
+                ><div data-instant-type="text" class="instant-rich-text i8UaUOmjFJkNxUMAc"
+                  ><div>{{ section.settings['text_8UaUOmjFJkNxUMAc-1'] }}</div></div
+                ></a
               ></div
             ></div
           ><div class="iBsVgvHLjf53qHSc5" data-instant-type="container"></div
           ><div class="ixwQtJDg5PuSGsbkn" data-instant-type="container"
             ><div class="iXfZxVZ6JtBj6n1Vu" data-instant-type="container"
               ><div data-instant-type="text" class="instant-rich-text iiWhaMud1s3t5NxJX"
-                ><p>Every order comes with </p><p><strong>€35 worth of gifts</strong></p></div
+                ><div>{{ section.settings['text_iWhaMud1s3t5NxJX-1'] }}</div></div
               ></div
-            ><div data-instant-type="image" class="imuaY17nirbd40uni"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/QJVfwjvOnTY2dBLU/7-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/QJVfwjvOnTY2dBLU/7-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/QJVfwjvOnTY2dBLU/7-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/QJVfwjvOnTY2dBLU/7-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/QJVfwjvOnTY2dBLU/7-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/QJVfwjvOnTY2dBLU/7-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/QJVfwjvOnTY2dBLU/7-4.webp?width=1280" width="893" height="968" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet"><img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/E8GNpmnqryOfXG7q/7.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/E8GNpmnqryOfXG7q/7.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/E8GNpmnqryOfXG7q/7.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/E8GNpmnqryOfXG7q/7.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/E8GNpmnqryOfXG7q/7.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/E8GNpmnqryOfXG7q/7.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/E8GNpmnqryOfXG7q/7.webp?width=1280" width="1100" height="968" decoding="async" loading="eager" fetchpriority="high" class="instant-image instant-image__main instant-responsive instant-responsive--mobile"></div></div
+            ><div data-instant-type="image" class="imuaY17nirbd40uni">
+              {%- if section.settings['image_muaY17nirbd40uni-1'] and section.settings['image_muaY17nirbd40uni-1'] != blank -%}
+                {{ section.settings['image_muaY17nirbd40uni-1'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_muaY17nirbd40uni-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+              {%- else -%}
+                <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/QJVfwjvOnTY2dBLU/7-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/QJVfwjvOnTY2dBLU/7-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/QJVfwjvOnTY2dBLU/7-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/QJVfwjvOnTY2dBLU/7-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/QJVfwjvOnTY2dBLU/7-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/QJVfwjvOnTY2dBLU/7-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/QJVfwjvOnTY2dBLU/7-4.webp?width=1280" width="893" height="968" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
+              {%- endif -%}
+              <!--  -->
+              {%- if section.settings['image_muaY17nirbd40uni-1_mobile'] and section.settings['image_muaY17nirbd40uni-1_mobile'] != blank -%}
+                {{ section.settings['image_muaY17nirbd40uni-1_mobile'] | image_url: width: 1280 | image_tag: class: 'instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings['image_muaY17nirbd40uni-1_mobile'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+              {%- else -%}
+                <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/E8GNpmnqryOfXG7q/7.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/E8GNpmnqryOfXG7q/7.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/E8GNpmnqryOfXG7q/7.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/E8GNpmnqryOfXG7q/7.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/E8GNpmnqryOfXG7q/7.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/E8GNpmnqryOfXG7q/7.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/E8GNpmnqryOfXG7q/7.webp?width=1280" width="1100" height="968" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-image instant-image__main instant-responsive instant-responsive--mobile">
+              {%- endif -%}</div></div
           ><div class="ig2rdUo7G9RFNA5LH" data-instant-type="container"
             ><div class="iJ63Lm61XEuO5nS1c" data-instant-type="container"
               ><div data-instant-type="icon" class="iSkhn12vnudrFo9I4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                   <title>money</title><path d="M240,52H16A12,12,0,0,0,4,64V192a12,12,0,0,0,12,12H240a12,12,0,0,0,12-12V64A12,12,0,0,0,240,52ZM181.21,180H74.79A60.18,60.18,0,0,0,28,133.21V122.79A60.18,60.18,0,0,0,74.79,76H181.21A60.18,60.18,0,0,0,228,122.79v10.42A60.18,60.18,0,0,0,181.21,180ZM228,97.94A36.23,36.23,0,0,1,206.06,76H228ZM49.94,76A36.23,36.23,0,0,1,28,97.94V76ZM28,158.06A36.23,36.23,0,0,1,49.94,180H28ZM206.06,180A36.23,36.23,0,0,1,228,158.06V180ZM128,88a40,40,0,1,0,40,40A40,40,0,0,0,128,88Zm0,56a16,16,0,1,1,16-16A16,16,0,0,1,128,144Z"></path>
                 </svg></div
-              ><div data-instant-type="text" class="instant-rich-text ikcXzm4KfC2j6XLSO"><p>30-Day</p><p>Money Back Guarantee</p></div></div
+              ><div data-instant-type="text" class="instant-rich-text ikcXzm4KfC2j6XLSO"
+                ><div>{{ section.settings['text_kcXzm4KfC2j6XLSO-1'] }}</div></div
+              ></div
             ><div class="ipLOoxIE4jSQFarOe" data-instant-type="container"
               ><div data-instant-type="icon" class="if7MFqeVJKGcq9xMo">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                   <title>package</title><path d="M225.6,62.64l-88-48.17a19.91,19.91,0,0,0-19.2,0l-88,48.17A20,20,0,0,0,20,80.19v95.62a20,20,0,0,0,10.4,17.55l88,48.17a19.89,19.89,0,0,0,19.2,0l88-48.17A20,20,0,0,0,236,175.81V80.19A20,20,0,0,0,225.6,62.64ZM128,36.57,200,76,178.57,87.73l-72-39.42Zm0,78.83L56,76,81.56,62l72,39.41ZM44,96.79l72,39.4v76.67L44,173.44Zm96,116.07V136.19l24-13.13V152a12,12,0,0,0,24,0V109.92l24-13.13v76.65Z"></path>
                 </svg></div
-              ><div data-instant-type="text" class="instant-rich-text iMSbE668G4F8VIiuP"><p>Free Europe Shipping</p></div></div
+              ><div data-instant-type="text" class="instant-rich-text iMSbE668G4F8VIiuP"
+                ><div>{{ section.settings['text_MSbE668G4F8VIiuP-1'] }}</div></div
+              ></div
             ><div class="iXByeDJJb2G4k11dm" data-instant-type="container"
               ><div data-instant-type="icon" class="io20uc0JrCCYmNcGb">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                   <title>smiley</title><path d="M178.39,158c-11,19.06-29.39,30-50.39,30s-39.36-10.93-50.39-30a12,12,0,0,1,20.78-12c3.89,6.73,12.91,18,29.61,18s25.72-11.28,29.61-18a12,12,0,1,1,20.78,12ZM236,128A108,108,0,1,1,128,20,108.12,108.12,0,0,1,236,128Zm-24,0a84,84,0,1,0-84,84A84.09,84.09,0,0,0,212,128ZM92,124a16,16,0,1,0-16-16A16,16,0,0,0,92,124Zm72-32a16,16,0,1,0,16,16A16,16,0,0,0,164,92Z"></path>
                 </svg></div
-              ><div data-instant-type="text" class="instant-rich-text ihrbK5JYxXuBRrLjv"><p>Trusted by 100.000+ people</p></div></div
+              ><div data-instant-type="text" class="instant-rich-text ihrbK5JYxXuBRrLjv"
+                ><div>{{ section.settings['text_hrbK5JYxXuBRrLjv-1'] }}</div></div
+              ></div
             ></div
           ><div class="iQaCTOyVkHgNR45M0" data-instant-type="accordion-container" data-is-first-open="false" data-is-multi-open-enabled="false"
             ><div data-state="closed" class="iPVoO9rEFJTXWgfU0" data-instant-type="accordion-item"
               ><button class="iS8E6r6pAfNIu7I4e" data-instant-type="accordion-header" type="button"
-                ><div data-instant-type="text" class="instant-rich-text ivYWbrxRHFhoUNFFJ"><p>What’s new about Lio Plus?</p></div
+                ><div data-instant-type="text" class="instant-rich-text ivYWbrxRHFhoUNFFJ"
+                  ><div>{{ section.settings['text_vYWbrxRHFhoUNFFJ-1'] }}</div></div
                 ><div data-instant-type="icon" class="i6v5Skeq1eaGGKCF1">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>caret-down</title><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
                   </svg></div></button
               ><div class="iu4N5Enlm0KzHhqmJ" data-instant-type="accordion-content" style="--instant-accordion-content-height:auto;--instant-accordion-content-width:auto"
                 ><div data-instant-type="text" class="instant-rich-text izJ6VqRLfIZZvDXBD"
-                  ><p>Lio Plus upgrades the original Lio with a <strong>stainless steel interior</strong>, adjustable airflow, and silicone flow dots for a smoother, more consistent experience.</p></div
+                  ><div>{{ section.settings['text_zJ6VqRLfIZZvDXBD-1'] }}</div></div
                 ></div
               ></div
             ><div data-state="closed" class="iZomeeX2UcH39MCag" data-instant-type="accordion-item"
               ><button class="iouFa8UdjskZLpIv0" data-instant-type="accordion-header" type="button"
-                ><div data-instant-type="text" class="instant-rich-text iMWAngESSk7YC8sSx"><p>What is the stainless steel barrel for?</p></div
+                ><div data-instant-type="text" class="instant-rich-text iMWAngESSk7YC8sSx"
+                  ><div>{{ section.settings['text_MWAngESSk7YC8sSx-1'] }}</div></div
                 ><div data-instant-type="icon" class="i1OPalxJ3Ho6SbdiQ">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>caret-down</title><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
                   </svg></div></button
               ><div class="iUbIj0kNJRhHKsNfg" data-instant-type="accordion-content" style="--instant-accordion-content-height:auto;--instant-accordion-content-width:auto"
-                ><div data-instant-type="text" class="instant-rich-text iRO3rle3gbwAFeeAr"><p>The stainless steel interior prevents the wood from absorbing flavor. This keeps every core tasting fresh, improves durability, and makes cleaning easier.</p></div></div
+                ><div data-instant-type="text" class="instant-rich-text iRO3rle3gbwAFeeAr"
+                  ><div>{{ section.settings['text_RO3rle3gbwAFeeAr-1'] }}</div></div
+                ></div
               ></div
             ><div data-state="closed" class="iWxAPC7pLSDWPETQK" data-instant-type="accordion-item"
               ><button class="i8SK8Qa02pYQjNHK9" data-instant-type="accordion-header" type="button"
-                ><div data-instant-type="text" class="instant-rich-text imczGyyRWZx6eBpaz"><p>Do I still need to fray the cores?</p></div
+                ><div data-instant-type="text" class="instant-rich-text imczGyyRWZx6eBpaz"
+                  ><div>{{ section.settings['text_mczGyyRWZx6eBpaz-1'] }}</div></div
                 ><div data-instant-type="icon" class="iVryZHdBjJWM0PJeu">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>caret-down</title><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
                   </svg></div></button
               ><button class="iecGYYbWcxCCDDl1f" data-instant-type="accordion-header" type="button"
-                ><div data-instant-type="text" class="instant-rich-text iluo3Zg7CEoVP0rZ4"><p>Can I adjust the airflow?</p></div
+                ><div data-instant-type="text" class="instant-rich-text iluo3Zg7CEoVP0rZ4"
+                  ><div>{{ section.settings['text_luo3Zg7CEoVP0rZ4-1'] }}</div></div
                 ><div data-instant-type="icon" class="iqZloG0qRPc3WN2ql">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>caret-down</title><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
                   </svg></div></button
               ><button class="ir6HWYob8mU2cZq8Y" data-instant-type="accordion-header" type="button"
-                ><div data-instant-type="text" class="instant-rich-text iCgr9EgP0smk9PanJ"><p>Why does the flavor feel more consistent?</p></div
+                ><div data-instant-type="text" class="instant-rich-text iCgr9EgP0smk9PanJ"
+                  ><div>{{ section.settings['text_Cgr9EgP0smk9PanJ-1'] }}</div></div
                 ><div data-instant-type="icon" class="idhjECUTaugAfq2BS">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>caret-down</title><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
                   </svg></div></button
               ><button class="ivkI837BiuaUc4s3y" data-instant-type="accordion-header" type="button"
-                ><div data-instant-type="text" class="instant-rich-text ifTeZMkjF1rXlVhSq"><p>What flow dots are included?</p></div
+                ><div data-instant-type="text" class="instant-rich-text ifTeZMkjF1rXlVhSq"
+                  ><div>{{ section.settings['text_fTeZMkjF1rXlVhSq-1'] }}</div></div
                 ><div data-instant-type="icon" class="iReMtsRyGVh2iy054">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>caret-down</title><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
                   </svg></div></button
               ><button class="ilQNa6x6jn7G834ap" data-instant-type="accordion-header" type="button"
-                ><div data-instant-type="text" class="instant-rich-text iCzywZSIkrO6wqljX"><p>Is Lio Plus more durable?</p></div
+                ><div data-instant-type="text" class="instant-rich-text iCzywZSIkrO6wqljX"
+                  ><div>{{ section.settings['text_CzywZSIkrO6wqljX-1'] }}</div></div
                 ><div data-instant-type="icon" class="iZZueLNH42IGZBMBg">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>caret-down</title><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
                   </svg></div></button
               ><button class="iHdfyg4jdL37nxkrp" data-instant-type="accordion-header" type="button"
-                ><div data-instant-type="text" class="instant-rich-text is4FzB8IkKpZdALxL"><p>Is Lio Plus still made from natural materials?</p></div
+                ><div data-instant-type="text" class="instant-rich-text is4FzB8IkKpZdALxL"
+                  ><div>{{ section.settings['text_s4FzB8IkKpZdALxL-1'] }}</div></div
                 ><div data-instant-type="icon" class="i3NvUY4njAoni1cOP">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                     <title>caret-down</title><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
                   </svg></div></button
               ><div class="iuHWZktmxTcUF9LOh" data-instant-type="accordion-content" style="--instant-accordion-content-height:auto;--instant-accordion-content-width:auto"
-                ><div data-instant-type="text" class="instant-rich-text i5ZPKYj0rmaQEXEsT"><p>Yes. Lio Plus keeps the natural wooden exterior while adding a stainless steel core for performance and longevity.</p></div></div
+                ><div data-instant-type="text" class="instant-rich-text i5ZPKYj0rmaQEXEsT"
+                  ><div>{{ section.settings['text_5ZPKYj0rmaQEXEsT-1'] }}</div></div
+                ></div
               ></div
             ></div
           ></div
@@ -1022,14 +1146,14 @@
       >
       <!--  -->
       <script type="application/json" id="variants__Eb5gC5QhCEHg0vsG--{{ section.id }}">
-        {{ product_Eb5gC5QhCEHg0vsG.variants | json }}
+        {{ product_Eb5gC5QhCEHg0vsG-1.variants | json }}
       </script>
       <script type="application/json" id="options__Eb5gC5QhCEHg0vsG--{{ section.id }}">
-        {{ product_Eb5gC5QhCEHg0vsG.options_with_values | json }}
+        {{ product_Eb5gC5QhCEHg0vsG-1.options_with_values | json }}
       </script>
 
       {%- assign selling_plans_json = '' -%}
-      {%- for variant in product_Eb5gC5QhCEHg0vsG.variants -%}
+      {%- for variant in product_Eb5gC5QhCEHg0vsG-1.variants -%}
         {%- for allocation in variant.selling_plan_allocations -%}
           {%- capture allocation_json -%}
 								{"variantId":"{{ variant.id }}","sellingPlanId":"{{ allocation.selling_plan.id }}","sellingPlanName":"{{ allocation.selling_plan.name | escape }}","price":"{{ allocation.price | money | escape }}","compareAtPrice":"{{ allocation.compare_at_price | money | escape }}"}
@@ -1051,6 +1175,358 @@
 </div>
 {% schema %}
 {
-  "name": "lio-plus-packs"
+  "name": "lio-plus-packs",
+  "tag": "section",
+  "enabled_on": {
+    "templates": [
+      "*"
+    ]
+  },
+  "settings": [
+    {
+      "type": "product",
+      "id": "product_Eb5gC5QhCEHg0vsG-1",
+      "label": "Buy box"
+    },
+    {
+      "type": "richtext",
+      "id": "text_i00Z1R53ds7Oy65a-1",
+      "label": "Rating",
+      "default": "<p>(4.8 stars) • 1000+ reviews</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_TX9YITxSO4wuHIgV-1",
+      "label": "Text",
+      "default": "<p>✔ No more core fraying</p><p>✔ Adjustable airflow control</p><p>✔ Stainless steel interior</p><p>✔ Consistent flavor, every time</p><p>✔ <strong>€35 worth of gifts</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_2FaAhSYmnzv3QjEN-1",
+      "label": "Text",
+      "default": "<p>Select your COLOUR:</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_PFOETCXJolQlVq23-1",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text_2kwFoixp1MBMMTpm-1",
+      "label": "Text",
+      "default": "<p><strong>Lio Plus</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_FOpelL43My18bahT-1",
+      "label": "Text",
+      "default": "<p><strong>OLIVE</strong></p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2gzkxL8QWAomGLKL-1",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text_lkD18ZVl9FAHqmxf-1",
+      "label": "Text",
+      "default": "<p><strong>Lio Plus</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_oGCeYnN6yyptEffX-1",
+      "label": "Text",
+      "default": "<p><strong>WALNUT</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_063Gpp4bwgru9PzN-1",
+      "label": "Text",
+      "default": "<p>Select your BUNDLE:</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_yjcBdIqLtLm2obTn-1",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_yjcBdIqLtLm2obTn-1_mobile",
+      "label": "Image mobile"
+    },
+    {
+      "type": "richtext",
+      "id": "text_CZxtt6XS21Fx2ngn-1",
+      "label": "Text",
+      "default": "<p>90 Day Starter Pack</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_fNUCO07ZbeVmfW4X-1",
+      "label": "Text",
+      "default": "<p>Lio Plus + 90 Days of Cores + <strong>Free gifts worth €35</strong></p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_T5C9pNGZJrhqYg0q-1",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_T5C9pNGZJrhqYg0q-1_mobile",
+      "label": "Image mobile"
+    },
+    {
+      "type": "richtext",
+      "id": "text_Be71a8vkcXFgz0f2-1",
+      "label": "Text",
+      "default": "<p>30 Day Starter Pack</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_Ce7EeHShZKys29ZP-1",
+      "label": "Text",
+      "default": "<p>Lio Plus + 30 Days of Cores + <strong>Free gifts worth €35</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_iS4Rwp0SQYRI8S3O-1",
+      "label": "Text",
+      "default": "<p>POPULAR</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_hmCdL6FdwS2iBIu1-1",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_hmCdL6FdwS2iBIu1-1_mobile",
+      "label": "Image mobile"
+    },
+    {
+      "type": "richtext",
+      "id": "text_S6FNcFIgE4uguoFp-1",
+      "label": "Text",
+      "default": "<p>Walnut (Device Only)</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_PZVrqgjgrWcqv8Vx-1",
+      "label": "Text",
+      "default": "<p>Lio Plus (No Cores) + <strong>Free gifts worth €35</strong></p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mhNPXLo03XOdjmYK-1",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text_ZWCBtF9mwZafmvOS-1",
+      "label": "Text",
+      "default": "<p>90 Day Starter Pack</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_iyT1plDDvKh3Frx0-1",
+      "label": "Text",
+      "default": "<p>Lio Plus + 90 Days of Cores +<strong> Free gifts worth €35</strong></p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_TYvknp5NYY6y4UZM-1",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text_7RH9pssCopX25zub-1",
+      "label": "Text",
+      "default": "<p>30 Day Starter Pack</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_PZheIuu0uu9xjB3r-1",
+      "label": "Text",
+      "default": "<p>Lio Plus + 30 Days of Cores + <strong>Free gifts worth €35</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_zisRDcCrMgyvE98K-1",
+      "label": "Text",
+      "default": "<p>POPULAR</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_pL07Wm1btVew1Fo4-1",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text_kJn7onC6jnVAxd4j-1",
+      "label": "Text",
+      "default": "<p>Olive (Device Only)</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_ToeVoEs1M6O3giVx-1",
+      "label": "Text",
+      "default": "<p>Lio Plus (No Cores) + <strong>Free gifts worth €35</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_8UaUOmjFJkNxUMAc-1",
+      "label": "Text",
+      "default": "<p>Add To Cart</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_iWhaMud1s3t5NxJX-1",
+      "label": "Text",
+      "default": "<p>Every order comes with </p><p><strong>€35 worth of gifts</strong></p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_muaY17nirbd40uni-1",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_muaY17nirbd40uni-1_mobile",
+      "label": "Image mobile"
+    },
+    {
+      "type": "richtext",
+      "id": "text_kcXzm4KfC2j6XLSO-1",
+      "label": "Text",
+      "default": "<p>30-Day</p><p>Money Back Guarantee</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_MSbE668G4F8VIiuP-1",
+      "label": "Text",
+      "default": "<p>Free Europe Shipping</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_hrbK5JYxXuBRrLjv-1",
+      "label": "Text",
+      "default": "<p>Trusted by 100.000+ people</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_vYWbrxRHFhoUNFFJ-1",
+      "label": "Text",
+      "default": "<p>What’s new about Lio Plus?</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_zJ6VqRLfIZZvDXBD-1",
+      "label": "Text",
+      "default": "<p>Lio Plus upgrades the original Lio with a <strong>stainless steel interior</strong>, adjustable airflow, and silicone flow dots for a smoother, more consistent experience.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_MWAngESSk7YC8sSx-1",
+      "label": "Text",
+      "default": "<p>What is the stainless steel barrel for?</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_RO3rle3gbwAFeeAr-1",
+      "label": "Text",
+      "default": "<p>The stainless steel interior prevents the wood from absorbing flavor. This keeps every core tasting fresh, improves durability, and makes cleaning easier.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_mczGyyRWZx6eBpaz-1",
+      "label": "Text",
+      "default": "<p>Do I still need to fray the cores?</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_luo3Zg7CEoVP0rZ4-1",
+      "label": "Text",
+      "default": "<p>Can I adjust the airflow?</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_Cgr9EgP0smk9PanJ-1",
+      "label": "Text",
+      "default": "<p>Why does the flavor feel more consistent?</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_fTeZMkjF1rXlVhSq-1",
+      "label": "Text",
+      "default": "<p>What flow dots are included?</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_CzywZSIkrO6wqljX-1",
+      "label": "Text",
+      "default": "<p>Is Lio Plus more durable?</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_s4FzB8IkKpZdALxL-1",
+      "label": "Text",
+      "default": "<p>Is Lio Plus still made from natural materials?</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_5ZPKYj0rmaQEXEsT-1",
+      "label": "Text",
+      "default": "<p>Yes. Lio Plus keeps the natural wooden exterior while adding a stainless steel core for performance and longevity.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "lio-plus-packs",
+      "settings": {
+        "product_Eb5gC5QhCEHg0vsG-1": "lio-plus-packs",
+        "text_i00Z1R53ds7Oy65a-1": "<p>(4.8 stars) • 1000+ reviews</p>",
+        "text_TX9YITxSO4wuHIgV-1": "<p>✔ No more core fraying</p><p>✔ Adjustable airflow control</p><p>✔ Stainless steel interior</p><p>✔ Consistent flavor, every time</p><p>✔ <strong>€35 worth of gifts</strong></p>",
+        "text_2FaAhSYmnzv3QjEN-1": "<p>Select your COLOUR:</p>",
+        "text_2kwFoixp1MBMMTpm-1": "<p><strong>Lio Plus</strong></p>",
+        "text_FOpelL43My18bahT-1": "<p><strong>OLIVE</strong></p>",
+        "text_lkD18ZVl9FAHqmxf-1": "<p><strong>Lio Plus</strong></p>",
+        "text_oGCeYnN6yyptEffX-1": "<p><strong>WALNUT</strong></p>",
+        "text_063Gpp4bwgru9PzN-1": "<p>Select your BUNDLE:</p>",
+        "text_CZxtt6XS21Fx2ngn-1": "<p>90 Day Starter Pack</p>",
+        "text_fNUCO07ZbeVmfW4X-1": "<p>Lio Plus + 90 Days of Cores + <strong>Free gifts worth €35</strong></p>",
+        "text_Be71a8vkcXFgz0f2-1": "<p>30 Day Starter Pack</p>",
+        "text_Ce7EeHShZKys29ZP-1": "<p>Lio Plus + 30 Days of Cores + <strong>Free gifts worth €35</strong></p>",
+        "text_iS4Rwp0SQYRI8S3O-1": "<p>POPULAR</p>",
+        "text_S6FNcFIgE4uguoFp-1": "<p>Walnut (Device Only)</p>",
+        "text_PZVrqgjgrWcqv8Vx-1": "<p>Lio Plus (No Cores) + <strong>Free gifts worth €35</strong></p>",
+        "text_ZWCBtF9mwZafmvOS-1": "<p>90 Day Starter Pack</p>",
+        "text_iyT1plDDvKh3Frx0-1": "<p>Lio Plus + 90 Days of Cores +<strong> Free gifts worth €35</strong></p>",
+        "text_7RH9pssCopX25zub-1": "<p>30 Day Starter Pack</p>",
+        "text_PZheIuu0uu9xjB3r-1": "<p>Lio Plus + 30 Days of Cores + <strong>Free gifts worth €35</strong></p>",
+        "text_zisRDcCrMgyvE98K-1": "<p>POPULAR</p>",
+        "text_kJn7onC6jnVAxd4j-1": "<p>Olive (Device Only)</p>",
+        "text_ToeVoEs1M6O3giVx-1": "<p>Lio Plus (No Cores) + <strong>Free gifts worth €35</strong></p>",
+        "text_8UaUOmjFJkNxUMAc-1": "<p>Add To Cart</p>",
+        "text_iWhaMud1s3t5NxJX-1": "<p>Every order comes with </p><p><strong>€35 worth of gifts</strong></p>",
+        "text_kcXzm4KfC2j6XLSO-1": "<p>30-Day</p><p>Money Back Guarantee</p>",
+        "text_MSbE668G4F8VIiuP-1": "<p>Free Europe Shipping</p>",
+        "text_hrbK5JYxXuBRrLjv-1": "<p>Trusted by 100.000+ people</p>",
+        "text_vYWbrxRHFhoUNFFJ-1": "<p>What’s new about Lio Plus?</p>",
+        "text_zJ6VqRLfIZZvDXBD-1": "<p>Lio Plus upgrades the original Lio with a <strong>stainless steel interior</strong>, adjustable airflow, and silicone flow dots for a smoother, more consistent experience.</p>",
+        "text_MWAngESSk7YC8sSx-1": "<p>What is the stainless steel barrel for?</p>",
+        "text_RO3rle3gbwAFeeAr-1": "<p>The stainless steel interior prevents the wood from absorbing flavor. This keeps every core tasting fresh, improves durability, and makes cleaning easier.</p>",
+        "text_mczGyyRWZx6eBpaz-1": "<p>Do I still need to fray the cores?</p>",
+        "text_luo3Zg7CEoVP0rZ4-1": "<p>Can I adjust the airflow?</p>",
+        "text_Cgr9EgP0smk9PanJ-1": "<p>Why does the flavor feel more consistent?</p>",
+        "text_fTeZMkjF1rXlVhSq-1": "<p>What flow dots are included?</p>",
+        "text_CzywZSIkrO6wqljX-1": "<p>Is Lio Plus more durable?</p>",
+        "text_s4FzB8IkKpZdALxL-1": "<p>Is Lio Plus still made from natural materials?</p>",
+        "text_5ZPKYj0rmaQEXEsT-1": "<p>Yes. Lio Plus keeps the natural wooden exterior while adding a stainless steel core for performance and longevity.</p>"
+      }
+    }
+  ]
 }
 {% endschema %}
