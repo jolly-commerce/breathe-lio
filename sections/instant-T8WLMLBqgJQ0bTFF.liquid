@@ -1491,7 +1491,43 @@
                 	true
                 {%-	endif -%}
               "
-              ><div data-instant-type="text" class="instant-rich-text ig512FWLAuzy7PPwq"><p>Add to cart</p></div></a
+              ><div data-instant-type="text" class="instant-rich-text ig512FWLAuzy7PPwq"><p>Add to cart</p></div
+              ><div class="iToN6vkRJdZLW8Dgl" data-instant-type="container"
+                ><div class="iD445PT8GBdpdSfpY" data-instant-type="container"
+                  ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="inJYZRjwRYFFe0ZCm">
+                    {%- liquid
+                      assign variant_price = product_HDyVlxXMxatNmYkK_variant.price
+
+                      if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
+                        assign variant_price = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.price
+                      endif
+                    -%}
+                    {{- variant_price | money -}}
+                  </p>
+
+                  {%- liquid
+                    assign style = ''
+                    assign compare_at_price = product_HDyVlxXMxatNmYkK_variant.compare_at_price
+                    assign variant_price = product_HDyVlxXMxatNmYkK_variant.price
+
+                    if product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation
+                      assign compare_at_price = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.compare_at_price
+                      assign variant_price = product_HDyVlxXMxatNmYkK_variant.selected_selling_plan_allocation.price
+                    endif
+
+                    if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
+                      assign style = 'style="display: none;"'
+                    endif
+                  -%}
+                  <span
+                    data-instant-dynamic-content-source="COMPARE_AT"
+                    class="iKQNdeNtwnpXM4eT3"
+                    {{- style -}}
+                  >
+                    {{- compare_at_price | money -}}
+                  </span>
+                </div></div
+              ></a
             ></div
           ><div class="ieCRxXXt55Pga7SZr" data-instant-type="container"
             ><div class="instant-slider-container iri5CFQwKfmwAqbFI" data-instant-type="slider-container">
