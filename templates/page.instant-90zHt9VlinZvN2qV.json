@@ -9,9 +9,67 @@
  */
 {
   "sections": {
+    "instant_ef_uk_slwx_u_zj9uba_y_tFjKRc": {
+      "type": "instant-EfUKSlwxUZj9ubaY",
+      "name": "The Original Homepage",
+      "settings": {
+        "text_o4cdW4gdt5QTTkN5": "<h3><strong>Let's break</strong></h3><h3><strong>that bad habit in 2026</strong></h3>",
+        "text_1yOYDbJXWNnD4HrX": "<h3><strong>zero nicotine   •   no batteries •   no vapor   •   no calories</strong></h3>",
+        "url_AqNytFo8SK7OS39r": "shopify://products/lio®-journey-pack-1",
+        "text_kv1jvyZTcJwYF613": "<p>START WITH LIO</p>",
+        "url_6GRbeSqGAdYreWg6": "shopify://products/get-more-cores",
+        "text_p72ECbY7Efi3iQ7v": "<p>ORDER CORES</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "instant-90zHt9VlinZvN2qV": {
       "type": "instant-90zHt9VlinZvN2qV",
       "settings": {}
+    },
+    "instant_ui_bsl_ymu_nqhc_amwq_haw4aa": {
+      "type": "instant-uiBslYmuNqhcAMWQ",
+      "name": "The Original Flavored Air",
+      "settings": {
+        "text_7HXpBP3xcYeAws4F": "<h3>Keep the ritual. </h3>",
+        "text_6LSpoEDixOXvgI8g": "<h3>Lose the nicotine.</h3>",
+        "text_U6jWYTvjjJydUwde": "<h3>Europe’s first flavored air device designed to satisfy the hand-to-mouth habit, without smoke or vapor.</h3>",
+        "text_BFcSe66U5OC1k3TU": "<h3>100% natural</h3>",
+        "text_9J63pJnE58gqb3zH": "<h3>No nicotine</h3>",
+        "text_a6A448QLwoAHUmbb": "<h3>No batteries</h3>",
+        "text_5C8SrBIt2R4XbdVA": "<h3>Icy feeling</h3>",
+        "url_qzBMLK3zPFAWVPrJ": "shopify://pages/trustscience",
+        "text_EHUZAVrpMVjgWyjY": "<p>Learn how it works</p>",
+        "url_1XyTFLk6YMZ1Dpnx": "shopify://pages/trustscience",
+        "text_uFyaibzxBGECh2s5": "<p>Shop Journey Pack</p>",
+        "text_BMPDMvesedJd8CYc": "<h3><strong>100% Natural</strong></h3><h3><strong>ingredients</strong></h3>",
+        "text_qaY9dgaduClF8xNa": "<h3><strong>EVERY PIECE</strong></h3><h3><strong>IS UNIQUE</strong></h3>",
+        "text_nxhU4xaRPttmi3XO": "<h3>All Natural</h3>",
+        "text_3gCgH5E6M5WhqTQH": "<h3>No Battery</h3>",
+        "text_OhUvey9QfwvDWiRo": "<h3>No Nicotine</h3>",
+        "text_PwITvFqicZS4Hfgg": "<h3>Icy Feeling</h3>",
+        "product_QXkQJCS3X7jj6aVW": "journey-pack-3",
+        "text_QejKjPXCHgLCWGCj": "<h3>Keep the ritual.</h3>",
+        "text_kibMFdrCbUrrNm4y": "<h3>Lose the nicotine.</h3>",
+        "text_ky5zkZOWFIUg6vL9": "<p>Europe’s first flavored air device designed to satisfy the hand-to-mouth habit, without smoke or vapor.</p>",
+        "text_dKVsfzB2oV4xEM4u": "<h3><strong>100% Natural</strong></h3><h3><strong>ingredients</strong></h3>",
+        "text_1VldPvF6gVZMQxAA": "<h3><strong>EVERY PIECE</strong></h3><h3><strong>IS UNIQUE</strong></h3>",
+        "text_4x4KX4hzoOcE59I2": "<h3>All Natural</h3>",
+        "text_BbBujt3Hw67GAWmT": "<h3>No Battery</h3>",
+        "text_KGJeHUoU2t8cDIIr": "<h3>No Nicotine</h3>",
+        "text_eYTbjgNT8WINFOsC": "<h3>Icy Feeling</h3>",
+        "text_cjyOyEB0QujGj3Yi": "<h3><strong>Natural</strong></h3><h3><strong>ingredients</strong></h3>",
+        "text_Di5AguUY8KLKIFeG": "<h3><strong>Every piece</strong></h3><h3><strong>is unique</strong></h3>",
+        "text_ohFGBfwiGBmeGNfV": "<h3><strong>Mimics  that</strong></h3><h3><strong>famillair habit</strong></h3>",
+        "text_MJHYvvn3uAq7iwJu": "<h3><strong>Use it anywhere</strong></h3><h3><strong>you'd like</strong></h3>",
+        "text_9U290wjdBatLp5q0": "<h3><strong>No batteries, </strong></h3><h3><strong>no vapor.</strong></h3>",
+        "url_7i7XiOenDnUbyWsO": "shopify://pages/trustscience",
+        "text_Noyc9BVkEmLDyGfc": "<p>Shop Journey Pack</p>",
+        "url_lerfwHfmh5KZGKK6": "shopify://pages/trustscience",
+        "text_JjpvMLdhwU3jM94t": "<p>Learn how it works</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     },
     "instant_6x_bs_x_ih_h_qkcqi9b5_6zeD48": {
       "type": "instant-6xBsXIhHQkcqi9b5",
@@ -182,7 +240,9 @@
     }
   },
   "order": [
+    "instant_ef_uk_slwx_u_zj9uba_y_tFjKRc",
     "instant-90zHt9VlinZvN2qV",
+    "instant_ui_bsl_ymu_nqhc_amwq_haw4aa",
     "instant_6x_bs_x_ih_h_qkcqi9b5_6zeD48",
     "instant_6_ta2_uu_zb_jng9_i_bn7_JgfxpA",
     "instant_x_oetj8_hepve_arkr_v_jkEYtB",
