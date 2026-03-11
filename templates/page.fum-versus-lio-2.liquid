@@ -1,0 +1,773 @@
+{% comment %}
+  Lio vs Füm — Competitor Comparison Landing Page
+  Shopify Liquid Template (Custom Page)
+  
+  USAGE:
+  1. Create a new template in your Shopify theme: templates/page.lio-vs-fum.liquid
+     with content: {% section 'lio-vs-fum-comparison' %}
+  2. Place THIS file at: sections/lio-vs-fum-comparison.liquid
+  3. Upload product images to Shopify Files and update the image URLs below,
+     OR use section settings to select images from the CMS.
+  4. Assign the "page.lio-vs-fum" template to your comparison page in Shopify admin.
+{% endcomment %}
+
+{%- liquid
+  assign lio_image = section.settings.lio_product_image
+  assign fum_image = section.settings.fum_product_image
+  assign lio_price = section.settings.lio_price | default: '€48'
+  assign fum_price = section.settings.fum_price | default: '$93.62'
+  assign lio_link = section.settings.lio_product_link | default: '/products/journey-pack-3'
+  assign review_count = section.settings.review_count | default: '1,230+'
+  assign customer_count = section.settings.customer_count | default: '100,000+'
+-%}
+
+<style>
+  /* ── RESET & BASE (scoped to section) ── */
+  .lio-comp * { margin: 0; padding: 0; box-sizing: border-box; }
+  .lio-comp {
+    --lio-black: #1a1a1a;
+    --lio-cream: #FAF7F2;
+    --lio-olive: #6B7C52;
+    --lio-olive-light: #8FA06F;
+    --lio-sage: #A8B68F;
+    --lio-warm: #E8DDD0;
+    --lio-gold: #C4A55A;
+    --lio-text: #2D2D2D;
+    --lio-text-light: #6B6B6B;
+    --lio-white: #FFFFFF;
+    --lio-border: #E0D8CD;
+    --lio-green-bg: #F0F3EC;
+    --lio-red-soft: #D4644A;
+    --fum-tan: #D2C9A0;
+
+    font-family: 'DM Sans', sans-serif;
+    background: var(--lio-cream);
+    color: var(--lio-text);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  /* ── NAV BAR ── */
+  .lio-comp .nav-bar {
+    background: var(--lio-white);
+    border-bottom: 1px solid var(--lio-border);
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .lio-comp .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .lio-comp .nav-logo { height: 32px; }
+  .lio-comp .nav-cta {
+    background: var(--lio-olive);
+    color: white;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: background 0.3s;
+  }
+  .lio-comp .nav-cta:hover { background: var(--lio-olive-light); }
+
+  /* ── HERO ── */
+  .lio-comp .hero {
+    background: linear-gradient(180deg, var(--lio-white) 0%, var(--lio-cream) 100%);
+    padding: 60px 24px 50px;
+    text-align: center;
+  }
+  .lio-comp .hero-badge {
+    display: inline-block;
+    background: var(--lio-green-bg);
+    color: var(--lio-olive);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-bottom: 28px;
+  }
+  .lio-comp .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--lio-black);
+    margin-bottom: 20px;
+  }
+  .lio-comp .hero h1 span { color: var(--lio-olive); }
+  .lio-comp .hero-sub {
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--lio-text-light);
+    max-width: 640px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+  }
+  .lio-comp .hero-trust {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    font-size: 14px;
+    color: var(--lio-text-light);
+  }
+  .lio-comp .hero-trust span { display: flex; align-items: center; gap: 6px; }
+  .lio-comp .hero-trust .star { color: var(--lio-gold); }
+
+  /* ── PRODUCT VISUAL ── */
+  .lio-comp .product-visual {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 24px;
+    padding: 40px 24px;
+  }
+  .lio-comp .product-card {
+    background: var(--lio-white);
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    position: relative;
+  }
+  .lio-comp .product-card.lio-card { border: 2px solid var(--lio-olive); }
+  .lio-comp .product-card.fum-card { border: 1px solid var(--lio-border); opacity: 0.92; }
+  .lio-comp .product-card .winner-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--lio-olive);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    white-space: nowrap;
+  }
+  .lio-comp .product-card img {
+    width: 100%;
+    max-width: 240px;
+    height: 280px;
+    object-fit: contain;
+    margin: 16px auto;
+    display: block;
+  }
+  .lio-comp .product-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .lio-comp .product-card .brand-label {
+    font-size: 13px;
+    color: var(--lio-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+  }
+  .lio-comp .product-card .price { font-size: 26px; font-weight: 700; color: var(--lio-olive); }
+  .lio-comp .product-card.fum-card .price { color: var(--lio-text); }
+  .lio-comp .vs-circle {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--lio-black); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 600; flex-shrink: 0;
+  }
+
+  /* ── TLDR ── */
+  .lio-comp .tldr-section { max-width: 860px; margin: 0 auto 60px; padding: 0 24px; }
+  .lio-comp .tldr-box {
+    background: var(--lio-white);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  }
+  .lio-comp .tldr-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 600; margin-bottom: 16px;
+  }
+  .lio-comp .tldr-box p {
+    font-size: 16px; color: var(--lio-text-light); line-height: 1.7; margin-bottom: 28px;
+  }
+  .lio-comp .tldr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .lio-comp .tldr-col h4 {
+    font-size: 15px; font-weight: 600; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .lio-comp .tldr-col h4 .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .lio-comp .tldr-col.lio h4 .dot { background: var(--lio-olive); }
+  .lio-comp .tldr-col.fum h4 .dot { background: var(--fum-tan); }
+  .lio-comp .tldr-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .lio-comp .tldr-col ul li {
+    font-size: 15px; line-height: 1.5; padding-left: 24px;
+    position: relative; color: var(--lio-text);
+  }
+  .lio-comp .tldr-col ul li::before {
+    content: '✓'; position: absolute; left: 0; font-weight: 700;
+  }
+  .lio-comp .tldr-col.lio ul li::before { color: var(--lio-olive); }
+  .lio-comp .tldr-col.fum ul li::before { color: var(--fum-tan); }
+
+  /* ── COMPARISON TABLE ── */
+  .lio-comp .comparison-section { max-width: 860px; margin: 0 auto 60px; padding: 0 24px; }
+  .lio-comp .comparison-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; text-align: center; margin-bottom: 8px;
+  }
+  .lio-comp .comparison-section .section-sub {
+    text-align: center; color: var(--lio-text-light); font-size: 16px; margin-bottom: 36px;
+  }
+  .lio-comp .comp-table {
+    width: 100%; background: var(--lio-white); border-radius: 16px;
+    overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  }
+  .lio-comp .comp-header {
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    background: var(--lio-black); color: white;
+    font-weight: 600; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .lio-comp .comp-header > div { padding: 16px 20px; text-align: center; }
+  .lio-comp .comp-header > div:first-child { text-align: left; }
+  .lio-comp .comp-row {
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    border-bottom: 1px solid var(--lio-border); transition: background 0.2s;
+  }
+  .lio-comp .comp-row:hover { background: var(--lio-green-bg); }
+  .lio-comp .comp-row:last-child { border-bottom: none; }
+  .lio-comp .comp-row > div {
+    padding: 16px 20px; font-size: 15px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .lio-comp .comp-row > div:first-child { justify-content: flex-start; font-weight: 500; }
+  .lio-comp .check { color: var(--lio-olive); font-size: 20px; font-weight: 700; }
+  .lio-comp .cross { color: #ccc; font-size: 18px; }
+  .lio-comp .partial { color: var(--lio-gold); font-size: 13px; font-weight: 500; }
+  .lio-comp .comp-lio-highlight { background: rgba(107, 124, 82, 0.05); }
+
+  /* ── DEEP DIVE ── */
+  .lio-comp .deep-dive { max-width: 860px; margin: 0 auto 32px; padding: 0 24px; }
+  .lio-comp .dd-card {
+    background: var(--lio-white); border-radius: 20px; padding: 40px;
+    margin-bottom: 24px; box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  }
+  .lio-comp .dd-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; font-weight: 600; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .lio-comp .dd-card h3 .icon {
+    width: 40px; height: 40px; background: var(--lio-green-bg);
+    border-radius: 12px; display: flex; align-items: center;
+    justify-content: center; font-size: 20px; flex-shrink: 0;
+  }
+  .lio-comp .dd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 20px; }
+  .lio-comp .dd-col h4 {
+    font-size: 13px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: 10px; color: var(--lio-text-light);
+  }
+  .lio-comp .dd-col p { font-size: 15px; line-height: 1.7; color: var(--lio-text); }
+  .lio-comp .dd-verdict {
+    background: var(--lio-green-bg); border-radius: 12px; padding: 16px 20px;
+    font-size: 15px; line-height: 1.6; color: var(--lio-olive);
+    font-weight: 500; border-left: 4px solid var(--lio-olive);
+  }
+
+  /* ── PRICING ── */
+  .lio-comp .pricing-section { max-width: 860px; margin: 0 auto 60px; padding: 0 24px; }
+  .lio-comp .pricing-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; text-align: center; margin-bottom: 36px;
+  }
+  .lio-comp .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .lio-comp .pricing-card {
+    background: var(--lio-white); border-radius: 20px; padding: 36px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04); text-align: center;
+  }
+  .lio-comp .pricing-card.lio-pricing { border: 2px solid var(--lio-olive); position: relative; }
+  .lio-comp .pricing-card.lio-pricing::after {
+    content: 'BETTER VALUE'; position: absolute; top: -13px; left: 50%;
+    transform: translateX(-50%); background: var(--lio-olive); color: white;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    padding: 5px 16px; border-radius: 50px;
+  }
+  .lio-comp .pricing-card h3 {
+    font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 6px;
+  }
+  .lio-comp .pricing-card .pack-name { font-size: 13px; color: var(--lio-text-light); margin-bottom: 20px; }
+  .lio-comp .pricing-card .big-price { font-size: 42px; font-weight: 700; margin-bottom: 4px; }
+  .lio-comp .pricing-card.lio-pricing .big-price { color: var(--lio-olive); }
+  .lio-comp .pricing-card .price-note { font-size: 13px; color: var(--lio-text-light); margin-bottom: 24px; }
+  .lio-comp .pricing-includes { text-align: left; display: flex; flex-direction: column; gap: 10px; }
+  .lio-comp .pricing-includes li {
+    list-style: none; font-size: 14px; padding-left: 22px;
+    position: relative; line-height: 1.5;
+  }
+  .lio-comp .pricing-includes li::before {
+    content: '✓'; position: absolute; left: 0; color: var(--lio-olive); font-weight: 700;
+  }
+  .lio-comp .fum-pricing .pricing-includes li::before { color: var(--fum-tan); }
+
+  /* ── REVIEWS ── */
+  .lio-comp .reviews-section {
+    background: var(--lio-black); padding: 60px 24px; color: white; text-align: center;
+  }
+  .lio-comp .reviews-section h2 {
+    font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 12px;
+  }
+  .lio-comp .reviews-section .section-sub {
+    color: rgba(255,255,255,0.6); font-size: 16px; margin-bottom: 40px;
+  }
+  .lio-comp .reviews-grid {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .lio-comp .review-card {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 28px; text-align: left;
+  }
+  .lio-comp .review-stars { color: var(--lio-gold); font-size: 16px; margin-bottom: 14px; letter-spacing: 2px; }
+  .lio-comp .review-card p { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.85); margin-bottom: 16px; }
+  .lio-comp .review-author { font-size: 14px; font-weight: 600; color: var(--lio-sage); }
+
+  /* ── FAQ ── */
+  .lio-comp .faq-section { max-width: 720px; margin: 60px auto; padding: 0 24px; }
+  .lio-comp .faq-section h2 {
+    font-family: 'Playfair Display', serif; font-size: 32px; text-align: center; margin-bottom: 36px;
+  }
+  .lio-comp .faq-item {
+    border-bottom: 1px solid var(--lio-border); padding: 0;
+  }
+  .lio-comp .faq-item summary {
+    font-size: 16px; font-weight: 600; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    padding: 20px 0; list-style: none;
+  }
+  .lio-comp .faq-item summary::-webkit-details-marker { display: none; }
+  .lio-comp .faq-item summary::after {
+    content: '+'; font-size: 22px; color: var(--lio-olive); flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+  .lio-comp .faq-item[open] summary::after { content: '−'; }
+  .lio-comp .faq-item .faq-a {
+    padding: 0 0 20px 0; font-size: 15px; line-height: 1.7; color: var(--lio-text-light);
+  }
+  .lio-comp .faq-item .faq-a a { color: var(--lio-olive); }
+
+  /* ── FINAL CTA ── */
+  .lio-comp .final-cta {
+    text-align: center; padding: 70px 24px;
+    background: linear-gradient(180deg, var(--lio-cream) 0%, var(--lio-green-bg) 50%, var(--lio-cream) 100%);
+  }
+  .lio-comp .final-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 40px); font-weight: 600;
+    max-width: 600px; margin: 0 auto 16px; line-height: 1.2;
+  }
+  .lio-comp .final-cta p {
+    font-size: 17px; color: var(--lio-text-light);
+    max-width: 520px; margin: 0 auto 32px; line-height: 1.6;
+  }
+  .lio-comp .cta-btn {
+    display: inline-block; background: var(--lio-olive); color: white;
+    text-decoration: none; padding: 16px 44px; border-radius: 50px;
+    font-size: 16px; font-weight: 700; letter-spacing: 0.02em;
+    transition: all 0.3s; box-shadow: 0 4px 20px rgba(107, 124, 82, 0.35);
+  }
+  .lio-comp .cta-btn:hover {
+    background: var(--lio-olive-light); transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(107, 124, 82, 0.45);
+  }
+  .lio-comp .cta-guarantee { margin-top: 16px; font-size: 14px; color: var(--lio-text-light); }
+
+  /* ── FOOTER ── */
+  .lio-comp .comp-footer {
+    background: var(--lio-black); color: rgba(255,255,255,0.5);
+    text-align: center; padding: 32px 24px; font-size: 12px; line-height: 1.8;
+  }
+  .lio-comp .comp-footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .lio-comp .product-visual { grid-template-columns: 1fr; gap: 16px; }
+    .lio-comp .vs-circle { margin: 0 auto; }
+    .lio-comp .tldr-grid,
+    .lio-comp .dd-grid,
+    .lio-comp .pricing-grid { grid-template-columns: 1fr; }
+    .lio-comp .reviews-grid { grid-template-columns: 1fr; }
+    .lio-comp .comp-header,
+    .lio-comp .comp-row { grid-template-columns: 1.5fr 1fr 1fr; }
+    .lio-comp .comp-row > div,
+    .lio-comp .comp-header > div { padding: 12px 10px; font-size: 13px; }
+    .lio-comp .dd-card { padding: 28px 20px; }
+    .lio-comp .tldr-box { padding: 28px 20px; }
+  }
+</style>
+
+{%- comment -%} Load Google Fonts {%- endcomment -%}
+{{ 'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=swap' | stylesheet_tag }}
+
+<div class="lio-comp">
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="nav-bar">
+    <div class="nav-inner">
+      <svg class="nav-logo" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="26" font-family="Playfair Display, serif" font-size="28" font-weight="600" fill="#1a1a1a">Lio</text>
+        <text x="42" y="26" font-family="DM Sans, sans-serif" font-size="10" font-weight="400" fill="#6B7C52" letter-spacing="0.15em">®</text>
+      </svg>
+      <a href="{{ lio_link }}" class="nav-cta">Try Lio Risk-Free →</a>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-badge">Honest Comparison — Updated {{ 'now' | date: '%Y' }}</div>
+    <h1>Lio<span>®</span> vs Füm:<br>Which One Actually Works?</h1>
+    <p class="hero-sub">You're comparing flavored air devices. We respect that. Here's a transparent, side-by-side breakdown to help you choose the right one for your journey.</p>
+    <div class="hero-trust">
+      <span><span class="star">★★★★★</span> {{ review_count }} reviews</span>
+      <span>🇳🇱 Produced in the Netherlands</span>
+      <span>🛡️ 30-Day Money-Back Guarantee</span>
+      <span>👥 {{ customer_count }} customers</span>
+    </div>
+  </section>
+
+  <!-- ═══ PRODUCT VISUAL COMPARISON ═══ -->
+  <section class="product-visual">
+    <div class="product-card lio-card">
+      <div class="winner-badge">✦ OUR PICK</div>
+      <h3>Lio Pro Olive</h3>
+      <div class="brand-label">Journey Pack — BreatheLio</div>
+      {%- if lio_image != blank -%}
+        <img
+          src="{{ lio_image | image_url: width: 480 }}"
+          alt="{{ lio_image.alt | default: 'Lio Pro Olive Journey Pack with vegan leather carry case' }}"
+          width="240"
+          height="280"
+          loading="lazy"
+        >
+      {%- else -%}
+        <img
+          src="{{ 'lio-pro-olive.webp' | asset_url }}"
+          alt="Lio Pro Olive Journey Pack with vegan leather carry case"
+          width="240"
+          height="280"
+          loading="lazy"
+        >
+      {%- endif -%}
+      <div class="price">{{ lio_price }}</div>
+    </div>
+
+    <div class="vs-circle">vs</div>
+
+    <div class="product-card fum-card">
+      <h3>Füm Prominent</h3>
+      <div class="brand-label">Journey Pack — Füm</div>
+      {%- if fum_image != blank -%}
+        <img
+          src="{{ fum_image | image_url: width: 480 }}"
+          alt="{{ fum_image.alt | default: 'Füm Prominent maple and stainless steel device' }}"
+          width="240"
+          height="280"
+          loading="lazy"
+        >
+      {%- else -%}
+        <img
+          src="{{ 'fum-prominent.webp' | asset_url }}"
+          alt="Füm Prominent maple and stainless steel device"
+          width="240"
+          height="280"
+          loading="lazy"
+        >
+      {%- endif -%}
+      <div class="price">{{ fum_price }}</div>
+    </div>
+  </section>
+
+  <!-- ═══ TLDR ═══ -->
+  <section class="tldr-section">
+    <div class="tldr-box">
+      <h2>Quick Summary</h2>
+      <p>Both Lio and Füm are nicotine-free, vapor-free flavored air devices designed to help you replace unwanted habits through ritual replacement. They share the same core concept — but the execution, materials, pricing, and overall experience are quite different.</p>
+      <div class="tldr-grid">
+        <div class="tldr-col lio">
+          <h4><span class="dot"></span>Choose Lio if you want:</h4>
+          <ul>
+            <li>100% organic, IFRA-certified EU-sourced ingredients</li>
+            <li>A lower upfront cost to start your journey</li>
+            <li>Handcrafted olive wood — every piece is unique</li>
+            <li>A device produced in the Netherlands (not outsourced)</li>
+            <li>A vegan leather carry case included in the pack</li>
+          </ul>
+        </div>
+        <div class="tldr-col fum">
+          <h4><span class="dot"></span>Choose Füm if you prefer:</h4>
+          <ul>
+            <li>A brand with major U.S. podcast sponsorships</li>
+            <li>A wider selection of device styles</li>
+            <li>Retail availability in U.S. physical stores</li>
+            <li>A patented fidget-barrel mechanism</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COMPARISON TABLE ═══ -->
+  <section class="comparison-section">
+    <h2>Feature-by-Feature Comparison</h2>
+    <p class="section-sub">An objective look at what each product offers</p>
+
+    <div class="comp-table">
+      <div class="comp-header">
+        <div>Feature</div>
+        <div>Lio®</div>
+        <div>Füm</div>
+      </div>
+
+      {%- assign features = "Nicotine-Free|No Vapor / No Smoke|100% Organic Ingredients|IFRA-Certified EU Ingredients|Produced Locally (Not Outsourced)|Carry Case Included|Natural Wood Body|Handcrafted / Unique Pieces|Vegan & Allergen-Free Cores|Toxicology Reports Published|Money-Back Guarantee|Free Shipping|Core Longevity (per pack)" | split: "|" -%}
+      {%- assign lio_vals = "✓|✓|✓|✓|✓ Netherlands|✓ Vegan leather|✓ Olive wood|✓|✓|✓|✓ 30 days|✓ From €20|10+ days" | split: "|" -%}
+      {%- assign fum_vals = "✓|✓|Not stated|✗|Canada-based|✗ Sold separately|✓ Maple wood|✗|✓|✓|✓ 30 days|Varies|10+ days" | split: "|" -%}
+      {%- assign lio_types = "check|check|check|check|check|check|check|check|check|check|check|check|plain" | split: "|" -%}
+      {%- assign fum_types = "check|check|partial|cross|partial|cross|check|cross|check|check|check|partial|plain" | split: "|" -%}
+
+      {%- for feature in features -%}
+        <div class="comp-row">
+          <div>{{ feature }}</div>
+          <div class="comp-lio-highlight">
+            {%- case lio_types[forloop.index0] -%}
+              {%- when 'check' -%}<span class="check">{{ lio_vals[forloop.index0] }}</span>
+              {%- when 'cross' -%}<span class="cross">{{ lio_vals[forloop.index0] }}</span>
+              {%- when 'partial' -%}<span class="partial">{{ lio_vals[forloop.index0] }}</span>
+              {%- else -%}{{ lio_vals[forloop.index0] }}
+            {%- endcase -%}
+          </div>
+          <div>
+            {%- case fum_types[forloop.index0] -%}
+              {%- when 'check' -%}<span class="check">{{ fum_vals[forloop.index0] }}</span>
+              {%- when 'cross' -%}<span class="cross">{{ fum_vals[forloop.index0] }}</span>
+              {%- when 'partial' -%}<span class="partial">{{ fum_vals[forloop.index0] }}</span>
+              {%- else -%}{{ fum_vals[forloop.index0] }}
+            {%- endcase -%}
+          </div>
+        </div>
+      {%- endfor -%}
+
+      <div class="comp-row" style="background: var(--lio-green-bg);">
+        <div style="font-weight:700;">Journey Pack Price</div>
+        <div class="comp-lio-highlight" style="font-weight:700; color: var(--lio-olive);">{{ lio_price }}</div>
+        <div style="font-weight:700;">{{ fum_price }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DEEP DIVES ═══ -->
+  <section class="deep-dive">
+
+    <div class="dd-card">
+      <h3><span class="icon">🌿</span> Ingredients &amp; Sourcing</h3>
+      <div class="dd-grid">
+        <div class="dd-col">
+          <h4>How Füm approaches this</h4>
+          <p>Füm uses plant-based essential oils in their cores with medical-grade polyester fiber. They partner with farms globally for ingredient sourcing. Specific certifications for ingredient origins are not prominently stated on their site.</p>
+        </div>
+        <div class="dd-col">
+          <h4>How Lio approaches this</h4>
+          <p>Lio uses 100% organic natural essential oils exclusively from IFRA-certified EU farms. Their pharmaceutical-grade aromatics come from certified European manufacturers. All blending happens in their Netherlands laboratory.</p>
+        </div>
+      </div>
+      <div class="dd-verdict">
+        <strong>Why this matters:</strong> IFRA certification is the international fragrance industry's safety standard. When you're inhaling aromatic compounds, knowing exactly where they come from — and that they meet EU pharmaceutical standards — gives you greater confidence in what you're breathing.
+      </div>
+    </div>
+
+    <div class="dd-card">
+      <h3><span class="icon">🎨</span> Craftsmanship &amp; Design</h3>
+      <div class="dd-grid">
+        <div class="dd-col">
+          <h4>How Füm approaches this</h4>
+          <p>Füm offers devices in maple wood, walnut, and other materials with a stainless steel or black onyx barrel. Their Prominent model features a fidget-friendly spinning barrel, which is a patented design. Devices are mass-produced for retail distribution.</p>
+        </div>
+        <div class="dd-col">
+          <h4>How Lio approaches this</h4>
+          <p>Lio's Pro Olive features hand-selected olive wood, which means every single device has a unique grain pattern. Each piece is individually crafted in the Netherlands. The Journey Pack comes with a vegan leather carry case included at no extra cost.</p>
+        </div>
+      </div>
+      <div class="dd-verdict">
+        <strong>Why this matters:</strong> Since you'll carry and use this device daily, the look and feel of it matters. Lio's approach of handcrafted, one-of-a-kind olive wood pieces gives each device a personal, premium character that a mass-produced device can't replicate.
+      </div>
+    </div>
+
+    <div class="dd-card">
+      <h3><span class="icon">💰</span> Total Cost of Ownership</h3>
+      <div class="dd-grid">
+        <div class="dd-col">
+          <h4>Füm Journey Pack</h4>
+          <p>The Füm Prominent Journey Pack starts at {{ fum_price }} USD. This includes the device and a set of flavor cores. A carry case (the "Base") is sold separately for $19.89. Ongoing core refills are around $11.25 per pack, or $23.63/month via their subscription with a 30% discount.</p>
+        </div>
+        <div class="dd-col">
+          <h4>Lio Journey Pack</h4>
+          <p>The Lio Pro Olive Journey Pack is {{ lio_price }} (approximately $52 USD). This includes the device, flavor cores, and a vegan leather carry case. Ongoing core refills start at a comparable price point, and free shipping applies from €20 orders. Lio also offers educational resources included.</p>
+        </div>
+      </div>
+      <div class="dd-verdict">
+        <strong>Why this matters:</strong> Lio's Journey Pack costs roughly half of Füm's — and includes a carry case that Füm charges extra for. For someone who wants to try a flavored air device without a large upfront investment, Lio removes the financial barrier.
+      </div>
+    </div>
+
+    <div class="dd-card">
+      <h3><span class="icon">🔬</span> Science &amp; Safety</h3>
+      <div class="dd-grid">
+        <div class="dd-col">
+          <h4>Füm's approach</h4>
+          <p>Füm has commissioned clinical studies, including a double-blind, randomized, placebo-controlled trial with 30 adults over 3 months. They have 3 completed studies, 3 underway, and 13 planned. They've also secured endorsements from clinicians through FrontrowMD reviews.</p>
+        </div>
+        <div class="dd-col">
+          <h4>Lio's approach</h4>
+          <p>Lio has multiple third-party toxicology reports covering both inhalation and digestion of their plant compounds. Their approach is grounded in established olfactory conditioning science and behavioral psychology principles. They're committed to funding ongoing research.</p>
+        </div>
+      </div>
+      <div class="dd-verdict">
+        <strong>Why this matters:</strong> Both brands take safety seriously with published safety data. Füm has invested in formal clinical trials, while Lio focuses on third-party toxicology reports and EU-grade ingredient sourcing as their safety foundation. Neither is a medical device.
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══ REVIEWS ═══ -->
+  <section class="reviews-section">
+    <h2>What Lio Customers Are Saying</h2>
+    <p class="section-sub">Real stories from {{ customer_count }} people who made the switch</p>
+    <div class="reviews-grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'review' -%}
+          <div class="review-card" {{ block.shopify_attributes }}>
+            <div class="review-stars">★★★★★</div>
+            <p>"{{ block.settings.review_text }}"</p>
+            <div class="review-author">— {{ block.settings.review_author }}</div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- comment -%} Fallback if no blocks are configured {%- endcomment -%}
+      {%- if section.blocks.size == 0 -%}
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"I haven't come across something as good as this. Nothing comes out, so I can use it anywhere. I'm adding a few more years to my life."</p>
+          <div class="review-author">— James, 38</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"I've had the habit for 30 years. I've been on this for a week, loving it. I'm not craving at all. No chemicals, it's all just flavored air. Perfect."</p>
+          <div class="review-author">— Anna, 60</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"It blows my mind how a product like this in its simplicity hasn't existed since forever. Awesome product I recommend highly."</p>
+          <div class="review-author">— Achmed, 43</div>
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+
+  <!-- ═══ PRICING ═══ -->
+  <section class="pricing-section" style="margin-top: 60px;">
+    <h2>Transparent Pricing</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card lio-pricing">
+        <h3>Lio® Journey Pack</h3>
+        <div class="pack-name">Pro Olive — Everything to Start</div>
+        <div class="big-price">{{ lio_price }}</div>
+        <div class="price-note">≈ $52 USD · Free shipping from €20</div>
+        <ul class="pricing-includes">
+          <li>Lio Pro Olive device (handcrafted)</li>
+          <li>Vegan leather carry case included</li>
+          <li>Flavor core starter pack (10+ days)</li>
+          <li>1–3 day delivery from the Netherlands</li>
+          <li>30-day money-back guarantee</li>
+        </ul>
+      </div>
+      <div class="pricing-card fum-pricing">
+        <h3>Füm Journey Pack</h3>
+        <div class="pack-name">Prominent — Starter Bundle</div>
+        <div class="big-price">{{ fum_price }}</div>
+        <div class="price-note">Carry case sold separately ($19.89)</div>
+        <ul class="pricing-includes">
+          <li>Füm Prominent device</li>
+          <li>Flavor core starter pack (10+ days)</li>
+          <li>30-day habit tracker card</li>
+          <li>Shipping varies by location</li>
+          <li>30-day return policy</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="faq-section">
+    <h2>Common Questions</h2>
+
+    <details class="faq-item" open>
+      <summary>Is Lio really comparable to Füm?</summary>
+      <div class="faq-a">Yes. Both Lio and Füm are nicotine-free, vapor-free flavored air devices that work through ritual replacement — giving your hands and mouth something to do while delivering natural aromatics. The core concept is the same. The key differences are in ingredients sourcing (Lio uses IFRA-certified EU organic ingredients), craftsmanship (Lio is handcrafted in the Netherlands), and price point (Lio's Journey Pack costs roughly half of Füm's).</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>How does Lio work without nicotine?</summary>
+      <div class="faq-a">Research shows that 50–70% of habitual behavior is driven by the physical ritual — the hand-to-mouth motion, the deep breathing, the sensory trigger — not just the chemical substance. Lio targets this behavioral component by providing the same physical ritual with natural aromatics, helping your brain transition to a healthier pattern.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>What are Lio's cores made of?</summary>
+      <div class="faq-a">Each core uses medical-grade polyester fiber infused with 100% organic natural essential oils from IFRA-certified European farms. The formulations include natural plant extracts like peppermint, black pepper, cinnamon, and other botanical aromas — all blended in the Netherlands.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>What if it doesn't work for me?</summary>
+      <div class="faq-a">Lio offers a 30-day money-back guarantee. If Lio doesn't help, simply contact <a href="mailto:support@breathelio.com">support@breathelio.com</a> with your order number and you'll receive a full refund within 5–7 business days. No complicated forms, no hassle.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Why is Lio so much cheaper than Füm?</summary>
+      <div class="faq-a">Lio is a direct-to-consumer brand produced in the Netherlands, which allows them to maintain premium quality while keeping prices accessible. They don't spend on major podcast sponsorship deals or retail distribution markups. Instead, they invest in ingredient quality and product craftsmanship — and pass the savings to you.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Is Lio safe to use?</summary>
+      <div class="faq-a">Yes. Multiple third-party toxicology reports have been conducted on the inhalation of Lio's plant compounds. All ingredients come from IFRA-certified European farms and are produced by certified EU manufacturers. Lio is vegan, allergen-free, and contains no nicotine, chemicals, or vapor. Note: Lio is not a medical device or smoking cessation aid.</div>
+    </details>
+  </section>
+
+  <!-- ═══ FINAL CTA ═══ -->
+  <section class="final-cta">
+    <h2>Ready to Start Your Journey?</h2>
+    <p>Join {{ customer_count }} people who chose Lio. Handcrafted in the Netherlands with 100% organic ingredients. Try it for 30 days — if it's not for you, get a full refund.</p>
+    <a href="{{ lio_link }}" class="cta-btn">Start My Journey — {{ lio_price }} →</a>
+    <div class="cta-guarantee">🛡️ 30-Day Money-Back Guarantee · Free Shipping from €20 · 1–3 Day Delivery</div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="comp-footer">
+    <p>© {{ 'now' | date: '%Y' }} BreatheLio® — Natures Innovations LLP · 32 Kinburn Street, London SE16 6DW · Company No: OC449373</p>
+    <p>Lio is a wellness and aromatherapy device designed to provide sensory satisfaction through natural ritual replacement. It is not a medical device, smoking cessation aid, or therapeutic treatment. Individual experiences may vary. <a href="/pages/terms-conditions-2">Terms &amp; Conditions</a> · <a href="/pages/faq">FAQ</a></p>
+    <p style="margin-top:8px; font-size:11px; opacity:0.6;">Füm® is a registered trademark of Füm Inc. This page is not affiliated with, endorsed by, or sponsored by Füm Inc. All competitor information is based on publicly available data as of {{ 'now' | date: '%B %Y' }}.</p>
+  </footer>
+
+</div>
