@@ -455,23 +455,13 @@
       <div class="winner-badge">✦ OUR PICK</div>
       <h3>Lio Pro Olive</h3>
       <div class="brand-label">Journey Pack — BreatheLio</div>
-      {%- if lio_image != blank -%}
-        <img
-          src="{{ lio_image | image_url: width: 480 }}"
-          alt="{{ lio_image.alt | default: 'Lio Pro Olive Journey Pack with vegan leather carry case' }}"
-          width="240"
-          height="280"
-          loading="lazy"
-        >
-      {%- else -%}
-        <img
-          src="{{ 'lio-pro-olive.webp' | asset_url }}"
-          alt="Lio Pro Olive Journey Pack with vegan leather carry case"
-          width="240"
-          height="280"
-          loading="lazy"
-        >
-      {%- endif -%}
+      <img
+        src="https://breathelio.com/cdn/shop/files/Gemini_Generated_Image_wv2ynkwv2ynkwv2y_1.png?v=1770384718&width=800"
+        alt="Lio Pro Olive Journey Pack with vegan leather carry case"
+        width="240"
+        height="280"
+        loading="lazy"
+      >
       <div class="price">{{ lio_price }}</div>
     </div>
 
@@ -480,23 +470,13 @@
     <div class="product-card fum-card">
       <h3>Füm Prominent</h3>
       <div class="brand-label">Journey Pack — Füm</div>
-      {%- if fum_image != blank -%}
-        <img
-          src="{{ fum_image | image_url: width: 480 }}"
-          alt="{{ fum_image.alt | default: 'Füm Prominent maple and stainless steel device' }}"
-          width="240"
-          height="280"
-          loading="lazy"
-        >
-      {%- else -%}
-        <img
-          src="{{ 'fum-prominent.webp' | asset_url }}"
-          alt="Füm Prominent maple and stainless steel device"
-          width="240"
-          height="280"
-          loading="lazy"
-        >
-      {%- endif -%}
+      <img
+        src="https://tryfum.com/cdn/shop/files/MapleStandardBarrel-2.png?v=1697817510&width=990"
+        alt="Füm Prominent maple and stainless steel device"
+        width="240"
+        height="280"
+        loading="lazy"
+      >
       <div class="price">{{ fum_price }}</div>
     </div>
   </section>
