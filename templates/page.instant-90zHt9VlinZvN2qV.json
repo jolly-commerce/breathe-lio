@@ -11,6 +11,7 @@
   "sections": {
     "instant_ef_uk_slwx_u_zj9uba_y_tFjKRc": {
       "type": "instant-EfUKSlwxUZj9ubaY",
+      "disabled": true,
       "name": "The Original Homepage",
       "settings": {
         "text_o4cdW4gdt5QTTkN5": "<h3><strong>Let's break</strong></h3><h3><strong>that bad habit in 2026</strong></h3>",
@@ -63,10 +64,6 @@
         "text_ohFGBfwiGBmeGNfV": "<h3><strong>Mimics  that</strong></h3><h3><strong>famillair habit</strong></h3>",
         "text_MJHYvvn3uAq7iwJu": "<h3><strong>Use it anywhere</strong></h3><h3><strong>you'd like</strong></h3>",
         "text_9U290wjdBatLp5q0": "<h3><strong>No batteries, </strong></h3><h3><strong>no vapor.</strong></h3>",
-        "url_7i7XiOenDnUbyWsO": "shopify://pages/trustscience",
-        "text_Noyc9BVkEmLDyGfc": "<p>Shop Journey Pack</p>",
-        "url_lerfwHfmh5KZGKK6": "shopify://pages/trustscience",
-        "text_JjpvMLdhwU3jM94t": "<p>Learn how it works</p>",
         "padding_top": 0,
         "padding_bottom": 0
       }
