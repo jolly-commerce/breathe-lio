@@ -12,7 +12,20 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
 
   <html lang="{{ request.locale.iso_code }}" dir="{% render 'direction' %}">
     <head>
-  
+      
+  <script>
+  document.addEventListener("instant:add-to-cart", () => {
+    const cartDrawer = document.querySelector("#cart-drawer");
+    fetch("/?section_id=cart-drawer")
+      .then((res) => res.text())
+      .then((text) => {
+        const sectionHTML = new DOMParser().parseFromString(text, "text/html");
+        const cartInnerHTML = sectionHTML.getElementById("cart-drawer").innerHTML;
+        cartDrawer.innerHTML = cartInnerHTML;
+        cartDrawer.setAttribute("open", "");
+      });
+  });
+</script>
    <script>
       (function(w,d,t,r,u)
       {
