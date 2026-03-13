@@ -80,6 +80,31 @@
         "padding_bottom": 0
       }
     },
+    "instant_rmxolt09w_c3_vj2_ly_pqzQEz": {
+      "type": "instant-RMXOLT09wC3Vj2Ly",
+      "name": "Italian Review Videos",
+      "settings": {
+        "text_QJAjwTw5D5BoJMtu": "<p>1000+</p>",
+        "url_QJAjwTw5D5BoJMtu": "#",
+        "text_dbGm8UEflEZoVcgI": "<p>Recensioni verificate a 5 stelle</p>",
+        "text_eeGJJVOJDIKYFSqm": "<h3>\"Ero scettico, </h3>",
+        "text_cXEL8Zvxrbx6Pbe0": "<h3>finché non l'ho provato.\"</h3>",
+        "text_d6Ww8MmoIEh53pjI": "<h3>Scopri perché oltre 100.000 persone sono passate a Lio.</h3>",
+        "url_K3WHUkLVpuKSj5GM": "shopify://products/lio®-journey-pack-1",
+        "text_RBsezdenq2QMIzrU": "<p>ACQUISTA ORA</p>",
+        "text_tFACUO8fIRFxYUjn": "<p>\"L'ho usata a compleanni, matrimoni, tutto quanto, dappertutto, perché non c’è fumo. Puoi davvero portarla...\"</p>",
+        "text_KijZzNOrUaFvPDTF": "<p>Sofia (24)</p>",
+        "text_mSyz8PvckiL1OJit": "<p>Volevo condividere la mia esperienza perché è stata davvero incredibile. Ho acquistato Lio e devo dire che, in soli tre giorni...</p>",
+        "text_bTPyH6kLCIMjT3vI": "<p>Alexandro (46)</p>",
+        "text_hSSySzjpfaJGOo4E": "<p>Ho fumato per 22 anni e ho usato la sigaretta elettronica per cinque. La parte più difficile dello smettere, per me, non è stata solo la nicotina...</p>",
+        "text_8JljCNX0MkXQArjG": "<p>Francesco (32)</p>",
+        "text_yXbo5X7wLXB6xTk8": "<p>Non avrei mai pensato di poterlo dire, ma è impressionante. Sono passati sette giorni da quando ho smesso di fumare...</p>",
+        "text_u5pIPquRf7JA1gZw": "<p>Marcos (45)</p>",
+        "text_388eRqNeiLNxs3sl": "<p>Le esperienze individuali possono variare. Lio non è un dispositivo medico né un dispositivo per smettere di fumare.</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "instant_82_ryrn_jl_m_jb_pgb5_u_wcWcKQ": {
       "type": "instant-82RYRNJlMJbPgb5U",
       "name": "The Original Reviews",
@@ -126,6 +151,7 @@
   },
   "order": [
     "instant_jyp_h6f_v0i_x_przy5_v_7J6BfG",
+    "instant_rmxolt09w_c3_vj2_ly_pqzQEz",
     "instant-q0ML9kHEYaDGSrIK",
     "instant_u_an_vl_mfa9_e8_iu_pz_k_jWdMJV",
     "instant_82_ryrn_jl_m_jb_pgb5_u_wcWcKQ",
