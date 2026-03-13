@@ -9,10 +9,6 @@
  */
 {
   "sections": {
-    "instant-q0ML9kHEYaDGSrIK": {
-      "type": "instant-q0ML9kHEYaDGSrIK",
-      "settings": {}
-    },
     "instant_jyp_h6f_v0i_x_przy5_v_7J6BfG": {
       "type": "instant-JypH6fV0iXPrzy5V",
       "name": "Italian Section Listicle",
@@ -67,6 +63,10 @@
         "padding_bottom": 0
       }
     },
+    "instant-q0ML9kHEYaDGSrIK": {
+      "type": "instant-q0ML9kHEYaDGSrIK",
+      "settings": {}
+    },
     "instant_u_an_vl_mfa9_e8_iu_pz_k_jWdMJV": {
       "type": "instant-uAnVLMfa9E8IUPzK",
       "name": "HOW LIO WORKS ",
@@ -79,11 +79,56 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "instant_82_ryrn_jl_m_jb_pgb5_u_wcWcKQ": {
+      "type": "instant-82RYRNJlMJbPgb5U",
+      "name": "The Original Reviews",
+      "settings": {
+        "product_BdbeMVtHjl7P3ioz": "lio®-journey-pack-1",
+        "text_tBnF7hzwwuPzhyHq": "<p>SCELTO DA OLTRE</p>",
+        "text_BuS8EoI8zLOIQ1TE": "<p> 100.000 PERSONE</p>",
+        "url_y0OK5IhBLuBvOVsT": "",
+        "text_nUqKOZuD7neCYlGC": "<p>PROVA LIO ORA</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1773381787dd1eb771": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_agg_section_7UkL64": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "reviews_to_display": "",
+            "default_tab": "automatic",
+            "only_photos": false,
+            "hide_thumbnails": false,
+            "product_handle": "",
+            "aggregated": true,
+            "data-limit": 20,
+            "maxwidth": 1080,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_agg_section_7UkL64"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
     }
   },
   "order": [
     "instant_jyp_h6f_v0i_x_przy5_v_7J6BfG",
     "instant-q0ML9kHEYaDGSrIK",
-    "instant_u_an_vl_mfa9_e8_iu_pz_k_jWdMJV"
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_jWdMJV",
+    "instant_82_ryrn_jl_m_jb_pgb5_u_wcWcKQ",
+    "1773381787dd1eb771"
   ]
 }
