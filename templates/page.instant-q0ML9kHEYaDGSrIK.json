@@ -71,11 +71,11 @@
       "type": "instant-uAnVLMfa9E8IUPzK",
       "name": "HOW LIO WORKS ",
       "settings": {
-        "text_dexOB6igRe9Eptbe": "<h3>Here’s how LIO works</h3>",
-        "text_2dI3MuIHWWHZJRsK": "<p>1: ZIP THE BAG </p>",
-        "text_n81CRw4pHvFx6kf7": "<p>2: FRAY THE CORE</p>",
-        "text_IToyPQTuctktKsiP": "<p>3: insert the core</p>",
-        "text_jmBe8RVHWUBx87sJ": "<p>4: Enjoy the relief</p>",
+        "text_dexOB6igRe9Eptbe": "<p>Ecco come funziona LIO</p>",
+        "text_2dI3MuIHWWHZJRsK": "<p>1: APRI LA BUSTA</p>",
+        "text_n81CRw4pHvFx6kf7": "<p>2: SFIBRA IL NUCLEO</p>",
+        "text_IToyPQTuctktKsiP": "<p>3: INSERIRE IL NUCLEO</p>",
+        "text_jmBe8RVHWUBx87sJ": "<p>4: GODITI IL SOLLIEVE</p>",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -102,7 +102,7 @@
             "reviews_to_display": "",
             "default_tab": "automatic",
             "only_photos": false,
-            "hide_thumbnails": false,
+            "hide_thumbnails": true,
             "product_handle": "",
             "aggregated": true,
             "data-limit": 20,
@@ -116,7 +116,7 @@
       ],
       "settings": {
         "full_width": true,
-        "remove_vertical_spacing": false,
+        "remove_vertical_spacing": true,
         "remove_horizontal_spacing": false,
         "background": "",
         "background_gradient": "",
