@@ -20,9 +20,9 @@
         "text_p6ruaxM49Twut7cY": "<p>Secs</p>",
         "text_Vke2DsPf0fcs2hqo": "<p><strong>5 motivi per cui Lio è il rituale indispensabile per smettere senza fatica.</strong></p>",
         "text_AmS5Mzu4loSx8ffh": "<p>La soluzione <strong>sensoriale e a base vegetale</strong> che sostituisce il gesto <strong>“mano-alla-bocca”</strong> in <strong>2 minuti</strong>.</p>",
-        "url_eX4OyyiSAQZ0uSza": "",
+        "url_eX4OyyiSAQZ0uSza": "#iydyVobnGGfxHW3Lz",
         "text_X0hf0PijlocmyX7W": "<p><strong>Richiedi i miei 30 giorni gratuiti</strong></p>",
-        "product_FHUd3DCPo7R3Y1JU": "lio®-journey-pack-1",
+        "product_FHUd3DCPo7R3Y1JU": "",
         "text_GOcQvowhwYD2Wj8B": "<p>★ ★ ★ ★ ★ 100.000+ hanno già cambiato rituale</p>",
         "text_HRutHTvPmntAi3cG": "<p>“Incredibile! Ho provato cerotti e gomme, ma coprono solo il problema. Lio elimina davvero la voglia in meno di 2 minuti sostituendo il rituale fisico che mi mancava. Sembra magia.” – Marco G.</p>",
         "text_lsLigNgYM1jVxldQ": "<p>Senza nicotina</p>",
@@ -63,29 +63,12 @@
         "padding_bottom": 0
       }
     },
-    "instant-q0ML9kHEYaDGSrIK": {
-      "type": "instant-q0ML9kHEYaDGSrIK",
-      "settings": {}
-    },
-    "instant_u_an_vl_mfa9_e8_iu_pz_k_jWdMJV": {
-      "type": "instant-uAnVLMfa9E8IUPzK",
-      "name": "HOW LIO WORKS ",
-      "settings": {
-        "text_dexOB6igRe9Eptbe": "<p>Ecco come funziona LIO</p>",
-        "text_2dI3MuIHWWHZJRsK": "<p>1: APRI LA BUSTA</p>",
-        "text_n81CRw4pHvFx6kf7": "<p>2: SFIBRA IL NUCLEO</p>",
-        "text_IToyPQTuctktKsiP": "<p>3: INSERIRE IL NUCLEO</p>",
-        "text_jmBe8RVHWUBx87sJ": "<p>4: GODITI IL SOLLIEVE</p>",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "instant_rmxolt09w_c3_vj2_ly_pqzQEz": {
       "type": "instant-RMXOLT09wC3Vj2Ly",
       "name": "Italian Review Videos",
       "settings": {
         "text_QJAjwTw5D5BoJMtu": "<p>1000+</p>",
-        "url_QJAjwTw5D5BoJMtu": "#",
+        "url_QJAjwTw5D5BoJMtu": "#iydyVobnGGfxHW3Lz",
         "text_dbGm8UEflEZoVcgI": "<p>Recensioni verificate a 5 stelle</p>",
         "text_eeGJJVOJDIKYFSqm": "<h3>\"Ero scettico, </h3>",
         "text_cXEL8Zvxrbx6Pbe0": "<h3>finché non l'ho provato.\"</h3>",
@@ -105,6 +88,23 @@
         "padding_bottom": 0
       }
     },
+    "instant-q0ML9kHEYaDGSrIK": {
+      "type": "instant-q0ML9kHEYaDGSrIK",
+      "settings": {}
+    },
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_jWdMJV": {
+      "type": "instant-uAnVLMfa9E8IUPzK",
+      "name": "HOW LIO WORKS ",
+      "settings": {
+        "text_dexOB6igRe9Eptbe": "<p>Ecco come funziona LIO</p>",
+        "text_2dI3MuIHWWHZJRsK": "<p>1: APRI LA BUSTA</p>",
+        "text_n81CRw4pHvFx6kf7": "<p>2: SFIBRA IL NUCLEO</p>",
+        "text_IToyPQTuctktKsiP": "<p>3: INSERIRE IL NUCLEO</p>",
+        "text_jmBe8RVHWUBx87sJ": "<p>4: GODITI IL SOLLIEVE</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "instant_82_ryrn_jl_m_jb_pgb5_u_wcWcKQ": {
       "type": "instant-82RYRNJlMJbPgb5U",
       "name": "The Original Reviews",
@@ -112,7 +112,7 @@
         "product_BdbeMVtHjl7P3ioz": "lio®-journey-pack-1",
         "text_tBnF7hzwwuPzhyHq": "<p>SCELTO DA OLTRE</p>",
         "text_BuS8EoI8zLOIQ1TE": "<p> 100.000 PERSONE</p>",
-        "url_y0OK5IhBLuBvOVsT": "",
+        "url_y0OK5IhBLuBvOVsT": "#iydyVobnGGfxHW3Lz",
         "text_nUqKOZuD7neCYlGC": "<p>PROVA LIO ORA</p>",
         "padding_top": 0,
         "padding_bottom": 0
