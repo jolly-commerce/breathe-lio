@@ -1,0 +1,893 @@
+{% comment %}
+  ═══════════════════════════════════════════════════════════════
+  Lio® Advertorial Landing Page — Shopify Liquid Template
+  ═══════════════════════════════════════════════════════════════
+  Usage:
+    1. Upload lio-logo-white.png to Settings > Files (or your theme assets)
+    2. Create a new page template: templates/page.advertorial.liquid
+       OR add as a section: sections/advertorial.liquid
+    3. Assign this template to the advertorial page in Shopify admin
+  ═══════════════════════════════════════════════════════════════
+{% endcomment %}
+
+{% comment %} ── Configurable Settings ── {% endcomment %}
+{%- assign cta_url = '/products/journey-pack-3' -%}
+{%- assign cta_text = 'Start My Journey →' -%}
+{%- assign mid_cta_url = '/products/journey-pack-3' -%}
+{%- assign mid_cta_text = '→ See How This Science Was Turned Into a Product' -%}
+{%- assign logo_url = 'lio-logo-white.png' | asset_url -%}
+
+{%- comment -%} If logo is in Files (Content > Files) instead of Assets, use: {%- endcomment -%}
+{%- comment -%} {%- assign logo_url = 'lio-logo-white.png' | file_url -%} {%- endcomment -%}
+
+<style>
+  /* ── Reset page container if theme adds padding ── */
+  .shopify-section--advertorial .shopify-section { padding: 0; margin: 0; }
+  .advertorial-page { max-width: 100%; padding: 0; margin: 0; }
+
+  /* ── CSS Variables ── */
+  :root {
+    --adv-brand-dark: #0a1a14;
+    --adv-brand-deep: #0f2920;
+    --adv-brand-green: #1a3d2e;
+    --adv-brand-accent: #4ecba5;
+    --adv-brand-light-accent: #7ee8c7;
+    --adv-brand-cream: #f7f5f0;
+    --adv-brand-warm: #faf8f3;
+    --adv-brand-text: #1a1a18;
+    --adv-brand-text-light: #5a5a52;
+    --adv-brand-gold: #c9a94e;
+    --adv-brand-coral: #e87461;
+    --adv-brand-white: #ffffff;
+    --adv-font-display: 'Playfair Display', Georgia, serif;
+    --adv-font-body: 'DM Sans', -apple-system, sans-serif;
+    --adv-max-width: 720px;
+  }
+
+  /* ── Load Fonts ── */
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  /* ── Advertorial Wrapper (scoped to avoid theme conflicts) ── */
+  .advertorial-page {
+    font-family: var(--adv-font-body);
+    background: var(--adv-brand-cream);
+    color: var(--adv-brand-text);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    font-size: 17px;
+  }
+
+  /* ── Top Bar ── */
+  .adv-top-bar {
+    background: var(--adv-brand-dark);
+    color: var(--adv-brand-white);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .adv-top-bar span { opacity: 0.7; }
+  .adv-top-bar strong { color: var(--adv-brand-accent); opacity: 1; }
+
+  /* ── Header ── */
+  .adv-site-header {
+    background: var(--adv-brand-dark);
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(78,203,165,0.15);
+  }
+  .adv-site-header img {
+    height: 38px;
+    width: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  /* ── Article Container ── */
+  .adv-article-container {
+    max-width: var(--adv-max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── Editorial Tag ── */
+  .adv-editorial-tag {
+    display: inline-block;
+    margin-top: 48px;
+    padding: 5px 14px;
+    background: var(--adv-brand-dark);
+    color: var(--adv-brand-accent);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 2px;
+  }
+
+  /* ── Headline ── */
+  .adv-main-headline {
+    font-family: var(--adv-font-display);
+    font-size: clamp(1.9rem, 5vw, 2.65rem);
+    line-height: 1.22;
+    color: var(--adv-brand-dark);
+    margin-top: 20px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .adv-sub-headline {
+    font-family: var(--adv-font-display);
+    font-size: clamp(1.1rem, 2.8vw, 1.3rem);
+    line-height: 1.45;
+    color: var(--adv-brand-text-light);
+    margin-top: 16px;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  /* ── Byline ── */
+  .adv-byline {
+    margin-top: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #ddd8cc;
+    font-size: 0.82rem;
+    color: var(--adv-brand-text-light);
+  }
+  .adv-byline strong { color: var(--adv-brand-text); font-weight: 600; }
+
+  /* ── Body Copy ── */
+  .adv-article-body p {
+    margin-top: 1.5em;
+    font-size: 1rem;
+    line-height: 1.82;
+    color: var(--adv-brand-text);
+  }
+  .adv-article-body .adv-lead-paragraph {
+    font-size: 1.12rem;
+    line-height: 1.78;
+    color: var(--adv-brand-text);
+    font-weight: 400;
+  }
+  .adv-article-body .adv-lead-paragraph::first-letter {
+    float: left;
+    font-family: var(--adv-font-display);
+    font-size: 3.8rem;
+    line-height: 0.8;
+    padding-right: 8px;
+    padding-top: 6px;
+    color: var(--adv-brand-dark);
+    font-weight: 700;
+  }
+
+  /* ── Section Headers ── */
+  .adv-section-header {
+    font-family: var(--adv-font-display);
+    font-size: 1.45rem;
+    color: var(--adv-brand-dark);
+    margin-top: 2.5em;
+    margin-bottom: 0.3em;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .adv-section-header-sm {
+    font-family: var(--adv-font-display);
+    font-size: 1.2rem;
+    color: var(--adv-brand-dark);
+    margin-top: 2em;
+    margin-bottom: 0.3em;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  /* ── Pull Quote ── */
+  .adv-pull-quote {
+    margin: 2.5em 0;
+    padding: 28px 32px;
+    border-left: 4px solid var(--adv-brand-accent);
+    background: linear-gradient(135deg, rgba(78,203,165,0.06), rgba(78,203,165,0.02));
+    border-radius: 0 8px 8px 0;
+  }
+  .adv-pull-quote p {
+    font-family: var(--adv-font-display);
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--adv-brand-deep);
+    margin: 0 !important;
+  }
+  .adv-pull-quote cite {
+    display: block;
+    margin-top: 12px;
+    font-family: var(--adv-font-body);
+    font-size: 0.82rem;
+    font-style: normal;
+    color: var(--adv-brand-text-light);
+    font-weight: 500;
+  }
+
+  /* ── Stat Block ── */
+  .adv-stat-block {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 2.5em 0;
+  }
+  .adv-stat-item {
+    text-align: center;
+    padding: 24px 12px;
+    background: var(--adv-brand-dark);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  .adv-stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--adv-brand-accent);
+  }
+  .adv-stat-number {
+    font-family: var(--adv-font-display);
+    font-size: 1.7rem;
+    color: var(--adv-brand-accent);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .adv-stat-label {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.65);
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.35;
+  }
+
+  /* ── Testimonial Card ── */
+  .adv-testimonial-card {
+    background: var(--adv-brand-white);
+    border: 1px solid #e8e4dc;
+    border-radius: 12px;
+    padding: 28px 28px 24px;
+    margin: 2em 0;
+    position: relative;
+  }
+  .adv-testimonial-card::before {
+    content: '\201C';
+    font-family: var(--adv-font-display);
+    font-size: 4rem;
+    color: var(--adv-brand-accent);
+    position: absolute;
+    top: 8px;
+    left: 22px;
+    line-height: 1;
+    opacity: 0.4;
+  }
+  .adv-testimonial-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--adv-brand-text);
+    margin: 0 !important;
+    padding-left: 4px;
+  }
+  .adv-testimonial-card .adv-tc-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding-left: 4px;
+  }
+  .adv-tc-stars { color: var(--adv-brand-gold); font-size: 0.85rem; letter-spacing: 2px; }
+  .adv-tc-name { font-size: 0.8rem; font-weight: 600; color: var(--adv-brand-text); }
+  .adv-tc-verified { font-size: 0.68rem; color: var(--adv-brand-accent); font-weight: 500; }
+
+  /* ── Key Mechanism Box ── */
+  .adv-mechanism-box {
+    background: var(--adv-brand-dark);
+    color: var(--adv-brand-white);
+    border-radius: 14px;
+    padding: 36px 32px;
+    margin: 2.5em 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .adv-mechanism-box::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(78,203,165,0.15), transparent 70%);
+    border-radius: 50%;
+  }
+  .adv-mechanism-box h3 {
+    font-family: var(--adv-font-display);
+    font-size: 1.3rem;
+    color: var(--adv-brand-accent);
+    margin-bottom: 16px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+  .adv-mechanism-box p {
+    color: rgba(255,255,255,0.85) !important;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    position: relative;
+    z-index: 1;
+    margin-top: 0.8em !important;
+  }
+  .adv-mechanism-box .adv-loop-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin: 24px 0 8px;
+    position: relative;
+    z-index: 1;
+  }
+  .adv-loop-step {
+    text-align: center;
+    flex: 1;
+    max-width: 130px;
+  }
+  .adv-loop-step .adv-loop-icon {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: rgba(78,203,165,0.15);
+    border: 2px solid var(--adv-brand-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+    font-size: 1.3rem;
+  }
+  .adv-loop-step .adv-loop-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.3;
+  }
+  .adv-loop-arrow {
+    font-size: 1.4rem;
+    color: var(--adv-brand-accent);
+    opacity: 0.5;
+    margin: 0 -4px;
+    padding-bottom: 22px;
+  }
+
+  /* ── Feature List ── */
+  .adv-feature-list {
+    list-style: none;
+    margin: 1.5em 0;
+    padding: 0;
+  }
+  .adv-feature-list li {
+    padding: 10px 0 10px 32px;
+    position: relative;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border-bottom: 1px solid #eae6dd;
+  }
+  .adv-feature-list li:last-child { border-bottom: none; }
+  .adv-feature-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--adv-brand-accent);
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  /* ── CTA Section ── */
+  .adv-cta-section {
+    background: linear-gradient(165deg, var(--adv-brand-dark) 0%, var(--adv-brand-deep) 50%, #0d3324 100%);
+    border-radius: 16px;
+    padding: 44px 36px;
+    margin: 3em 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .adv-cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 30% 20%, rgba(78,203,165,0.1), transparent 60%),
+                radial-gradient(ellipse at 70% 80%, rgba(78,203,165,0.08), transparent 50%);
+  }
+  .adv-cta-section * { position: relative; z-index: 1; }
+  .adv-cta-section .adv-cta-logo {
+    height: 36px;
+    margin-bottom: 20px;
+    filter: brightness(0) invert(1);
+  }
+  .adv-cta-section h3 {
+    font-family: var(--adv-font-display);
+    font-size: 1.6rem;
+    color: var(--adv-brand-white);
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .adv-cta-section .adv-cta-sub {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.92rem;
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+  .adv-cta-button {
+    display: inline-block;
+    background: var(--adv-brand-accent);
+    color: var(--adv-brand-dark);
+    padding: 16px 48px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 24px rgba(78,203,165,0.3);
+  }
+  .adv-cta-button:hover {
+    background: var(--adv-brand-light-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(78,203,165,0.4);
+  }
+  .adv-cta-guarantee {
+    margin-top: 18px;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* ── Inline CTA ── */
+  .adv-inline-cta {
+    display: block;
+    text-align: center;
+    margin: 2em 0;
+  }
+  .adv-inline-cta a {
+    display: inline-block;
+    background: var(--adv-brand-dark);
+    color: var(--adv-brand-accent);
+    padding: 14px 40px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(78,203,165,0.3);
+  }
+  .adv-inline-cta a:hover {
+    background: var(--adv-brand-deep);
+    border-color: var(--adv-brand-accent);
+  }
+
+  /* ── Comparison Table ── */
+  .adv-compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2em 0;
+    font-size: 0.88rem;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e0dcd2;
+  }
+  .adv-compare-table th {
+    background: var(--adv-brand-dark);
+    color: var(--adv-brand-white);
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .adv-compare-table th:last-child { color: var(--adv-brand-accent); }
+  .adv-compare-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eae6dd;
+    vertical-align: top;
+  }
+  .adv-compare-table tr:last-child td { border-bottom: none; }
+  .adv-compare-table tr:nth-child(even) { background: rgba(247,245,240,0.5); }
+  .adv-compare-table .adv-yes { color: var(--adv-brand-accent); font-weight: 600; }
+  .adv-compare-table .adv-no { color: var(--adv-brand-coral); font-weight: 500; }
+
+  /* ── Divider ── */
+  .adv-section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ccc8bc, transparent);
+    margin: 3em 0;
+  }
+
+  /* ── PS Section ── */
+  .adv-ps-section {
+    background: var(--adv-brand-warm);
+    border: 1px solid #e4e0d6;
+    border-radius: 10px;
+    padding: 28px 28px;
+    margin: 2.5em 0;
+  }
+  .adv-ps-section p {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    margin-top: 0.8em !important;
+  }
+  .adv-ps-section p:first-child { margin-top: 0 !important; }
+  .adv-ps-section strong { color: var(--adv-brand-dark); }
+
+  /* ── Footer ── */
+  .adv-article-footer {
+    background: var(--adv-brand-dark);
+    padding: 40px 24px;
+    margin-top: 60px;
+    text-align: center;
+  }
+  .adv-article-footer img {
+    height: 32px;
+    filter: brightness(0) invert(1);
+    margin-bottom: 16px;
+  }
+  .adv-article-footer p {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.68rem;
+    line-height: 1.6;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  /* ── Emphasis ── */
+  .adv-emphasis { color: var(--adv-brand-dark); font-weight: 600; }
+  .adv-accent-text { color: var(--adv-brand-accent); font-weight: 600; }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .advertorial-page { font-size: 16px; }
+    .adv-article-container { padding: 0 18px; }
+    .adv-stat-block { grid-template-columns: 1fr; gap: 12px; }
+    .adv-stat-item { padding: 18px 12px; }
+    .adv-mechanism-box { padding: 28px 22px; }
+    .adv-cta-section { padding: 36px 24px; }
+    .adv-compare-table { font-size: 0.8rem; }
+    .adv-compare-table th, .adv-compare-table td { padding: 10px 10px; }
+    .adv-loop-visual { flex-wrap: wrap; }
+  }
+</style>
+
+<div class="advertorial-page">
+
+  <!-- ══ TOP BAR ══ -->
+  <div class="adv-top-bar">
+    <span>Advertorial · </span><strong>Health &amp; Wellness</strong><span> · Produced in the Netherlands · </span><strong>100,000+ Customers Worldwide</strong>
+  </div>
+
+  <!-- ══ HEADER ══ -->
+  <header class="adv-site-header">
+    <img
+      src="{{ logo_url }}"
+      alt="{{ shop.name }}"
+      loading="eager"
+      width="120"
+      height="38"
+    />
+  </header>
+
+  <!-- ══ ARTICLE ══ -->
+  <main class="adv-article-container">
+
+    <div class="adv-editorial-tag">Health Investigation</div>
+
+    <h1 class="adv-main-headline">New Research Reveals Why 95% of People Fail to Quit Vaping — And the Overlooked Science That Finally Explains What Actually Works</h1>
+
+    <p class="adv-sub-headline">A USC study found that 53% of daily vapers who try to quit can't. Behavioral scientists now say everyone has been solving the wrong problem. Here's what they discovered.</p>
+
+    <div class="adv-byline">
+      By <strong>Health &amp; Wellness Editorial Staff</strong> · Updated {{ 'now' | date: '%B %Y' }} · 8 min read
+    </div>
+
+    <!-- ══ BODY ══ -->
+    <article class="adv-article-body">
+
+      <p class="adv-lead-paragraph">Mark Davies, 34, from Manchester, used to vape 200 times a day. He tried nicotine patches. He tried gum. He even tried going cold turkey three separate times. Each attempt ended the same way — within 72 hours, he was back on the vape, feeling defeated, disgusted with himself, and more convinced than ever that he was simply "too addicted" to stop.</p>
+
+      <p>What Mark didn't know — what almost nobody knows — is that his willpower wasn't the problem. His brain chemistry wasn't the problem. And nicotine, surprisingly, was only <em>half</em> the problem.</p>
+
+      <p>The real reason Mark kept failing? <span class="adv-emphasis">Every quit method he'd ever tried was solving the wrong problem entirely.</span></p>
+
+      <p>That's not opinion. That's what a growing body of research in behavioral psychology and olfactory neuroscience is now confirming — and it's changing everything we thought we knew about how to quit vaping.</p>
+
+      <!-- ── Stat Block ── -->
+      <div class="adv-stat-block">
+        <div class="adv-stat-item">
+          <div class="adv-stat-number">53%</div>
+          <div class="adv-stat-label">of daily vapers who try to quit<br>fail to stop</div>
+        </div>
+        <div class="adv-stat-item">
+          <div class="adv-stat-number">50–70%</div>
+          <div class="adv-stat-label">of addiction is<br>behavioral, not chemical</div>
+        </div>
+        <div class="adv-stat-item">
+          <div class="adv-stat-number">100M+</div>
+          <div class="adv-stat-label">people worldwide<br>currently vape</div>
+        </div>
+      </div>
+
+      <div class="adv-section-divider"></div>
+
+      <!-- ── THE PROBLEM ── -->
+      <h2 class="adv-section-header">The $27.2 Billion Lie the Vaping Industry Doesn't Want You to Understand</h2>
+
+      <p>Here's what the quit-smoking industry has told you for decades: your addiction is a <em>nicotine</em> problem. So they gave you nicotine patches. Nicotine gum. Nicotine lozenges. Even nicotine-replacement vapes.</p>
+
+      <p>The logic seems sound. Remove nicotine, withdrawal kicks in. Replace it with "safer" nicotine, withdrawal eases. Problem solved.</p>
+
+      <p>Except it doesn't work. Not for most people.</p>
+
+      <p>A 2025 study published in <em>JAMA Network Open</em> by researchers at the USC Institute for Addiction Science found something alarming: among youth who vape daily, the percentage who tried to quit but <em>couldn't</em> has nearly doubled — rising from 28.2% in 2020 to 53% by 2024. And these aren't casual users. These are people who desperately <em>want</em> to stop.</p>
+
+      <p>Why? Because patches stick to your arm while your hands sit there, empty. Gum makes you look nervous in meetings. Nicotine-replacement vapes just trade one addiction for another — different delivery, same drug.</p>
+
+      <p><span class="adv-emphasis">None of them address what your brain actually craves.</span></p>
+
+      <div class="adv-pull-quote">
+        <p>"We need to improve treatment and prevention efforts for this population. The rise in daily vaping and growing number of youth trying to quit implies that these youth are experiencing a severe level of nicotine addiction."</p>
+        <cite>— Dr. Abbey Masonbrink, USC Keck School of Medicine, JAMA Network Open (2025)</cite>
+      </div>
+
+      <!-- ── THE HIDDEN CAUSE ── -->
+      <h2 class="adv-section-header">The Hidden Truth: Your Brain Doesn't Just Crave Nicotine — It Craves the <em>Entire Experience</em></h2>
+
+      <p>Here's what most people don't know, and it's the single most important fact for anyone trying to quit:</p>
+
+      <p><span class="adv-emphasis">Addiction isn't just chemical. Science shows it's ritual <em>plus</em> chemical.</span></p>
+
+      <p>The hand-to-mouth motion. The deep inhale. The cool sensation hitting your throat. The visible exhale. The brief pause from whatever you were doing. These behavioral patterns — repeated 10,000+ times — create neural pathways in your brain that account for an estimated 50–70% of the total addiction.</p>
+
+      <p>Think about it: you've performed the <em>exact</em> same physical movement — hand up, inhale, hand down — tens of thousands of times. Your brain has wired itself around that loop. It doesn't just want nicotine. It wants the <em>ritual</em>. The motion. The sensation. The moment.</p>
+
+      <p>That's why willpower alone has a 95% failure rate. You're trying to fight your own neural wiring with sheer determination. It's like trying to forget how to ride a bike by just <em>wanting</em> to forget.</p>
+
+      <!-- ── Mechanism Box ── -->
+      <div class="adv-mechanism-box">
+        <h3>The Habit Loop: Why Willpower Alone Always Fails</h3>
+        <div class="adv-loop-visual">
+          <div class="adv-loop-step">
+            <div class="adv-loop-icon">🧠</div>
+            <div class="adv-loop-label">Cue<br><small>(Stress, boredom)</small></div>
+          </div>
+          <div class="adv-loop-arrow">→</div>
+          <div class="adv-loop-step">
+            <div class="adv-loop-icon">✋</div>
+            <div class="adv-loop-label">Routine<br><small>(Hand-to-mouth)</small></div>
+          </div>
+          <div class="adv-loop-arrow">→</div>
+          <div class="adv-loop-step">
+            <div class="adv-loop-icon">😮‍💨</div>
+            <div class="adv-loop-label">Reward<br><small>(Sensation relief)</small></div>
+          </div>
+          <div class="adv-loop-arrow">→</div>
+          <div class="adv-loop-step">
+            <div class="adv-loop-icon">🔁</div>
+            <div class="adv-loop-label">Repeat<br><small>(10,000+ times)</small></div>
+          </div>
+        </div>
+        <p>Research in behavioral psychology shows you cannot simply <em>delete</em> a habit loop. You can only <em>replace</em> the routine while keeping the cue and reward intact. This is why patches and gum fail — they address the chemistry but leave the deeply-wired behavioral loop screaming for satisfaction.</p>
+      </div>
+
+      <div class="adv-section-divider"></div>
+
+      <!-- ── THE DISCOVERY ── -->
+      <h2 class="adv-section-header">The Science of "Olfactory Conditioning" — And Why It Changes Everything</h2>
+
+      <p>In behavioral neuroscience, there's a well-established principle called <em>olfactory conditioning</em> — the science of how scent directly influences your brain's behavior and emotional response. Smell is the only sense with a direct line to the limbic system, the part of your brain that controls cravings, emotions, and habit formation.</p>
+
+      <p>Research has shown that specific plant-based aromas — like black pepper and angelica — can help curb cravings and ease withdrawal symptoms. A clinical study found that inhaling black pepper essential oil significantly reduced nicotine cravings compared to a placebo.</p>
+
+      <p>This was the missing piece.</p>
+
+      <p>What if, instead of fighting the habit loop, you could <em>keep</em> it — the hand motion, the deep breath, the throat sensation, the sensory reward — but swap the harmful routine for something completely clean?</p>
+
+      <p>Not more nicotine. Not another chemical. Just <em>clean air</em> infused with therapeutic plant compounds that your brain's olfactory system recognizes as a reward.</p>
+
+      <p>Same loop. Same motion. Same breath. Same satisfaction. <span class="adv-accent-text">Just without the poison.</span></p>
+
+      <div class="adv-inline-cta">
+        <a href="{{ mid_cta_url }}">{{ mid_cta_text }}</a>
+      </div>
+
+      <div class="adv-section-divider"></div>
+
+      <!-- ── THE SOLUTION ── -->
+      <h2 class="adv-section-header">Meet Lio®: The Original Flavored Air Device Built on Behavioral Science</h2>
+
+      <p>A team of researchers and product developers in the Netherlands took this exact science and built something remarkably simple — and remarkably effective.</p>
+
+      <p>It's called <strong>Lio</strong>. And it's not a vape. It's not an e-cigarette. It contains zero nicotine, produces zero vapor, requires zero batteries, and involves zero chemicals.</p>
+
+      <p>Lio is a handheld device made from medical-grade materials, fitted with replaceable "Flavour Cores" — small inserts made from medical-grade polyester fiber infused with 100% organic, pharmaceutical-grade essential oils sourced from IFRA-certified European farms.</p>
+
+      <p>When you inhale through Lio, air flows through the Core and picks up natural plant aromatics — peppermint, black pepper, cinnamon, botanical blends — that travel directly to your brain's olfactory region. It delivers a cool throat sensation, a refreshing flavor, and the full hand-to-mouth ritual your brain is wired to crave.</p>
+
+      <p>You're not fighting your brain anymore. You're giving it exactly what it wants — the pattern, the pause, the sensation — while removing every harmful element.</p>
+
+      <ul class="adv-feature-list">
+        <li><strong>0% nicotine, 0% vapor, 0% chemicals</strong> — you're breathing clean, naturally-flavored air</li>
+        <li><strong>Mimics the exact hand-to-mouth ritual</strong> that accounts for 50–70% of addiction</li>
+        <li><strong>Olfactory conditioning</strong> — plant aromatics activate scent receptors that interrupt craving pathways</li>
+        <li><strong>Cool throat sensation</strong> — menthol blends replicate the physical "hit" without harm</li>
+        <li><strong>Use it anywhere</strong> — no smoke, vapor, or smell means no restrictions. Planes, offices, restaurants, next to your kids</li>
+        <li><strong>No batteries, no charging, no electronics</strong> — just pure, simple, natural aromatherapy</li>
+        <li><strong>Produced in the Netherlands</strong> with medical-grade materials and multiple 3rd-party toxicology reports</li>
+      </ul>
+
+      <p>As one Lio customer put it: <em>"It gives the throat feeling like a cig without the harm."</em></p>
+
+      <div class="adv-section-divider"></div>
+
+      <!-- ── PROOF ── -->
+      <h2 class="adv-section-header">What Happens When 100,000+ People Try a Different Approach</h2>
+
+      <p>Lio has now been used by over 100,000 customers across 50+ countries. The results speak louder than any clinical abstract.</p>
+
+      {% comment %} ── Testimonials ── {% endcomment %}
+      {%- assign testimonials = "I've been using Lio for a week now. I smoked, vaped, and chewed gum for the past 30 years, but with Lio I'm not craving my vape at all. All the flavors are really good. I absolutely love it.|Anna, 60|Verified Buyer~I've been trying to quit for over 2 years, but nothing really worked. This little thing helped me cut down almost completely. I'm on day 14 now and it's been such a big help. If you're trying to quit, definitely give this a try — it really works.|James, 38|Verified Buyer~It blows my mind how a product like this in its simplicity hasn't existed since forever. I've been using it for 6 days and haven't touched a vape since. This is an awesome product I recommend highly.|Achmed, 43|Verified Buyer~Undoubtedly the most important tool in being able to quit smoking after 20 years. The grooves allow you to hold the Lio in whichever way you're used to holding a cigarette. The resistance it provides on the intake of breath is very similar to that of smoking.|David, 52|Verified Buyer via Trustpilot" | split: '~' -%}
+
+      {%- for testimonial in testimonials -%}
+        {%- assign parts = testimonial | split: '|' -%}
+        <div class="adv-testimonial-card">
+          <p>{{ parts[0] }}</p>
+          <div class="adv-tc-footer">
+            <span class="adv-tc-stars">★★★★★</span>
+            <span class="adv-tc-name">{{ parts[1] }}</span>
+            <span class="adv-tc-verified">· {{ parts[2] }}</span>
+          </div>
+        </div>
+      {%- endfor -%}
+
+      <p>Story after story follows the same pattern: people who had tried everything — patches, gum, cold turkey, even prescription medication — finally found something that worked. Not because Lio is magic. But because it's the first method that addresses <em>both</em> halves of the addiction: the chemical <em>and</em> the behavioral.</p>
+
+      <div class="adv-section-divider"></div>
+
+      <!-- ── COMPARISON ── -->
+      <h2 class="adv-section-header">How Lio Compares to Every Other Method You've Tried</h2>
+
+      <table class="adv-compare-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Addresses Nicotine?</th>
+            <th>Addresses Ritual?</th>
+            <th>Chemicals?</th>
+            <th>Lio®</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nicotine Patches</td>
+            <td class="adv-yes">Yes</td>
+            <td class="adv-no">No</td>
+            <td class="adv-no">Nicotine</td>
+            <td class="adv-yes">✓ Both</td>
+          </tr>
+          <tr>
+            <td>Nicotine Gum</td>
+            <td class="adv-yes">Yes</td>
+            <td class="adv-no">No</td>
+            <td class="adv-no">Nicotine</td>
+            <td class="adv-yes">✓ Both</td>
+          </tr>
+          <tr>
+            <td>Cold Turkey</td>
+            <td class="adv-no">Withdrawal</td>
+            <td class="adv-no">No</td>
+            <td class="adv-yes">None</td>
+            <td class="adv-yes">✓ Both</td>
+          </tr>
+          <tr>
+            <td>Nic-Free Vapes</td>
+            <td class="adv-no">No</td>
+            <td class="adv-yes">Partial</td>
+            <td class="adv-no">Chemicals, vapor</td>
+            <td class="adv-yes">✓ Both</td>
+          </tr>
+          <tr>
+            <td><strong>Lio®</strong></td>
+            <td class="adv-yes">Olfactory support</td>
+            <td class="adv-yes">Full ritual</td>
+            <td class="adv-yes">0% — clean air</td>
+            <td class="adv-yes">✓✓</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The difference is fundamental. Every other method treats vaping as a nicotine-delivery problem. Lio treats it as what it actually is: <span class="adv-emphasis">a behavioral pattern reinforced by sensory reward.</span> Solve the pattern. Satisfy the senses. And the craving dissolves — naturally.</p>
+
+      <div class="adv-section-divider"></div>
+
+      <!-- ── OBJECTIONS ── -->
+      <h2 class="adv-section-header">Honest Answers to the Questions You're Probably Asking</h2>
+
+      <h3 class="adv-section-header-sm">"I've been vaping for years. I'm too addicted for something this simple to work."</h3>
+      <p>Actually, the people who think they're "too addicted" are exactly who this works for. Because the longer you've vaped, the more deeply wired the <em>behavioral</em> pattern is — and the more critical it is to address it. Your brain doesn't care how long you've been addicted. It just wants the pattern back. Lio gives it that pattern, cleanly.</p>
+
+      <h3 class="adv-section-header-sm">"Is it safe? I don't want to swap one problem for another."</h3>
+      <p>You're inhaling clean air infused with natural plant aromatics — the same compounds found in peppermint tea or cinnamon sticks. Multiple third-party toxicology studies have been conducted on the plant compounds Lio uses. There's no nicotine, no tobacco, no vapor, no combustion, no electronics. Every ingredient is 100% natural, vegan, and allergen-free, sourced from IFRA-certified EU farms.</p>
+
+      <h3 class="adv-section-header-sm">"Will it feel like enough? I'm used to a strong hit."</h3>
+      <p>If you're used to vapor, Lio may feel lighter at first — the brand describes it like comparing herbal tea to sticky soda. But here's the surprising part: most customers report that within days, their cravings simply dissolve. The menthol blends provide a genuine throat sensation. And because you're satisfying the full ritual — not just the chemistry — your brain settles faster than you'd expect.</p>
+
+      <h3 class="adv-section-header-sm">"How is this different from FÜM or CAPNOS?"</h3>
+      <p>Lio was specifically engineered around olfactory conditioning science, using pharmaceutical-grade aromatics that target craving pathways — not just scent for the sake of scent. Each device is produced in the Netherlands with medical-grade materials. The grooved design mimics the exact grip and resistance of a cigarette. And with 100,000+ customers across 50+ countries and 1,200+ verified reviews, Lio has the track record to prove it works at scale.</p>
+
+      <div class="adv-section-divider"></div>
+
+      <!-- ── THE MATH ── -->
+      <h2 class="adv-section-header">The Simple Math That Makes This a No-Brainer</h2>
+
+      <p>Let's talk about what vaping is actually costing you — beyond your health.</p>
+
+      <p>The average vaper spends between $80–$150 per month on pods and devices. That's $960–$1,800 per year. Over five years, that's up to <span class="adv-emphasis">$9,000</span> — inhaled, vaporized, and gone.</p>
+
+      <p>A Lio Journey Pack — which includes the device and Flavour Cores to get started — costs a fraction of a single month's vaping budget. Replacement Cores cost even less. Lio estimates the switch saves customers <strong>5x compared to smoking or vaping</strong>.</p>
+
+      <p>But here's the number that actually matters: <span class="adv-emphasis">how much is it costing you every day you don't quit?</span> Not just money. Your lung capacity. Your cardiovascular health. The 19% increased heart failure risk that research associates with e-cigarette use. The look on your partner's face when you step outside — again — in the rain.</p>
+
+      <!-- ── MAIN CTA ── -->
+      <div class="adv-cta-section">
+        <img
+          class="adv-cta-logo"
+          src="{{ logo_url }}"
+          alt="{{ shop.name }}"
+          loading="lazy"
+          width="120"
+          height="36"
+        />
+        <h3>Start Your 30-Day Journey.<br>Risk-Free.</h3>
+        <p class="adv-cta-sub">Try Lio for a full 30 days. If your cravings haven't decreased — if you genuinely gave it a shot and it didn't work — you get a full refund. No questions asked.</p>
+        <a href="{{ cta_url }}" class="adv-cta-button">{{ cta_text }}</a>
+        <p class="adv-cta-guarantee">🛡️ 30-Day Money-Back Guarantee · Free Worldwide Shipping · 1,230+ Verified Reviews</p>
+      </div>
+
+      <p>You're not risking anything. You're risking 30 days to find out if you can finally quit. Here's the real question: <em>How much have you already spent on vaping this month?</em> How much will you spend next month if you do nothing?</p>
+
+      <p>The risk isn't trying Lio. The risk is staying where you are.</p>
+
+      <div class="adv-section-divider"></div>
+
+      <!-- ── PS SECTION ── -->
+      <div class="adv-ps-section">
+        <p><strong>P.S.</strong> — Remember Mark from the opening of this article? After three failed attempts to quit vaping, he was convinced he was a lost cause. Then a friend handed him a Lio. Within two weeks, he hadn't touched his vape. Not because the cravings vanished overnight — but because for the first time, he had something in his hand that gave his brain what it was actually asking for. The ritual. The breath. The sensation. Without the nicotine, without the chemicals, without the shame of stepping outside in the cold. That was four months ago. He hasn't gone back.</p>
+
+        <p><strong>P.P.S.</strong> — If you've read this far, you're not a casual reader. You're someone who is serious about quitting — someone who has probably tried before and felt the frustration of failure. Lio was built for you. Not the person who can quit with willpower alone. The person who needs something smarter. <a href="{{ cta_url }}" style="color: var(--adv-brand-accent); font-weight: 600; text-decoration: underline;">Try it for 30 days — your lungs will thank you →</a></p>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="adv-article-footer">
+    <img
+      src="{{ logo_url }}"
+      alt="{{ shop.name }}"
+      loading="lazy"
+      width="100"
+      height="32"
+    />
+    <p>Lio® is a wellness and aromatherapy device designed to provide sensory satisfaction through natural ritual replacement. It is not a medical device or smoking cessation aid. Individual experiences vary. Consult a qualified healthcare professional if you are struggling with substance dependence. Results mentioned reflect individual customer experiences and are not guaranteed. © {{ 'now' | date: '%Y' }} BreatheLio. All rights reserved. Produced in the Netherlands.</p>
+  </footer>
+
+</div>
+
+{% comment %}
+  ═══════════════════════════════════════════════════════════════
+  SCHEMA (if using as a section — uncomment the block below)
+  ═══════════════════════════════════════════════════════════════
+{% endcomment %}
+
+{% comment %}
+{% endcomment %}
