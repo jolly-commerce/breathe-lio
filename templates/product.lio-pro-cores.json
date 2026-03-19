@@ -74,7 +74,8 @@
             "radius": 8,
             "background": "#ffffff",
             "padding_vertical": 12,
-            "padding_horizontal": 16
+            "padding_horizontal": 16,
+            "change_text": "Change"
           }
         },
         "section_store_block_product_info_wrapper_8Rtpwq": {
@@ -184,6 +185,7 @@
             "border_color": "#b82020",
             "radius": 16,
             "background": "#ffecec",
+            "background_gradient": "",
             "shadow": "none",
             "padding_vertical": 12,
             "padding_horizontal": 16
@@ -322,7 +324,7 @@
       "name": "Featured product",
       "settings": {
         "full_width": true,
-        "product": "lio-flavor-cores",
+        "product": "lio-pro-cores",
         "desktop_media_width": 55,
         "desktop_media_layout": "carousel_thumbnails_left",
         "mobile_media_size": "expanded",
@@ -354,7 +356,8 @@
             "radius": 8,
             "background": "#ffffff",
             "padding_vertical": 12,
-            "padding_horizontal": 16
+            "padding_horizontal": 16,
+            "change_text": "Change"
           }
         },
         "section_store_block_social_proof_w3mgtJ": {
@@ -546,6 +549,7 @@
             "border_color": "#b82020",
             "radius": 16,
             "background": "#ffecec",
+            "background_gradient": "",
             "shadow": "none",
             "padding_vertical": 12,
             "padding_horizontal": 16
@@ -573,6 +577,7 @@
             "border_color": "#b82020",
             "radius": 8,
             "background": "#ffecec",
+            "background_gradient": "",
             "shadow": "none",
             "padding_vertical": 12,
             "padding_horizontal": 16
@@ -876,6 +881,7 @@
         "slider_view": 6,
         "slider_view_mobile": 2.2,
         "slider_rotate": 0,
+        "slider_advanced": false,
         "slider_gap": 10,
         "slider_gap_mobile": 10,
         "card_ratio": "portrait",
@@ -888,6 +894,7 @@
         "content_horizontal_position_mobile": "center",
         "content_vertical_position": "end",
         "content_vertical_position_mobile": "end",
+        "card_advanced": false,
         "card_padding_vertical": 20,
         "card_padding_vertical_mobile": 20,
         "card_padding_horizontal": 20,
@@ -933,6 +940,7 @@
         "arrow_bg_hover_color": "#ffffff",
         "arrow_border_color": "#121212",
         "arrow_border_hover_color": "#121212",
+        "background_style": "solid",
         "background_color": "#f5fff7",
         "background_gradient": "",
         "border_color": "#121212",
@@ -942,6 +950,7 @@
         "padding_bottom": 36,
         "padding_horizontal": 0,
         "padding_horizontal_mobile": 0,
+        "width": "page",
         "content_width": 1200,
         "border_thickness": 0,
         "lazy": true
@@ -1047,6 +1056,8 @@
         "loox_reviews_loox_dynamic_section_XnKfij": {
           "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
           "settings": {
+            "reviews_to_display": "",
+            "default_tab": "automatic",
             "only_photos": false,
             "aggregated": true,
             "limit": 10,
