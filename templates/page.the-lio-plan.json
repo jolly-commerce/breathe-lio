@@ -183,8 +183,8 @@
         "toggle_label_right": "Quit Together",
         "product": "",
         "show_shipping_info": true,
-        "cutoff_hour": 15,
-        "cutoff_minute": 0
+        "cutoff_hour": 12,
+        "cutoff_minute": 20
       }
     }
   },
