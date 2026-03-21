@@ -21,10 +21,10 @@
         "pricing_card_XtBd9j": {
           "type": "pricing_card",
           "settings": {
-            "card_title": "90 Day Reset <br>✅ FREE Lio Diffuser <br>✅ 30 Days of Cores",
+            "card_title": "90 Day Reset",
             "card_type": "hero",
             "is_featured": true,
-            "badge_text": "🔥 MOST POPULAR",
+            "badge_text": "🔥 FREE LIO DEVICE + 30 DAYS SUPPLY 🔥",
             "badge_position": "center",
             "bonus_amount": "€2333",
             "product_1_title": "3-Month Supply of Botanical Refills (9 Bags)",
@@ -82,28 +82,28 @@
             "old_price": "€506",
             "price": "€198",
             "save_amount": "€308",
-            "button_text": "START MY GUARANTEED FREEDOM PROGRAM",
+            "button_text": "ADD TO CART",
             "button_link": "",
             "pack_variant": "together",
             "lio_version": "decoy",
             "solo_variant_id": "",
             "together_variant_id": "",
             "guarantee_icon": "shield",
-            "guarantee_text": "180-Day Money-Back Guarantee"
+            "guarantee_text": "365-Day Money-Back Guarantee"
           }
         },
-        "pricing_card_GJ3cAj": {
+        "pricing_card_rqw4jt": {
           "type": "pricing_card",
           "settings": {
-            "card_title": "Decoy",
-            "card_type": "decoy",
+            "card_title": "30 Day Reset",
+            "card_type": "hero",
             "is_featured": false,
-            "badge_text": "⭐ BEST VALUE",
+            "badge_text": "FREE LIO DEVICE",
             "badge_position": "center",
-            "bonus_amount": "€233",
-            "product_1_title": "6-Month Supply of Botanical Flavor Cores",
-            "product_1_old_price": "€174",
-            "product_1_price": "€99",
+            "bonus_amount": "€2333",
+            "product_1_title": "3-Month Supply of Botanical Refills (9 Bags)",
+            "product_1_old_price": "€39",
+            "product_1_price": "FREE",
             "product_2_title": "Lio Diffuser V2",
             "product_2_price": "€99",
             "gift_1_title": "Free Premium Travel Case",
@@ -156,20 +156,20 @@
             "old_price": "€506",
             "price": "€198",
             "save_amount": "€308",
-            "button_text": "START MY GUARANTEED FREEDOM PROGRAM",
+            "button_text": "ADD TO CART",
             "button_link": "",
-            "pack_variant": "solo",
+            "pack_variant": "together",
             "lio_version": "decoy",
             "solo_variant_id": "",
             "together_variant_id": "",
             "guarantee_icon": "shield",
-            "guarantee_text": "180-Day Money-Back Guarantee"
+            "guarantee_text": "365-Day Money-Back Guarantee"
           }
         }
       },
       "block_order": [
         "pricing_card_XtBd9j",
-        "pricing_card_GJ3cAj"
+        "pricing_card_rqw4jt"
       ],
       "name": "Pricing Section",
       "settings": {
