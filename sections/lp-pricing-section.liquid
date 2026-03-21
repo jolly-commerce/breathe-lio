@@ -1,0 +1,1800 @@
+<div style="display: block; width: 100%;">
+  <svg viewBox="0 0 1440 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; display: block;">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M2.09815e-06 19.5708L60 17.1505C120 14.7301 240 9.88941 360 9.08268C480 8.27586 600 11.503 720 14.7301C840 17.9573 960.003 21.1844 1080 19.5708C1200 17.9573 1320 11.503 1380 8.27586L1440 5.04875V0L1380 0C1320 0 1200 0 1080 0C960.003 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0L0 0L2.09815e-06 19.5708Z" fill="white"/>
+  </svg>
+</div>
+
+<div class="pricing-section" style="background-color: #F5FFF7; background-image: url('{{ section.settings.background_image | image_url: width: 1920 }}'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 96px 80px; position: relative;" {% if section.settings.product != blank %}data-section-product-handle="{{ section.settings.product.handle }}"{% endif %} data-shop-currency="{{ shop.currency }}" data-money-format="{{ shop.money_format }}">
+
+  <div class="page-width" style="max-width: 1440px; margin: 0 auto; width: 100%; position: relative; z-index: 1;">
+    <div class="pricing-content-wrapper" id="pricing-section" style="display: flex; flex-direction: column; align-items: center; gap: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        {% if section.settings.banner_text != blank %}
+        <div class="pricing-banner" style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 16px; background-color: #FFFFFF; border: 1px solid #0A3213; border-radius: 999px; width: max-content; margin: 0 auto;">
+          <div style="width: 8px; height: 8px; min-width: 8px; border-radius: 999px; background-color: #F08561; box-shadow: 0px 0px 16px 0px rgba(240, 133, 97, 0.32), 0px 1px 1px 0px rgba(15, 41, 21, 0.25), 0px 0px 0px 4px rgba(240, 133, 97, 0.25);"></div>
+          <div style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap; align-items: center;">
+            <span style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 14px; line-height: 1.5em; color: #0A3213;">{{ section.settings.banner_text }}</span>
+            {% if section.settings.banner_highlight != blank %}
+            <span style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 14px; line-height: 1.5em; color: #00B67C;">{{ section.settings.banner_highlight }}</span>
+            {% endif %}
+            {% if section.settings.banner_text_after != blank %}
+            <span style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 14px; line-height: 1.5em; color: #0A3213;">{{ section.settings.banner_text_after }}</span>
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+        
+        <div class="pricing-heading-section" style="display: flex; flex-direction: column; gap: 20px; max-width: 600px; width: 100%; align-items: center;">
+          {% if section.settings.heading != blank %}
+          <h2 class="pricing-heading" style="font-family: 'Sigum', serif; font-weight: 400; font-size: 40px; line-height: 1.2em; text-transform: uppercase; text-align: center; color: #0A3213; margin: 0;">
+            {{ section.settings.heading }}
+          </h2>
+          {% endif %}
+          {% if section.settings.subheading != blank %}
+          <p class="pricing-subheading" style="font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 18px; line-height: 1.5em; text-align: center; color: rgba(10, 50, 19, 0.75); margin: 0;">
+            {{ section.settings.subheading }}
+          </p>
+          {% endif %}
+        </div>
+      </div>
+      
+      {% if section.settings.show_toggle %}
+      <div class="pricing-toggle-wrapper" style="display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 16px; background-color: rgba(10, 50, 19, 0.04); border: 1px solid rgba(10, 50, 19, 0.08); border-radius: 16px; max-width: 480px; width: 100%;">
+        <div class="pricing-toggle" style="display: flex; align-items: center; gap: 20px;">
+          <span class="toggle-label" style="font-family: 'Sigum', serif; font-weight: 400; font-size: 20px; line-height: 1.4em; text-transform: uppercase; color: #00B67C;">{{ section.settings.toggle_label_left }}</span>
+          <div class="toggle-switch" style="width: 68px; height: 32px; padding: 2px; background: linear-gradient(21deg, rgba(0, 182, 124, 1) 7%, rgba(237, 237, 94, 1) 100%); border-radius: 999px; position: relative;">
+            <div class="toggle-slider" style="width: 28px; height: 28px; background-color: #FFFFFF; border-radius: 999px; position: absolute; left: 2px; top: 2px; transition: transform 0.3s ease;"></div>
+          </div>
+          <span class="toggle-label" style="font-family: 'Sigum', serif; font-weight: 400; font-size: 20px; line-height: 1.4em; text-transform: uppercase; color: #0A3213; opacity: 0.5;">{{ section.settings.toggle_label_right }}</span>
+        </div>
+      </div>
+      {% endif %}
+      
+      <div class="pricing-cards" style="display: flex; gap: 40px; width: 100%; justify-content: center;">
+        {% for block in section.blocks %}
+          {% if block.type == 'pricing_card' %}
+            {% assign section_product = section.settings.product %}
+            {% assign lio_version_raw = block.settings.lio_version %}
+            {% assign lio_version = lio_version_raw | default: 'decoy' %}
+            
+            {% assign card_title_lower = block.settings.card_title | downcase %}
+            {% if lio_version == 'decoy' or lio_version == blank %}
+              {% if card_title_lower contains 'advanced' or card_title_lower contains 'premium' %}
+                {% assign lio_version = 'advanced' %}
+              {% elsif card_title_lower contains 'hero' %}
+                {% assign lio_version = 'hero' %}
+              {% elsif card_title_lower contains 'decoy' %}
+                {% assign lio_version = 'decoy' %}
+              {% endif %}
+            {% endif %}
+            
+            {% assign lio_version_option = '' %}
+            {% if lio_version == 'decoy' %}
+              {% assign lio_version_option = 'Try It Out' %}
+            {% elsif lio_version == 'hero' %}
+              {% assign lio_version_option = '90-Day Quit Guarantee Program' %}
+            {% elsif lio_version == 'advanced' %}
+              {% assign lio_version_option = 'Premium 90-Day Quit Guarantee Program' %}
+            {% endif %}
+            
+            {% assign solo_variant = null %}
+            {% if section_product != blank %}
+              {% for variant in section_product.variants %}
+                {% if variant.available %}
+                  {% assign has_solo = false %}
+                  {% assign has_lio = false %}
+                  {% if variant.option1 == 'Solo' or variant.option2 == 'Solo' or variant.option3 == 'Solo' %}
+                    {% assign has_solo = true %}
+                  {% endif %}
+                  {% if lio_version_option != blank %}
+                    {% if variant.option1 == lio_version_option or variant.option2 == lio_version_option or variant.option3 == lio_version_option %}
+                      {% assign has_lio = true %}
+                    {% endif %}
+                  {% else %}
+                    {% assign has_lio = true %}
+                  {% endif %}
+                  {% if has_solo and has_lio %}
+                    {% assign solo_variant = variant %}
+                    {% break %}
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+            
+            {% assign together_variant = null %}
+            {% if section_product != blank %}
+              {% for variant in section_product.variants %}
+                {% if variant.available %}
+                  {% assign has_together = false %}
+                  {% assign has_lio = false %}
+                  {% if variant.option1 == 'Together' or variant.option2 == 'Together' or variant.option3 == 'Together' %}
+                    {% assign has_together = true %}
+                  {% endif %}
+                  {% if lio_version_option != blank %}
+                    {% if variant.option1 == lio_version_option or variant.option2 == lio_version_option or variant.option3 == lio_version_option %}
+                      {% assign has_lio = true %}
+                    {% endif %}
+                  {% else %}
+                    {% assign has_lio = true %}
+                  {% endif %}
+                  {% if has_together and has_lio %}
+                    {% assign together_variant = variant %}
+                    {% break %}
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+            
+            {% assign solo_price = '' %}
+            {% assign solo_old_price = '' %}
+            {% assign solo_save_amount = '' %}
+            {% if solo_variant != null %}
+              {% assign solo_price = solo_variant.price | money %}
+              {% if solo_variant.compare_at_price != blank and solo_variant.compare_at_price > solo_variant.price %}
+                {% assign solo_old_price = solo_variant.compare_at_price | money %}
+                {% assign solo_save_cents = solo_variant.compare_at_price | minus: solo_variant.price %}
+                {% assign solo_save_amount = solo_save_cents | money %}
+              {% endif %}
+            {% endif %}
+            
+            {% assign together_price = '' %}
+            {% assign together_old_price = '' %}
+            {% assign together_save_amount = '' %}
+            {% if together_variant != null %}
+              {% assign together_price = together_variant.price | money %}
+              {% if together_variant.compare_at_price != blank and together_variant.compare_at_price > together_variant.price %}
+                {% assign together_old_price = together_variant.compare_at_price | money %}
+                {% assign together_save_cents = together_variant.compare_at_price | minus: together_variant.price %}
+                {% assign together_save_amount = together_save_cents | money %}
+              {% endif %}
+            {% endif %}
+            
+            {% assign solo_image = '' %}
+            {% if solo_variant != null %}
+              {% if solo_variant.image != blank %}
+                {% assign solo_image = solo_variant.image | image_url: width: 400 %}
+              {% elsif section_product.featured_image != blank %}
+                {% assign solo_image = section_product.featured_image | image_url: width: 400 %}
+              {% endif %}
+            {% elsif section_product.featured_image != blank %}
+              {% assign solo_image = section_product.featured_image | image_url: width: 400 %}
+            {% endif %}
+            
+            {% assign together_image = '' %}
+            {% if together_variant != null %}
+              {% if together_variant.image != blank %}
+                {% assign together_image = together_variant.image | image_url: width: 400 %}
+              {% elsif section_product.featured_image != blank %}
+                {% assign together_image = section_product.featured_image | image_url: width: 400 %}
+              {% endif %}
+            {% elsif section_product.featured_image != blank %}
+              {% assign together_image = section_product.featured_image | image_url: width: 400 %}
+            {% endif %}
+            
+            <div class="pricing-card" data-pack-variant="{{ block.settings.pack_variant | default: 'solo' }}" data-lio-version="{{ lio_version }}" data-solo-price="{{ solo_price }}" data-solo-old-price="{{ solo_old_price }}" data-solo-save-amount="{{ solo_save_amount }}" data-together-price="{{ together_price }}" data-together-old-price="{{ together_old_price }}" data-together-save-amount="{{ together_save_amount }}" data-solo-image="{{ solo_image }}" data-together-image="{{ together_image }}" style="flex: 0 1 400px; display: flex; flex-direction: column; background-color: {% if block.settings.is_featured %}{% if block.settings.card_type == 'hero' %}transparent{% else %}#FFFFFF{% endif %}{% else %}#FFFFFF{% endif %}; border: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}4px solid{% elsif block.settings.is_featured %}2px solid{% else %}1px solid{% endif %} {% if block.settings.is_featured and block.settings.card_type == 'hero' %}transparent{% else %}#0A3213{% endif %}; border-radius: 16px; padding-top: 32px; position: relative; {% if block.settings.is_featured and block.settings.card_type == 'hero' %}background-color: #002217; background-image: url('{{ section.settings.background_image | image_url: width: 1920 }}'); background-size: cover; background-position: center; border: 4px solid #00B67C;{% endif %}">
+              
+              {% if block.settings.badge_text != blank %}
+              <div class="pricing-card-badge" style="line-height: 1; height: 40px; align-items: center; display: flex; position: absolute; top: -20px; {% if block.settings.badge_position == 'left' %}left: 124px;{% elsif block.settings.badge_position == 'right' %}right: 109px;{% else %}left: 50%; transform: translateX(-50%);{% endif %} padding: {% if block.settings.badge_text contains 'BEST VALUE' %}8px 20px{% else %}4px 12px{% endif %}; background: {% if block.settings.badge_text contains 'BEST VALUE' %}#F08561{% else %}linear-gradient(90deg, #86D56C 0%, #C0E264 100%){% endif %}; border: {% if block.settings.badge_text != "" %}2px solid #0A3213{% else %}none{% endif %}; border-radius: 999px;">
+                <span style="font-family: 'Poppins', sans-serif; text-wrap-mode: nowrap; font-weight: 600; font-size: {% if block.settings.badge_text contains 'BEST VALUE' %}16px{% else %}16px{% endif %}; line-height: 1.5em; color: {% if block.settings.badge_text contains 'BEST VALUE' %}#FFFDFC{% else %}#0A3213{% endif %};">
+                  {{ block.settings.badge_text }}
+                </span>
+              </div>
+              {% endif %}
+              
+              {% if block.settings.card_title != blank %}
+              <div style="padding: 0 20px; margin-bottom: 12px;">
+                <h3 style="font-family: 'Sigum', serif; font-weight: 400; font-size: 24px; line-height: 1.4em; text-transform: uppercase; text-align: center; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %}; margin: 0;">
+                  {{ block.settings.card_title }}
+                </h3>
+              </div>
+              {% endif %}
+              
+              {% if solo_image != blank or together_image != blank %}
+              <div class="pricing-card-image" style="width: 100%; position: relative; overflow: hidden;">
+                <img src="{{ solo_image | default: together_image }}" alt="{{ block.settings.card_title }}" class="pricing-card-image-img" style="width: 100%; height: 100%; object-fit: cover;" />
+                
+                {% if block.settings.bonus_amount != blank %}
+                <div style="position: absolute; bottom: 32px; right: 20px; width: 120px; height: 120px; background-image: url('https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vector_1.svg?v=1765486798'); background-size: contain; background-repeat: no-repeat; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24.5px 21px;">
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 0;">
+                    <span style="font-family: 'Sigum', serif; font-weight: 400; font-size: 20px; line-height: 1.4em; text-transform: uppercase; color: #FFFDFC;">{{ block.settings.bonus_amount }}</span>
+                    <span style="font-family: 'Sigum', serif; font-weight: 400; font-size: 16px; line-height: 1.4em; text-transform: uppercase; color: #FFFDFC;">in Free</span>
+                    <span style="font-family: 'Sigum', serif; font-weight: 400; font-size: 16px; line-height: 1.4em; text-transform: uppercase; color: #FFFDFC;">Bonuses</span>
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+              {% endif %}
+              
+              <div class="pricing-card-products" style="padding: 8px 20px; background-color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#009163{% else %}#E4F7F1{% endif %}; border-top: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}4px solid rgba(255, 255, 255, 0.2){% else %}1px solid #0A3213{% endif %}; border-bottom: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}4px solid rgba(255, 255, 255, 0.2){% else %}1px solid #0A3213{% endif %}; border-radius: 0;">
+                {% for i in (1..2) %}
+                  {% assign product_title_key = 'product_' | append: i | append: '_title' %}
+                  {% assign product_old_price_key = 'product_' | append: i | append: '_old_price' %}
+                  {% assign product_price_key = 'product_' | append: i | append: '_price' %}
+                  
+                  {% if block.settings[product_title_key] != blank %}
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; {% unless forloop.last %}border-bottom: 1px solid {% if block.settings.is_featured and block.settings.card_type == 'hero' %}rgba(134, 213, 108, 1){% else %}rgba(10, 50, 19, 0.2){% endif %};{% endunless %}">
+                    <div style="display: flex; align-items: center; gap: 8px; flex: 1;">
+                      <svg width="24" height="24" style="min-width: 24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM17.4571 9.45711L11 15.9142L6.79289 11.7071L8.20711 10.2929L11 13.0858L16.0429 8.04289L17.4571 9.45711Z" fill="url(#paint0_linear_4141_2186)"/>
+                        <defs>
+                            <linearGradient id="paint0_linear_4141_2186" x1="6.38202" y1="26.382" x2="26.382" y2="6.38202" gradientUnits="userSpaceOnUse">
+                                <stop offset="0.2" stop-color="#00B67C"/>
+                                <stop offset="1" stop-color="#EDED5E"/>
+                            </linearGradient>
+                        </defs>
+                      </svg>
+                      <span style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.5em; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %};">
+                        {% assign product_title = block.settings[product_title_key] %}
+                        {% if block.settings.is_featured and block.settings.card_type == 'hero' %}
+                          {% assign product_title = product_title | replace: 'FREE', '<b style="color: #EDED5E; font-weight: 600">FREE</b>' %}
+                          {% assign product_title = product_title | replace: 'Free', '<b style="color: #EDED5E; font-weight: 600">Free</b>' %}
+                          {% assign product_title = product_title | replace: 'free', '<b style="color: #EDED5E; font-weight: 600">free</b>' %}
+                        {% else %}
+                          {% assign product_title = product_title | replace: 'FREE', '<b style="color: #F08561; font-weight: 600">FREE</b>' %}
+                          {% assign product_title = product_title | replace: 'Free', '<b style="color: #F08561; font-weight: 600">Free</b>' %}
+                          {% assign product_title = product_title | replace: 'free', '<b style="color: #F08561; font-weight: 600">free</b>' %}
+                        {% endif %}
+                        {{ product_title }}
+                      </span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      {% if block.settings[product_old_price_key] != blank %}
+                      <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 16px; line-height: 1.5em; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %}; opacity: 0.8; position: relative;">
+                          {{ block.settings[product_old_price_key] }}
+                          <span style="position: absolute; left: 0; top: 50%; width: 100%; height: 1px; transform: rotate(145deg); background-color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %};"></span>
+                        </span>
+                      </div>
+                      {% endif %}
+                      <span style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.5em; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %};">
+                        {{ block.settings[product_price_key] }}
+                      </span>
+                    </div>
+                  </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              
+              <div class="pricing-card-gifts" style="padding: 0 20px;">
+                {% for i in (1..9) %}
+                  {% assign gift_title_key = 'gift_' | append: i | append: '_title' %}
+                  {% assign gift_subtitle_key = 'gift_' | append: i | append: '_subtitle' %}
+                  {% assign gift_old_price_key = 'gift_' | append: i | append: '_old_price' %}
+                  {% assign gift_is_free_key = 'gift_' | append: i | append: '_is_free' %}
+                  
+                  {% if block.settings[gift_title_key] != blank %}
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: {% if forloop.first %}20px{% else %}12px{% endif %} 0{% if forloop.last and forloop.index == 9 %}; padding-bottom: 24px;{% endif %}; {% unless forloop.last %}border-bottom: 1px solid {% if block.settings.is_featured and block.settings.card_type == 'hero' %}rgba(255, 255, 255, 0.2){% else %}rgba(10, 50, 19, 0.2){% endif %};{% endunless %}">
+                    <div style="display: flex; align-items: center; gap: 8px; flex: 1;">
+                      <svg width="24" height="24" style="min-width: 24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.0049 13.0019V20.0019C20.0049 20.5542 19.5572 21.0019 19.0049 21.0019H5.00488C4.4526 21.0019 4.00488 20.5542 4.00488 20.0019V13.0019H20.0049ZM14.5049 2.00195C16.4379 2.00195 18.0049 3.56895 18.0049 5.50195C18.0049 6.03915 17.8839 6.54809 17.6676 7.00299L21.0049 7.00195C21.5572 7.00195 22.0049 7.44966 22.0049 8.00195V11.0019C22.0049 11.5542 21.5572 12.0019 21.0049 12.0019H3.00488C2.4526 12.0019 2.00488 11.5542 2.00488 11.0019V8.00195C2.00488 7.44966 2.4526 7.00195 3.00488 7.00195L6.34219 7.00299C6.12591 6.54809 6.00488 6.03915 6.00488 5.50195C6.00488 3.56895 7.57189 2.00195 9.50488 2.00195C10.4849 2.00195 11.3708 2.40471 12.0061 3.05373C12.639 2.40471 13.5249 2.00195 14.5049 2.00195ZM9.50488 4.00195C8.67646 4.00195 8.00488 4.67352 8.00488 5.50195C8.00488 6.28164 8.59977 6.9224 9.36042 6.99508L9.50488 7.00195H11.0049V5.50195C11.0049 4.72225 10.41 4.0815 9.64934 4.00881L9.50488 4.00195ZM14.5049 4.00195L14.3604 4.00881C13.6473 4.07696 13.0799 4.64438 13.0117 5.35749L13.0049 5.50195V7.00195H14.5049L14.6493 6.99508C15.41 6.9224 16.0049 6.28164 16.0049 5.50195C16.0049 4.72225 15.41 4.0815 14.6493 4.00881L14.5049 4.00195Z" {% unless block.settings[gift_is_free_key] %}fill="#D0D5DD"{%else %}fill="#00B67C"{% endunless %}/>
+                      </svg>
+                      <div style="display: flex; flex-direction: column; gap: 0;">
+                        <span style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.5em; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% elsif block.settings[gift_is_free_key] %}#0A3213{% else %}#98A2B3{% endif %}; {% unless block.settings[gift_is_free_key] %}text-decoration: line-through;{% endunless %}">
+                          {% assign gift_title = block.settings[gift_title_key] %}
+                          {% if block.settings.is_featured and block.settings.card_type == 'hero' %}
+                            {% assign gift_title = gift_title | replace: 'FREE', '<b style="color: #EDED5E; font-weight: 600">FREE</b>' %}
+                            {% assign gift_title = gift_title | replace: 'Free', '<b style="color: #EDED5E; font-weight: 600">Free</b>' %}
+                            {% assign gift_title = gift_title | replace: 'free', '<b style="color: #EDED5E; font-weight: 600">free</b>' %}
+                          {% else %}
+                            {% assign gift_title = gift_title | replace: 'FREE', '<b style="color: #F08561; font-weight: 600">FREE</b>' %}
+                            {% assign gift_title = gift_title | replace: 'Free', '<b style="color: #F08561; font-weight: 600">Free</b>' %}
+                            {% assign gift_title = gift_title | replace: 'free', '<b style="color: #F08561; font-weight: 600">free</b>' %}
+                          {% endif %}
+                          {{ gift_title }}
+                        </span>
+                        {% if block.settings[gift_subtitle_key] != blank %}
+                        <div style="display: flex; align-items: center; gap: 8px; position: relative;">
+                          <span style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 14px; line-height: 1.5em; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% elsif block.settings[gift_is_free_key] %}#0A3213{% else %}#98A2B3{% endif %}; {% unless block.settings[gift_is_free_key] %}text-decoration: line-through;{% endunless %}">
+                            ({{ block.settings[gift_subtitle_key] }})
+                          </span>
+                          {% assign gift_tooltip_key = 'gift_' | append: i | append: '_tooltip_text' %}
+                          {% if block.settings[gift_tooltip_key] != blank %}
+                          <div class="gift-tooltip-wrapper" style="position: relative; display: inline-block;">
+                            <svg class="gift-info-icon" width="20" height="20" style="min-width: 20px; cursor: pointer;" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M10 18.3327C5.39762 18.3327 1.66667 14.6017 1.66667 9.99935C1.66667 5.39697 5.39762 1.66602 10 1.66602C14.6023 1.66602 18.3333 5.39697 18.3333 9.99935C18.3333 14.6017 14.6023 18.3327 10 18.3327ZM10 7.91602C10.6903 7.91602 11.25 7.35637 11.25 6.66602C11.25 5.97566 10.6903 5.41602 10 5.41602C9.30967 5.41602 8.75 5.97566 8.75 6.66602C8.75 7.35637 9.30967 7.91602 10 7.91602ZM11.6667 12.4993H10.8333V8.74935H8.33333V10.416H9.16667V12.4993H8.33333V14.166H11.6667V12.4993Z" fill="{% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}currentColor{% endif %}"/>
+                            </svg>
+                            <div class="gift-tooltip" style="position: absolute; top: 50%; left: calc(100% + 12px); transform: translateY(-50%); background-color: #FFFFFF; border: 1px solid #0A3213; border-radius: 8px; padding: 16px; max-width: 325px; width: max-content; box-shadow: 0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08); opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease; z-index: 1000; pointer-events: none;">
+                              <p style="font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 14px; line-height: 1.5em; color: #0A3213; margin: 0; white-space: normal;">
+                                {{ block.settings[gift_tooltip_key] }}
+                              </p>
+                              <div class="gift-tooltip-arrow" style="position: absolute; left: -6px; top: 50%; width: 12px; height: 12px; background-color: #FFFFFF; border-left: 1px solid #0A3213; border-bottom: 1px solid #0A3213; transform: translateY(-50%) rotate(45deg);"></div>
+                            </div>
+                          </div>
+                          {% else %}
+                          <svg width="20" height="20" style="min-width: 20px" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 18.3327C5.39762 18.3327 1.66667 14.6017 1.66667 9.99935C1.66667 5.39697 5.39762 1.66602 10 1.66602C14.6023 1.66602 18.3333 5.39697 18.3333 9.99935C18.3333 14.6017 14.6023 18.3327 10 18.3327ZM10 7.91602C10.6903 7.91602 11.25 7.35637 11.25 6.66602C11.25 5.97566 10.6903 5.41602 10 5.41602C9.30967 5.41602 8.75 5.97566 8.75 6.66602C8.75 7.35637 9.30967 7.91602 10 7.91602ZM11.6667 12.4993H10.8333V8.74935H8.33333V10.416H9.16667V12.4993H8.33333V14.166H11.6667V12.4993Z" fill="{% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}currentColor{% endif %}"/>
+                          </svg>
+                          {% endif %}
+                        </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                    {% if block.settings[gift_old_price_key] != blank and block.settings[gift_is_free_key] %}
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <span style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 16px; line-height: 1.5em; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %}; opacity: 0.8; position: relative;">
+                        {{ block.settings[gift_old_price_key] }}
+                        <span style="position: absolute; left: 0; top: 50%; width: 100%; height: 1px; transform: rotate(145deg); background-color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %};"></span>
+                      </span>
+                    </div>
+                    {% endif %}
+                  </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              
+              {% if block.settings.price_per_day != blank %}
+              <div style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 4px 12px; background-color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}rgba(255, 255, 255, 0.08){% else %}#E4F7F1{% endif %};">
+                <span class="price_comparsion_text" style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 16px; line-height: 1.5em; color: #00B67C;">{{ block.settings.price_per_day }}</span>
+                <span class="price_comparsion_text" style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 16px; line-height: 1.5em; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %};">VS</span>
+                <span class="price_comparsion_text" style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 16px; line-height: 1.5em; color: #F08561;">{{ block.settings.comparison_price }}</span>
+              </div>
+              {% endif %}
+              
+              <div class="pricing-card-footer" style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 24px 20px;">
+                
+                <div class="pricing-card-price-container" data-card-id="{{ block.id }}" style="display: flex; align-items: center; gap: 12px;">
+                  {% if block.settings.old_price != blank %}
+                  <span class="pricing-card-old-price" style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 20px; line-height: 1.5em; text-decoration-line: line-through; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %}; opacity: 0.5; display: none;">
+                    {{ block.settings.old_price }}
+                  </span>
+                  {% endif %}
+                  <span class="pricing-card-price" style="font-family: 'Sigum', serif; font-weight: 400; font-size: 32px; line-height: 1.3em; text-transform: uppercase; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %};">
+                    {{ block.settings.price | default: 'Loading...' }}
+                  </span>
+                  {% if block.settings.save_amount != blank %}
+                  <div class="pricing-card-save-amount" style="display: none; align-items: center; justify-content: center; gap: 4px; padding: 8px 12px; background-color: #12B76A; border-radius: 999px; height: 32px;">
+                    <span style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px; line-height: 1.5em; text-transform: capitalize; color: #FFFFFF;">
+                      🔥 Save {{ block.settings.save_amount }}
+                    </span>
+                  </div>
+                  {% endif %}
+                </div>
+                
+                {% if block.settings.button_text != blank %}
+                {% assign section_product = section.settings.product %}
+                {% if section_product != blank and section_product.available %}
+                  {% assign pack_variant = block.settings.pack_variant | default: 'solo' %}
+                  {% assign lio_version_raw = block.settings.lio_version %}
+                  {% assign lio_version = lio_version_raw | default: 'decoy' %}
+                  
+                  {% assign card_title_lower = block.settings.card_title | downcase %}
+                  {% if lio_version == 'decoy' or lio_version == blank %}
+                    {% if card_title_lower contains 'advanced' or card_title_lower contains 'premium' %}
+                      {% assign lio_version = 'advanced' %}
+                    {% elsif card_title_lower contains 'hero' %}
+                      {% assign lio_version = 'hero' %}
+                    {% elsif card_title_lower contains 'decoy' %}
+                      {% assign lio_version = 'decoy' %}
+                    {% endif %}
+                  {% endif %}
+                  
+                  {% assign lio_version_option = '' %}
+                  {% if lio_version == 'decoy' %}
+                    {% assign lio_version_option = 'Try It Out' %}
+                  {% elsif lio_version == 'hero' %}
+                    {% assign lio_version_option = '90-Day Quit Guarantee Program' %}
+                  {% elsif lio_version == 'advanced' %}
+                    {% assign lio_version_option = 'Premium 90-Day Quit Guarantee Program' %}
+                  {% endif %}
+                  
+                  {% assign target_pack_option = '' %}
+                  {% if pack_variant == 'solo' %}
+                    {% assign target_pack_option = 'Solo' %}
+                  {% else %}
+                    {% assign target_pack_option = 'Together' %}
+                  {% endif %}
+                  
+                  {% assign matching_variant = null %}
+                  {% for variant in section_product.variants %}
+                    {% if variant.available %}
+                      {% assign has_pack = false %}
+                      {% assign has_lio_version = false %}
+                      
+                      {% if variant.option1 == target_pack_option or variant.option2 == target_pack_option or variant.option3 == target_pack_option %}
+                        {% assign has_pack = true %}
+                      {% endif %}
+                      
+                      {% if lio_version_option != blank %}
+                        {% if variant.option1 == lio_version_option or variant.option2 == lio_version_option or variant.option3 == lio_version_option %}
+                          {% assign has_lio_version = true %}
+                        {% endif %}
+                      {% else %}
+                        {% assign has_lio_version = true %}
+                      {% endif %}
+                      
+                      {% if has_pack and has_lio_version %}
+                        {% assign matching_variant = variant %}
+                        {% break %}
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                  
+                  {% if matching_variant == null %}
+                    {% for variant in section_product.variants %}
+                      {% if variant.available %}
+                        {% if variant.option1 == target_pack_option or variant.option2 == target_pack_option or variant.option3 == target_pack_option %}
+                          {% assign matching_variant = variant %}
+                          {% break %}
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
+                  {% endif %}
+                  
+                  {% if matching_variant == null %}
+                    {% assign matching_variant = section_product.selected_or_first_available_variant %}
+                  {% endif %}
+                  
+                  {% assign current_variant_id = matching_variant.id %}
+                  <form method="post" action="/cart/add" accept-charset="UTF-8" class="shopify-product-form pricing-card-add-to-cart-form" enctype="multipart/form-data" style="margin: 0; width: 100%;" data-pack-variant="{{ pack_variant }}" data-lio-version="{{ lio_version }}" data-product-handle="{{ section_product.handle }}" data-variant-id="{{ current_variant_id }}" data-block-id="{{ block.id }}" data-card-title="{{ block.settings.card_title | escape }}">
+                    <input type="hidden" name="form_type" value="product">
+                    <input type="hidden" name="utf8" value="✓">
+                    <input type="hidden" name="id" class="variant-id-input" data-pack-variant="{{ pack_variant }}" data-lio-version="{{ lio_version }}" value="{{ current_variant_id }}">
+                    <input type="hidden" name="quantity" value="1">
+                    <button type="submit" class="pricing-card-button pricing-card-add-to-cart" style="display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; padding: 16px 32px; background-color: #00B67C; border-radius: 16px; text-decoration: none; box-shadow: -4px 4px 0 0 #0A3213, -5px 5px 0 0 #00B67C; border: none; cursor: pointer;">
+                      <span class="button-text" style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 16px; line-height: 1.5em; text-transform: uppercase; color: #FAFEFC; text-align: center;">
+                        {{ block.settings.button_text }}
+                      </span>
+                      <svg width="24" height="24" style="min-width: 24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+                  </form>
+                {% else %}
+                  <a href="{{ block.settings.button_link }}" class="pricing-card-button" style="display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; padding: 16px 32px; background-color: #00B67C; border-radius: 16px; text-decoration: none; box-shadow: -4px 4px 0 0 #0A3213, -5px 5px 0 0 #00B67C;">
+                    <span style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 16px; line-height: 1.5em; text-transform: uppercase; color: #FAFEFC; text-align: center;">
+                      {{ block.settings.button_text }}
+                    </span>
+                    <svg width="24" height="24" style="min-width: 24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                {% endif %}
+                {% endif %}
+                
+                {% if block.settings.guarantee_text != blank %}
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
+                  {% if block.settings.guarantee_icon == 'shield' %}
+                    <svg width="20" height="20" style="min-width: 20px" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 0.833984L16.8474 2.35563C17.2287 2.44037 17.5 2.77854 17.5 3.16913V11.4914C17.5 13.1632 16.6645 14.7243 15.2735 15.6517L10 19.1673L4.7265 15.6517C3.33551 14.7243 2.5 13.1632 2.5 11.4914V3.16913C2.5 2.77854 2.77128 2.44037 3.15256 2.35563L10 0.833984ZM13.7103 6.85218L9.58492 10.9764L7.22851 8.6199L6.04999 9.79848L9.5855 13.334L14.8888 8.03068L13.7103 6.85218Z" fill="#00B67C"/>
+                    </svg>
+                  {% elsif block.settings.guarantee_icon == 'close' %}
+                    <svg width="20" height="20" style="min-width: 20px" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.99999 18.3327C5.39761 18.3327 1.66666 14.6017 1.66666 9.99935C1.66666 5.39697 5.39761 1.66602 9.99999 1.66602C14.6023 1.66602 18.3333 5.39697 18.3333 9.99935C18.3333 14.6017 14.6023 18.3327 9.99999 18.3327ZM9.99999 8.82085L7.64296 6.46382L6.46446 7.64232L8.82149 9.99935L6.46446 12.3563L7.64296 13.5348L9.99999 11.1778L12.357 13.5348L13.5355 12.3563L11.1785 9.99935L13.5355 7.64232L12.357 6.46382L9.99999 8.82085Z" fill="#D0D5DD"/>
+                    </svg>
+                  {% endif %}
+                  <span style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 14px; line-height: 1.5em; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %};">
+                    {{ block.settings.guarantee_text }}
+                  </span>
+                </div>
+                {% endif %}
+                
+                <div style="width: 100%; height: 1px; background-color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}rgba(255, 255, 255, 0.2){% else %}rgba(10, 50, 19, 0.2){% endif %}; border-radius: 999px;"></div>
+                
+                {% if section.settings.show_shipping_info %}
+                <div class="shipping-info-container" data-shipping-id="shipping-{{ block.id }}" style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                  <div style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap; justify-content: center;">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 2px 4px; background-color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#EDED5E{% else %}#E4F7F1{% endif %}; border-radius: 4px;">
+                      <span class="shipping-date-text" style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px; line-height: 1.5em; color: #0A3213;">
+                      </span>
+                    </div>
+                    <span style="font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 14px; line-height: 1.5em; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %};">
+                      if ordered
+                    </span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 4px;">
+                    <span style="font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 14px; line-height: 1.5em; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %};">
+                      within
+                    </span>
+                    <span class="shipping-countdown-text" style="color: #00B67C; font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 14px; line-height: 1.5em;">
+                    </span>
+                  </div>
+                </div>
+                {% endif %}
+                
+              </div>
+              
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="display: block; width: 100%;">
+  <svg viewBox="0 0 1440 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; display: block; transform: rotate(180deg);">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M2.09815e-06 19.5708L60 17.1505C120 14.7301 240 9.88941 360 9.08268C480 8.27586 600 11.503 720 14.7301C840 17.9573 960.003 21.1844 1080 19.5708C1200 17.9573 1320 11.503 1380 8.27586L1440 5.04875V0L1380 0C1320 0 1200 0 1080 0C960.003 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0L0 0L2.09815e-06 19.5708Z" fill="#002217"/>
+  </svg>
+</div>
+
+<style>
+  .pricing-card-image {
+    aspect-ratio: 1;
+  }
+  
+  .pricing-toggle-wrapper .toggle-switch {
+    cursor: pointer;
+  }
+  
+  .pricing-card {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .pricing-card[style*="display: none"] {
+    display: none !important;
+  }
+  
+  @media (max-width: 768px) {
+    .pricing-section {
+      padding: 32px 20px !important;
+    }
+    
+    .pricing-heading {
+      font-size: 24px !important;
+    }
+    
+    .pricing-cards {
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 40px !important;
+    }
+    
+    .pricing-card {
+      flex: 1 1 100% !important;
+      max-width: 335px !important;
+      width: 100% !important;
+    }
+    
+    .pricing-card h3 {
+      font-size: 20px !important;
+    }
+    
+    .pricing-card-footer > div:first-child {
+      align-items: center !important;
+      gap: 12px !important;
+    }
+    
+    .pricing-card-footer > div:first-child > div:first-child {
+      flex-direction: row !important;
+    }
+    
+    .pricing-card-footer .pricing-card-button {
+      padding: 12px 24px !important;
+    }
+    
+    .pricing-card-footer .pricing-card-button span {
+      font-size: 14px !important;
+    }
+    
+    .pricing-card-footer > div:first-child span[style*="font-size: 32px"] {
+      font-size: 24px !important;
+    }
+    
+    .pricing-card-footer > div:first-child span[style*="font-size: 20px"] {
+      font-size: 18px !important;
+    }
+    
+    .pricing-card-footer > div:first-child span[style*="font-size: 14px"] {
+      font-size: 12px !important;
+    }
+    
+    .pricing-card-footer span[style*="font-size: 18px"] {
+      font-size: 18px !important;
+    }
+    
+    .pricing-card-footer span[style*="font-size: 14px"][style*="if ordered"] {
+      font-size: 14px !important;
+    }
+    
+    .pricing-toggle-wrapper {
+      max-width: 100% !important;
+    }
+    
+    .pricing-toggle {
+      gap: 12px !important;
+    }
+    
+    .toggle-label {
+      font-size: 14px !important;
+    }
+    
+    .toggle-switch {
+      width: 52px !important;
+    }
+    
+    .pricing-card-image {
+      height: auto !important;
+    }
+    
+    .pricing-card-image-img {
+      height: auto !important;
+      aspect-ratio: 1;
+    }
+    
+    .pricing-card-badge {
+      top: -15px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+    }
+  }
+  
+  .gift-tooltip-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .gift-tooltip-wrapper:hover .gift-tooltip {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .gift-tooltip-wrapper.mobile-active .gift-tooltip {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .gift-info-icon {
+    transition: opacity 0.2s ease;
+  }
+  
+  .gift-info-icon:hover {
+    opacity: 0.8;
+  }
+  
+  .gift-tooltip {
+    word-wrap: break-word;
+    white-space: normal;
+  }
+  
+  .pricing-card-add-to-cart {
+    transition: opacity 0.2s ease, transform 0.1s ease;
+  }
+  
+  .pricing-card-add-to-cart:hover:not(:disabled) {
+    transform: translate(-2px, 2px);
+    box-shadow: -2px 2px 0 0 #0A3213, -3px 3px 0 0 #00B67C !important;
+  }
+  
+  .pricing-card-add-to-cart:active:not(:disabled) {
+    transform: translate(-1px, 1px);
+    box-shadow: -1px 1px 0 0 #0A3213, -2px 2px 0 0 #00B67C !important;
+  }
+  
+  .pricing-card-add-to-cart:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  @media (max-width: 768px) {
+    .gift-tooltip-wrapper {
+      display: inline-block !important;
+    }
+    
+    .gift-tooltip {
+      position: absolute !important;
+      top: auto !important;
+      bottom: calc(100% + 12px) !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: calc(100vw - 80px) !important;
+      max-width: 300px !important;
+      margin: 0 !important;
+    }
+    
+    .gift-tooltip-arrow {
+      left: 50% !important;
+      top: auto !important;
+      bottom: -6px !important;
+      transform: translateX(-50%) rotate(315deg) !important;
+      border-left: 1px solid #0A3213 !important;
+      border-top: none !important;
+      border-bottom: 1px solid #0A3213 !important;
+    }
+
+    .price_comparsion_text {
+      font-size: 14px !important;
+    }
+  }
+</style>
+
+<script>
+(function() {
+  function formatDate(date) {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 
+                    'July', 'August', 'September', 'October', 'November', 'December'];
+    const month = months[date.getMonth()];
+    const day = date.getDate();
+    return `${month} ${day}`;
+  }
+  
+  function isSameDay(date1, date2) {
+    return date1.getFullYear() === date2.getFullYear() &&
+           date1.getMonth() === date2.getMonth() &&
+           date1.getDate() === date2.getDate();
+  }
+
+  function formatCountdown(hours, minutes, seconds) {
+    const parts = [];
+    if (hours > 0) parts.push(`${hours}hr`);
+    if (minutes > 0) parts.push(`${minutes}mins`);
+    if (seconds > 0 || parts.length === 0) parts.push(`${seconds} sec`);
+    return parts.join(' ');
+  }
+
+  function updateShippingInfo() {
+    const cutoffHour = {{ section.settings.cutoff_hour | default: 15 }};
+    const cutoffMinute = {{ section.settings.cutoff_minute | default: 0 }};
+    const now = new Date();
+    
+    const todayCutoff = new Date();
+    todayCutoff.setHours(cutoffHour, cutoffMinute, 0, 0);
+    todayCutoff.setSeconds(0);
+    todayCutoff.setMilliseconds(0);
+
+    const nowTime = now.getTime();
+    const cutoffTime = todayCutoff.getTime();
+    const isBeforeCutoff = nowTime < cutoffTime;
+    
+    const shippingDate = new Date(now);
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    
+    if (!isBeforeCutoff) {
+      shippingDate.setDate(shippingDate.getDate() + 1);
+    }
+
+    const isShippingToday = isSameDay(shippingDate, today);
+    const dateText = isShippingToday
+      ? `Ships today, ${formatDate(shippingDate)}`
+      : `Ships tomorrow, ${formatDate(shippingDate)}`;
+
+    const targetCutoff = new Date(todayCutoff);
+    if (!isBeforeCutoff) {
+      targetCutoff.setDate(targetCutoff.getDate() + 1);
+    }
+
+    const diff = Math.max(0, targetCutoff.getTime() - nowTime);
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.querySelectorAll('.shipping-date-text').forEach(el => {
+      el.textContent = dateText;
+    });
+    document.querySelectorAll('.shipping-countdown-text').forEach(el => {
+      el.textContent = `${formatCountdown(hours, minutes, seconds)}`;
+    });
+  }
+
+  updateShippingInfo();
+  setInterval(updateShippingInfo, 1000);
+})();
+</script>
+
+<script>
+(function() {
+  function updateCardPrices(card, targetVariant) {
+    const priceContainer = card.querySelector('.pricing-card-price-container');
+    if (!priceContainer) {
+      return;
+    }
+    
+    const soloPrice = card.getAttribute('data-solo-price') || '';
+    const soloOldPrice = card.getAttribute('data-solo-old-price') || '';
+    const soloSaveAmount = card.getAttribute('data-solo-save-amount') || '';
+    const togetherPrice = card.getAttribute('data-together-price') || '';
+    const togetherOldPrice = card.getAttribute('data-together-old-price') || '';
+    const togetherSaveAmount = card.getAttribute('data-together-save-amount') || '';
+    
+    const currentPrice = targetVariant === 'solo' ? soloPrice : togetherPrice;
+    const currentOldPrice = targetVariant === 'solo' ? soloOldPrice : togetherOldPrice;
+    const currentSaveAmount = targetVariant === 'solo' ? soloSaveAmount : togetherSaveAmount;
+    
+    const oldPriceEl = priceContainer.querySelector('.pricing-card-old-price');
+    const priceEl = priceContainer.querySelector('.pricing-card-price');
+    const saveAmountEl = priceContainer.querySelector('.pricing-card-save-amount');
+    const saveAmountText = saveAmountEl ? saveAmountEl.querySelector('span') : null;
+    
+    if (priceEl && currentPrice) {
+      priceEl.textContent = currentPrice;
+    }
+    
+    if (oldPriceEl && currentOldPrice) {
+      oldPriceEl.textContent = currentOldPrice;
+      oldPriceEl.style.display = 'inline';
+    } else if (oldPriceEl) {
+      oldPriceEl.style.display = 'none';
+    }
+    
+    if (saveAmountEl && saveAmountText && currentSaveAmount) {
+      saveAmountText.textContent = `🔥 Save ${currentSaveAmount}`;
+      saveAmountEl.style.display = 'flex';
+    } else if (saveAmountEl) {
+      saveAmountEl.style.display = 'none';
+    }
+    
+    const soloImage = card.getAttribute('data-solo-image') || '';
+    const togetherImage = card.getAttribute('data-together-image') || '';
+    const currentImage = targetVariant === 'solo' ? soloImage : togetherImage;
+    
+    if (currentImage) {
+      const imageEl = card.querySelector('.pricing-card-image-img');
+      if (imageEl) {
+        imageEl.src = currentImage;
+      }
+    }
+  }
+  
+  const toggleSwitch = document.querySelector('.pricing-toggle-wrapper .toggle-switch');
+  const toggleSlider = document.querySelector('.pricing-toggle-wrapper .toggle-slider');
+  const toggleLabels = document.querySelectorAll('.pricing-toggle-wrapper .toggle-label');
+  const pricingCards = document.querySelectorAll('.pricing-card');
+  
+  if (!toggleSwitch || !toggleSlider || toggleLabels.length < 2) return;
+  
+  const leftLabelText = toggleLabels[0].textContent.trim().toLowerCase();
+  const rightLabelText = toggleLabels[1].textContent.trim().toLowerCase();
+  
+  const isSoloLeft = leftLabelText.includes('solo') || leftLabelText.includes('quit solo');
+  const isTogetherRight = rightLabelText.includes('together') || rightLabelText.includes('quit together');
+  
+  let isLeftActive = true;
+  
+  function updateToggleState(activeLeft) {
+    isLeftActive = activeLeft;
+    
+    if (activeLeft) {
+      toggleSlider.style.transform = 'translateX(0)';
+    } else {
+      toggleSlider.style.transform = 'translateX(36px)';
+    }
+    
+    toggleLabels.forEach((label, index) => {
+      if (activeLeft) {
+        if (index === 0) {
+          label.style.color = '#00B67C';
+          label.style.opacity = '1';
+        } else {
+          label.style.color = '#0A3213';
+          label.style.opacity = '0.5';
+        }
+      } else {
+        if (index === 0) {
+          label.style.color = '#0A3213';
+          label.style.opacity = '0.5';
+        } else {
+          label.style.color = '#00B67C';
+          label.style.opacity = '1';
+        }
+      }
+    });
+    
+    const targetVariant = activeLeft ? 'solo' : 'together';
+    
+    pricingCards.forEach(card => {
+      card.style.display = 'flex';
+      updateCardPrices(card, targetVariant);
+    });
+    
+    const allForms = document.querySelectorAll('.pricing-card-add-to-cart-form');
+    
+    const pricingSection = document.querySelector('.pricing-section');
+    const productHandle = pricingSection ? pricingSection.getAttribute('data-section-product-handle') : 
+                         (allForms[0] ? allForms[0].getAttribute('data-product-handle') : null);
+    
+    if (!productHandle) {
+      return;
+    }
+    
+    fetch(`/products/${productHandle}.js`)
+      .then(response => response.json())
+      .then(product => {
+        const targetPackOption = targetVariant === 'solo' ? 'Solo' : 'Together';
+        
+        allForms.forEach((form, formIndex) => {
+          const variantInput = form.querySelector('.variant-id-input');
+          if (!variantInput) {
+            return;
+          }
+          
+          const formLioVersion = form.getAttribute('data-lio-version') || 'decoy';
+          
+          let lioVersionOption = '';
+          if (formLioVersion === 'decoy') {
+            lioVersionOption = 'Try It Out';
+          } else if (formLioVersion === 'hero') {
+            lioVersionOption = '90-Day Quit Guarantee Program';
+          } else if (formLioVersion === 'advanced') {
+            lioVersionOption = 'Premium 90-Day Quit Guarantee Program';
+          }
+          
+          let matchingVariant = null;
+          
+          matchingVariant = product.variants.find(v => {
+            if (!v.available) return false;
+            
+            const hasPackOption = v.option1 === targetPackOption || v.option2 === targetPackOption || v.option3 === targetPackOption;
+            if (!hasPackOption) return false;
+            
+            if (lioVersionOption) {
+              const hasLioVersion = v.option1 === lioVersionOption || v.option2 === lioVersionOption || v.option3 === lioVersionOption;
+              if (!hasLioVersion) return false;
+            }
+            
+            return true;
+          });
+          
+          if (!matchingVariant) {
+            matchingVariant = product.variants.find(v => {
+              if (!v.available) return false;
+              return v.option1 === targetPackOption || v.option2 === targetPackOption || v.option3 === targetPackOption;
+            });
+          }
+          
+          if (matchingVariant) {
+            variantInput.value = matchingVariant.id;
+            
+            const form = variantInput.closest('.pricing-card-add-to-cart-form');
+            if (form) {
+              form.setAttribute('data-variant-id', matchingVariant.id);
+              form.setAttribute('data-pack-variant', targetVariant);
+            }
+            
+            const card = form ? form.closest('.pricing-card') : null;
+            if (card) {
+              updateCardPrices(card, targetVariant);
+            }
+          }
+        });
+      })
+      .catch(error => {
+      });
+  }
+  
+  function initializePrices() {
+    const pricingCards = document.querySelectorAll('.pricing-card');
+    const targetVariant = 'solo';
+    
+    pricingCards.forEach(card => {
+      updateCardPrices(card, targetVariant);
+      
+      const soloImage = card.getAttribute('data-solo-image') || '';
+      if (soloImage) {
+        const imageEl = card.querySelector('.pricing-card-image-img');
+        if (imageEl) {
+          imageEl.src = soloImage;
+        }
+      }
+    });
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializePrices);
+  } else {
+    initializePrices();
+  }
+  
+  toggleSwitch.addEventListener('click', function() {
+    updateToggleState(!isLeftActive);
+  });
+  
+  updateToggleState(true);
+})();
+</script>
+
+<script>
+(function() {
+  const addToCartForms = document.querySelectorAll('.pricing-card-add-to-cart-form');
+  
+  addToCartForms.forEach(form => {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const button = this.querySelector('.pricing-card-add-to-cart');
+      const buttonText = button.querySelector('.button-text');
+      const originalText = buttonText.textContent;
+      const variantInput = this.querySelector('input[name="id"]');
+      let variantId = variantInput ? variantInput.value : null;
+      const packVariant = this.getAttribute('data-pack-variant');
+      const lioVersion = this.getAttribute('data-lio-version');
+      const productHandle = this.getAttribute('data-product-handle');
+      const dataVariantId = this.getAttribute('data-variant-id');
+      
+      if (!variantId || variantId === '0' || variantId === '') {
+        if (dataVariantId) {
+          variantId = dataVariantId;
+          if (variantInput) {
+            variantInput.value = dataVariantId;
+          }
+        } else {
+          alert('Please wait a moment for the product to load, then try again.');
+          return;
+        }
+      }
+      
+      if (!variantId || variantId === '0' || variantId === '') {
+        return;
+      }
+      
+      button.disabled = true;
+      button.style.opacity = '0.7';
+      buttonText.textContent = 'Adding...';
+      
+      try {
+        const response = await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id: variantId,
+            quantity: 1
+          })
+        });
+        
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          throw new Error(errorData.description || errorData.message || 'Failed to add product to cart');
+        }
+        
+        const data = await response.json();
+        
+        const cartCountElements = document.querySelectorAll('[data-cart-count]');
+        cartCountElements.forEach(el => {
+          fetch('/cart.js')
+            .then(res => res.json())
+            .then(cart => {
+              el.textContent = cart.item_count;
+            })
+            .catch(() => {});
+        });
+        
+        let cartOpened = false;
+        
+        const cartDrawer = document.querySelector('cart-drawer');
+        if (cartDrawer && typeof cartDrawer.show === 'function') {
+          cartDrawer.show();
+          cartOpened = true;
+        }
+        
+        document.dispatchEvent(new CustomEvent('cart:refresh'));
+        
+        if (!cartOpened && typeof window.theme !== 'undefined' && window.theme.cartDrawer && typeof window.theme.cartDrawer.open === 'function') {
+          window.theme.cartDrawer.open();
+          cartOpened = true;
+        }
+        
+        if (!cartOpened) {
+          const cartToggleSelectors = [
+            '[data-cart-drawer-toggle]',
+            '[data-cart-toggle]',
+            '.cart-drawer-toggle',
+            '.cart-toggle',
+            '#cart-drawer-toggle',
+            '.js-cart-drawer-toggle'
+          ];
+          
+          for (const selector of cartToggleSelectors) {
+            const toggle = document.querySelector(selector);
+            if (toggle) {
+              toggle.click();
+              cartOpened = true;
+              break;
+            }
+          }
+        }
+        
+        if (!cartOpened) {
+          document.dispatchEvent(new CustomEvent('cart:open'));
+          document.dispatchEvent(new CustomEvent('cart:updated'));
+          cartOpened = true;
+        }
+        
+        if (!cartOpened) {
+          setTimeout(() => {
+            const cartIcon = document.querySelector('a[href="/cart"]') || 
+                           document.querySelector('a[href*="/cart"]') ||
+                           document.querySelector('.cart-icon') ||
+                           document.querySelector('[aria-label*="cart" i]');
+            if (cartIcon) {
+              const clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true });
+              cartIcon.dispatchEvent(clickEvent);
+            }
+          }, 100);
+        }
+        
+        document.dispatchEvent(new CustomEvent('cart:updated'));
+        
+      } catch (error) {
+        const errorMessage = error.message || 'Failed to add product to cart. Please try again.';
+        alert(errorMessage);
+      } finally {
+        button.disabled = false;
+        button.style.opacity = '1';
+        buttonText.textContent = originalText;
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+(function() {
+  const isMobile = window.innerWidth <= 768;
+  
+  function handleTooltipClick() {
+    const tooltipWrappers = document.querySelectorAll('.gift-tooltip-wrapper');
+    
+    tooltipWrappers.forEach(wrapper => {
+      const icon = wrapper.querySelector('.gift-info-icon');
+      if (!icon) return;
+      
+      icon.addEventListener('click', function(e) {
+        e.stopPropagation();
+        
+        tooltipWrappers.forEach(otherWrapper => {
+          if (otherWrapper !== wrapper) {
+            otherWrapper.classList.remove('mobile-active');
+          }
+        });
+        
+        wrapper.classList.toggle('mobile-active');
+      });
+    });
+    
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.gift-tooltip-wrapper')) {
+        tooltipWrappers.forEach(wrapper => {
+          wrapper.classList.remove('mobile-active');
+        });
+      }
+    });
+  }
+  
+  if (isMobile) {
+    handleTooltipClick();
+  }
+  
+  let resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      const newIsMobile = window.innerWidth <= 768;
+      if (newIsMobile !== isMobile) {
+        location.reload();
+      }
+    }, 250);
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Pricing Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "banner_text",
+      "label": "Banner Text",
+      "default": "December orders secured:"
+    },
+    {
+      "type": "text",
+      "id": "banner_highlight",
+      "label": "Banner Highlight Text",
+      "default": "3,847 purchases"
+    },
+    {
+      "type": "text",
+      "id": "banner_text_after",
+      "label": "Banner Text After Highlight",
+      "default": "in the last 24 hours."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Transform Your Vaping Habit Today"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Enroll now to begin your journey before year-end."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_toggle",
+      "label": "Show Toggle Switch",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "toggle_label_left",
+      "label": "Toggle Label Left",
+      "default": "Quit Solo"
+    },
+    {
+      "type": "text",
+      "id": "toggle_label_right",
+      "label": "Toggle Label Right",
+      "default": "Quit Together"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+      "info": "Select the product that will be used for all pricing cards"
+    },
+    {
+      "type": "header",
+      "content": "Shipping Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shipping_info",
+      "label": "Show Shipping Info",
+      "default": true
+    },
+    {
+      "type": "number",
+      "id": "cutoff_hour",
+      "label": "Cutoff Hour (24-hour format)",
+      "default": 15,
+      "info": "Orders before this hour will ship today, after will ship tomorrow"
+    },
+    {
+      "type": "number",
+      "id": "cutoff_minute",
+      "label": "Cutoff Minute",
+      "default": 0,
+      "info": "Minute of the cutoff time (0-59)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pricing_card",
+      "name": "Pricing Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Card Title",
+          "default": "Advanced"
+        },
+        {
+          "type": "select",
+          "id": "card_type",
+          "label": "Card Type",
+          "options": [
+            {
+              "value": "advanced",
+              "label": "Advanced"
+            },
+            {
+              "value": "hero",
+              "label": "Hero"
+            },
+            {
+              "value": "decoy",
+              "label": "Decoy"
+            }
+          ],
+          "default": "advanced"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_featured",
+          "label": "Is Featured",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge Text",
+          "default": "⭐ BEST VALUE"
+        },
+        {
+          "type": "select",
+          "id": "badge_position",
+          "label": "Badge Position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "bonus_amount",
+          "label": "Bonus Amount",
+          "default": "€233"
+        },
+        {
+          "type": "header",
+          "content": "Product 1"
+        },
+        {
+          "type": "text",
+          "id": "product_1_title",
+          "label": "Product 1 Title",
+          "default": "6-Month Supply of Botanical Flavor Cores"
+        },
+        {
+          "type": "text",
+          "id": "product_1_old_price",
+          "label": "Product 1 Old Price",
+          "default": "€174"
+        },
+        {
+          "type": "text",
+          "id": "product_1_price",
+          "label": "Product 1 Price",
+          "default": "€99"
+        },
+        {
+          "type": "header",
+          "content": "Product 2"
+        },
+        {
+          "type": "text",
+          "id": "product_2_title",
+          "label": "Product 2 Title",
+          "default": "Lio Diffuser V2"
+        },
+        {
+          "type": "text",
+          "id": "product_2_price",
+          "label": "Product 2 Price",
+          "default": "€99"
+        },
+        {
+          "type": "header",
+          "content": "Gifts"
+        },
+        {
+          "type": "text",
+          "id": "gift_1_title",
+          "label": "Gift 1 Title",
+          "default": "Free Premium Travel Case"
+        },
+        {
+          "type": "text",
+          "id": "gift_1_old_price",
+          "label": "Gift 1 Old Price",
+          "default": "€29"
+        },
+        {
+          "type": "checkbox",
+          "id": "gift_1_is_free",
+          "label": "Gift 1 Is Free",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "gift_1_subtitle",
+          "label": "Gift 1 Subtitle",
+          "info": "Subtitle is required for tooltip to appear"
+        },
+        {
+          "type": "textarea",
+          "id": "gift_1_tooltip_text",
+          "label": "Gift 1 Tooltip Text",
+          "info": "Tooltip text shown on hover over info icon"
+        },
+        {
+          "type": "text",
+          "id": "gift_2_title",
+          "label": "Gift 2 Title",
+          "default": "Free 30-Day Masterclass"
+        },
+        {
+          "type": "text",
+          "id": "gift_2_subtitle",
+          "label": "Gift 2 Subtitle",
+          "default": "Daily Habit Reset"
+        },
+        {
+          "type": "text",
+          "id": "gift_2_old_price",
+          "label": "Gift 2 Old Price",
+          "default": "€29"
+        },
+        {
+          "type": "checkbox",
+          "id": "gift_2_is_free",
+          "label": "Gift 2 Is Free",
+          "default": true
+        },
+        {
+          "type": "textarea",
+          "id": "gift_2_tooltip_text",
+          "label": "Gift 2 Tooltip Text",
+          "info": "Tooltip text shown on hover over info icon",
+          "default": "A 30-day audio masterclass that guides you day by day with morning, afternoon and evening sessions to build a strong quit routine."
+        },
+        {
+          "type": "text",
+          "id": "gift_3_title",
+          "label": "Gift 3 Title",
+          "default": "Free Addiction Education Course"
+        },
+        {
+          "type": "text",
+          "id": "gift_3_subtitle",
+          "label": "Gift 3 Subtitle",
+          "default": "Understanding Your Habit"
+        },
+        {
+          "type": "text",
+          "id": "gift_3_old_price",
+          "label": "Gift 3 Old Price",
+          "default": "€29"
+        },
+        {
+          "type": "checkbox",
+          "id": "gift_3_is_free",
+          "label": "Gift 3 Is Free",
+          "default": true
+        },
+        {
+          "type": "textarea",
+          "id": "gift_3_tooltip_text",
+          "label": "Gift 3 Tooltip Text",
+          "info": "Tooltip text shown on hover over info icon"
+        },
+        {
+          "type": "text",
+          "id": "gift_4_title",
+          "label": "Gift 4 Title",
+          "default": "Free SOS Audio Library"
+        },
+        {
+          "type": "text",
+          "id": "gift_4_subtitle",
+          "label": "Gift 4 Subtitle",
+          "default": "Instant Craving Relief"
+        },
+        {
+          "type": "text",
+          "id": "gift_4_old_price",
+          "label": "Gift 4 Old Price",
+          "default": "€29"
+        },
+        {
+          "type": "checkbox",
+          "id": "gift_4_is_free",
+          "label": "Gift 4 Is Free",
+          "default": true
+        },
+        {
+          "type": "textarea",
+          "id": "gift_4_tooltip_text",
+          "label": "Gift 4 Tooltip Text",
+          "info": "Tooltip text shown on hover over info icon"
+        },
+        {
+          "type": "text",
+          "id": "gift_5_title",
+          "label": "Gift 5 Title",
+          "default": "Free Identity Builder"
+        },
+        {
+          "type": "text",
+          "id": "gift_5_subtitle",
+          "label": "Gift 5 Subtitle",
+          "default": "Stay Quit for Life"
+        },
+        {
+          "type": "text",
+          "id": "gift_5_old_price",
+          "label": "Gift 5 Old Price",
+          "default": "€29"
+        },
+        {
+          "type": "checkbox",
+          "id": "gift_5_is_free",
+          "label": "Gift 5 Is Free",
+          "default": true
+        },
+        {
+          "type": "textarea",
+          "id": "gift_5_tooltip_text",
+          "label": "Gift 5 Tooltip Text",
+          "info": "Tooltip text shown on hover over info icon"
+        },
+        {
+          "type": "text",
+          "id": "gift_6_title",
+          "label": "Gift 6 Title",
+          "default": "Free 60-Day Habit Tracker"
+        },
+        {
+          "type": "text",
+          "id": "gift_6_old_price",
+          "label": "Gift 6 Old Price",
+          "default": "€15"
+        },
+        {
+          "type": "checkbox",
+          "id": "gift_6_is_free",
+          "label": "Gift 6 Is Free",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "gift_6_subtitle",
+          "label": "Gift 6 Subtitle",
+          "info": "Subtitle is required for tooltip to appear"
+        },
+        {
+          "type": "textarea",
+          "id": "gift_6_tooltip_text",
+          "label": "Gift 6 Tooltip Text",
+          "info": "Tooltip text shown on hover over info icon"
+        },
+        {
+          "type": "text",
+          "id": "gift_7_title",
+          "label": "Gift 7 Title",
+          "default": "Free Alan Carr-Inspired Quit Guide eBook"
+        },
+        {
+          "type": "text",
+          "id": "gift_7_old_price",
+          "label": "Gift 7 Old Price",
+          "default": "€24"
+        },
+        {
+          "type": "checkbox",
+          "id": "gift_7_is_free",
+          "label": "Gift 7 Is Free",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "gift_7_subtitle",
+          "label": "Gift 7 Subtitle",
+          "info": "Subtitle is required for tooltip to appear"
+        },
+        {
+          "type": "textarea",
+          "id": "gift_7_tooltip_text",
+          "label": "Gift 7 Tooltip Text",
+          "info": "Tooltip text shown on hover over info icon"
+        },
+        {
+          "type": "text",
+          "id": "gift_8_title",
+          "label": "Gift 8 Title",
+          "default": "Free Private Community Access"
+        },
+        {
+          "type": "text",
+          "id": "gift_8_old_price",
+          "label": "Gift 8 Old Price",
+          "default": "€37"
+        },
+        {
+          "type": "checkbox",
+          "id": "gift_8_is_free",
+          "label": "Gift 8 Is Free",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "gift_8_subtitle",
+          "label": "Gift 8 Subtitle",
+          "info": "Subtitle is required for tooltip to appear"
+        },
+        {
+          "type": "textarea",
+          "id": "gift_8_tooltip_text",
+          "label": "Gift 8 Tooltip Text",
+          "info": "Tooltip text shown on hover over info icon"
+        },
+        {
+          "type": "text",
+          "id": "gift_9_title",
+          "label": "Gift 9 Title",
+          "default": "Free Express Shipping"
+        },
+        {
+          "type": "text",
+          "id": "gift_9_old_price",
+          "label": "Gift 9 Old Price",
+          "default": "€12"
+        },
+        {
+          "type": "checkbox",
+          "id": "gift_9_is_free",
+          "label": "Gift 9 Is Free",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "gift_9_subtitle",
+          "label": "Gift 9 Subtitle",
+          "info": "Subtitle is required for tooltip to appear"
+        },
+        {
+          "type": "textarea",
+          "id": "gift_9_tooltip_text",
+          "label": "Gift 9 Tooltip Text",
+          "info": "Tooltip text shown on hover over info icon"
+        },
+        {
+          "type": "header",
+          "content": "Pricing"
+        },
+        {
+          "type": "text",
+          "id": "price_per_day",
+          "label": "Price Per Day",
+          "default": "€0.82 per Day"
+        },
+        {
+          "type": "text",
+          "id": "comparison_price",
+          "label": "Comparison Price",
+          "default": "€10 per Day smoking"
+        },
+        {
+          "type": "text",
+          "id": "old_price",
+          "label": "Old Price",
+          "default": "€506"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "€198"
+        },
+        {
+          "type": "text",
+          "id": "save_amount",
+          "label": "Save Amount",
+          "default": "€308"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "START MY GUARANTEED FREEDOM PROGRAM"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link",
+          "info": "Used as fallback if product is not available"
+        },
+        {
+          "type": "select",
+          "id": "pack_variant",
+          "label": "Pack Variant",
+          "options": [
+            {
+              "value": "solo",
+              "label": "Solo Pack"
+            },
+            {
+              "value": "together",
+              "label": "Together Pack"
+            }
+          ],
+          "default": "solo",
+          "info": "Which pack variant this card represents"
+        },
+        {
+          "type": "select",
+          "id": "lio_version",
+          "label": "Lio® Version",
+          "options": [
+            {
+              "value": "decoy",
+              "label": "Try It Out (Decoy)"
+            },
+            {
+              "value": "hero",
+              "label": "90-Day Quit Guarantee Program (Hero)"
+            },
+            {
+              "value": "advanced",
+              "label": "Premium 90-Day Quit Guarantee Program (Advanced)"
+            }
+          ],
+          "default": "decoy",
+          "info": "Which Lio® Version this card represents"
+        },
+        {
+          "type": "text",
+          "id": "solo_variant_id",
+          "label": "Solo Pack Variant ID",
+          "info": "Variant ID for Solo Pack option"
+        },
+        {
+          "type": "text",
+          "id": "together_variant_id",
+          "label": "Together Pack Variant ID",
+          "info": "Variant ID for Together Pack option"
+        },
+        {
+          "type": "select",
+          "id": "guarantee_icon",
+          "label": "Guarantee Icon",
+          "options": [
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "close",
+              "label": "Close"
+            }
+          ],
+          "default": "shield"
+        },
+        {
+          "type": "text",
+          "id": "guarantee_text",
+          "label": "Guarantee Text",
+          "default": "180-Day Money-Back Guarantee"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pricing Section",
+      "blocks": [
+        {
+          "type": "pricing_card",
+          "settings": {
+            "card_title": "Advanced",
+            "card_type": "advanced",
+            "is_featured": false,
+            "badge_text": "⭐ BEST VALUE"
+          }
+        },
+        {
+          "type": "pricing_card",
+          "settings": {
+            "card_title": "Hero",
+            "card_type": "hero",
+            "is_featured": true,
+            "badge_text": "🔥 MOST POPULAR"
+          }
+        },
+        {
+          "type": "pricing_card",
+          "settings": {
+            "card_title": "Decoy",
+            "card_type": "decoy",
+            "is_featured": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
