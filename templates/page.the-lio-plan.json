@@ -179,7 +179,7 @@
         "banner_text_after": "",
         "heading": "Start your Reset",
         "subheading": "Get a FREE Lio Diffuser (worth €49) with your first delivery",
-        "show_toggle": true,
+        "show_toggle": false,
         "toggle_label_left": "Start Solo",
         "toggle_label_right": "Start Together",
         "product": "lio®-pack",
