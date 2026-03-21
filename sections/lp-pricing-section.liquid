@@ -994,9 +994,6 @@
       const originalText = buttonText.textContent;
       const variantInput = this.querySelector('input[name="id"]');
       let variantId = variantInput ? variantInput.value : null;
-      const packVariant = this.getAttribute('data-pack-variant');
-      const lioVersion = this.getAttribute('data-lio-version');
-      const productHandle = this.getAttribute('data-product-handle');
       const dataVariantId = this.getAttribute('data-variant-id');
       
       if (!variantId || variantId === '0' || variantId === '') {
@@ -1035,79 +1032,13 @@
           const errorData = await response.json().catch(() => ({}));
           throw new Error(errorData.description || errorData.message || 'Failed to add product to cart');
         }
-        
-        const data = await response.json();
-        
-        const cartCountElements = document.querySelectorAll('[data-cart-count]');
-        cartCountElements.forEach(el => {
-          fetch('/cart.js')
-            .then(res => res.json())
-            .then(cart => {
-              el.textContent = cart.item_count;
-            })
-            .catch(() => {});
-        });
-        
-        let cartOpened = false;
-        
-        const cartDrawer = document.querySelector('cart-drawer');
-        if (cartDrawer && typeof cartDrawer.show === 'function') {
-          cartDrawer.show();
-          cartOpened = true;
-        }
-        
-        document.dispatchEvent(new CustomEvent('cart:refresh'));
-        
-        if (!cartOpened && typeof window.theme !== 'undefined' && window.theme.cartDrawer && typeof window.theme.cartDrawer.open === 'function') {
-          window.theme.cartDrawer.open();
-          cartOpened = true;
-        }
-        
-        if (!cartOpened) {
-          const cartToggleSelectors = [
-            '[data-cart-drawer-toggle]',
-            '[data-cart-toggle]',
-            '.cart-drawer-toggle',
-            '.cart-toggle',
-            '#cart-drawer-toggle',
-            '.js-cart-drawer-toggle'
-          ];
-          
-          for (const selector of cartToggleSelectors) {
-            const toggle = document.querySelector(selector);
-            if (toggle) {
-              toggle.click();
-              cartOpened = true;
-              break;
-            }
-          }
-        }
-        
-        if (!cartOpened) {
-          document.dispatchEvent(new CustomEvent('cart:open'));
-          document.dispatchEvent(new CustomEvent('cart:updated'));
-          cartOpened = true;
-        }
-        
-        if (!cartOpened) {
-          setTimeout(() => {
-            const cartIcon = document.querySelector('a[href="/cart"]') || 
-                           document.querySelector('a[href*="/cart"]') ||
-                           document.querySelector('.cart-icon') ||
-                           document.querySelector('[aria-label*="cart" i]');
-            if (cartIcon) {
-              const clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true });
-              cartIcon.dispatchEvent(clickEvent);
-            }
-          }, 100);
-        }
-        
-        document.dispatchEvent(new CustomEvent('cart:updated'));
+
+        await response.json();
+        window.location.href = '/checkout';
         
       } catch (error) {
         const errorMessage = error.message || 'Failed to add product to cart. Please try again.';
         alert(errorMessage);
-      } finally {
         button.disabled = false;
         button.style.opacity = '1';
         buttonText.textContent = originalText;
