@@ -26,7 +26,7 @@
         
         <div class="pricing-heading-section" style="display: flex; flex-direction: column; gap: 20px; max-width: 600px; width: 100%; align-items: center;">
           {% if section.settings.heading != blank %}
-          <h2 class="pricing-heading" style="font-family: 'Sigum', serif; font-weight: 400; font-size: 40px; line-height: 1.2em; text-transform: uppercase; text-align: center; color: #0A3213; margin: 0;">
+          <h2 class="pricing-heading" style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 40px; line-height: 1.2em; text-transform: uppercase; text-align: center; color: #0A3213; margin: 0;">
             {{ section.settings.heading }}
           </h2>
           {% endif %}
@@ -41,11 +41,11 @@
       {% if section.settings.show_toggle %}
       <div class="pricing-toggle-wrapper" style="display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 16px; background-color: rgba(10, 50, 19, 0.04); border: 1px solid rgba(10, 50, 19, 0.08); border-radius: 16px; max-width: 480px; width: 100%;">
         <div class="pricing-toggle" style="display: flex; align-items: center; gap: 20px;">
-          <span class="toggle-label" style="font-family: 'Sigum', serif; font-weight: 400; font-size: 20px; line-height: 1.4em; text-transform: uppercase; color: #00B67C;">{{ section.settings.toggle_label_left }}</span>
+          <span class="toggle-label" style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.4em; text-transform: uppercase; color: #00B67C;">{{ section.settings.toggle_label_left }}</span>
           <div class="toggle-switch" style="width: 68px; height: 32px; padding: 2px; background: linear-gradient(21deg, rgba(0, 182, 124, 1) 7%, rgba(237, 237, 94, 1) 100%); border-radius: 999px; position: relative;">
             <div class="toggle-slider" style="width: 28px; height: 28px; background-color: #FFFFFF; border-radius: 999px; position: absolute; left: 2px; top: 2px; transition: transform 0.3s ease;"></div>
           </div>
-          <span class="toggle-label" style="font-family: 'Sigum', serif; font-weight: 400; font-size: 20px; line-height: 1.4em; text-transform: uppercase; color: #0A3213; opacity: 0.5;">{{ section.settings.toggle_label_right }}</span>
+          <span class="toggle-label" style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.4em; text-transform: uppercase; color: #0A3213; opacity: 0.5;">{{ section.settings.toggle_label_right }}</span>
         </div>
       </div>
       {% endif %}
@@ -181,7 +181,7 @@
               
               {% if block.settings.card_title != blank %}
               <div style="padding: 0 20px; margin-bottom: 12px;">
-                <h3 style="font-family: 'Sigum', serif; font-weight: 400; font-size: 24px; line-height: 1.4em; text-transform: uppercase; text-align: center; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %}; margin: 0;">
+                <h3 style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 24px; line-height: 1.4em; text-transform: uppercase; text-align: center; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %}; margin: 0;">
                   {{ block.settings.card_title }}
                 </h3>
               </div>
@@ -194,9 +194,9 @@
                 {% if block.settings.bonus_amount != blank %}
                 <div style="position: absolute; bottom: 32px; right: 20px; width: 120px; height: 120px; background-image: url('https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vector_1.svg?v=1765486798'); background-size: contain; background-repeat: no-repeat; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24.5px 21px;">
                   <div style="display: flex; flex-direction: column; align-items: center; gap: 0;">
-                    <span style="font-family: 'Sigum', serif; font-weight: 400; font-size: 20px; line-height: 1.4em; text-transform: uppercase; color: #FFFDFC;">{{ block.settings.bonus_amount }}</span>
-                    <span style="font-family: 'Sigum', serif; font-weight: 400; font-size: 16px; line-height: 1.4em; text-transform: uppercase; color: #FFFDFC;">in Free</span>
-                    <span style="font-family: 'Sigum', serif; font-weight: 400; font-size: 16px; line-height: 1.4em; text-transform: uppercase; color: #FFFDFC;">Bonuses</span>
+                    <span style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 20px; line-height: 1.4em; text-transform: uppercase; color: #FFFDFC;">{{ block.settings.bonus_amount }}</span>
+                    <span style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 1.4em; text-transform: uppercase; color: #FFFDFC;">in Free</span>
+                    <span style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 1.4em; text-transform: uppercase; color: #FFFDFC;">Bonuses</span>
                   </div>
                 </div>
                 {% endif %}
@@ -336,7 +336,7 @@
                     {{ block.settings.old_price }}
                   </span>
                   {% endif %}
-                  <span class="pricing-card-price" style="font-family: 'Sigum', serif; font-weight: 400; font-size: 32px; line-height: 1.3em; text-transform: uppercase; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %};">
+                  <span class="pricing-card-price" style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 32px; line-height: 1.3em; text-transform: uppercase; color: {% if block.settings.is_featured and block.settings.card_type == 'hero' %}#FAFEFC{% else %}#0A3213{% endif %};">
                     {{ block.settings.price | default: 'Loading...' }}
                   </span>
                   {% if block.settings.save_amount != blank %}
