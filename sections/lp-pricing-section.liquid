@@ -377,12 +377,12 @@
                     {% assign lio_version_option = 'Premium 90-Day Start Guarantee Program' %}
                   {% endif %}
                   
-                  {% assign target_pack_option = '' %}
-                  {% if pack_variant == 'solo' %}
-                    {% assign target_pack_option = 'Solo' %}
-                  {% else %}
-                    {% assign target_pack_option = 'Together' %}
-                  {% endif %}
+                {% assign target_pack_option = '' %}
+{% if pack_variant == 'solo' %}
+  {% assign target_pack_option = 'Start Solo' %}
+{% else %}
+  {% assign target_pack_option = 'Start Together' %}
+{% endif %}
                   
                   {% assign matching_variant = null %}
                   {% for variant in section_product.variants %}
