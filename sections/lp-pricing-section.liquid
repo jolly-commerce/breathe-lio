@@ -888,7 +888,7 @@
     fetch(`/products/${productHandle}.js`)
       .then(response => response.json())
       .then(product => {
-        const targetPackOption = targetVariant === 'solo' ? 'Solo' : 'Together';
+        const targetPackOption = targetVariant === 'solo' ? 'Start Solo' : 'Start Together';
         
         allForms.forEach((form, formIndex) => {
           const variantInput = form.querySelector('.variant-id-input');
