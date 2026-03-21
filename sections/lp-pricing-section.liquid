@@ -1631,27 +1631,23 @@ if (formLioVersion === 'hero') {
           "default": "solo",
           "info": "Which pack variant this card represents"
         },
-        {
-          "type": "select",
-          "id": "lio_version",
-          "label": "Lio® Version",
-          "options": [
-            {
-              "value": "decoy",
-              "label": "Try It Out (Decoy)"
-            },
-            {
-              "value": "hero",
-              "label": "90-Day Start Guarantee Program (Hero)"
-            },
-            {
-              "value": "advanced",
-              "label": "Premium 90-Day Start Guarantee Program (Advanced)"
-            }
-          ],
-          "default": "decoy",
-          "info": "Which Lio® Version this card represents"
-        },
+       {
+  "type": "select",
+  "id": "lio_version",
+  "label": "Lio® Version",
+  "options": [
+    {
+      "value": "hero",
+      "label": "90-Day Kit (1 month free + free Lio)"
+    },
+    {
+      "value": "decoy",
+      "label": "30-Day Kit (free Lio)"
+    }
+  ],
+  "default": "hero",
+  "info": "Which Lio® Version this card represents"
+},
         {
           "type": "text",
           "id": "solo_variant_id",
