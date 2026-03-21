@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "content_width": "80ch"
       }
@@ -179,8 +180,8 @@
         "heading": "Start your Reset",
         "subheading": "Get a FREE Lio Diffuser (worth €49) with your first delivery",
         "show_toggle": false,
-        "toggle_label_left": "Quit Solo",
-        "toggle_label_right": "Quit Together",
+        "toggle_label_left": "Start Solo",
+        "toggle_label_right": "Start Together",
         "product": "",
         "show_shipping_info": true,
         "cutoff_hour": 12,
