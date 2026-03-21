@@ -72,9 +72,9 @@
             {% if lio_version == 'decoy' %}
               {% assign lio_version_option = 'Try It Out' %}
             {% elsif lio_version == 'hero' %}
-              {% assign lio_version_option = '90-Day Quit Guarantee Program' %}
+              {% assign lio_version_option = '90-Day Start Guarantee Program' %}
             {% elsif lio_version == 'advanced' %}
-              {% assign lio_version_option = 'Premium 90-Day Quit Guarantee Program' %}
+              {% assign lio_version_option = 'Premium 90-Day Start Guarantee Program' %}
             {% endif %}
             
             {% assign solo_variant = null %}
@@ -83,7 +83,7 @@
                 {% if variant.available %}
                   {% assign has_solo = false %}
                   {% assign has_lio = false %}
-                  {% if variant.option1 == 'Solo' or variant.option2 == 'Solo' or variant.option3 == 'Solo' %}
+                  {% if variant.option1 == 'Start Solo' or variant.option2 == 'Start Solo' or variant.option3 == 'Start Solo' %}
                     {% assign has_solo = true %}
                   {% endif %}
                   {% if lio_version_option != blank %}
@@ -372,9 +372,9 @@
                   {% if lio_version == 'decoy' %}
                     {% assign lio_version_option = 'Try It Out' %}
                   {% elsif lio_version == 'hero' %}
-                    {% assign lio_version_option = '90-Day Quit Guarantee Program' %}
+                    {% assign lio_version_option = '90-Day Start Guarantee Program' %}
                   {% elsif lio_version == 'advanced' %}
-                    {% assign lio_version_option = 'Premium 90-Day Quit Guarantee Program' %}
+                    {% assign lio_version_option = 'Premium 90-Day Start Guarantee Program' %}
                   {% endif %}
                   
                   {% assign target_pack_option = '' %}
@@ -834,8 +834,8 @@
   const leftLabelText = toggleLabels[0].textContent.trim().toLowerCase();
   const rightLabelText = toggleLabels[1].textContent.trim().toLowerCase();
   
-  const isSoloLeft = leftLabelText.includes('solo') || leftLabelText.includes('quit solo');
-  const isTogetherRight = rightLabelText.includes('together') || rightLabelText.includes('quit together');
+  const isSoloLeft = leftLabelText.includes('solo') || leftLabelText.includes('Start Solo');
+  const isTogetherRight = rightLabelText.includes('together') || rightLabelText.includes('Start together');
   
   let isLeftActive = true;
   
@@ -902,9 +902,9 @@
           if (formLioVersion === 'decoy') {
             lioVersionOption = 'Try It Out';
           } else if (formLioVersion === 'hero') {
-            lioVersionOption = '90-Day Quit Guarantee Program';
+            lioVersionOption = '90-Day Start Guarantee Program';
           } else if (formLioVersion === 'advanced') {
-            lioVersionOption = 'Premium 90-Day Quit Guarantee Program';
+            lioVersionOption = 'Premium 90-Day Start Guarantee Program';
           }
           
           let matchingVariant = null;
@@ -1147,13 +1147,13 @@
       "type": "text",
       "id": "toggle_label_left",
       "label": "Toggle Label Left",
-      "default": "Quit Solo"
+      "default": "Start Solo"
     },
     {
       "type": "text",
       "id": "toggle_label_right",
       "label": "Toggle Label Right",
-      "default": "Quit Together"
+      "default": "Start Together"
     },
     {
       "type": "product",
@@ -1362,7 +1362,7 @@
           "id": "gift_2_tooltip_text",
           "label": "Gift 2 Tooltip Text",
           "info": "Tooltip text shown on hover over info icon",
-          "default": "A 30-day audio masterclass that guides you day by day with morning, afternoon and evening sessions to build a strong quit routine."
+          "default": "A 30-day audio masterclass that guides you day by day with morning, afternoon and evening sessions to build a strong Start routine."
         },
         {
           "type": "text",
@@ -1434,7 +1434,7 @@
           "type": "text",
           "id": "gift_5_subtitle",
           "label": "Gift 5 Subtitle",
-          "default": "Stay Quit for Life"
+          "default": "Stay Start for Life"
         },
         {
           "type": "text",
@@ -1488,7 +1488,7 @@
           "type": "text",
           "id": "gift_7_title",
           "label": "Gift 7 Title",
-          "default": "Free Alan Carr-Inspired Quit Guide eBook"
+          "default": "Free Alan Carr-Inspired Start Guide eBook"
         },
         {
           "type": "text",
@@ -1648,11 +1648,11 @@
             },
             {
               "value": "hero",
-              "label": "90-Day Quit Guarantee Program (Hero)"
+              "label": "90-Day Start Guarantee Program (Hero)"
             },
             {
               "value": "advanced",
-              "label": "Premium 90-Day Quit Guarantee Program (Advanced)"
+              "label": "Premium 90-Day Start Guarantee Program (Advanced)"
             }
           ],
           "default": "decoy",
