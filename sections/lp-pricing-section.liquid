@@ -366,12 +366,13 @@
                     {% endif %}
                   {% endif %}
                   
-                  {% assign lio_version_option = '' %}
+             {% assign lio_version_option = '' %}
 {% if lio_version == 'hero' %}
   {% assign lio_version_option = 'Lio 90-Day Starter Kit (1 month free + free Lio)' %}
 {% elsif lio_version == 'decoy' %}
   {% assign lio_version_option = 'Lio 30-Day Starter Kit (free Lio)' %}
 {% endif %}
+                  
                 {% assign target_pack_option = '' %}
 {% if pack_variant == 'solo' %}
   {% assign target_pack_option = 'Start Solo' %}
