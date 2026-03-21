@@ -31,7 +31,7 @@
             "product_1_title": "Free Lio Plus Device",
             "product_1_old_price": "49",
             "product_1_price": "FREE",
-            "product_2_title": "3-Month Supply of Refills<br>(Free 1-Month Supply)",
+            "product_2_title": "3-Month Supply of Refills(Free 1-Month Supply)",
             "product_2_price": "€79",
             "gift_1_title": "Free 1-Month Supply of Refills",
             "gift_1_old_price": "€39",
@@ -87,8 +87,8 @@
             "button_link": "",
             "pack_variant": "solo",
             "lio_version": "hero",
-            "solo_variant_id": "",
-            "together_variant_id": "",
+            "solo_variant_id": "55391205163384",
+            "together_variant_id": "55391205359992",
             "guarantee_icon": "shield",
             "guarantee_text": "365-Day Money-Back Guarantee"
           }
