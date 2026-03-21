@@ -107,7 +107,7 @@
                 {% if variant.available %}
                   {% assign has_together = false %}
                   {% assign has_lio = false %}
-                  {% if variant.option1 == 'Together' or variant.option2 == 'Together' or variant.option3 == 'Together' %}
+                {% if variant.option1 == 'Start Together' or variant.option2 == 'Start Together' or variant.option3 == 'Start Together' %}
                     {% assign has_together = true %}
                   {% endif %}
                   {% if lio_version_option != blank %}
