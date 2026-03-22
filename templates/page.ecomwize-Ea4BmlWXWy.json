@@ -1,0 +1,75 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "section_0": {
+      "type": "ecomwize-XUvaD7AjX0",
+      "settings": {}
+    },
+    "section_1": {
+      "type": "ecomwize-QTGmYKBfkv",
+      "settings": {}
+    },
+    "section_2": {
+      "type": "ecomwize-LKnZf7IMZk",
+      "settings": {}
+    },
+    "section_3": {
+      "type": "ecomwize-6UBkYcWQnn",
+      "settings": {}
+    },
+    "section_4": {
+      "type": "ecomwize-IPkKD5s7TD",
+      "settings": {}
+    },
+    "section_5": {
+      "type": "ecomwize-9n-qah28Ce",
+      "settings": {}
+    },
+    "section_6": {
+      "type": "ecomwize-Rm-oKiHOKP",
+      "settings": {}
+    },
+    "section_7": {
+      "type": "ecomwize-d0yyQiiylO",
+      "settings": {}
+    },
+    "section_8": {
+      "type": "ecomwize-OE4y452cmj",
+      "settings": {}
+    },
+    "section_9": {
+      "type": "ecomwize-pRs3ACz4Sj",
+      "settings": {}
+    },
+    "section_10": {
+      "type": "ecomwize-TCrf1nAOsJ",
+      "settings": {}
+    },
+    "section_11": {
+      "type": "ecomwize-IcOb-XzDi6",
+      "settings": {}
+    }
+  },
+  "order": [
+    "section_0",
+    "section_1",
+    "section_2",
+    "section_3",
+    "section_4",
+    "section_5",
+    "section_6",
+    "section_7",
+    "section_8",
+    "section_9",
+    "section_10",
+    "section_11"
+  ]
+}

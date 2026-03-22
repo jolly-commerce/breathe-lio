@@ -1,0 +1,670 @@
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script>(()=>{let e=window.EcomWize||{};if(!e.initialized&&!window.__ecomwize_loading){window.__ecomwize_loading=!0;let i=()=>{let v=[...document.querySelectorAll(".__ecomwize")].map(e=>e.getAttribute("data-ecomwize-version")||"1.0.0").sort((a,b)=>a.split(".").map(Number).reduce((r,n,i)=>r||n-b.split(".")[i],0)).pop()||"1.0.0",s=document.createElement("script");s.src="https://tnafiwedjpupmoelypit.supabase.co/storage/v1/object/public/scripts/ecomwize-core.min.js?v="+v;document.body.appendChild(s)};"loading"!==document.readyState?i():document.addEventListener("DOMContentLoaded",i)}})();</script>
+<link rel="stylesheet" href="https://tnafiwedjpupmoelypit.supabase.co/storage/v1/object/public/scripts/swiper-bundle.min.css">
+<script>
+(function(){
+  if(window.Swiper||window.__swiper_loading)return;
+  window.__swiper_loading=true;
+  var s=document.createElement('script');
+  s.src='https://tnafiwedjpupmoelypit.supabase.co/storage/v1/object/public/scripts/swiper-bundle.min.js';
+  s.async=true;
+  s.onload=function(){
+    document.dispatchEvent(new CustomEvent('swiper:loaded'));
+  };
+  document.body.appendChild(s);
+})();
+</script>
+{%- style -%}
+  #ecomwize-ugc03-OE4y452cmj {
+    background-color: #f6fff5;
+    overflow: hidden;
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-section-inner {
+    padding: 32px 16px;
+    letter-spacing: normal;
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-ugc03-OE4y452cmj .ugc03-section-inner {
+      padding: 64px 32px;
+    }
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  
+  /* Header */
+  #ecomwize-ugc03-OE4y452cmj .ugc03-header {
+    margin-bottom: 32px;
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-ugc03-OE4y452cmj .ugc03-header {
+      margin-bottom: 48px;
+    }
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-heading {
+    font-family: 'DM Sans',  sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: #143c2c;
+    line-height: 120%;
+    text-transform: none;
+    text-align: center;
+    margin: 0 0 16px 0;
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-ugc03-OE4y452cmj .ugc03-heading {
+      font-size: 38px;
+    }
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-subheading {
+    font-family: 'DM Sans',  sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #143c2c;
+    line-height: 160%;
+    text-align: center;
+    margin: 0;
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-ugc03-OE4y452cmj .ugc03-subheading {
+      font-size: 16px;
+    }
+  }
+  
+  /* Swiper Container - from shared utilities */
+  
+  /* Swiper - visible on BOTH mobile and desktop */
+  #ecomwize-ugc03-OE4y452cmj .ugc03-swiper-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  #ecomwize-ugc03-OE4y452cmj .ugc03-swiper {
+    overflow: visible;
+    margin-bottom: 32px;
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-swiper .swiper-slide {
+    width: 280px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  /* Video card */
+  #ecomwize-ugc03-OE4y452cmj .ugc03-video-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-video-card video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0px;
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-video-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #E5E7EB;
+    border-radius: 0px;
+  }
+  
+  /* Video Controls - from shared utilities */
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* GPU acceleration to prevent flickering during Swiper animations */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-video-wrapper video {
+    border-radius: 0px;
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-video-controls {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 10;
+    /* GPU acceleration to prevent flickering during Swiper animations */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-play-button {
+    pointer-events: auto;
+    box-sizing: border-box !important;
+    width: 56px !important;
+    height: 56px !important;
+    min-width: 56px !important;
+    min-height: 56px !important;
+    max-width: 56px !important;
+    max-height: 56px !important;
+    flex: 0 0 56px !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 50% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: none;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer;
+    /* Only transition opacity and transform - not all (prevents flickering) */
+    transition: opacity 0.2s, transform 0.2s;
+    /* GPU acceleration to prevent flickering during Swiper animations */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-play-button:hover {
+    transform: translateZ(0) scale(1.05);
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-play-button.playing {
+    opacity: 0;
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-video-wrapper:hover .ugc03-play-button.playing {
+    opacity: 1;
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-play-icon,
+  #ecomwize-ugc03-OE4y452cmj .ugc03-pause-icon {
+    flex-shrink: 0;
+  }
+  
+  /* Navigation - from shared utilities */
+  
+  /* Navigation - conditionally visible */
+  #ecomwize-ugc03-OE4y452cmj .ugc03-nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: 1024px) {
+    #ecomwize-ugc03-OE4y452cmj .ugc03-nav-container {
+      margin-bottom: 48px;
+    }
+  }
+  
+  /* Navigation hidden when all slides visible (via JS) */
+  #ecomwize-ugc03-OE4y452cmj .ugc03-nav-container.hidden {
+    display: none !important;
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-nav-arrow {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 32px;
+    max-height: 32px;
+    flex: 0 0 32px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s, background-color 0.2s;
+    background-color: #05b67a;
+    color: #ffffff;
+    padding: 0;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-nav-arrow:disabled {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.3);
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-nav-dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    bottom: auto !important;
+    top: auto !important;
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-nav-dot {
+    height: 6px;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: width 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+    border: none;
+    padding: 0;
+    display: block;
+    width: 6px;
+    margin: 0 !important;
+    opacity: 1 !important;
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-nav-dot.active {
+    width: 16px;
+    background-color: #05b67a;
+  }
+  
+  /* Button */
+  #ecomwize-ugc03-OE4y452cmj .ugc03-button-wrapper {
+    text-align: center;
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #05b67a;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 0px solid #0d3d3d;
+    text-decoration: none;
+    font-family: 'DM Sans',  sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 160%;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-ugc03-OE4y452cmj .ugc03-button {
+      width: auto;
+      font-size: 16px;
+    }
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-button:hover {
+    background-color: #00754e;
+    color: #ffffff;
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-heading b,
+  #ecomwize-ugc03-OE4y452cmj .ugc03-subheading b {
+    font-weight: 700;
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .ugc03-heading > p,
+  #ecomwize-ugc03-OE4y452cmj .ugc03-subheading > p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  #ecomwize-ugc03-OE4y452cmj .text-highlight {
+    font-family: 'Instrument Serif', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+{%- endstyle -%}
+
+<div id="ecomwize-ugc03-OE4y452cmj">
+  <div class="ugc03-section-inner">
+    <div class="ugc03-container">
+      <!-- Header -->
+      <div class="ugc03-header">
+        <div class="ugc03-heading">{{ section.settings.heading }}</div>
+        <div class="ugc03-subheading">{{ section.settings.subheading }}</div>
+      </div>
+      
+      <!-- Swiper Carousel -->
+      <div class="ugc03-swiper-container">
+        <div class="ugc03-swiper swiper">
+          <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          {% if section.settings.video_1 != blank or section.settings.video_1_url != blank %}
+            <div class="ugc03-video-card">
+              <div class="ugc03-video-wrapper" data-ecomwize-video="OE4y452cmj-0" >
+                <video src="{%- if section.settings.video_1 != blank -%}{{ section.settings.video_1.sources | where: 'format', 'mp4' | map: 'url' | first }}{%- else -%}{{ section.settings.video_1_url }}{%- endif -%}" loop playsinline muted preload="auto" ></video>
+                <div class="ugc03-video-controls">
+                  <button class="ugc03-play-button" data-ecomwize-play-btn type="button" aria-label="Play video">
+                    <svg width="28" height="28" viewBox="0 0 256 256" fill="#000000" class="ecomwize-play-icon ugc03-play-icon"><path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"></path></svg>
+                    <svg width="28" height="28" viewBox="0 0 256 256" fill="#000000" class="ecomwize-pause-icon ugc03-pause-icon" style="display: none;"><path d="M216,48V208a16,16,0,0,1-16,16H160a16,16,0,0,1-16-16V48a16,16,0,0,1,16-16h40A16,16,0,0,1,216,48ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Z"></path></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          {% else %}
+            <div class="ugc03-video-card"><div class="ugc03-video-placeholder"></div></div>
+          {% endif %}
+        </div>
+        <div class="swiper-slide">
+          {% if section.settings.video_2 != blank or section.settings.video_2_url != blank %}
+            <div class="ugc03-video-card">
+              <div class="ugc03-video-wrapper" data-ecomwize-video="OE4y452cmj-1" >
+                <video src="{%- if section.settings.video_2 != blank -%}{{ section.settings.video_2.sources | where: 'format', 'mp4' | map: 'url' | first }}{%- else -%}{{ section.settings.video_2_url }}{%- endif -%}" loop playsinline muted preload="auto" ></video>
+                <div class="ugc03-video-controls">
+                  <button class="ugc03-play-button" data-ecomwize-play-btn type="button" aria-label="Play video">
+                    <svg width="28" height="28" viewBox="0 0 256 256" fill="#000000" class="ecomwize-play-icon ugc03-play-icon"><path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"></path></svg>
+                    <svg width="28" height="28" viewBox="0 0 256 256" fill="#000000" class="ecomwize-pause-icon ugc03-pause-icon" style="display: none;"><path d="M216,48V208a16,16,0,0,1-16,16H160a16,16,0,0,1-16-16V48a16,16,0,0,1,16-16h40A16,16,0,0,1,216,48ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Z"></path></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          {% else %}
+            <div class="ugc03-video-card"><div class="ugc03-video-placeholder"></div></div>
+          {% endif %}
+        </div>
+        <div class="swiper-slide">
+          {% if section.settings.video_3 != blank or section.settings.video_3_url != blank %}
+            <div class="ugc03-video-card">
+              <div class="ugc03-video-wrapper" data-ecomwize-video="OE4y452cmj-2" >
+                <video src="{%- if section.settings.video_3 != blank -%}{{ section.settings.video_3.sources | where: 'format', 'mp4' | map: 'url' | first }}{%- else -%}{{ section.settings.video_3_url }}{%- endif -%}" loop playsinline muted preload="auto" ></video>
+                <div class="ugc03-video-controls">
+                  <button class="ugc03-play-button" data-ecomwize-play-btn type="button" aria-label="Play video">
+                    <svg width="28" height="28" viewBox="0 0 256 256" fill="#000000" class="ecomwize-play-icon ugc03-play-icon"><path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"></path></svg>
+                    <svg width="28" height="28" viewBox="0 0 256 256" fill="#000000" class="ecomwize-pause-icon ugc03-pause-icon" style="display: none;"><path d="M216,48V208a16,16,0,0,1-16,16H160a16,16,0,0,1-16-16V48a16,16,0,0,1,16-16h40A16,16,0,0,1,216,48ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Z"></path></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          {% else %}
+            <div class="ugc03-video-card"><div class="ugc03-video-placeholder"></div></div>
+          {% endif %}
+        </div>
+        <div class="swiper-slide">
+          {% if section.settings.video_4 != blank or section.settings.video_4_url != blank %}
+            <div class="ugc03-video-card">
+              <div class="ugc03-video-wrapper" data-ecomwize-video="OE4y452cmj-3" >
+                <video src="{%- if section.settings.video_4 != blank -%}{{ section.settings.video_4.sources | where: 'format', 'mp4' | map: 'url' | first }}{%- else -%}{{ section.settings.video_4_url }}{%- endif -%}" loop playsinline muted preload="auto" ></video>
+                <div class="ugc03-video-controls">
+                  <button class="ugc03-play-button" data-ecomwize-play-btn type="button" aria-label="Play video">
+                    <svg width="28" height="28" viewBox="0 0 256 256" fill="#000000" class="ecomwize-play-icon ugc03-play-icon"><path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"></path></svg>
+                    <svg width="28" height="28" viewBox="0 0 256 256" fill="#000000" class="ecomwize-pause-icon ugc03-pause-icon" style="display: none;"><path d="M216,48V208a16,16,0,0,1-16,16H160a16,16,0,0,1-16-16V48a16,16,0,0,1,16-16h40A16,16,0,0,1,216,48ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Z"></path></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          {% else %}
+            <div class="ugc03-video-card"><div class="ugc03-video-placeholder"></div></div>
+          {% endif %}
+        </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Navigation -->
+      <div class="ugc03-nav-container">
+        <button class="ugc03-nav-arrow ugc03-nav-prev" type="button" aria-label="Previous slide"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><title>CaretLeft</title><path d="M168.49,199.51a12,12,0,0,1-17,17l-80-80a12,12,0,0,1,0-17l80-80a12,12,0,0,1,17,17L97,128Z"/></svg></button>
+        <div class="ugc03-nav-dots"></div>
+        <button class="ugc03-nav-arrow ugc03-nav-next" type="button" aria-label="Next slide"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><title>CaretRight</title><path d="M184.49,136.49l-80,80a12,12,0,0,1-17-17L159,128,87.51,56.49a12,12,0,1,1,17-17l80,80A12,12,0,0,1,184.49,136.49Z"/></svg></button>
+      </div>
+      
+      {% if section.settings.show_button %}
+        <div class="ugc03-button-wrapper"><a href="{{ section.settings.button_link }}" class="ugc03-button"><span style="margin-right: 8px;">{{ section.settings.button_text }}</span><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><title>ArrowRight</title><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a></div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  var SLIDE_WIDTH = 280;
+  var MOBILE_GAP = 16;
+  var DESKTOP_GAP = 24;
+  var MOBILE_BREAKPOINT = 1024;
+  
+  function isMobile() {
+    return window.innerWidth < MOBILE_BREAKPOINT;
+  }
+  
+  function checkAllSlidesVisible() {
+    if (isMobile()) return false;
+    var container = document.querySelector('#ecomwize-ugc03-OE4y452cmj .ugc03-swiper-container');
+    if (!container) return false;
+    var availableWidth = container.offsetWidth;
+    var totalWidth = (4 * SLIDE_WIDTH) + ((4 - 1) * DESKTOP_GAP);
+    return totalWidth <= availableWidth;
+  }
+  
+  function updateNavVisibility(swiper) {
+    var navContainer = document.querySelector('#ecomwize-ugc03-OE4y452cmj .ugc03-nav-container');
+    var swiperEl = document.querySelector('#ecomwize-ugc03-OE4y452cmj .ugc03-swiper');
+    if (!navContainer || !swiperEl) return;
+    
+    var allVisible = checkAllSlidesVisible();
+    
+    if (allVisible) {
+      navContainer.classList.add('hidden');
+      swiperEl.style.width = 'fit-content';
+      swiperEl.style.marginLeft = 'auto';
+      swiperEl.style.marginRight = 'auto';
+    } else {
+      navContainer.classList.remove('hidden');
+      swiperEl.style.width = '100%';
+      swiperEl.style.marginLeft = '0';
+      swiperEl.style.marginRight = '0';
+    }
+    
+    updateDots(swiper);
+  }
+  
+  function updateDots(swiper) {
+    var dotsContainer = document.querySelector('#ecomwize-ugc03-OE4y452cmj .ugc03-nav-dots');
+    if (!dotsContainer || !swiper.snapGrid) return;
+    
+    var totalSnaps = swiper.snapGrid.length;
+    var currentSnap = swiper.snapIndex || 0;
+    var existingDots = dotsContainer.querySelectorAll('.ugc03-nav-dot');
+    
+    if (existingDots.length !== totalSnaps) {
+      dotsContainer.innerHTML = '';
+      for (var i = 0; i < totalSnaps; i++) {
+        var dot = document.createElement('span');
+        dot.className = 'ugc03-nav-dot' + (i === currentSnap ? ' active' : '');
+        dot.setAttribute('data-index', i);
+        dot.onclick = (function(index) {
+          return function() { swiper.slideTo(index); };
+        })(i);
+        dotsContainer.appendChild(dot);
+      }
+    } else {
+      existingDots.forEach(function(dot, i) {
+        if (i === currentSnap) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+  }
+  
+  function initUgc03Swiper() {
+    if (typeof Swiper === 'undefined') return;
+    var container = document.querySelector('#ecomwize-ugc03-OE4y452cmj .ugc03-swiper');
+    if (!container || container.swiper) return;
+    
+    var prevBtn = document.querySelector('#ecomwize-ugc03-OE4y452cmj .ugc03-nav-prev');
+    var nextBtn = document.querySelector('#ecomwize-ugc03-OE4y452cmj .ugc03-nav-next');
+    var mobile = isMobile();
+    
+    var swiper = new Swiper(container, {
+      slidesPerView: 'auto',
+      spaceBetween: mobile ? MOBILE_GAP : DESKTOP_GAP,
+      centeredSlides: mobile,
+      loop: false,
+      navigation: {
+        nextEl: nextBtn,
+        prevEl: prevBtn,
+        disabledClass: 'disabled'
+      },
+      on: {
+        init: function() { updateNavVisibility(this); },
+        snapIndexChange: function() { updateDots(this); },
+        resize: function() {
+          var nowMobile = isMobile();
+          this.params.spaceBetween = nowMobile ? MOBILE_GAP : DESKTOP_GAP;
+          this.params.centeredSlides = nowMobile;
+          this.update();
+          updateNavVisibility(this);
+        }
+      }
+    });
+    
+    var resizeTimeout;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function() {
+        if (swiper && !swiper.destroyed) {
+          var nowMobile = isMobile();
+          swiper.params.spaceBetween = nowMobile ? MOBILE_GAP : DESKTOP_GAP;
+          swiper.params.centeredSlides = nowMobile;
+          swiper.update();
+          updateNavVisibility(swiper);
+        }
+      }, 100);
+    });
+  }
+  
+  if (typeof Swiper !== 'undefined') { initUgc03Swiper(); }
+  else { document.addEventListener('swiper:loaded', initUgc03Swiper); }
+  if (document.readyState === 'complete') { initUgc03Swiper(); }
+  else { window.addEventListener('load', initUgc03Swiper); }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "UGC 03",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Why 100,000+ people finally stopped white-knuckling it.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Real people. Real moments. A ritual that actually holds up when the urge hits hardest.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Video 1"
+    },
+    {
+      "type": "video",
+      "id": "video_1",
+      "label": "Video 1 (from Shopify)"
+    },
+    {
+      "type": "text",
+      "id": "video_1_url",
+      "label": "Video 1 URL (fallback)",
+      "default": "https://cdn.ecomwize.io/5cb77d16-4678-453b-94b5-e38de26ba6ea/nQsEKI-WjU2s4up-.mp4",
+      "info": "Used if no Shopify video is selected above"
+    },
+    {
+      "type": "header",
+      "content": "Video 2"
+    },
+    {
+      "type": "video",
+      "id": "video_2",
+      "label": "Video 2 (from Shopify)"
+    },
+    {
+      "type": "text",
+      "id": "video_2_url",
+      "label": "Video 2 URL (fallback)",
+      "default": "https://cdn.ecomwize.io/5cb77d16-4678-453b-94b5-e38de26ba6ea/JA-HPsFh5rbPnOei.mp4",
+      "info": "Used if no Shopify video is selected above"
+    },
+    {
+      "type": "header",
+      "content": "Video 3"
+    },
+    {
+      "type": "video",
+      "id": "video_3",
+      "label": "Video 3 (from Shopify)"
+    },
+    {
+      "type": "text",
+      "id": "video_3_url",
+      "label": "Video 3 URL (fallback)",
+      "default": "https://cdn.ecomwize.io/5cb77d16-4678-453b-94b5-e38de26ba6ea/Gy-dVT-2LckZ14en.mp4",
+      "info": "Used if no Shopify video is selected above"
+    },
+    {
+      "type": "header",
+      "content": "Video 4"
+    },
+    {
+      "type": "video",
+      "id": "video_4",
+      "label": "Video 4 (from Shopify)"
+    },
+    {
+      "type": "text",
+      "id": "video_4_url",
+      "label": "Video 4 URL (fallback)",
+      "default": "https://cdn.ecomwize.io/5cb77d16-4678-453b-94b5-e38de26ba6ea/K5DIHbLulxytdxvX.mp4",
+      "info": "Used if no Shopify video is selected above"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Show Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "GET INSTANT RELIEF"
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "#ecomwize-product01-0003u1mv4f"
+    }
+  ]
+}
+{% endschema %}

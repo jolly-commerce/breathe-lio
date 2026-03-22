@@ -1,0 +1,615 @@
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script>(()=>{let e=window.EcomWize||{};if(!e.initialized&&!window.__ecomwize_loading){window.__ecomwize_loading=!0;let i=()=>{let v=[...document.querySelectorAll(".__ecomwize")].map(e=>e.getAttribute("data-ecomwize-version")||"1.0.0").sort((a,b)=>a.split(".").map(Number).reduce((r,n,i)=>r||n-b.split(".")[i],0)).pop()||"1.0.0",s=document.createElement("script");s.src="https://tnafiwedjpupmoelypit.supabase.co/storage/v1/object/public/scripts/ecomwize-core.min.js?v="+v;document.body.appendChild(s)};"loading"!==document.readyState?i():document.addEventListener("DOMContentLoaded",i)}})();</script>
+{%- style -%}
+  html {
+    scroll-behavior: smooth;
+  }
+
+  #ecomwize-faq01-TCrf1nAOsJ {
+    background-color: #f6fff5;
+    padding: 32px 16px;
+    letter-spacing: normal;
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-faq01-TCrf1nAOsJ {
+      padding: 64px 32px;
+    }
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 32px;
+    align-items: flex-start;
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-faq01-TCrf1nAOsJ .faq01-wrapper {
+      flex-direction: row-reverse;
+      gap: 48px;
+    }
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-block1,
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-block2 {
+    width: 100%;
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-faq01-TCrf1nAOsJ .faq01-block1,
+    #ecomwize-faq01-TCrf1nAOsJ .faq01-block2 {
+      width: 50%;
+    }
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-heading {
+    font-family: 'DM Sans',  sans-serif;
+    color: #143c2c;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    text-align: left;
+    line-height: 120%;
+    text-transform: none;
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-faq01-TCrf1nAOsJ .faq01-heading {
+      font-size: 38px;
+    }
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-subheading {
+    font-family: 'DM Sans',  sans-serif;
+    color: #143c2c;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 24px;
+    text-align: left;
+    line-height: 160%;
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-faq01-TCrf1nAOsJ .faq01-subheading {
+      font-size: 16px;
+    }
+  }
+  
+  /* Accordion Container */
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  
+  /* Accordion Item */
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-accordion-item {
+    border: 1px solid #143c2c20;
+    border-radius: 0px;
+    background-color: #f7fff4;
+    overflow: hidden;
+    transition: all 0.2s ease;
+  }
+  
+  /* Accordion Header (clickable) */
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  /* Question text */
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-accordion-question {
+    font-family: 'DM Sans',  sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #143c2c;
+    line-height: 160%;
+    text-align: left;
+    margin: 0;
+    flex: 1;
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-faq01-TCrf1nAOsJ .faq01-accordion-question {
+      font-size: 16px;
+    }
+  }
+  
+  /* Accordion Icon */
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-accordion-icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+    color: #143c2c;
+    padding: 4px;
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-accordion-item.is-open .faq01-accordion-icon {
+    transform: rotate(180deg);
+  }
+  
+  /* Accordion Content */
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-accordion-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-accordion-item.is-open .faq01-accordion-content {
+    max-height: 500px;
+    opacity: 1;
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-accordion-answer {
+    padding: 0 12px 12px 12px;
+    font-family: 'DM Sans',  sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #143c2c;
+    line-height: 160%;
+    text-align: left;
+    margin: 0;
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-faq01-TCrf1nAOsJ .faq01-accordion-answer {
+      font-size: 14px;
+    }
+  }
+  
+  /* Button */
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background-color: #ffd100;
+    color: #000000;
+    font-family: 'DM Sans',  sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 0px solid #0d3d3d;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+  
+  @media (max-width: 1023px) {
+    #ecomwize-faq01-TCrf1nAOsJ .faq01-button {
+      display: flex;
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-faq01-TCrf1nAOsJ .faq01-button {
+      font-size: 16px;
+    }
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-button:hover {
+    background-color: #e7bc00;
+    color: #000000;
+  }
+  
+  /* Image wrapper */
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-image-wrapper {
+    width: 100%;
+    border-radius: 0px;
+    overflow: hidden;
+    aspect-ratio: auto;
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-image-wrapper img,
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-image-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Video controls */
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-video-controls {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-play-button {
+    pointer-events: auto;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-play-button:hover {
+    transform: scale(1.05);
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-play-button.playing {
+    opacity: 0;
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-video-wrapper:hover .faq01-play-button.playing {
+    opacity: 1;
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-heading b,
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-subheading b {
+    font-weight: 700;
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-heading > p,
+  #ecomwize-faq01-TCrf1nAOsJ .faq01-subheading > p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  #ecomwize-faq01-TCrf1nAOsJ .text-highlight {
+    font-family: 'Instrument Serif', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+{%- endstyle -%}
+
+<div id="ecomwize-faq01-TCrf1nAOsJ">
+  <div class="faq01-container">
+    <div class="faq01-wrapper">
+      <div class="faq01-block1">
+        <div class="faq01-heading">{{ section.settings.heading }}</div>
+        <div class="faq01-subheading">{{ section.settings.subheading }}</div>
+        <div class="faq01-accordion" data-ecomwize-accordion>
+        <div class="faq01-accordion-item" data-ecomwize-accordion-item>
+          <div class="faq01-accordion-header" data-ecomwize-accordion-header>
+            <span class="faq01-accordion-question">{{ section.settings.faq_1_question }}</span>
+            <span class="faq01-accordion-icon" data-ecomwize-accordion-icon><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><title>Plus</title><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"/></svg></span>
+          </div>
+          <div class="faq01-accordion-content" data-ecomwize-accordion-content>
+            <div class="faq01-accordion-answer">{{ section.settings.faq_1_answer }}</div>
+          </div>
+        </div>
+        <div class="faq01-accordion-item" data-ecomwize-accordion-item>
+          <div class="faq01-accordion-header" data-ecomwize-accordion-header>
+            <span class="faq01-accordion-question">{{ section.settings.faq_2_question }}</span>
+            <span class="faq01-accordion-icon" data-ecomwize-accordion-icon><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><title>Plus</title><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"/></svg></span>
+          </div>
+          <div class="faq01-accordion-content" data-ecomwize-accordion-content>
+            <div class="faq01-accordion-answer">{{ section.settings.faq_2_answer }}</div>
+          </div>
+        </div>
+        <div class="faq01-accordion-item" data-ecomwize-accordion-item>
+          <div class="faq01-accordion-header" data-ecomwize-accordion-header>
+            <span class="faq01-accordion-question">{{ section.settings.faq_3_question }}</span>
+            <span class="faq01-accordion-icon" data-ecomwize-accordion-icon><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><title>Plus</title><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"/></svg></span>
+          </div>
+          <div class="faq01-accordion-content" data-ecomwize-accordion-content>
+            <div class="faq01-accordion-answer">{{ section.settings.faq_3_answer }}</div>
+          </div>
+        </div>
+        <div class="faq01-accordion-item" data-ecomwize-accordion-item>
+          <div class="faq01-accordion-header" data-ecomwize-accordion-header>
+            <span class="faq01-accordion-question">{{ section.settings.faq_4_question }}</span>
+            <span class="faq01-accordion-icon" data-ecomwize-accordion-icon><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><title>Plus</title><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"/></svg></span>
+          </div>
+          <div class="faq01-accordion-content" data-ecomwize-accordion-content>
+            <div class="faq01-accordion-answer">{{ section.settings.faq_4_answer }}</div>
+          </div>
+        </div>
+        <div class="faq01-accordion-item" data-ecomwize-accordion-item>
+          <div class="faq01-accordion-header" data-ecomwize-accordion-header>
+            <span class="faq01-accordion-question">{{ section.settings.faq_5_question }}</span>
+            <span class="faq01-accordion-icon" data-ecomwize-accordion-icon><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><title>Plus</title><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"/></svg></span>
+          </div>
+          <div class="faq01-accordion-content" data-ecomwize-accordion-content>
+            <div class="faq01-accordion-answer">{{ section.settings.faq_5_answer }}</div>
+          </div>
+        </div>
+        <div class="faq01-accordion-item" data-ecomwize-accordion-item>
+          <div class="faq01-accordion-header" data-ecomwize-accordion-header>
+            <span class="faq01-accordion-question">{{ section.settings.faq_6_question }}</span>
+            <span class="faq01-accordion-icon" data-ecomwize-accordion-icon><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><title>Plus</title><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"/></svg></span>
+          </div>
+          <div class="faq01-accordion-content" data-ecomwize-accordion-content>
+            <div class="faq01-accordion-answer">{{ section.settings.faq_6_answer }}</div>
+          </div>
+        </div>
+        <div class="faq01-accordion-item" data-ecomwize-accordion-item>
+          <div class="faq01-accordion-header" data-ecomwize-accordion-header>
+            <span class="faq01-accordion-question">{{ section.settings.faq_7_question }}</span>
+            <span class="faq01-accordion-icon" data-ecomwize-accordion-icon><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><title>Plus</title><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"/></svg></span>
+          </div>
+          <div class="faq01-accordion-content" data-ecomwize-accordion-content>
+            <div class="faq01-accordion-answer">{{ section.settings.faq_7_answer }}</div>
+          </div>
+        </div>
+        <div class="faq01-accordion-item" data-ecomwize-accordion-item>
+          <div class="faq01-accordion-header" data-ecomwize-accordion-header>
+            <span class="faq01-accordion-question">{{ section.settings.faq_8_question }}</span>
+            <span class="faq01-accordion-icon" data-ecomwize-accordion-icon><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><title>Plus</title><path d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"/></svg></span>
+          </div>
+          <div class="faq01-accordion-content" data-ecomwize-accordion-content>
+            <div class="faq01-accordion-answer">{{ section.settings.faq_8_answer }}</div>
+          </div>
+        </div>
+        </div>
+        {% if section.settings.show_button %}
+          <a href="{{ section.settings.button_link }}" class="faq01-button"><span style="margin-right: 8px;">{{ section.settings.button_text }}</span><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><title>ArrowRight</title><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        {% endif %}
+      </div>
+      <div class="faq01-block2">
+        <div class="faq01-image-wrapper">
+          {% if section.settings.media_type == 'video' %}
+            {% if false %}
+              <div class="faq01-video-wrapper" data-ecomwize-video="TCrf1nAOsJ"  style="position: relative; width: 100%; height: 100%;">
+                {% if section.settings.video != blank %}
+                  <video src="{{ section.settings.video.sources[1].url }}" loop playsinline muted preload="auto"  style="width: 100%; height: 100%; object-fit: cover;"></video>
+                {% elsif section.settings.external_url != blank %}
+                  <video src="{{ section.settings.external_url }}" loop playsinline muted preload="auto"  style="width: 100%; height: 100%; object-fit: cover;"></video>
+                {% endif %}
+                <div class="faq01-video-controls">
+                  <button class="faq01-play-button" data-ecomwize-play-btn type="button" aria-label="Play video">
+                    <svg width="28" height="28" viewBox="0 0 256 256" fill="#000000" class="ecomwize-play-icon faq01-play-icon">
+                      <path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"></path>
+                    </svg>
+                    <svg width="28" height="28" viewBox="0 0 256 256" fill="#000000" class="ecomwize-pause-icon faq01-pause-icon" style="display: none;">
+                      <path d="M216,48V208a16,16,0,0,1-16,16H160a16,16,0,0,1-16-16V48a16,16,0,0,1,16-16h40A16,16,0,0,1,216,48ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Z"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            {% else %}
+              {% if section.settings.video != blank %}
+                <video src="{{ section.settings.video.sources[1].url }}" autoplay loop muted playsinline></video>
+              {% elsif section.settings.external_url != blank %}
+                <video src="{{ section.settings.external_url }}" autoplay loop muted playsinline></video>
+              {% endif %}
+            {% endif %}
+          {% else %}
+            {% if section.settings.image != blank %}
+              <img src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.heading | strip_html }}" loading="lazy">
+            {% elsif section.settings.external_url != blank %}
+              <img src="{{ section.settings.external_url }}" alt="{{ section.settings.heading | strip_html }}" loading="lazy">
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "FAQ 01",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Common questions</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Everything you need to know about getting better sleep with Deep 8.</p>"
+    },
+    {
+      "type": "header",
+      "content": "FAQ 1"
+    },
+    {
+      "type": "text",
+      "id": "faq_1_question",
+      "label": "Question 1",
+      "default": "What is in Deep 8?"
+    },
+    {
+      "type": "textarea",
+      "id": "faq_1_answer",
+      "label": "Answer 1",
+      "default": "Deep 8 contains six clinically studied ingredients: Magnesium glycinate, L-Theanine, Ashwagandha, GABA, Valerian root, and Passion flower. All natural, no synthetic compounds."
+    },
+    {
+      "type": "header",
+      "content": "FAQ 2"
+    },
+    {
+      "type": "text",
+      "id": "faq_2_question",
+      "label": "Question 2",
+      "default": "How do I take it?"
+    },
+    {
+      "type": "textarea",
+      "id": "faq_2_answer",
+      "label": "Answer 2",
+      "default": "Take one serving 30 minutes before bed with water. Most people feel a gentle wave of relaxation within 20 minutes. For best results, dim lights and avoid screens."
+    },
+    {
+      "type": "header",
+      "content": "FAQ 3"
+    },
+    {
+      "type": "text",
+      "id": "faq_3_question",
+      "label": "Question 3",
+      "default": "Is it right for me?"
+    },
+    {
+      "type": "textarea",
+      "id": "faq_3_answer",
+      "label": "Answer 3",
+      "default": "Deep 8 works for adults of all ages who struggle with falling asleep, staying asleep, or waking up groggy. If pregnant or nursing, consult your doctor first."
+    },
+    {
+      "type": "header",
+      "content": "FAQ 4"
+    },
+    {
+      "type": "text",
+      "id": "faq_4_question",
+      "label": "Question 4",
+      "default": "Is it gluten-free and clean?"
+    },
+    {
+      "type": "textarea",
+      "id": "faq_4_answer",
+      "label": "Answer 4",
+      "default": "Yes. Deep 8 is 100% natural with no gluten, dairy, soy, or artificial additives. Just pure, clinically studied botanicals."
+    },
+    {
+      "type": "header",
+      "content": "FAQ 5"
+    },
+    {
+      "type": "text",
+      "id": "faq_5_question",
+      "label": "Question 5",
+      "default": "What are the main benefits?"
+    },
+    {
+      "type": "textarea",
+      "id": "faq_5_answer",
+      "label": "Answer 5",
+      "default": "Deep 8 calms your nervous system, helps you fall asleep faster, stay asleep longer, and wake up refreshed without grogginess. It works with your natural sleep cycles, not against them."
+    },
+    {
+      "type": "header",
+      "content": "FAQ 6"
+    },
+    {
+      "type": "text",
+      "id": "faq_6_question",
+      "label": "Question 6",
+      "default": "Are there any artificial additives?"
+    },
+    {
+      "type": "textarea",
+      "id": "faq_6_answer",
+      "label": "Answer 6",
+      "default": "Never. No artificial colors, no synthetic fillers, no GMOs. Just clean, effective ingredients that support natural sleep."
+    },
+    {
+      "type": "header",
+      "content": "FAQ 7"
+    },
+    {
+      "type": "text",
+      "id": "faq_7_question",
+      "label": "Question 7",
+      "default": "How soon will I see results?"
+    },
+    {
+      "type": "textarea",
+      "id": "faq_7_answer",
+      "label": "Answer 7",
+      "default": "Most people notice improvement within the first week. Optimal results typically occur after 2-4 weeks of consistent use as your body's sleep patterns regulate."
+    },
+    {
+      "type": "header",
+      "content": "FAQ 8"
+    },
+    {
+      "type": "text",
+      "id": "faq_8_question",
+      "label": "Question 8",
+      "default": "Is there a guarantee?"
+    },
+    {
+      "type": "textarea",
+      "id": "faq_8_answer",
+      "label": "Answer 8",
+      "default": "Absolutely. If you do not experience noticeably better sleep within 30 days, email us for a full refund. No questions asked."
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Show Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Start sleeping better"
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "#ecomwize-product01-0003u1mv4f",
+      "info": "Enter any URL (e.g., /collections/all, https://example.com, #anchor)"
+    },
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media Type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Video"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Upload Image"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Upload Video"
+    },
+    {
+      "type": "text",
+      "id": "external_url",
+      "label": "External Media URL (Fallback)",
+      "default": "https://cdn.ecomwize.io/251b3889-bd55-485f-8d06-0c24d3a595d0/eydH14ZaJ2oSqrHD.webp"
+    }
+  ]
+}
+{% endschema %}

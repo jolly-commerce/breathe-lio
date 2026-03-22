@@ -1,0 +1,225 @@
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+<script>(()=>{let e=window.EcomWize||{};if(!e.initialized&&!window.__ecomwize_loading){window.__ecomwize_loading=!0;let i=()=>{let v=[...document.querySelectorAll(".__ecomwize")].map(e=>e.getAttribute("data-ecomwize-version")||"1.0.0").sort((a,b)=>a.split(".").map(Number).reduce((r,n,i)=>r||n-b.split(".")[i],0)).pop()||"1.0.0",s=document.createElement("script");s.src="https://tnafiwedjpupmoelypit.supabase.co/storage/v1/object/public/scripts/ecomwize-core.min.js?v="+v;document.body.appendChild(s)};"loading"!==document.readyState?i():document.addEventListener("DOMContentLoaded",i)}})();</script>
+{%- style -%}
+  #ecomwize-banner07-QTGmYKBfkv {
+    background-color: #ffffff;
+    width: 100%;
+    overflow: hidden;
+    letter-spacing: normal;
+  }
+  
+  #ecomwize-banner07-QTGmYKBfkv .banner07-inner {
+    padding: 24px 0;
+    width: 100%;
+  }
+  
+  #ecomwize-banner07-QTGmYKBfkv .banner07-heading-wrapper {
+    text-align: center;
+    margin-bottom: 16px;
+    padding: 0 16px;
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-banner07-QTGmYKBfkv .banner07-heading-wrapper {
+      padding: 0 32px;
+    }
+  }
+  
+  #ecomwize-banner07-QTGmYKBfkv .banner07-heading {
+    font-family: 'DM Sans',  sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    color: #143c2c;
+    line-height: 160%;
+    margin: 0;
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-banner07-QTGmYKBfkv .banner07-heading {
+      font-size: 16px;
+    }
+  }
+  
+  #ecomwize-banner07-QTGmYKBfkv .ticker-track {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    will-change: transform;
+  }
+  
+  #ecomwize-banner07-QTGmYKBfkv .ticker-content,
+  #ecomwize-banner07-QTGmYKBfkv .ticker-clone {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-shrink: 0;
+    padding-right: 24px;
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-banner07-QTGmYKBfkv .ticker-content,
+    #ecomwize-banner07-QTGmYKBfkv .ticker-clone {
+      gap: 32px;
+      padding-right: 32px;
+    }
+  }
+  
+  #ecomwize-banner07-QTGmYKBfkv .banner07-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    height: 32px;
+  }
+  
+  @media (min-width: 1024px) {
+    #ecomwize-banner07-QTGmYKBfkv .banner07-item {
+      height: 48px;
+    }
+  }
+  
+  #ecomwize-banner07-QTGmYKBfkv .banner07-item img {
+    height: 100%;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+  }
+  
+  #ecomwize-banner07-QTGmYKBfkv .text-highlight {
+    font-family: 'Instrument Serif' !important;
+    font-weight: 400 !important;
+    font-style: italic !important;
+  }
+{%- endstyle -%}
+
+<div 
+  id="ecomwize-banner07-QTGmYKBfkv"
+  class="__ecomwize banner07-section"
+  data-ecomwize-version="1.6.0"
+  data-ecomwize-ticker
+  data-ticker-speed="50"
+  data-ticker-direction="left"
+  data-ticker-pause-hover="true"
+  data-ticker-gap="32"
+>
+  <div class="banner07-inner">
+    <div class="banner07-heading-wrapper">
+      <p class="banner07-heading">{{ section.settings.heading }}</p>
+    </div>
+    <div class="ticker-track">
+      <div class="ticker-content">
+        <div class="banner07-item" data-item-index="0">
+          {% if section.settings.item_1_logo != blank %}
+          <img src="{{ section.settings.item_1_logo | img_url: 'master' }}" alt="Press logo" loading="lazy">
+        {% elsif section.settings.item_1_logo_url != blank %}
+          <img src="{{ section.settings.item_1_logo_url }}" alt="Press logo" loading="lazy">
+        {% endif %}
+        </div>
+        <div class="banner07-item" data-item-index="1">
+          {% if section.settings.item_2_logo != blank %}
+          <img src="{{ section.settings.item_2_logo | img_url: 'master' }}" alt="Press logo" loading="lazy">
+        {% elsif section.settings.item_2_logo_url != blank %}
+          <img src="{{ section.settings.item_2_logo_url }}" alt="Press logo" loading="lazy">
+        {% endif %}
+        </div>
+        <div class="banner07-item" data-item-index="2">
+          {% if section.settings.item_3_logo != blank %}
+          <img src="{{ section.settings.item_3_logo | img_url: 'master' }}" alt="Press logo" loading="lazy">
+        {% elsif section.settings.item_3_logo_url != blank %}
+          <img src="{{ section.settings.item_3_logo_url }}" alt="Press logo" loading="lazy">
+        {% endif %}
+        </div>
+        <div class="banner07-item" data-item-index="3">
+          {% if section.settings.item_4_logo != blank %}
+          <img src="{{ section.settings.item_4_logo | img_url: 'master' }}" alt="Press logo" loading="lazy">
+        {% elsif section.settings.item_4_logo_url != blank %}
+          <img src="{{ section.settings.item_4_logo_url }}" alt="Press logo" loading="lazy">
+        {% endif %}
+        </div>
+        <div class="banner07-item" data-item-index="4">
+          {% if section.settings.item_5_logo != blank %}
+          <img src="{{ section.settings.item_5_logo | img_url: 'master' }}" alt="Press logo" loading="lazy">
+        {% elsif section.settings.item_5_logo_url != blank %}
+          <img src="{{ section.settings.item_5_logo_url }}" alt="Press logo" loading="lazy">
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Banner 07",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "As seen in"
+    },
+    {
+      "type": "header",
+      "content": "Logo Items"
+    },
+    {
+      "type": "image_picker",
+      "id": "item_1_logo",
+      "label": "Logo 1"
+    },
+    {
+      "type": "text",
+      "id": "item_1_logo_url",
+      "label": "Logo 1 URL (Fallback)",
+      "default": "https://cdn.ecomwize.io/default-assets/press-01.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "item_2_logo",
+      "label": "Logo 2"
+    },
+    {
+      "type": "text",
+      "id": "item_2_logo_url",
+      "label": "Logo 2 URL (Fallback)",
+      "default": "https://cdn.ecomwize.io/default-assets/press-02.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "item_3_logo",
+      "label": "Logo 3"
+    },
+    {
+      "type": "text",
+      "id": "item_3_logo_url",
+      "label": "Logo 3 URL (Fallback)",
+      "default": "https://cdn.ecomwize.io/default-assets/press-01.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "item_4_logo",
+      "label": "Logo 4"
+    },
+    {
+      "type": "text",
+      "id": "item_4_logo_url",
+      "label": "Logo 4 URL (Fallback)",
+      "default": "https://cdn.ecomwize.io/default-assets/press-03.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "item_5_logo",
+      "label": "Logo 5"
+    },
+    {
+      "type": "text",
+      "id": "item_5_logo_url",
+      "label": "Logo 5 URL (Fallback)",
+      "default": "https://cdn.ecomwize.io/default-assets/press-04.png"
+    }
+  ]
+}
+{% endschema %}
