@@ -52,10 +52,6 @@
     "section_10": {
       "type": "ecomwize-TCrf1nAOsJ",
       "settings": {}
-    },
-    "section_11": {
-      "type": "ecomwize-IcOb-XzDi6",
-      "settings": {}
     }
   },
   "order": [
@@ -69,7 +65,6 @@
     "section_7",
     "section_8",
     "section_9",
-    "section_10",
-    "section_11"
+    "section_10"
   ]
 }
