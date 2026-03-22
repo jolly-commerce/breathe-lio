@@ -1698,19 +1698,7 @@
             </div>
           </div>
           
-          <!-- One-time Purchase Option -->
-          <div class="product01-sp-onetime" data-sp-option="one-time">
-            <div class="product01-sp-header-left">
-              <span class="product01-sp-radio"></span>
-              <span class="product01-sp-title">{{ section.settings.product01_sellingPlans2_oneTimeTitle | default: 'One-time Purchase' }}</span>
-            </div>
-            <div class="product01-sp-prices">
-              <span class="product01-sp-price money" data-sp-onetime-price>{{ sp_current_price | money | strip_html | remove: '&lt;span class=money&gt;' | remove: '&lt;span class=&quot;money&quot;&gt;' | remove: '&lt;/span&gt;' | strip }}</span>
-              {%- if sp_compare_price > sp_current_price -%}
-                <span class="product01-sp-compare-price money" data-sp-onetime-compare>{{ sp_compare_price | money | strip_html | remove: '&lt;span class=money&gt;' | remove: '&lt;span class=&quot;money&quot;&gt;' | remove: '&lt;/span&gt;' | strip }}</span>
-              {%- endif -%}
-            </div>
-          </div>
+          
           
           <input type="hidden" name="selling_plan" value="{{ sp_first_plan.id }}" data-sp-input>
         </div>
@@ -1740,7 +1728,6 @@
           <img src="https://cdn.ecomwize.io/default-assets/payment-icons/american_express.svg" alt="American Express" class="product01-payment-icon">
           <img src="https://cdn.ecomwize.io/default-assets/payment-icons/paypal.svg" alt="PayPal" class="product01-payment-icon">
           <img src="https://cdn.ecomwize.io/default-assets/payment-icons/apple_pay.svg" alt="Apple Pay" class="product01-payment-icon">
-          <img src="https://cdn.ecomwize.io/default-assets/payment-icons/google_pay.svg" alt="Google Pay" class="product01-payment-icon">
           <img src="https://cdn.ecomwize.io/default-assets/payment-icons/klarna.svg" alt="Klarna" class="product01-payment-icon">
         </div>
         </div>
@@ -2616,9 +2603,21 @@
             addToCartBtn.disabled = false;
             addToCartBtn.innerHTML = originalButtonContent;
           }
-          // Upcart app cart
-          if (window.upcartRefreshCart) {
-            window.upcartRefreshCart();
+          // Impact theme cart drawer
+          const cartDrawerImpact = document.querySelector("#cart-drawer");
+          if (cartDrawerImpact && cartDrawerImpact._onCartRefresh) {
+            cartDrawerImpact._onCartRefresh().then(() => cartDrawerImpact.show());
+          } else {
+            fetch("/?section_id=cart-drawer")
+              .then((res) => res.text())
+              .then((text) => {
+                const sectionHTML = new DOMParser().parseFromString(text, "text/html");
+                const cartInnerHTML = sectionHTML.getElementById("cart-drawer")?.innerHTML;
+                if (cartDrawerImpact && cartInnerHTML) {
+                  cartDrawerImpact.innerHTML = cartInnerHTML;
+                  cartDrawerImpact.setAttribute("open", "");
+                }
+              });
           }
       })
       .catch(error => {
@@ -2675,9 +2674,21 @@
           stickyAtcBtn.disabled = false;
           stickyAtcBtn.innerHTML = originalContent;
           
-          // Upcart app cart
-          if (window.upcartRefreshCart) {
-            window.upcartRefreshCart();
+          // Impact theme cart drawer
+          const cartDrawerImpact = document.querySelector("#cart-drawer");
+          if (cartDrawerImpact && cartDrawerImpact._onCartRefresh) {
+            cartDrawerImpact._onCartRefresh().then(() => cartDrawerImpact.show());
+          } else {
+            fetch("/?section_id=cart-drawer")
+              .then((res) => res.text())
+              .then((text) => {
+                const sectionHTML = new DOMParser().parseFromString(text, "text/html");
+                const cartInnerHTML = sectionHTML.getElementById("cart-drawer")?.innerHTML;
+                if (cartDrawerImpact && cartInnerHTML) {
+                  cartDrawerImpact.innerHTML = cartInnerHTML;
+                  cartDrawerImpact.setAttribute("open", "");
+                }
+              });
           }
         })
         .catch(error => {
