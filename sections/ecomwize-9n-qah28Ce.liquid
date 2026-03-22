@@ -1741,7 +1741,7 @@
       {%- assign month_name = delivery_date | date: '%b' -%}
       <div class="product01-delivery-date">
         <div class="product01-delivery-dot"><span></span></div>
-        <span class="product01-delivery-text">{{ section.settings.product01_deliveryDate_prefixText | default: 'Instant relief by' }}</span>
+        <span class="product01-delivery-text">{{ section.settings.product01_deliveryDate_prefixText | default: 'Delivery by' }}</span>
         <span class="product01-delivery-badge">{{ day_name }}, {{ day_num }} {{ month_name }}</span>
         <span class="product01-delivery-text">{{ section.settings.product01_deliveryDate_suffixText | default: 'with free shipping' }}</span>
       </div>
@@ -2971,7 +2971,7 @@
       "type": "text",
       "id": "product01_deliveryDate_prefixText",
       "label": "Prefix Text",
-      "default": "Instant relief by"
+      "default": "Delivery by"
     },
     {
       "type": "text",
