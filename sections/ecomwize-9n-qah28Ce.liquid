@@ -1698,7 +1698,19 @@
             </div>
           </div>
           
-          
+          <!-- One-time Purchase Option -->
+          <div class="product01-sp-onetime" data-sp-option="one-time">
+            <div class="product01-sp-header-left">
+              <span class="product01-sp-radio"></span>
+              <span class="product01-sp-title">{{ section.settings.product01_sellingPlans2_oneTimeTitle | default: 'One-time Purchase' }}</span>
+            </div>
+            <div class="product01-sp-prices">
+              <span class="product01-sp-price money" data-sp-onetime-price>{{ sp_current_price | money | strip_html | remove: '&lt;span class=money&gt;' | remove: '&lt;span class=&quot;money&quot;&gt;' | remove: '&lt;/span&gt;' | strip }}</span>
+              {%- if sp_compare_price > sp_current_price -%}
+                <span class="product01-sp-compare-price money" data-sp-onetime-compare>{{ sp_compare_price | money | strip_html | remove: '&lt;span class=money&gt;' | remove: '&lt;span class=&quot;money&quot;&gt;' | remove: '&lt;/span&gt;' | strip }}</span>
+              {%- endif -%}
+            </div>
+          </div>
           
           <input type="hidden" name="selling_plan" value="{{ sp_first_plan.id }}" data-sp-input>
         </div>
