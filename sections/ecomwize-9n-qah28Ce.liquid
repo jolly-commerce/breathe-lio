@@ -2603,21 +2603,9 @@
             addToCartBtn.disabled = false;
             addToCartBtn.innerHTML = originalButtonContent;
           }
-          // Impact theme cart drawer
-          const cartDrawerImpact = document.querySelector("#cart-drawer");
-          if (cartDrawerImpact && cartDrawerImpact._onCartRefresh) {
-            cartDrawerImpact._onCartRefresh().then(() => cartDrawerImpact.show());
-          } else {
-            fetch("/?section_id=cart-drawer")
-              .then((res) => res.text())
-              .then((text) => {
-                const sectionHTML = new DOMParser().parseFromString(text, "text/html");
-                const cartInnerHTML = sectionHTML.getElementById("cart-drawer")?.innerHTML;
-                if (cartDrawerImpact && cartInnerHTML) {
-                  cartDrawerImpact.innerHTML = cartInnerHTML;
-                  cartDrawerImpact.setAttribute("open", "");
-                }
-              });
+          // Upcart app cart
+          if (window.upcartRefreshCart) {
+            window.upcartRefreshCart();
           }
       })
       .catch(error => {
@@ -2674,21 +2662,9 @@
           stickyAtcBtn.disabled = false;
           stickyAtcBtn.innerHTML = originalContent;
           
-          // Impact theme cart drawer
-          const cartDrawerImpact = document.querySelector("#cart-drawer");
-          if (cartDrawerImpact && cartDrawerImpact._onCartRefresh) {
-            cartDrawerImpact._onCartRefresh().then(() => cartDrawerImpact.show());
-          } else {
-            fetch("/?section_id=cart-drawer")
-              .then((res) => res.text())
-              .then((text) => {
-                const sectionHTML = new DOMParser().parseFromString(text, "text/html");
-                const cartInnerHTML = sectionHTML.getElementById("cart-drawer")?.innerHTML;
-                if (cartDrawerImpact && cartInnerHTML) {
-                  cartDrawerImpact.innerHTML = cartInnerHTML;
-                  cartDrawerImpact.setAttribute("open", "");
-                }
-              });
+          // Upcart app cart
+          if (window.upcartRefreshCart) {
+            window.upcartRefreshCart();
           }
         })
         .catch(error => {
