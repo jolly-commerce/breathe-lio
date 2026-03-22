@@ -1,0 +1,1896 @@
+{% comment %} =============================================
+  Lio Pricing Section — Improved
+  Keeps all original Liquid/Shopify logic intact.
+  Visual + functional overhaul.
+============================================= {% endcomment %}
+
+<div class="lio-pricing-wave lio-pricing-wave--top">
+  <svg viewBox="0 0 1440 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 32L60 27.2C120 22.4 240 12.8 360 10.7C480 8.5 600 14.9 720 19.7C840 24.5 960 27.7 1080 25.6C1200 23.5 1320 16 1380 12.3L1440 8.5V0H0V32Z" fill="white"/>
+  </svg>
+</div>
+
+<div
+  class="lio-pricing"
+  {% if section.settings.product != blank %}data-section-product-handle="{{ section.settings.product.handle }}"{% endif %}
+  data-shop-currency="{{ shop.currency }}"
+  data-money-format="{{ shop.money_format }}"
+  style="{% if section.settings.background_image != blank %}background-image: url('{{ section.settings.background_image | image_url: width: 1920 }}');{% endif %}"
+>
+
+  {%- comment -%} ── Ambient orbs for depth ── {%- endcomment -%}
+  <div class="lio-pricing__orb lio-pricing__orb--1" aria-hidden="true"></div>
+  <div class="lio-pricing__orb lio-pricing__orb--2" aria-hidden="true"></div>
+  <div class="lio-pricing__orb lio-pricing__orb--3" aria-hidden="true"></div>
+
+  <div class="lio-pricing__inner" id="pricing-section">
+
+    {%- comment -%} ── Header block ── {%- endcomment -%}
+    <div class="lio-pricing__header">
+
+      {% if section.settings.banner_text != blank %}
+      <div class="lio-pricing__banner" role="status">
+        <span class="lio-pricing__banner-dot" aria-hidden="true"></span>
+        <span class="lio-pricing__banner-pulse" aria-hidden="true"></span>
+        <span>{{ section.settings.banner_text }}</span>
+        {% if section.settings.banner_highlight != blank %}
+        <strong class="lio-pricing__banner-highlight">{{ section.settings.banner_highlight }}</strong>
+        {% endif %}
+        {% if section.settings.banner_text_after != blank %}
+        <span>{{ section.settings.banner_text_after }}</span>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+      <h2 class="lio-pricing__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.subheading != blank %}
+      <p class="lio-pricing__subheading">{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
+
+    {%- comment -%} ── Toggle ── {%- endcomment -%}
+    {% if section.settings.show_toggle %}
+    <div class="lio-pricing__toggle-wrap">
+      <button
+        class="lio-pricing__toggle-option lio-pricing__toggle-option--active"
+        data-target="solo"
+        aria-pressed="true"
+      >
+        {{ section.settings.toggle_label_left }}
+      </button>
+      <button
+        class="lio-pricing__toggle-track"
+        aria-label="Switch between solo and together plans"
+        role="switch"
+        aria-checked="false"
+      >
+        <span class="lio-pricing__toggle-thumb"></span>
+      </button>
+      <button
+        class="lio-pricing__toggle-option"
+        data-target="together"
+        aria-pressed="false"
+      >
+        {{ section.settings.toggle_label_right }}
+        <span class="lio-pricing__toggle-badge">Save more</span>
+      </button>
+    </div>
+    {% endif %}
+
+    {%- comment -%} ── Cards grid ── {%- endcomment -%}
+    <div class="lio-pricing__cards">
+
+      {% for block in section.blocks %}
+        {% if block.type == 'pricing_card' %}
+
+          {%- comment -%} ── Variant resolution (identical logic to original) ── {%- endcomment -%}
+          {% assign section_product = section.settings.product %}
+          {% assign lio_version_raw  = block.settings.lio_version %}
+          {% assign lio_version      = lio_version_raw | default: 'decoy' %}
+          {% assign card_title_lower = block.settings.card_title | downcase %}
+
+          {% if lio_version == 'decoy' or lio_version == blank %}
+            {% if card_title_lower contains 'advanced' or card_title_lower contains 'premium' %}
+              {% assign lio_version = 'advanced' %}
+            {% elsif card_title_lower contains 'hero' %}
+              {% assign lio_version = 'hero' %}
+            {% elsif card_title_lower contains 'decoy' %}
+              {% assign lio_version = 'decoy' %}
+            {% endif %}
+          {% endif %}
+
+          {% assign lio_version_option = '' %}
+          {% if lio_version == 'hero' %}
+            {% assign lio_version_option = 'Lio 90-Day Starter Kit (1 month free + free Lio)' %}
+          {% elsif lio_version == 'decoy' %}
+            {% assign lio_version_option = 'Lio 30-Day Starter Kit (free Lio)' %}
+          {% endif %}
+
+          {% assign solo_variant = null %}
+          {% if section_product != blank %}
+            {% for variant in section_product.variants %}
+              {% if variant.available %}
+                {% assign has_solo = false %}
+                {% assign has_lio  = false %}
+                {% if variant.option1 == 'Start Solo' or variant.option2 == 'Start Solo' or variant.option3 == 'Start Solo' %}
+                  {% assign has_solo = true %}
+                {% endif %}
+                {% if lio_version_option != blank %}
+                  {% if variant.option1 == lio_version_option or variant.option2 == lio_version_option or variant.option3 == lio_version_option %}
+                    {% assign has_lio = true %}
+                  {% endif %}
+                {% else %}
+                  {% assign has_lio = true %}
+                {% endif %}
+                {% if has_solo and has_lio %}
+                  {% assign solo_variant = variant %}
+                  {% break %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+          {% assign together_variant = null %}
+          {% if section_product != blank %}
+            {% for variant in section_product.variants %}
+              {% if variant.available %}
+                {% assign has_together = false %}
+                {% assign has_lio      = false %}
+                {% if variant.option1 == 'Start Together' or variant.option2 == 'Start Together' or variant.option3 == 'Start Together' %}
+                  {% assign has_together = true %}
+                {% endif %}
+                {% if lio_version_option != blank %}
+                  {% if variant.option1 == lio_version_option or variant.option2 == lio_version_option or variant.option3 == lio_version_option %}
+                    {% assign has_lio = true %}
+                  {% endif %}
+                {% else %}
+                  {% assign has_lio = true %}
+                {% endif %}
+                {% if has_together and has_lio %}
+                  {% assign together_variant = variant %}
+                  {% break %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+          {% assign solo_price      = '' %}
+          {% assign solo_old_price  = '' %}
+          {% assign solo_save_amount = '' %}
+          {% if solo_variant != null %}
+            {% assign solo_price = solo_variant.price | money %}
+            {% if solo_variant.compare_at_price != blank and solo_variant.compare_at_price > solo_variant.price %}
+              {% assign solo_old_price   = solo_variant.compare_at_price | money %}
+              {% assign solo_save_cents  = solo_variant.compare_at_price | minus: solo_variant.price %}
+              {% assign solo_save_amount = solo_save_cents | money %}
+            {% endif %}
+          {% endif %}
+
+          {% assign together_price      = '' %}
+          {% assign together_old_price  = '' %}
+          {% assign together_save_amount = '' %}
+          {% if together_variant != null %}
+            {% assign together_price = together_variant.price | money %}
+            {% if together_variant.compare_at_price != blank and together_variant.compare_at_price > together_variant.price %}
+              {% assign together_old_price   = together_variant.compare_at_price | money %}
+              {% assign together_save_cents  = together_variant.compare_at_price | minus: together_variant.price %}
+              {% assign together_save_amount = together_save_cents | money %}
+            {% endif %}
+          {% endif %}
+
+          {% assign solo_image = '' %}
+          {% if solo_variant != null %}
+            {% if solo_variant.image != blank %}
+              {% assign solo_image = solo_variant.image | image_url: width: 600 %}
+            {% elsif section_product.featured_image != blank %}
+              {% assign solo_image = section_product.featured_image | image_url: width: 600 %}
+            {% endif %}
+          {% elsif section_product.featured_image != blank %}
+            {% assign solo_image = section_product.featured_image | image_url: width: 600 %}
+          {% endif %}
+
+          {% assign together_image = '' %}
+          {% if together_variant != null %}
+            {% if together_variant.image != blank %}
+              {% assign together_image = together_variant.image | image_url: width: 600 %}
+            {% elsif section_product.featured_image != blank %}
+              {% assign together_image = section_product.featured_image | image_url: width: 600 %}
+            {% endif %}
+          {% elsif section_product.featured_image != blank %}
+            {% assign together_image = section_product.featured_image | image_url: width: 600 %}
+          {% endif %}
+
+          {%- comment -%} ── Card element ── {%- endcomment -%}
+          {% assign is_hero = false %}
+          {% if block.settings.is_featured and block.settings.card_type == 'hero' %}
+            {% assign is_hero = true %}
+          {% endif %}
+
+          <div
+            class="lio-card{% if block.settings.is_featured %} lio-card--featured{% endif %}{% if is_hero %} lio-card--hero{% endif %}"
+            data-pack-variant="{{ block.settings.pack_variant | default: 'solo' }}"
+            data-lio-version="{{ lio_version }}"
+            data-solo-price="{{ solo_price }}"
+            data-solo-old-price="{{ solo_old_price }}"
+            data-solo-save-amount="{{ solo_save_amount }}"
+            data-together-price="{{ together_price }}"
+            data-together-old-price="{{ together_old_price }}"
+            data-together-save-amount="{{ together_save_amount }}"
+            data-solo-image="{{ solo_image }}"
+            data-together-image="{{ together_image }}"
+            {{ block.shopify_attributes }}
+          >
+
+            {%- comment -%} Animated border glow for hero card {%- endcomment -%}
+            {% if is_hero %}
+            <div class="lio-card__glow" aria-hidden="true"></div>
+            {% endif %}
+
+            {%- comment -%} Badge {%- endcomment -%}
+            {% if block.settings.badge_text != blank %}
+            <div class="lio-card__badge{% if block.settings.badge_text contains 'BEST VALUE' %} lio-card__badge--value{% else %} lio-card__badge--popular{% endif %}" style="{% if block.settings.badge_position == 'left' %}left: 24px; transform: none;{% elsif block.settings.badge_position == 'right' %}right: 24px; left: auto; transform: none;{% else %}left: 50%; transform: translateX(-50%);{% endif %}">
+              {{ block.settings.badge_text }}
+            </div>
+            {% endif %}
+
+            {%- comment -%} Card header {%- endcomment -%}
+            <div class="lio-card__head">
+              {% if block.settings.card_title != blank %}
+              <h3 class="lio-card__title">{{ block.settings.card_title }}</h3>
+              {% endif %}
+            </div>
+
+            {%- comment -%} Product image {%- endcomment -%}
+            {% if solo_image != blank or together_image != blank %}
+            <div class="lio-card__image-wrap">
+              <img
+                src="{{ solo_image | default: together_image }}"
+                alt="{{ block.settings.card_title | escape }}"
+                class="lio-card__image-img"
+                loading="lazy"
+                width="600"
+                height="600"
+              />
+              <div class="lio-card__image-shimmer" aria-hidden="true"></div>
+              {% if block.settings.bonus_amount != blank %}
+              <div class="lio-card__bonus" aria-label="{{ block.settings.bonus_amount }} in free bonuses">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <image href="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Vector_1.svg?v=1765486798" width="120" height="120"/>
+                </svg>
+                <div class="lio-card__bonus-text">
+                  <span class="lio-card__bonus-amount">{{ block.settings.bonus_amount }}</span>
+                  <span>in Free</span>
+                  <span>Bonuses</span>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+            {% endif %}
+
+            {%- comment -%} Products strip {%- endcomment -%}
+            <div class="lio-card__products">
+              {% for i in (1..2) %}
+                {% assign product_title_key     = 'product_' | append: i | append: '_title' %}
+                {% assign product_old_price_key = 'product_' | append: i | append: '_old_price' %}
+                {% assign product_price_key     = 'product_' | append: i | append: '_price' %}
+
+                {% if block.settings[product_title_key] != blank %}
+                <div class="lio-card__product-row{% unless forloop.last %} lio-card__product-row--bordered{% endunless %}">
+                  <div class="lio-card__product-left">
+                    <svg class="lio-card__check-icon" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM17.4571 9.45711L11 15.9142L6.79289 11.7071L8.20711 10.2929L11 13.0858L16.0429 8.04289L17.4571 9.45711Z" fill="url(#lio-grad-check)"/>
+                      <defs>
+                        <linearGradient id="lio-grad-check" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+                          <stop offset="0.2" stop-color="#00B67C"/>
+                          <stop offset="1" stop-color="#EDED5E"/>
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    <span class="lio-card__product-name">
+                      {% assign ptitle = block.settings[product_title_key] %}
+                      {% if is_hero %}
+                        {% assign ptitle = ptitle | replace: 'FREE', '<em>FREE</em>' | replace: 'Free', '<em>Free</em>' | replace: 'free', '<em>free</em>' %}
+                      {% else %}
+                        {% assign ptitle = ptitle | replace: 'FREE', '<em>FREE</em>' | replace: 'Free', '<em>Free</em>' | replace: 'free', '<em>free</em>' %}
+                      {% endif %}
+                      {{ ptitle }}
+                    </span>
+                  </div>
+                  <div class="lio-card__product-price">
+                    {% if block.settings[product_old_price_key] != blank %}
+                    <span class="lio-card__strikethrough">{{ block.settings[product_old_price_key] }}</span>
+                    {% endif %}
+                    <span class="lio-card__price-now">{{ block.settings[product_price_key] }}</span>
+                  </div>
+                </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            {%- comment -%} Gifts list {%- endcomment -%}
+            <div class="lio-card__gifts">
+              {% for i in (1..9) %}
+                {% assign gift_title_key    = 'gift_' | append: i | append: '_title' %}
+                {% assign gift_subtitle_key = 'gift_' | append: i | append: '_subtitle' %}
+                {% assign gift_old_price_key = 'gift_' | append: i | append: '_old_price' %}
+                {% assign gift_is_free_key  = 'gift_' | append: i | append: '_is_free' %}
+                {% assign gift_tooltip_key  = 'gift_' | append: i | append: '_tooltip_text' %}
+
+                {% if block.settings[gift_title_key] != blank %}
+                <div class="lio-card__gift{% unless block.settings[gift_is_free_key] %} lio-card__gift--locked{% endunless %}{% unless forloop.last %} lio-card__gift--bordered{% endunless %}">
+                  <div class="lio-card__gift-icon-wrap">
+                    {% if block.settings[gift_is_free_key] %}
+                    <svg class="lio-card__gift-icon lio-card__gift-icon--active" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M20.0049 13.0019V20.0019C20.0049 20.5542 19.5572 21.0019 19.0049 21.0019H5.00488C4.4526 21.0019 4.00488 20.5542 4.00488 20.0019V13.0019H20.0049ZM14.5049 2.00195C16.4379 2.00195 18.0049 3.56895 18.0049 5.50195C18.0049 6.03915 17.8839 6.54809 17.6676 7.00299L21.0049 7.00195C21.5572 7.00195 22.0049 7.44966 22.0049 8.00195V11.0019C22.0049 11.5542 21.5572 12.0019 21.0049 12.0019H3.00488C2.4526 12.0019 2.00488 11.5542 2.00488 11.0019V8.00195C2.00488 7.44966 2.4526 7.00195 3.00488 7.00195L6.34219 7.00299C6.12591 6.54809 6.00488 6.03915 6.00488 5.50195C6.00488 3.56895 7.57189 2.00195 9.50488 2.00195C10.4849 2.00195 11.3708 2.40471 12.0061 3.05373C12.639 2.40471 13.5249 2.00195 14.5049 2.00195ZM9.50488 4.00195C8.67646 4.00195 8.00488 4.67352 8.00488 5.50195C8.00488 6.28164 8.59977 6.9224 9.36042 6.99508L9.50488 7.00195H11.0049V5.50195C11.0049 4.72225 10.41 4.0815 9.64934 4.00881L9.50488 4.00195ZM14.5049 4.00195L14.3604 4.00881C13.6473 4.07696 13.0799 4.64438 13.0117 5.35749L13.0049 5.50195V7.00195H14.5049L14.6493 6.99508C15.41 6.9224 16.0049 6.28164 16.0049 5.50195C16.0049 4.72225 15.41 4.0815 14.6493 4.00881L14.5049 4.00195Z" fill="url(#lio-grad-gift)"/>
+                      <defs>
+                        <linearGradient id="lio-grad-gift" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+                          <stop offset="0" stop-color="#00B67C"/>
+                          <stop offset="1" stop-color="#EDED5E"/>
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    {% else %}
+                    <svg class="lio-card__gift-icon lio-card__gift-icon--locked" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M20.0049 13.0019V20.0019C20.0049 20.5542 19.5572 21.0019 19.0049 21.0019H5.00488C4.4526 21.0019 4.00488 20.5542 4.00488 20.0019V13.0019H20.0049ZM14.5049 2.00195C16.4379 2.00195 18.0049 3.56895 18.0049 5.50195C18.0049 6.03915 17.8839 6.54809 17.6676 7.00299L21.0049 7.00195C21.5572 7.00195 22.0049 7.44966 22.0049 8.00195V11.0019C22.0049 11.5542 21.5572 12.0019 21.0049 12.0019H3.00488C2.4526 12.0019 2.00488 11.5542 2.00488 11.0019V8.00195C2.00488 7.44966 2.4526 7.00195 3.00488 7.00195L6.34219 7.00299C6.12591 6.54809 6.00488 6.03915 6.00488 5.50195C6.00488 3.56895 7.57189 2.00195 9.50488 2.00195C10.4849 2.00195 11.3708 2.40471 12.0061 3.05373C12.639 2.40471 13.5249 2.00195 14.5049 2.00195ZM9.50488 4.00195C8.67646 4.00195 8.00488 4.67352 8.00488 5.50195C8.00488 6.28164 8.59977 6.9224 9.36042 6.99508L9.50488 7.00195H11.0049V5.50195C11.0049 4.72225 10.41 4.0815 9.64934 4.00881L9.50488 4.00195ZM14.5049 4.00195L14.3604 4.00881C13.6473 4.07696 13.0799 4.64438 13.0117 5.35749L13.0049 5.50195V7.00195H14.5049L14.6493 6.99508C15.41 6.9224 16.0049 6.28164 16.0049 5.50195C16.0049 4.72225 15.41 4.0815 14.6493 4.00881L14.5049 4.00195Z" fill="#D0D5DD"/>
+                    </svg>
+                    {% endif %}
+                  </div>
+
+                  <div class="lio-card__gift-body">
+                    <span class="lio-card__gift-title">
+                      {% assign gtitle = block.settings[gift_title_key] %}
+                      {% if is_hero %}
+                        {% assign gtitle = gtitle | replace: 'FREE', '<em>FREE</em>' | replace: 'Free', '<em>Free</em>' | replace: 'free', '<em>free</em>' %}
+                      {% else %}
+                        {% assign gtitle = gtitle | replace: 'FREE', '<em>FREE</em>' | replace: 'Free', '<em>Free</em>' | replace: 'free', '<em>free</em>' %}
+                      {% endif %}
+                      {{ gtitle }}
+                    </span>
+                    {% if block.settings[gift_subtitle_key] != blank %}
+                    <div class="lio-card__gift-meta">
+                      <span class="lio-card__gift-subtitle">({{ block.settings[gift_subtitle_key] }})</span>
+                      {% if block.settings[gift_tooltip_key] != blank %}
+                      <div class="lio-tooltip" data-tooltip="{{ block.settings[gift_tooltip_key] | escape }}">
+                        <button class="lio-tooltip__trigger" aria-label="More information" type="button">
+                          <svg viewBox="0 0 20 20" aria-hidden="true">
+                            <path d="M10 18.3327C5.39762 18.3327 1.66667 14.6017 1.66667 9.99935C1.66667 5.39697 5.39762 1.66602 10 1.66602C14.6023 1.66602 18.3333 5.39697 18.3333 9.99935C18.3333 14.6017 14.6023 18.3327 10 18.3327ZM10 7.91602C10.6903 7.91602 11.25 7.35637 11.25 6.66602C11.25 5.97566 10.6903 5.41602 10 5.41602C9.30967 5.41602 8.75 5.97566 8.75 6.66602C8.75 7.35637 9.30967 7.91602 10 7.91602ZM11.6667 12.4993H10.8333V8.74935H8.33333V10.416H9.16667V12.4993H8.33333V14.166H11.6667V12.4993Z"/>
+                          </svg>
+                        </button>
+                        <div class="lio-tooltip__bubble" role="tooltip">
+                          {{ block.settings[gift_tooltip_key] }}
+                          <div class="lio-tooltip__arrow" aria-hidden="true"></div>
+                        </div>
+                      </div>
+                      {% endif %}
+                    </div>
+                    {% endif %}
+                  </div>
+
+                  {% if block.settings[gift_old_price_key] != blank and block.settings[gift_is_free_key] %}
+                  <div class="lio-card__gift-price">
+                    <span class="lio-card__strikethrough">{{ block.settings[gift_old_price_key] }}</span>
+                  </div>
+                  {% endif %}
+                </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            {%- comment -%} Price comparison bar {%- endcomment -%}
+            {% if block.settings.price_per_day != blank %}
+            <div class="lio-card__comparison">
+              <span class="lio-card__comparison-ours">{{ block.settings.price_per_day }}</span>
+              <span class="lio-card__comparison-vs">vs</span>
+              <span class="lio-card__comparison-theirs">{{ block.settings.comparison_price }}</span>
+            </div>
+            {% endif %}
+
+            {%- comment -%} Footer: price + CTA {%- endcomment -%}
+            <div class="lio-card__footer">
+
+              <div class="lio-card__price-row pricing-card-price-container" data-card-id="{{ block.id }}">
+                {% if block.settings.old_price != blank %}
+                <span class="lio-card__old-price pricing-card-old-price" style="display:none;">{{ block.settings.old_price }}</span>
+                {% endif %}
+                <span class="lio-card__main-price pricing-card-price">{{ block.settings.price | default: '—' }}</span>
+                {% if block.settings.save_amount != blank %}
+                <div class="lio-card__save-badge pricing-card-save-amount" style="display:none;">
+                  <span>🔥 Save {{ block.settings.save_amount }}</span>
+                </div>
+                {% endif %}
+              </div>
+
+              {% if block.settings.button_text != blank %}
+                {% if section_product != blank and section_product.available %}
+
+                  {% assign pack_variant_setting = block.settings.pack_variant | default: 'solo' %}
+                  {% assign lio_v2 = block.settings.lio_version | default: 'decoy' %}
+                  {% assign card_title_lower2 = block.settings.card_title | downcase %}
+                  {% if lio_v2 == 'decoy' or lio_v2 == blank %}
+                    {% if card_title_lower2 contains 'advanced' or card_title_lower2 contains 'premium' %}
+                      {% assign lio_v2 = 'advanced' %}
+                    {% elsif card_title_lower2 contains 'hero' %}
+                      {% assign lio_v2 = 'hero' %}
+                    {% endif %}
+                  {% endif %}
+
+                  {% assign lio_v2_option = '' %}
+                  {% if lio_v2 == 'hero' %}
+                    {% assign lio_v2_option = 'Lio 90-Day Starter Kit (1 month free + free Lio)' %}
+                  {% elsif lio_v2 == 'decoy' %}
+                    {% assign lio_v2_option = 'Lio 30-Day Starter Kit (free Lio)' %}
+                  {% endif %}
+
+                  {% assign target_pack_option = '' %}
+                  {% if pack_variant_setting == 'solo' %}
+                    {% assign target_pack_option = 'Start Solo' %}
+                  {% else %}
+                    {% assign target_pack_option = 'Start Together' %}
+                  {% endif %}
+
+                  {% assign matching_variant = null %}
+                  {% for variant in section_product.variants %}
+                    {% if variant.available %}
+                      {% assign has_pack2  = false %}
+                      {% assign has_lio_v2 = false %}
+                      {% if variant.option1 == target_pack_option or variant.option2 == target_pack_option or variant.option3 == target_pack_option %}
+                        {% assign has_pack2 = true %}
+                      {% endif %}
+                      {% if lio_v2_option != blank %}
+                        {% if variant.option1 == lio_v2_option or variant.option2 == lio_v2_option or variant.option3 == lio_v2_option %}
+                          {% assign has_lio_v2 = true %}
+                        {% endif %}
+                      {% else %}
+                        {% assign has_lio_v2 = true %}
+                      {% endif %}
+                      {% if has_pack2 and has_lio_v2 %}
+                        {% assign matching_variant = variant %}
+                        {% break %}
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                  {% if matching_variant == null %}
+                    {% for variant in section_product.variants %}
+                      {% if variant.available %}
+                        {% if variant.option1 == target_pack_option or variant.option2 == target_pack_option or variant.option3 == target_pack_option %}
+                          {% assign matching_variant = variant %}
+                          {% break %}
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
+                  {% endif %}
+                  {% if matching_variant == null %}
+                    {% assign matching_variant = section_product.selected_or_first_available_variant %}
+                  {% endif %}
+
+                  <form
+                    method="post"
+                    action="/cart/add"
+                    accept-charset="UTF-8"
+                    class="shopify-product-form pricing-card-add-to-cart-form"
+                    enctype="multipart/form-data"
+                    data-pack-variant="{{ pack_variant_setting }}"
+                    data-lio-version="{{ lio_v2 }}"
+                    data-product-handle="{{ section_product.handle }}"
+                    data-variant-id="{{ matching_variant.id }}"
+                    data-block-id="{{ block.id }}"
+                    data-card-title="{{ block.settings.card_title | escape }}"
+                  >
+                    <input type="hidden" name="form_type" value="product">
+                    <input type="hidden" name="utf8" value="✓">
+                    <input type="hidden" name="id" class="variant-id-input" data-pack-variant="{{ pack_variant_setting }}" data-lio-version="{{ lio_v2 }}" value="{{ matching_variant.id }}">
+                    <input type="hidden" name="quantity" value="1">
+                    <button type="submit" class="lio-card__cta pricing-card-add-to-cart{% if is_hero %} lio-card__cta--hero{% endif %}">
+                      <span class="button-text">{{ block.settings.button_text }}</span>
+                      <svg class="lio-card__cta-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+                  </form>
+
+                {% else %}
+                  <a href="{{ block.settings.button_link }}" class="lio-card__cta{% if is_hero %} lio-card__cta--hero{% endif %}">
+                    <span class="button-text">{{ block.settings.button_text }}</span>
+                    <svg class="lio-card__cta-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                {% endif %}
+              {% endif %}
+
+              {% if block.settings.guarantee_text != blank %}
+              <div class="lio-card__guarantee">
+                {% if block.settings.guarantee_icon == 'shield' %}
+                <svg class="lio-card__guarantee-icon lio-card__guarantee-icon--shield" viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M10 0.833984L16.8474 2.35563C17.2287 2.44037 17.5 2.77854 17.5 3.16913V11.4914C17.5 13.1632 16.6645 14.7243 15.2735 15.6517L10 19.1673L4.7265 15.6517C3.33551 14.7243 2.5 13.1632 2.5 11.4914V3.16913C2.5 2.77854 2.77128 2.44037 3.15256 2.35563L10 0.833984ZM13.7103 6.85218L9.58492 10.9764L7.22851 8.6199L6.04999 9.79848L9.5855 13.334L14.8888 8.03068L13.7103 6.85218Z"/>
+                </svg>
+                {% else %}
+                <svg class="lio-card__guarantee-icon lio-card__guarantee-icon--x" viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M9.99999 18.3327C5.39761 18.3327 1.66666 14.6017 1.66666 9.99935C1.66666 5.39697 5.39761 1.66602 9.99999 1.66602C14.6023 1.66602 18.3333 5.39697 18.3333 9.99935C18.3333 14.6017 14.6023 18.3327 9.99999 18.3327ZM9.99999 8.82085L7.64296 6.46382L6.46446 7.64232L8.82149 9.99935L6.46446 12.3563L7.64296 13.5348L9.99999 11.1778L12.357 13.5348L13.5355 12.3563L11.1785 9.99935L13.5355 7.64232L12.357 6.46382L9.99999 8.82085Z"/>
+                </svg>
+                {% endif %}
+                <span>{{ block.settings.guarantee_text }}</span>
+              </div>
+              {% endif %}
+
+              <div class="lio-card__divider" aria-hidden="true"></div>
+
+              {% if section.settings.show_shipping_info %}
+              <div class="lio-card__shipping shipping-info-container" data-shipping-id="shipping-{{ block.id }}">
+                <svg class="lio-card__shipping-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                </svg>
+                <div class="lio-card__shipping-text">
+                  <span class="shipping-date-text lio-card__shipping-date"></span>
+                  <span class="lio-card__shipping-sub">within <span class="shipping-countdown-text lio-card__shipping-countdown"></span></span>
+                </div>
+              </div>
+              {% endif %}
+
+            </div>
+          </div>
+
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="lio-pricing-wave lio-pricing-wave--bottom">
+  <svg viewBox="0 0 1440 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 32L60 27.2C120 22.4 240 12.8 360 10.7C480 8.5 600 14.9 720 19.7C840 24.5 960 27.7 1080 25.6C1200 23.5 1320 16 1380 12.3L1440 8.5V0H0V32Z" fill="#002217"/>
+  </svg>
+</div>
+
+{%- comment -%}─────────────────────────────────────────
+  STYLES
+─────────────────────────────────────────{%- endcomment -%}
+<style>
+/* ── Tokens ── */
+:root {
+  --lio-green:        #00B67C;
+  --lio-green-dark:   #009163;
+  --lio-green-deep:   #002217;
+  --lio-forest:       #0A3213;
+  --lio-yellow:       #EDED5E;
+  --lio-coral:        #F08561;
+  --lio-cream:        #FAFEFC;
+  --lio-mint:         #E4F7F1;
+  --lio-surface:      #F5FFF7;
+  --lio-border:       rgba(10,50,19,.12);
+  --lio-border-strong:rgba(10,50,19,.24);
+  --lio-shadow-sm:    0 1px 3px rgba(10,50,19,.08), 0 1px 2px rgba(10,50,19,.06);
+  --lio-shadow-md:    0 4px 6px -1px rgba(10,50,19,.1), 0 2px 4px -1px rgba(10,50,19,.06);
+  --lio-shadow-lg:    0 10px 40px rgba(10,50,19,.15);
+  --lio-shadow-xl:    0 20px 60px rgba(10,50,19,.22);
+  --lio-radius-sm:    8px;
+  --lio-radius-md:    16px;
+  --lio-radius-lg:    24px;
+  --lio-radius-pill:  999px;
+  --lio-font-head:    'Inter', sans-serif;
+  --lio-font-body:    'Poppins', sans-serif;
+  --lio-ease:         cubic-bezier(0.34, 1.56, 0.64, 1);
+  --lio-ease-smooth:  cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Waves ── */
+.lio-pricing-wave { display:block; width:100%; line-height:0; }
+.lio-pricing-wave--top  svg { display:block; width:100%; }
+.lio-pricing-wave--bottom svg { display:block; width:100%; transform:rotate(180deg); }
+
+/* ── Section shell ── */
+.lio-pricing {
+  position: relative;
+  background-color: var(--lio-surface);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 40px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ── Ambient orbs ── */
+.lio-pricing__orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+.lio-pricing__orb--1 {
+  width: 500px; height: 500px;
+  top: -120px; left: -120px;
+  background: radial-gradient(circle, rgba(0,182,124,.18) 0%, transparent 70%);
+  animation: lioOrbFloat 12s ease-in-out infinite;
+}
+.lio-pricing__orb--2 {
+  width: 400px; height: 400px;
+  bottom: -80px; right: -80px;
+  background: radial-gradient(circle, rgba(237,237,94,.14) 0%, transparent 70%);
+  animation: lioOrbFloat 16s ease-in-out infinite reverse;
+}
+.lio-pricing__orb--3 {
+  width: 300px; height: 300px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(0,182,124,.07) 0%, transparent 70%);
+  animation: lioOrbFloat 20s ease-in-out infinite 4s;
+}
+@keyframes lioOrbFloat {
+  0%,100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-30px) scale(1.05); }
+}
+
+/* ── Inner ── */
+.lio-pricing__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+/* ── Header ── */
+.lio-pricing__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 680px;
+  text-align: center;
+}
+
+/* ── Live banner ── */
+.lio-pricing__banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  background: #fff;
+  border: 1px solid var(--lio-border-strong);
+  border-radius: var(--lio-radius-pill);
+  font-family: var(--lio-font-body);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--lio-forest);
+  box-shadow: var(--lio-shadow-sm);
+  animation: lioFadeDown .6s var(--lio-ease) both;
+}
+.lio-pricing__banner-dot {
+  position: relative;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--lio-coral);
+  flex-shrink: 0;
+}
+.lio-pricing__banner-pulse {
+  position: absolute;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--lio-coral);
+  animation: lioPulse 2s ease-out infinite;
+}
+@keyframes lioPulse {
+  0%   { transform: scale(1);   opacity: .7; }
+  100% { transform: scale(2.8); opacity: 0;  }
+}
+.lio-pricing__banner-highlight { color: var(--lio-green); }
+
+/* ── Heading ── */
+.lio-pricing__heading {
+  margin: 0;
+  font-family: var(--lio-font-head);
+  font-weight: 400;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  color: var(--lio-forest);
+  animation: lioFadeDown .7s var(--lio-ease) .1s both;
+}
+.lio-pricing__subheading {
+  margin: 0;
+  font-family: var(--lio-font-body);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(10,50,19,.65);
+  animation: lioFadeDown .7s var(--lio-ease) .2s both;
+}
+
+/* ── Toggle ── */
+.lio-pricing__toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  background: rgba(10,50,19,.04);
+  border: 1px solid var(--lio-border);
+  border-radius: var(--lio-radius-md);
+  animation: lioFadeDown .7s var(--lio-ease) .3s both;
+}
+.lio-pricing__toggle-option {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--lio-font-head);
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: var(--lio-forest);
+  opacity: .4;
+  transition: color .25s, opacity .25s;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lio-pricing__toggle-option--active {
+  color: var(--lio-green);
+  opacity: 1;
+}
+.lio-pricing__toggle-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  background: linear-gradient(90deg, var(--lio-green) 0%, var(--lio-yellow) 100%);
+  border-radius: var(--lio-radius-pill);
+  font-family: var(--lio-font-body);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--lio-forest);
+  text-transform: none;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.lio-pricing__toggle-option--active .lio-pricing__toggle-badge { opacity: 1; }
+.lio-pricing__toggle-track {
+  position: relative;
+  width: 64px; height: 32px;
+  background: linear-gradient(120deg, var(--lio-green) 0%, var(--lio-yellow) 100%);
+  border-radius: var(--lio-radius-pill);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: box-shadow .25s;
+  box-shadow: 0 2px 8px rgba(0,182,124,.35);
+}
+.lio-pricing__toggle-track:focus-visible { outline: 2px solid var(--lio-green); outline-offset: 3px; }
+.lio-pricing__toggle-thumb {
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 26px; height: 26px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform .3s var(--lio-ease);
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+.lio-pricing__toggle-track[aria-checked="true"] .lio-pricing__toggle-thumb {
+  transform: translateX(32px);
+}
+
+/* ── Cards grid ── */
+.lio-pricing__cards {
+  display: flex;
+  gap: 28px;
+  width: 100%;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* ── Card base ── */
+.lio-card {
+  position: relative;
+  flex: 0 1 400px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1.5px solid var(--lio-border-strong);
+  border-radius: var(--lio-radius-lg);
+  padding-top: 28px;
+  overflow: hidden;
+  box-shadow: var(--lio-shadow-md);
+  transition: transform .35s var(--lio-ease), box-shadow .35s var(--lio-ease);
+  animation: lioCardReveal .7s var(--lio-ease) both;
+}
+.lio-card:nth-child(1) { animation-delay: .35s; }
+.lio-card:nth-child(2) { animation-delay: .45s; }
+.lio-card:nth-child(3) { animation-delay: .55s; }
+@keyframes lioCardReveal {
+  from { opacity:0; transform: translateY(24px) scale(.97); }
+  to   { opacity:1; transform: translateY(0) scale(1); }
+}
+.lio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--lio-shadow-xl);
+}
+
+/* ── Featured card ── */
+.lio-card--featured {
+  border-color: var(--lio-green);
+  border-width: 2px;
+  box-shadow: var(--lio-shadow-lg), 0 0 0 1px var(--lio-green);
+}
+
+/* ── Hero card ── */
+.lio-card--hero {
+  background: var(--lio-green-deep);
+  border-color: var(--lio-green);
+  border-width: 2.5px;
+  box-shadow: var(--lio-shadow-xl), 0 0 40px rgba(0,182,124,.25);
+}
+.lio-card--hero:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 80px rgba(10,50,19,.3), 0 0 60px rgba(0,182,124,.35);
+}
+
+/* Animated border glow */
+.lio-card__glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(var(--lio-radius-lg) + 2px);
+  background: conic-gradient(from 0deg, var(--lio-green), var(--lio-yellow), var(--lio-green), var(--lio-yellow), var(--lio-green));
+  animation: lioGlowSpin 6s linear infinite;
+  z-index: -1;
+  opacity: .6;
+}
+@keyframes lioGlowSpin {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Badge ── */
+.lio-card__badge {
+  position: absolute;
+  top: -16px;
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: var(--lio-radius-pill);
+  border: 2px solid var(--lio-forest);
+  font-family: var(--lio-font-body);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 2px 2px 0 var(--lio-forest);
+}
+.lio-card__badge--popular {
+  background: linear-gradient(90deg, #86D56C 0%, #C0E264 100%);
+  color: var(--lio-forest);
+}
+.lio-card__badge--value {
+  background: var(--lio-coral);
+  color: #fff;
+}
+
+/* ── Card head ── */
+.lio-card__head { padding: 0 24px 12px; }
+.lio-card__title {
+  margin: 0;
+  font-family: var(--lio-font-head);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  text-align: center;
+  color: var(--lio-forest);
+}
+.lio-card--hero .lio-card__title { color: var(--lio-cream); }
+
+/* ── Card image ── */
+.lio-card__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+.lio-card__image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s var(--lio-ease-smooth);
+}
+.lio-card:hover .lio-card__image-img { transform: scale(1.03); }
+.lio-card__image-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,.08) 50%, transparent 60%);
+  background-size: 300% 300%;
+  animation: lioShimmer 3s ease-in-out infinite;
+}
+@keyframes lioShimmer {
+  0%   { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* ── Bonus stamp ── */
+.lio-card__bonus {
+  position: absolute;
+  bottom: 20px;
+  right: 16px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lio-card__bonus svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: lioStampSpin 15s linear infinite;
+}
+@keyframes lioStampSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.lio-card__bonus-text {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--lio-font-head);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1.3;
+  text-align: center;
+}
+.lio-card__bonus-amount { font-size: 16px; font-weight: 600; }
+
+/* ── Products strip ── */
+.lio-card__products {
+  padding: 0 20px;
+  background: var(--lio-mint);
+  border-top: 1px solid var(--lio-border-strong);
+  border-bottom: 1px solid var(--lio-border-strong);
+}
+.lio-card--hero .lio-card__products {
+  background: var(--lio-green-dark);
+  border-color: rgba(255,255,255,.15);
+}
+.lio-card__product-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+}
+.lio-card__product-row--bordered {
+  border-bottom: 1px solid rgba(10,50,19,.15);
+}
+.lio-card--hero .lio-card__product-row--bordered {
+  border-color: rgba(134,213,108,.4);
+}
+.lio-card__product-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+.lio-card__check-icon {
+  width: 22px; height: 22px;
+  flex-shrink: 0;
+}
+.lio-card__product-name {
+  font-family: var(--lio-font-body);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--lio-forest);
+  line-height: 1.4;
+}
+.lio-card--hero .lio-card__product-name { color: var(--lio-cream); }
+.lio-card__product-name em {
+  font-style: normal;
+  color: var(--lio-coral);
+}
+.lio-card--hero .lio-card__product-name em { color: var(--lio-yellow); }
+.lio-card__product-price {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.lio-card__price-now {
+  font-family: var(--lio-font-body);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--lio-forest);
+}
+.lio-card--hero .lio-card__price-now { color: var(--lio-cream); }
+
+/* ── Strikethrough ── */
+.lio-card__strikethrough {
+  position: relative;
+  font-family: var(--lio-font-body);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--lio-forest);
+  opacity: .5;
+}
+.lio-card__strikethrough::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  top: 50%;
+  height: 1.5px;
+  background: currentColor;
+  transform: rotate(-8deg);
+}
+.lio-card--hero .lio-card__strikethrough { color: var(--lio-cream); }
+
+/* ── Gifts list ── */
+.lio-card__gifts { padding: 4px 20px 0; }
+.lio-card__gift {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+}
+.lio-card__gift--bordered {
+  border-bottom: 1px solid rgba(10,50,19,.1);
+}
+.lio-card--hero .lio-card__gift--bordered {
+  border-color: rgba(255,255,255,.12);
+}
+.lio-card__gift--locked .lio-card__gift-title,
+.lio-card__gift--locked .lio-card__gift-subtitle {
+  text-decoration: line-through;
+  opacity: .45;
+}
+.lio-card__gift-icon-wrap { flex-shrink: 0; padding-top: 1px; }
+.lio-card__gift-icon { width: 22px; height: 22px; display: block; }
+.lio-card__gift-body { flex: 1; min-width: 0; }
+.lio-card__gift-title {
+  font-family: var(--lio-font-body);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--lio-forest);
+  display: block;
+}
+.lio-card--hero .lio-card__gift-title { color: var(--lio-cream); }
+.lio-card__gift-title em { font-style: normal; color: var(--lio-coral); }
+.lio-card--hero .lio-card__gift-title em { color: var(--lio-yellow); }
+.lio-card__gift-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+.lio-card__gift-subtitle {
+  font-family: var(--lio-font-body);
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--lio-forest);
+  opacity: .65;
+}
+.lio-card--hero .lio-card__gift-subtitle { color: var(--lio-cream); }
+.lio-card__gift-price { flex-shrink: 0; }
+
+/* ── Comparison bar ── */
+.lio-card__comparison {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 20px;
+  background: rgba(10,50,19,.04);
+  border-top: 1px solid var(--lio-border);
+}
+.lio-card--hero .lio-card__comparison { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.1); }
+.lio-card__comparison-ours {
+  font-family: var(--lio-font-body);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--lio-green);
+}
+.lio-card__comparison-vs {
+  font-family: var(--lio-font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--lio-forest);
+  opacity: .5;
+  text-transform: uppercase;
+}
+.lio-card--hero .lio-card__comparison-vs { color: var(--lio-cream); }
+.lio-card__comparison-theirs {
+  font-family: var(--lio-font-body);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--lio-coral);
+}
+
+/* ── Footer ── */
+.lio-card__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 20px 24px;
+  margin-top: auto;
+}
+
+/* ── Price row ── */
+.lio-card__price-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.lio-card__old-price {
+  font-family: var(--lio-font-body);
+  font-weight: 500;
+  font-size: 20px;
+  text-decoration: line-through;
+  color: var(--lio-forest);
+  opacity: .4;
+}
+.lio-card--hero .lio-card__old-price { color: var(--lio-cream); }
+.lio-card__main-price {
+  font-family: var(--lio-font-head);
+  font-weight: 400;
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  color: var(--lio-forest);
+}
+.lio-card--hero .lio-card__main-price { color: var(--lio-cream); }
+.lio-card__save-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  background: var(--lio-green);
+  border-radius: var(--lio-radius-pill);
+}
+.lio-card__save-badge span {
+  font-family: var(--lio-font-body);
+  font-weight: 700;
+  font-size: 13px;
+  color: #fff;
+}
+
+/* ── CTA button ── */
+.lio-card__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px 24px;
+  background: var(--lio-green);
+  border: none;
+  border-radius: var(--lio-radius-md);
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: -4px 4px 0 0 var(--lio-forest);
+  transition: transform .2s var(--lio-ease), box-shadow .2s var(--lio-ease), background .2s;
+  position: relative;
+  overflow: hidden;
+}
+.lio-card__cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.lio-card__cta:hover::before { opacity: 1; }
+.lio-card__cta:hover {
+  transform: translate(-2px, 2px);
+  box-shadow: -2px 2px 0 0 var(--lio-forest);
+}
+.lio-card__cta:active {
+  transform: translate(-1px, 1px);
+  box-shadow: -1px 1px 0 0 var(--lio-forest);
+}
+.lio-card__cta:disabled { opacity: .65; cursor: not-allowed; transform: none; box-shadow: -4px 4px 0 0 var(--lio-forest); }
+.lio-card__cta .button-text {
+  font-family: var(--lio-font-body);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--lio-cream);
+  text-align: center;
+}
+.lio-card__cta-arrow {
+  width: 20px; height: 20px;
+  color: var(--lio-cream);
+  flex-shrink: 0;
+  transition: transform .3s var(--lio-ease);
+}
+.lio-card__cta:hover .lio-card__cta-arrow { transform: translateX(3px); }
+.lio-card__cta--hero {
+  background: linear-gradient(135deg, var(--lio-green) 0%, #009163 100%);
+  box-shadow: -4px 4px 0 0 rgba(255,255,255,.25), 0 0 30px rgba(0,182,124,.4);
+  padding: 17px 24px;
+}
+.lio-card__cta--hero:hover {
+  box-shadow: -2px 2px 0 0 rgba(255,255,255,.25), 0 0 50px rgba(0,182,124,.5);
+}
+
+/* ── Guarantee ── */
+.lio-card__guarantee {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lio-card__guarantee span {
+  font-family: var(--lio-font-body);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--lio-forest);
+}
+.lio-card--hero .lio-card__guarantee span { color: var(--lio-cream); }
+.lio-card__guarantee-icon {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+}
+.lio-card__guarantee-icon--shield { fill: var(--lio-green); }
+.lio-card__guarantee-icon--x { fill: #D0D5DD; }
+
+/* ── Divider ── */
+.lio-card__divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(10,50,19,.1);
+  border-radius: var(--lio-radius-pill);
+}
+.lio-card--hero .lio-card__divider { background: rgba(255,255,255,.12); }
+
+/* ── Shipping ── */
+.lio-card__shipping {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.lio-card__shipping-icon {
+  width: 20px; height: 20px;
+  fill: var(--lio-green);
+  flex-shrink: 0;
+}
+.lio-card__shipping-text {
+  display: flex;
+  flex-direction: column;
+}
+.lio-card__shipping-date {
+  font-family: var(--lio-font-body);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--lio-forest);
+}
+.lio-card--hero .lio-card__shipping-date { color: var(--lio-cream); }
+.lio-card__shipping-sub {
+  font-family: var(--lio-font-body);
+  font-size: 12px;
+  color: rgba(10,50,19,.6);
+}
+.lio-card--hero .lio-card__shipping-sub { color: rgba(250,254,252,.6); }
+.lio-card__shipping-countdown { color: var(--lio-green); font-weight: 600; }
+
+/* ── Tooltip ── */
+.lio-tooltip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.lio-tooltip__trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  color: rgba(10,50,19,.45);
+  transition: color .2s;
+}
+.lio-tooltip__trigger:hover { color: var(--lio-green); }
+.lio-card--hero .lio-tooltip__trigger { color: rgba(250,254,252,.45); }
+.lio-tooltip__trigger svg { width: 16px; height: 16px; fill: currentColor; }
+.lio-tooltip__bubble {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  width: 260px;
+  background: #fff;
+  border: 1px solid var(--lio-border-strong);
+  border-radius: var(--lio-radius-sm);
+  padding: 12px 14px;
+  font-family: var(--lio-font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--lio-forest);
+  box-shadow: var(--lio-shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s, transform .2s, visibility .2s;
+  pointer-events: none;
+  z-index: 100;
+}
+.lio-tooltip__bubble--visible,
+.lio-tooltip:hover .lio-tooltip__bubble,
+.lio-tooltip:focus-within .lio-tooltip__bubble {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+.lio-tooltip__arrow {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px; height: 10px;
+  background: #fff;
+  border-right: 1px solid var(--lio-border-strong);
+  border-bottom: 1px solid var(--lio-border-strong);
+}
+
+/* ── Shared animations ── */
+@keyframes lioFadeDown {
+  from { opacity:0; transform: translateY(-16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .lio-pricing { padding: 64px 24px; }
+  .lio-pricing__cards { gap: 20px; }
+  .lio-card { flex-basis: 320px; }
+}
+@media (max-width: 768px) {
+  .lio-pricing { padding: 48px 16px; }
+  .lio-pricing__cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .lio-card {
+    flex: 1 1 100%;
+    max-width: 380px;
+    width: 100%;
+  }
+  .lio-pricing__toggle-wrap { gap: 10px; padding: 10px 14px; }
+  .lio-pricing__toggle-option { font-size: 13px; }
+  .lio-card__main-price { font-size: 28px; }
+  .lio-card__cta .button-text { font-size: 13px; }
+  .lio-tooltip__bubble {
+    left: auto;
+    right: 0;
+    transform: none;
+    bottom: calc(100% + 8px);
+    width: calc(100vw - 80px);
+    max-width: 280px;
+  }
+  .lio-tooltip__bubble--visible { transform: none; }
+  .lio-tooltip__arrow { left: auto; right: 8px; }
+}
+
+/* ── Reduce motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .lio-pricing__orb,
+  .lio-card__glow,
+  .lio-card__bonus svg,
+  .lio-card__image-shimmer,
+  .lio-pricing__banner-pulse { animation: none; }
+  .lio-card,
+  .lio-pricing__banner,
+  .lio-pricing__heading,
+  .lio-pricing__subheading,
+  .lio-pricing__toggle-wrap { animation: none; }
+}
+</style>
+
+{%- comment -%}─────────────────────────────────────────
+  SCRIPTS
+─────────────────────────────────────────{%- endcomment -%}
+
+{%- comment -%} ── Shipping countdown ── {%- endcomment -%}
+<script>
+(function() {
+  var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var CUTOFF_HOUR   = {{ section.settings.cutoff_hour   | default: 15 }};
+  var CUTOFF_MINUTE = {{ section.settings.cutoff_minute | default: 0 }};
+
+  function pad(n) { return String(n).padStart(2,'0'); }
+  function sameDay(a,b) {
+    return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate();
+  }
+  function fmtCountdown(ms) {
+    var s   = Math.floor(ms/1000);
+    var h   = Math.floor(s/3600); s -= h*3600;
+    var m   = Math.floor(s/60);   s -= m*60;
+    var parts = [];
+    if (h) parts.push(h+'h');
+    if (m) parts.push(m+'m');
+    parts.push(pad(s)+'s');
+    return parts.join(' ');
+  }
+
+  function tick() {
+    var now     = new Date();
+    var cutoff  = new Date(now.getFullYear(), now.getMonth(), now.getDate(), CUTOFF_HOUR, CUTOFF_MINUTE, 0, 0);
+    var isPast  = now >= cutoff;
+    var shipDay = new Date(now);
+    if (isPast) shipDay.setDate(shipDay.getDate()+1);
+
+    var today    = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var isToday  = sameDay(shipDay, today);
+    var dateStr  = (isToday ? 'Ships today, ' : 'Ships tomorrow, ') + MONTHS[shipDay.getMonth()] + ' ' + shipDay.getDate();
+
+    var nextCutoff = new Date(cutoff);
+    if (isPast) nextCutoff.setDate(nextCutoff.getDate()+1);
+    var diff = Math.max(0, nextCutoff - now);
+
+    document.querySelectorAll('.shipping-date-text').forEach(function(el){ el.textContent = dateStr; });
+    document.querySelectorAll('.shipping-countdown-text').forEach(function(el){ el.textContent = fmtCountdown(diff); });
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+
+{%- comment -%} ── Toggle ── {%- endcomment -%}
+<script>
+(function() {
+  var track   = document.querySelector('.lio-pricing__toggle-track');
+  var opts    = document.querySelectorAll('.lio-pricing__toggle-option');
+  var cards   = document.querySelectorAll('.lio-card');
+  var isLeft  = true;
+
+  function updateCardPrices(card, variant) {
+    var prefix     = variant === 'solo' ? 'solo' : 'together';
+    var price      = card.dataset[prefix + 'Price'] || '';
+    var oldPrice   = card.dataset[prefix + 'OldPrice'] || '';
+    var saveAmount = card.dataset[prefix + 'SaveAmount'] || '';
+    var image      = card.dataset[prefix + 'Image'] || '';
+
+    var mainEl  = card.querySelector('.pricing-card-price');
+    var oldEl   = card.querySelector('.pricing-card-old-price');
+    var saveEl  = card.querySelector('.pricing-card-save-amount');
+    var saveSpan = saveEl ? saveEl.querySelector('span') : null;
+    var imgEl   = card.querySelector('.lio-card__image-img');
+
+    if (mainEl  && price)      mainEl.textContent = price;
+    if (oldEl)  { if (oldPrice) { oldEl.textContent = oldPrice; oldEl.style.display='inline'; } else { oldEl.style.display='none'; } }
+    if (saveEl) { if (saveAmount && saveSpan) { saveSpan.textContent = '🔥 Save '+saveAmount; saveEl.style.display='flex'; } else { saveEl.style.display='none'; } }
+    if (imgEl   && image) imgEl.src = image;
+  }
+
+  function setToggle(leftActive) {
+    isLeft = leftActive;
+    var targetVariant = leftActive ? 'solo' : 'together';
+
+    if (track) {
+      track.setAttribute('aria-checked', leftActive ? 'false' : 'true');
+    }
+    opts.forEach(function(btn, i) {
+      var active = leftActive ? i===0 : i===1;
+      btn.classList.toggle('lio-pricing__toggle-option--active', active);
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+
+    cards.forEach(function(card) { updateCardPrices(card, targetVariant); });
+
+    var forms = document.querySelectorAll('.pricing-card-add-to-cart-form');
+    if (!forms.length) return;
+    var handle = document.querySelector('.lio-pricing') && document.querySelector('.lio-pricing').dataset.sectionProductHandle;
+    if (!handle && forms[0]) handle = forms[0].dataset.productHandle;
+    if (!handle) return;
+
+    fetch('/products/'+handle+'.js')
+      .then(function(r){ return r.json(); })
+      .then(function(product) {
+        var packOpt = leftActive ? 'Start Solo' : 'Start Together';
+        forms.forEach(function(form) {
+          var input      = form.querySelector('.variant-id-input');
+          if (!input) return;
+          var lioV = form.dataset.lioVersion || 'decoy';
+          var lioOpt = '';
+          if      (lioV === 'hero')  lioOpt = 'Lio 90-Day Starter Kit (1 month free + free Lio)';
+          else if (lioV === 'decoy') lioOpt = 'Lio 30-Day Starter Kit (free Lio)';
+
+          var matched = product.variants.find(function(v) {
+            if (!v.available) return false;
+            var hasPack = v.option1===packOpt || v.option2===packOpt || v.option3===packOpt;
+            if (!hasPack) return false;
+            if (lioOpt) return v.option1===lioOpt || v.option2===lioOpt || v.option3===lioOpt;
+            return true;
+          }) || product.variants.find(function(v) {
+            return v.available && (v.option1===packOpt || v.option2===packOpt || v.option3===packOpt);
+          });
+
+          if (matched) {
+            input.value = matched.id;
+            form.dataset.variantId  = matched.id;
+            form.dataset.packVariant = targetVariant;
+            var parentCard = form.closest('.lio-card');
+            if (parentCard) updateCardPrices(parentCard, targetVariant);
+          }
+        });
+      })
+      .catch(function(){});
+  }
+
+  /* Init prices */
+  cards.forEach(function(card){ updateCardPrices(card,'solo'); });
+
+  /* Wire toggle track */
+  if (track) {
+    track.addEventListener('click', function() { setToggle(!isLeft); });
+    track.addEventListener('keydown', function(e) {
+      if (e.key===' '||e.key==='Enter') { e.preventDefault(); setToggle(!isLeft); }
+    });
+  }
+
+  /* Wire option buttons */
+  opts.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      setToggle(btn.dataset.target === 'solo');
+    });
+  });
+
+  setToggle(true);
+})();
+</script>
+
+{%- comment -%} ── Add to cart ── {%- endcomment -%}
+<script>
+(function() {
+  document.querySelectorAll('.pricing-card-add-to-cart-form').forEach(function(form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn      = form.querySelector('.pricing-card-add-to-cart');
+      var btnText  = btn.querySelector('.button-text');
+      var origText = btnText.textContent;
+      var input    = form.querySelector('input[name="id"]');
+      var vid      = (input ? input.value : '') || form.dataset.variantId;
+
+      if (!vid || vid==='0' || vid==='') {
+        alert('Please wait a moment and try again.');
+        return;
+      }
+
+      btn.disabled = true;
+      btnText.textContent = 'Adding…';
+
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: vid, quantity: 1 })
+      })
+      .then(function(r) {
+        if (!r.ok) return r.json().then(function(d){ throw new Error(d.description||d.message||'Error'); });
+        return r.json();
+      })
+      .then(function() {
+        window.location.href = '/checkout';
+      })
+      .catch(function(err) {
+        alert(err.message || 'Could not add to cart. Please try again.');
+        btn.disabled = false;
+        btnText.textContent = origText;
+      });
+    });
+  });
+})();
+</script>
+
+{%- comment -%} ── Tooltips (mobile tap support) ── {%- endcomment -%}
+<script>
+(function() {
+  var isMobile = window.innerWidth <= 768;
+  if (!isMobile) return;
+
+  document.querySelectorAll('.lio-tooltip__trigger').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var bubble  = btn.closest('.lio-tooltip').querySelector('.lio-tooltip__bubble');
+      var isOpen  = bubble.classList.contains('lio-tooltip__bubble--visible');
+
+      document.querySelectorAll('.lio-tooltip__bubble--visible').forEach(function(b){ b.classList.remove('lio-tooltip__bubble--visible'); });
+      if (!isOpen) bubble.classList.add('lio-tooltip__bubble--visible');
+    });
+  });
+
+  document.addEventListener('click', function() {
+    document.querySelectorAll('.lio-tooltip__bubble--visible').forEach(function(b){ b.classList.remove('lio-tooltip__bubble--visible'); });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Pricing Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "banner_text",
+      "label": "Banner Text",
+      "default": "December orders secured:"
+    },
+    {
+      "type": "text",
+      "id": "banner_highlight",
+      "label": "Banner Highlight Text",
+      "default": "3,847 purchases"
+    },
+    {
+      "type": "text",
+      "id": "banner_text_after",
+      "label": "Banner Text After Highlight",
+      "default": "in the last 24 hours."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Transform Your Vaping Habit Today"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Enroll now to begin your journey before year-end."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_toggle",
+      "label": "Show Toggle Switch",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "toggle_label_left",
+      "label": "Toggle Label Left",
+      "default": "Start Solo"
+    },
+    {
+      "type": "text",
+      "id": "toggle_label_right",
+      "label": "Toggle Label Right",
+      "default": "Start Together"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+      "info": "Select the product that will be used for all pricing cards"
+    },
+    {
+      "type": "header",
+      "content": "Shipping Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shipping_info",
+      "label": "Show Shipping Info",
+      "default": true
+    },
+    {
+      "type": "number",
+      "id": "cutoff_hour",
+      "label": "Cutoff Hour (24-hour format)",
+      "default": 15,
+      "info": "Orders before this hour will ship today, after will ship tomorrow"
+    },
+    {
+      "type": "number",
+      "id": "cutoff_minute",
+      "label": "Cutoff Minute",
+      "default": 0,
+      "info": "Minute of the cutoff time (0-59)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pricing_card",
+      "name": "Pricing Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Card Title",
+          "default": "Advanced"
+        },
+        {
+          "type": "select",
+          "id": "card_type",
+          "label": "Card Type",
+          "options": [
+            { "value": "advanced", "label": "Advanced" },
+            { "value": "hero",     "label": "Hero"     },
+            { "value": "decoy",   "label": "Decoy"   }
+          ],
+          "default": "advanced"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_featured",
+          "label": "Is Featured",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge Text",
+          "default": "⭐ BEST VALUE"
+        },
+        {
+          "type": "select",
+          "id": "badge_position",
+          "label": "Badge Position",
+          "options": [
+            { "value": "left",   "label": "Left"   },
+            { "value": "center", "label": "Center" },
+            { "value": "right",  "label": "Right"  }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "bonus_amount",
+          "label": "Bonus Amount",
+          "default": "€233"
+        },
+        { "type": "header", "content": "Product 1" },
+        { "type": "text", "id": "product_1_title",     "label": "Product 1 Title",     "default": "6-Month Supply of Botanical Flavor Cores" },
+        { "type": "text", "id": "product_1_old_price", "label": "Product 1 Old Price", "default": "€174" },
+        { "type": "text", "id": "product_1_price",     "label": "Product 1 Price",     "default": "€99"  },
+        { "type": "header", "content": "Product 2" },
+        { "type": "text", "id": "product_2_title",  "label": "Product 2 Title",  "default": "Lio Diffuser V2" },
+        { "type": "text", "id": "product_2_price",  "label": "Product 2 Price",  "default": "€99" },
+        { "type": "header", "content": "Gifts" },
+        { "type": "text",     "id": "gift_1_title",     "label": "Gift 1 Title",     "default": "Free Premium Travel Case" },
+        { "type": "text",     "id": "gift_1_old_price", "label": "Gift 1 Old Price", "default": "€29"  },
+        { "type": "checkbox", "id": "gift_1_is_free",   "label": "Gift 1 Is Free",   "default": true   },
+        { "type": "text",     "id": "gift_1_subtitle",  "label": "Gift 1 Subtitle"   },
+        { "type": "textarea", "id": "gift_1_tooltip_text", "label": "Gift 1 Tooltip Text" },
+        { "type": "text",     "id": "gift_2_title",     "label": "Gift 2 Title",     "default": "Free 30-Day Masterclass"    },
+        { "type": "text",     "id": "gift_2_subtitle",  "label": "Gift 2 Subtitle",  "default": "Daily Habit Reset"          },
+        { "type": "text",     "id": "gift_2_old_price", "label": "Gift 2 Old Price", "default": "€29"                        },
+        { "type": "checkbox", "id": "gift_2_is_free",   "label": "Gift 2 Is Free",   "default": true                         },
+        { "type": "textarea", "id": "gift_2_tooltip_text", "label": "Gift 2 Tooltip Text", "default": "A 30-day audio masterclass that guides you day by day with morning, afternoon and evening sessions to build a strong Start routine." },
+        { "type": "text",     "id": "gift_3_title",     "label": "Gift 3 Title",     "default": "Free Addiction Education Course" },
+        { "type": "text",     "id": "gift_3_subtitle",  "label": "Gift 3 Subtitle",  "default": "Understanding Your Habit"        },
+        { "type": "text",     "id": "gift_3_old_price", "label": "Gift 3 Old Price", "default": "€29"                             },
+        { "type": "checkbox", "id": "gift_3_is_free",   "label": "Gift 3 Is Free",   "default": true                              },
+        { "type": "textarea", "id": "gift_3_tooltip_text", "label": "Gift 3 Tooltip Text" },
+        { "type": "text",     "id": "gift_4_title",     "label": "Gift 4 Title",     "default": "Free SOS Audio Library"    },
+        { "type": "text",     "id": "gift_4_subtitle",  "label": "Gift 4 Subtitle",  "default": "Instant Craving Relief"    },
+        { "type": "text",     "id": "gift_4_old_price", "label": "Gift 4 Old Price", "default": "€29"                       },
+        { "type": "checkbox", "id": "gift_4_is_free",   "label": "Gift 4 Is Free",   "default": true                        },
+        { "type": "textarea", "id": "gift_4_tooltip_text", "label": "Gift 4 Tooltip Text" },
+        { "type": "text",     "id": "gift_5_title",     "label": "Gift 5 Title",     "default": "Free Identity Builder"  },
+        { "type": "text",     "id": "gift_5_subtitle",  "label": "Gift 5 Subtitle",  "default": "Stay Start for Life"     },
+        { "type": "text",     "id": "gift_5_old_price", "label": "Gift 5 Old Price", "default": "€29"                     },
+        { "type": "checkbox", "id": "gift_5_is_free",   "label": "Gift 5 Is Free",   "default": true                      },
+        { "type": "textarea", "id": "gift_5_tooltip_text", "label": "Gift 5 Tooltip Text" },
+        { "type": "text",     "id": "gift_6_title",     "label": "Gift 6 Title",     "default": "Free 60-Day Habit Tracker" },
+        { "type": "text",     "id": "gift_6_old_price", "label": "Gift 6 Old Price", "default": "€15"                       },
+        { "type": "checkbox", "id": "gift_6_is_free",   "label": "Gift 6 Is Free",   "default": true                        },
+        { "type": "text",     "id": "gift_6_subtitle",  "label": "Gift 6 Subtitle"  },
+        { "type": "textarea", "id": "gift_6_tooltip_text", "label": "Gift 6 Tooltip Text" },
+        { "type": "text",     "id": "gift_7_title",     "label": "Gift 7 Title",     "default": "Free Alan Carr-Inspired Start Guide eBook" },
+        { "type": "text",     "id": "gift_7_old_price", "label": "Gift 7 Old Price", "default": "€24"                                       },
+        { "type": "checkbox", "id": "gift_7_is_free",   "label": "Gift 7 Is Free",   "default": true                                        },
+        { "type": "text",     "id": "gift_7_subtitle",  "label": "Gift 7 Subtitle"  },
+        { "type": "textarea", "id": "gift_7_tooltip_text", "label": "Gift 7 Tooltip Text" },
+        { "type": "text",     "id": "gift_8_title",     "label": "Gift 8 Title",     "default": "Free Private Community Access" },
+        { "type": "text",     "id": "gift_8_old_price", "label": "Gift 8 Old Price", "default": "€37"                           },
+        { "type": "checkbox", "id": "gift_8_is_free",   "label": "Gift 8 Is Free",   "default": true                            },
+        { "type": "text",     "id": "gift_8_subtitle",  "label": "Gift 8 Subtitle"  },
+        { "type": "textarea", "id": "gift_8_tooltip_text", "label": "Gift 8 Tooltip Text" },
+        { "type": "text",     "id": "gift_9_title",     "label": "Gift 9 Title",     "default": "Free Express Shipping" },
+        { "type": "text",     "id": "gift_9_old_price", "label": "Gift 9 Old Price", "default": "€12"                   },
+        { "type": "checkbox", "id": "gift_9_is_free",   "label": "Gift 9 Is Free",   "default": true                    },
+        { "type": "text",     "id": "gift_9_subtitle",  "label": "Gift 9 Subtitle"  },
+        { "type": "textarea", "id": "gift_9_tooltip_text", "label": "Gift 9 Tooltip Text" },
+        { "type": "header", "content": "Pricing" },
+        { "type": "text", "id": "price_per_day",    "label": "Price Per Day",    "default": "€0.82 per Day"     },
+        { "type": "text", "id": "comparison_price", "label": "Comparison Price", "default": "€10 per Day smoking" },
+        { "type": "text", "id": "old_price",        "label": "Old Price",        "default": "€506"              },
+        { "type": "text", "id": "price",            "label": "Price",            "default": "€198"              },
+        { "type": "text", "id": "save_amount",      "label": "Save Amount",      "default": "€308"              },
+        { "type": "text", "id": "button_text",      "label": "Button Text",      "default": "START MY GUARANTEED FREEDOM PROGRAM" },
+        { "type": "url",  "id": "button_link",      "label": "Button Link",      "info": "Used as fallback if product is not available" },
+        {
+          "type": "select",
+          "id": "pack_variant",
+          "label": "Pack Variant",
+          "options": [
+            { "value": "solo",     "label": "Solo Pack"     },
+            { "value": "together", "label": "Together Pack" }
+          ],
+          "default": "solo",
+          "info": "Which pack variant this card represents"
+        },
+        {
+          "type": "select",
+          "id": "lio_version",
+          "label": "Lio® Version",
+          "options": [
+            { "value": "hero",  "label": "90-Day Kit (1 month free + free Lio)" },
+            { "value": "decoy", "label": "30-Day Kit (free Lio)"                }
+          ],
+          "default": "hero",
+          "info": "Which Lio® Version this card represents"
+        },
+        { "type": "text", "id": "solo_variant_id",     "label": "Solo Pack Variant ID",     "info": "Variant ID for Solo Pack option"     },
+        { "type": "text", "id": "together_variant_id", "label": "Together Pack Variant ID", "info": "Variant ID for Together Pack option" },
+        {
+          "type": "select",
+          "id": "guarantee_icon",
+          "label": "Guarantee Icon",
+          "options": [
+            { "value": "shield", "label": "Shield" },
+            { "value": "close",  "label": "Close"  }
+          ],
+          "default": "shield"
+        },
+        { "type": "text", "id": "guarantee_text", "label": "Guarantee Text", "default": "180-Day Money-Back Guarantee" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pricing Section",
+      "blocks": [
+        {
+          "type": "pricing_card",
+          "settings": {
+            "card_title": "Advanced",
+            "card_type": "advanced",
+            "is_featured": false,
+            "badge_text": "⭐ BEST VALUE"
+          }
+        },
+        {
+          "type": "pricing_card",
+          "settings": {
+            "card_title": "Hero",
+            "card_type": "hero",
+            "is_featured": true,
+            "badge_text": "🔥 MOST POPULAR"
+          }
+        },
+        {
+          "type": "pricing_card",
+          "settings": {
+            "card_title": "Decoy",
+            "card_type": "decoy",
+            "is_featured": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
