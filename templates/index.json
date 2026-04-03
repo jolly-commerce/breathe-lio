@@ -131,8 +131,8 @@
         "button_34NdgV": {
           "type": "button",
           "settings": {
-            "button": "<b>SHOP NOW</b>",
-            "url": "shopify://products/journey-pack-3",
+            "button": "GET STARTED",
+            "url": "https://www.quiz.breathelio.com",
             "open_in_new_tab": false,
             "button_style": "non_outline",
             "button_custom": false,
