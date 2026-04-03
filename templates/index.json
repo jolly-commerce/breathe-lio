@@ -132,7 +132,7 @@
           "type": "button",
           "settings": {
             "button": "GET STARTED",
-            "url": "https://www.quiz.breathelio.com",
+            "url": "https://quiz.breathelio.com",
             "open_in_new_tab": false,
             "button_style": "non_outline",
             "button_custom": false,
