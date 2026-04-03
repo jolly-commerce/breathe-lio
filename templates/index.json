@@ -710,10 +710,38 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "instant_gt_p9_hjw_ppa2_n69_wz_MRnt8Y": {
+      "type": "instant-gtP9HjwPPA2N69WZ",
+      "name": "Section 46",
+      "settings": {
+        "text_5INowO6w2wgezr7X": "<h3>Freedom from smoke, nicotine and toxins</h3>",
+        "url_VwQrBc167MSHESpA": "https://www.quiz.breathelio.com/",
+        "text_fxcCf394PUtjExeF": "<h3>Start your </h3>",
+        "text_GOORm1bWQc2JruYA": "<h3>good habit today</h3>",
+        "url_XORuP22qGaGjYieA": "",
+        "text_xwgrq1RqAzR9gi8Q": "<p>See your plan</p>",
+        "product_YJyIWk8kPJowx9zw": "lio-flavor-cores",
+        "text_W4zVq6Xnt2ad4qsw": "<h3>Stock up </h3>",
+        "text_PqVqwk3QpGFNgHku": "<h3>on flavor cores</h3>",
+        "url_LAsqGr9Jr3NPCmnX": "",
+        "text_UMZdDLeIw9gCTo0i": "<p>See how it works</p>",
+        "url_0nbSh891L8JAfoP3": "shopify://products/lio-diffusers",
+        "url_wdm3tuMpbB3Ib9XK": "",
+        "text_bjq5qdqd1Jb3Lp0R": "<h3><strong>Shop Lio Devices</strong></h3>",
+        "url_uDGPJzxz4SkKAzbY": "",
+        "text_BD8TdH39SASUZNXj": "<h3><strong>Shop accessories </strong></h3>",
+        "product_IjOCrlEe9HBDCeqL": "lio-flavor-cores",
+        "url_BQMHZg64euKbAyly": "",
+        "text_NNauXgz6U3KGfvpD": "<h3><strong>Shop Cores</strong></h3>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "ss_hero_pro_JmL9aE",
+    "instant_gt_p9_hjw_ppa2_n69_wz_MRnt8Y",
     "instant_pox5w_zfcs_a33_jh_tx_GngMhr",
     "featured_product_aFXfVN",
     "instant_x_oetj8_hepve_arkr_v_EKnyNr",
