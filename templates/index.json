@@ -160,38 +160,6 @@
             "button_shadow_color": "#000000"
           }
         },
-        "button_tCbqyk": {
-          "type": "button",
-          "settings": {
-            "button": "<b>GET CORES</b>",
-            "url": "shopify://products/lio-flavor-cores",
-            "open_in_new_tab": false,
-            "button_style": "non_outline",
-            "button_custom": false,
-            "button_font": "josefin_sans_n4",
-            "button_size": 14,
-            "button_size_mobile": 14,
-            "button_advanced": true,
-            "button_height": 100,
-            "button_padding_horizontal": 40,
-            "button_padding_horizontal_mobile": 44,
-            "button_padding_vertical": 20,
-            "button_padding_vertical_mobile": 14,
-            "button_radius": 100,
-            "button_border_thickness": 1,
-            "button_mt": 24,
-            "button_mt_mobile": 0,
-            "button_custom_styling": true,
-            "button_full_width_mobile": false,
-            "button_color": "#00b67c",
-            "button_hover_color": "#ffffff",
-            "button_bg_color": "#effffa",
-            "button_bg_hover_color": "#00cf8d",
-            "button_border_color": "#1a1a1a",
-            "button_border_hover_color": "#1a1a1a",
-            "button_shadow_color": "#000000"
-          }
-        },
         "verified_miymzm": {
           "type": "verified",
           "settings": {
@@ -221,7 +189,6 @@
         "feature_p8qLpT",
         "feature_Ddt68R",
         "button_34NdgV",
-        "button_tCbqyk",
         "verified_miymzm"
       ],
       "name": "SS - Hero pro 💎",
@@ -283,6 +250,33 @@
         "border_thickness": 0,
         "section_radius": 0,
         "lazy": true
+      }
+    },
+    "instant_gt_p9_hjw_ppa2_n69_wz_MRnt8Y": {
+      "type": "instant-gtP9HjwPPA2N69WZ",
+      "name": "Section 46",
+      "settings": {
+        "text_5INowO6w2wgezr7X": "<h3>Freedom from smoke, nicotine and toxins</h3>",
+        "url_VwQrBc167MSHESpA": "https://www.quiz.breathelio.com/",
+        "text_fxcCf394PUtjExeF": "<h3>Start your </h3>",
+        "text_GOORm1bWQc2JruYA": "<h3>good habit today</h3>",
+        "url_XORuP22qGaGjYieA": "",
+        "text_xwgrq1RqAzR9gi8Q": "<p>See your plan</p>",
+        "product_YJyIWk8kPJowx9zw": "lio-flavor-cores",
+        "text_W4zVq6Xnt2ad4qsw": "<h3>Stock up </h3>",
+        "text_PqVqwk3QpGFNgHku": "<h3>on flavor cores</h3>",
+        "url_LAsqGr9Jr3NPCmnX": "",
+        "text_UMZdDLeIw9gCTo0i": "<p>See how it works</p>",
+        "url_0nbSh891L8JAfoP3": "shopify://products/lio-diffusers",
+        "url_wdm3tuMpbB3Ib9XK": "",
+        "text_bjq5qdqd1Jb3Lp0R": "<h3><strong>Shop Lio Devices</strong></h3>",
+        "url_uDGPJzxz4SkKAzbY": "",
+        "text_BD8TdH39SASUZNXj": "<h3><strong>Shop accessories </strong></h3>",
+        "product_IjOCrlEe9HBDCeqL": "lio-flavor-cores",
+        "url_BQMHZg64euKbAyly": "",
+        "text_NNauXgz6U3KGfvpD": "<h3><strong>Shop Cores</strong></h3>",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "instant_pox5w_zfcs_a33_jh_tx_GngMhr": {
@@ -707,33 +701,6 @@
       "name": "WhatsApp",
       "settings": {
         "url_sLjVy0RD6AdAUOrw": "https://wa.me/971585019168",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "instant_gt_p9_hjw_ppa2_n69_wz_MRnt8Y": {
-      "type": "instant-gtP9HjwPPA2N69WZ",
-      "name": "Section 46",
-      "settings": {
-        "text_5INowO6w2wgezr7X": "<h3>Freedom from smoke, nicotine and toxins</h3>",
-        "url_VwQrBc167MSHESpA": "https://www.quiz.breathelio.com/",
-        "text_fxcCf394PUtjExeF": "<h3>Start your </h3>",
-        "text_GOORm1bWQc2JruYA": "<h3>good habit today</h3>",
-        "url_XORuP22qGaGjYieA": "",
-        "text_xwgrq1RqAzR9gi8Q": "<p>See your plan</p>",
-        "product_YJyIWk8kPJowx9zw": "lio-flavor-cores",
-        "text_W4zVq6Xnt2ad4qsw": "<h3>Stock up </h3>",
-        "text_PqVqwk3QpGFNgHku": "<h3>on flavor cores</h3>",
-        "url_LAsqGr9Jr3NPCmnX": "",
-        "text_UMZdDLeIw9gCTo0i": "<p>See how it works</p>",
-        "url_0nbSh891L8JAfoP3": "shopify://products/lio-diffusers",
-        "url_wdm3tuMpbB3Ib9XK": "",
-        "text_bjq5qdqd1Jb3Lp0R": "<h3><strong>Shop Lio Devices</strong></h3>",
-        "url_uDGPJzxz4SkKAzbY": "",
-        "text_BD8TdH39SASUZNXj": "<h3><strong>Shop accessories </strong></h3>",
-        "product_IjOCrlEe9HBDCeqL": "lio-flavor-cores",
-        "url_BQMHZg64euKbAyly": "",
-        "text_NNauXgz6U3KGfvpD": "<h3><strong>Shop Cores</strong></h3>",
         "padding_top": 0,
         "padding_bottom": 0
       }
