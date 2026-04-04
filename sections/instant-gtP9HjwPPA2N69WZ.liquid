@@ -91,6 +91,11 @@
               </svg></div></div
         ></div>
         {%- liquid
+          assign url_YJyIWk8kPJowx9zw_handle = 'lio-flavor-cores'
+          assign url_YJyIWk8kPJowx9zw = all_products[url_YJyIWk8kPJowx9zw_handle].url
+        -%}
+        <!--  -->
+        {%- liquid
           assign product_YJyIWk8kPJowx9zw_handle = 'lio-flavor-cores'
           assign product_YJyIWk8kPJowx9zw = section.settings.product_YJyIWk8kPJowx9zw | default: all_products[product_YJyIWk8kPJowx9zw_handle]
           assign product_YJyIWk8kPJowx9zw_variant = product_YJyIWk8kPJowx9zw.selected_or_first_available_variant
@@ -101,7 +106,7 @@
 
           assign product_YJyIWk8kPJowx9zw_image = product_YJyIWk8kPJowx9zw_variant.featured_image | default: product_YJyIWk8kPJowx9zw.featured_image
         -%}
-        <form class="iYJyIWk8kPJowx9zw" data-instant-type="container" data-instant-form-product-url="{{ product_YJyIWk8kPJowx9zw.url }}" data-instant-form-variant-id="{{ product_YJyIWk8kPJowx9zw_variant.id }}" data-instant-form-product-id="{{ product_YJyIWk8kPJowx9zw.id }}">
+        <form class="iYJyIWk8kPJowx9zw" data-instant-type="container" data-instant-form-product-url="{{ product_YJyIWk8kPJowx9zw.url }}" data-instant-form-variant-id="{{ product_YJyIWk8kPJowx9zw_variant.id }}" data-instant-form-product-id="{{ product_YJyIWk8kPJowx9zw.id }}" rel="noopener noreferrer" data-instant-href="{{ section.settings.url_YJyIWk8kPJowx9zw | default: url_YJyIWk8kPJowx9zw }}">
           {%- if section.settings.image_YJyIWk8kPJowx9zw and section.settings.image_YJyIWk8kPJowx9zw != blank -%}
             {{ section.settings.image_YJyIWk8kPJowx9zw | image_url: width: 1280 | image_tag: class: 'instant-fill instant-image__fill instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_YJyIWk8kPJowx9zw.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
           {%- else -%}
@@ -181,6 +186,11 @@
               </svg></div></div
         ></div>
         {%- liquid
+          assign url_IjOCrlEe9HBDCeqL_handle = 'lio-flavor-cores'
+          assign url_IjOCrlEe9HBDCeqL = all_products[url_IjOCrlEe9HBDCeqL_handle].url
+        -%}
+        <!--  -->
+        {%- liquid
           assign product_IjOCrlEe9HBDCeqL_handle = 'lio-flavor-cores'
           assign product_IjOCrlEe9HBDCeqL = section.settings.product_IjOCrlEe9HBDCeqL | default: all_products[product_IjOCrlEe9HBDCeqL_handle]
           assign product_IjOCrlEe9HBDCeqL_variant = product_IjOCrlEe9HBDCeqL.selected_or_first_available_variant
@@ -191,7 +201,7 @@
 
           assign product_IjOCrlEe9HBDCeqL_image = product_IjOCrlEe9HBDCeqL_variant.featured_image | default: product_IjOCrlEe9HBDCeqL.featured_image
         -%}
-        <form class="iIjOCrlEe9HBDCeqL" data-instant-type="container" data-instant-form-product-url="{{ product_IjOCrlEe9HBDCeqL.url }}" data-instant-form-variant-id="{{ product_IjOCrlEe9HBDCeqL_variant.id }}" data-instant-form-product-id="{{ product_IjOCrlEe9HBDCeqL.id }}">
+        <form class="iIjOCrlEe9HBDCeqL" data-instant-type="container" data-instant-form-product-url="{{ product_IjOCrlEe9HBDCeqL.url }}" data-instant-form-variant-id="{{ product_IjOCrlEe9HBDCeqL_variant.id }}" data-instant-form-product-id="{{ product_IjOCrlEe9HBDCeqL.id }}" rel="noopener noreferrer" data-instant-href="{{ section.settings.url_IjOCrlEe9HBDCeqL | default: url_IjOCrlEe9HBDCeqL }}">
           {%- if section.settings.image_IjOCrlEe9HBDCeqL and section.settings.image_IjOCrlEe9HBDCeqL != blank -%}
             {{ section.settings.image_IjOCrlEe9HBDCeqL | image_url: width: 1280 | image_tag: class: 'instant-fill instant-image__fill instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_IjOCrlEe9HBDCeqL.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
           {%- else -%}
@@ -288,6 +298,11 @@
       "label": "Card mobile"
     },
     {
+      "type": "url",
+      "id": "url_YJyIWk8kPJowx9zw",
+      "label": "Card URL"
+    },
+    {
       "type": "richtext",
       "id": "text_W4zVq6Xnt2ad4qsw",
       "label": "Text",
@@ -374,6 +389,11 @@
     },
     {
       "type": "url",
+      "id": "url_IjOCrlEe9HBDCeqL",
+      "label": "Card URL"
+    },
+    {
+      "type": "url",
       "id": "url_BQMHZg64euKbAyly",
       "label": "Button URL"
     },
@@ -418,6 +438,7 @@
         "text_GOORm1bWQc2JruYA": "<h3>good habit today</h3>",
         "text_xwgrq1RqAzR9gi8Q": "<p>See your plan</p>",
         "product_YJyIWk8kPJowx9zw": "lio-flavor-cores",
+        "url_YJyIWk8kPJowx9zw": "shopify://products/lio-flavor-cores",
         "text_W4zVq6Xnt2ad4qsw": "<h3>Stock up </h3>",
         "text_PqVqwk3QpGFNgHku": "<h3>on flavor cores</h3>",
         "text_UMZdDLeIw9gCTo0i": "<p>Shop Cores</p>",
@@ -425,6 +446,7 @@
         "text_bjq5qdqd1Jb3Lp0R": "<h3><strong>Shop Lio Devices</strong></h3>",
         "text_BD8TdH39SASUZNXj": "<h3><strong>Shop accessories </strong></h3>",
         "product_IjOCrlEe9HBDCeqL": "lio-flavor-cores",
+        "url_IjOCrlEe9HBDCeqL": "shopify://products/lio-flavor-cores",
         "text_NNauXgz6U3KGfvpD": "<h3><strong>Shop Cores</strong></h3>"
       }
     }
