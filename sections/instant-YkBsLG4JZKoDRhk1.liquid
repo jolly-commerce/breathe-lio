@@ -101,8 +101,12 @@
             ><div data-instant-type="text" class="instant-rich-text iXVr9Pg1etHYScrop"
               ><div>{{ section.settings.text_XVr9Pg1etHYScrop }}</div></div
             ></div
-          ><div class="ivlktfHdX6w6vPkuu" data-instant-type="container"
-            ><a class="i9IKY8u921q8nU79g" data-instant-type="container" href="{{ section.settings.url_9IKY8u921q8nU79g | default: '' }}" rel="noopener noreferrer"
+          ><div class="ivlktfHdX6w6vPkuu" data-instant-type="container">
+            {%- liquid
+              assign url_9IKY8u921q8nU79g_handle = 'the-journey-pack-3'
+              assign url_9IKY8u921q8nU79g = all_products[url_9IKY8u921q8nU79g_handle].url
+            -%}
+            <a class="i9IKY8u921q8nU79g" data-instant-type="container" href="{{ section.settings.url_9IKY8u921q8nU79g | default: url_9IKY8u921q8nU79g }}" rel="noopener noreferrer"
               ><div data-instant-type="text" class="instant-rich-text iYAefyfNN4pB1KJC4"
                 ><div>{{ section.settings.text_YAefyfNN4pB1KJC4 }}</div></div
               ></a
@@ -169,8 +173,12 @@
             ><div>{{ section.settings.text_RHcYdM8f0RHd33rt }}</div></div
           ></div
         ></div
-      ><div class="iFDFHqhEjUrSGxMDf" data-instant-type="container"
-        ><div class="i5wdDpXAwGhZJhgPj" data-instant-type="container">
+      ><div class="iFDFHqhEjUrSGxMDf" data-instant-type="container">
+        {%- liquid
+          assign url_5wdDpXAwGhZJhgPj_handle = 'the-journey-pack-3'
+          assign url_5wdDpXAwGhZJhgPj = all_products[url_5wdDpXAwGhZJhgPj_handle].url
+        -%}
+        <div class="i5wdDpXAwGhZJhgPj" data-instant-type="container" rel="noopener noreferrer" data-instant-href="{{ section.settings.url_5wdDpXAwGhZJhgPj | default: url_5wdDpXAwGhZJhgPj }}">
           {%- if section.settings.image_5wdDpXAwGhZJhgPj and section.settings.image_5wdDpXAwGhZJhgPj != blank -%}
             {{ section.settings.image_5wdDpXAwGhZJhgPj | image_url: width: 1280 | image_tag: class: 'instant-fill instant-image__fill instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_5wdDpXAwGhZJhgPj.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
           {%- else -%}
@@ -199,7 +207,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                 <title>caret-right</title><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
               </svg></div></div></div
-        ><div class="ilVw0kIdj2qp8xJ8G" data-instant-type="container">
+        ><div class="ilVw0kIdj2qp8xJ8G" data-instant-type="container" data-instant-action-type="open-overlay" data-instant-action-id="zDh548CWVkSreyQI">
           {%- if section.settings.image_lVw0kIdj2qp8xJ8G and section.settings.image_lVw0kIdj2qp8xJ8G != blank -%}
             {{ section.settings.image_lVw0kIdj2qp8xJ8G | image_url: width: 1280 | image_tag: class: 'instant-fill instant-image__fill instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_lVw0kIdj2qp8xJ8G.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
           {%- else -%}
@@ -226,8 +234,12 @@
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                 <title>caret-right</title><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
               </svg></div></div></div></div
-      ><div class="iLooxc2tPOenRNUZj" data-instant-type="container"
-        ><div class="iiplGBLtgSd2VL1ze" data-instant-type="container">
+      ><div class="iLooxc2tPOenRNUZj" data-instant-type="container">
+        {%- liquid
+          assign url_iplGBLtgSd2VL1ze_handle = 'lio-diffusers'
+          assign url_iplGBLtgSd2VL1ze = all_products[url_iplGBLtgSd2VL1ze_handle].url
+        -%}
+        <div class="iiplGBLtgSd2VL1ze" data-instant-type="container" rel="noopener noreferrer" data-instant-href="{{ section.settings.url_iplGBLtgSd2VL1ze | default: url_iplGBLtgSd2VL1ze }}">
           {%- if section.settings.image_iplGBLtgSd2VL1ze and section.settings.image_iplGBLtgSd2VL1ze != blank -%}
             {{ section.settings.image_iplGBLtgSd2VL1ze | image_url: width: 1280 | image_tag: class: 'instant-fill instant-image__fill instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_iplGBLtgSd2VL1ze.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
           {%- else -%}
@@ -249,8 +261,13 @@
             ><div data-instant-type="icon" class="iyo3rk0bDJtG7yRWV">
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                 <title>caret-right</title><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
-              </svg></div></div></div
-        ><div class="ixextd7dFqlyIUtpH" data-instant-type="container">
+              </svg></div></div
+        ></div>
+        {%- liquid
+          assign url_xextd7dFqlyIUtpH_handle = 'accessories'
+          assign url_xextd7dFqlyIUtpH = collections[url_xextd7dFqlyIUtpH_handle].url
+        -%}
+        <div class="ixextd7dFqlyIUtpH" data-instant-type="container" rel="noopener noreferrer" data-instant-href="{{ section.settings.url_xextd7dFqlyIUtpH | default: url_xextd7dFqlyIUtpH }}">
           {%- if section.settings.image_xextd7dFqlyIUtpH and section.settings.image_xextd7dFqlyIUtpH != blank -%}
             {{ section.settings.image_xextd7dFqlyIUtpH | image_url: width: 1280 | image_tag: class: 'instant-fill instant-image__fill instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_xextd7dFqlyIUtpH.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
           {%- else -%}
@@ -273,7 +290,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                 <title>caret-right</title><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
               </svg></div></div></div
-        ><div class="irJwxnE8m45xQy4LL" data-instant-type="container">
+        ><div class="irJwxnE8m45xQy4LL" data-instant-type="container" data-instant-action-type="open-overlay" data-instant-action-id="zDh548CWVkSreyQI">
           {%- if section.settings.image_rJwxnE8m45xQy4LL and section.settings.image_rJwxnE8m45xQy4LL != blank -%}
             {{ section.settings.image_rJwxnE8m45xQy4LL | image_url: width: 1280 | image_tag: class: 'instant-fill instant-image__fill instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_rJwxnE8m45xQy4LL.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
           {%- else -%}
@@ -296,13 +313,8 @@
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                 <title>caret-right</title><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
               </svg></div></div></div></div></div
-    ><div class="ictNGkpymldyUfuvJ" data-instant-type="container" id="ictNGkpymldyUfuvJ">
-      {%- if section.settings.image_ctNGkpymldyUfuvJ and section.settings.image_ctNGkpymldyUfuvJ != blank -%}
-        {{ section.settings.image_ctNGkpymldyUfuvJ | image_url: width: 1280 | image_tag: class: 'instant-fill instant-image__fill instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_ctNGkpymldyUfuvJ.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-      {%- else -%}
-        <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/J78uoc12XugtsnD8/screenshot-2026-04-03-at-13144pm-6-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/J78uoc12XugtsnD8/screenshot-2026-04-03-at-13144pm-6-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/J78uoc12XugtsnD8/screenshot-2026-04-03-at-13144pm-6-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/J78uoc12XugtsnD8/screenshot-2026-04-03-at-13144pm-6-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/J78uoc12XugtsnD8/screenshot-2026-04-03-at-13144pm-6-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/J78uoc12XugtsnD8/screenshot-2026-04-03-at-13144pm-6-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/J78uoc12XugtsnD8/screenshot-2026-04-03-at-13144pm-6-2.webp?width=1280" width="1925" height="541" class="instant-fill instant-image__fill instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" style="object-fit:cover">
-      {%- endif -%}
-      <div class="iC64QTULTdZ7UGJle" data-instant-type="container"
+    ><div class="ictNGkpymldyUfuvJ" data-instant-type="container" id="ictNGkpymldyUfuvJ"
+      ><div class="iC64QTULTdZ7UGJle" data-instant-type="container"
         ><div class="iWSFAKFuhbKTGMOK2" data-instant-type="container"
           ><div data-instant-type="text" class="instant-rich-text i8f8KKFK9Xzu2NSTm"
             ><div>{{ section.settings.text_8f8KKFK9Xzu2NSTm }}</div></div
@@ -483,6 +495,11 @@
       "label": "Card mobile"
     },
     {
+      "type": "url",
+      "id": "url_5wdDpXAwGhZJhgPj",
+      "label": "Card URL"
+    },
+    {
       "type": "richtext",
       "id": "text_MtBWEYqHaZ9MUcCt",
       "label": "Text",
@@ -550,6 +567,11 @@
     },
     {
       "type": "url",
+      "id": "url_iplGBLtgSd2VL1ze",
+      "label": "Card URL"
+    },
+    {
+      "type": "url",
       "id": "url_1sUYWlzvX4nVuGA5",
       "label": "Button URL"
     },
@@ -568,6 +590,11 @@
       "type": "image_picker",
       "id": "image_xextd7dFqlyIUtpH_mobile",
       "label": "Card mobile"
+    },
+    {
+      "type": "url",
+      "id": "url_xextd7dFqlyIUtpH",
+      "label": "Card URL"
     },
     {
       "type": "url",
@@ -600,11 +627,6 @@
       "id": "text_g0m3lzeRsxaAofGh",
       "label": "Text",
       "default": "<h3><strong>Shop Cores</strong></h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_ctNGkpymldyUfuvJ",
-      "label": "Counter"
     },
     {
       "type": "richtext",
@@ -699,6 +721,7 @@
         "text_RWtuAZ2umua9g0Vv": "<h3><strong>150.000+ people switched to Lio</strong></h3>",
         "text_iTkpDkfF4WIw3A3H": "<h3>Finally free from </h3><h3>your bad habits</h3>",
         "text_XVr9Pg1etHYScrop": "<h3>The nicotine-free diffuser that replaces your bad habit, naturally, immediately, for good.</h3>",
+        "url_9IKY8u921q8nU79g": "shopify://products/the-journey-pack-3",
         "text_YAefyfNN4pB1KJC4": "<p>Start with Lio</p>",
         "text_zql58IuvQesTCBfx": "<p>Shop Cores</p>",
         "text_rB2BZonQ4lfL0q7o": "<h3>\"I didn&apos;t think something this simple could break a </h3><h3>30-year habit. But it did. 8 months in, it&apos;s a lifesaver\"</h3>",
@@ -706,13 +729,16 @@
         "text_Ah1bTxKE4aX2MaXN": "<h3>\"I didn&apos;t think something this simple could break a 30-year habit. But it did. 8 months in, it&apos;s a lifesaver\"</h3>",
         "text_d6xthpumjHbtFuMZ": "<h3><strong>Peter (44), The Netherlands</strong></h3>",
         "text_RHcYdM8f0RHd33rt": "<h3>Freedom from smoke, nicotine and toxins</h3>",
+        "url_5wdDpXAwGhZJhgPj": "shopify://products/the-journey-pack-3",
         "text_MtBWEYqHaZ9MUcCt": "<h3>Start your </h3>",
         "text_ixAbBTcGCrTV9SYq": "<h3>good habit today</h3>",
         "text_H7j7nIXBv536IwVD": "<p>See your plan</p>",
         "text_ghV1PfMNsejKQ7uF": "<h3>Stock up </h3>",
         "text_73X58Oz4b5OcuknJ": "<h3>on flavor cores</h3>",
         "text_zjAwuY5FrIoXb3Pr": "<p>See how it works</p>",
+        "url_iplGBLtgSd2VL1ze": "shopify://products/lio-diffusers",
         "text_Fg5ATclI688QPPPK": "<h3><strong>Shop Lio Devices</strong></h3>",
+        "url_xextd7dFqlyIUtpH": "shopify://collections/accessories",
         "text_wWcc4CMBBR7TK3di": "<h3><strong>Shop accessories </strong></h3>",
         "text_g0m3lzeRsxaAofGh": "<h3><strong>Shop Cores</strong></h3>",
         "text_8f8KKFK9Xzu2NSTm": "<h3>The urge isn&apos;t in your head.</h3>",
