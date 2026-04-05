@@ -214,7 +214,7 @@
 }
 .ecom-hero__title {
   font-family: "Sofia Pro";
-  text-transform: uppercase;
+  text-transform: capitalize;
   text-align: center;
   font-size: 56px;
   font-style: normal;
@@ -302,7 +302,7 @@
   font-weight: 500;
   line-height: 125%;
   letter-spacing: -0.42px;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 .ecom-hero__cta-wrapper {
   display: flex;

@@ -27,7 +27,7 @@
   font-weight: 400;
   line-height: 90%;
   letter-spacing: -0.96px;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 @media (max-width: 999px) {
   .ecom-benefits__title {

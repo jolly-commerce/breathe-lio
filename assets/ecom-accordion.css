@@ -30,7 +30,7 @@
   font-weight: 400;
   line-height: 100%;
   letter-spacing: -0.32px;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 @media (min-width: 1000px) {
   .ecom-accordion__title {

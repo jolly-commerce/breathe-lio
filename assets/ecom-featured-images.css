@@ -83,7 +83,7 @@
   font-size: 30px;
   font-weight: 400;
   line-height: 100%;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 .ecom-featured-images__item--text p {
   color: rgba(248, 245, 232, 0.8);
@@ -93,7 +93,7 @@
   font-weight: 600;
   line-height: 140%;
   letter-spacing: -0.36px;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 @media (min-width: 1000px) {
   .ecom-featured-images__item--text h3 {

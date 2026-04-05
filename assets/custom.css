@@ -90,7 +90,7 @@ box-shadow:
   border-bottom: 1px solid #BEBBBB;
   border-radius: 0px;
   font-family: 'Sofia Pro';
-  text-transform: uppercase;
+  text-transform: capitalize;
   color : #BEBBBB;
   padding-inline-start : 0px;
 }
@@ -268,7 +268,7 @@ box-shadow:
   border-bottom: 1px solid #BEBBBB;
   border-radius: 0px;
   font-family: 'Sofia Pro';
-  text-transform: uppercase;
+  text-transform: capitalize;
   color : #BEBBBB;
   padding-inline-start : 0px;
 }
@@ -435,7 +435,7 @@ span.custom-badge {
  .ch-title{
    font-family: 'Sofia Pro';
   color : #302F2F;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-size : 18px;
 }
 .horizontal-product__cta {
@@ -656,7 +656,7 @@ font-weight : 500;
 }
 p.bold.footer-heading-t {
     font-family: 'Sofia Pro';
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin-bottom: 10px;
 }
 .footer-logo-text p {
@@ -666,7 +666,7 @@ p.bold.footer-heading-t {
     letter-spacing: -1px;
     margin-top: 20px;
     font-family: 'Sofia Pro';
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 .footer__block-list .faq-accordion-header .faq-acc-con {
     font-size: 17px;
@@ -803,7 +803,7 @@ p.menu-name{
 }
 .faq-accordion-header .faq-acc-con {
     font-size: 17px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     transition: all .5s ease;
     color: var( --lio-dark-green);
     font-family: var(--heading-font-family);
