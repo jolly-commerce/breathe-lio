@@ -22,7 +22,7 @@
     endif
   -%}
   {{ 'instant-YkBsLG4JZKoDRhk1.css' | asset_url | stylesheet_tag: preload: preload -}}
-  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower:wght@400&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower:wght@400&amp;family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@700&amp;display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'Sofia Pro';
@@ -106,10 +106,10 @@
               ><div data-instant-type="text" class="instant-rich-text iYAefyfNN4pB1KJC4"
                 ><div>{{ section.settings.text_YAefyfNN4pB1KJC4 }}</div></div
               ></a
-            ><a class="iO77rCPTZ42th8HuV" data-instant-type="container" href="{{ section.settings.url_O77rCPTZ42th8HuV | default: '' }}" rel="noopener noreferrer"
+            ><button class="iO77rCPTZ42th8HuV" data-instant-type="container" data-instant-action-type="open-overlay" data-instant-action-id="zDh548CWVkSreyQI"
               ><div data-instant-type="text" class="instant-rich-text izql58IuvQesTCBfx"
                 ><div>{{ section.settings.text_zql58IuvQesTCBfx }}</div></div
-              ></a
+              ></button
             ></div
           ><div class="iW2YyL0rxunxjkdSZ" data-instant-type="container"
             ><div data-instant-type="media" class="i14WOkMx8Ww7TOKpj">
@@ -319,6 +319,59 @@
           ></div
         ></div
       ></div
+    >
+    {%- liquid
+      assign loading = 'eager'
+      assign fetchpriority = 'auto'
+      if section.location == 'footer'
+        assign loading = 'lazy'
+      elsif section.location == 'header'
+        assign fetchpriority = 'high'
+      elsif section.location == 'template'
+        if section.index == 1
+          assign fetchpriority = 'high'
+        elsif section.index > 2
+          assign loading = 'lazy'
+        endif
+      endif
+    -%}
+    <div class="izDh548CWVkSreyQI" data-state="closed" data-instant-overlay-pointer-events="AUTO" data-instant-type="overlay" id="izDh548CWVkSreyQI"
+      ><div class="iiB7A0EQSeU33Mu8t instant-open-overlay instant-reveal--transform-fade" data-instant-type="container"
+        ><div class="if6IO9lBSie4MhMvP" data-instant-type="container"
+          ><div data-instant-type="text" class="instant-rich-text iAv4hy6TdhiuWolSz"
+            ><div>{{ section.settings.text_Av4hy6TdhiuWolSz }}</div></div
+          ></div
+        ><div class="ieosL6bZu5Ebpobvz" data-instant-type="container">
+          {%- liquid
+            assign url_ymH0bFJOE7COzyuG_handle = 'lio-pro-cores'
+            assign url_ymH0bFJOE7COzyuG = all_products[url_ymH0bFJOE7COzyuG_handle].url
+          -%}
+          <a data-instant-type="media" class="iymH0bFJOE7COzyuG" href="{{ section.settings.url_ymH0bFJOE7COzyuG | default: url_ymH0bFJOE7COzyuG }}" rel="noopener noreferrer">
+            {%- if section.settings.image_ymH0bFJOE7COzyuG and section.settings.image_ymH0bFJOE7COzyuG != blank -%}
+              {{ section.settings.image_ymH0bFJOE7COzyuG | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main', alt: section.settings.image_ymH0bFJOE7COzyuG.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+            {%- else -%}
+              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/z9it1uH8eHu1Ko2J/chatgpt-image-apr-4-2026-040434-pm-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/z9it1uH8eHu1Ko2J/chatgpt-image-apr-4-2026-040434-pm-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/z9it1uH8eHu1Ko2J/chatgpt-image-apr-4-2026-040434-pm-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/z9it1uH8eHu1Ko2J/chatgpt-image-apr-4-2026-040434-pm-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/z9it1uH8eHu1Ko2J/chatgpt-image-apr-4-2026-040434-pm-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/z9it1uH8eHu1Ko2J/chatgpt-image-apr-4-2026-040434-pm-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/z9it1uH8eHu1Ko2J/chatgpt-image-apr-4-2026-040434-pm-1.webp?width=1280" width="1254" height="1254" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main">
+            {%- endif -%}
+          </a>
+          {%- liquid
+            assign url_72N0zJUSnUKEsX3n_handle = 'lio-flavor-cores'
+            assign url_72N0zJUSnUKEsX3n = all_products[url_72N0zJUSnUKEsX3n_handle].url
+          -%}
+          <a data-instant-type="media" class="i72N0zJUSnUKEsX3n" href="{{ section.settings.url_72N0zJUSnUKEsX3n | default: url_72N0zJUSnUKEsX3n }}" rel="noopener noreferrer">
+            {%- if section.settings.image_72N0zJUSnUKEsX3n and section.settings.image_72N0zJUSnUKEsX3n != blank -%}
+              {{ section.settings.image_72N0zJUSnUKEsX3n | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main', alt: section.settings.image_72N0zJUSnUKEsX3n.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+            {%- else -%}
+              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N6fgCNqT503xh9BV/chatgpt-image-apr-4-2026-040434-pm-1-1.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N6fgCNqT503xh9BV/chatgpt-image-apr-4-2026-040434-pm-1-1.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N6fgCNqT503xh9BV/chatgpt-image-apr-4-2026-040434-pm-1-1.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N6fgCNqT503xh9BV/chatgpt-image-apr-4-2026-040434-pm-1-1.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N6fgCNqT503xh9BV/chatgpt-image-apr-4-2026-040434-pm-1-1.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N6fgCNqT503xh9BV/chatgpt-image-apr-4-2026-040434-pm-1-1.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/N6fgCNqT503xh9BV/chatgpt-image-apr-4-2026-040434-pm-1-1.webp?width=1280" width="1254" height="1254" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main">
+            {%- endif -%}</a></div
+        ><button class="iP5Pi1HOxHqP8zPH3" data-instant-type="container" data-instant-action-type="open-overlay"
+          ><div data-instant-type="icon" class="iLLcxfqMcYdp8TYg7">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
+              <title>x</title><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path>
+            </svg></div></button
+        ><div data-instant-type="text" class="instant-rich-text iSCI1efDaALuruJIu"
+          ><div>{{ section.settings.text_SCI1efDaALuruJIu }}</div></div
+        ></div
+      ></div
     ></div
   >
   <!-- prettier-ignore -->
@@ -372,11 +425,6 @@
       "id": "text_YAefyfNN4pB1KJC4",
       "label": "Text",
       "default": "<p>Start with Lio</p>"
-    },
-    {
-      "type": "url",
-      "id": "url_O77rCPTZ42th8HuV",
-      "label": "Button URL"
     },
     {
       "type": "richtext",
@@ -585,7 +633,39 @@
       "type": "richtext",
       "id": "text_hdjnb3P8nZ0qDwSY",
       "label": "Text",
-      "default": "<p>Get Started</p>"
+      "default": "<p>Start with Lio</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_Av4hy6TdhiuWolSz",
+      "label": "Text",
+      "default": "<p>What Cores </p><p>do you need?</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_ymH0bFJOE7COzyuG",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "url_ymH0bFJOE7COzyuG",
+      "label": "Container URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_72N0zJUSnUKEsX3n",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "url_72N0zJUSnUKEsX3n",
+      "label": "Container URL"
+    },
+    {
+      "type": "richtext",
+      "id": "text_SCI1efDaALuruJIu",
+      "label": "Text",
+      "default": "<p><strong>The new Lio Plus uses the original cores.</strong></p>"
     },
     {
       "type": "header",
@@ -638,7 +718,11 @@
         "text_8f8KKFK9Xzu2NSTm": "<h3>The urge isn&apos;t in your head.</h3>",
         "text_tFLTkF4ShRK1R7A7": "<h3>It&apos;s in your hands.</h3>",
         "text_kfNM3j1JaSkACGll": "<p>It&apos;s in your hands. Your mouth. The moment you step outside. That loop is behavioural, and that&apos;s exactly what Lio targets.</p>",
-        "text_hdjnb3P8nZ0qDwSY": "<p>Get Started</p>"
+        "text_hdjnb3P8nZ0qDwSY": "<p>Start with Lio</p>",
+        "text_Av4hy6TdhiuWolSz": "<p>What Cores </p><p>do you need?</p>",
+        "url_ymH0bFJOE7COzyuG": "shopify://products/lio-pro-cores",
+        "url_72N0zJUSnUKEsX3n": "shopify://products/lio-flavor-cores",
+        "text_SCI1efDaALuruJIu": "<p><strong>The new Lio Plus uses the original cores.</strong></p>"
       }
     }
   ]
