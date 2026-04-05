@@ -41,23 +41,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "section_store_block_sticky_atc_nDwVkj": {
-          "type": "shopify://apps/section-store/blocks/block-sticky-atc/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
-          "settings": {
-            "desktop_layout": "full-width",
-            "mobile_layout": "full-width-no-spacing",
-            "hide_image_mobile": true,
-            "stack_on_mobile": false,
-            "border": "none",
-            "border_thickness": 1,
-            "border_color": "#dcdcdc",
-            "radius": 8,
-            "background": "#ffffff",
-            "padding_vertical": 12,
-            "padding_horizontal": 16,
-            "change_text": "Change"
-          }
-        },
         "section_store_block_review_summary_VBGpdP": {
           "type": "shopify://apps/section-store/blocks/block-review-summary/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
@@ -238,7 +221,6 @@
         }
       },
       "block_order": [
-        "section_store_block_sticky_atc_nDwVkj",
         "section_store_block_review_summary_VBGpdP",
         "title",
         "price",
