@@ -48,7 +48,7 @@
 .ecom-pack-selector__title {
   color: #005128;
   text-align: center;
-  font-family: "Sigum";
+  font-family: "Sofia Pro";
   font-size: 48px;
   font-style: normal;
   font-weight: 400;
@@ -72,7 +72,7 @@
   background: #EDED5E;
   color: #005128;
   text-align: center;
-  font-family: "Sigum";
+  font-family: "Sofia Pro";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -115,7 +115,7 @@
 }
 .ecom-pack-selector__content-note h4 {
   color: #F8F5E8;
-  font-family: "Sigum";
+  font-family: "Sofia Pro";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -376,7 +376,7 @@
 }
 .ecom-pack-selector__lio-selector-title, .ecom-pack-selector__pack-selector-title {
   color: #005128;
-  font-family: "Sigum";
+  font-family: "Sofia Pro";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -658,7 +658,7 @@
 }
 .ecom-pack-selector__info-modal-content h4 {
   color: #005128;
-  font-family: "Sigum";
+  font-family: "Sofia Pro";
   font-size: 20px;
   font-style: normal;
   font-weight: 400;

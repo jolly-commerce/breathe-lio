@@ -89,7 +89,7 @@ box-shadow:
     border: none;
   border-bottom: 1px solid #BEBBBB;
   border-radius: 0px;
-  font-family: 'Sigum';
+  font-family: 'Sofia Pro';
   text-transform: uppercase;
   color : #BEBBBB;
   padding-inline-start : 0px;
@@ -267,7 +267,7 @@ box-shadow:
       border: none;
   border-bottom: 1px solid #BEBBBB;
   border-radius: 0px;
-  font-family: 'Sigum';
+  font-family: 'Sofia Pro';
   text-transform: uppercase;
   color : #BEBBBB;
   padding-inline-start : 0px;
@@ -433,7 +433,7 @@ span.custom-badge {
   font-size : 14px;
 }
  .ch-title{
-   font-family: 'Sigum';
+   font-family: 'Sofia Pro';
   color : #302F2F;
   text-transform: uppercase;
   font-size : 18px;
@@ -655,7 +655,7 @@ font-weight : 500;
   width : 120px;
 }
 p.bold.footer-heading-t {
-    font-family: 'Sigum';
+    font-family: 'Sofia Pro';
     text-transform: uppercase;
     margin-bottom: 10px;
 }
@@ -665,7 +665,7 @@ p.bold.footer-heading-t {
     max-width: 300px;
     letter-spacing: -1px;
     margin-top: 20px;
-    font-family: 'Sigum';
+    font-family: 'Sofia Pro';
     text-transform: uppercase;
 }
 .footer__block-list .faq-accordion-header .faq-acc-con {
