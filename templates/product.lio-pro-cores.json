@@ -9,24 +9,6 @@
  */
 {
   "sections": {
-    "ecom_highlight_info_jdheMn": {
-      "type": "ecom-highlight-info",
-      "disabled": true,
-      "name": "Ecom Highlight Info",
-      "settings": {
-        "show_check": false,
-        "reviews_text": "Join 100,000+ who quit the \"Bad Habit\"",
-        "title": "Quit in 30 Days. Or We Pay You. 🤝 \nThe world’s first diffuser that uses natural flavoured air to replace both the ritual and the sensation.",
-        "title_font_size_mobile": 18,
-        "title_font_size_tablet": 19,
-        "title_font_size_desktop": 20,
-        "title_font_size_large": 20,
-        "reviews_font_size_mobile": 15,
-        "reviews_font_size_tablet": 16,
-        "reviews_font_size_desktop": 17,
-        "reviews_font_size_large": 18
-      }
-    },
     "17642202553feb321c": {
       "type": "apps",
       "settings": {
@@ -821,141 +803,6 @@
         "text_color": ""
       }
     },
-    "instant_q_xz_qdr_ck_ki_cae_gkq_NdwzQz": {
-      "type": "instant-QXzQdrCKKiCAEGkq",
-      "disabled": true,
-      "name": "EXPLAINER VIDEO",
-      "settings": {
-        "text_lfwOTQxMTMRSG1QL": "<h3>Lio diffuser?</h3>",
-        "text_UFe3Olrd368XrYCk": "<h3>what is a</h3>",
-        "text_PfYZBLPuqMbjVPuy": "<p>Quitting bad habits isn’t easy, but Lio simplifies it by focusing on what truly works.</p><p></p><p>Unlike other solutions that rely on nicotine or chemicals, Lio helps you <strong>curb cravings naturally</strong> while preserving the familiar<strong> hand-to-mouth habit</strong>.</p><p></p><p>With Lio, you get a <strong>natural</strong>, <strong>stress-free way</strong> to break free, without side effects.</p><p></p>",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "ss_video_slider_fiKQ6C": {
-      "type": "ss-video-slider",
-      "blocks": {
-        "slide_jCCrqw": {
-          "type": "slide",
-          "settings": {
-            "video_url": "",
-            "title": "Title",
-            "stars_count": 5
-          }
-        },
-        "slide_w9gwdq": {
-          "type": "slide",
-          "settings": {
-            "video_url": "",
-            "title": "Title",
-            "stars_count": 5
-          }
-        },
-        "slide_43Yfep": {
-          "type": "slide",
-          "settings": {
-            "video_url": "",
-            "title": "Title",
-            "stars_count": 5
-          }
-        },
-        "slide_RPr8hV": {
-          "type": "slide",
-          "settings": {
-            "video_url": "",
-            "title": "Title",
-            "stars_count": 5
-          }
-        }
-      },
-      "block_order": [
-        "slide_jCCrqw",
-        "slide_w9gwdq",
-        "slide_43Yfep",
-        "slide_RPr8hV"
-      ],
-      "disabled": true,
-      "name": "SS - Video slider",
-      "settings": {
-        "slider_view": 6,
-        "slider_view_mobile": 2.2,
-        "slider_rotate": 0,
-        "slider_advanced": false,
-        "slider_gap": 10,
-        "slider_gap_mobile": 10,
-        "card_ratio": "portrait",
-        "card_ratio_mobile": "portrait",
-        "card_radius": 16,
-        "card_border_thickness": 0,
-        "card_overlay": 0.2,
-        "card_shadow": false,
-        "content_horizontal_position": "center",
-        "content_horizontal_position_mobile": "center",
-        "content_vertical_position": "end",
-        "content_vertical_position_mobile": "end",
-        "card_advanced": false,
-        "card_padding_vertical": 20,
-        "card_padding_vertical_mobile": 20,
-        "card_padding_horizontal": 20,
-        "card_padding_horizontal_mobile": 20,
-        "title_custom": false,
-        "title_font": "josefin_sans_n4",
-        "title_size": 16,
-        "title_size_mobile": 16,
-        "title_height": 100,
-        "hide_stars": false,
-        "stars_size": 16,
-        "stars_size_mobile": 16,
-        "stars_mt": 16,
-        "stars_mt_mobile": 16,
-        "use_action": true,
-        "use_sound": true,
-        "action_size": 40,
-        "action_size_mobile": 40,
-        "action_border_thickness": 0,
-        "arrow_show_desktop": true,
-        "arrow_show_mobile": false,
-        "arrow_size": 48,
-        "arrow_size_mobile": 48,
-        "arrow_icon_size": 8,
-        "arrow_icon_size_mobile": 8,
-        "arrow_radius": 100,
-        "arrow_border_thickness": 0,
-        "arrow_hover_effect": "color",
-        "title_color": "#ffffff",
-        "stars_color": "#ffffff",
-        "card_border_color": "#121212",
-        "card_shadow_color": "#121212",
-        "card_overlay_color": "#121212",
-        "action_color": "#ffffff",
-        "action_hover_color": "#ffffff",
-        "action_bg_color": "#ffffff",
-        "action_bg_hover_color": "#ffffff",
-        "action_border_color": "#ffffff",
-        "action_border_hover_color": "#ffffff",
-        "arrow_color": "#ffffff",
-        "arrow_hover_color": "#434343",
-        "arrow_bg_color": "#434343",
-        "arrow_bg_hover_color": "#ffffff",
-        "arrow_border_color": "#121212",
-        "arrow_border_hover_color": "#121212",
-        "background_style": "solid",
-        "background_color": "#f5fff7",
-        "background_gradient": "",
-        "border_color": "#121212",
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_horizontal": 0,
-        "padding_horizontal_mobile": 0,
-        "width": "page",
-        "content_width": 1200,
-        "border_thickness": 0,
-        "lazy": true
-      }
-    },
     "instant_u_an_vl_mfa9_e8_iu_pz_k_wR73XX": {
       "type": "instant-uAnVLMfa9E8IUPzK",
       "name": "HOW LIO WORKS ",
@@ -967,24 +814,6 @@
         "text_jmBe8RVHWUBx87sJ": "<p>4: Enjoy the relief</p>",
         "padding_top": 0,
         "padding_bottom": 0
-      }
-    },
-    "grid_review_qVbHK9": {
-      "type": "grid-review",
-      "disabled": true,
-      "name": "grid-review",
-      "settings": {
-        "heading": "Customer Reviews",
-        "stars-5": "382",
-        "stars-4": "287",
-        "stars-3": "12",
-        "stars-2": "3",
-        "stars-1": "8",
-        "percentage-5": "",
-        "percentage-4": "",
-        "percentage-3": "",
-        "percentage-2": "",
-        "percentage-1": ""
       }
     },
     "instant_6x_bs_x_ih_h_qkcqi9b5_RVUk6F": {
@@ -1095,35 +924,17 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
-    },
-    "instant_0e3w_y1p_wk0_et_dn_qf_bTUjRb": {
-      "type": "instant-0e3wY1pWK0EtDnQF",
-      "name": "Countdown 15 Min",
-      "settings": {
-        "text_wI8eaGmLKclbey25": "<p>WINTER SALE ⛄❄️</p>",
-        "text_96TuW9BpGk0JKjMn": "<p>Up to 43% off ends in</p>",
-        "text_2qnXET8gRApP8PNg": "<p>HRS</p>",
-        "text_QCWV2NSotHcFKfEE": "<p>Mins</p>",
-        "text_lS1nXJW9d5dq6gXH": "<p>Secs</p>",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
-    "ecom_highlight_info_jdheMn",
     "17642202553feb321c",
     "featured_product_MPedwN",
     "main",
     "icon_text_1_zi8YeK",
     "1764141112e003bb1d",
-    "instant_q_xz_qdr_ck_ki_cae_gkq_NdwzQz",
-    "ss_video_slider_fiKQ6C",
     "instant_u_an_vl_mfa9_e8_iu_pz_k_wR73XX",
-    "grid_review_qVbHK9",
     "instant_6x_bs_x_ih_h_qkcqi9b5_RVUk6F",
     "17641264294cf71736",
-    "instant_6_ta2_uu_zb_jng9_i_bn7_zG7qRF",
-    "instant_0e3w_y1p_wk0_et_dn_qf_bTUjRb"
+    "instant_6_ta2_uu_zb_jng9_i_bn7_zG7qRF"
   ]
 }
