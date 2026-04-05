@@ -131,6 +131,11 @@
                 </svg></div></button></div></div
         ><div class="iHB88HSxR3WjP3JOp" data-instant-type="container">
           {%- liquid
+            assign url_mveofkDL013HrQ2d-1_handle = 'journey-pack-3'
+            assign url_mveofkDL013HrQ2d-1 = all_products[url_mveofkDL013HrQ2d-1_handle].url
+          -%}
+          <!--  -->
+          {%- liquid
             assign product_mveofkDL013HrQ2d-1_handle = 'journey-pack-3'
             assign product_mveofkDL013HrQ2d-1 = section.settings['product_mveofkDL013HrQ2d-1'] | default: all_products[product_mveofkDL013HrQ2d-1_handle]
             assign product_mveofkDL013HrQ2d-1_variant = product_mveofkDL013HrQ2d-1.selected_or_first_available_variant
@@ -141,7 +146,7 @@
 
             assign product_mveofkDL013HrQ2d-1_image = product_mveofkDL013HrQ2d-1_variant.featured_image | default: product_mveofkDL013HrQ2d-1.featured_image
           -%}
-          <form class="imveofkDL013HrQ2d" data-instant-type="container" data-instant-form-product-url="{{ product_mveofkDL013HrQ2d-1.url }}" data-instant-form-variant-id="{{ product_mveofkDL013HrQ2d-1_variant.id }}" data-instant-form-product-id="{{ product_mveofkDL013HrQ2d-1.id }}" rel="noopener noreferrer" data-instant-href="{{ section.settings.url_mveofkDL013HrQ2d-1 | default: 'null' }}"
+          <form class="imveofkDL013HrQ2d" data-instant-type="container" data-instant-form-product-url="{{ product_mveofkDL013HrQ2d-1.url }}" data-instant-form-variant-id="{{ product_mveofkDL013HrQ2d-1_variant.id }}" data-instant-form-product-id="{{ product_mveofkDL013HrQ2d-1.id }}" rel="noopener noreferrer" data-instant-href="{{ section.settings.url_mveofkDL013HrQ2d-1 | default: url_mveofkDL013HrQ2d-1 }}"
             ><div data-instant-type="text" class="instant-rich-text iaodXE6G1hnSdpV7T"
               ><div>{{ section.settings['text_aodXE6G1hnSdpV7T-1'] }}</div></div
             ></form
@@ -2866,6 +2871,7 @@
         "text_sgaaKpla4xAhpkTN-1": "<p>Learn</p>",
         "text_KZ0RY8fKTEauNhf8-1": "<p>Contact</p>",
         "product_mveofkDL013HrQ2d-1": "journey-pack-3",
+        "url_mveofkDL013HrQ2d-1": "shopify://products/journey-pack-3",
         "text_aodXE6G1hnSdpV7T-1": "<p>Shop Now</p>",
         "product_xFDFZzgFQSWayGg3-1": "lio-flavor-cores",
         "text_aW4iUed0OxIVw1fB-1": "<p>Order cores</p>",
