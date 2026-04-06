@@ -1,0 +1,742 @@
+{% comment %}
+  ============================================================================
+  LIO® QUIZ FUNNEL — Shopify Liquid Page Template
+  ============================================================================
+  FILE:     templates/page.quiz-funnel.liquid
+  USAGE:    Create a page in Shopify admin, assign template "page.quiz-funnel"
+  NOTES:
+    - Self-contained: all CSS + JS inline (no external dependencies except Google Fonts)
+    - Product URLs use absolute paths — update handles if your product slugs differ
+    - Product images reference your Shopify CDN — update if filenames change
+    - Logo references your Instant.so CDN asset — swap for {{ 'logo.png' | asset_url }} if uploaded to theme
+    - Quiz logic runs 100% client-side (no page reloads)
+    - No email capture — goes straight from quiz → personalized result → PDP redirect
+  ============================================================================
+{% endcomment %}
+
+{% comment %} ── PRODUCT HANDLE MAP (update these if your slugs differ) ── {% endcomment %}
+{%- assign journey_pack_url = '/products/journey-pack-3' -%}
+{%- assign daily_reset_url  = '/products/lio-daily-reset' -%}
+{%- assign ritual_kit_url   = '/products/lio-ritual-kit' -%}
+{%- assign lio_plus_url     = '/products/lio-plus' -%}
+
+{%- assign logo_url = 'https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/7zOXcPATzCDnhtfL/lio-logo-zwart-ai-3.png?width=400' -%}
+
+{%- comment %} ── PRODUCT IMAGES (Shopify CDN) ── {% endcomment -%}
+{%- assign img_journey_classic = 'https://breathelio.com/cdn/shop/files/Gemini_Generated_Image_va8cswva8cswva8c_1_3.png?v=1774669148&width=800' -%}
+{%- assign img_journey_pro     = 'https://breathelio.com/cdn/shop/files/Gemini_Generated_Image_46iy1946iy1946iy_1_1.webp?v=1774669148&width=800' -%}
+{%- assign img_daily_reset     = 'https://breathelio.com/cdn/shop/files/Gemini_Generated_Image_2catla2catla2cat_2.webp?v=1774669148&width=800' -%}
+{%- assign img_ritual_kit      = 'https://breathelio.com/cdn/shop/files/Gemini_Generated_Image_2catla2catla2cat.webp?v=1774669148&width=800' -%}
+{%- assign img_lio_plus        = 'https://breathelio.com/cdn/shop/files/Gemini_Generated_Image_oqa83xoqa83xoqa8_2120e529-412c-40ba-8380-3a4801241f54.webp?v=1774669148&width=800' -%}
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+{% comment %} ══════════════════════════════════ CSS ══════════════════════════════════ {% endcomment %}
+<style>
+  /* ── Reset & Variables ── */
+  .lio-quiz *, .lio-quiz *::before, .lio-quiz *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .lio-quiz {
+    --green: #2d5a27;
+    --green-lt: #3a7432;
+    --green-pale: #e8f0e6;
+    --green-mist: #f2f7f1;
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --cream: #f5f1eb;
+    --sand: #e0d8cd;
+    --text: #1a1a1a;
+    --text-mid: #444444;
+    --text-lt: #6a6a6a;
+    --border: rgba(0,0,0,0.08);
+    --shadow: 0 2px 40px rgba(0,0,0,0.06);
+    --shadow-lg: 0 8px 60px rgba(0,0,0,0.1);
+    --radius: 16px;
+    --radius-sm: 10px;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    font-family: var(--font-body);
+    color: var(--text);
+    background: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Announcement Bar ── */
+  .lio-quiz__announce {
+    width: 100%;
+    padding: 9px 16px;
+    text-align: center;
+    font-size: 0.69rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--green);
+    font-weight: 500;
+  }
+
+  /* ── Header ── */
+  .lio-quiz__header {
+    width: 100%;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .lio-quiz__header img { height: 34px; width: auto; }
+
+  /* ── Progress Bar ── */
+  .lio-quiz__progress { width: 100%; max-width: 560px; padding: 0 24px; margin-top: 22px; }
+  .lio-quiz__progress-track { width: 100%; height: 3px; background: var(--green-pale); border-radius: 100px; overflow: hidden; }
+  .lio-quiz__progress-fill { height: 100%; background: var(--green); border-radius: 100px; transition: width 0.6s var(--ease); }
+  .lio-quiz__progress-label { text-align: center; font-size: 0.7rem; color: var(--text-lt); margin-top: 7px; letter-spacing: 0.07em; text-transform: uppercase; font-weight: 500; }
+
+  /* ── Content Container ── */
+  .lio-quiz__content { width: 100%; max-width: 640px; padding: 0 24px; flex: 1; display: flex; flex-direction: column; align-items: center; }
+
+  /* ── Screen States ── */
+  .lio-quiz__screen { width: 100%; opacity: 0; transform: translateY(14px); transition: opacity 0.45s ease, transform 0.45s ease; display: none; flex-direction: column; align-items: center; }
+  .lio-quiz__screen.is-active { display: flex; opacity: 1; transform: translateY(0); }
+  .lio-quiz__screen.is-exiting { opacity: 0; transform: translateY(-10px); }
+
+  /* ── Landing ── */
+  .lio-quiz__landing { text-align: center; padding-top: 44px; padding-bottom: 40px; }
+  .lio-quiz__badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; background: var(--green-pale); border-radius: 100px; font-size: 0.71rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--green); margin-bottom: 22px; }
+  .lio-quiz__landing h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 2.7rem); font-weight: 600; line-height: 1.15; color: var(--black); margin-bottom: 14px; }
+  .lio-quiz__landing h1 em { font-style: italic; color: var(--green); }
+  .lio-quiz__subtitle { font-size: 1.02rem; color: var(--text-lt); line-height: 1.6; max-width: 440px; margin: 0 auto 28px; }
+
+  /* ── Device Comparison Banner ── */
+  .lio-quiz__devices { width: 100%; max-width: 480px; margin: 0 auto 28px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); display: flex; border: 1px solid var(--border); }
+  .lio-quiz__device { flex: 1; padding: 20px 16px; text-align: center; }
+  .lio-quiz__device--classic { background: var(--green-mist); }
+  .lio-quiz__device--pro { background: var(--green); color: var(--white); }
+  .lio-quiz__device h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .lio-quiz__device-subtitle { font-size: 0.7rem; font-weight: 500; opacity: 0.75; margin-bottom: 14px; }
+  .lio-quiz__device-illust { height: 110px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+  .lio-quiz__device-features { font-size: 0.72rem; text-align: left; display: inline-flex; flex-direction: column; gap: 5px; }
+  .lio-quiz__device-features span { display: flex; align-items: center; gap: 5px; font-weight: 500; }
+  .lio-quiz__device-features span::before { content: '✓'; font-weight: 700; color: var(--green); font-size: 0.72rem; }
+  .lio-quiz__device--pro .lio-quiz__device-features span::before { color: #a5e6a5; }
+
+  /* ── Feature Pills ── */
+  .lio-quiz__features { display: flex; justify-content: center; gap: 28px; margin-bottom: 32px; flex-wrap: wrap; }
+  .lio-quiz__feature { display: flex; align-items: center; gap: 7px; font-size: 0.8rem; color: var(--text-lt); font-weight: 500; }
+  .lio-quiz__feature svg { width: 16px; height: 16px; color: var(--green); flex-shrink: 0; }
+
+  /* ── CTA Button ── */
+  .lio-quiz__cta {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 16px 48px; background: var(--green); color: var(--white); border: none;
+    border-radius: 100px; font-family: var(--font-body); font-size: 0.9rem;
+    font-weight: 600; letter-spacing: 0.04em; cursor: pointer;
+    transition: all 0.35s var(--ease); text-transform: uppercase;
+  }
+  .lio-quiz__cta:hover { background: var(--green-lt); transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+  .lio-quiz__cta svg { width: 16px; height: 16px; transition: transform 0.3s ease; }
+  .lio-quiz__cta:hover svg { transform: translateX(3px); }
+
+  /* ── Trust Line ── */
+  .lio-quiz__trust { margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 14px; font-size: 0.76rem; color: var(--text-lt); }
+  .lio-quiz__trust-stars { color: #e8a000; letter-spacing: 1px; }
+  .lio-quiz__trust-sep { width: 1px; height: 13px; background: var(--sand); }
+
+  /* ── Quote Block ── */
+  .lio-quiz__quote { margin-top: 32px; padding: 22px; background: var(--green-mist); border-radius: var(--radius-sm); max-width: 460px; margin-left: auto; margin-right: auto; border-left: 3px solid var(--green); }
+  .lio-quiz__quote-text { font-family: var(--font-display); font-style: italic; font-size: 0.95rem; line-height: 1.6; color: var(--text); margin-bottom: 10px; }
+  .lio-quiz__quote-author { font-size: 0.76rem; color: var(--text-lt); font-weight: 500; }
+
+  /* ── Question Screens ── */
+  .lio-quiz__question { padding-top: 36px; }
+  .lio-quiz__q-number { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); font-weight: 600; margin-bottom: 10px; text-align: center; }
+  .lio-quiz__q-text { font-family: var(--font-display); font-size: clamp(1.4rem, 4vw, 1.85rem); font-weight: 600; text-align: center; line-height: 1.3; color: var(--black); margin-bottom: 6px; }
+  .lio-quiz__q-help { text-align: center; font-size: 0.83rem; color: var(--text-lt); margin-bottom: 28px; }
+
+  /* ── Answer Options ── */
+  .lio-quiz__options { width: 100%; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+  .lio-quiz__option {
+    width: 100%; padding: 16px 18px; background: var(--white);
+    border: 1.5px solid #e2e2e2; border-radius: var(--radius-sm);
+    cursor: pointer; transition: all 0.35s var(--ease);
+    display: flex; align-items: center; gap: 14px; text-align: left;
+  }
+  .lio-quiz__option:hover { border-color: var(--green); background: var(--green-mist); transform: translateX(3px); }
+  .lio-quiz__option.is-selected { border-color: var(--green); background: var(--green-mist); box-shadow: 0 0 0 1px var(--green); }
+  .lio-quiz__option-icon { width: 40px; height: 40px; border-radius: 50%; background: var(--green-pale); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; transition: all 0.3s ease; }
+  .lio-quiz__option.is-selected .lio-quiz__option-icon { background: var(--green); }
+  .lio-quiz__option-body { flex: 1; }
+  .lio-quiz__option-label { font-weight: 600; font-size: 0.9rem; color: var(--text); margin-bottom: 1px; }
+  .lio-quiz__option-desc { font-size: 0.76rem; color: var(--text-lt); line-height: 1.4; }
+  .lio-quiz__option-check { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid #d0d0d0; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+  .lio-quiz__option.is-selected .lio-quiz__option-check { border-color: var(--green); background: var(--green); }
+  .lio-quiz__option.is-selected .lio-quiz__option-check::after { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--white); }
+
+  /* ── Affirmation ── */
+  .lio-quiz__affirm { text-align: center; font-size: 0.76rem; color: var(--green); font-weight: 500; margin-top: -12px; margin-bottom: 16px; opacity: 0; transform: translateY(4px); transition: all 0.4s ease; }
+  .lio-quiz__affirm.is-visible { opacity: 1; transform: translateY(0); }
+
+  /* ── Loading ── */
+  .lio-quiz__loading-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--black); margin-bottom: 6px; }
+  .lio-quiz__loading-sub { font-size: 0.83rem; color: var(--text-lt); margin-bottom: 28px; }
+  .lio-quiz__dots { display: flex; gap: 6px; justify-content: center; padding: 56px 0; }
+  .lio-quiz__dots span { width: 8px; height: 8px; border-radius: 50%; background: #d0d0d0; animation: lioQuizDotBounce 1.2s ease infinite; }
+  .lio-quiz__dots span:nth-child(2) { animation-delay: 0.15s; }
+  .lio-quiz__dots span:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes lioQuizDotBounce {
+    0%, 80%, 100% { transform: scale(0.6); background: #d0d0d0; }
+    40% { transform: scale(1); background: var(--green); }
+  }
+
+  /* ── Result Screen ── */
+  .lio-quiz__result { padding-top: 28px; text-align: center; padding-bottom: 56px; }
+  @keyframes lioQuizReveal {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .lio-quiz__reveal { animation: lioQuizReveal 0.65s ease both; }
+  .lio-quiz__result-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; background: var(--green); color: var(--white); border-radius: 100px; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 18px; }
+  .lio-quiz__result-title { font-family: var(--font-display); font-size: clamp(1.7rem, 5vw, 2.3rem); font-weight: 600; line-height: 1.2; color: var(--black); margin-bottom: 10px; }
+  .lio-quiz__result-sub { font-size: 0.95rem; color: var(--text-lt); line-height: 1.6; max-width: 460px; margin: 0 auto 24px; }
+
+  /* ── Product Card ── */
+  .lio-quiz__product { background: var(--white); border: 1.5px solid #e0e0e0; border-radius: var(--radius); overflow: hidden; max-width: 480px; margin: 0 auto 22px; text-align: left; box-shadow: var(--shadow); animation: lioQuizReveal 0.65s ease 0.2s both; }
+  .lio-quiz__product-image { width: 100%; height: 260px; background: var(--green-mist); overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center; }
+  .lio-quiz__product-image img { width: 100%; height: 100%; object-fit: cover; }
+  .lio-quiz__product-badge { position: absolute; top: 12px; left: 12px; background: var(--green); color: var(--white); padding: 4px 12px; border-radius: 100px; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .lio-quiz__product-body { padding: 22px; }
+  .lio-quiz__product-name { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--black); margin-bottom: 3px; }
+  .lio-quiz__product-price { font-size: 0.88rem; color: var(--text-lt); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .lio-quiz__product-price .sale { font-weight: 700; color: var(--green); }
+  .lio-quiz__product-price .orig { text-decoration: line-through; font-size: 0.8rem; }
+
+  /* ── Flavour Tags ── */
+  .lio-quiz__flavours { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+  .lio-quiz__flavour { padding: 3px 10px; border-radius: 100px; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; }
+  .lio-quiz__flavour--mint { background: #d4edda; color: #155724; }
+  .lio-quiz__flavour--cinnamon { background: #f5d6c0; color: #8b3a00; }
+  .lio-quiz__flavour--turkey { background: #d6e9f5; color: #0c4b7a; }
+  .lio-quiz__flavour--mango { background: #fff3cd; color: #856404; }
+  .lio-quiz__flavour--orange { background: #ffe4cc; color: #9a4600; }
+  .lio-quiz__flavour--berry { background: #e8d4f0; color: #5b2070; }
+
+  .lio-quiz__product-desc { font-size: 0.83rem; color: var(--text-lt); line-height: 1.6; margin-bottom: 16px; }
+  .lio-quiz__product-highlights { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+  .lio-quiz__product-highlights span { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; background: var(--green-pale); border-radius: 100px; font-size: 0.7rem; font-weight: 500; color: var(--green); }
+
+  .lio-quiz__product-cta {
+    width: 100%; padding: 15px; background: var(--green); color: var(--white); border: none;
+    border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 0.9rem;
+    font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer;
+    transition: all 0.35s var(--ease); display: flex; align-items: center; justify-content: center;
+    gap: 8px; text-decoration: none;
+  }
+  .lio-quiz__product-cta:hover { background: var(--green-lt); transform: translateY(-1px); }
+
+  /* ── Why Section ── */
+  .lio-quiz__why { max-width: 480px; margin: 0 auto 22px; text-align: left; animation: lioQuizReveal 0.65s ease 0.4s both; }
+  .lio-quiz__why h4 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; margin-bottom: 12px; color: var(--black); }
+  .lio-quiz__why ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .lio-quiz__why li { display: flex; align-items: flex-start; gap: 9px; font-size: 0.83rem; color: var(--text-mid); line-height: 1.5; }
+  .lio-quiz__why li svg { width: 16px; height: 16px; color: var(--green); flex-shrink: 0; margin-top: 2px; }
+
+  /* ── Trust Bar ── */
+  .lio-quiz__trust-bar { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 18px 0; animation: lioQuizReveal 0.65s ease 0.6s both; }
+  .lio-quiz__trust-item { display: flex; align-items: center; gap: 5px; font-size: 0.73rem; color: var(--text-lt); font-weight: 500; }
+  .lio-quiz__trust-item svg { width: 15px; height: 15px; color: var(--green); }
+
+  /* ── Review ── */
+  .lio-quiz__review { max-width: 480px; margin: 14px auto 0; padding: 18px; background: var(--green-mist); border-radius: var(--radius-sm); text-align: left; animation: lioQuizReveal 0.65s ease 0.8s both; border-left: 3px solid var(--green); }
+  .lio-quiz__review-stars { color: #e8a000; font-size: 0.82rem; margin-bottom: 6px; letter-spacing: 1px; }
+  .lio-quiz__review-text { font-size: 0.83rem; color: var(--text); line-height: 1.6; font-style: italic; margin-bottom: 6px; }
+  .lio-quiz__review-author { font-size: 0.73rem; color: var(--text-lt); font-weight: 600; }
+
+  /* ── Disclaimer ── */
+  .lio-quiz__disclaimer { max-width: 480px; margin: 22px auto 0; font-size: 0.66rem; color: #999; text-align: center; line-height: 1.5; animation: lioQuizReveal 0.65s ease 1s both; }
+
+  /* ── Option pulse animation ── */
+  @keyframes lioQuizPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.012); }
+    100% { transform: scale(1); }
+  }
+  .lio-quiz__option.is-pulsing { animation: lioQuizPulse 0.3s ease; }
+
+  /* ── Responsive ── */
+  @media (max-width: 520px) {
+    .lio-quiz__features { flex-direction: column; align-items: center; gap: 10px; }
+    .lio-quiz__trust-bar { flex-direction: column; align-items: center; gap: 10px; }
+    .lio-quiz__product-image { height: 200px; }
+    .lio-quiz__content { padding: 0 16px; }
+    .lio-quiz__devices { flex-direction: column; }
+  }
+</style>
+
+
+{% comment %} ══════════════════════════════════ HTML ══════════════════════════════════ {% endcomment %}
+<div class="lio-quiz" id="lioQuiz">
+
+  {%- comment %} ── Announcement Bar ── {% endcomment -%}
+  <div class="lio-quiz__announce">
+    Free Shipping from €20 &nbsp;·&nbsp; 30-Day Money-Back Guarantee &nbsp;·&nbsp; Produced in the Netherlands
+  </div>
+
+  {%- comment %} ── Header with Logo ── {% endcomment -%}
+  <header class="lio-quiz__header">
+    <a href="{{ routes.root_url }}">
+      <img src="{{ logo_url }}" alt="Lio®" loading="eager" />
+    </a>
+  </header>
+
+  {%- comment %} ── Progress Bar (hidden until quiz starts) ── {% endcomment -%}
+  <div class="lio-quiz__progress" id="lioProgress" style="display:none">
+    <div class="lio-quiz__progress-track">
+      <div class="lio-quiz__progress-fill" id="lioProgressFill" style="width:0%"></div>
+    </div>
+    <div class="lio-quiz__progress-label" id="lioProgressLabel">Question 1 of 4</div>
+  </div>
+
+  {%- comment %} ── Main Content Area ── {% endcomment -%}
+  <div class="lio-quiz__content">
+
+    {%- comment %} ═══════ LANDING SCREEN ═══════ {% endcomment -%}
+    <div class="lio-quiz__screen is-active" id="lioScreen-landing">
+      <div class="lio-quiz__landing">
+
+        <div class="lio-quiz__badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          100,000+ People Made the Switch
+        </div>
+
+        <h1>Which Lio® Is<br><em>Perfect for You?</em></h1>
+        <p class="lio-quiz__subtitle">Answer 4 quick questions and we'll match you with the exact Lio device &amp; flavour cores designed for your lifestyle.</p>
+
+        {%- comment %} ── Classic vs Pro Device Banner ── {% endcomment -%}
+        <div class="lio-quiz__devices">
+          <div class="lio-quiz__device lio-quiz__device--classic">
+            <h3>Classic</h3>
+            <div class="lio-quiz__device-subtitle">Best for first-time users</div>
+            <div class="lio-quiz__device-illust">
+              <svg width="36" height="110" viewBox="0 0 36 110">
+                <defs><linearGradient id="lioWood1" x1="0" y1="0" x2="1" y2=".6"><stop offset="0%" stop-color="#d4a04a"/><stop offset="35%" stop-color="#b07c32"/><stop offset="65%" stop-color="#c8913a"/><stop offset="100%" stop-color="#a67230"/></linearGradient></defs>
+                <rect x="5" y="6" width="26" height="98" rx="13" fill="url(#lioWood1)" stroke="#8b6520" stroke-width="1.2"/>
+                <path d="M10 14 Q18 10 26 14" fill="none" stroke="#8b6520" stroke-width=".6" opacity=".4"/>
+                <path d="M8 50 Q18 46 28 50" fill="none" stroke="#d4a04a" stroke-width=".5" opacity=".3"/>
+                <path d="M9 70 Q18 66 27 70" fill="none" stroke="#d4a04a" stroke-width=".5" opacity=".3"/>
+                <text x="18" y="58" text-anchor="middle" font-size="8" fill="#fff" font-family="serif" font-style="italic" opacity=".65">lio</text>
+              </svg>
+            </div>
+            <div class="lio-quiz__device-features">
+              <span>Fixed Airflow</span>
+              <span>Simple Design</span>
+              <span>No Nicotine</span>
+            </div>
+          </div>
+          <div class="lio-quiz__device lio-quiz__device--pro">
+            <h3>Pro</h3>
+            <div class="lio-quiz__device-subtitle">Best for cravings &amp; fidgeting</div>
+            <div class="lio-quiz__device-illust">
+              <svg width="36" height="110" viewBox="0 0 36 110">
+                <defs><linearGradient id="lioWood2" x1="0" y1="0" x2="1" y2=".6"><stop offset="0%" stop-color="#d4a04a"/><stop offset="35%" stop-color="#b07c32"/><stop offset="65%" stop-color="#c8913a"/><stop offset="100%" stop-color="#a67230"/></linearGradient></defs>
+                <rect x="5" y="48" width="26" height="56" rx="13" fill="url(#lioWood2)" stroke="#8b6520" stroke-width="1.2"/>
+                <rect x="10" y="10" width="16" height="46" rx="4" fill="#707580" stroke="#5a5e66" stroke-width="1"/>
+                <rect x="13" y="3" width="10" height="14" rx="3" fill="#8a8e96" stroke="#5a5e66" stroke-width=".5"/>
+                <line x1="10" y1="34" x2="26" y2="34" stroke="#5a5e66" stroke-width=".8" opacity=".4"/>
+                <circle cx="18" cy="28" r="2" fill="none" stroke="#5a5e66" stroke-width=".5" opacity=".5"/>
+                <text x="18" y="78" text-anchor="middle" font-size="8" fill="#fff" font-family="serif" font-style="italic" opacity=".65">lio</text>
+              </svg>
+            </div>
+            <div class="lio-quiz__device-features">
+              <span>Adjustable Airflow</span>
+              <span>Magnetic Fidget</span>
+              <span>No Nicotine</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lio-quiz__features">
+          <div class="lio-quiz__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Takes 30 seconds</div>
+          <div class="lio-quiz__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>Personalized result</div>
+          <div class="lio-quiz__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>0% nicotine</div>
+        </div>
+
+        <button class="lio-quiz__cta" onclick="lioQuiz.start()">
+          Find My Perfect Lio
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+
+        <div class="lio-quiz__trust">
+          <span class="lio-quiz__trust-stars">★★★★★</span>
+          <span class="lio-quiz__trust-sep"></span>
+          <span>Rated 4.8/5 · 1,230+ reviews</span>
+        </div>
+
+        <div class="lio-quiz__quote">
+          <div class="lio-quiz__quote-text">"I was skeptical, until I tried it. It blows my mind how something this simple hasn't existed since forever."</div>
+          <div class="lio-quiz__quote-author">— Achmed, 43 · Verified Buyer</div>
+        </div>
+      </div>
+    </div>
+
+    {%- comment %} ═══════ QUESTION 1 ═══════ {% endcomment -%}
+    <div class="lio-quiz__screen lio-quiz__question" id="lioScreen-q1">
+      <div class="lio-quiz__q-number">Question 1 of 4</div>
+      <div class="lio-quiz__q-text">What are you looking to change?</div>
+      <div class="lio-quiz__q-help">Select the option that best describes your situation</div>
+      <div class="lio-quiz__options">
+        <div class="lio-quiz__option" data-q="1" data-v="smoking"><div class="lio-quiz__option-icon">🚬</div><div class="lio-quiz__option-body"><div class="lio-quiz__option-label">I want to stop smoking</div><div class="lio-quiz__option-desc">Cigarettes, rolling tobacco, or similar</div></div><div class="lio-quiz__option-check"></div></div>
+        <div class="lio-quiz__option" data-q="1" data-v="vaping"><div class="lio-quiz__option-icon">💨</div><div class="lio-quiz__option-body"><div class="lio-quiz__option-label">I want to quit vaping</div><div class="lio-quiz__option-desc">E-cigarettes, disposable vapes, IQOS</div></div><div class="lio-quiz__option-check"></div></div>
+        <div class="lio-quiz__option" data-q="1" data-v="stress"><div class="lio-quiz__option-icon">😤</div><div class="lio-quiz__option-body"><div class="lio-quiz__option-label">Manage stress or oral fixation</div><div class="lio-quiz__option-desc">Nail biting, stress eating, anxious habits</div></div><div class="lio-quiz__option-check"></div></div>
+        <div class="lio-quiz__option" data-q="1" data-v="curious"><div class="lio-quiz__option-icon">✨</div><div class="lio-quiz__option-body"><div class="lio-quiz__option-label">Curious about aromatherapy wellness</div><div class="lio-quiz__option-desc">Natural scent-based relaxation</div></div><div class="lio-quiz__option-check"></div></div>
+      </div>
+      <div class="lio-quiz__affirm" id="lioAffirm1">You're not alone — this is the #1 reason people try Lio.</div>
+    </div>
+
+    {%- comment %} ═══════ QUESTION 2 ═══════ {% endcomment -%}
+    <div class="lio-quiz__screen lio-quiz__question" id="lioScreen-q2">
+      <div class="lio-quiz__q-number">Question 2 of 4</div>
+      <div class="lio-quiz__q-text">How long have you had this habit?</div>
+      <div class="lio-quiz__q-help">No wrong answer — this helps personalize your result</div>
+      <div class="lio-quiz__options">
+        <div class="lio-quiz__option" data-q="2" data-v="new"><div class="lio-quiz__option-icon">🌱</div><div class="lio-quiz__option-body"><div class="lio-quiz__option-label">Less than a year</div><div class="lio-quiz__option-desc">Relatively new to this pattern</div></div><div class="lio-quiz__option-check"></div></div>
+        <div class="lio-quiz__option" data-q="2" data-v="moderate"><div class="lio-quiz__option-icon">📅</div><div class="lio-quiz__option-body"><div class="lio-quiz__option-label">1–5 years</div><div class="lio-quiz__option-desc">Steady part of my routine</div></div><div class="lio-quiz__option-check"></div></div>
+        <div class="lio-quiz__option" data-q="2" data-v="long"><div class="lio-quiz__option-icon">⏳</div><div class="lio-quiz__option-body"><div class="lio-quiz__option-label">5–15 years</div><div class="lio-quiz__option-desc">Deeply ingrained at this point</div></div><div class="lio-quiz__option-check"></div></div>
+        <div class="lio-quiz__option" data-q="2" data-v="veteran"><div class="lio-quiz__option-icon">🏔️</div><div class="lio-quiz__option-body"><div class="lio-quiz__option-label">15+ years</div><div class="lio-quiz__option-desc">Part of my life for a long time</div></div><div class="lio-quiz__option-check"></div></div>
+      </div>
+      <div class="lio-quiz__affirm" id="lioAffirm2">Good to know — Lio has helped people at every stage.</div>
+    </div>
+
+    {%- comment %} ═══════ QUESTION 3 ═══════ {% endcomment -%}
+    <div class="lio-quiz__screen lio-quiz__question" id="lioScreen-q3">
+      <div class="lio-quiz__q-number">Question 3 of 4</div>
+      <div class="lio-quiz__q-text">What flavour experience appeals to you?</div>
+      <div class="lio-quiz__q-help">This determines your ideal flavour core combination</div>
+      <div class="lio-quiz__options">
+        <div class="lio-quiz__option" data-q="3" data-v="cool"><div class="lio-quiz__option-icon">❄️</div><div class="lio-quiz__option-body"><div class="lio-quiz__option-label">Cool &amp; Refreshing</div><div class="lio-quiz__option-desc">Mint, menthol — crisp throat sensation</div></div><div class="lio-quiz__option-check"></div></div>
+        <div class="lio-quiz__option" data-q="3" data-v="warm"><div class="lio-quiz__option-icon">🔥</div><div class="lio-quiz__option-body"><div class="lio-quiz__option-label">Warm &amp; Spicy</div><div class="lio-quiz__option-desc">Cinnamon, black pepper — bold and grounding</div></div><div class="lio-quiz__option-check"></div></div>
+        <div class="lio-quiz__option" data-q="3" data-v="fruity"><div class="lio-quiz__option-icon">🍊</div><div class="lio-quiz__option-body"><div class="lio-quiz__option-label">Fruity &amp; Sweet</div><div class="lio-quiz__option-desc">Mango, orange, berry — naturally uplifting</div></div><div class="lio-quiz__option-check"></div></div>
+        <div class="lio-quiz__option" data-q="3" data-v="variety"><div class="lio-quiz__option-icon">🎨</div><div class="lio-quiz__option-body"><div class="lio-quiz__option-label">I want to try them all</div><div class="lio-quiz__option-desc">Variety is key — explore every flavour</div></div><div class="lio-quiz__option-check"></div></div>
+      </div>
+      <div class="lio-quiz__affirm" id="lioAffirm3">Great taste — you'll love how natural these aromatics feel.</div>
+    </div>
+
+    {%- comment %} ═══════ QUESTION 4 ═══════ {% endcomment -%}
+    <div class="lio-quiz__screen lio-quiz__question" id="lioScreen-q4">
+      <div class="lio-quiz__q-number">Question 4 of 4</div>
+      <div class="lio-quiz__q-text">How ready are you to make the switch?</div>
+      <div class="lio-quiz__q-help">Be honest — it helps us recommend the right starting point</div>
+      <div class="lio-quiz__options">
+        <div class="lio-quiz__option" data-q="4" data-v="today"><div class="lio-quiz__option-icon">⚡</div><div class="lio-quiz__option-body"><div class="lio-quiz__option-label">Ready to start today</div><div class="lio-quiz__option-desc">I've made up my mind — let's go</div></div><div class="lio-quiz__option-check"></div></div>
+        <div class="lio-quiz__option" data-q="4" data-v="soon"><div class="lio-quiz__option-icon">🎯</div><div class="lio-quiz__option-body"><div class="lio-quiz__option-label">Serious — within the next week</div><div class="lio-quiz__option-desc">I just need the right nudge</div></div><div class="lio-quiz__option-check"></div></div>
+        <div class="lio-quiz__option" data-q="4" data-v="exploring"><div class="lio-quiz__option-icon">🔍</div><div class="lio-quiz__option-body"><div class="lio-quiz__option-label">Still exploring options</div><div class="lio-quiz__option-desc">Researching before I commit</div></div><div class="lio-quiz__option-check"></div></div>
+        <div class="lio-quiz__option" data-q="4" data-v="gift"><div class="lio-quiz__option-icon">🎁</div><div class="lio-quiz__option-body"><div class="lio-quiz__option-label">It's a gift for someone</div><div class="lio-quiz__option-desc">Helping someone I care about</div></div><div class="lio-quiz__option-check"></div></div>
+      </div>
+      <div class="lio-quiz__affirm" id="lioAffirm4">That's the right mindset — you're closer than you think.</div>
+    </div>
+
+    {%- comment %} ═══════ LOADING SCREEN ═══════ {% endcomment -%}
+    <div class="lio-quiz__screen" id="lioScreen-loading">
+      <div style="padding-top:72px;text-align:center">
+        <div class="lio-quiz__loading-title">Analyzing your answers...</div>
+        <div class="lio-quiz__loading-sub">Finding your perfect Lio match</div>
+        <div class="lio-quiz__dots"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+
+    {%- comment %} ═══════ RESULT SCREEN (populated by JS) ═══════ {% endcomment -%}
+    <div class="lio-quiz__screen lio-quiz__result" id="lioScreen-result"></div>
+
+  </div>
+</div>
+
+
+{% comment %} ══════════════════════════════════ JAVASCRIPT ══════════════════════════════════ {% endcomment %}
+<script>
+(function() {
+  'use strict';
+
+  /* ── Answers storage ── */
+  var answers = {};
+
+  /* ── Product database ── */
+  /* NOTE: Update URLs below if your Shopify product handles change */
+  var products = {
+    journeyClassic: {
+      name: 'Lio\u00ae Journey Pack \u2014 Classic',
+      device: 'Classic',
+      price: '\u20ac49',
+      originalPrice: '\u20ac69',
+      badge: 'BEST SELLER',
+      url: '{{ journey_pack_url }}',
+      image: '{{ img_journey_classic }}',
+      description: 'The complete starter kit with the Classic olive wood diffuser (fixed airflow, simple design), carry case, and 3 flavour cores: Minty Magic, Cinnamon Spice, and Cold Turkey.',
+      highlights: ['Classic Diffuser', 'Carry Case', '3 Flavour Cores', '30-Day Supply'],
+      flavours: ['mint', 'cinnamon', 'turkey'],
+      review: { text: "I\u2019ve had the habit for 30 years. I\u2019ve been on this now for a week, loving it. No chemicals, it\u2019s all just flavored air.", author: 'Anna, 60' },
+      reasons: [
+        'The Classic diffuser is ideal for first-time users \u2014 simple, intuitive design',
+        'Includes 3 flavour cores so you can discover which satisfies your cravings best',
+        'Most popular choice for people making the switch \u2014 over 100,000 sold',
+        '30-day money-back guarantee means zero risk to try'
+      ]
+    },
+    journeyPro: {
+      name: 'Lio\u00ae Journey Pack \u2014 Pro',
+      device: 'Pro',
+      price: '\u20ac49',
+      originalPrice: '\u20ac69',
+      badge: 'ADVANCED PICK',
+      url: '{{ journey_pack_url }}',
+      image: '{{ img_journey_pro }}',
+      description: 'The premium kit with the Pro diffuser \u2014 adjustable airflow and magnetic fidget mechanism designed for heavy cravings. Includes carry case and 3 flavour cores.',
+      highlights: ['Pro Diffuser', 'Adjustable Airflow', 'Magnetic Fidget', '3 Cores + Case'],
+      flavours: ['mint', 'cinnamon', 'turkey'],
+      review: { text: "The toughest part is the movement. This little gadget has saved me for the last 20 days. I just need my little Lio.", author: 'Antonio, 62' },
+      reasons: [
+        "Pro\u2019s adjustable airflow lets you dial in the exact draw resistance you need",
+        'Magnetic fidget keeps your hands busy \u2014 critical for deeply ingrained habits',
+        'Built for heavy smokers/vapers who need more than just flavour',
+        "Same 30-day money-back guarantee \u2014 full refund if it doesn\u2019t work"
+      ]
+    },
+    dailyReset: {
+      name: 'Lio\u00ae Daily Reset Plan',
+      device: 'Classic',
+      price: '\u20ac39',
+      originalPrice: '\u20ac69',
+      badge: 'GUIDED PLAN',
+      url: '{{ daily_reset_url }}',
+      image: '{{ img_daily_reset }}',
+      description: 'A structured 30-day programme with the Classic diffuser and curated core selection. Step-by-step guidance for those who want an intentional, guided approach.',
+      highlights: ['30-Day Plan', 'Classic Diffuser', 'Curated Cores', 'Step-by-Step'],
+      flavours: ['mint', 'cinnamon', 'turkey'],
+      review: { text: "I\u2019m on day 14 now and honestly it\u2019s been helping me. Give this a shot, it\u2019s the only thing that\u2019s ever helped me.", author: 'Michael, 22' },
+      reasons: [
+        'Structured daily plan keeps you accountable through the critical first weeks',
+        'Curated core selection targets maximum craving relief',
+        "Ideal if you\u2019ve tried and failed before \u2014 this time it\u2019s guided",
+        'Builds the new habit loop your brain needs to replace the old one'
+      ]
+    },
+    ritualKit: {
+      name: 'Lio\u00ae Ritual Kit',
+      device: 'Classic',
+      price: '\u20ac39',
+      originalPrice: '\u20ac65',
+      badge: 'RITUAL FOCUSED',
+      url: '{{ ritual_kit_url }}',
+      image: '{{ img_ritual_kit }}',
+      description: 'Designed for those who crave the ritual more than the substance. Premium aromatherapy cores for stress relief, mindful breathing, and hand-to-mouth satisfaction.',
+      highlights: ['Ritual-Focused', 'Classic Diffuser', 'Premium Cores', 'Aromatherapy'],
+      flavours: ['mint', 'cinnamon'],
+      review: { text: "It blows my mind how a product like this in its simplicity hasn\u2019t existed since forever.", author: 'Achmed, 43' },
+      reasons: [
+        'Specifically designed around the hand-to-mouth ritual and sensory satisfaction',
+        'Premium aromatherapy cores provide instant calming relief',
+        'Perfect for stress management, oral fixation, and mindful breathing',
+        'Use it anywhere \u2014 no vapor, no smoke, no batteries'
+      ]
+    },
+    lioPlus: {
+      name: 'Lio\u00ae Plus',
+      device: 'Plus',
+      price: 'From \u20ac29',
+      originalPrice: '\u20ac49',
+      badge: 'EASY START',
+      url: '{{ lio_plus_url }}',
+      image: '{{ img_lio_plus }}',
+      description: 'Streamlined entry point with the upgraded Plus diffuser \u2014 cores click in securely (no fraying needed). Choose your flavour cores. Perfect for trying Lio or gifting.',
+      highlights: ['Plus Diffuser', 'Secure Core Fit', 'Choose Your Cores', 'Low Entry Point'],
+      flavours: ['mint'],
+      review: { text: "I love this item. The new one has made Lio the best product in the market hands down.", author: 'Verified Buyer' },
+      reasons: [
+        'Low-commitment way to experience Lio and see if it works for you',
+        'Upgraded design \u2014 cores click in securely, no fraying required',
+        'Great for gifting \u2014 let them discover their favourites',
+        'Full 30-day money-back guarantee included'
+      ]
+    }
+  };
+
+  /* ── Flavour display map ── */
+  var flavourMap = {
+    mint:     { label: 'Minty Magic',    css: 'lio-quiz__flavour--mint' },
+    cinnamon: { label: 'Cinnamon Spice', css: 'lio-quiz__flavour--cinnamon' },
+    turkey:   { label: 'Cold Turkey',    css: 'lio-quiz__flavour--turkey' },
+    mango:    { label: 'Mango Passion',  css: 'lio-quiz__flavour--mango' },
+    orange:   { label: 'Ohh My Orange',  css: 'lio-quiz__flavour--orange' },
+    berry:    { label: 'Razzy Berry',    css: 'lio-quiz__flavour--berry' }
+  };
+
+  /* ── Recommendation engine ── */
+  function getRecommendation() {
+    var q1 = answers.q1, q2 = answers.q2, q3 = answers.q3, q4 = answers.q4;
+    if (q4 === 'gift') return products.lioPlus;
+    if (q4 === 'exploring' && q1 === 'curious') return products.lioPlus;
+    if (q1 === 'stress') return products.ritualKit;
+    if (q1 === 'curious') return products.ritualKit;
+    if (q1 === 'smoking' && (q2 === 'long' || q2 === 'veteran') && (q4 === 'today' || q4 === 'soon')) return products.journeyPro;
+    if (q1 === 'vaping' && (q2 === 'long' || q2 === 'veteran') && (q4 === 'today' || q4 === 'soon')) return products.journeyPro;
+    if (q1 === 'smoking' && q2 === 'moderate' && q4 === 'today') return products.dailyReset;
+    if (q1 === 'vaping' && (q4 === 'today' || q4 === 'soon')) return products.journeyClassic;
+    if (q1 === 'smoking' && (q4 === 'today' || q4 === 'soon')) return products.journeyClassic;
+    if (q2 === 'new' && q4 === 'exploring') return products.lioPlus;
+    return products.journeyClassic;
+  }
+
+  /* ── Screen transitions ── */
+  function showScreen(id) {
+    var current = document.querySelector('.lio-quiz__screen.is-active');
+    if (current) {
+      current.classList.add('is-exiting');
+      setTimeout(function() {
+        current.classList.remove('is-active', 'is-exiting');
+        var next = document.getElementById('lioScreen-' + id);
+        next.classList.add('is-active');
+      }, 280);
+    }
+  }
+
+  function updateProgress(n) {
+    document.getElementById('lioProgressFill').style.width = (n / 4 * 100) + '%';
+    document.getElementById('lioProgressLabel').textContent = 'Question ' + n + ' of 4';
+  }
+
+  /* ── Option selection handler ── */
+  function handleOptionClick(el) {
+    var q = parseInt(el.getAttribute('data-q'));
+    var v = el.getAttribute('data-v');
+    answers['q' + q] = v;
+
+    /* Visual selection */
+    var siblings = el.parentElement.querySelectorAll('.lio-quiz__option');
+    for (var i = 0; i < siblings.length; i++) {
+      siblings[i].classList.remove('is-selected', 'is-pulsing');
+    }
+    el.classList.add('is-selected', 'is-pulsing');
+
+    /* Show affirmation */
+    var affirm = document.getElementById('lioAffirm' + q);
+    if (affirm) setTimeout(function() { affirm.classList.add('is-visible'); }, 180);
+
+    /* Auto-advance */
+    setTimeout(function() {
+      if (q < 4) {
+        updateProgress(q + 1);
+        showScreen('q' + (q + 1));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        document.getElementById('lioProgress').style.display = 'none';
+        showScreen('loading');
+        setTimeout(function() {
+          renderResult();
+          showScreen('result');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 1800);
+      }
+    }, 750);
+  }
+
+  /* ── Render result page ── */
+  function renderResult() {
+    var p = getRecommendation();
+
+    var habitLabels = { smoking: 'a smoker ready to quit', vaping: 'looking to ditch the vape', stress: 'managing stress and oral fixation', curious: 'exploring natural wellness' };
+    var durationLabels = { 'new': 'early in your journey', moderate: 'with a few years of this habit', 'long': 'with a deeply ingrained routine', veteran: 'with a lifetime of this pattern' };
+
+    var deviceDesc = p.device === 'Pro' ? 'Pro (adjustable airflow + magnetic fidget)' : p.device === 'Plus' ? 'Plus (secure click-in cores)' : 'Classic (simple, fixed airflow)';
+
+    var checkSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>';
+    var arrowSvg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+
+    /* Build flavour tags */
+    var flavourHtml = '';
+    for (var i = 0; i < p.flavours.length; i++) {
+      var f = flavourMap[p.flavours[i]];
+      flavourHtml += '<span class="lio-quiz__flavour ' + f.css + '">' + f.label + '</span>';
+    }
+
+    /* Build highlights */
+    var hlHtml = '';
+    for (var i = 0; i < p.highlights.length; i++) {
+      hlHtml += '<span>\u2713 ' + p.highlights[i] + '</span>';
+    }
+
+    /* Build reasons */
+    var reasonsHtml = '';
+    for (var i = 0; i < p.reasons.length; i++) {
+      reasonsHtml += '<li>' + checkSvg + '<span>' + p.reasons[i] + '</span></li>';
+    }
+
+    var shortName = p.name.replace('Lio\u00ae ', '');
+    var habitText = habitLabels[answers.q1] || 'someone exploring change';
+    var durText = durationLabels[answers.q2] ? ' \u2014 ' + durationLabels[answers.q2] : '';
+
+    document.getElementById('lioScreen-result').innerHTML =
+      '<div class="lio-quiz__reveal">' +
+        '<div class="lio-quiz__result-badge">' + checkSvg + ' YOUR PERFECT MATCH</div>' +
+        '<div class="lio-quiz__result-title">Your Lio\u00ae Match:<br>' + shortName + '</div>' +
+        '<div class="lio-quiz__result-sub">As ' + habitText + durText + ', we recommend the <strong>' + deviceDesc + '</strong> device with flavour cores tailored to you.</div>' +
+      '</div>' +
+      '<div class="lio-quiz__product">' +
+        '<div class="lio-quiz__product-image">' +
+          '<img src="' + p.image + '" alt="' + p.name + '" onerror="this.style.display=\'none\'" />' +
+          '<div class="lio-quiz__product-badge">' + p.badge + '</div>' +
+        '</div>' +
+        '<div class="lio-quiz__product-body">' +
+          '<div class="lio-quiz__product-name">' + p.name + '</div>' +
+          '<div class="lio-quiz__product-price"><span class="sale">' + p.price + '</span><span class="orig">' + p.originalPrice + '</span></div>' +
+          '<div class="lio-quiz__flavours">' + flavourHtml + '</div>' +
+          '<div class="lio-quiz__product-desc">' + p.description + '</div>' +
+          '<div class="lio-quiz__product-highlights">' + hlHtml + '</div>' +
+          '<a href="' + p.url + '" class="lio-quiz__product-cta">Get My ' + shortName + ' ' + arrowSvg + '</a>' +
+        '</div>' +
+      '</div>' +
+      '<div class="lio-quiz__why">' +
+        '<h4>Why this is your perfect match:</h4>' +
+        '<ul>' + reasonsHtml + '</ul>' +
+      '</div>' +
+      '<div class="lio-quiz__trust-bar">' +
+        '<div class="lio-quiz__trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>30-Day Money Back</div>' +
+        '<div class="lio-quiz__trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Free Shipping</div>' +
+        '<div class="lio-quiz__trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>100% Natural</div>' +
+      '</div>' +
+      '<div class="lio-quiz__review">' +
+        '<div class="lio-quiz__review-stars">\u2605\u2605\u2605\u2605\u2605</div>' +
+        '<div class="lio-quiz__review-text">\u201c' + p.review.text + '\u201d</div>' +
+        '<div class="lio-quiz__review-author">\u2014 ' + p.review.author + ' \u00b7 Verified Buyer</div>' +
+      '</div>' +
+      '<div class="lio-quiz__disclaimer">Lio is a wellness and aromatherapy device designed to provide sensory satisfaction through natural ritual replacement. It is not a medical device, smoking cessation aid, or therapeutic treatment. Individual experiences may vary.</div>';
+  }
+
+  /* ── Bind click events via delegation ── */
+  document.getElementById('lioQuiz').addEventListener('click', function(e) {
+    var option = e.target.closest('.lio-quiz__option');
+    if (option) handleOptionClick(option);
+  });
+
+  /* ── Public API ── */
+  window.lioQuiz = {
+    start: function() {
+      document.getElementById('lioProgress').style.display = 'block';
+      updateProgress(1);
+      showScreen('q1');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+})();
+</script>
