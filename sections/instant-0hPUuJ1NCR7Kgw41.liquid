@@ -931,12 +931,8 @@
                     </svg></div></button
                 ><div class="iEkxMkj1KXM6se7HN" data-instant-type="accordion-content" style="--instant-accordion-content-height:auto;--instant-accordion-content-width:auto"
                   ><div class="ivY7ex2zgVgcL1tyr" data-instant-type="container"
-                    ><div class="ihV28l5ugoDICp8QK" data-instant-type="container">
-                      {%- liquid
-                        assign url_R4bQhgylz4Q92Gml-1_handle = 'lio-walnut'
-                        assign url_R4bQhgylz4Q92Gml-1 = all_products[url_R4bQhgylz4Q92Gml-1_handle].url
-                      -%}
-                      <a class="iR4bQhgylz4Q92Gml" data-instant-type="container" href="{{ section.settings.url_R4bQhgylz4Q92Gml-1 | default: url_R4bQhgylz4Q92Gml-1 }}" rel="noopener noreferrer">
+                    ><div class="ihV28l5ugoDICp8QK" data-instant-type="container"
+                      ><a class="iR4bQhgylz4Q92Gml" data-instant-type="container" href="{{ section.settings.url_R4bQhgylz4Q92Gml-1 | default: 'null' }}" rel="noopener noreferrer">
                         {%- if section.settings['image_R4bQhgylz4Q92Gml-1'] and section.settings['image_R4bQhgylz4Q92Gml-1'] != blank -%}
                           {{ section.settings['image_R4bQhgylz4Q92Gml-1'] | image_url: width: 1280 | image_tag: class: 'instant-fill instant-image__fill instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings['image_R4bQhgylz4Q92Gml-1'].alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
                         {%- else -%}
@@ -3016,7 +3012,6 @@
         "text_VGCe3LREMxVwkDyH-1": "<p>Educational Audiobook</p>",
         "text_KPaqnNjGQFaIaFvx-1": "<p>The Easy Way to Quit</p>",
         "text_bZIicVNICiswZfoU-1": "<p>Devices</p>",
-        "url_R4bQhgylz4Q92Gml-1": "shopify://products/lio-walnut",
         "url_QHPJaY1zjEBqPc2k-1": "shopify://products/lio-original-walnut",
         "text_My99W1Yw9kJKP3X2-1": "<p>ACCESSORIES</p>",
         "text_fDemcw1wRqPWcgwE-1": "<p>White Carry Case</p>",
