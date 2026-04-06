@@ -50,10 +50,21 @@
         "padding_bottom": 0
       }
     },
-    "instant_oz_a_oh_opd_xw6s_bkql_pzkQMj": {
+    "instant_oz_a_oh_opd_xw6s_bkql_aQy8gK": {
       "type": "instant-OzAOhOpdXw6sBKQL",
       "name": "Flavored Air Device",
       "settings": {
+        "text_XR5kZm7ec8egwxmR": "<h3><strong>No liquid. No vapor. No nicotine.</strong></h3>",
+        "text_Oxdt7tEsg90FMZSX": "<h3>The flavored air</h3><h3>habit replacement.</h3>",
+        "text_g2H833wvj7dSMIwz": "<h3>A natural aroma core sits inside the device. When you pull, air passes through it. What comes out is nothing but flavored air, and your breath. That's it. </h3>",
+        "url_svV67TPm2Sgz0hlr": "shopify://products/journey-pack-3",
+        "text_Puun44WtrZS4vsYA": "<p>Start with Lio</p>",
+        "text_8Ms3s9JAqE2jmcPh": "<p>How it works</p>",
+        "text_gWBen0RLrJ6yIKZH": "<h3>Natural</h3><h3>ingredients</h3>",
+        "text_rxOQiJt1tnYtNuYV": "<h3>Every piece</h3><h3>is unique</h3>",
+        "text_WJ1fZeQqxIi5vtpY": "<h3>Mimics  that</h3><h3>famillair habit</h3>",
+        "text_UponzQrO2xe3bZjc": "<h3>Use it anywhere</h3><h3>you'd like</h3>",
+        "text_tpTMOu6do5Smqs2d": "<h3>No batteries, </h3><h3>no vapor.</h3>",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -458,7 +469,7 @@
   },
   "order": [
     "instant_yk_bs_lg4_jz_ko_d_rhk1_7AEYMe",
-    "instant_oz_a_oh_opd_xw6s_bkql_pzkQMj",
+    "instant_oz_a_oh_opd_xw6s_bkql_aQy8gK",
     "featured_product_aFXfVN",
     "instant_x_oetj8_hepve_arkr_v_EKnyNr",
     "instant_6_ta2_uu_zb_jng9_i_bn7_AjQ6VH",
