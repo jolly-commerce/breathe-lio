@@ -67,197 +67,52 @@
         "padding_bottom": 0
       }
     },
-    "featured_product_aFXfVN": {
-      "type": "featured-product",
-      "blocks": {
-        "section_store_block_social_proof_aFLMpg": {
-          "type": "shopify://apps/section-store/blocks/block-social-proof/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
-          "settings": {
-            "slide_icon_size": 28,
-            "use_carousel": true,
-            "text": "<p>Trusted by<strong> Davie</strong> ✓, <strong>Mark</strong> ✓ and 100.000+ others!</p>",
-            "text_size": 14,
-            "text_color": "#ffffff",
-            "checkmark_size": 14,
-            "symbols_color": "#42a5f5",
-            "border": "solid",
-            "border_thickness": 1,
-            "border_color": "#00b67c",
-            "radius": 16,
-            "bg_color": "#00b67c",
-            "padding_vertical": 12,
-            "padding_horizontal": 16,
-            "clip_as_header_of_wrapper": true
-          }
-        },
-        "title_Byb4RU": {
-          "type": "title",
-          "settings": {
-            "heading_tag": "h2"
-          }
-        },
-        "section_store_block_review_summary_q8tVYC": {
-          "type": "shopify://apps/section-store/blocks/block-review-summary/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
-          "settings": {
-            "star_style": "standard",
-            "stars_count": 4.5,
-            "stars_size": 17,
-            "stars_gap": 2,
-            "stars_color": "#ffffff",
-            "stars_bg_color": "#00b67a",
-            "stars_bg_half_color": "#dddddd",
-            "first_text": "<p>Excellent</p>",
-            "first_text_size": 15,
-            "first_text_color": "#000000",
-            "second_text": "<p>1230 reviews</p>",
-            "second_text_size": 13,
-            "second_text_color": "#000000",
-            "border": "none",
-            "border_thickness": 1,
-            "border_color": "#000000",
-            "radius": 0,
-            "background": "",
-            "background_gradient": "",
-            "padding_vertical": 0,
-            "padding_horizontal": 0
-          }
-        },
-        "description_QrLKFn": {
-          "type": "description",
-          "settings": {
-            "icon": "none",
-            "icon_width": 20,
-            "collapse_content": false
-          }
-        },
-        "kaching_bundles_app_block_jKc7TU": {
-          "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
-          "settings": {
-            "product": "{{section.settings.product}}",
-            "manual_deal_block_id": ""
-          }
-        },
-        "separator_QXJ3wn": {
-          "type": "separator",
-          "settings": {}
-        },
-        "section_store_block_product_info_wrapper_7wwfVw": {
-          "type": "shopify://apps/section-store/blocks/block-product-info-wrapper/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
-          "settings": {
-            "auto_detect_product_info_container": true,
-            "product_info_container_selector": "",
-            "use_on_mobile": true,
-            "use_header": false,
-            "header_font_size": 16,
-            "header_bg_color": "#000000",
-            "header_text_color": "#ffffff",
-            "header_text_align": "center",
-            "header_text": "♥︎ 9 of 10 recommend to friends",
-            "border_style": "solid",
-            "border_width": 1,
-            "border_color": "#dfdfdf",
-            "border_radius": 12,
-            "background_color": "",
-            "shadow": "shadow_1",
-            "padding_top": 20,
-            "padding_bottom": 20,
-            "padding_left": 20,
-            "padding_right": 20
-          }
-        },
-        "buy_buttons_d7wDkN": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_payment_button": false,
-            "show_gift_card_recipient": true,
-            "atc_button_background": "",
-            "atc_button_text_color": "",
-            "payment_button_background": "",
-            "payment_button_text_color": ""
-          }
-        },
-        "section_store_block_shipping_info_8rpnt8": {
-          "type": "shopify://apps/section-store/blocks/block-shipping-info/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
-          "settings": {
-            "use_dot": true,
-            "icon_color": "#00b67c",
-            "icon_size": 12,
-            "ships_by_text": "Delivered by",
-            "shipping_within_days": 2,
-            "include_weekend": true,
-            "ships_by_font_size": 14,
-            "ships_by_text_color": "#000000",
-            "fast_shipping_text": "COUNTRY_FLAG <strong>Fast</strong> COUNTRY_CODE Shipping",
-            "allow_all_countries": true,
-            "allowed_countries": "US,CH,DE,AT,FR,IT",
-            "fast_shipping_text_for_rest_countries": "Fast International Shipping",
-            "fast_shipping_text_color": "#000000",
-            "border_style": "none",
-            "border_width": 1,
-            "border_color": "#000000",
-            "border_radius": 8,
-            "bg_color": "#f6f6f6",
-            "padding_vertical": 6,
-            "padding_horizontal": 15
-          }
-        },
-        "section_store_block_benefits_boxes_2_FwYmnY": {
-          "type": "shopify://apps/section-store/blocks/block-benefits-boxes-2/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
-          "settings": {
-            "cards_design": "vertical",
-            "cards_row": "3",
-            "card_align": "center",
-            "first_icon": "credit_card",
-            "first_title": "Try 30-Day",
-            "first_sub_title": "Risk Free",
-            "second_icon": "shield_check",
-            "second_title": "Fast & Free",
-            "second_sub_title": "Shipping",
-            "third_icon": "earth",
-            "third_title": "Trusted by",
-            "third_sub_title": "100.000 people",
-            "all_size": 19,
-            "all_color": "#00b67c",
-            "font_weight": "700",
-            "border": "none",
-            "border_thickness": 1,
-            "border_color": "#000000",
-            "radius": 0,
-            "cards_bg_color": "",
-            "padding_vertical": 0,
-            "padding_horizontal": 0
-          }
-        }
-      },
-      "block_order": [
-        "section_store_block_social_proof_aFLMpg",
-        "title_Byb4RU",
-        "section_store_block_review_summary_q8tVYC",
-        "description_QrLKFn",
-        "kaching_bundles_app_block_jKc7TU",
-        "separator_QXJ3wn",
-        "section_store_block_product_info_wrapper_7wwfVw",
-        "buy_buttons_d7wDkN",
-        "section_store_block_shipping_info_8rpnt8",
-        "section_store_block_benefits_boxes_2_FwYmnY"
-      ],
-      "name": "Featured product",
+    "instant_69_g9sym4fw_qr4_i8y_e4zcbK": {
+      "type": "instant-69G9sym4fwQR4I8y",
+      "name": "Journey Pack Homepage",
       "settings": {
-        "full_width": true,
-        "product": "journey-pack-3",
-        "desktop_media_width": 55,
-        "desktop_media_layout": "carousel_thumbnails_left",
-        "mobile_media_size": "expanded",
-        "mobile_carousel_control": "thumbnails",
-        "enable_video_autoplay": true,
-        "enable_video_looping": false,
-        "enable_image_zoom": true,
-        "max_image_zoom_level": 3,
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "input_background": "rgba(0,0,0,0)",
-        "input_text_color": ""
+        "product_MsanFimaZmej0YoF": "lio-pro-pack",
+        "text_x23PsJDkA3o4EZIa": "<p>OFF</p>",
+        "text_S7CG6FYmpFDI6PkB": "<p>Select your Lio:</p>",
+        "text_PoYEaOJwTSAaDEPG": "<h3>Lio Original</h3>",
+        "text_keqkWbyax2wUC9fJ": "<p>Fixed airflow</p>",
+        "text_CsjL4FGa4wl3OCyr": "<h3>Lio Plus</h3>",
+        "text_jnflkGpf7Fr9kwgm": "<h3>Most popular</h3>",
+        "text_grLBMWIxTTscvDzQ": "<p>Adjustable airflow</p>",
+        "text_Q04lVcdh3kS2ZAls": "<h3>Lio Pro</h3>",
+        "text_EBsejShk5PRyScJX": "<h3>Most value</h3>",
+        "text_80WTOCcOhSCaUGbu": "<p>Adjustable airflow</p><p>Magnetic fidgeting</p>",
+        "text_Uh5hwlKrB5A0CDsM": "<p>Select colour:</p>",
+        "text_IEyw07KUIZGzRobX": "<p>Select flavor:</p>",
+        "text_ZAgKjnCuNz9v7aGw": "<p>Included</p>",
+        "text_zCh3eVwPgzqvPuWA": "<p>Selected</p>",
+        "text_vhqh11VTXwq3cn8V": "<p>Select</p>",
+        "text_Crox1so52rS2aVR4": "<p>Minty 90-Days</p>",
+        "text_zJKjRMbc5nCjwgcw": "<p>+ €19 </p>",
+        "text_lurkknrzgKhPWeaS": "<p>Selected</p>",
+        "text_eCyKumTqCgfqu9Vp": "<p>Select</p>",
+        "text_cDs9PsMaIqf9nuE3": "<p>Mixed 60-Days</p>",
+        "text_Yt5x44gNfWup9OQK": "<p>+ €9 </p>",
+        "text_1OBAGiyD9EqMvVBB": "<p>Selected</p>",
+        "text_pioosQYIw1WOU9pj": "<p>Select</p>",
+        "text_HNeDlPPjUZF7OI1D": "<p>Fruity 30-Days</p>",
+        "text_ffzQt7phb7Kcu30O": "<p>Included</p>",
+        "text_MlQGmTuQirRBP5S1": "<p>Selected</p>",
+        "text_AjKN0hT25zBx7csz": "<p>Select</p>",
+        "text_8vsc0BWrrQw4hijR": "<p>Fruity 90-Days</p>",
+        "text_0DAlPjiHKka1m164": "<p>+ €19</p>",
+        "text_vpreqkOKbw52JwtB": "<p>Selected</p>",
+        "text_JD6WICNvUo2vEoaw": "<p>Select</p>",
+        "text_NMGMZWgQ7O90JbFH": "<p>ADD TO CART</p>",
+        "text_mV6J7AKrjLRwvOD5": "<p><strong>73% succeed with the 90-day reset</strong></p>",
+        "text_uBYlDKr6kGFE9LLK": "<p><strong>Reset program added ✓</strong></p>",
+        "text_i0ZObLy2A8lg8mn0": "<p><strong>90-Day Reset Program</strong></p>",
+        "text_x1tTS3V8GzVDmnOd": "<p>Add for €9 </p>",
+        "text_GhJQVkYlwvUMtafW": "<p>€39</p>",
+        "text_F4IZIHl9htKs6vgp": "<p><strong>Remove program</strong></p>",
+        "text_VRLRpjuPuXnHDRsO": "<p>Add</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "instant_x_oetj8_hepve_arkr_v_EKnyNr": {
@@ -463,61 +318,12 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
-    },
-    "instant_69_g9sym4fw_qr4_i8y_e4zcbK": {
-      "type": "instant-69G9sym4fwQR4I8y",
-      "name": "Journey Pack Homepage",
-      "settings": {
-        "product_MsanFimaZmej0YoF": "lio-pro-pack",
-        "text_x23PsJDkA3o4EZIa": "<p>OFF</p>",
-        "text_S7CG6FYmpFDI6PkB": "<p>Select your Lio:</p>",
-        "text_PoYEaOJwTSAaDEPG": "<h3>Lio Original</h3>",
-        "text_keqkWbyax2wUC9fJ": "<p>Fixed airflow</p>",
-        "text_CsjL4FGa4wl3OCyr": "<h3>Lio Plus</h3>",
-        "text_jnflkGpf7Fr9kwgm": "<h3>Most popular</h3>",
-        "text_grLBMWIxTTscvDzQ": "<p>Adjustable airflow</p>",
-        "text_Q04lVcdh3kS2ZAls": "<h3>Lio Pro</h3>",
-        "text_EBsejShk5PRyScJX": "<h3>Most value</h3>",
-        "text_80WTOCcOhSCaUGbu": "<p>Adjustable airflow</p><p>Magnetic fidgeting</p>",
-        "text_Uh5hwlKrB5A0CDsM": "<p>Select colour:</p>",
-        "text_IEyw07KUIZGzRobX": "<p>Select flavor:</p>",
-        "text_ZAgKjnCuNz9v7aGw": "<p>Included</p>",
-        "text_zCh3eVwPgzqvPuWA": "<p>Selected</p>",
-        "text_vhqh11VTXwq3cn8V": "<p>Select</p>",
-        "text_Crox1so52rS2aVR4": "<p>Minty 90-Days</p>",
-        "text_zJKjRMbc5nCjwgcw": "<p>+ €19 </p>",
-        "text_lurkknrzgKhPWeaS": "<p>Selected</p>",
-        "text_eCyKumTqCgfqu9Vp": "<p>Select</p>",
-        "text_cDs9PsMaIqf9nuE3": "<p>Mixed 60-Days</p>",
-        "text_Yt5x44gNfWup9OQK": "<p>+ €9 </p>",
-        "text_1OBAGiyD9EqMvVBB": "<p>Selected</p>",
-        "text_pioosQYIw1WOU9pj": "<p>Select</p>",
-        "text_HNeDlPPjUZF7OI1D": "<p>Fruity 30-Days</p>",
-        "text_ffzQt7phb7Kcu30O": "<p>Included</p>",
-        "text_MlQGmTuQirRBP5S1": "<p>Selected</p>",
-        "text_AjKN0hT25zBx7csz": "<p>Select</p>",
-        "text_8vsc0BWrrQw4hijR": "<p>Fruity 90-Days</p>",
-        "text_0DAlPjiHKka1m164": "<p>+ €19</p>",
-        "text_vpreqkOKbw52JwtB": "<p>Selected</p>",
-        "text_JD6WICNvUo2vEoaw": "<p>Select</p>",
-        "text_NMGMZWgQ7O90JbFH": "<p>ADD TO CART</p>",
-        "text_mV6J7AKrjLRwvOD5": "<p><strong>73% succeed with the 90-day reset</strong></p>",
-        "text_uBYlDKr6kGFE9LLK": "<p><strong>Reset program added ✓</strong></p>",
-        "text_i0ZObLy2A8lg8mn0": "<p><strong>90-Day Reset Program</strong></p>",
-        "text_x1tTS3V8GzVDmnOd": "<p>Add for €9 </p>",
-        "text_GhJQVkYlwvUMtafW": "<p>€39</p>",
-        "text_F4IZIHl9htKs6vgp": "<p><strong>Remove program</strong></p>",
-        "text_VRLRpjuPuXnHDRsO": "<p>Add</p>",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
     "instant_yk_bs_lg4_jz_ko_d_rhk1_TJTYzV",
     "instant_oz_a_oh_opd_xw6s_bkql_aQy8gK",
     "instant_69_g9sym4fw_qr4_i8y_e4zcbK",
-    "featured_product_aFXfVN",
     "instant_x_oetj8_hepve_arkr_v_EKnyNr",
     "instant_6_ta2_uu_zb_jng9_i_bn7_AjQ6VH",
     "instant_u_an_vl_mfa9_e8_iu_pz_k_TjgeRP",
