@@ -9,20 +9,19 @@
  */
 {
   "sections": {
-    "instant_yk_bs_lg4_jz_ko_d_rhk1_i9CzC9": {
+    "instant_yk_bs_lg4_jz_ko_d_rhk1_7AEYMe": {
       "type": "instant-YkBsLG4JZKoDRhk1",
       "name": "Homepage Section",
       "settings": {
         "text_RWtuAZ2umua9g0Vv": "<h3><strong>150.000+ people switched to Lio</strong></h3>",
         "text_iTkpDkfF4WIw3A3H": "<h3>Finally free from </h3><h3>your bad habits</h3>",
         "text_XVr9Pg1etHYScrop": "<h3>The nicotine-free diffuser that replaces your bad habit, naturally, immediately, for good.</h3>",
-        "url_9IKY8u921q8nU79g": "shopify://products/the-journey-pack-3",
+        "url_9IKY8u921q8nU79g": "shopify://products/journey-pack-3",
         "text_YAefyfNN4pB1KJC4": "<p>Start with Lio</p>",
         "text_zql58IuvQesTCBfx": "<p>Shop Cores</p>",
         "text_rB2BZonQ4lfL0q7o": "<h3>\"I didn't think something this simple could break a </h3><h3>30-year habit. But it did. 8 months in, it's a lifesaver\"</h3>",
         "text_XIR7hkMzOOlvS945": "<h3><strong>Peter (44), The Netherlands</strong></h3>",
-        "text_Ah1bTxKE4aX2MaXN": "<h3>\"I didn't think something this simple could break a 30-year habit. But it did. 8 months in, it's a lifesaver\"</h3>",
-        "text_d6xthpumjHbtFuMZ": "<h3><strong>Peter (44), The Netherlands</strong></h3>",
+        "text_L9seWpL5bG2Yso8R": "<h3>\"I didn't think something this simple could break a 30-year habit. But it did. 8 months in, it's a lifesaver\"</h3>",
         "text_RHcYdM8f0RHd33rt": "<h3>Freedom from smoke, nicotine and toxins</h3>",
         "url_5wdDpXAwGhZJhgPj": "shopify://products/the-journey-pack-3",
         "text_MtBWEYqHaZ9MUcCt": "<h3>Start your </h3>",
@@ -43,42 +42,10 @@
         "text_g0m3lzeRsxaAofGh": "<h3><strong>Shop Cores</strong></h3>",
         "text_8f8KKFK9Xzu2NSTm": "<h3>The urge isn't in your head.</h3>",
         "text_tFLTkF4ShRK1R7A7": "<h3>It's in your hands.</h3>",
-        "text_kfNM3j1JaSkACGll": "<p>It's in your hands. Your mouth. The moment you step outside. That loop is behavioural, and that's exactly what Lio targets.</p>",
-        "url_A6XgMNANANiuBEGu": "",
-        "text_hdjnb3P8nZ0qDwSY": "<p>Start with Lio</p>",
         "text_Av4hy6TdhiuWolSz": "<p>What Cores </p><p>do you need?</p>",
         "url_ymH0bFJOE7COzyuG": "shopify://products/lio-pro-cores",
         "url_72N0zJUSnUKEsX3n": "shopify://products/lio-flavor-cores",
         "text_SCI1efDaALuruJIu": "<p><strong>The new Lio Plus uses the original cores.</strong></p>",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "instant_gt_p9_hjw_ppa2_n69_wz_VDnAfx": {
-      "type": "instant-gtP9HjwPPA2N69WZ",
-      "name": "Section 46",
-      "settings": {
-        "text_5INowO6w2wgezr7X": "<h3>Freedom from smoke, nicotine and toxins</h3>",
-        "url_VwQrBc167MSHESpA": "https://quiz.breathelio.com/",
-        "text_fxcCf394PUtjExeF": "<h3>Start your </h3>",
-        "text_GOORm1bWQc2JruYA": "<h3>good habit today</h3>",
-        "url_XORuP22qGaGjYieA": "",
-        "text_xwgrq1RqAzR9gi8Q": "<p>See your plan</p>",
-        "product_YJyIWk8kPJowx9zw": "lio-flavor-cores",
-        "url_YJyIWk8kPJowx9zw": "",
-        "text_W4zVq6Xnt2ad4qsw": "<h3>Stock up </h3>",
-        "text_PqVqwk3QpGFNgHku": "<h3>on flavor cores</h3>",
-        "url_LAsqGr9Jr3NPCmnX": "",
-        "text_UMZdDLeIw9gCTo0i": "<p>Shop Cores</p>",
-        "url_0nbSh891L8JAfoP3": "shopify://products/lio-diffusers",
-        "url_wdm3tuMpbB3Ib9XK": "",
-        "text_bjq5qdqd1Jb3Lp0R": "<h3><strong>Shop Lio Devices</strong></h3>",
-        "url_uDGPJzxz4SkKAzbY": "",
-        "text_BD8TdH39SASUZNXj": "<h3><strong>Shop accessories </strong></h3>",
-        "product_IjOCrlEe9HBDCeqL": "lio-flavor-cores",
-        "url_IjOCrlEe9HBDCeqL": "",
-        "url_BQMHZg64euKbAyly": "",
-        "text_NNauXgz6U3KGfvpD": "<h3><strong>Shop Cores</strong></h3>",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -511,8 +478,7 @@
     }
   },
   "order": [
-    "instant_yk_bs_lg4_jz_ko_d_rhk1_i9CzC9",
-    "instant_gt_p9_hjw_ppa2_n69_wz_VDnAfx",
+    "instant_yk_bs_lg4_jz_ko_d_rhk1_7AEYMe",
     "instant_pox5w_zfcs_a33_jh_tx_GngMhr",
     "featured_product_aFXfVN",
     "instant_x_oetj8_hepve_arkr_v_EKnyNr",
