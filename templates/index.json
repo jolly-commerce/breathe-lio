@@ -50,6 +50,34 @@
         "padding_bottom": 0
       }
     },
+    "instant_oz_a_oh_opd_xw6s_bkql_pzkQMj": {
+      "type": "instant-OzAOhOpdXw6sBKQL",
+      "name": "Flavored Air Device",
+      "settings": {
+        "text_YBZO2MdtgHvWAiUl": "<h3><strong>Flavoured </strong></h3><h3><strong>Air Device</strong></h3>",
+        "text_SgBxiA7BnYhiksPV": "<h3><strong>The original 0% nicotine habit replacement that actually works.</strong></h3>",
+        "text_ZRhbOuh14ayfmhBx": "<h3><strong>Natural</strong></h3><h3><strong>ingredients</strong></h3>",
+        "text_PTciTEniDOnEx2TT": "<h3>Every piece</h3><h3>is unique</h3>",
+        "text_Dk4kmaD60vTGZfa3": "<h3><strong>Mimics  that</strong></h3><h3><strong>famillair habit</strong></h3>",
+        "text_JI9wOe3PwXEZ9eeh": "<h3><strong>Use it anywhere</strong></h3><h3><strong>you'd like</strong></h3>",
+        "text_taSAUNduuRQzWOsJ": "<h3><strong>No batteries, </strong></h3><h3><strong>no vapor.</strong></h3>",
+        "text_goAMU10PbQxQIF0e": "<h3><strong>100% Natural</strong></h3><h3><strong>ingredients</strong></h3>",
+        "text_PFhKisNYMiFbjWV3": "<h3><strong>EVERY PIECE</strong></h3><h3><strong>IS UNIQUE</strong></h3>",
+        "text_iO4IDGczuNrQzltF": "<h3><strong>Natural</strong></h3><h3><strong>ingredients</strong></h3>",
+        "text_QaLSudHV3vvxtsTn": "<h3><strong>Every piece</strong></h3><h3><strong>is unqiue</strong></h3>",
+        "text_YDcVJ0C5N2qTTgRR": "<h3><strong>No batteries, </strong></h3><h3><strong>or vapor</strong></h3>",
+        "text_LAdSaXg8Uaclur8B": "<h3><strong>100% Natural</strong></h3><h3><strong>ingredients</strong></h3>",
+        "text_9OuXr8sLYl4jVZG6": "<h3><strong>EVERY PIECE</strong></h3><h3><strong>IS UNIQUE</strong></h3>",
+        "text_dCWh95GYFk8HIT8I": "<h3><strong>Mimics that</strong></h3><h3><strong>familiar habit</strong></h3>",
+        "text_ooUKOr3ji5INbojN": "<h3><strong>Use it anywhere</strong></h3><h3><strong>you'd like</strong></h3>",
+        "url_n9SYmpqP1JVpDdKV": "shopify://products/lio®-starterpack-2",
+        "text_EYfK89qBHRyTNGKP": "<p>Start with Lio</p>",
+        "url_bHq9mDiD6iIya6np": "shopify://pages/trustscience",
+        "text_a3AydqWSa51FywhX": "<p>How it works</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "instant_pox5w_zfcs_a33_jh_tx_GngMhr": {
       "type": "instant-Pox5wZfcsA33JhTx",
       "name": "The Original Flavored Air",
@@ -479,6 +507,7 @@
   },
   "order": [
     "instant_yk_bs_lg4_jz_ko_d_rhk1_7AEYMe",
+    "instant_oz_a_oh_opd_xw6s_bkql_pzkQMj",
     "instant_pox5w_zfcs_a33_jh_tx_GngMhr",
     "featured_product_aFXfVN",
     "instant_x_oetj8_hepve_arkr_v_EKnyNr",
