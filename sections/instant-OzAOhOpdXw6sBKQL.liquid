@@ -25,26 +25,20 @@
   <style>
     @font-face {
       font-family: 'Sofia Pro';
-      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MsCxLDBXAFzTUyg9/sofia-pro-medium-az.woff2') format('woff2');
-      font-weight: 500;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Sofia Pro';
       src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Grqkp2FRhggVbI73/sofia-pro-light-az.woff2') format('woff2');
       font-weight: 300;
       font-display: swap;
     }
     @font-face {
       font-family: 'Sofia Pro';
-      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ppyHmH2iiZE35CX9/sofia-pro-semi-bold-az.woff2') format('woff2');
-      font-weight: 600;
+      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/utQqNGDgkKQWHKss/sofia-pro-regular-az.woff2') format('woff2');
+      font-weight: 400;
       font-display: swap;
     }
     @font-face {
-      font-family: 'Suncoast GROT';
-      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/K0JrYp9I52Y6n111/suncoastgrot-bold.woff2') format('woff2');
-      font-weight: 700;
+      font-family: 'Sofia Pro';
+      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MsCxLDBXAFzTUyg9/sofia-pro-medium-az.woff2') format('woff2');
+      font-weight: 500;
       font-display: swap;
     }
   </style>
@@ -64,220 +58,54 @@
         endif
       endif
     -%}
-    <div data-instant-type="grid" id="i3fEBwFNC5ARzQF8D" class="i3fEBwFNC5ARzQF8D"
-      ><div data-instant-type="text" class="instant-rich-text iYBZO2MdtgHvWAiUl"
-        ><div>{{ section.settings.text_YBZO2MdtgHvWAiUl }}</div></div
-      ><div data-instant-type="text" class="instant-rich-text iSgBxiA7BnYhiksPV"
-        ><div>{{ section.settings.text_SgBxiA7BnYhiksPV }}</div></div
-      ><div data-instant-type="media" class="iztwJQrstLlJ2FqxI">
-        {%- if section.settings.image_ztwJQrstLlJ2FqxI and section.settings.image_ztwJQrstLlJ2FqxI != blank -%}
-          {{ section.settings.image_ztwJQrstLlJ2FqxI | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_ztwJQrstLlJ2FqxI.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-        {%- else -%}
-          <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=1280" width="800" height="715" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
-        {%- endif -%}
-        <!--  -->
-        {%- if section.settings.image_ztwJQrstLlJ2FqxI_mobile and section.settings.image_ztwJQrstLlJ2FqxI_mobile != blank -%}
-          {{ section.settings.image_ztwJQrstLlJ2FqxI_mobile | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings.image_ztwJQrstLlJ2FqxI_mobile.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-        {%- else -%}
-          <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=1280" width="800" height="715" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile">
-        {%- endif -%}</div
-      ><div class="iN1esRJHkgvTniUfF" data-instant-type="container"
-        ><div class="iBZ9wh506vXdU18Es" data-instant-type="container"
-          ><div data-instant-type="media" class="izjqBv2XlpEiEQTir">
-            {%- if section.settings.image_zjqBv2XlpEiEQTir and section.settings.image_zjqBv2XlpEiEQTir != blank -%}
-              {{ section.settings.image_zjqBv2XlpEiEQTir | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main', alt: section.settings.image_zjqBv2XlpEiEQTir.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=1280" width="912" height="958" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main">
-            {%- endif -%}</div
-          ><div data-instant-type="text" class="instant-rich-text iZRhbOuh14ayfmhBx"
-            ><div>{{ section.settings.text_ZRhbOuh14ayfmhBx }}</div></div
-          ></div
-        ><div class="iTZJ9i741HB3M4aO5" data-instant-type="container"
-          ><div data-instant-type="media" class="iaquhPwewuVDCmcYE">
-            {%- if section.settings.image_aquhPwewuVDCmcYE and section.settings.image_aquhPwewuVDCmcYE != blank -%}
-              {{ section.settings.image_aquhPwewuVDCmcYE | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main', alt: section.settings.image_aquhPwewuVDCmcYE.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main">
-            {%- endif -%}</div
-          ><div data-instant-type="text" class="instant-rich-text iPTciTEniDOnEx2TT"
-            ><div>{{ section.settings.text_PTciTEniDOnEx2TT }}</div></div
-          ></div
-        ><div class="i8v8yjaVWJr7vTizB" data-instant-type="container"
-          ><div data-instant-type="media" class="ihSl41PgbUlsihOsr">
-            {%- if section.settings.image_hSl41PgbUlsihOsr and section.settings.image_hSl41PgbUlsihOsr != blank -%}
-              {{ section.settings.image_hSl41PgbUlsihOsr | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main', alt: section.settings.image_hSl41PgbUlsihOsr.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main">
-            {%- endif -%}</div
-          ><div data-instant-type="text" class="instant-rich-text iDk4kmaD60vTGZfa3"
-            ><div>{{ section.settings.text_Dk4kmaD60vTGZfa3 }}</div></div
-          ></div
-        ><div class="ifBfeUkyyol4lIISU" data-instant-type="container"
-          ><div data-instant-type="media" class="ilA80J9kWrvYgHf3Z">
-            {%- if section.settings.image_lA80J9kWrvYgHf3Z and section.settings.image_lA80J9kWrvYgHf3Z != blank -%}
-              {{ section.settings.image_lA80J9kWrvYgHf3Z | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main', alt: section.settings.image_lA80J9kWrvYgHf3Z.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/21UqqimOZayakSWb/screenshot-2025-12-26-at-21021pm-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/21UqqimOZayakSWb/screenshot-2025-12-26-at-21021pm-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/21UqqimOZayakSWb/screenshot-2025-12-26-at-21021pm-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/21UqqimOZayakSWb/screenshot-2025-12-26-at-21021pm-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/21UqqimOZayakSWb/screenshot-2025-12-26-at-21021pm-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/21UqqimOZayakSWb/screenshot-2025-12-26-at-21021pm-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/21UqqimOZayakSWb/screenshot-2025-12-26-at-21021pm-4.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main">
-            {%- endif -%}</div
-          ><div data-instant-type="text" class="instant-rich-text iJI9wOe3PwXEZ9eeh"
-            ><div>{{ section.settings.text_JI9wOe3PwXEZ9eeh }}</div></div
-          ></div
-        ><div class="iZ3LVuZTxNcHvlaHL" data-instant-type="container"
-          ><div data-instant-type="media" class="i1O2ItR2GbSe2Ltem">
-            {%- if section.settings.image_1O2ItR2GbSe2Ltem and section.settings.image_1O2ItR2GbSe2Ltem != blank -%}
-              {{ section.settings.image_1O2ItR2GbSe2Ltem | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main', alt: section.settings.image_1O2ItR2GbSe2Ltem.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main">
-            {%- endif -%}</div
-          ><div data-instant-type="text" class="instant-rich-text itaSAUNduuRQzWOsJ"
-            ><div>{{ section.settings.text_taSAUNduuRQzWOsJ }}</div></div
+    <div class="irHLzkbv25rvGDwE6" data-instant-type="container" id="irHLzkbv25rvGDwE6"
+      ><div class="i1Cl2yVPgqBc7QLth" data-instant-type="container"
+        ><div class="iqVBLLlM8G3INg35i" data-instant-type="container"
+          ><div class="iZHd3KBIETg0UGaMt" data-instant-type="container"
+            ><div class="iF90viV83iie8rixy" data-instant-type="container"
+              ><div data-instant-type="text" class="instant-rich-text iXR5kZm7ec8egwxmR"
+                ><div>{{ section.settings.text_XR5kZm7ec8egwxmR }}</div></div
+              ></div
+            ></div
+          ><div class="iK5AXJ729oylyP8Gj" data-instant-type="container"
+            ><div data-instant-type="text" class="instant-rich-text iOxdt7tEsg90FMZSX"
+              ><div>{{ section.settings.text_Oxdt7tEsg90FMZSX }}</div></div
+            ></div
+          ><div class="i9RbjvlAlVMe5OiSI" data-instant-type="container"
+            ><div data-instant-type="text" class="instant-rich-text ig2H833wvj7dSMIwz"
+              ><div>{{ section.settings.text_g2H833wvj7dSMIwz }}</div></div
+            ></div
+          ><div class="iborI89ybvKhnpSU6" data-instant-type="container">
+            {%- liquid
+              assign url_svV67TPm2Sgz0hlr_handle = 'journey-pack-3'
+              assign url_svV67TPm2Sgz0hlr = all_products[url_svV67TPm2Sgz0hlr_handle].url
+            -%}
+            <a class="isvV67TPm2Sgz0hlr" data-instant-type="container" href="{{ section.settings.url_svV67TPm2Sgz0hlr | default: url_svV67TPm2Sgz0hlr }}" rel="noopener noreferrer"
+              ><div data-instant-type="text" class="instant-rich-text iPuun44WtrZS4vsYA"
+                ><div>{{ section.settings.text_Puun44WtrZS4vsYA }}</div></div
+              ></a
+            ><button class="iycrI0sD5j3mK6NuT" data-instant-type="container" data-instant-action-type="open-overlay" data-instant-action-id="AecFBg7XRy1mB8qt"
+              ><div data-instant-type="text" class="instant-rich-text i8Ms3s9JAqE2jmcPh"
+                ><div>{{ section.settings.text_8Ms3s9JAqE2jmcPh }}</div></div
+              ></button
+            ></div
           ></div
         ></div
-      ><div class="i8tZ648sgsINgGaeI" data-instant-type="container"
-        ><div class="iqWvtTlrbjsvEnELL" data-instant-type="container"
-          ><div data-instant-type="media" class="ia1Qp7yyFB0gvRpJp">
-            {%- if section.settings.image_a1Qp7yyFB0gvRpJp and section.settings.image_a1Qp7yyFB0gvRpJp != blank -%}
-              {{ section.settings.image_a1Qp7yyFB0gvRpJp | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main', alt: section.settings.image_a1Qp7yyFB0gvRpJp.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+      ><div class="icaXUiwLWfCcuV3Vz" data-instant-type="container"
+        ><div class="i4meqZqy2E1q4ib4B" data-instant-type="container"
+          ><div data-instant-type="media" class="icD8VlvZMX45qm897">
+            {%- if section.settings.image_cD8VlvZMX45qm897 and section.settings.image_cD8VlvZMX45qm897 != blank -%}
+              {{ section.settings.image_cD8VlvZMX45qm897 | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_cD8VlvZMX45qm897.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
             {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=1280" width="912" height="958" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main">
-            {%- endif -%}</div
-          ><div data-instant-type="text" class="instant-rich-text igoAMU10PbQxQIF0e"
-            ><div>{{ section.settings.text_goAMU10PbQxQIF0e }}</div></div
-          ></div
-        ><div class="ivbqMBP29oBaiF0Nm" data-instant-type="container"
-          ><div data-instant-type="media" class="iroMwOoJgt8EQEZlV">
-            {%- if section.settings.image_roMwOoJgt8EQEZlV and section.settings.image_roMwOoJgt8EQEZlV != blank -%}
-              {{ section.settings.image_roMwOoJgt8EQEZlV | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main', alt: section.settings.image_roMwOoJgt8EQEZlV.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main">
-            {%- endif -%}</div
-          ><div data-instant-type="text" class="instant-rich-text iPFhKisNYMiFbjWV3"
-            ><div>{{ section.settings.text_PFhKisNYMiFbjWV3 }}</div></div
-          ></div
-        ><div class="ifOK0ox767w3toLCX" data-instant-type="container"
-          ><div data-instant-type="media" class="iREwlvvtLJgBc0YBz">
-            {%- if section.settings.image_REwlvvtLJgBc0YBz and section.settings.image_REwlvvtLJgBc0YBz != blank -%}
-              {{ section.settings.image_REwlvvtLJgBc0YBz | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_REwlvvtLJgBc0YBz.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
+              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=1280" width="800" height="715" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
             {%- endif -%}
             <!--  -->
-            {%- if section.settings.image_REwlvvtLJgBc0YBz_mobile and section.settings.image_REwlvvtLJgBc0YBz_mobile != blank -%}
-              {{ section.settings.image_REwlvvtLJgBc0YBz_mobile | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings.image_REwlvvtLJgBc0YBz_mobile.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
+            {%- if section.settings.image_cD8VlvZMX45qm897_mobile and section.settings.image_cD8VlvZMX45qm897_mobile != blank -%}
+              {{ section.settings.image_cD8VlvZMX45qm897_mobile | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings.image_cD8VlvZMX45qm897_mobile.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
             {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=1280" width="912" height="958" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile">
-            {%- endif -%}</div
-          ><div data-instant-type="text" class="instant-rich-text iiO4IDGczuNrQzltF"
-            ><div>{{ section.settings.text_iO4IDGczuNrQzltF }}</div></div
-          ></div
-        ><div class="ic8fYe1ugys0kY89W" data-instant-type="container"
-          ><div data-instant-type="media" class="iJYqH03uTWiVBaQIx">
-            {%- if section.settings.image_JYqH03uTWiVBaQIx and section.settings.image_JYqH03uTWiVBaQIx != blank -%}
-              {{ section.settings.image_JYqH03uTWiVBaQIx | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_JYqH03uTWiVBaQIx.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
-            {%- endif -%}
-            <!--  -->
-            {%- if section.settings.image_JYqH03uTWiVBaQIx_mobile and section.settings.image_JYqH03uTWiVBaQIx_mobile != blank -%}
-              {{ section.settings.image_JYqH03uTWiVBaQIx_mobile | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings.image_JYqH03uTWiVBaQIx_mobile.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile">
-            {%- endif -%}</div
-          ><div data-instant-type="text" class="instant-rich-text iQaLSudHV3vvxtsTn"
-            ><div>{{ section.settings.text_QaLSudHV3vvxtsTn }}</div></div
-          ></div
-        ><div class="iPu1uGvrKtMUOP3fH" data-instant-type="container"
-          ><div data-instant-type="media" class="ifYiRRh8JKAXbhGTl">
-            {%- if section.settings.image_fYiRRh8JKAXbhGTl and section.settings.image_fYiRRh8JKAXbhGTl != blank -%}
-              {{ section.settings.image_fYiRRh8JKAXbhGTl | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_fYiRRh8JKAXbhGTl.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
-            {%- endif -%}
-            <!--  -->
-            {%- if section.settings.image_fYiRRh8JKAXbhGTl_mobile and section.settings.image_fYiRRh8JKAXbhGTl_mobile != blank -%}
-              {{ section.settings.image_fYiRRh8JKAXbhGTl_mobile | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings.image_fYiRRh8JKAXbhGTl_mobile.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/GwHgUpAATrhX32w9/screenshot-2025-12-26-at-21021pm-6.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile">
-            {%- endif -%}</div
-          ><div data-instant-type="text" class="instant-rich-text iYDcVJ0C5N2qTTgRR"
-            ><div>{{ section.settings.text_YDcVJ0C5N2qTTgRR }}</div></div
-          ></div
-        ></div
-      ><div class="i3VtntIvflmCtJCx0" data-instant-type="container"
-        ><div class="iPeI5vVl2Py9bTaRB" data-instant-type="container"
-          ><div data-instant-type="media" class="iVoknUyCV3pZaVLxS">
-            {%- if section.settings.image_VoknUyCV3pZaVLxS and section.settings.image_VoknUyCV3pZaVLxS != blank -%}
-              {{ section.settings.image_VoknUyCV3pZaVLxS | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main', alt: section.settings.image_VoknUyCV3pZaVLxS.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Tsd54cg33ZBgT70k/screenshot-2025-12-26-at-20754pm-photoroom.webp?width=1280" width="912" height="958" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main">
-            {%- endif -%}</div
-          ><div data-instant-type="text" class="instant-rich-text iLAdSaXg8Uaclur8B"
-            ><div>{{ section.settings.text_LAdSaXg8Uaclur8B }}</div></div
-          ></div
-        ><div class="ilgE3XHQXdwBO96pa" data-instant-type="container"
-          ><div data-instant-type="media" class="iQSagtsk5m0nVijwf">
-            {%- if section.settings.image_QSagtsk5m0nVijwf and section.settings.image_QSagtsk5m0nVijwf != blank -%}
-              {{ section.settings.image_QSagtsk5m0nVijwf | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main', alt: section.settings.image_QSagtsk5m0nVijwf.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/t4g7D3KgeGa7U4ZR/screenshot-2025-12-26-at-21021pm-2.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main">
-            {%- endif -%}</div
-          ><div data-instant-type="text" class="instant-rich-text i9OuXr8sLYl4jVZG6"
-            ><div>{{ section.settings.text_9OuXr8sLYl4jVZG6 }}</div></div
-          ></div
-        ><div class="icYBYJMtw5A98SCPA" data-instant-type="container"
-          ><div data-instant-type="media" class="ikHXNcP1AuGQLEs4x">
-            {%- if section.settings.image_kHXNcP1AuGQLEs4x and section.settings.image_kHXNcP1AuGQLEs4x != blank -%}
-              {{ section.settings.image_kHXNcP1AuGQLEs4x | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_kHXNcP1AuGQLEs4x.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
-            {%- endif -%}
-            <!--  -->
-            {%- if section.settings.image_kHXNcP1AuGQLEs4x_mobile and section.settings.image_kHXNcP1AuGQLEs4x_mobile != blank -%}
-              {{ section.settings.image_kHXNcP1AuGQLEs4x_mobile | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings.image_kHXNcP1AuGQLEs4x_mobile.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ImDo48aBekIMKb2e/screenshot-2025-12-26-at-21021pm-5.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile">
-            {%- endif -%}</div
-          ><div data-instant-type="text" class="instant-rich-text idCWh95GYFk8HIT8I"
-            ><div>{{ section.settings.text_dCWh95GYFk8HIT8I }}</div></div
-          ></div
-        ><div class="il7qReFgk4eqDTFmV" data-instant-type="container"
-          ><div data-instant-type="media" class="i0zPSASOV3CidzBel">
-            {%- if section.settings.image_0zPSASOV3CidzBel and section.settings.image_0zPSASOV3CidzBel != blank -%}
-              {{ section.settings.image_0zPSASOV3CidzBel | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_0zPSASOV3CidzBel.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/wC9YPbd5IFbUcaHe/screenshot-2025-12-26-at-21021pm-3.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
-            {%- endif -%}
-            <!--  -->
-            {%- if section.settings.image_0zPSASOV3CidzBel_mobile and section.settings.image_0zPSASOV3CidzBel_mobile != blank -%}
-              {{ section.settings.image_0zPSASOV3CidzBel_mobile | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings.image_0zPSASOV3CidzBel_mobile.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-            {%- else -%}
-              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/21UqqimOZayakSWb/screenshot-2025-12-26-at-21021pm-4.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/21UqqimOZayakSWb/screenshot-2025-12-26-at-21021pm-4.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/21UqqimOZayakSWb/screenshot-2025-12-26-at-21021pm-4.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/21UqqimOZayakSWb/screenshot-2025-12-26-at-21021pm-4.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/21UqqimOZayakSWb/screenshot-2025-12-26-at-21021pm-4.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/21UqqimOZayakSWb/screenshot-2025-12-26-at-21021pm-4.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/21UqqimOZayakSWb/screenshot-2025-12-26-at-21021pm-4.webp?width=1280" width="404" height="404" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile">
-            {%- endif -%}</div
-          ><div data-instant-type="text" class="instant-rich-text iooUKOr3ji5INbojN"
-            ><div>{{ section.settings.text_ooUKOr3ji5INbojN }}</div></div
-          ></div
-        ></div
-      >
-      {%- liquid
-        assign url_n9SYmpqP1JVpDdKV_handle = 'lio®-starterpack-2'
-        assign url_n9SYmpqP1JVpDdKV = all_products[url_n9SYmpqP1JVpDdKV_handle].url
-      -%}
-      <a class="in9SYmpqP1JVpDdKV" data-instant-type="container" href="{{ section.settings.url_n9SYmpqP1JVpDdKV | default: url_n9SYmpqP1JVpDdKV }}" rel="noopener noreferrer"
-        ><div data-instant-type="text" class="instant-rich-text iEYfK89qBHRyTNGKP"
-          ><div>{{ section.settings.text_EYfK89qBHRyTNGKP }}</div></div
-        ></a
-      >
-      {%- liquid
-        assign url_bHq9mDiD6iIya6np_handle = 'trustscience'
-        assign url_bHq9mDiD6iIya6np = pages[url_bHq9mDiD6iIya6np_handle].url
-      -%}
-      <a class="ibHq9mDiD6iIya6np" data-instant-type="container" href="{{ section.settings.url_bHq9mDiD6iIya6np | default: url_bHq9mDiD6iIya6np }}" rel="noopener noreferrer"
-        ><div data-instant-type="text" class="instant-rich-text ia3AydqWSa51FywhX"
-          ><div>{{ section.settings.text_a3AydqWSa51FywhX }}</div></div
-        ></a
-      ></div
-    ></div
-  >
+              <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/h3hSRkuq4lOYlTsz/1744795548v3-ezgifcom-resize1e80d9f10-215d-41b6-a431-fd5bbc180e3a-2.gif?width=1280" width="800" height="715" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile">
+            {%- endif -%}</div></div></div></div
+  ></div>
   <!-- prettier-ignore -->
   <script>(()=>{let t=window.Instant||{};if(!t.initializedAppEmbed&&!window.__instant_loading_core){window.__instant_loading_core=!0,t.initializedVersion="4.6.0",t.initialized=!0;let i=()=>{let i=(t,i)=>t.split(".").map(Number).reduce((t,e,n)=>t||e-i.split(".")[n],0),e=[...document.querySelectorAll(".__instant")].map(t=>t.getAttribute("data-instant-version")||"1.0.0").sort(i).pop()||"1.0.0",n=document.createElement("script");n.src="https://client.instant.so/scripts/instant-core.min.js?version="+e,document.body.appendChild(n),t.initializedVersion=e};"loading"!==document.readyState?i():document.addEventListener("DOMContentLoaded",i)}})();</script>
 </div>
@@ -293,226 +121,48 @@
   "settings": [
     {
       "type": "richtext",
-      "id": "text_YBZO2MdtgHvWAiUl",
-      "label": "Text",
-      "default": "<h3>Flavoured </h3><h3>Air Device</h3>"
+      "id": "text_XR5kZm7ec8egwxmR",
+      "label": "Title",
+      "default": "<h3><strong>No liquid. No vapor. No nicotine.</strong></h3>"
     },
     {
       "type": "richtext",
-      "id": "text_SgBxiA7BnYhiksPV",
-      "label": "Text",
-      "default": "<h3>The original 0% nicotine habit replacement that actually works.</h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_ztwJQrstLlJ2FqxI",
-      "label": "Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_ztwJQrstLlJ2FqxI_mobile",
-      "label": "Image mobile"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_zjqBv2XlpEiEQTir",
-      "label": "Image"
+      "id": "text_Oxdt7tEsg90FMZSX",
+      "label": "Title",
+      "default": "<h3>The flavored air habit replacement.</h3>"
     },
     {
       "type": "richtext",
-      "id": "text_ZRhbOuh14ayfmhBx",
-      "label": "Text",
-      "default": "<h3><strong>Natural</strong></h3><h3><strong>ingredients</strong></h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_aquhPwewuVDCmcYE",
-      "label": "Image"
-    },
-    {
-      "type": "richtext",
-      "id": "text_PTciTEniDOnEx2TT",
-      "label": "Text",
-      "default": "<h3>Every piece</h3><h3>is unique</h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_hSl41PgbUlsihOsr",
-      "label": "Image"
-    },
-    {
-      "type": "richtext",
-      "id": "text_Dk4kmaD60vTGZfa3",
-      "label": "Text",
-      "default": "<h3><strong>Mimics  that</strong></h3><h3><strong>famillair habit</strong></h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_lA80J9kWrvYgHf3Z",
-      "label": "Image"
-    },
-    {
-      "type": "richtext",
-      "id": "text_JI9wOe3PwXEZ9eeh",
-      "label": "Text",
-      "default": "<h3><strong>Use it anywhere</strong></h3><h3><strong>you&apos;d like</strong></h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_1O2ItR2GbSe2Ltem",
-      "label": "Image"
-    },
-    {
-      "type": "richtext",
-      "id": "text_taSAUNduuRQzWOsJ",
-      "label": "Text",
-      "default": "<h3><strong>No batteries, </strong></h3><h3><strong>no vapor.</strong></h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_a1Qp7yyFB0gvRpJp",
-      "label": "Image"
-    },
-    {
-      "type": "richtext",
-      "id": "text_goAMU10PbQxQIF0e",
-      "label": "Text",
-      "default": "<h3><strong>100% Natural</strong></h3><h3><strong>ingredients</strong></h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_roMwOoJgt8EQEZlV",
-      "label": "Image"
-    },
-    {
-      "type": "richtext",
-      "id": "text_PFhKisNYMiFbjWV3",
-      "label": "Text",
-      "default": "<h3><strong>EVERY PIECE</strong></h3><h3><strong>IS UNIQUE</strong></h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_REwlvvtLJgBc0YBz",
-      "label": "Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_REwlvvtLJgBc0YBz_mobile",
-      "label": "Image mobile"
-    },
-    {
-      "type": "richtext",
-      "id": "text_iO4IDGczuNrQzltF",
-      "label": "Text",
-      "default": "<h3><strong>Natural</strong></h3><h3><strong>ingredients</strong></h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_JYqH03uTWiVBaQIx",
-      "label": "Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_JYqH03uTWiVBaQIx_mobile",
-      "label": "Image mobile"
-    },
-    {
-      "type": "richtext",
-      "id": "text_QaLSudHV3vvxtsTn",
-      "label": "Text",
-      "default": "<h3><strong>Every piece</strong></h3><h3><strong>is unqiue</strong></h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_fYiRRh8JKAXbhGTl",
-      "label": "Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_fYiRRh8JKAXbhGTl_mobile",
-      "label": "Image mobile"
-    },
-    {
-      "type": "richtext",
-      "id": "text_YDcVJ0C5N2qTTgRR",
-      "label": "Text",
-      "default": "<h3><strong>No batteries, </strong></h3><h3><strong>or vapor</strong></h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_VoknUyCV3pZaVLxS",
-      "label": "Image"
-    },
-    {
-      "type": "richtext",
-      "id": "text_LAdSaXg8Uaclur8B",
-      "label": "Text",
-      "default": "<h3><strong>100% Natural</strong></h3><h3><strong>ingredients</strong></h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_QSagtsk5m0nVijwf",
-      "label": "Image"
-    },
-    {
-      "type": "richtext",
-      "id": "text_9OuXr8sLYl4jVZG6",
-      "label": "Text",
-      "default": "<h3><strong>EVERY PIECE</strong></h3><h3><strong>IS UNIQUE</strong></h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_kHXNcP1AuGQLEs4x",
-      "label": "Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_kHXNcP1AuGQLEs4x_mobile",
-      "label": "Image mobile"
-    },
-    {
-      "type": "richtext",
-      "id": "text_dCWh95GYFk8HIT8I",
-      "label": "Text",
-      "default": "<h3><strong>Mimics that</strong></h3><h3><strong>familiar habit</strong></h3>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_0zPSASOV3CidzBel",
-      "label": "Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_0zPSASOV3CidzBel_mobile",
-      "label": "Image mobile"
-    },
-    {
-      "type": "richtext",
-      "id": "text_ooUKOr3ji5INbojN",
-      "label": "Text",
-      "default": "<h3><strong>Use it anywhere</strong></h3><h3><strong>you&apos;d like</strong></h3>"
+      "id": "text_g2H833wvj7dSMIwz",
+      "label": "Title",
+      "default": "<h3>A natural aroma core sits inside the device. When you pull, air passes through it. What comes out is nothing but flavored air, and your breath. That&apos;s it. </h3>"
     },
     {
       "type": "url",
-      "id": "url_n9SYmpqP1JVpDdKV",
+      "id": "url_svV67TPm2Sgz0hlr",
       "label": "Button URL"
     },
     {
       "type": "richtext",
-      "id": "text_EYfK89qBHRyTNGKP",
+      "id": "text_Puun44WtrZS4vsYA",
       "label": "Text",
       "default": "<p>Start with Lio</p>"
     },
     {
-      "type": "url",
-      "id": "url_bHq9mDiD6iIya6np",
-      "label": "Button URL"
-    },
-    {
       "type": "richtext",
-      "id": "text_a3AydqWSa51FywhX",
+      "id": "text_8Ms3s9JAqE2jmcPh",
       "label": "Text",
       "default": "<p>How it works</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_cD8VlvZMX45qm897",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_cD8VlvZMX45qm897_mobile",
+      "label": "Image mobile"
     },
     {
       "type": "header",
@@ -543,26 +193,12 @@
     {
       "name": "Flavored Air Device",
       "settings": {
-        "text_YBZO2MdtgHvWAiUl": "<h3>Flavoured </h3><h3>Air Device</h3>",
-        "text_SgBxiA7BnYhiksPV": "<h3>The original 0% nicotine habit replacement that actually works.</h3>",
-        "text_ZRhbOuh14ayfmhBx": "<h3><strong>Natural</strong></h3><h3><strong>ingredients</strong></h3>",
-        "text_PTciTEniDOnEx2TT": "<h3>Every piece</h3><h3>is unique</h3>",
-        "text_Dk4kmaD60vTGZfa3": "<h3><strong>Mimics  that</strong></h3><h3><strong>famillair habit</strong></h3>",
-        "text_JI9wOe3PwXEZ9eeh": "<h3><strong>Use it anywhere</strong></h3><h3><strong>you&apos;d like</strong></h3>",
-        "text_taSAUNduuRQzWOsJ": "<h3><strong>No batteries, </strong></h3><h3><strong>no vapor.</strong></h3>",
-        "text_goAMU10PbQxQIF0e": "<h3><strong>100% Natural</strong></h3><h3><strong>ingredients</strong></h3>",
-        "text_PFhKisNYMiFbjWV3": "<h3><strong>EVERY PIECE</strong></h3><h3><strong>IS UNIQUE</strong></h3>",
-        "text_iO4IDGczuNrQzltF": "<h3><strong>Natural</strong></h3><h3><strong>ingredients</strong></h3>",
-        "text_QaLSudHV3vvxtsTn": "<h3><strong>Every piece</strong></h3><h3><strong>is unqiue</strong></h3>",
-        "text_YDcVJ0C5N2qTTgRR": "<h3><strong>No batteries, </strong></h3><h3><strong>or vapor</strong></h3>",
-        "text_LAdSaXg8Uaclur8B": "<h3><strong>100% Natural</strong></h3><h3><strong>ingredients</strong></h3>",
-        "text_9OuXr8sLYl4jVZG6": "<h3><strong>EVERY PIECE</strong></h3><h3><strong>IS UNIQUE</strong></h3>",
-        "text_dCWh95GYFk8HIT8I": "<h3><strong>Mimics that</strong></h3><h3><strong>familiar habit</strong></h3>",
-        "text_ooUKOr3ji5INbojN": "<h3><strong>Use it anywhere</strong></h3><h3><strong>you&apos;d like</strong></h3>",
-        "url_n9SYmpqP1JVpDdKV": "shopify://products/lio®-starterpack-2",
-        "text_EYfK89qBHRyTNGKP": "<p>Start with Lio</p>",
-        "url_bHq9mDiD6iIya6np": "shopify://pages/trustscience",
-        "text_a3AydqWSa51FywhX": "<p>How it works</p>"
+        "text_XR5kZm7ec8egwxmR": "<h3><strong>No liquid. No vapor. No nicotine.</strong></h3>",
+        "text_Oxdt7tEsg90FMZSX": "<h3>The flavored air habit replacement.</h3>",
+        "text_g2H833wvj7dSMIwz": "<h3>A natural aroma core sits inside the device. When you pull, air passes through it. What comes out is nothing but flavored air, and your breath. That&apos;s it. </h3>",
+        "url_svV67TPm2Sgz0hlr": "shopify://products/journey-pack-3",
+        "text_Puun44WtrZS4vsYA": "<p>Start with Lio</p>",
+        "text_8Ms3s9JAqE2jmcPh": "<p>How it works</p>"
       }
     }
   ]
