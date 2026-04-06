@@ -115,6 +115,32 @@
         "padding_bottom": 0
       }
     },
+    "instant_jg11_vi_z_tro8_f_lj_mq_wxRV8D": {
+      "type": "instant-jg11ViZTro8FLjMQ",
+      "name": "Social Proof Homepage",
+      "settings": {
+        "text_UsFGU36PDhEsYYvk": "<h3><strong>1000+ 5 star reviews</strong></h3>",
+        "text_SUwcyWr2LgZsr2Ve": "<h3>\"I was sceptical,</h3>",
+        "text_3kxpFIuQhsUsE3zT": "<h3>until I tried it\"</h3>",
+        "text_7dziyIdYsZadhSjw": "<h3>Discover why 100.000+</h3><h3>people made the switch to Lio.</h3>",
+        "url_KOxtCymz0xOlTJdw": "shopify://products/lio®-journey-pack-1",
+        "text_ug0fx4rUzy5PEcRr": "<p>Start with Lio</p>",
+        "text_Pf70I6YduDLZrwyd": "<p>\"I haven't come across something as good as this, nothing comes out, so I can use it anywhere. I'm adding a few more years to my life.\"</p>",
+        "text_Z0fObuzLzlKXQQgE": "<p>James (38) </p>",
+        "text_QDd9rcPtZ1J1Ojv8": "<p>\"I've had the habit for the last 30 years. I've been on this now for a week, loving it. I'm not craving at all. No chemicals, it's all just flavored air. It's perfect, really good.\"</p>",
+        "text_zEsBB8yjuvI1Lhug": "<p>Anna (60) </p>",
+        "text_oCgdL8nb5dviNPJv": "<p>\"It blows my mind how a product like this in its simplicity hasn't existed since forever This is an awesome product I recommend highly.\"</p>",
+        "text_kBfMVQWhl13R4peg": "<p>Achmed (43) </p>",
+        "text_hWmhbkK86cre1O9h": "<p>\"The toughest part is the movement. This little gadget has saved me for the last 20 days. I just need my little Lio.\"</p>",
+        "text_us22s7q8XRabxR4a": "<p>Antonio (62) </p>",
+        "text_58ZlzLjDIvOb5aJV": "<p>\"It's insane, this stuff really helps. People came to me and asked what that was and they tried it. It really helps, I'm really satisfied with it.\"</p>",
+        "text_BI9igzYmtxhCRWkX": "<p>Kamar (43) </p>",
+        "text_ivK5LjqsbqnAiTdk": "<p>\"I'm on day 14 now and honestly it's been helping me. this a shot, it's the only thing that's ever helped me. Really good product.\"</p>",
+        "text_JzHcLLSEjUfoMAVc": "<p>MICHAEL (22) </p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "instant_x_oetj8_hepve_arkr_v_EKnyNr": {
       "type": "instant-xOETJ8HepveArkrV",
       "name": "English Social Proof Vide",
@@ -323,6 +349,7 @@
   "order": [
     "instant_yk_bs_lg4_jz_ko_d_rhk1_TJTYzV",
     "instant_oz_a_oh_opd_xw6s_bkql_aQy8gK",
+    "instant_jg11_vi_z_tro8_f_lj_mq_wxRV8D",
     "instant_69_g9sym4fw_qr4_i8y_e4zcbK",
     "instant_x_oetj8_hepve_arkr_v_EKnyNr",
     "instant_6_ta2_uu_zb_jng9_i_bn7_AjQ6VH",
