@@ -21,6 +21,7 @@
 {%- assign lio_plus_url     = '/products/lio-plus' -%}
 
 {%- assign logo_url = 'https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/7zOXcPATzCDnhtfL/lio-logo-zwart-ai-3.png?width=400' -%}
+{%- assign hero_img_url = 'https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/sB4JC5dlYTjblMbD/chatgpt-image-mar-7-2026-040009-pm-5.webp?width=1280' -%}
 
 {%- comment %} ── PRODUCT IMAGES (Shopify CDN) ── {% endcomment -%}
 {%- assign img_journey_classic = 'https://breathelio.com/cdn/shop/files/Gemini_Generated_Image_va8cswva8cswva8c_1_3.png?v=1774669148&width=800' -%}
@@ -120,18 +121,20 @@
   .lio-quiz__landing h1 em { font-style: italic; color: var(--green); }
   .lio-quiz__subtitle { font-size: 1.02rem; color: var(--text-lt); line-height: 1.6; max-width: 440px; margin: 0 auto 28px; }
 
-  /* ── Device Comparison Banner ── */
-  .lio-quiz__devices { width: 100%; max-width: 480px; margin: 0 auto 28px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); display: flex; border: 1px solid var(--border); }
-  .lio-quiz__device { flex: 1; padding: 20px 16px; text-align: center; }
-  .lio-quiz__device--classic { background: var(--green-mist); }
-  .lio-quiz__device--pro { background: var(--green); color: var(--white); }
-  .lio-quiz__device h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.05em; }
-  .lio-quiz__device-subtitle { font-size: 0.7rem; font-weight: 500; opacity: 0.75; margin-bottom: 14px; }
-  .lio-quiz__device-illust { height: 110px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
-  .lio-quiz__device-features { font-size: 0.72rem; text-align: left; display: inline-flex; flex-direction: column; gap: 5px; }
-  .lio-quiz__device-features span { display: flex; align-items: center; gap: 5px; font-weight: 500; }
-  .lio-quiz__device-features span::before { content: '✓'; font-weight: 700; color: var(--green); font-size: 0.72rem; }
-  .lio-quiz__device--pro .lio-quiz__device-features span::before { color: #a5e6a5; }
+  /* ── Hero Image ── */
+  .lio-quiz__hero {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto 28px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .lio-quiz__hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 
   /* ── Feature Pills ── */
   .lio-quiz__features { display: flex; justify-content: center; gap: 28px; margin-bottom: 32px; flex-wrap: wrap; }
@@ -281,7 +284,6 @@
     .lio-quiz__trust-bar { flex-direction: column; align-items: center; gap: 10px; }
     .lio-quiz__product-image { height: 200px; }
     .lio-quiz__content { padding: 0 16px; }
-    .lio-quiz__devices { flex-direction: column; }
   }
 </style>
 
@@ -324,47 +326,15 @@
         <h1>Which Lio® Is<br><em>Perfect for You?</em></h1>
         <p class="lio-quiz__subtitle">Answer 4 quick questions and we'll match you with the exact Lio device &amp; flavour cores designed for your lifestyle.</p>
 
-        {%- comment %} ── Classic vs Pro Device Banner ── {% endcomment -%}
-        <div class="lio-quiz__devices">
-          <div class="lio-quiz__device lio-quiz__device--classic">
-            <h3>Classic</h3>
-            <div class="lio-quiz__device-subtitle">Best for first-time users</div>
-            <div class="lio-quiz__device-illust">
-              <svg width="36" height="110" viewBox="0 0 36 110">
-                <defs><linearGradient id="lioWood1" x1="0" y1="0" x2="1" y2=".6"><stop offset="0%" stop-color="#d4a04a"/><stop offset="35%" stop-color="#b07c32"/><stop offset="65%" stop-color="#c8913a"/><stop offset="100%" stop-color="#a67230"/></linearGradient></defs>
-                <rect x="5" y="6" width="26" height="98" rx="13" fill="url(#lioWood1)" stroke="#8b6520" stroke-width="1.2"/>
-                <path d="M10 14 Q18 10 26 14" fill="none" stroke="#8b6520" stroke-width=".6" opacity=".4"/>
-                <path d="M8 50 Q18 46 28 50" fill="none" stroke="#d4a04a" stroke-width=".5" opacity=".3"/>
-                <path d="M9 70 Q18 66 27 70" fill="none" stroke="#d4a04a" stroke-width=".5" opacity=".3"/>
-                <text x="18" y="58" text-anchor="middle" font-size="8" fill="#fff" font-family="serif" font-style="italic" opacity=".65">lio</text>
-              </svg>
-            </div>
-            <div class="lio-quiz__device-features">
-              <span>Fixed Airflow</span>
-              <span>Simple Design</span>
-              <span>No Nicotine</span>
-            </div>
-          </div>
-          <div class="lio-quiz__device lio-quiz__device--pro">
-            <h3>Pro</h3>
-            <div class="lio-quiz__device-subtitle">Best for cravings &amp; fidgeting</div>
-            <div class="lio-quiz__device-illust">
-              <svg width="36" height="110" viewBox="0 0 36 110">
-                <defs><linearGradient id="lioWood2" x1="0" y1="0" x2="1" y2=".6"><stop offset="0%" stop-color="#d4a04a"/><stop offset="35%" stop-color="#b07c32"/><stop offset="65%" stop-color="#c8913a"/><stop offset="100%" stop-color="#a67230"/></linearGradient></defs>
-                <rect x="5" y="48" width="26" height="56" rx="13" fill="url(#lioWood2)" stroke="#8b6520" stroke-width="1.2"/>
-                <rect x="10" y="10" width="16" height="46" rx="4" fill="#707580" stroke="#5a5e66" stroke-width="1"/>
-                <rect x="13" y="3" width="10" height="14" rx="3" fill="#8a8e96" stroke="#5a5e66" stroke-width=".5"/>
-                <line x1="10" y1="34" x2="26" y2="34" stroke="#5a5e66" stroke-width=".8" opacity=".4"/>
-                <circle cx="18" cy="28" r="2" fill="none" stroke="#5a5e66" stroke-width=".5" opacity=".5"/>
-                <text x="18" y="78" text-anchor="middle" font-size="8" fill="#fff" font-family="serif" font-style="italic" opacity=".65">lio</text>
-              </svg>
-            </div>
-            <div class="lio-quiz__device-features">
-              <span>Adjustable Airflow</span>
-              <span>Magnetic Fidget</span>
-              <span>No Nicotine</span>
-            </div>
-          </div>
+        {%- comment %} ── Hero Image ── {% endcomment -%}
+        <div class="lio-quiz__hero">
+          <img
+            src="{{ hero_img_url }}"
+            alt="Lio® Classic vs Pro — The original flavored air device"
+            loading="eager"
+            width="1280"
+            height="1280"
+          />
         </div>
 
         <div class="lio-quiz__features">
