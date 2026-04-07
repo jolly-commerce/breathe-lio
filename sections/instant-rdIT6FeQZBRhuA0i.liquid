@@ -277,6 +277,15 @@
                       {%- if product.media[1] != blank -%}<img alt="{{ product.images[1].alt }}" width="{{ product.images[1].width }}" height="{{ product.images[1].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product.images[1] | image_url: width: 1080 }} 1080w, {{ product.images[1] | image_url: width: 828 }} 828w, {{ product.images[1] | image_url: width: 750 }} 750w, {{ product.images[1] | image_url: width: 640 }} 640w, {{ product.images[1] | image_url: width: 360 }} 360w, {{ product.images[1] | image_url: width: 1280 }} 1280w" src="{{ product.images[1] | image_url: width: 1280 }}" class="instant-fill instant-image__fill" data-trigger="hover" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" loading="lazy" fetchpriority="auto" style="object-fit:cover">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" data-trigger="hover" decoding="async" loading="lazy" fetchpriority="auto" class="instant-fill instant-image__fill instant-image__fallback">{%- endif -%}</div
                     ><div class="iigOrZwJOrDBiN2bi" data-instant-type="container"
                       ><h3 data-instant-dynamic-content-source="TITLE" data-instant-type="text" class="iMYZiYIIwZllOLrtH">{{ product.title }}</h3
+                      ><h3 data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="ihFAzdjAUH0MbF8vn">
+                        {%- liquid
+                          assign variant_price = product.selected_or_first_available_variant.price
+
+                          if product.selected_or_first_available_variant.selected_selling_plan_allocation
+                            assign variant_price = product.selected_or_first_available_variant.selected_selling_plan_allocation.price
+                          endif
+                        -%}
+                        {{- variant_price | money -}}</h3
                       ><a class="ieQnCehy3zFeVoCgC" data-instant-type="container" href="{{ product.url }}" rel="noopener noreferrer" data-instant-action-type="open-page"
                         ><div data-instant-type="text" class="instant-rich-text iK7e3Xn4vuQefdJUO"><h3>Add to bag</h3></div></a
                       ></div
