@@ -108,6 +108,10 @@
                 ><div>{{ section.settings.text_rXT2TyyTqmHmCSWz }}</div></div
               ></a
             ></div
+          ><div class="iE8rufcRx2b1dxIOh" data-instant-type="container"
+            ><div data-instant-type="text" class="instant-rich-text iwo6PpxKU8vkUmL5v"
+              ><div>{{ section.settings.text_wo6PpxKU8vkUmL5v }}</div></div
+            ></div
           ></div
         ></div
       ></div
@@ -1174,7 +1178,12 @@
         ><div class="iBaZegIDnKsrDHXOq" data-instant-type="container"
           ><div class="iMhJiYqlZHInAzvHz" data-instant-type="container"
             ><div class="idiFl7JEty0lCbmGu" data-instant-type="container"
-              ><p data-instant-dynamic-content-source="TITLE" data-instant-type="text" class="i8SAAzjnc5ktoL4o2">{{ product_FoinM6VVMlwYombu.title }}</p></div
+              ><p data-instant-dynamic-content-source="TITLE" data-instant-type="text" class="i8SAAzjnc5ktoL4o2">{{ product_FoinM6VVMlwYombu.title }}</p
+              ><div class="iCUmbNkmNH3jJ7rmR" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iE4fPoq7fFHGK0Grp"
+                  ><div>{{ section.settings.text_E4fPoq7fFHGK0Grp }}</div></div
+                ></div
+              ></div
             ><div class="iMsLVB5syL8uxnNXn" data-instant-type="container"
               ><div class="iKdHzOK8IJnae0BUB" data-instant-type="container"
                 ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iBR0qONvIKYpR4zUY">
@@ -1362,55 +1371,14 @@
                   ></div
                 ><div class="iTiZTY4lw9riV8NdL" data-instant-type="container"
                   ><div class="iaImTsoxRsy7U13L9" data-instant-type="container"
-                    ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iPw8OUVHy5rtKuj85">
-                      {%- liquid
-                        assign variant_price = selected_variant.price
-
-                        if product_FoinM6VVMlwYombu_variant.selected_selling_plan_allocation
-                          for allocation in selected_variant.selling_plan_allocations
-                            assign selected_selling_plan_option = product_FoinM6VVMlwYombu_variant.selected_selling_plan_allocation.selling_plan.options | first
-                            assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
-
-                            if selling_plan_by_interval != null
-                              assign variant_price = allocation.price
-                              break
-                            endif
-                          endfor
-                        endif
-                      -%}
-                      {{- variant_price | money -}}
-                    </p>
-
-                    {%- liquid
-                      assign style = ''
-                      assign compare_at_price = selected_variant.compare_at_price
-                      assign variant_price = selected_variant.price
-
-                      if product_FoinM6VVMlwYombu_variant.selected_selling_plan_allocation
-                        for allocation in selected_variant.selling_plan_allocations
-                          assign selected_selling_plan_option = product_FoinM6VVMlwYombu_variant.selected_selling_plan_allocation.selling_plan.options | first
-                          assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
-
-                          if selling_plan_by_interval != null
-                            assign compare_at_price = allocation.compare_at_price
-                            assign variant_price = allocation.price
-                            break
-                          endif
-                        endfor
-                      endif
-
-                      if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <span
-                      data-instant-dynamic-content-source="COMPARE_AT"
-                      class="i7AKIYBbQjLwaVSWU"
-                      {{- style -}}
-                    >
-                      {{- compare_at_price | money -}}
-                    </span>
-                  </div></div
+                    ><div data-instant-type="text" class="instant-rich-text iPw8OUVHy5rtKuj85"
+                      ><div>{{ section.settings.text_Pw8OUVHy5rtKuj85 }}</div></div
+                    ><div class="iOqH15AZA0NeV4UOU" data-instant-type="container"
+                      ><div data-instant-type="text" class="instant-rich-text iLlJWPyrHwGWUV1QF"
+                        ><div>{{ section.settings.text_LlJWPyrHwGWUV1QF }}</div></div
+                      ></div
+                    ></div
+                  ></div
                 ></div
               >
               {%- liquid
@@ -1528,55 +1496,10 @@
                   ></div
                 ><div class="iJ5GOXzIotzYMSedx" data-instant-type="container"
                   ><div class="ixixd5O6GdqN9wWwl" data-instant-type="container"
-                    ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="ipnND2z05dv5OVnXZ">
-                      {%- liquid
-                        assign variant_price = selected_variant.price
-
-                        if product_FoinM6VVMlwYombu_variant.selected_selling_plan_allocation
-                          for allocation in selected_variant.selling_plan_allocations
-                            assign selected_selling_plan_option = product_FoinM6VVMlwYombu_variant.selected_selling_plan_allocation.selling_plan.options | first
-                            assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
-
-                            if selling_plan_by_interval != null
-                              assign variant_price = allocation.price
-                              break
-                            endif
-                          endfor
-                        endif
-                      -%}
-                      {{- variant_price | money -}}
-                    </p>
-
-                    {%- liquid
-                      assign style = ''
-                      assign compare_at_price = selected_variant.compare_at_price
-                      assign variant_price = selected_variant.price
-
-                      if product_FoinM6VVMlwYombu_variant.selected_selling_plan_allocation
-                        for allocation in selected_variant.selling_plan_allocations
-                          assign selected_selling_plan_option = product_FoinM6VVMlwYombu_variant.selected_selling_plan_allocation.selling_plan.options | first
-                          assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
-
-                          if selling_plan_by_interval != null
-                            assign compare_at_price = allocation.compare_at_price
-                            assign variant_price = allocation.price
-                            break
-                          endif
-                        endfor
-                      endif
-
-                      if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <span
-                      data-instant-dynamic-content-source="COMPARE_AT"
-                      class="iWBIMuJB4icIJBhzV"
-                      {{- style -}}
-                    >
-                      {{- compare_at_price | money -}}
-                    </span>
-                  </div></div
+                    ><div data-instant-type="text" class="instant-rich-text ipnND2z05dv5OVnXZ"
+                      ><div>{{ section.settings.text_pnND2z05dv5OVnXZ }}</div></div
+                    ></div
+                  ></div
                 ></div
               >
               {%- liquid
@@ -1692,57 +1615,11 @@
                       ><div>{{ section.settings.text_sNqE6VvqnlIXfPTG }}</div></div
                     ></div
                   ></div
-                ><div class="iQJX8lQk1RPr8QuXM" data-instant-type="container"
-                  ><div class="ilUEmzmDanxU0RCqH" data-instant-type="container"
-                    ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iWMmTdXK51f7nC4yL">
-                      {%- liquid
-                        assign variant_price = selected_variant.price
-
-                        if product_FoinM6VVMlwYombu_variant.selected_selling_plan_allocation
-                          for allocation in selected_variant.selling_plan_allocations
-                            assign selected_selling_plan_option = product_FoinM6VVMlwYombu_variant.selected_selling_plan_allocation.selling_plan.options | first
-                            assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
-
-                            if selling_plan_by_interval != null
-                              assign variant_price = allocation.price
-                              break
-                            endif
-                          endfor
-                        endif
-                      -%}
-                      {{- variant_price | money -}}
-                    </p>
-
-                    {%- liquid
-                      assign style = ''
-                      assign compare_at_price = selected_variant.compare_at_price
-                      assign variant_price = selected_variant.price
-
-                      if product_FoinM6VVMlwYombu_variant.selected_selling_plan_allocation
-                        for allocation in selected_variant.selling_plan_allocations
-                          assign selected_selling_plan_option = product_FoinM6VVMlwYombu_variant.selected_selling_plan_allocation.selling_plan.options | first
-                          assign selling_plan_by_interval = allocation.selling_plan.options | where: 'value', selected_selling_plan_option.value | first
-
-                          if selling_plan_by_interval != null
-                            assign compare_at_price = allocation.compare_at_price
-                            assign variant_price = allocation.price
-                            break
-                          endif
-                        endfor
-                      endif
-
-                      if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
-                        assign style = 'style="display: none;"'
-                      endif
-                    -%}
-                    <span
-                      data-instant-dynamic-content-source="COMPARE_AT"
-                      class="iNXWPbwKJ8PjoR9C9"
-                      {{- style -}}
-                    >
-                      {{- compare_at_price | money -}}
-                    </span>
-                  </div></div
+                ><div class="iQJX8lQk1RPr8QuXM" data-instant-type="container"></div
+                ><div class="iaa8CyYykQ4qBexuU" data-instant-type="container"
+                  ><div data-instant-type="text" class="instant-rich-text iO0hRtxieYMkwaWRP"
+                    ><div>{{ section.settings.text_O0hRtxieYMkwaWRP }}</div></div
+                  ></div
                 ></div
               ></div
             ><div conditionals="" class="irKUl2TsSkotJDJWl" data-instant-type="container"
@@ -1907,10 +1784,6 @@
                         ><div class="iCqMyqBBE4jM8C7nh" data-instant-type="container"
                           ><div data-instant-type="text" class="instant-rich-text iCEjfyAJLkwgbRruV"
                             ><div>{{ section.settings.text_CEjfyAJLkwgbRruV }}</div></div
-                          ><div class="iZKImXTeodBZ4d1cL" data-instant-type="container"
-                            ><div data-instant-type="text" class="instant-rich-text imVTt9UfGFMFbpTrW"
-                              ><div>{{ section.settings.text_mVTt9UfGFMFbpTrW }}</div></div
-                            ></div
                           ></div
                         ></div
                       >
@@ -1999,7 +1872,7 @@
                         {%- if section.settings.image_4x6RjlFDUqpIPiZs_mobile and section.settings.image_4x6RjlFDUqpIPiZs_mobile != blank -%}
                           {{ section.settings.image_4x6RjlFDUqpIPiZs_mobile | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings.image_4x6RjlFDUqpIPiZs_mobile.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
                         {%- else -%}
-                          <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1280" width="1024" height="1024" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile">
+                          <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/aHC6fdD3mqC3NIoO/chatgpt-image-mar-6-2026-084107-pm-2.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/aHC6fdD3mqC3NIoO/chatgpt-image-mar-6-2026-084107-pm-2.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/aHC6fdD3mqC3NIoO/chatgpt-image-mar-6-2026-084107-pm-2.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/aHC6fdD3mqC3NIoO/chatgpt-image-mar-6-2026-084107-pm-2.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/aHC6fdD3mqC3NIoO/chatgpt-image-mar-6-2026-084107-pm-2.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/aHC6fdD3mqC3NIoO/chatgpt-image-mar-6-2026-084107-pm-2.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/aHC6fdD3mqC3NIoO/chatgpt-image-mar-6-2026-084107-pm-2.webp?width=1280" width="1024" height="1024" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile">
                         {%- endif -%}</div
                       ><div class="iBQNpHiw5Xc6zJfMF" data-instant-type="container"
                         ><div data-instant-type="text" class="instant-rich-text imEbnxJ87aUmewqD5"
@@ -2095,7 +1968,7 @@
                         {%- if section.settings.image_gxyTUN9mSbBx2RMJ_mobile and section.settings.image_gxyTUN9mSbBx2RMJ_mobile != blank -%}
                           {{ section.settings.image_gxyTUN9mSbBx2RMJ_mobile | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings.image_gxyTUN9mSbBx2RMJ_mobile.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
                         {%- else -%}
-                          <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1280" width="1024" height="1024" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile">
+                          <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/KdL4bz0z2YkLZdly/chatgpt-image-mar-6-2026-085144-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/KdL4bz0z2YkLZdly/chatgpt-image-mar-6-2026-085144-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/KdL4bz0z2YkLZdly/chatgpt-image-mar-6-2026-085144-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/KdL4bz0z2YkLZdly/chatgpt-image-mar-6-2026-085144-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/KdL4bz0z2YkLZdly/chatgpt-image-mar-6-2026-085144-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/KdL4bz0z2YkLZdly/chatgpt-image-mar-6-2026-085144-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/KdL4bz0z2YkLZdly/chatgpt-image-mar-6-2026-085144-pm.webp?width=1280" width="1024" height="1024" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile">
                         {%- endif -%}</div
                       ><div class="ijM0FK6fRAqIML8ET" data-instant-type="container"
                         ><div data-instant-type="text" class="instant-rich-text iVnYkmmoXtCloPFlP"
@@ -2191,7 +2064,7 @@
                         {%- if section.settings.image_tUSzLXUz5EUT6M3M_mobile and section.settings.image_tUSzLXUz5EUT6M3M_mobile != blank -%}
                           {{ section.settings.image_tUSzLXUz5EUT6M3M_mobile | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings.image_tUSzLXUz5EUT6M3M_mobile.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
                         {%- else -%}
-                          <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1280" width="1024" height="1024" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile">
+                          <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Jk2decxPJt5aA1dF/chatgpt-image-mar-6-2026-084959-pm-1-photoroom.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Jk2decxPJt5aA1dF/chatgpt-image-mar-6-2026-084959-pm-1-photoroom.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Jk2decxPJt5aA1dF/chatgpt-image-mar-6-2026-084959-pm-1-photoroom.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Jk2decxPJt5aA1dF/chatgpt-image-mar-6-2026-084959-pm-1-photoroom.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Jk2decxPJt5aA1dF/chatgpt-image-mar-6-2026-084959-pm-1-photoroom.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Jk2decxPJt5aA1dF/chatgpt-image-mar-6-2026-084959-pm-1-photoroom.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/Jk2decxPJt5aA1dF/chatgpt-image-mar-6-2026-084959-pm-1-photoroom.webp?width=1280" width="1024" height="1024" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile">
                         {%- endif -%}</div
                       ><div class="iVQAn69j1hwZNc9IV" data-instant-type="container"
                         ><div data-instant-type="text" class="instant-rich-text iMmsuOWAhHrLEpD2H"
@@ -2287,7 +2160,7 @@
                         {%- if section.settings.image_0oz1s7gKWZppaW4o_mobile and section.settings.image_0oz1s7gKWZppaW4o_mobile != blank -%}
                           {{ section.settings.image_0oz1s7gKWZppaW4o_mobile | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings.image_0oz1s7gKWZppaW4o_mobile.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
                         {%- else -%}
-                          <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ft9atmABPayRt0g5/chatgpt-image-mar-6-2026-084107-pm.webp?width=1280" width="1024" height="1024" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile">
+                          <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=1280" width="1024" height="1024" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile">
                         {%- endif -%}</div
                       ><div class="izlXeeu55NMWHe6x7" data-instant-type="container"
                         ><div data-instant-type="text" class="instant-rich-text iTb5AsLgUjHPSAUXn"
@@ -2635,7 +2508,7 @@
 </div>
 {% schema %}
 {
-  "name": "Hero Section",
+  "name": "Hero Section Free Lio",
   "tag": "section",
   "enabled_on": {
     "templates": [
@@ -2681,6 +2554,12 @@
       "id": "text_rXT2TyyTqmHmCSWz",
       "label": "Text",
       "default": "<p>Start with Lio</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_wo6PpxKU8vkUmL5v",
+      "label": "Text",
+      "default": "<p><strong>Free Lio Device worth €39 included</strong></p>"
     },
     {
       "type": "richtext",
@@ -2976,6 +2855,12 @@
     },
     {
       "type": "richtext",
+      "id": "text_E4fPoq7fFHGK0Grp",
+      "label": "Text",
+      "default": "<p><strong>Free Lio Device worth €39 included</strong></p>"
+    },
+    {
+      "type": "richtext",
       "id": "text_hVkF9SKwvtRSIMId",
       "label": "Text",
       "default": "<p>OFF</p>"
@@ -3019,6 +2904,18 @@
       "default": "<p>Fixed airflow</p>"
     },
     {
+      "type": "richtext",
+      "id": "text_Pw8OUVHy5rtKuj85",
+      "label": "Price",
+      "default": "<p><strong>€39</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_LlJWPyrHwGWUV1QF",
+      "label": "Title",
+      "default": "<h3>Free Device</h3>"
+    },
+    {
       "type": "image_picker",
       "id": "image_L1VFwoqlYemnGFMe",
       "label": "Image"
@@ -3057,6 +2954,12 @@
       "default": "<p>Adjustable airflow</p>"
     },
     {
+      "type": "richtext",
+      "id": "text_pnND2z05dv5OVnXZ",
+      "label": "Price",
+      "default": "<p>+ €20</p>"
+    },
+    {
       "type": "image_picker",
       "id": "image_ZjgqIPmZZXTfRWuA",
       "label": "Image"
@@ -3093,6 +2996,12 @@
       "id": "text_sNqE6VvqnlIXfPTG",
       "label": "Description",
       "default": "<p>Adjustable airflow</p><p>Magnetic fidgeting</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text_O0hRtxieYMkwaWRP",
+      "label": "Price",
+      "default": "<p>+ €60</p>"
     },
     {
       "type": "richtext",
@@ -3140,13 +3049,7 @@
       "type": "richtext",
       "id": "text_CEjfyAJLkwgbRruV",
       "label": "Text",
-      "default": "<p>Included</p>"
-    },
-    {
-      "type": "richtext",
-      "id": "text_mVTt9UfGFMFbpTrW",
-      "label": "Text",
-      "default": "<p>€19</p>"
+      "default": "<p>€39</p>"
     },
     {
       "type": "richtext",
@@ -3180,7 +3083,7 @@
       "type": "richtext",
       "id": "text_65H8TanQPbAM4TT3",
       "label": "Text",
-      "default": "<p>+ €19 </p>"
+      "default": "<p>+ €59 </p>"
     },
     {
       "type": "richtext",
@@ -3214,7 +3117,7 @@
       "type": "richtext",
       "id": "text_aCeVMvGSssbcyE5r",
       "label": "Text",
-      "default": "<p>+ €9 </p>"
+      "default": "<p>+ €49 </p>"
     },
     {
       "type": "richtext",
@@ -3248,7 +3151,7 @@
       "type": "richtext",
       "id": "text_iwcVv0wlaeZgKutb",
       "label": "Text",
-      "default": "<p>Included</p>"
+      "default": "<p>€39</p>"
     },
     {
       "type": "richtext",
@@ -3282,7 +3185,7 @@
       "type": "richtext",
       "id": "text_EJcURkfKadvNiIaF",
       "label": "Text",
-      "default": "<p>+ €19</p>"
+      "default": "<p>€59</p>"
     },
     {
       "type": "richtext",
@@ -3371,48 +3274,53 @@
   ],
   "presets": [
     {
-      "name": "Hero Section",
+      "name": "Hero Section Free Lio",
       "settings": {
         "text_PfHrwtGsqhpnibzA": "<h3><strong>150.000+ people switched to Lio</strong></h3>",
         "text_Emi20mDRLgqLlKtc": "<h3>Finally free from </h3><h3>your bad habits</h3>",
         "text_dg8xTuqCswdfHYk1": "<h3>The nicotine-free diffuser that replaces your bad habit, naturally, immediately, for good.</h3>",
         "url_nvL1YF1i3EIvWiK7": "shopify://products/journey-pack-3",
         "text_rXT2TyyTqmHmCSWz": "<p>Start with Lio</p>",
+        "text_wo6PpxKU8vkUmL5v": "<p><strong>Free Lio Device worth €39 included</strong></p>",
         "text_0qvHQrKgZ10M2Ude": "<p>What Cores </p><p>do you need?</p>",
         "url_VMk9GkIF754XiHFi": "shopify://products/lio-pro-cores",
         "url_Op8zhrSSAOQ2UoZ6": "shopify://products/lio-flavor-cores",
         "text_qFbTupeJ8qsKBpDh": "<p><strong>The new Lio Plus uses the original cores.</strong></p>",
         "product_FoinM6VVMlwYombu": "lio-pro-pack",
+        "text_E4fPoq7fFHGK0Grp": "<p><strong>Free Lio Device worth €39 included</strong></p>",
         "text_hVkF9SKwvtRSIMId": "<p>OFF</p>",
         "text_xMYdlMPlS4VLRRXg": "<p>Select your Lio:</p>",
         "text_BoL0zpt8FSPBvItb": "<h3>Lio Original</h3>",
         "text_SMn1xrvbhtC7zjSV": "<p>Fixed airflow</p>",
+        "text_Pw8OUVHy5rtKuj85": "<p><strong>€39</strong></p>",
+        "text_LlJWPyrHwGWUV1QF": "<h3>Free Device</h3>",
         "text_ccrtcBsyp5z2SgYD": "<h3>Lio Plus</h3>",
         "text_zqQtkMAlQNaBvwzN": "<h3>Most popular</h3>",
         "text_NZAiqPshrTBOXuES": "<p>Adjustable airflow</p>",
+        "text_pnND2z05dv5OVnXZ": "<p>+ €20</p>",
         "text_t6HzdQNE4Xbe2koc": "<h3>Lio Pro</h3>",
         "text_of2nqOLvXBNNR94a": "<h3>Most value</h3>",
         "text_sNqE6VvqnlIXfPTG": "<p>Adjustable airflow</p><p>Magnetic fidgeting</p>",
+        "text_O0hRtxieYMkwaWRP": "<p>+ €60</p>",
         "text_IKBdx5uGSFASEYLv": "<p>Select colour:</p>",
         "text_5KBF6qF6jH6weNKx": "<p>Select flavor:</p>",
-        "text_CEjfyAJLkwgbRruV": "<p>Included</p>",
-        "text_mVTt9UfGFMFbpTrW": "<p>€19</p>",
+        "text_CEjfyAJLkwgbRruV": "<p>€39</p>",
         "text_4Gh2XqcvYsJidm7o": "<p>Selected</p>",
         "text_Lbndmx3eGeuefVqs": "<p>Select</p>",
         "text_mEbnxJ87aUmewqD5": "<p>Minty 90-Days</p>",
-        "text_65H8TanQPbAM4TT3": "<p>+ €19 </p>",
+        "text_65H8TanQPbAM4TT3": "<p>+ €59 </p>",
         "text_iFhbYTZsSZGRMXjc": "<p>Selected</p>",
         "text_qt42ISKcutjEhbWI": "<p>Select</p>",
         "text_VnYkmmoXtCloPFlP": "<p>Mixed 60-Days</p>",
-        "text_aCeVMvGSssbcyE5r": "<p>+ €9 </p>",
+        "text_aCeVMvGSssbcyE5r": "<p>+ €49 </p>",
         "text_FneyHmiji34bStPE": "<p>Selected</p>",
         "text_dQTl516Eiz1Lo03A": "<p>Select</p>",
         "text_MmsuOWAhHrLEpD2H": "<p>Fruity 30-Days</p>",
-        "text_iwcVv0wlaeZgKutb": "<p>Included</p>",
+        "text_iwcVv0wlaeZgKutb": "<p>€39</p>",
         "text_TI7XvY6HNhzBSpWq": "<p>Selected</p>",
         "text_PhNQgzRKUyniy7Ch": "<p>Select</p>",
         "text_Tb5AsLgUjHPSAUXn": "<p>Fruity 90-Days</p>",
-        "text_EJcURkfKadvNiIaF": "<p>+ €19</p>",
+        "text_EJcURkfKadvNiIaF": "<p>€59</p>",
         "text_gsR5aZ3fCpKThFZ6": "<p>Selected</p>",
         "text_ON1iRUNkM1NIB1kc": "<p>Select</p>",
         "text_AFs5vZpIPxZt4i22": "<p>ADD TO CART</p>",
