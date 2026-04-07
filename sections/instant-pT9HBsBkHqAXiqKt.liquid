@@ -1726,6 +1726,10 @@
                     ><div>{{ section.settings.text_5KBF6qF6jH6weNKx }}</div></div
                   ><p data-instant-dynamic-content-source="OPTION3" data-instant-type="text" class="i4fs8P9Qs52IAfTse">{{ product_FoinM6VVMlwYombu_variant.option3 }}</p></div
                 ></div
+              ><div class="iD9J9WmbjvFnUQl6H" data-instant-type="container"
+                ><div data-instant-type="text" class="instant-rich-text iqWRs0vxF0797pHhW"
+                  ><div>{{ section.settings.text_qWRs0vxF0797pHhW }}</div></div
+                ></div
               ></div
             ><div class="instant-slider-container i4Vx11wHmzQqDQfVd" data-instant-type="slider-container"
               ><div class="imuY0GBdSA6EwYFfw" data-instant-type="container">
@@ -2115,102 +2119,6 @@
                       <div class="iqppeC6Llja0Zwoer" data-instant-type="container" {{- style -}} data-instant-conditional="true"
                         ><div data-instant-type="text" class="instant-rich-text iPhNQgzRKUyniy7Ch"
                           ><div>{{ section.settings.text_PhNQgzRKUyniy7Ch }}</div></div
-                        ></div
-                      ></div
-                    ><div
-                      class="instant-custom-variant-picker instant-slider-slide iO5ymaMCrbOBIfblB"
-                      data-instant-type="slider-slide"
-                      data-instant-action-type="select-variant-option"
-                      data-instant-option-value="
-                        {%- liquid
-                        	assign selected_options = product_FoinM6VVMlwYombu_variant.options
-                        	assign selected_option = product_FoinM6VVMlwYombu.options_with_values | where : 'name', 'Flavor Bundle' | first
-                        	if selected_option == null
-                        		assign selected_option = product_FoinM6VVMlwYombu.options_with_values[2]
-                        	endif
-
-                        	for variant in product_FoinM6VVMlwYombu.variants
-                        		if selected_option.position == 1 and variant.option1 == selected_option.values[4] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
-                        			assign selected_variant = variant
-                        		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[4] and variant.option3 == selected_options[2]
-                        			assign selected_variant = variant
-                        		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[4]
-                        			assign selected_variant = variant
-                        		endif
-                        	endfor
-                        -%}{{- selected_option.values[4] | escape -}}
-                      "
-                      data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                      data-instant-state="{%- if product_FoinM6VVMlwYombu_variant.options contains selected_option.values[4] -%}active{%- else -%}inactive{%- endif -%}"
-                      data-instant-disabled="
-                        {%- liquid
-                        	assign is_not_available = false
-                        	if selected_variant.available == false
-                        		assign is_not_available = true
-                        	endif
-                        -%}{{- is_not_available -}}
-                      "
-                      ><div data-instant-type="media" class="i0oz1s7gKWZppaW4o">
-                        {%- if section.settings.image_0oz1s7gKWZppaW4o and section.settings.image_0oz1s7gKWZppaW4o != blank -%}
-                          {{ section.settings.image_0oz1s7gKWZppaW4o | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet', alt: section.settings.image_0oz1s7gKWZppaW4o.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                        {%- else -%}
-                          <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=1280" width="1024" height="1024" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--desktop instant-responsive--laptop instant-responsive--tablet">
-                        {%- endif -%}
-                        <!--  -->
-                        {%- if section.settings.image_0oz1s7gKWZppaW4o_mobile and section.settings.image_0oz1s7gKWZppaW4o_mobile != blank -%}
-                          {{ section.settings.image_0oz1s7gKWZppaW4o_mobile | image_url: width: 1280 | image_tag: class: 'instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile', alt: section.settings.image_0oz1s7gKWZppaW4o_mobile.alt, fetchpriority: fetchpriority, loading: loading, decoding: 'async' }}
-                        {%- else -%}
-                          <img alt="" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=1080 1080w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=828 828w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=750 750w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=640 640w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=360 360w, https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=1280 1280w" src="https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/JcdQiIjb7YdJkXi3/chatgpt-image-mar-6-2026-084959-pm-3.webp?width=1280" width="1024" height="1024" decoding="async" fetchpriority="{{ fetchpriority }}" loading="{{ loading }}" class="instant-media instant-image instant-image__main instant-responsive instant-responsive--mobile">
-                        {%- endif -%}</div
-                      ><div class="izlXeeu55NMWHe6x7" data-instant-type="container"
-                        ><div data-instant-type="text" class="instant-rich-text iTb5AsLgUjHPSAUXn"
-                          ><div>{{ section.settings.text_Tb5AsLgUjHPSAUXn }}</div></div
-                        ><div class="ilfQ6rokRiybCZiw8" data-instant-type="container"
-                          ><div data-instant-type="text" class="instant-rich-text iEJcURkfKadvNiIaF"
-                            ><div>{{ section.settings.text_EJcURkfKadvNiIaF }}</div></div
-                          ></div
-                        ></div
-                      >
-                      {%- liquid
-                        assign style = ''
-
-                        assign selected_option = product_FoinM6VVMlwYombu.options_with_values[2]
-                        assign selected_option_value = selected_option.values[4]
-
-                        assign variant_has_option = false
-
-                        if product_FoinM6VVMlwYombu_variant.options contains selected_option_value
-                          assign variant_has_option = true
-                        endif
-
-                        if variant_has_option != true
-                          assign style = 'style="display: none;"'
-                        endif
-                      -%}
-                      <div class="i0cnBoeOBkNd1GI3Y" data-instant-type="container" {{- style -}} data-instant-conditional="true"
-                        ><div data-instant-type="text" class="instant-rich-text igsR5aZ3fCpKThFZ6"
-                          ><div>{{ section.settings.text_gsR5aZ3fCpKThFZ6 }}</div></div
-                        ></div
-                      >
-                      {%- liquid
-                        assign style = ''
-
-                        assign selected_option = product_FoinM6VVMlwYombu.options_with_values[2]
-                        assign selected_option_value = selected_option.values[4]
-
-                        assign variant_has_option = false
-
-                        if product_FoinM6VVMlwYombu_variant.options contains selected_option_value
-                          assign variant_has_option = true
-                        endif
-
-                        if variant_has_option == true
-                          assign style = 'style="display: none;"'
-                        endif
-                      -%}
-                      <div class="iIFAsajtTVdbQ8SO5" data-instant-type="container" {{- style -}} data-instant-conditional="true"
-                        ><div data-instant-type="text" class="instant-rich-text iON1iRUNkM1NIB1kc"
-                          ><div>{{ section.settings.text_ON1iRUNkM1NIB1kc }}</div></div
                         ></div
                       ></div
                     ></div
@@ -2957,7 +2865,7 @@
       "type": "richtext",
       "id": "text_pnND2z05dv5OVnXZ",
       "label": "Price",
-      "default": "<p>+ €20</p>"
+      "default": "<p>+ €10</p>"
     },
     {
       "type": "image_picker",
@@ -3036,6 +2944,12 @@
       "default": "<p>Select flavor:</p>"
     },
     {
+      "type": "richtext",
+      "id": "text_qWRs0vxF0797pHhW",
+      "label": "Text",
+      "default": "<p><strong>Three cores per pack. Each one lasts around 10 days. </strong>Every core is filled with essential oils sourced from certified European farms, botanicals, and plant extracts blended in our Netherlands facility. </p>"
+    },
+    {
       "type": "image_picker",
       "id": "image_OOauMfci1TAA0P2U",
       "label": "Image"
@@ -3083,7 +2997,7 @@
       "type": "richtext",
       "id": "text_65H8TanQPbAM4TT3",
       "label": "Text",
-      "default": "<p>+ €59 </p>"
+      "default": "<p>+ €68</p>"
     },
     {
       "type": "richtext",
@@ -3117,7 +3031,7 @@
       "type": "richtext",
       "id": "text_aCeVMvGSssbcyE5r",
       "label": "Text",
-      "default": "<p>+ €49 </p>"
+      "default": "<p>+ €58</p>"
     },
     {
       "type": "richtext",
@@ -3162,40 +3076,6 @@
     {
       "type": "richtext",
       "id": "text_PhNQgzRKUyniy7Ch",
-      "label": "Text",
-      "default": "<p>Select</p>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_0oz1s7gKWZppaW4o",
-      "label": "Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "image_0oz1s7gKWZppaW4o_mobile",
-      "label": "Image mobile"
-    },
-    {
-      "type": "richtext",
-      "id": "text_Tb5AsLgUjHPSAUXn",
-      "label": "Text",
-      "default": "<p>Fruity 90-Days</p>"
-    },
-    {
-      "type": "richtext",
-      "id": "text_EJcURkfKadvNiIaF",
-      "label": "Text",
-      "default": "<p>€59</p>"
-    },
-    {
-      "type": "richtext",
-      "id": "text_gsR5aZ3fCpKThFZ6",
-      "label": "Text",
-      "default": "<p>Selected</p>"
-    },
-    {
-      "type": "richtext",
-      "id": "text_ON1iRUNkM1NIB1kc",
       "label": "Text",
       "default": "<p>Select</p>"
     },
@@ -3297,32 +3177,29 @@
         "text_ccrtcBsyp5z2SgYD": "<h3>Lio Plus</h3>",
         "text_zqQtkMAlQNaBvwzN": "<h3>Most popular</h3>",
         "text_NZAiqPshrTBOXuES": "<p>Adjustable airflow</p>",
-        "text_pnND2z05dv5OVnXZ": "<p>+ €20</p>",
+        "text_pnND2z05dv5OVnXZ": "<p>+ €10</p>",
         "text_t6HzdQNE4Xbe2koc": "<h3>Lio Pro</h3>",
         "text_of2nqOLvXBNNR94a": "<h3>Most value</h3>",
         "text_sNqE6VvqnlIXfPTG": "<p>Adjustable airflow</p><p>Magnetic fidgeting</p>",
         "text_O0hRtxieYMkwaWRP": "<p>+ €60</p>",
         "text_IKBdx5uGSFASEYLv": "<p>Select colour:</p>",
         "text_5KBF6qF6jH6weNKx": "<p>Select flavor:</p>",
+        "text_qWRs0vxF0797pHhW": "<p><strong>Three cores per pack. Each one lasts around 10 days. </strong>Every core is filled with essential oils sourced from certified European farms, botanicals, and plant extracts blended in our Netherlands facility. </p>",
         "text_CEjfyAJLkwgbRruV": "<p>€39</p>",
         "text_4Gh2XqcvYsJidm7o": "<p>Selected</p>",
         "text_Lbndmx3eGeuefVqs": "<p>Select</p>",
         "text_mEbnxJ87aUmewqD5": "<p>Minty 90-Days</p>",
-        "text_65H8TanQPbAM4TT3": "<p>+ €59 </p>",
+        "text_65H8TanQPbAM4TT3": "<p>+ €68</p>",
         "text_iFhbYTZsSZGRMXjc": "<p>Selected</p>",
         "text_qt42ISKcutjEhbWI": "<p>Select</p>",
         "text_VnYkmmoXtCloPFlP": "<p>Mixed 60-Days</p>",
-        "text_aCeVMvGSssbcyE5r": "<p>+ €49 </p>",
+        "text_aCeVMvGSssbcyE5r": "<p>+ €58</p>",
         "text_FneyHmiji34bStPE": "<p>Selected</p>",
         "text_dQTl516Eiz1Lo03A": "<p>Select</p>",
         "text_MmsuOWAhHrLEpD2H": "<p>Fruity 30-Days</p>",
         "text_iwcVv0wlaeZgKutb": "<p>€39</p>",
         "text_TI7XvY6HNhzBSpWq": "<p>Selected</p>",
         "text_PhNQgzRKUyniy7Ch": "<p>Select</p>",
-        "text_Tb5AsLgUjHPSAUXn": "<p>Fruity 90-Days</p>",
-        "text_EJcURkfKadvNiIaF": "<p>€59</p>",
-        "text_gsR5aZ3fCpKThFZ6": "<p>Selected</p>",
-        "text_ON1iRUNkM1NIB1kc": "<p>Select</p>",
         "text_AFs5vZpIPxZt4i22": "<p>ADD TO CART</p>",
         "text_EJ3Ive6g8QKtbOR7": "<p><strong>73% succeed with the 90-day reset</strong></p>",
         "text_fUukFamhYPSMZsy2": "<p><strong>Reset program added ✓</strong></p>",
