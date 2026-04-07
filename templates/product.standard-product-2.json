@@ -79,6 +79,14 @@
             "show_taxes_notice": false
           }
         },
+        "description_HA4DAH": {
+          "type": "description",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "collapse_content": false
+          }
+        },
         "section_store_block_benefits_list_nBiyBB": {
           "type": "shopify://apps/section-store/blocks/block-benefits-list/d7a2e423-ea88-4344-b866-6d0fb487c3dd",
           "settings": {
@@ -224,6 +232,7 @@
         "section_store_block_review_summary_VBGpdP",
         "title",
         "price",
+        "description_HA4DAH",
         "section_store_block_benefits_list_nBiyBB",
         "rating",
         "variant_picker",
