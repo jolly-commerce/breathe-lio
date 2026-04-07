@@ -154,6 +154,30 @@
         "padding_bottom": 0
       }
     },
+    "instant_sgbd655le_hh0r2_pw_ekGMgH": {
+      "type": "instant-Sgbd655leHh0r2PW",
+      "name": "USE IT ANYWHERE",
+      "settings": {
+        "text_FtgUZGCiW6P9UIyb": "<h3>No vapor. No smell. No restrictions.</h3>",
+        "text_hKUF97nnDGZrSrGo": "<h3>Use it anywhere. </h3>",
+        "text_NpTZ41smky1abxJe": "<h3>The urge doesn't care where you are. <em><strong>Neither does Lio.</strong></em></h3>",
+        "text_RsY9tNjmoGlORvTT": "<p>On the plane</p>",
+        "text_GXfpUflqTBiTOJbY": "<p>At the office</p>",
+        "text_KVzziWIBqVykGRcm": "<p>Public transport</p>",
+        "text_wRIhkgRbgIb43vMD": "<p>A restaurant</p>",
+        "text_vOaoHDUlOgdRcDa2": "<p>In a meeting</p>",
+        "text_5UD81Liw35gJXFqt": "<p>At the gym</p>",
+        "text_WqgE9rSdWYL7b1rT": "<p>A restaurant</p>",
+        "text_VscOUnCalPkbDuJE": "<p>In a meeting</p>",
+        "text_uMYhOKnGvVPHTyub": "<p>At the gym</p>",
+        "text_O6JILdo0Itb4jxoO": "<p>In hotel rooms</p>",
+        "text_v0E8LcukdUnZTqbv": "<p>On a night out</p>",
+        "text_R3JV65VeH6qlOLcV": "<p>At home</p>",
+        "text_OgaCn7XB7BXQcSxO": "<h3>The urge doesn't care where you are. <em><strong>Neither does Lio.</strong></em></h3>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "instant_6x_bs_x_ih_h_qkcqi9b5_mmqXQg": {
       "type": "instant-6xBsXIhHQkcqi9b5",
       "name": "Frequency Asked Questions",
@@ -263,6 +287,7 @@
     "instant_jg11_vi_z_tro8_f_lj_mq_wxRV8D",
     "instant_69_g9sym4fw_qr4_i8y_e4zcbK",
     "instant_u_an_vl_mfa9_e8_iu_pz_k_NXat4q",
+    "instant_sgbd655le_hh0r2_pw_ekGMgH",
     "instant_6x_bs_x_ih_h_qkcqi9b5_mmqXQg",
     "1767060052d2af84b7",
     "instant_bh1_t_kl_k_zc0s_h7_ex7_q7UJgy"
