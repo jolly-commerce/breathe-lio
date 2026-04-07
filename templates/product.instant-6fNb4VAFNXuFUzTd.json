@@ -82,15 +82,28 @@
         "padding_bottom": 0
       }
     },
-    "instant_u_an_vl_mfa9_e8_iu_pz_k_MUDtgT": {
-      "type": "instant-uAnVLMfa9E8IUPzK",
-      "name": "HOW LIO WORKS ",
+    "instant_jg11_vi_z_tro8_f_lj_mq_33Nzzj": {
+      "type": "instant-jg11ViZTro8FLjMQ",
+      "name": "Social Proof Homepage",
       "settings": {
-        "text_dexOB6igRe9Eptbe": "<h3>How it works</h3>",
-        "text_2dI3MuIHWWHZJRsK": "<p>1: Open the bag</p>",
-        "text_n81CRw4pHvFx6kf7": "<p>2: Fray the Core</p>",
-        "text_IToyPQTuctktKsiP": "<p>3: Insert the core</p>",
-        "text_jmBe8RVHWUBx87sJ": "<p>4: Enjoy the relief</p>",
+        "text_UsFGU36PDhEsYYvk": "<h3><strong>1000+ 5 star reviews</strong></h3>",
+        "text_SUwcyWr2LgZsr2Ve": "<h3>\"I was sceptical,</h3>",
+        "text_3kxpFIuQhsUsE3zT": "<h3>until I tried it\"</h3>",
+        "text_7dziyIdYsZadhSjw": "<h3>Discover why 100.000+</h3><h3>people made the switch to Lio.</h3>",
+        "url_KOxtCymz0xOlTJdw": "#iMsanFimaZmej0YoF",
+        "text_ug0fx4rUzy5PEcRr": "<p>Start with Lio</p>",
+        "text_Pf70I6YduDLZrwyd": "<p>\"I haven't come across something as good as this, nothing comes out, so I can use it anywhere. I'm adding a few more years to my life.\"</p>",
+        "text_Z0fObuzLzlKXQQgE": "<p>James (38) </p>",
+        "text_QDd9rcPtZ1J1Ojv8": "<p>\"I've had the habit for the last 30 years. I've been on this now for a week, loving it. I'm not craving at all. No chemicals, it's all just flavored air. It's perfect, really good.\"</p>",
+        "text_zEsBB8yjuvI1Lhug": "<p>Anna (60) </p>",
+        "text_oCgdL8nb5dviNPJv": "<p>\"It blows my mind how a product like this in its simplicity hasn't existed since forever This is an awesome product I recommend highly.\"</p>",
+        "text_kBfMVQWhl13R4peg": "<p>Achmed (43) </p>",
+        "text_hWmhbkK86cre1O9h": "<p>\"The toughest part is the movement. This little gadget has saved me for the last 20 days. I just need my little Lio.\"</p>",
+        "text_us22s7q8XRabxR4a": "<p>Antonio (62) </p>",
+        "text_58ZlzLjDIvOb5aJV": "<p>\"It's insane, this stuff really helps. People came to me and asked what that was and they tried it. It really helps, I'm really satisfied with it.\"</p>",
+        "text_BI9igzYmtxhCRWkX": "<p>Kamar (43) </p>",
+        "text_ivK5LjqsbqnAiTdk": "<p>\"I'm on day 14 now and honestly it's been helping me. this a shot, it's the only thing that's ever helped me. Really good product.\"</p>",
+        "text_JzHcLLSEjUfoMAVc": "<p>MICHAEL (22) </p>",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -115,6 +128,19 @@
         "text_v0E8LcukdUnZTqbv": "<p>On a night out</p>",
         "text_R3JV65VeH6qlOLcV": "<p>At home</p>",
         "text_OgaCn7XB7BXQcSxO": "<h3>The urge doesn't care where you are. <em><strong>Neither does Lio.</strong></em></h3>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_MUDtgT": {
+      "type": "instant-uAnVLMfa9E8IUPzK",
+      "name": "HOW LIO WORKS ",
+      "settings": {
+        "text_dexOB6igRe9Eptbe": "<h3>How it works</h3>",
+        "text_2dI3MuIHWWHZJRsK": "<p>1: Open the bag</p>",
+        "text_n81CRw4pHvFx6kf7": "<p>2: Fray the Core</p>",
+        "text_IToyPQTuctktKsiP": "<p>3: Insert the core</p>",
+        "text_jmBe8RVHWUBx87sJ": "<p>4: Enjoy the relief</p>",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -162,8 +188,9 @@
     "instant-6fNb4VAFNXuFUzTd",
     "instant_69_g9sym4fw_qr4_i8y_m4AVFV",
     "instant_oz_a_oh_opd_xw6s_bkql_BCC8Xt",
-    "instant_u_an_vl_mfa9_e8_iu_pz_k_MUDtgT",
+    "instant_jg11_vi_z_tro8_f_lj_mq_33Nzzj",
     "instant_sgbd655le_hh0r2_pw_cCYiWc",
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_MUDtgT",
     "instant_2c8fyr_luzzxhdneg_9UeNrf",
     "instant_nwr_u_dx_xiop4_x_zc_rf_Qtxctz"
   ]
