@@ -62,10 +62,109 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "instant_oz_a_oh_opd_xw6s_bkql_BCC8Xt": {
+      "type": "instant-OzAOhOpdXw6sBKQL",
+      "name": "Flavored Air Device",
+      "settings": {
+        "text_XR5kZm7ec8egwxmR": "<h3><strong>No liquid. No vapor. No nicotine.</strong></h3>",
+        "text_Oxdt7tEsg90FMZSX": "<h3>The flavored air</h3><h3>habit replacement.</h3>",
+        "text_g2H833wvj7dSMIwz": "<h3>A natural aroma core sits inside the device. When you pull, air passes through it. What comes out is nothing but flavored air, and your breath. That's it. </h3>",
+        "url_svV67TPm2Sgz0hlr": "shopify://products/journey-pack-3",
+        "text_Puun44WtrZS4vsYA": "<p>Start with Lio</p>",
+        "text_8Ms3s9JAqE2jmcPh": "<p>How it works</p>",
+        "text_gWBen0RLrJ6yIKZH": "<h3>Natural</h3><h3>ingredients</h3>",
+        "text_rxOQiJt1tnYtNuYV": "<h3>Every piece</h3><h3>is unique</h3>",
+        "text_WJ1fZeQqxIi5vtpY": "<h3>Mimics  that</h3><h3>famillair habit</h3>",
+        "text_UponzQrO2xe3bZjc": "<h3>Use it anywhere</h3><h3>you'd like</h3>",
+        "text_tpTMOu6do5Smqs2d": "<h3>No batteries, </h3><h3>no vapor.</h3>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_MUDtgT": {
+      "type": "instant-uAnVLMfa9E8IUPzK",
+      "name": "HOW LIO WORKS ",
+      "settings": {
+        "text_dexOB6igRe9Eptbe": "<h3>How it works</h3>",
+        "text_2dI3MuIHWWHZJRsK": "<p>1: Open the bag</p>",
+        "text_n81CRw4pHvFx6kf7": "<p>2: Fray the Core</p>",
+        "text_IToyPQTuctktKsiP": "<p>3: Insert the core</p>",
+        "text_jmBe8RVHWUBx87sJ": "<p>4: Enjoy the relief</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "instant_sgbd655le_hh0r2_pw_cCYiWc": {
+      "type": "instant-Sgbd655leHh0r2PW",
+      "name": "USE IT ANYWHERE",
+      "settings": {
+        "text_FtgUZGCiW6P9UIyb": "<h3>No vapor. No smell. No restrictions.</h3>",
+        "text_hKUF97nnDGZrSrGo": "<h3>Use it anywhere. </h3>",
+        "text_NpTZ41smky1abxJe": "<h3>The urge doesn't care where you are. <em><strong>Neither does Lio.</strong></em></h3>",
+        "text_RsY9tNjmoGlORvTT": "<p>On the plane</p>",
+        "text_GXfpUflqTBiTOJbY": "<p>At the office</p>",
+        "text_KVzziWIBqVykGRcm": "<p>Public transport</p>",
+        "text_wRIhkgRbgIb43vMD": "<p>A restaurant</p>",
+        "text_vOaoHDUlOgdRcDa2": "<p>In a meeting</p>",
+        "text_5UD81Liw35gJXFqt": "<p>At the gym</p>",
+        "text_WqgE9rSdWYL7b1rT": "<p>A restaurant</p>",
+        "text_VscOUnCalPkbDuJE": "<p>In a meeting</p>",
+        "text_uMYhOKnGvVPHTyub": "<p>At the gym</p>",
+        "text_O6JILdo0Itb4jxoO": "<p>In hotel rooms</p>",
+        "text_v0E8LcukdUnZTqbv": "<p>On a night out</p>",
+        "text_R3JV65VeH6qlOLcV": "<p>At home</p>",
+        "text_OgaCn7XB7BXQcSxO": "<h3>The urge doesn't care where you are. <em><strong>Neither does Lio.</strong></em></h3>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "instant_2c8fyr_luzzxhdneg_9UeNrf": {
+      "type": "instant-2c8fyrLuzzxhdneg",
+      "name": "ANY QUESTIONS? ",
+      "settings": {
+        "text_aR0gkV8V6rdOpqNd": "<h3>Any questions? </h3>",
+        "text_RuI6dlpUfLkjJq7X": "<h3>We've got answers</h3>",
+        "text_hKQxN30o1bCAyNzz": "<h3><strong>What does Lio taste like?</strong></h3>",
+        "text_Ul4oNRk850jS50Hc": "<p> Think herbal tea, not soda. If you're used to vapor, Lio is lighter and more natural than you'd expect. Not as sweet, not as heavy, just clean, flavoured air.</p>",
+        "text_lRXHuoRxX7QBohWw": "<h3><strong>What is Lio?</strong></h3>",
+        "text_Lz3xay2Wv9s1f1wo": "<p>A 0% nicotine flavoured air device that replaces the behavioral loop behind destructive habits. No chemicals, no vapor, no nicotine. Just natural plant-based aromas and your own breath.</p>",
+        "text_zwC2TT5JbhXGUy6J": "<h3><strong>How does it actually work?</strong> </h3>",
+        "text_UfwpDTy6nZ8oxxDG": "<p>Your habit isn't just chemical, it's behavioral. The hand-to-mouth motion, the deep breath, the immediate relief. Lio recreates that entire ritual through flavoured air, satisfying the pattern your body is actually craving. No nicotine needed.</p>",
+        "text_x1u7xax7nnJQjCFQ": "<h3><strong>How can something like this work?</strong> </h3>",
+        "text_6dJhYxbe8XqHD2lB": "<p>Because up to 80% of any habit is behavioral, not chemical. Lio targets that layer, the part patches and gum completely miss.</p>",
+        "text_1pFmMHDzdPamejWv": "<h3><strong>Will it work for my habit?</strong></h3>",
+        "text_09Bf4TzzHNQn1kAl": "<p>Lio works for any habit driven by ritual and repetition, vaping, nail biting, stress eating, anxious fidgeting, mindless snacking. If your habit involves a repeated motion and an immediate reward, Lio works.</p>",
+        "text_AxxZ6MukmuvVJ6P8": "<h3><strong>Is it safe?</strong> </h3>",
+        "text_nnM55WmduEaRTQEG": "<p>Completely. Multiple third-party toxicology reports. Pharmaceutical-grade aromatics from IFRA-certified EU farms. Zero nicotine, zero vapor, zero synthetic compounds.</p>",
+        "text_ppnxd4lqJ41LuYsm": "<h3><strong>How long does each core last?</strong></h3>",
+        "text_pJjwm3ceBM3mYuag": "<p>10+ days per core. Each pack contains 3.</p>",
+        "text_FWli4ibI3PSMXx7C": "<h3><strong>How often can I use it?</strong> </h3>",
+        "text_aPC3dJVJv9CVRue9": "<p>As often as you need to. Anywhere. Any time. No restrictions, no limits, no side effects.</p>",
+        "text_iRNWRpbJ2yb3king": "<h3><strong>What results can I expect?</strong></h3>",
+        "text_gQwJaUBJT3a5zYaK": "<p>Most users feel a real shift within the first week, the urge starts losing its edge. By month one, many report a significant reduction or complete elimination of their habit. By month three, the old loop is background noise. By month eight, most haven't thought about it in months.</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "instant_nwr_u_dx_xiop4_x_zc_rf_Qtxctz": {
+      "type": "instant-nwrUDxXIOP4XZcRf",
+      "name": "LOOX REVIEWS",
+      "settings": {
+        "text_67M6c8SZyKKmkMTS": "<h3>more than 100.000 happy customers</h3>",
+        "text_b7cR5hCCIWghXSa2": "<p>4,8/5 based on 1000+ reviews</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "instant-6fNb4VAFNXuFUzTd",
-    "instant_69_g9sym4fw_qr4_i8y_m4AVFV"
+    "instant_69_g9sym4fw_qr4_i8y_m4AVFV",
+    "instant_oz_a_oh_opd_xw6s_bkql_BCC8Xt",
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_MUDtgT",
+    "instant_sgbd655le_hh0r2_pw_cCYiWc",
+    "instant_2c8fyr_luzzxhdneg_9UeNrf",
+    "instant_nwr_u_dx_xiop4_x_zc_rf_Qtxctz"
   ]
 }
