@@ -11,10 +11,61 @@
   "sections": {
     "instant-6fNb4VAFNXuFUzTd": {
       "type": "instant-6fNb4VAFNXuFUzTd",
+      "disabled": true,
       "settings": {}
+    },
+    "instant_69_g9sym4fw_qr4_i8y_m4AVFV": {
+      "type": "instant-69G9sym4fwQR4I8y",
+      "name": "Journey Pack Homepage",
+      "settings": {
+        "product_MsanFimaZmej0YoF": "lio-pro-pack",
+        "text_x23PsJDkA3o4EZIa": "<p>OFF</p>",
+        "text_S7CG6FYmpFDI6PkB": "<p>Select your Lio:</p>",
+        "text_PoYEaOJwTSAaDEPG": "<h3>Lio Original</h3>",
+        "text_keqkWbyax2wUC9fJ": "<p>Fixed airflow</p>",
+        "text_CsjL4FGa4wl3OCyr": "<h3>Lio Plus</h3>",
+        "text_jnflkGpf7Fr9kwgm": "<h3>Most popular</h3>",
+        "text_grLBMWIxTTscvDzQ": "<p>Adjustable airflow</p>",
+        "text_Q04lVcdh3kS2ZAls": "<h3>Lio Pro</h3>",
+        "text_EBsejShk5PRyScJX": "<h3>Most value</h3>",
+        "text_80WTOCcOhSCaUGbu": "<p>Adjustable airflow</p><p>Magnetic fidgeting</p>",
+        "text_Uh5hwlKrB5A0CDsM": "<p>Select colour:</p>",
+        "text_IEyw07KUIZGzRobX": "<p>Select flavor:</p>",
+        "text_fnjPxFdlGzIlCcK9": "<p>Minty 30-Days</p>",
+        "text_ZAgKjnCuNz9v7aGw": "<p>Included</p>",
+        "text_zCh3eVwPgzqvPuWA": "<p>Selected</p>",
+        "text_vhqh11VTXwq3cn8V": "<p>Select</p>",
+        "text_Crox1so52rS2aVR4": "<p>Minty 90-Days</p>",
+        "text_zJKjRMbc5nCjwgcw": "<p>+ €29 </p>",
+        "text_lurkknrzgKhPWeaS": "<p>Selected</p>",
+        "text_eCyKumTqCgfqu9Vp": "<p>Select</p>",
+        "text_cDs9PsMaIqf9nuE3": "<p>Mixed 60-Days</p>",
+        "text_Yt5x44gNfWup9OQK": "<p>+ €9 </p>",
+        "text_1OBAGiyD9EqMvVBB": "<p>Selected</p>",
+        "text_pioosQYIw1WOU9pj": "<p>Select</p>",
+        "text_HNeDlPPjUZF7OI1D": "<p>Fruity 30-Days</p>",
+        "text_ffzQt7phb7Kcu30O": "<p>Included</p>",
+        "text_MlQGmTuQirRBP5S1": "<p>Selected</p>",
+        "text_AjKN0hT25zBx7csz": "<p>Select</p>",
+        "text_8vsc0BWrrQw4hijR": "<p>Fruity 90-Days</p>",
+        "text_0DAlPjiHKka1m164": "<p>+ €19</p>",
+        "text_vpreqkOKbw52JwtB": "<p>Selected</p>",
+        "text_JD6WICNvUo2vEoaw": "<p>Select</p>",
+        "text_NMGMZWgQ7O90JbFH": "<p>ADD TO CART</p>",
+        "text_mV6J7AKrjLRwvOD5": "<p><strong>73% succeed with the 90-day reset</strong></p>",
+        "text_uBYlDKr6kGFE9LLK": "<p><strong>Reset program added ✓</strong></p>",
+        "text_i0ZObLy2A8lg8mn0": "<p><strong>90-Day Reset Program</strong></p>",
+        "text_x1tTS3V8GzVDmnOd": "<p>Add for €9 </p>",
+        "text_GhJQVkYlwvUMtafW": "<p>€39</p>",
+        "text_F4IZIHl9htKs6vgp": "<p><strong>Remove program</strong></p>",
+        "text_VRLRpjuPuXnHDRsO": "<p>Add</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
-    "instant-6fNb4VAFNXuFUzTd"
+    "instant-6fNb4VAFNXuFUzTd",
+    "instant_69_g9sym4fw_qr4_i8y_m4AVFV"
   ]
 }
