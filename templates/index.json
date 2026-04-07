@@ -279,6 +279,34 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "instant_2c8fyr_luzzxhdneg_zeyd8F": {
+      "type": "instant-2c8fyrLuzzxhdneg",
+      "name": "ANY QUESTIONS? ",
+      "settings": {
+        "text_aR0gkV8V6rdOpqNd": "<h3>Any questions? </h3>",
+        "text_RuI6dlpUfLkjJq7X": "<h3>We&apos;ve got answers</h3>",
+        "text_hKQxN30o1bCAyNzz": "<h3><strong>What does Lio taste like?</strong></h3>",
+        "text_Ul4oNRk850jS50Hc": "<p> Think herbal tea, not soda. If you&apos;re used to vapor, Lio is lighter and more natural than you&apos;d expect. Not as sweet, not as heavy, just clean, flavoured air.</p>",
+        "text_lRXHuoRxX7QBohWw": "<h3><strong>What is Lio?</strong></h3>",
+        "text_Lz3xay2Wv9s1f1wo": "<p>A 0% nicotine flavoured air device that replaces the behavioral loop behind destructive habits. No chemicals, no vapor, no nicotine. Just natural plant-based aromas and your own breath.</p>",
+        "text_zwC2TT5JbhXGUy6J": "<h3><strong>How does it actually work?</strong> </h3>",
+        "text_UfwpDTy6nZ8oxxDG": "<p>Your habit isn&apos;t just chemical, it&apos;s behavioral. The hand-to-mouth motion, the deep breath, the immediate relief. Lio recreates that entire ritual through flavoured air, satisfying the pattern your body is actually craving. No nicotine needed.</p>",
+        "text_x1u7xax7nnJQjCFQ": "<h3><strong>How can something like this work?</strong> </h3>",
+        "text_6dJhYxbe8XqHD2lB": "<p>Because up to 80% of any habit is behavioral, not chemical. Lio targets that layer, the part patches and gum completely miss.</p>",
+        "text_1pFmMHDzdPamejWv": "<h3><strong>Will it work for my habit?</strong></h3>",
+        "text_09Bf4TzzHNQn1kAl": "<p>Lio works for any habit driven by ritual and repetition, vaping, nail biting, stress eating, anxious fidgeting, mindless snacking. If your habit involves a repeated motion and an immediate reward, Lio works.</p>",
+        "text_AxxZ6MukmuvVJ6P8": "<h3><strong>Is it safe?</strong> </h3>",
+        "text_nnM55WmduEaRTQEG": "<p>Completely. Multiple third-party toxicology reports. Pharmaceutical-grade aromatics from IFRA-certified EU farms. Zero nicotine, zero vapor, zero synthetic compounds.</p>",
+        "text_ppnxd4lqJ41LuYsm": "<h3><strong>How long does each core last?</strong></h3>",
+        "text_pJjwm3ceBM3mYuag": "<p>10+ days per core. Each pack contains 3.</p>",
+        "text_FWli4ibI3PSMXx7C": "<h3><strong>How often can I use it?</strong> </h3>",
+        "text_aPC3dJVJv9CVRue9": "<p>As often as you need to. Anywhere. Any time. No restrictions, no limits, no side effects.</p>",
+        "text_iRNWRpbJ2yb3king": "<h3><strong>What results can I expect?</strong></h3>",
+        "text_gQwJaUBJT3a5zYaK": "<p>Most users feel a real shift within the first week, the urge starts losing its edge. By month one, many report a significant reduction or complete elimination of their habit. By month three, the old loop is background noise. By month eight, most haven&apos;t thought about it in months.</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -290,6 +318,7 @@
     "instant_sgbd655le_hh0r2_pw_ekGMgH",
     "instant_6x_bs_x_ih_h_qkcqi9b5_mmqXQg",
     "1767060052d2af84b7",
-    "instant_bh1_t_kl_k_zc0s_h7_ex7_q7UJgy"
+    "instant_bh1_t_kl_k_zc0s_h7_ex7_q7UJgy",
+    "instant_2c8fyr_luzzxhdneg_zeyd8F"
   ]
 }
