@@ -197,6 +197,57 @@
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
                 <title>caret-right</title><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
               </svg></div></div></div></div></div
+    ><div class="iVbSjudPha3btjFW3" data-instant-type="container" id="iVbSjudPha3btjFW3"
+      ><div class="i5mo3264iRKSe1kGJ" data-instant-type="container"
+        ><div data-instant-type="text" class="instant-rich-text iveIPSIbEefBIuD5D"><h3>Flavor Cores</h3></div>
+        {%- liquid
+          assign collection_0TAlcNouutySnYiY_handle = 'flavour-cores-2'
+          assign collection_0TAlcNouutySnYiY = collections[section.settings.collection_0TAlcNouutySnYiY.handle] | default: collections[collection_0TAlcNouutySnYiY_handle]
+        -%}
+        <div class="i0TAlcNouutySnYiY" data-instant-type="container" data-instant-form-collection-url="{{ collection_0TAlcNouutySnYiY.url }}"
+          ><div data-instant-type="grid-fixed" id="NybSaJbhExH4VQXC" class="iNybSaJbhExH4VQXC">
+            <!--  -->
+            {%- paginate collection_0TAlcNouutySnYiY.products by 50 -%}
+              {%- assign offset = 0 -%}
+              {%- if paginate.current_page > 1 -%}
+                {%- assign offset = 0 -%}
+              {%- endif -%}
+              {%- for product in collection_0TAlcNouutySnYiY.products offset: offset -%}
+                {%- if forloop.length > 0 -%}
+                  {%- assign repeater_index = forloop.index0 -%}
+                  <!--  -->
+                  <!--  -->
+                  {%- liquid
+                    assign product_image_item = product.selected_or_first_available_variant.featured_image | default: product.featured_image
+                  -%}
+                  <form class="ixTJHBZngd6RB0IcU" data-instant-type="container" data-instant-form-collection-url="{{ collection_0TAlcNouutySnYiY.url }}" data-instant-repeater-index="{{ repeater_index }}" data-instant-form-product-url="{{ product.url }}" data-instant-form-variant-id="{{ product.selected_or_first_available_variant.id }}" data-instant-form-product-id="{{ product.id }}" rel="noopener noreferrer" data-instant-action-type="open-page" data-instant-href="{{ product.url }}"
+                    ><div class="iixpXg3JTji0CuVwH" data-instant-type="container"
+                      ><img alt="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image.alt }}" width="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image.width }}" height="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 1080 }} 1080w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 828 }} 828w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 750 }} 750w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 640 }} 640w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 360 }} 360w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 1280 }} 1280w" src="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 1280 }}" class="instant-fill instant-image__fill" data-instant-dynamic-content-source="FEATURED_IMAGE" decoding="async" loading="lazy" fetchpriority="auto" style="object-fit:cover">
+                      {%- if product.media[1] != blank -%}<img alt="{{ product.images[1].alt }}" width="{{ product.images[1].width }}" height="{{ product.images[1].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product.images[1] | image_url: width: 1080 }} 1080w, {{ product.images[1] | image_url: width: 828 }} 828w, {{ product.images[1] | image_url: width: 750 }} 750w, {{ product.images[1] | image_url: width: 640 }} 640w, {{ product.images[1] | image_url: width: 360 }} 360w, {{ product.images[1] | image_url: width: 1280 }} 1280w" src="{{ product.images[1] | image_url: width: 1280 }}" class="instant-fill instant-image__fill" data-trigger="hover" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" loading="lazy" fetchpriority="auto" style="object-fit:cover">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" data-trigger="hover" decoding="async" loading="lazy" fetchpriority="auto" class="instant-fill instant-image__fill instant-image__fallback">{%- endif -%}</div
+                    ><div class="ih4QqWolAPU78Ltxj" data-instant-type="container"
+                      ><h3 data-instant-dynamic-content-source="TITLE" data-instant-type="text" class="iRX1R5FAjvbAzKasN">{{ product.title }}</h3
+                      ><h3 data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iyTKpb7OQ74gjBtIB">
+                        {%- liquid
+                          assign variant_price = product.selected_or_first_available_variant.price
+
+                          if product.selected_or_first_available_variant.selected_selling_plan_allocation
+                            assign variant_price = product.selected_or_first_available_variant.selected_selling_plan_allocation.price
+                          endif
+                        -%}
+                        {{- variant_price | money -}}</h3
+                      ><a class="iOFxF3xKtJ5GwSctl" data-instant-type="container" href="{{ product.url }}" rel="noopener noreferrer" data-instant-action-type="open-page"
+                        ><div data-instant-type="text" class="instant-rich-text iDbFbMMQ5zSpabtn2"><h3>Add to bag</h3></div></a
+                      ></div
+                    ></form
+                  >
+                  <!--  -->
+                {%- endif -%}
+              {%- endfor -%}
+            {% endpaginate %}
+            <!--  -->
+          </div>
+        </div>
+      </div></div
     ><div class="ie7C0q6FodseWPHWu" data-instant-type="container" id="ie7C0q6FodseWPHWu"
       ><div class="iPN54p8QCKfZwujv6" data-instant-type="container"
         ><div data-instant-type="text" class="instant-rich-text iLyr9u1LQ6YQ4LTwm"><h3>Devices</h3></div
@@ -248,22 +299,22 @@
           </div>
         </div>
       </div></div
-    ><div class="iVbSjudPha3btjFW3" data-instant-type="container" id="iVbSjudPha3btjFW3"
-      ><div class="i5mo3264iRKSe1kGJ" data-instant-type="container"
-        ><div data-instant-type="text" class="instant-rich-text iveIPSIbEefBIuD5D"><h3>Accessories</h3></div
-        ><div class="i0TAlcNouutySnYiY" data-instant-type="container">
+    ><div class="iShcB0U8X4DLK6AGn" data-instant-type="container" id="iShcB0U8X4DLK6AGn"
+      ><div class="i1IZHBv9h4mxnO9rf" data-instant-type="container"
+        ><div data-instant-type="text" class="instant-rich-text i2cEBaE2spyfdJYtL"><h3>Accessories</h3></div
+        ><div class="iBvh2fPtIS0Mp380J" data-instant-type="container">
           {%- liquid
-            assign collection_NybSaJbhExH4VQXC_handle = 'accessories'
-            assign collection_NybSaJbhExH4VQXC = collections[section.settings.collection_NybSaJbhExH4VQXC.handle] | default: collections[collection_NybSaJbhExH4VQXC_handle]
+            assign collection_9P9HOrctpTsq0ijN_handle = 'accessories'
+            assign collection_9P9HOrctpTsq0ijN = collections[section.settings.collection_9P9HOrctpTsq0ijN.handle] | default: collections[collection_9P9HOrctpTsq0ijN_handle]
           -%}
-          <div data-instant-type="grid-fixed" id="NybSaJbhExH4VQXC" class="iNybSaJbhExH4VQXC" data-instant-form-collection-url="{{ collection_NybSaJbhExH4VQXC.url }}">
+          <div data-instant-type="grid-fixed" id="9P9HOrctpTsq0ijN" class="i9P9HOrctpTsq0ijN" data-instant-form-collection-url="{{ collection_9P9HOrctpTsq0ijN.url }}">
             <!--  -->
-            {%- paginate collection_NybSaJbhExH4VQXC.products by 50 -%}
+            {%- paginate collection_9P9HOrctpTsq0ijN.products by 50 -%}
               {%- assign offset = 0 -%}
               {%- if paginate.current_page > 1 -%}
                 {%- assign offset = 0 -%}
               {%- endif -%}
-              {%- for product in collection_NybSaJbhExH4VQXC.products offset: offset -%}
+              {%- for product in collection_9P9HOrctpTsq0ijN.products offset: offset -%}
                 {%- if forloop.length > 0 -%}
                   {%- assign repeater_index = forloop.index0 -%}
                   <!--  -->
@@ -271,13 +322,13 @@
                   {%- liquid
                     assign product_image_item = product.selected_or_first_available_variant.featured_image | default: product.featured_image
                   -%}
-                  <form class="iT7ziv27YknQ5AN8L" data-instant-type="container" data-instant-form-collection-url="{{ collection_NybSaJbhExH4VQXC.url }}" data-instant-repeater-index="{{ repeater_index }}" data-instant-form-product-url="{{ product.url }}" data-instant-form-variant-id="{{ product.selected_or_first_available_variant.id }}" data-instant-form-product-id="{{ product.id }}" rel="noopener noreferrer" data-instant-action-type="open-page" data-instant-href="{{ product.url }}"
-                    ><div class="ioLoKX8uGlEjZO7K8" data-instant-type="container"
+                  <form class="iPqh6N8uK4b3ohzps" data-instant-type="container" data-instant-form-collection-url="{{ collection_9P9HOrctpTsq0ijN.url }}" data-instant-repeater-index="{{ repeater_index }}" data-instant-form-product-url="{{ product.url }}" data-instant-form-variant-id="{{ product.selected_or_first_available_variant.id }}" data-instant-form-product-id="{{ product.id }}" rel="noopener noreferrer" data-instant-action-type="open-page" data-instant-href="{{ product.url }}"
+                    ><div class="iuKJwBiHYvJXmReAv" data-instant-type="container"
                       ><img alt="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image.alt }}" width="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image.width }}" height="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image.height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 1080 }} 1080w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 828 }} 828w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 750 }} 750w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 640 }} 640w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 360 }} 360w, {{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 1280 }} 1280w" src="{{ product.selected_or_first_available_variant.featured_image | default: product.featured_image | image_url: width: 1280 }}" class="instant-fill instant-image__fill" data-instant-dynamic-content-source="FEATURED_IMAGE" decoding="async" loading="lazy" fetchpriority="auto" style="object-fit:cover">
                       {%- if product.media[1] != blank -%}<img alt="{{ product.images[1].alt }}" width="{{ product.images[1].width }}" height="{{ product.images[1].height }}" sizes="(max-width: 1280px) 100vw, 1280px" srcSet="{{ product.images[1] | image_url: width: 1080 }} 1080w, {{ product.images[1] | image_url: width: 828 }} 828w, {{ product.images[1] | image_url: width: 750 }} 750w, {{ product.images[1] | image_url: width: 640 }} 640w, {{ product.images[1] | image_url: width: 360 }} 360w, {{ product.images[1] | image_url: width: 1280 }} 1280w" src="{{ product.images[1] | image_url: width: 1280 }}" class="instant-fill instant-image__fill" data-trigger="hover" data-instant-dynamic-content-source="IMAGE_AT_INDEX" decoding="async" loading="lazy" fetchpriority="auto" style="object-fit:cover">{%- else -%}<img alt="Placeholder" src="https://cdn.instant.so/static/templates/assets/placeholder-image.svg" data-instant-dynamic-content-source="IMAGE_AT_INDEX" data-trigger="hover" decoding="async" loading="lazy" fetchpriority="auto" class="instant-fill instant-image__fill instant-image__fallback">{%- endif -%}</div
-                    ><div class="iigOrZwJOrDBiN2bi" data-instant-type="container"
-                      ><h3 data-instant-dynamic-content-source="TITLE" data-instant-type="text" class="iMYZiYIIwZllOLrtH">{{ product.title }}</h3
-                      ><h3 data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="ihFAzdjAUH0MbF8vn">
+                    ><div class="i0YoUzNM7YLfzoPAM" data-instant-type="container"
+                      ><h3 data-instant-dynamic-content-source="TITLE" data-instant-type="text" class="iTdTp4YrlU7trLAgD">{{ product.title }}</h3
+                      ><h3 data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="iPL93dEK4ZQpFrJul">
                         {%- liquid
                           assign variant_price = product.selected_or_first_available_variant.price
 
@@ -286,8 +337,8 @@
                           endif
                         -%}
                         {{- variant_price | money -}}</h3
-                      ><a class="ieQnCehy3zFeVoCgC" data-instant-type="container" href="{{ product.url }}" rel="noopener noreferrer" data-instant-action-type="open-page"
-                        ><div data-instant-type="text" class="instant-rich-text iK7e3Xn4vuQefdJUO"><h3>Add to bag</h3></div></a
+                      ><a class="igi4jNl8tRXvDJ5nk" data-instant-type="container" href="{{ product.url }}" rel="noopener noreferrer" data-instant-action-type="open-page"
+                        ><div data-instant-type="text" class="instant-rich-text ihgKbmckYnJubbFWg"><h3>Add to bag</h3></div></a
                       ></div
                     ></form
                   >
