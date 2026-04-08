@@ -846,18 +846,18 @@
                   	endif
 
                   	for variant in product_ppZOoxMc4BsYSf7x.variants
-                  		if selected_option.position == 1 and variant.option1 == selected_option.values[1] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                  		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
                   			assign selected_variant = variant
-                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[1] and variant.option3 == selected_options[2]
+                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
                   			assign selected_variant = variant
-                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[1]
+                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
                   			assign selected_variant = variant
                   		endif
                   	endfor
-                  -%}{{- selected_option.values[1] | escape -}}
+                  -%}{{- selected_option.values[0] | escape -}}
                 "
                 data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                data-instant-state="{%- if product_ppZOoxMc4BsYSf7x_variant.options contains selected_option.values[1] -%}active{%- else -%}inactive{%- endif -%}"
+                data-instant-state="{%- if product_ppZOoxMc4BsYSf7x_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
                 data-instant-disabled="
                   {%- liquid
                   	assign is_not_available = false
@@ -983,18 +983,18 @@
                   	endif
 
                   	for variant in product_ppZOoxMc4BsYSf7x.variants
-                  		if selected_option.position == 1 and variant.option1 == selected_option.values[0] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
+                  		if selected_option.position == 1 and variant.option1 == selected_option.values[1] and variant.option2 == selected_options[1] and variant.option3 == selected_options[2]
                   			assign selected_variant = variant
-                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[0] and variant.option3 == selected_options[2]
+                  		elsif selected_option.position == 2 and variant.option1 == selected_options[0] and variant.option2 == selected_option.values[1] and variant.option3 == selected_options[2]
                   			assign selected_variant = variant
-                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[0]
+                  		elsif selected_option.position == 3 and variant.option1 == selected_options[0] and variant.option2 == selected_options[1] and variant.option3 == selected_option.values[1]
                   			assign selected_variant = variant
                   		endif
                   	endfor
-                  -%}{{- selected_option.values[0] | escape -}}
+                  -%}{{- selected_option.values[1] | escape -}}
                 "
                 data-instant-option-name="{{ selected_option.name | url_param_escape }}"
-                data-instant-state="{%- if product_ppZOoxMc4BsYSf7x_variant.options contains selected_option.values[0] -%}active{%- else -%}inactive{%- endif -%}"
+                data-instant-state="{%- if product_ppZOoxMc4BsYSf7x_variant.options contains selected_option.values[1] -%}active{%- else -%}inactive{%- endif -%}"
                 data-instant-disabled="
                   {%- liquid
                   	assign is_not_available = false
@@ -1994,8 +1994,10 @@
           [{{ selling_plans_json | remove_last: ',' }}]
         </script>
       {%- endif -%}
-      <!--  -->
-    </div>
+      <!--  --></div
+    ><div class="imnLHtmZtpyxvLl0A" data-instant-type="container" id="imnLHtmZtpyxvLl0A"
+      ><div data-instant-type="text" class="instant-rich-text iLf6F9CJAopCqmqWn"><h3>Get your Lio on us,</h3></div></div
+    >
     <!--  -->
     <script type="application/json" id="variants__PlXPDJcxWgYUsoCb--{{ section.id }}">
       {{ product.variants | json }}
