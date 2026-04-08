@@ -16,16 +16,15 @@
         "content_width": "80ch"
       }
     },
-    "instant_l_bz_b_oy_ec7l_jp1wlw_AfJCWf": {
+    "instant_l_bz_b_oy_ec7l_jp1wlw_He7gLC": {
       "type": "instant-lBzBOyEc7lJp1wlw",
       "name": "Hero Section Mothersday",
       "settings": {
-        "text_b12Lx3udbVz6aUnL": "<h3><strong>150.000+ people switched to Lio</strong></h3>",
-        "text_Hm7ZdEgihgMsnhEV": "<h3>Free her from </h3><h3>her bad habits</h3>",
+        "text_b12Lx3udbVz6aUnL": "<h3>150.000+ people switched to Lio</h3>",
+        "text_Hm7ZdEgihgMsnhEV": "<h3>Free her from her bad habits, naturally.</h3>",
         "text_NV5ZYI9RjnMr7JyW": "<h3>The nicotine-free diffuser that replaces your bad habit, naturally, immediately, for good.</h3>",
         "url_l9G73YvHfK8VT8j4": "#iUf0g714OMCXxcC6i",
-        "text_3fpvvMOQNKzzIlzh": "<p>Get her Lio</p>",
-        "text_GdgaSBes3rtQrxo1": "<p><strong>Mother's Day Special</strong></p><p><strong>30-Day Flavor Supply Free</strong></p>",
+        "text_3fpvvMOQNKzzIlzh": "<p><strong>Get her a Lio </strong>•  1 month on us</p>",
         "text_zrZNg5IazPHGXYGB": "<p>What Cores </p><p>do you need?</p>",
         "url_piZJ28hSLZg0vXum": "shopify://products/lio-pro-cores",
         "url_vCMuJwiIKXKTSm5K": "shopify://products/lio-flavor-cores",
@@ -44,10 +43,11 @@
         "text_Rqv2dmiI2m9WwGDV": "<p>Adjustable airflow</p><p>Magnetic fidgeting</p>",
         "text_RXgZbrnzHoN3XbJ5": "<p>Select colour:</p>",
         "text_HZaNYB17FEcNxfbK": "<p>Select flavor:</p>",
-        "text_VISqUdaiMdWBkLPw": "<p>Minty 30-Days</p>",
-        "text_IAGCRPgdN7XgPXRc": "<p>Included for free</p>",
-        "text_bZkIwGmiJSaGSV5o": "<p>Selected</p>",
-        "text_XYWXOHokFLoWuSpZ": "<p>Select</p>",
+        "text_GtjQo2uH2MXTEtpJ": "<p>Bestseller</p>",
+        "text_BmYNegch98Bsuthj": "<p>Minty 30 Days</p>",
+        "text_vJ4EBDmyCRIzGUv8": "<p>Free 1-month supply</p>",
+        "text_7Leq11z9VC7QkSj7": "<p>Selected</p>",
+        "text_o6LiZz9U7OJRFjUE": "<p>Select</p>",
         "text_k6yW6gtNd9eupu1x": "<p>Minty 90-Days</p>",
         "text_FfArHZgwDtGohCJB": "<p>+ €29 </p>",
         "text_ExvIGPmMCtkXsFl4": "<p>Selected</p>",
@@ -199,7 +199,7 @@
   },
   "order": [
     "main",
-    "instant_l_bz_b_oy_ec7l_jp1wlw_AfJCWf",
+    "instant_l_bz_b_oy_ec7l_jp1wlw_He7gLC",
     "instant_oz_a_oh_opd_xw6s_bkql_qRXc8W",
     "instant_jg11_vi_z_tro8_f_lj_mq_XaCpjL",
     "instant_sgbd655le_hh0r2_pw_Ui6Rbj",
