@@ -2022,7 +2022,7 @@
               "
               ><div data-instant-type="text" class="instant-rich-text igzQaCTcLqvy6Yr1B"
                 ><div>{{ section.settings.text_gzQaCTcLqvy6Yr1B }}</div></div
-              ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="i5ZBIWiyRctyGNwEl">
+              ><p data-instant-dynamic-content-source="PRICE" data-instant-type="text" class="ibqfzssqj23pJ6gl7">
                 {%- liquid
                   assign variant_price = product_fF0J1kdw4hUsuaVa_variant.price
 
@@ -2031,8 +2031,30 @@
                   endif
                 -%}
                 {{- variant_price | money -}}
-              </p></a
-            ></div
+              </p>
+
+              {%- liquid
+                assign style = ''
+                assign compare_at_price = product_fF0J1kdw4hUsuaVa_variant.compare_at_price
+                assign variant_price = product_fF0J1kdw4hUsuaVa_variant.price
+
+                if product_fF0J1kdw4hUsuaVa_variant.selected_selling_plan_allocation
+                  assign compare_at_price = product_fF0J1kdw4hUsuaVa_variant.selected_selling_plan_allocation.compare_at_price
+                  assign variant_price = product_fF0J1kdw4hUsuaVa_variant.selected_selling_plan_allocation.price
+                endif
+
+                if compare_at_price <= variant_price or compare_at_price == 0 or compare_at_price == null
+                  assign style = 'style="display: none;"'
+                endif
+              -%}
+              <span
+                data-instant-dynamic-content-source="COMPARE_AT"
+                class="i5ZBIWiyRctyGNwEl"
+                {{- style -}}
+              >
+                {{- compare_at_price | money -}}
+              </span>
+            </a></div
           ><div class="iRLY0kShLdqOEr4lf" data-instant-type="container"
             ><div class="instant-slider-container ibHAWpnQjTiqJRaP1" data-instant-type="slider-container">
               {%- liquid
