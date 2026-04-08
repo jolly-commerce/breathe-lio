@@ -49,12 +49,12 @@
             "stars_size": 17,
             "stars_gap": 2,
             "stars_color": "#ffffff",
-            "stars_bg_color": "#009130",
+            "stars_bg_color": "#52b37f",
             "stars_bg_half_color": "#dddddd",
             "first_text": "<p>Great</p>",
             "first_text_size": 16,
             "first_text_color": "#000000",
-            "second_text": "<p>1230 reviews</p>",
+            "second_text": "<p>1000+ reviews</p>",
             "second_text_size": 14,
             "second_text_color": "#000000",
             "border": "none",
@@ -109,12 +109,6 @@
             "background_gradient": "",
             "padding_vertical": 0,
             "padding_horizontal": 0
-          }
-        },
-        "rating": {
-          "type": "rating",
-          "settings": {
-            "show_empty": false
           }
         },
         "variant_picker": {
@@ -234,7 +228,6 @@
         "price",
         "description_HA4DAH",
         "section_store_block_benefits_list_nBiyBB",
-        "rating",
         "variant_picker",
         "buy_buttons",
         "liquid_JEwhND",
