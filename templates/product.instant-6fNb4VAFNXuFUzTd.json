@@ -14,17 +14,17 @@
       "disabled": true,
       "settings": {}
     },
-    "instant_69_g9sym4fw_qr4_i8y_Bxr43k": {
+    "instant_69_g9sym4fw_qr4_i8y_WtL4wD": {
       "type": "instant-69G9sym4fwQR4I8y",
       "name": "Journey Pack Homepage",
       "settings": {
         "product_uMCgHpuuzLU9VJ9x": "lio-pro-pack",
-        "text_91m13rK6yF0oZh9i": "<p><strong>Lio Original worth €39 is on us</strong></p>",
+        "text_91m13rK6yF0oZh9i": "<p><strong>Free Lio Original Device worth €29 included</strong></p>",
         "text_nBiHTjXOy9NsQqA2": "<p>OFF</p>",
         "text_LL7c4lrhSiEdWfpu": "<p>Select your Lio:</p>",
         "text_hpJ1eKrSsEZGGwwa": "<h3>Lio Original</h3>",
         "text_5u3Bxzopm4OtBQwe": "<p>Fixed airflow</p>",
-        "text_KheblbqoZxML5jWs": "<p><strong>€39</strong></p>",
+        "text_KheblbqoZxML5jWs": "<p><strong>€29</strong></p>",
         "text_SOeXVsl5p3LKJHt9": "<h3>Free Device</h3>",
         "text_AZoL5lfjp3OYBkvZ": "<h3>Lio Plus</h3>",
         "text_Kllkt8iMFPYqxwZx": "<p>Adjustable airflow</p>",
@@ -187,7 +187,7 @@
   },
   "order": [
     "instant-6fNb4VAFNXuFUzTd",
-    "instant_69_g9sym4fw_qr4_i8y_Bxr43k",
+    "instant_69_g9sym4fw_qr4_i8y_WtL4wD",
     "instant_oz_a_oh_opd_xw6s_bkql_BCC8Xt",
     "instant_jg11_vi_z_tro8_f_lj_mq_33Nzzj",
     "instant_sgbd655le_hh0r2_pw_cCYiWc",
