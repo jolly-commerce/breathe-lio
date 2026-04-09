@@ -9,6 +9,67 @@
  */
 {
   "sections": {
+    "instant_h_jd_cuc7_ymp7j_m_co_c_tBer9i": {
+      "type": "instant-HJdCuc7YMP7jMCoC",
+      "name": "Free Lio Hero Section",
+      "settings": {
+        "text_EOwPSTRCX6OQoTcp": "<h3><strong>150.000+ mensen hebben de switch gemaakt</strong></h3>",
+        "text_l74MP9OoNCOwnle7": "<h3>Krijg de Lio van ons,</h3>",
+        "text_nlSWMzoaYCIkWJHm": "<h3>en breek eindelijk je slechte gewoontes.</h3>",
+        "text_hYtGlu9nsRzRWY4l": "<p>Het nicotinevrije device dat uw slechte gewoonte op natuurlijke, directe en blijvende wijze vervangt.</p>",
+        "url_uYulEsbJMVT02PcO": "shopify://products/journey-pack-3",
+        "text_i82ywwpDKK0AL5Mv": "<p>Probeer Lio risicovrij</p>",
+        "text_jyKpHEQEUVzo9pdT": "<p>Krijg Lio Original T.W.V €29 bij iedere bestelling</p>",
+        "text_EDXN87jzTP8Rj84n": "<p>What Cores </p><p>do you need?</p>",
+        "url_hPovpbXdQoVTzaRe": "shopify://products/lio-pro-cores",
+        "url_HWo08RdfnvBoKyld": "shopify://products/lio-flavor-cores",
+        "text_q8kXE7BS6lV9O4wD": "<p><strong>The new Lio Plus uses the original cores.</strong></p>",
+        "product_KkPDWhEo4PfCAdEx": "lio-pro-pack",
+        "text_5vx0tApPAYB6y6ww": "<p>Krijg Lio Original T.W.V €29 bij iedere bestelling</p>",
+        "text_gn1f5b2C2rhOQBWN": "<p>KORTING</p>",
+        "text_joL6tXtVaD8JJ0wW": "<p>Selecteer je Lio Device:</p>",
+        "text_NOy3pB4t2Zc1ivY4": "<h3>Lio Original</h3>",
+        "text_iMyjLCgkqOOlQuDC": "<p>Vaste Luchtstroom</p>",
+        "text_V5ruUR8Crq8aJc77": "<p><strong>€29</strong></p>",
+        "text_Ta7xq3VQy7MHZEoM": "<h3>Gratis Device</h3>",
+        "text_KOv3l5eengE3UlYv": "<h3>Lio Plus</h3>",
+        "text_Quw3InLITu4nGDtP": "<h3>Meest gekozen</h3>",
+        "text_wbtFliZ5S1xWOrzE": "<p>Aanpasbare luchtstroom</p>",
+        "text_7oekf5KJfCv4bOX8": "<p>+ €9</p>",
+        "text_ab4EOp2Ec4bPCyWY": "<h3>Lio Pro</h3>",
+        "text_cLXQfKHbt6kIV2NM": "<h3>Meeste waarde</h3>",
+        "text_fGrzRQNJpF8dib58": "<p>Aanpasbare luchtstroom</p><p>Magnetische fidget functie</p>",
+        "text_fmwgvf1youZuDtqM": "<p>+ €59</p>",
+        "text_j0VKFEw9YWnxN58J": "<p>Selecteer je kleur:</p>",
+        "text_glycR4QwbCS8sQ1h": "<p>Selecteer je smaak bundel:</p>",
+        "text_b8BxvSg5YCKV8mbi": "<p>Drie kernen per verpakking. Elke kern gaat ongeveer 10 dagen mee. Elke kern is gevuld met essentiële oliën afkomstig van gecertificeerde Europese kwekerijen, botanische ingrediënten en plantenextracten, gemengd in onze fabriek in Nederland.</p>",
+        "text_Q2AmHrr9tivEP4jE": "<p>€39</p>",
+        "text_xKLx7zW71CIu7AlQ": "<p>Geselecteerd</p>",
+        "text_cw2C9ckIpQxqvdyc": "<p>Selecteer</p>",
+        "text_1rqpGtnJx4TwgdRi": "<p>Minty 90-Dagen</p>",
+        "text_zMERG6yvNnlp72aF": "<p>€59</p>",
+        "text_15ZxTDnJRAgAcpsM": "<p>Selected</p>",
+        "text_S0x5U8Fiz63DGsZf": "<p>Select</p>",
+        "text_M4hwjQZp0xGjdzSh": "<p>Mixed 60-Days</p>",
+        "text_oUtVJbj0sahc11TR": "<p>€49</p>",
+        "text_2hAPo3nxFWKfoZ8g": "<p>Selected</p>",
+        "text_5li6E2JtLYKUScMZ": "<p>Select</p>",
+        "text_dMje7DoatwWFvrwk": "<p>Fruity 30-Days</p>",
+        "text_tFSnsoP8zWEfZ3Fu": "<p>€39</p>",
+        "text_81EuB7i164nCVezU": "<p>Selected</p>",
+        "text_Ur5IdO3RVxD99GEs": "<p>Select</p>",
+        "text_s8yK0jjwvpVq9yZU": "<p>ADD TO CART</p>",
+        "text_YpmAmkn4UxaGHad7": "<p><strong>73% succeed with the 90-day reset</strong></p>",
+        "text_0xVLst2UpVGjAPyR": "<p><strong>Reset program added ✓</strong></p>",
+        "text_oSQ8j6A4nV5soERh": "<p><strong>90-Day Reset Program</strong></p>",
+        "text_EalJLqnNCNZqGkAi": "<p>Add for €9 </p>",
+        "text_uojdJr3AfmPFWqmc": "<p>€39</p>",
+        "text_wYPwLplEFybHfqXO": "<p><strong>Remove program</strong></p>",
+        "text_6fRClLZfJ0NkiFHu": "<p>Add</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -114,43 +175,33 @@
         "input_text_color": ""
       }
     },
-    "instant_c2_dj_in0tp_zb8_wy_he_98RpfV": {
-      "type": "instant-C2DjIn0tpZb8WYHe",
-      "name": "Homepage Free Device Hero",
+    "1733500856be178824": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_dynamic_section_Rm3QFk": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "reviews_to_display": "",
+            "default_tab": "automatic",
+            "only_photos": false,
+            "aggregated": true,
+            "limit": 20,
+            "hide_thumbnails": true,
+            "maxwidth": 1320,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_dynamic_section_Rm3QFk"
+      ],
       "settings": {
-        "text_PPgN8gHZYCwv1blS": "<h3><strong>150.000+ mensen hebben de switch gemaakt</strong></h3>",
-        "text_y9OVJPXTmwgQuJ1G": "<h3>Krijg de Lio van ons,</h3>",
-        "text_R1nE2ta8cE8B0Ts2": "<h3>en breek eindelijk je slechte gewoontes.</h3>",
-        "text_TV9G26kAF0lVidrW": "<h3>The nicotine-free diffuser that replaces your bad habit, naturally, immediately, for good.</h3>",
-        "url_OajFSmqd7QNSz7QQ": "shopify://products/journey-pack-3",
-        "text_hi9PWNUihPSfbrGO": "<p>Probeer Lio risicovrij</p>",
-        "text_RolBhebwdnOyalJP": "<p>Bestel Cores</p>",
-        "text_vAeVqYYTLhl56quC": "<p>Krijg een Lio Device T.W.V €29 bij iedere bestelling</p>",
-        "text_i7IbljFtPiy8Zbvw": "<h3>\"I didn't think something this simple could break a 30-year habit. But it did. 8 months in, it's a lifesaver\"</h3>",
-        "text_UPH4km1ls9Adi6tO": "<h3>Freedom from smoke, nicotine and toxins</h3>",
-        "url_JUaknQBHupwNAzM2": "shopify://products/the-journey-pack-3",
-        "text_aFRW8kjl07g5CnBZ": "<h3>Start your </h3>",
-        "text_HfoO9oH7sENec6D8": "<h3>good habit today</h3>",
-        "url_xqGennNNTT9I2Y2g": "",
-        "text_lDtXRRFl7lKdMEMW": "<p>Get your Lio</p>",
-        "text_bzfdxbje9qFN3wwH": "<h3>Stock up </h3>",
-        "text_AJMYGGm0QnLYQbCe": "<h3>on flavor cores</h3>",
-        "url_0S4WY4x2BsYZM9pp": "",
-        "text_un6DgaQWK3n2jLwg": "<p>See how it works</p>",
-        "url_ZWXKvgMX7uJOAxok": "shopify://collections/lio-devices",
-        "url_HuLvB8fOu2sKtvNo": "",
-        "text_mktWzC3zK1BBwLbo": "<h3><strong>Shop Lio Devices</strong></h3>",
-        "url_bc992nD4iNnuiE94": "shopify://collections/accessories",
-        "url_XrByix8W0lcxcmvT": "",
-        "text_j812lDIvLnh4ih11": "<h3><strong>Shop accessories </strong></h3>",
-        "url_oaSQK1nKfIBeAKrZ": "",
-        "text_WAtCSZHZ9dKyAQ5a": "<h3><strong>Shop Cores</strong></h3>",
-        "text_VuI5PmSulEXyfnHg": "<p>What Cores </p><p>do you need?</p>",
-        "url_I80mKt2xt8ZogVth": "shopify://products/lio-pro-cores",
-        "url_FtxjVWeYKVnkXAKT": "shopify://products/lio-flavor-cores",
-        "text_ACKzcdEibH4Yixbx": "<p><strong>The new Lio Plus uses the original cores.</strong></p>",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "full_width": true,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": false,
+        "background": "#f5fffb",
+        "background_gradient": "",
+        "text_color": ""
       }
     },
     "instant_cscp05_rqsxklly78_qceaiJ": {
@@ -220,9 +271,9 @@
         "text_0tB7Gwk9mM3tvdzs-1": "<p><strong>Hoe smaakt gearomatiseerde lucht?</strong></p>",
         "text_LiOaB4aedqqXHLMz-1": "<p>De gearomatiseerde lucht van Lio biedt een subtiele, natuurlijke smaak die je helpt te stoppen met roken of vapen. Het is minder intens dan damp, maar verfrissend, vergelijkbaar met een licht getrokken kruidenthee of frisdrank, maar dan zonder de zoetigheid.</p>",
         "text_ga18m9KV5dlemZXE-1": "<p><strong>Hoe werkt Lio?</strong></p>",
-        "text_B6iXQx2EAYvnjQZJ-1": "<p>Lio biedt nicotinevrije, natuurlijk gearomatiseerde lucht om je te helpen moeiteloos van slechte gewoonten af ​​te komen. 100% natuurlijk en 90% goedkoper dan roken, zorgt het ervoor dat de gewoonte van &apos;hand-to-mond&apos; behouden blijft voor een gemakkelijke overgang. Het wordt vertrouwd door meer dan 100.000 klanten en heeft een geld-terug-garantie van 30 dagen. Het is de makkelijkste keuze voor een gezonder leven.</p>",
+        "text_B6iXQx2EAYvnjQZJ-1": "<p>Lio biedt nicotinevrije, natuurlijk gearomatiseerde lucht om je te helpen moeiteloos van slechte gewoonten af ​​te komen. 100% natuurlijk en 90% goedkoper dan roken, zorgt het ervoor dat de gewoonte van 'hand-to-mond' behouden blijft voor een gemakkelijke overgang. Het wordt vertrouwd door meer dan 100.000 klanten en heeft een geld-terug-garantie van 30 dagen. Het is de makkelijkste keuze voor een gezonder leven.</p>",
         "text_fvV6r4tXrJ46h3XU-1": "<p><strong>Hoe gebruik je Lio?</strong></p>",
-        "text_9XYA1ESp73pjMPeo-1": "<p><strong>Je Lio gebruiken is eenvoudig, slechts 3 stappen</strong></p><ul><li><p>Rafel de kern van je favoriete smaak.</p></li><li><p>Schuif de kern in de Lio.</p></li><li><p>Verlicht je trek.</p></li></ul>",
+        "text_9XYA1ESp73pjMPeo-1": "<p><strong>Je Lio gebruiken is eenvoudig, slechts 3 stappen</strong></p><ul><li>Rafel de kern van je favoriete smaak.</li><li>Schuif de kern in de Lio.</li><li>Verlicht je trek.</li></ul>",
         "text_yTyLSFSIdKvwQz23-1": "<p><strong>Verzending en refunds</strong></p>",
         "text_qXRj2jzf9K0nD65S-1": "<p>Wij verzenden wereldwijd gratis vanuit Nederland met PostNL! De levertijd is 2-3 dagen binnen Europa, 3-4 dagen naar het VK, 4-8 dagen buiten Europa en de volgende dag in het Midden-Oosten (vanuit Dubai). Profiteer van snelle, betrouwbare verzending zonder extra kosten.</p>",
         "text_qxobWm2DH8k2US4T-1": "<p><strong>Geld-terug-garantie</strong></p>",
@@ -234,9 +285,9 @@
         "text_HxLlRArIJmteFgbd-1": "<p><strong>Hoe vaak kan ik Lio gebruiken?</strong></p>",
         "text_egGiwJOsv5NMthvU-1": "<p>Je kunt Lio zo vaak gebruiken als je wilt. Het is volledig natuurlijk en bevat geen nicotine, rook of damp, dus regelmatig gebruik kan geen kwaad.</p>",
         "text_L5aVbbUojn7ExMCU-1": "<h3>BEVRIJD JEZELF</h3>",
-        "text_QCkYmfwX2ibUxS1M-1": "<h3><strong>van nicotine, damp, </strong></h3><h3><strong>rook &amp; Gifstoffen.</strong></h3>",
+        "text_QCkYmfwX2ibUxS1M-1": "<h3><strong>van nicotine, damp, </strong></h3><h3><strong>rook & Gifstoffen.</strong></h3>",
         "text_3ZYUPwZh3VSo2Op4-1": "<h3>Bevrijd jezelf</h3>",
-        "text_g69xoOjK5TquUHqj-1": "<h3><strong>van nicotine, damp, </strong></h3><h3><strong>rook &amp; Gifstoffen.</strong></h3>",
+        "text_g69xoOjK5TquUHqj-1": "<h3><strong>van nicotine, damp, </strong></h3><h3><strong>rook & Gifstoffen.</strong></h3>",
         "text_z3yKrEjQibuNbQDJ-1": "<h3>Meer dan 100.000 </h3><h3>tevreden klanten</h3>",
         "text_0rft8bt5UJMJxGbj-1": "<p>Met een succespercentage van 80% is Lio 6x effectiever dan andere methoden.</p>",
         "text_IW3rOrBOrGae2Sug-1": "<h3>Niet gestopt?</h3><h3>Geld terug.</h3>",
@@ -244,7 +295,7 @@
         "text_JOEtaBiBggQvWiDx-1": "<h3>100% natuurlijk en chemicaliënvrij</h3>",
         "text_Xu6aQYJ4lHYvN2bn-1": "<p>Een geheel natuurlijke manier om de hunkering naar een sigaret te beteugelen, zonder rook, damp of nicotine.</p>",
         "text_rdj8lmDcb6pDHHv2-1": "<h3><strong>90% goedkoper dan uw slechte gewoonte</strong></h3>",
-        "text_cQ5dlvrP3ulI8kRm-1": "<p>Je portemonnee zal je dankbaar zijn. Bespaar duizenden euro&apos;s per jaar terwijl je de vrijheid behoudt.</p>",
+        "text_cQ5dlvrP3ulI8kRm-1": "<p>Je portemonnee zal je dankbaar zijn. Bespaar duizenden euro's per jaar terwijl je de vrijheid behoudt.</p>",
         "text_AmSpi311NWa8rcNg-1": "<p>Niet gestopt binnen 30 dagen? Geld terug!</p>"
       }
     },
@@ -376,42 +427,13 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
-    },
-    "1733500856be178824": {
-      "type": "apps",
-      "blocks": {
-        "loox_reviews_loox_dynamic_section_Rm3QFk": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "reviews_to_display": "",
-            "default_tab": "automatic",
-            "only_photos": false,
-            "aggregated": true,
-            "limit": 20,
-            "hide_thumbnails": true,
-            "maxwidth": 1320,
-            "is_sample": true
-          }
-        }
-      },
-      "block_order": [
-        "loox_reviews_loox_dynamic_section_Rm3QFk"
-      ],
-      "settings": {
-        "full_width": true,
-        "remove_vertical_spacing": true,
-        "remove_horizontal_spacing": false,
-        "background": "#f5fffb",
-        "background_gradient": "",
-        "text_color": ""
-      }
     }
   },
   "order": [
+    "instant_h_jd_cuc7_ymp7j_m_co_c_tBer9i",
     "main",
-    "instant_c2_dj_in0tp_zb8_wy_he_98RpfV",
+    "1733500856be178824",
     "instant_cscp05_rqsxklly78_qceaiJ",
-    "instant_qef_lbatq4gk_sy_qf3_VTyFAe",
-    "1733500856be178824"
+    "instant_qef_lbatq4gk_sy_qf3_VTyFAe"
   ]
 }
