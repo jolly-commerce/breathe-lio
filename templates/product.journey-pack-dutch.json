@@ -58,6 +58,7 @@
           "type": "variant_picker",
           "settings": {
             "hide_sold_out_variants": false,
+            "image-inside-dropdown": false,
             "stack_blocks": true,
             "selector_style": "block",
             "swatch_selector_style": "swatch",
@@ -111,6 +112,45 @@
         "text_color": "",
         "input_background": "rgba(0,0,0,0)",
         "input_text_color": ""
+      }
+    },
+    "instant_c2_dj_in0tp_zb8_wy_he_98RpfV": {
+      "type": "instant-C2DjIn0tpZb8WYHe",
+      "name": "Homepage Free Device Hero",
+      "settings": {
+        "text_PPgN8gHZYCwv1blS": "<h3><strong>150.000+ mensen hebben de switch gemaakt</strong></h3>",
+        "text_y9OVJPXTmwgQuJ1G": "<h3>Krijg de Lio van ons,</h3>",
+        "text_R1nE2ta8cE8B0Ts2": "<h3>en breek eindelijk je slechte gewoontes.</h3>",
+        "text_TV9G26kAF0lVidrW": "<h3>The nicotine-free diffuser that replaces your bad habit, naturally, immediately, for good.</h3>",
+        "url_OajFSmqd7QNSz7QQ": "shopify://products/journey-pack-3",
+        "text_hi9PWNUihPSfbrGO": "<p>Probeer Lio risicovrij</p>",
+        "text_RolBhebwdnOyalJP": "<p>Bestel Cores</p>",
+        "text_vAeVqYYTLhl56quC": "<p>Krijg een Lio Device T.W.V €29 bij iedere bestelling</p>",
+        "text_i7IbljFtPiy8Zbvw": "<h3>\"I didn't think something this simple could break a 30-year habit. But it did. 8 months in, it's a lifesaver\"</h3>",
+        "text_UPH4km1ls9Adi6tO": "<h3>Freedom from smoke, nicotine and toxins</h3>",
+        "url_JUaknQBHupwNAzM2": "shopify://products/the-journey-pack-3",
+        "text_aFRW8kjl07g5CnBZ": "<h3>Start your </h3>",
+        "text_HfoO9oH7sENec6D8": "<h3>good habit today</h3>",
+        "url_xqGennNNTT9I2Y2g": "",
+        "text_lDtXRRFl7lKdMEMW": "<p>Get your Lio</p>",
+        "text_bzfdxbje9qFN3wwH": "<h3>Stock up </h3>",
+        "text_AJMYGGm0QnLYQbCe": "<h3>on flavor cores</h3>",
+        "url_0S4WY4x2BsYZM9pp": "",
+        "text_un6DgaQWK3n2jLwg": "<p>See how it works</p>",
+        "url_ZWXKvgMX7uJOAxok": "shopify://collections/lio-devices",
+        "url_HuLvB8fOu2sKtvNo": "",
+        "text_mktWzC3zK1BBwLbo": "<h3><strong>Shop Lio Devices</strong></h3>",
+        "url_bc992nD4iNnuiE94": "shopify://collections/accessories",
+        "url_XrByix8W0lcxcmvT": "",
+        "text_j812lDIvLnh4ih11": "<h3><strong>Shop accessories </strong></h3>",
+        "url_oaSQK1nKfIBeAKrZ": "",
+        "text_WAtCSZHZ9dKyAQ5a": "<h3><strong>Shop Cores</strong></h3>",
+        "text_VuI5PmSulEXyfnHg": "<p>What Cores </p><p>do you need?</p>",
+        "url_I80mKt2xt8ZogVth": "shopify://products/lio-pro-cores",
+        "url_FtxjVWeYKVnkXAKT": "shopify://products/lio-flavor-cores",
+        "text_ACKzcdEibH4Yixbx": "<p><strong>The new Lio Plus uses the original cores.</strong></p>",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "instant_cscp05_rqsxklly78_qceaiJ": {
@@ -343,6 +383,8 @@
         "loox_reviews_loox_dynamic_section_Rm3QFk": {
           "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
           "settings": {
+            "reviews_to_display": "",
+            "default_tab": "automatic",
             "only_photos": false,
             "aggregated": true,
             "limit": 20,
@@ -367,6 +409,7 @@
   },
   "order": [
     "main",
+    "instant_c2_dj_in0tp_zb8_wy_he_98RpfV",
     "instant_cscp05_rqsxklly78_qceaiJ",
     "instant_qef_lbatq4gk_sy_qf3_VTyFAe",
     "1733500856be178824"
