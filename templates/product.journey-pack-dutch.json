@@ -466,6 +466,34 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "instant_2c8fyr_luzzxhdneg_DVcyb6": {
+      "type": "instant-2c8fyrLuzzxhdneg",
+      "name": "ANY QUESTIONS? ",
+      "settings": {
+        "text_aR0gkV8V6rdOpqNd": "<h3>Heb je vragen?</h3>",
+        "text_RuI6dlpUfLkjJq7X": "<h3>Wij hebben antwoorden.</h3>",
+        "text_hKQxN30o1bCAyNzz": "<p>Hoe smaakt Lio?</p>",
+        "text_Ul4oNRk850jS50Hc": "<p>Denk aan kruidenthee, niet aan frisdrank. Als je damp gewend bent, is Lio lichter en natuurlijker dan je zou verwachten. Niet zo zoet, niet zo zwaar, gewoon schone, gearomatiseerde lucht.</p>",
+        "text_lRXHuoRxX7QBohWw": "<p>Wat is Lio?</p>",
+        "text_Lz3xay2Wv9s1f1wo": "<p>Een device met gearomatiseerde lucht zonder nicotine dat de vicieuze cirkel van destructieve gewoonten doorbreekt. Geen chemicaliën, geen damp, geen nicotine. Alleen natuurlijke, plantaardige aroma's en je eigen adem.</p>",
+        "text_zwC2TT5JbhXGUy6J": "<p>Hoe werkt het in de praktijk?</p>",
+        "text_UfwpDTy6nZ8oxxDG": "<p>Je gewoonte is niet alleen chemisch, maar ook gedragsmatig. De hand-naar-mondbeweging, de diepe ademhaling, de onmiddellijke verlichting. Lio bootst dat hele ritueel na met gearomatiseerde lucht en voldoet aan het patroon waar je lichaam eigenlijk naar verlangt. Geen nicotine nodig.</p>",
+        "text_x1u7xax7nnJQjCFQ": "<p>Hoe kan zoiets werken?</p>",
+        "text_6dJhYxbe8XqHD2lB": "<p>Omdat tot wel 80% van elke gewoonte gedragsmatig is, en niet chemisch. Lio richt zich op die laag, het deel dat pleisters en kauwgom volledig overslaan.</p>",
+        "text_1pFmMHDzdPamejWv": "<p>Zal het werken voor mijn gewoonte?</p>",
+        "text_09Bf4TzzHNQn1kAl": "<p>Lio werkt voor elke gewoonte die gebaseerd is op rituelen en herhaling, zoals vapen, nagelbijten, stresseten, nerveus friemelen en gedachteloos snacken. Als je gewoonte een herhaalde handeling met een onmiddellijke beloning inhoudt, werkt Lio.</p>",
+        "text_AxxZ6MukmuvVJ6P8": "<p>Is het veilig?</p>",
+        "text_nnM55WmduEaRTQEG": "<p>Volledig. Meerdere toxicologische rapporten van derden. Aromatische stoffen van farmaceutische kwaliteit afkomstig van IFRA-gecertificeerde EU-boerderijen. Geen nicotine, geen damp, geen synthetische stoffen.</p>",
+        "text_ppnxd4lqJ41LuYsm": "<p>Hoe lang gaat elke Core mee?</p>",
+        "text_pJjwm3ceBM3mYuag": "<p>Meer dan 10 dagen per kern. Elke verpakking bevat 3 Cores.</p>",
+        "text_FWli4ibI3PSMXx7C": "<p>Hoe vaak kan ik het gebruiken?</p>",
+        "text_aPC3dJVJv9CVRue9": "<p>Zo vaak als nodig. Overal. Altijd. Geen beperkingen, geen limieten, geen bijwerkingen.</p>",
+        "text_iRNWRpbJ2yb3king": "<p>Welke resultaten kan ik verwachten?</p>",
+        "text_gQwJaUBJT3a5zYaK": "<p>De meeste gebruikers merken al binnen de eerste week een duidelijke verandering; de drang neemt af. Na een maand melden velen een aanzienlijke vermindering of zelfs het volledig stoppen met de gewoonte. Na drie maanden is de oude gewoonte nauwelijks nog aanwezig. Na acht maanden hebben de meesten er al maanden niet meer aan gedacht.</p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -475,6 +503,7 @@
     "main",
     "1733500856be178824",
     "instant_cscp05_rqsxklly78_qceaiJ",
-    "instant_u_an_vl_mfa9_e8_iu_pz_k_ALdrGj"
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_ALdrGj",
+    "instant_2c8fyr_luzzxhdneg_DVcyb6"
   ]
 }
