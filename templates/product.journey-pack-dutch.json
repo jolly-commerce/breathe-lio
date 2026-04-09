@@ -453,6 +453,19 @@
         "text_cQ5dlvrP3ulI8kRm-1": "<p>Je portemonnee zal je dankbaar zijn. Bespaar duizenden euro's per jaar terwijl je de vrijheid behoudt.</p>",
         "text_AmSpi311NWa8rcNg-1": "<p>Niet gestopt binnen 30 dagen? Geld terug!</p>"
       }
+    },
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_ALdrGj": {
+      "type": "instant-uAnVLMfa9E8IUPzK",
+      "name": "HOW LIO WORKS ",
+      "settings": {
+        "text_dexOB6igRe9Eptbe": "<h3>Hoe gebruik je Lio? </h3>",
+        "text_2dI3MuIHWWHZJRsK": "<p>1: Open het zakje</p>",
+        "text_n81CRw4pHvFx6kf7": "<p>2: Rafel de kern</p>",
+        "text_IToyPQTuctktKsiP": "<p>3: Schuif deze in Lio</p>",
+        "text_jmBe8RVHWUBx87sJ": "<p>4: Geniet </p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -461,6 +474,7 @@
     "instant_sgbd655le_hh0r2_pw_p9iJLX",
     "main",
     "1733500856be178824",
-    "instant_cscp05_rqsxklly78_qceaiJ"
+    "instant_cscp05_rqsxklly78_qceaiJ",
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_ALdrGj"
   ]
 }
