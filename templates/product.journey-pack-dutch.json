@@ -427,6 +427,30 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "instant_sgbd655le_hh0r2_pw_p9iJLX": {
+      "type": "instant-Sgbd655leHh0r2PW",
+      "name": "USE IT ANYWHERE",
+      "settings": {
+        "text_FtgUZGCiW6P9UIyb": "<p>Geen damp. Geen geur. Geen beperkingen.</p>",
+        "text_hKUF97nnDGZrSrGo": "<p>Gebruik het overal.</p>",
+        "text_NpTZ41smky1abxJe": "<p>Die 'drang' trekt zich niets aan van waar je bent.<em><strong> En Lio ook niet.</strong></em></p>",
+        "text_RsY9tNjmoGlORvTT": "<p>In het vliegtuig</p>",
+        "text_GXfpUflqTBiTOJbY": "<p>Op kantoor</p>",
+        "text_KVzziWIBqVykGRcm": "<p>Het OV</p>",
+        "text_wRIhkgRbgIb43vMD": "<p>Restaurants</p>",
+        "text_vOaoHDUlOgdRcDa2": "<p>Meetings</p>",
+        "text_5UD81Liw35gJXFqt": "<p>Gym</p>",
+        "text_WqgE9rSdWYL7b1rT": "<p>Restaurants</p>",
+        "text_VscOUnCalPkbDuJE": "<p>Meetings</p>",
+        "text_uMYhOKnGvVPHTyub": "<p>Gym</p>",
+        "text_O6JILdo0Itb4jxoO": "<p>Hotels</p>",
+        "text_v0E8LcukdUnZTqbv": "<p>Uitgaan</p>",
+        "text_R3JV65VeH6qlOLcV": "<p>Thuis</p>",
+        "text_OgaCn7XB7BXQcSxO": "<p>Die 'drang' trekt zich niets aan van waar je bent.<em><strong> En Lio ook niet.</strong></em></p>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -434,6 +458,7 @@
     "main",
     "1733500856be178824",
     "instant_cscp05_rqsxklly78_qceaiJ",
-    "instant_qef_lbatq4gk_sy_qf3_VTyFAe"
+    "instant_qef_lbatq4gk_sy_qf3_VTyFAe",
+    "instant_sgbd655le_hh0r2_pw_p9iJLX"
   ]
 }
