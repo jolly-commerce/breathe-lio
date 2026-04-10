@@ -34,18 +34,34 @@
         "text_ZVNKug7iTqv257pU": "<p>Seleziona il colore:</p>",
         "text_4hGD7mNhP4j27Pxv": "<p>Seleziona gusto:</p>",
         "text_OxJtt7OOktdHl7gd": "<p>Menta 30 giorni</p>",
+        "text_lIuszfsNTtifbLYl": "<p>Selezionata</p>",
+        "text_4qvAZptBb6uWM60Y": "<p>Seleziona</p>",
         "text_9G0lCzMFdO4ZvXbS": "<p>Menta 90 giorni</p>",
         "text_xKVr6zkVVNVk7v6A": "<p>Selezionata</p>",
         "text_JjG3Qm2LbKmEYKLX": "<p>Seleziona</p>",
-        "text_lIuszfsNTtifbLYl": "<p>Selezionata</p>",
-        "text_4qvAZptBb6uWM60Y": "<p>Seleziona</p>",
-        "text_nGGQX3zgxahZLybW": "<p>Seleziona</p>",
-        "text_hXqqn6g6dA31Fqpr": "<p>Selezionata</p>",
         "text_F4GVHms2jObnTzpJ": "<p>Misto 60 giorni</p>",
+        "text_hXqqn6g6dA31Fqpr": "<p>Selezionata</p>",
+        "text_nGGQX3zgxahZLybW": "<p>Seleziona</p>",
         "text_JiH3rWtypNOAt7iM": "<p>30 giorni di frutta</p>",
         "text_P2eQd0byJMfZSqRT": "<p>Selezionata</p>",
         "text_jQMhjl1jJjRQyJQO": "<p>Seleziona</p>",
         "text_W9AVU7O8vhUdLzYK": "<p>AGGIUNGI AL CARRELLO</p>"
+      },
+      "blocks": {}
+    },
+    "instant_oz_a_oh_opd_xw6s_bkql_qRXc8W": {
+      "settings": {
+        "text_XR5kZm7ec8egwxmR": "<p>Nessun liquido. Niente vapore. Niente nicotina.</p>",
+        "text_Oxdt7tEsg90FMZSX": "<p>Il sostituto aromatizzato per Airhabit.</p>",
+        "text_g2H833wvj7dSMIwz": "<p>All'interno del dispositivo è presente un nucleo aromatico naturale. Quando si aspira, l'aria lo attraversa. Ciò che ne esce è semplicemente aria aromatizzata e il proprio respiro. Tutto qui.</p>",
+        "text_Puun44WtrZS4vsYA": "<p>Prova subito Lio</p>",
+        "text_8Ms3s9JAqE2jmcPh": "",
+        "text_gWBen0RLrJ6yIKZH": "<p>Ingredienti naturali</p>",
+        "text_rxOQiJt1tnYtNuYV": "<p>Ogni pezzo è unico</p>",
+        "text_WJ1fZeQqxIi5vtpY": "<p>Imita quella familiare abitudine</p>",
+        "text_UponzQrO2xe3bZjc": "<p>Usalo dove vuoi</p>",
+        "text_tpTMOu6do5Smqs2d": "<p>Niente batterie, niente vapore.</p>",
+        "text_CtkzMQXu5uV41I5R": ""
       },
       "blocks": {}
     }
