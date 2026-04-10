@@ -83,9 +83,9 @@
     },
     "instant_sgbd655le_hh0r2_pw_Ui6Rbj": {
       "settings": {
+        "text_FtgUZGCiW6P9UIyb": "<p>Niente vapore. Niente odore. Nessuna restrizione.</p>",
         "text_hKUF97nnDGZrSrGo": "<p>Sollievo. Ovunque.</p>",
         "text_NpTZ41smky1abxJe": "<p>L'impulso non si cura di dove ti trovi. E nemmeno Lio.</p>",
-        "text_FtgUZGCiW6P9UIyb": "<p>Niente vapore. Niente odore. Nessuna restrizione.</p>",
         "text_RsY9tNjmoGlORvTT": "<p>Sull'aereo</p>",
         "text_GXfpUflqTBiTOJbY": "<p>In ufficio</p>",
         "text_KVzziWIBqVykGRcm": "<p>Trasporto pubblico</p>",
@@ -99,6 +99,15 @@
         "text_v0E8LcukdUnZTqbv": "<p>Durante una serata fuori</p>",
         "text_R3JV65VeH6qlOLcV": "<p>A casa</p>",
         "text_OgaCn7XB7BXQcSxO": "<p>L'impulso non si cura di dove ti trovi. E nemmeno Lio.</p>"
+      },
+      "blocks": {}
+    },
+    "instant_u_an_vl_mfa9_e8_iu_pz_k_fBrT3f": {
+      "settings": {
+        "text_dexOB6igRe9Eptbe": "<p>Come funziona Lio</p>",
+        "text_2dI3MuIHWWHZJRsK": "<p>1: Apri la borsa</p>",
+        "text_n81CRw4pHvFx6kf7": "<p>2: Sfibrare il nucleo</p>",
+        "text_IToyPQTuctktKsiP": "<p>3: Inserire il nucleo</p>"
       },
       "blocks": {}
     }
