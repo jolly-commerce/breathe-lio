@@ -12,5 +12,17 @@
     "market": "italy"
   },
   "parent": "page.anxiety-lio-pack.json",
-  "sections": {}
+  "sections": {
+    "instant_h_jd_cuc7_ymp7j_m_co_c_t3KTky": {
+      "settings": {
+        "text_l74MP9OoNCOwnle7": "<p>Acquista il tuo Lio gratuitamente, </p>",
+        "text_nlSWMzoaYCIkWJHm": "<p>e finalmente <strong>liberati dall'ansia</strong>.</p>",
+        "text_hYtGlu9nsRzRWY4l": "<p>Ritrova la calma e il controllo, senza nicotina, senza dipendenza e senza l'ansia costante.</p>",
+        "text_i82ywwpDKK0AL5Mv": "<p>Richiedi il mio Lio gratuito</p>",
+        "text_jyKpHEQEUVzo9pdT": "<p>Incluso gratuitamente un dispositivo Lio del valore di 29 €.</p>",
+        "text_EOwPSTRCX6OQoTcp": "<p>Oltre 150.000 persone sono passate a Lio</p>"
+      },
+      "blocks": {}
+    }
+  }
 }
