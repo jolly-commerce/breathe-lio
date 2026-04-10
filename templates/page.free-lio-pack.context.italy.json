@@ -12,5 +12,42 @@
     "market": "italy"
   },
   "parent": "page.free-lio-pack.json",
-  "sections": {}
+  "sections": {
+    "instant_h_jd_cuc7_ymp7j_m_co_c_t3KTky": {
+      "settings": {
+        "text_EOwPSTRCX6OQoTcp": "<p>Oltre 150.000 persone soddisfatte</p>",
+        "text_l74MP9OoNCOwnle7": "<p>Ottieni un dispositivo gratuito,</p>",
+        "text_nlSWMzoaYCIkWJHm": "<p>e finalmente liberati dalle tue cattive abitudini.</p>",
+        "text_hYtGlu9nsRzRWY4l": "<p>Il diffusore senza nicotina che sostituisce la tua cattiva abitudine, in modo naturale, immediato e definitivo.</p>",
+        "text_i82ywwpDKK0AL5Mv": "<p>Prendi il mio Lio</p>",
+        "text_jyKpHEQEUVzo9pdT": "<p>Incluso gratuitamente un dispositivo Lio del valore di 29 €.</p>",
+        "text_3qsXMCU7GIvgOkWa": "<p>Incluso gratuitamente un dispositivo Lio del valore di 29 €.</p>",
+        "text_i929QbFEiXxkawJf": "<p>di sconto</p>",
+        "text_mjXObCp5P2qfUHUf": "<p>Seleziona il tuo Lio:</p>",
+        "text_l260NfaMDDCCEZyj": "<p>Lio Originale</p>",
+        "text_OS8DOHWNZUXwei87": "<p>Flusso d'aria fisso</p>",
+        "text_VPdaAr9MPUivnq2B": "<p>Dispositivo gratuito</p>",
+        "text_RtzxnKdIlOf0EHz2": "<p>Flusso d'aria regolabile</p>",
+        "text_X1n3Djt27iblO1f2": "<p>Il più popolare</p>",
+        "text_eiTqGCGuYhoUidJN": "<p>Flusso d'aria regolabile</p><p>Movimento magnetico</p>",
+        "text_p9Tu6TNt1rG2aCuK": "<p>Il massimo valore</p>",
+        "text_ZVNKug7iTqv257pU": "<p>Seleziona il colore:</p>",
+        "text_4hGD7mNhP4j27Pxv": "<p>Seleziona gusto:</p>",
+        "text_OxJtt7OOktdHl7gd": "<p>Menta 30 giorni</p>",
+        "text_9G0lCzMFdO4ZvXbS": "<p>Menta 90 giorni</p>",
+        "text_xKVr6zkVVNVk7v6A": "<p>Selezionata</p>",
+        "text_JjG3Qm2LbKmEYKLX": "<p>Seleziona</p>",
+        "text_lIuszfsNTtifbLYl": "<p>Selezionata</p>",
+        "text_4qvAZptBb6uWM60Y": "<p>Seleziona</p>",
+        "text_nGGQX3zgxahZLybW": "<p>Seleziona</p>",
+        "text_hXqqn6g6dA31Fqpr": "<p>Selezionata</p>",
+        "text_F4GVHms2jObnTzpJ": "<p>Misto 60 giorni</p>",
+        "text_JiH3rWtypNOAt7iM": "<p>30 giorni di frutta</p>",
+        "text_P2eQd0byJMfZSqRT": "<p>Selezionata</p>",
+        "text_jQMhjl1jJjRQyJQO": "<p>Seleziona</p>",
+        "text_W9AVU7O8vhUdLzYK": "<p>AGGIUNGI AL CARRELLO</p>"
+      },
+      "blocks": {}
+    }
+  }
 }
