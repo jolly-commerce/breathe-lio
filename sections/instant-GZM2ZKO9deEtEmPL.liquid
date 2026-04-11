@@ -26,14 +26,14 @@
   <style>
     @font-face {
       font-family: 'Sofia Pro';
-      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MsCxLDBXAFzTUyg9/sofia-pro-medium-az.woff2') format('woff2');
-      font-weight: 500;
+      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ppyHmH2iiZE35CX9/sofia-pro-semi-bold-az.woff2') format('woff2');
+      font-weight: 600;
       font-display: swap;
     }
     @font-face {
       font-family: 'Sofia Pro';
-      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/ppyHmH2iiZE35CX9/sofia-pro-semi-bold-az.woff2') format('woff2');
-      font-weight: 600;
+      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/MsCxLDBXAFzTUyg9/sofia-pro-medium-az.woff2') format('woff2');
+      font-weight: 500;
       font-display: swap;
     }
     @font-face {
@@ -43,7 +43,10 @@
       font-display: swap;
     }
   </style>
-  <div data-instant-type="root" class="iErhdH7ITI9VAdg3c">
+  <div data-instant-type="root" class="iErhdH7ITI9VAdg3c"
+    ><div data-instant-type="text" class="instant-rich-text iskI566bFfwxRZb0G" id="iskI566bFfwxRZb0G"
+      ><div>{{ section.settings.text_skI566bFfwxRZb0G }}</div></div
+    >
     {%- liquid
       assign product_iDD9AJdh0wMFknrd_handle = 'lio-journey-plan'
       assign product_iDD9AJdh0wMFknrd = section.settings.product_iDD9AJdh0wMFknrd | default: all_products[product_iDD9AJdh0wMFknrd_handle]
@@ -956,6 +959,12 @@
   },
   "settings": [
     {
+      "type": "richtext",
+      "id": "text_skI566bFfwxRZb0G",
+      "label": "Text",
+      "default": "<p>SPRING SALE 🌷  40% OFF STARTER KIT + FREE LIO PLUS + FREE SHIPPING</p>"
+    },
+    {
       "type": "product",
       "id": "product_iDD9AJdh0wMFknrd",
       "label": "Buy box"
@@ -1291,6 +1300,7 @@
     {
       "name": "Sub29Test",
       "settings": {
+        "text_skI566bFfwxRZb0G": "<p>SPRING SALE 🌷  40% OFF STARTER KIT + FREE LIO PLUS + FREE SHIPPING</p>",
         "product_iDD9AJdh0wMFknrd": "lio-journey-plan",
         "text_Db85x2U12iM3OoKf": "<p>Free worldwide shipping</p>",
         "text_khVhAUPDrKsW4GA3": "<p>Lio+ Starter Kit</p>",
