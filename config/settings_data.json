@@ -94,11 +94,6 @@
         "disabled": true,
         "settings": {}
       },
-      "3847134708050210359": {
-        "type": "shopify://apps/transcy/blocks/switcher_embed_block/bce4f1c0-c18c-43b0-b0b2-a1aefaa44573",
-        "disabled": true,
-        "settings": {}
-      },
       "15557474716127144420": {
         "type": "shopify://apps/kaching-bundles/blocks/app-embed-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
         "disabled": false,
@@ -116,6 +111,11 @@
       },
       "6146500278089136509": {
         "type": "shopify://apps/bm-country-blocker-ip-blocker/blocks/boostmark-blocker/bf9db4b9-be4b-45e1-8127-bbcc07d93e7e",
+        "disabled": false,
+        "settings": {}
+      },
+      "3847134708050210359": {
+        "type": "shopify://apps/transcy/blocks/switcher_embed_block/bce4f1c0-c18c-43b0-b0b2-a1aefaa44573",
         "disabled": false,
         "settings": {}
       }
