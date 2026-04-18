@@ -37,12 +37,6 @@
       font-display: swap;
     }
     @font-face {
-      font-family: 'Sofia Pro';
-      src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/AOf8qZ9t9AHdk1Mc/sofia-pro-bold-az.woff2') format('woff2');
-      font-weight: 700;
-      font-display: swap;
-    }
-    @font-face {
       font-family: 'Suncoast GROT';
       src: url('https://assets.instant.so/sites/1ATWZ62dPhRUmsuT/assets/K0JrYp9I52Y6n111/suncoastgrot-bold.woff2') format('woff2');
       font-weight: 700;
@@ -129,27 +123,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon" data-trigger="active">
                   <title>caret-up</title><path d="M216.49,168.49a12,12,0,0,1-17,0L128,97,56.49,168.49a12,12,0,0,1-17-17l80-80a12,12,0,0,1,17,0l80,80A12,12,0,0,1,216.49,168.49Z"></path>
                 </svg></div></button></div></div
-        ><div class="iHB88HSxR3WjP3JOp" data-instant-type="container">
-          {%- liquid
-            assign url_mveofkDL013HrQ2d-2_handle = 'journey-pack-3'
-            assign url_mveofkDL013HrQ2d-2 = all_products[url_mveofkDL013HrQ2d-2_handle].url
-          -%}
-          <!--  -->
-          {%- liquid
-            assign product_mveofkDL013HrQ2d-2_handle = 'journey-pack-3'
-            assign product_mveofkDL013HrQ2d-2 = section.settings['product_mveofkDL013HrQ2d-2'] | default: all_products[product_mveofkDL013HrQ2d-2_handle]
-            assign product_mveofkDL013HrQ2d-2_variant = product_mveofkDL013HrQ2d-2.selected_or_first_available_variant
-
-            if product_mveofkDL013HrQ2d-2.selected_variant
-              assign product_mveofkDL013HrQ2d-2_variant = product_mveofkDL013HrQ2d-2.selected_variant
-            endif
-
-            assign product_mveofkDL013HrQ2d-2_image = product_mveofkDL013HrQ2d-2_variant.featured_image | default: product_mveofkDL013HrQ2d-2.featured_image
-          -%}
-          <form class="imveofkDL013HrQ2d" data-instant-type="container" data-instant-form-product-url="{{ product_mveofkDL013HrQ2d-2.url }}" data-instant-form-variant-id="{{ product_mveofkDL013HrQ2d-2_variant.id }}" data-instant-form-product-id="{{ product_mveofkDL013HrQ2d-2.id }}" rel="noopener noreferrer" data-instant-href="{{ section.settings.url_mveofkDL013HrQ2d-2 | default: url_mveofkDL013HrQ2d-2 }}"
-            ><div data-instant-type="text" class="instant-rich-text iaodXE6G1hnSdpV7T"
-              ><div>{{ section.settings['text_aodXE6G1hnSdpV7T-2'] }}</div></div
-            ></form
+        ><div class="iHB88HSxR3WjP3JOp" data-instant-type="container"
           ><a conditionals="" class="idrmwsep57vncIF1Q" data-instant-type="container" href="{{ routes.cart_url }}" rel="noopener noreferrer" data-instant-action-type="open-cart"
             ><div data-instant-type="icon" class="iLKrfrcFgQbIiMVNw">
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
@@ -709,12 +683,11 @@
             ><div class="i8fpxYCZsbz8V7Hh7" data-instant-type="accordion-container" data-is-first-open="false" data-is-multi-open-enabled="false"
               ><div data-state="closed" class="i4hO4UnIzPjtIxOuD" data-instant-type="accordion-item"
                 ><button class="i9SDwVGgZwXxONRuM" data-instant-type="accordion-header" type="button"
-                  ><div data-instant-type="text" class="instant-rich-text iraIRnwtOIBEM3FAl"
-                    ><div>{{ section.settings['text_raIRnwtOIBEM3FAl-2'] }}</div></div
-                  ><div data-instant-type="icon" class="iEq5d5HOJmUt6kicU">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256" class="instant-icon">
-                      <title>caret-down</title><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
-                    </svg></div></button
+                  ><a as="p" data-instant-type="text" class="iraIRnwtOIBEM3FAl" href="{{ section.settings.url_raIRnwtOIBEM3FAl-2 | default: 'https://lio journey pack' }}" rel="noopener noreferrer"
+                    ><div class="instant-rich-text"
+                      ><div>{{ section.settings['text_raIRnwtOIBEM3FAl-2'] }}</div></div
+                    ></a
+                  ></button
                 ><div class="i9OjWWy6rnEd0rrNl" data-instant-type="accordion-content" style="--instant-accordion-content-height:auto;--instant-accordion-content-width:auto"
                   ><div class="iVXhv2fjCJ2HCLw5u" data-instant-type="container"
                     ><div class="inePIFHiP6E8dmU1i" data-instant-type="container"
@@ -1638,22 +1611,6 @@
       "default": "<p>Contact</p>"
     },
     {
-      "type": "product",
-      "id": "product_mveofkDL013HrQ2d-2",
-      "label": "Button"
-    },
-    {
-      "type": "url",
-      "id": "url_mveofkDL013HrQ2d-2",
-      "label": "Button URL"
-    },
-    {
-      "type": "richtext",
-      "id": "text_aodXE6G1hnSdpV7T-2",
-      "label": "ADD TO BAG",
-      "default": "<p>Try Lio today</p>"
-    },
-    {
       "type": "image_picker",
       "id": "image_KjnsIqlgtPOEgRVK-2",
       "label": "Card"
@@ -2237,6 +2194,11 @@
       "id": "text_raIRnwtOIBEM3FAl-2",
       "label": "Text",
       "default": "<p>Journey Packs</p>"
+    },
+    {
+      "type": "url",
+      "id": "url_raIRnwtOIBEM3FAl-2",
+      "label": "Text URL"
     },
     {
       "type": "product",
@@ -3096,9 +3058,6 @@
         "text_HxIdeVafbDinmHOo-2": "<p>Shop Cores</p>",
         "text_sgaaKpla4xAhpkTN-2": "<p>Learn</p>",
         "text_KZ0RY8fKTEauNhf8-2": "<p>Contact</p>",
-        "product_mveofkDL013HrQ2d-2": "journey-pack-3",
-        "url_mveofkDL013HrQ2d-2": "shopify://products/journey-pack-3",
-        "text_aodXE6G1hnSdpV7T-2": "<p>Try Lio today</p>",
         "url_KjnsIqlgtPOEgRVK-2": "shopify://products/journey-pack-3",
         "text_hJkZFNyBph0TXwNu-2": "<h3>Start your </h3>",
         "text_HFXPoteQLIxhpA3S-2": "<h3>good habit today</h3>",
