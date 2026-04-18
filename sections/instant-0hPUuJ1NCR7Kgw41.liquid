@@ -682,8 +682,12 @@
           ><div class="iNT42cUw4b9agxwoh" data-instant-type="container"
             ><div class="i8fpxYCZsbz8V7Hh7" data-instant-type="accordion-container" data-is-first-open="false" data-is-multi-open-enabled="false"
               ><div data-state="closed" class="i4hO4UnIzPjtIxOuD" data-instant-type="accordion-item"
-                ><button class="i9SDwVGgZwXxONRuM" data-instant-type="accordion-header" type="button"
-                  ><a as="p" data-instant-type="text" class="iraIRnwtOIBEM3FAl" href="{{ section.settings.url_raIRnwtOIBEM3FAl-2 | default: 'https://lio journey pack' }}" rel="noopener noreferrer"
+                ><button class="i9SDwVGgZwXxONRuM" data-instant-type="accordion-header" type="button">
+                  {%- liquid
+                    assign url_raIRnwtOIBEM3FAl-2_handle = 'journey-pack'
+                    assign url_raIRnwtOIBEM3FAl-2 = all_products[url_raIRnwtOIBEM3FAl-2_handle].url
+                  -%}
+                  <a as="p" data-instant-type="text" class="iraIRnwtOIBEM3FAl" href="{{ section.settings.url_raIRnwtOIBEM3FAl-2 | default: url_raIRnwtOIBEM3FAl-2 }}" rel="noopener noreferrer"
                     ><div class="instant-rich-text"
                       ><div>{{ section.settings['text_raIRnwtOIBEM3FAl-2'] }}</div></div
                     ></a
@@ -3115,6 +3119,7 @@
         "url_kKk5TxwbBDVzgwkT-2": "shopify://pages/liosupport",
         "text_SVg03ejLSHcYrkuO-2": "<h3>Contact us</h3>",
         "text_raIRnwtOIBEM3FAl-2": "<p>Journey Packs</p>",
+        "url_raIRnwtOIBEM3FAl-2": "shopify://products/journey-pack",
         "product_SeN7BV5mCKrhrmg5-2": "lio®-gen-2-olive",
         "product_k6Vcxg0teogQ24Kr-2": "lio®-gen-2-walnut",
         "url_k6Vcxg0teogQ24Kr-2": "shopify://products/lio-flavor-cores",
