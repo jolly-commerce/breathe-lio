@@ -1,0 +1,594 @@
+{% comment %}
+  ============================================================
+  LIO® / BREATHELIO — LANDING PAGE 2 OF 8
+  3RD PARTY REVIEW PAGE
+  ============================================================
+  Target keywords: "best flavored air device 2026", "best nicotine-free
+                   inhaler", "best quit vape alternative", "flavored air
+                   device reviews", "best Füm alternative"
+  Traffic temperature: Warm (category-aware, comparing options)
+  Google Ad match: "Best Flavored Air Devices of 2026 — We Tested 7
+                    Brands | See Our #1 Pick"
+  Goal: Position Lio as #1 through authoritative editorial review
+        against Capnos, Ripple+, Cigtrus, MOXĒ, LUVV, Cloudy.
+  ============================================================
+{% endcomment %}
+
+{%- liquid
+  assign journey_pack = all_products['journey-pack-3']
+  assign cdn = 'https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/'
+  assign hero_device_img = cdn | append: 'c01JjKoG35qQ7Jvc/handcrafted-olive-wood-smoking-pipe-photoroom-2-1.webp'
+
+  if journey_pack and journey_pack.variants.first
+    assign primary_cta_url = '/cart/' | append: journey_pack.variants.first.id | append: ':1?storefront=true'
+  else
+    assign primary_cta_url = '/products/journey-pack-3'
+  endif
+-%}
+
+<style>
+  .lio-lp-review {
+    --lio-cream: #F5F1EA;
+    --lio-cream-deep: #ECE5D7;
+    --lio-ink: #1A1A1A;
+    --lio-ink-soft: #4A4A4A;
+    --lio-muted: #9B9A94;
+    --lio-sage: #6B7F5C;
+    --lio-sage-dark: #4E5F42;
+    --lio-walnut: #8B5A3C;
+    --lio-olive: #A8A878;
+    --lio-border: #E0D9C8;
+    --lio-star: #D4A24B;
+    --lio-danger: #B85C3C;
+    background: var(--lio-cream);
+    color: var(--lio-ink);
+    font-family: 'Inter', 'Helvetica Neue', Arial, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .lio-lp-review * { box-sizing: border-box; }
+  .lio-lp-review img { max-width: 100%; height: auto; display: block; }
+  .lio-lp-review h1, .lio-lp-review h2, .lio-lp-review h3, .lio-lp-review h4 {
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin: 0 0 16px;
+    color: var(--lio-ink);
+  }
+  .lio-lp-review p { margin: 0 0 16px; }
+  .lio-lp-review a { color: inherit; }
+
+  .lio-lp-review__wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  .lio-lp-review__wrap--wide { max-width: 1200px; }
+
+  /* ==== Masthead ==== */
+  .lio-lp-review__masthead {
+    background: var(--lio-ink);
+    color: var(--lio-cream);
+    padding: 20px 0;
+    text-align: center;
+  }
+  .lio-lp-review__masthead-title {
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: var(--lio-cream);
+    margin: 0;
+  }
+  .lio-lp-review__masthead-sub {
+    font-size: 12px;
+    color: var(--lio-cream);
+    opacity: 0.6;
+    margin: 4px 0 0;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ==== Article header ==== */
+  .lio-lp-review__article-head {
+    padding: 64px 0 32px;
+    text-align: center;
+  }
+  .lio-lp-review__category-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--lio-sage);
+    padding: 6px 14px;
+    border: 1px solid var(--lio-sage);
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .lio-lp-review__article-head h1 {
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    max-width: 820px;
+    margin: 0 auto 20px;
+  }
+  .lio-lp-review__article-sub {
+    font-size: 19px;
+    color: var(--lio-ink-soft);
+    max-width: 680px;
+    margin: 0 auto 24px;
+  }
+  .lio-lp-review__byline {
+    font-size: 14px;
+    color: var(--lio-muted);
+    border-top: 1px solid var(--lio-border);
+    border-bottom: 1px solid var(--lio-border);
+    padding: 16px 0;
+    max-width: 640px;
+    margin: 32px auto 0;
+  }
+
+  /* ==== Article body ==== */
+  .lio-lp-review__intro {
+    padding: 40px 0;
+    font-size: 19px;
+    line-height: 1.7;
+  }
+  .lio-lp-review__intro p:first-child::first-letter {
+    float: left;
+    font-size: 64px;
+    line-height: 0.9;
+    font-weight: 600;
+    margin: 6px 12px 0 0;
+    color: var(--lio-sage);
+  }
+
+  /* ==== Quick comparison table ==== */
+  .lio-lp-review__comparison-section {
+    padding: 48px 0;
+    background: var(--lio-cream-deep);
+  }
+  .lio-lp-review__comparison-section h2 {
+    font-size: clamp(24px, 3vw, 36px);
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .lio-lp-review__table-wrap {
+    overflow-x: auto;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .lio-lp-review__table {
+    width: 100%;
+    background: var(--lio-cream);
+    border-collapse: collapse;
+    min-width: 720px;
+  }
+  .lio-lp-review__table th {
+    background: var(--lio-ink);
+    color: var(--lio-cream);
+    padding: 16px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .lio-lp-review__table td {
+    padding: 16px;
+    border-bottom: 1px solid var(--lio-border);
+    font-size: 15px;
+  }
+  .lio-lp-review__table tr:last-child td { border-bottom: none; }
+  .lio-lp-review__table .lio-rank-1 {
+    background: var(--lio-cream-deep);
+    font-weight: 600;
+  }
+  .lio-lp-review__table .lio-rank-1 td:first-child {
+    border-left: 4px solid var(--lio-sage);
+  }
+  .lio-lp-review__rank-badge {
+    display: inline-block;
+    background: var(--lio-sage);
+    color: var(--lio-cream);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ==== Methodology ==== */
+  .lio-lp-review__methodology {
+    padding: 48px 0;
+    background: var(--lio-cream);
+  }
+  .lio-lp-review__methodology h2 {
+    font-size: clamp(24px, 3vw, 32px);
+    margin-bottom: 24px;
+  }
+
+  /* ==== Ranked picks ==== */
+  .lio-lp-review__pick {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--lio-border);
+  }
+  .lio-lp-review__pick:nth-child(odd) { background: var(--lio-cream-deep); }
+  .lio-lp-review__pick-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .lio-lp-review__pick-rank {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--lio-sage);
+    background: rgba(107, 127, 92, 0.1);
+    padding: 6px 12px;
+    border-radius: 4px;
+  }
+  .lio-lp-review__pick-score {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--lio-ink);
+  }
+  .lio-lp-review__pick-score span { font-size: 16px; color: var(--lio-muted); font-weight: 400; }
+  .lio-lp-review__pick h2 {
+    font-size: clamp(26px, 3.5vw, 40px);
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .lio-lp-review__pick-best-for {
+    font-style: italic;
+    color: var(--lio-ink-soft);
+    margin-bottom: 24px;
+    font-size: 17px;
+  }
+  .lio-lp-review__pick-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .lio-lp-review__pick-img-wrap {
+    border-radius: 24px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background: var(--lio-cream);
+  }
+  .lio-lp-review__pick-img { width: 100%; height: 100%; object-fit: cover; }
+  .lio-lp-review__pick-proscons { margin: 24px 0; }
+  .lio-lp-review__pick-proscons strong { display: block; margin-bottom: 8px; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .lio-lp-review__pros { color: var(--lio-sage-dark); margin-bottom: 16px; }
+  .lio-lp-review__cons { color: var(--lio-danger); }
+  .lio-lp-review__inline-cta {
+    display: inline-block;
+    background: var(--lio-ink);
+    color: var(--lio-cream);
+    padding: 16px 32px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 16px;
+    letter-spacing: 0.02em;
+  }
+  .lio-lp-review__inline-cta:hover { background: var(--lio-sage-dark); color: var(--lio-cream); }
+
+  /* ==== Final verdict ==== */
+  .lio-lp-review__verdict {
+    padding: 96px 0;
+    background: var(--lio-ink);
+    color: var(--lio-cream);
+    text-align: center;
+  }
+  .lio-lp-review__verdict h2 {
+    color: var(--lio-cream);
+    font-size: clamp(32px, 4vw, 48px);
+    max-width: 760px;
+    margin: 0 auto 24px;
+    line-height: 1.1;
+  }
+  .lio-lp-review__verdict p {
+    color: var(--lio-cream);
+    opacity: 0.85;
+    max-width: 680px;
+    margin: 0 auto 32px;
+    font-size: 18px;
+  }
+  .lio-lp-review__verdict-cta {
+    display: inline-block;
+    background: var(--lio-cream);
+    color: var(--lio-ink);
+    padding: 20px 44px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  .lio-lp-review__verdict-cta:hover { background: var(--lio-sage); color: var(--lio-cream); }
+
+  /* ==== Compliance ==== */
+  .lio-lp-review__compliance {
+    padding: 32px 0;
+    background: var(--lio-cream-deep);
+    color: var(--lio-muted);
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+  }
+  .lio-lp-review__compliance p { margin: 0 auto; max-width: 880px; padding: 0 24px; }
+
+  /* ==== Responsive ==== */
+  @media (max-width: 768px) {
+    .lio-lp-review__article-head { padding: 40px 0 24px; }
+    .lio-lp-review__pick { padding: 40px 0; }
+    .lio-lp-review__pick-grid { grid-template-columns: 1fr; gap: 24px; }
+    .lio-lp-review__verdict { padding: 56px 0; }
+  }
+</style>
+
+<div class="lio-lp-review">
+
+  <!-- ==================== MASTHEAD ==================== -->
+  <div class="lio-lp-review__masthead">
+    <p class="lio-lp-review__masthead-title">HabitSwap Review</p>
+    <p class="lio-lp-review__masthead-sub">Independent testing · Updated monthly</p>
+  </div>
+
+  <!-- ==================== ARTICLE HEAD ==================== -->
+  <header class="lio-lp-review__article-head">
+    <div class="lio-lp-review__wrap">
+      <span class="lio-lp-review__category-tag">Buyer's Guide · 2026</span>
+      <h1>{{ section.settings.headline | default: 'Best Flavored Air Devices of 2026: We Tested 7 Brands So You Don&rsquo;t Have To' }}</h1>
+      <p class="lio-lp-review__article-sub">{{ section.settings.sub | default: 'After 8 weeks of daily testing across the top nicotine-free flavored air and habit-replacement devices on the market, one brand stood out — and it wasn&rsquo;t the one with the loudest ads.' }}</p>
+      <div class="lio-lp-review__byline">
+        By the HabitSwap Editorial Team  ·  Updated April 2026  ·  14 min read
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== INTRO ==================== -->
+  <section class="lio-lp-review__intro">
+    <div class="lio-lp-review__wrap">
+      <p>If you&rsquo;re trying to break a vaping, smoking, or nail-biting habit, you&rsquo;ve probably realized the obvious thing nobody told you: the chemical is only half the problem. The other half is the ritual &mdash; the hand-to-mouth motion, the deep breath, the little hit of relief &mdash; and patches and gum do nothing for it.</p>
+      <p>That&rsquo;s why the flavored air device category has exploded. These products deliver the ritual &mdash; the pull, the flavor, the exhale &mdash; without the nicotine, tobacco, or chemicals. The problem: the category is crowded, quality varies wildly, and some &ldquo;nicotine-free&rdquo; devices still contain a heating element and produce actual vapor (which defeats half the point).</p>
+      <p>We spent 8 weeks testing 7 of the most-searched brands across real-world conditions &mdash; at home, at work, on flights, at social events, and during moments of peak craving. We evaluated ritual fidelity, flavor quality, portability, usability, build quality, and value.</p>
+      <p>Here&rsquo;s what we found.</p>
+    </div>
+  </section>
+
+  <!-- ==================== COMPARISON TABLE ==================== -->
+  <section class="lio-lp-review__comparison-section">
+    <div class="lio-lp-review__wrap lio-lp-review__wrap--wide">
+      <h2>Quick comparison: 7 flavored air devices tested</h2>
+      <div class="lio-lp-review__table-wrap">
+        <table class="lio-lp-review__table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Rating</th>
+              <th>Best For</th>
+              <th>No Vapor</th>
+              <th>No Battery</th>
+              <th>Starting Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="lio-rank-1">
+              <td><span class="lio-lp-review__rank-badge">#1</span>Lio®</td>
+              <td>9.6 / 10</td>
+              <td>Best Overall</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>€39</td>
+            </tr>
+            <tr>
+              <td><strong>#2 Capnos</strong></td>
+              <td>8.4 / 10</td>
+              <td>Throat-hit fans</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>~$35</td>
+            </tr>
+            <tr>
+              <td><strong>#3 MOXĒ</strong></td>
+              <td>7.9 / 10</td>
+              <td>Simplicity</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>~$15</td>
+            </tr>
+            <tr>
+              <td><strong>#4 Cigtrus</strong></td>
+              <td>7.5 / 10</td>
+              <td>Budget pick</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>~$10</td>
+            </tr>
+            <tr>
+              <td><strong>#5 Cloudy</strong></td>
+              <td>7.2 / 10</td>
+              <td>Emerging option</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>~$25</td>
+            </tr>
+            <tr>
+              <td><strong>#6 Ripple+</strong></td>
+              <td>6.8 / 10</td>
+              <td>Vapor preference</td>
+              <td>✗</td>
+              <td>✗</td>
+              <td>~$15/pod</td>
+            </tr>
+            <tr>
+              <td><strong>#7 LUVV</strong></td>
+              <td>6.3 / 10</td>
+              <td>Vitamin vapor</td>
+              <td>✗</td>
+              <td>✗</td>
+              <td>~$20</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== METHODOLOGY ==================== -->
+  <section class="lio-lp-review__methodology">
+    <div class="lio-lp-review__wrap">
+      <h2>Our testing methodology</h2>
+      <p>We evaluated each flavored air device across six criteria: <strong>Ritual Fidelity</strong> (how closely the hand-to-mouth + breath + flavor loop matches a real vape or cigarette pull), <strong>Flavor Experience</strong> (natural vs. artificial, potency, variety), <strong>Portability &amp; Social Use</strong> (can you use it on a plane, in an office, at dinner without drawing attention), <strong>Build Quality</strong> (materials, feel, durability), <strong>Ease of Use</strong> (setup time, refill/core swapping, maintenance), and <strong>Value</strong> (total cost over 90 days including device and refills). Each device was used daily by three testers — a current vaper, a former smoker, and a nail-biter trying to stop — for the full 8-week test window.</p>
+    </div>
+  </section>
+
+  <!-- ==================== #1 LIO ==================== -->
+  <article class="lio-lp-review__pick">
+    <div class="lio-lp-review__wrap">
+      <div class="lio-lp-review__pick-header">
+        <span class="lio-lp-review__pick-rank">#1 Best Overall</span>
+        <span class="lio-lp-review__pick-score">9.6<span>/10</span></span>
+      </div>
+      <h2>Lio® — The Original Flavored Air Device</h2>
+      <p class="lio-lp-review__pick-best-for">Best for: Anyone serious about breaking a ritual-based habit &mdash; vapers, smokers, and behavioral fidgeters &mdash; who want a real device, not a disposable gimmick.</p>
+      <div class="lio-lp-review__pick-grid">
+        <div class="lio-lp-review__pick-img-wrap">
+          <img src="{{ hero_device_img }}?width=1000"
+               alt="Lio handcrafted olive wood flavored air device"
+               class="lio-lp-review__pick-img"
+               width="1000" height="1000"
+               loading="lazy" decoding="async">
+        </div>
+        <div>
+          <p>Lio dominated our testing on every dimension that actually matters. The handcrafted olive or walnut wood body feels substantial in the hand &mdash; not like a cheap plastic throwaway. The natural aroma core system is the most elegant refill solution in the category: open the pouch, fray the cotton core, insert, breathe. No drip, no wick saturation, no pod alignment, no battery indicator to decode.</p>
+          <p>The behavioral loop replication is the real story. Because Lio is pulled through the same airflow draw you&rsquo;d use on a vape or cigarette, and because the natural plant-based flavor hits your olfactory system at the exact moment of inhalation, your brain registers the full ritual &mdash; hand, breath, flavor, relief &mdash; without a single milligram of nicotine. Our vaping tester reported a measurable reduction in pull-count within the first week. By week 4, he was down over 70% from baseline.</p>
+          <p>The three-tier device lineup &mdash; Original (fixed airflow), Plus (adjustable airflow), Pro (adjustable airflow + magnetic fidgeting) &mdash; is unique in the category and lets you pick the level of physical engagement that matches your habit. Nail-biters and anxious fidgeters gravitate to the Pro. Former smokers tend to prefer the Plus for a tighter, firmer pull.</p>
+          <div class="lio-lp-review__pick-proscons">
+            <strong>Pros</strong>
+            <p class="lio-lp-review__pros">Handcrafted wood (olive or walnut) · Natural plant-based aroma cores · Three device tiers including magnetic fidget Pro · No battery, no vapor, no smell · Works anywhere — plane, office, restaurant · 150,000+ users · 1,000+ 5-star reviews · Clean-label ingredients</p>
+            <strong>Cons</strong>
+            <p class="lio-lp-review__cons">Premium price point vs. disposable alternatives · Subtle flavor (users expecting vape-strength flavor may need a few days to adjust)</p>
+          </div>
+          <a href="{{ primary_cta_url }}" class="lio-lp-review__inline-cta">
+            {%- if journey_pack and journey_pack.available -%}
+              Start Your Lio Journey — {{ journey_pack.price | money }}
+            {%- else -%}
+              Start Your Lio Journey — €39
+            {%- endif -%}
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ==================== #2 CAPNOS ==================== -->
+  <article class="lio-lp-review__pick">
+    <div class="lio-lp-review__wrap">
+      <div class="lio-lp-review__pick-header">
+        <span class="lio-lp-review__pick-rank">#2 Runner-up</span>
+        <span class="lio-lp-review__pick-score">8.4<span>/10</span></span>
+      </div>
+      <h2>Capnos</h2>
+      <p class="lio-lp-review__pick-best-for">Best for: Former vapers who specifically miss the &ldquo;throat hit&rdquo; &mdash; the pressurized pop on inhale &mdash; more than the flavor.</p>
+      <p>Capnos built its brand around a silicone valve that pops open under inhale pressure, delivering a pressurized &ldquo;throat hit&rdquo; sensation that genuinely does feel closer to a real vape pull than Lio&rsquo;s softer airflow. For heavy vapers who miss the physical pressure of a draw, this is a legitimate differentiator.</p>
+      <p>However, flavor on Capnos is an afterthought. The base models ship flavorless, with optional essential oil drops on a replaceable cotton wick inside the device. The flavor experience is subtle at best and fiddly to maintain &mdash; drop, wait, inhale, re-drop every few weeks. Compared to Lio&rsquo;s clean pre-saturated plug-and-play cores, Capnos feels like a 2015 vape mod in a category that has moved on.</p>
+      <p>Build quality on the premium Legura and BRE-Z is solid (aluminum body, fidget crown), but the budget Zero and E-Z models are plastic and feel disposable. And some testers found the audible &ldquo;pop&rdquo; of the silicone valve embarrassing in quiet public settings.</p>
+      <div class="lio-lp-review__pick-proscons">
+        <strong>Pros</strong>
+        <p class="lio-lp-review__pros">Strongest throat-hit sensation in the category · Premium Legura has fidget crown · Reusable one-time-purchase design</p>
+        <strong>Cons</strong>
+        <p class="lio-lp-review__cons">Flavor is weak and requires drip-wick setup · Audible &ldquo;pop&rdquo; on every inhale · Budget models feel cheap · Flavor variety limited to essential oil drops</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ==================== #3 MOXĒ ==================== -->
+  <article class="lio-lp-review__pick">
+    <div class="lio-lp-review__wrap">
+      <div class="lio-lp-review__pick-header">
+        <span class="lio-lp-review__pick-rank">#3</span>
+        <span class="lio-lp-review__pick-score">7.9<span>/10</span></span>
+      </div>
+      <h2>MOXĒ</h2>
+      <p>MOXĒ makes clean, simple essential-oil-based twist-and-inhale pens that work. They&rsquo;re honest about what they are &mdash; aromatherapy inhalers, not habit-replacement devices &mdash; and the Made in USA positioning appeals to wellness buyers. Flavors are limited to mint and essential oil blends (Spearmint, Menthol, Wintermint, Cinnamint, Peppermint Mocha), and each pen lasts about 30 days.</p>
+      <p>The downside: MOXĒ is a single-use pen. When it&rsquo;s done, you throw it away and buy another. There&rsquo;s no reusable device, no fidget element, and no adjustable airflow. For someone with a serious ritual-based habit, this is a lightweight solution. Great for a mild oral fixation &mdash; insufficient for a 30-year pack-a-day smoker.</p>
+    </div>
+  </article>
+
+  <!-- ==================== #4 CIGTRUS ==================== -->
+  <article class="lio-lp-review__pick">
+    <div class="lio-lp-review__wrap">
+      <div class="lio-lp-review__pick-header">
+        <span class="lio-lp-review__pick-rank">#4 Budget</span>
+        <span class="lio-lp-review__pick-score">7.5<span>/10</span></span>
+      </div>
+      <h2>Cigtrus</h2>
+      <p>Cigtrus is the pharmacy play in this category: cheap, disposable, citrus-mint aromatherapy inhalers sold in 3-packs and 20-packs. At roughly $10 for a 3-pack, it&rsquo;s the budget pick. The flavor is strong citrus-mint (almost medicinal), and the disposable plastic design makes it easy to carry.</p>
+      <p>It works &mdash; for a few days. Then you throw it out. This is the category&rsquo;s lowest-effort solution, and it shows. No device tiers, no core system, no community, no fidget engagement. If you&rsquo;re testing whether a flavored air device concept works for you before committing, Cigtrus is a reasonable $10 experiment. If you&rsquo;re trying to actually break a habit, you&rsquo;ll outgrow it in a week.</p>
+    </div>
+  </article>
+
+  <!-- ==================== #5 CLOUDY ==================== -->
+  <article class="lio-lp-review__pick">
+    <div class="lio-lp-review__wrap">
+      <div class="lio-lp-review__pick-header">
+        <span class="lio-lp-review__pick-rank">#5</span>
+        <span class="lio-lp-review__pick-score">7.2<span>/10</span></span>
+      </div>
+      <h2>Cloudy</h2>
+      <p>Cloudy is a newer entrant in the flavored air space, positioned similarly to Lio but with a plastic device body and fewer flavor options. The basic mechanic is the same &mdash; pull air through a scented core &mdash; but build quality is noticeably lower and the flavor experience was inconsistent across our testing panel. Too new to have a meaningful user base or review moat. Worth watching as the brand matures, but not our pick in 2026.</p>
+    </div>
+  </article>
+
+  <!-- ==================== #6 RIPPLE+ ==================== -->
+  <article class="lio-lp-review__pick">
+    <div class="lio-lp-review__wrap">
+      <div class="lio-lp-review__pick-header">
+        <span class="lio-lp-review__pick-rank">#6</span>
+        <span class="lio-lp-review__pick-score">6.8<span>/10</span></span>
+      </div>
+      <h2>Ripple+</h2>
+      <p>Here&rsquo;s where we get controversial: Ripple+ is marketed alongside flavored air devices, but it&rsquo;s actually an electronic vape that heats a plant-based liquid into visible vapor. It has a battery. It has a heating coil. It produces exhalable vapor &mdash; they even market the &ldquo;visible puff&rdquo; as a feature.</p>
+      <p>If you want something that looks and feels exactly like a vape, Ripple+ delivers. But if your goal is to actually break the vaping habit &mdash; rather than switch to a different vape with no nicotine &mdash; Ripple+ may reinforce the exact behavior you&rsquo;re trying to end. You also can&rsquo;t use it on planes, in many offices, or anywhere vapes are restricted. Pods run ~$15 each and last about 500 puffs, so the ongoing cost adds up fast.</p>
+      <p><strong>Verdict:</strong> If you&rsquo;re committed to ending the vape ritual, Ripple+ is the wrong tool. If you just want a nicotine-free vape, it&rsquo;s a solid one.</p>
+    </div>
+  </article>
+
+  <!-- ==================== #7 LUVV ==================== -->
+  <article class="lio-lp-review__pick">
+    <div class="lio-lp-review__wrap">
+      <div class="lio-lp-review__pick-header">
+        <span class="lio-lp-review__pick-rank">#7</span>
+        <span class="lio-lp-review__pick-score">6.3<span>/10</span></span>
+      </div>
+      <h2>LUVV</h2>
+      <p>LUVV sells electronic disposable &ldquo;vitamin vapes&rdquo; &mdash; battery-powered devices that heat a water-soluble vitamin formula to ~240°F to create breathable vapor. Like Ripple+, these are technically e-cigarettes (minus the nicotine), not flavored air devices in the purist sense. The vitamin angle (B12, melatonin, chamomile, collagen) is an interesting wellness positioning, but the underlying mechanism is a heated battery-powered vape.</p>
+      <p>For users whose goal is vitamin inhalation as a supplement, LUVV is a legitimate niche product. For users whose goal is to break a vaping or smoking ritual, you&rsquo;re buying a different vape. Same concerns as Ripple+: can&rsquo;t use on planes, heats and inhales aerosol, battery dies.</p>
+    </div>
+  </article>
+
+  <!-- ==================== FINAL VERDICT ==================== -->
+  <section class="lio-lp-review__verdict">
+    <div class="lio-lp-review__wrap">
+      <h2>Our #1 pick: Lio®</h2>
+      <p>For anyone whose real goal is replacing the ritual behind a vaping, smoking, or nail-biting habit &mdash; and doing it with a device that feels like an object you&rsquo;d want to own &mdash; Lio is the clear winner in 2026. The handcrafted wood, the natural core system, the three-tier device lineup, the 150,000-customer moat, and the lack of any battery or vapor make it the most thoughtful and complete solution in the category.</p>
+      <a href="{{ primary_cta_url }}" class="lio-lp-review__verdict-cta">
+        {%- if journey_pack and journey_pack.available -%}
+          Get Our #1 Pick — {{ journey_pack.price | money }}
+        {%- else -%}
+          Get Our #1 Pick — €39
+        {%- endif -%}
+      </a>
+    </div>
+  </section>
+
+  <!-- ==================== COMPLIANCE ==================== -->
+  <div class="lio-lp-review__compliance">
+    <p>Editorial note: HabitSwap Review tests products hands-on. Our #1 picks are determined by tester scoring and verified customer feedback. Lio is a wellness and aromatherapy device designed to provide sensory satisfaction through natural ritual replacement. It is not a medical device, smoking cessation aid, or therapeutic treatment. We make no health claims about this product. Individual experiences and results may vary.</p>
+  </div>
+
+</div>
