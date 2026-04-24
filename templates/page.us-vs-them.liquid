@@ -1,0 +1,595 @@
+{% comment %}
+  ============================================================
+  LIO® / BREATHELIO — LANDING PAGE 3 OF 8
+  US VS THEM COMPARISON PAGE
+  ============================================================
+  Target keywords: "Lio vs Capnos", "Lio vs Ripple+", "Capnos alternative",
+                   "Ripple+ alternative", "Cigtrus alternative",
+                   "MOXĒ alternative", "LUVV alternative", "Cloudy alternative"
+  Traffic temperature: Warm (comparison shopping)
+  Google Ad match: "Lio vs Capnos, Ripple+ & More — See the Full Comparison"
+  Goal: Win comparison queries by controlling narrative on our turf.
+  ============================================================
+{% endcomment %}
+
+{%- liquid
+  assign journey_pack = all_products['journey-pack-3']
+  assign cdn = 'https://cdn.instant.so/sites/1ATWZ62dPhRUmsuT/assets/'
+  assign logo_url = cdn | append: '7zOXcPATzCDnhtfL/lio-logo-zwart-ai-3.png'
+
+  if journey_pack and journey_pack.variants.first
+    assign primary_cta_url = '/cart/' | append: journey_pack.variants.first.id | append: ':1?storefront=true'
+  else
+    assign primary_cta_url = '/products/journey-pack-3'
+  endif
+-%}
+
+<style>
+  .lio-lp-vs {
+    --lio-cream: #F5F1EA;
+    --lio-cream-deep: #ECE5D7;
+    --lio-ink: #1A1A1A;
+    --lio-ink-soft: #4A4A4A;
+    --lio-muted: #9B9A94;
+    --lio-sage: #6B7F5C;
+    --lio-sage-dark: #4E5F42;
+    --lio-walnut: #8B5A3C;
+    --lio-border: #E0D9C8;
+    --lio-star: #D4A24B;
+    --lio-danger: #B85C3C;
+    background: var(--lio-cream);
+    color: var(--lio-ink);
+    font-family: 'Inter', 'Helvetica Neue', Arial, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .lio-lp-vs * { box-sizing: border-box; }
+  .lio-lp-vs img { max-width: 100%; height: auto; display: block; }
+  .lio-lp-vs h1, .lio-lp-vs h2, .lio-lp-vs h3 {
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin: 0 0 16px;
+  }
+  .lio-lp-vs p { margin: 0 0 16px; }
+  .lio-lp-vs a { color: inherit; }
+  .lio-lp-vs__wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* ==== Header ==== */
+  .lio-lp-vs__header {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--lio-border);
+  }
+  .lio-lp-vs__header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .lio-lp-vs__logo { height: 32px; width: auto; }
+
+  /* ==== Hero ==== */
+  .lio-lp-vs__hero {
+    padding: 80px 0 48px;
+    text-align: center;
+  }
+  .lio-lp-vs__hero h1 {
+    font-size: clamp(30px, 4.5vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    max-width: 880px;
+    margin: 0 auto 20px;
+  }
+  .lio-lp-vs__hero-sub {
+    font-size: 19px;
+    color: var(--lio-ink-soft);
+    max-width: 720px;
+    margin: 0 auto 24px;
+  }
+  .lio-lp-vs__hero-stars {
+    color: var(--lio-star);
+    letter-spacing: 0.1em;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .lio-lp-vs__hero-quote {
+    font-style: italic;
+    color: var(--lio-ink-soft);
+    margin-bottom: 32px;
+  }
+
+  /* ==== Comparison Table ==== */
+  .lio-lp-vs__table-section {
+    padding: 48px 0 80px;
+  }
+  .lio-lp-vs__table-wrap {
+    overflow-x: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+  }
+  .lio-lp-vs__table {
+    width: 100%;
+    background: var(--lio-cream);
+    border-collapse: collapse;
+    min-width: 960px;
+  }
+  .lio-lp-vs__table th {
+    background: var(--lio-ink);
+    color: var(--lio-cream);
+    padding: 20px 12px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .lio-lp-vs__table th:first-child { text-align: left; padding-left: 20px; }
+  .lio-lp-vs__table th.lio-us {
+    background: var(--lio-sage);
+    color: var(--lio-cream);
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .lio-lp-vs__table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--lio-border);
+    text-align: center;
+    font-size: 14px;
+  }
+  .lio-lp-vs__table td:first-child {
+    text-align: left;
+    padding-left: 20px;
+    font-weight: 500;
+  }
+  .lio-lp-vs__table td.lio-us-cell {
+    background: rgba(107, 127, 92, 0.08);
+    font-weight: 600;
+  }
+  .lio-lp-vs__table .lio-check { color: var(--lio-sage); font-weight: 700; font-size: 18px; }
+  .lio-lp-vs__table .lio-cross { color: var(--lio-danger); font-weight: 700; font-size: 18px; }
+
+  /* ==== Where Lio Wins ==== */
+  .lio-lp-vs__wins { padding: 80px 0; background: var(--lio-cream-deep); }
+  .lio-lp-vs__wins h2 {
+    font-size: clamp(28px, 3.5vw, 44px);
+    text-align: center;
+    margin-bottom: 48px;
+    line-height: 1.1;
+  }
+  .lio-lp-vs__wins-list {
+    max-width: 880px;
+    margin: 0 auto;
+    display: grid;
+    gap: 40px;
+  }
+  .lio-lp-vs__win {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .lio-lp-vs__win-num {
+    background: var(--lio-sage);
+    color: var(--lio-cream);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 22px;
+  }
+  .lio-lp-vs__win h3 { font-size: 22px; margin-bottom: 10px; }
+  .lio-lp-vs__win p { color: var(--lio-ink-soft); margin: 0; }
+
+  /* ==== Honest ==== */
+  .lio-lp-vs__honest { padding: 80px 0; background: var(--lio-cream); }
+  .lio-lp-vs__honest h2 {
+    font-size: clamp(28px, 3.5vw, 40px);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .lio-lp-vs__honest p.lio-sub {
+    text-align: center;
+    color: var(--lio-ink-soft);
+    margin-bottom: 48px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .lio-lp-vs__honest-list {
+    max-width: 880px;
+    margin: 0 auto;
+    display: grid;
+    gap: 20px;
+  }
+  .lio-lp-vs__honest-item {
+    background: var(--lio-cream-deep);
+    padding: 24px 28px;
+    border-radius: 16px;
+    border-left: 4px solid var(--lio-walnut);
+  }
+  .lio-lp-vs__honest-item strong {
+    display: block;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--lio-walnut);
+    margin-bottom: 8px;
+  }
+  .lio-lp-vs__honest-item p { margin: 0; color: var(--lio-ink-soft); }
+
+  /* ==== Testimonials ==== */
+  .lio-lp-vs__testimonials { padding: 80px 0; background: var(--lio-cream-deep); }
+  .lio-lp-vs__testimonials h2 {
+    font-size: clamp(28px, 3.5vw, 40px);
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .lio-lp-vs__quotes {
+    max-width: 880px;
+    margin: 0 auto;
+    display: grid;
+    gap: 24px;
+  }
+  .lio-lp-vs__quote {
+    background: var(--lio-cream);
+    padding: 28px 32px;
+    border-radius: 16px;
+    border-left: 4px solid var(--lio-sage);
+    font-size: 17px;
+    color: var(--lio-ink);
+    font-style: italic;
+    line-height: 1.6;
+  }
+  .lio-lp-vs__quote-author {
+    display: block;
+    margin-top: 12px;
+    font-style: normal;
+    font-size: 14px;
+    color: var(--lio-muted);
+    font-weight: 600;
+  }
+
+  /* ==== CTA Section ==== */
+  .lio-lp-vs__cta-section {
+    padding: 96px 0;
+    background: var(--lio-ink);
+    color: var(--lio-cream);
+    text-align: center;
+  }
+  .lio-lp-vs__cta-section h2 {
+    color: var(--lio-cream);
+    font-size: clamp(32px, 4vw, 56px);
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+  .lio-lp-vs__cta-section p { color: var(--lio-cream); opacity: 0.85; margin-bottom: 32px; font-size: 18px; }
+  .lio-lp-vs__cta {
+    display: inline-block;
+    background: var(--lio-cream);
+    color: var(--lio-ink);
+    padding: 20px 44px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .lio-lp-vs__cta:hover { background: var(--lio-sage); color: var(--lio-cream); transform: translateY(-1px); }
+  .lio-lp-vs__cta-trust {
+    margin-top: 32px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--lio-cream);
+    opacity: 0.6;
+  }
+
+  /* ==== Compliance ==== */
+  .lio-lp-vs__compliance {
+    padding: 32px 0;
+    background: var(--lio-cream-deep);
+    color: var(--lio-muted);
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+  }
+  .lio-lp-vs__compliance p { margin: 0 auto; max-width: 880px; padding: 0 24px; }
+
+  /* ==== Responsive ==== */
+  @media (max-width: 768px) {
+    .lio-lp-vs__hero { padding: 48px 0 32px; }
+    .lio-lp-vs__table-section { padding: 32px 0 48px; }
+    .lio-lp-vs__wins, .lio-lp-vs__honest, .lio-lp-vs__testimonials { padding: 48px 0; }
+    .lio-lp-vs__win { grid-template-columns: 48px 1fr; gap: 16px; }
+    .lio-lp-vs__win-num { width: 40px; height: 40px; font-size: 16px; }
+    .lio-lp-vs__cta-section { padding: 56px 0; }
+  }
+</style>
+
+<div class="lio-lp-vs">
+
+  <!-- HEADER -->
+  <header class="lio-lp-vs__header">
+    <div class="lio-lp-vs__header-inner">
+      <a href="/"><img src="{{ logo_url }}?width=400" alt="Lio" class="lio-lp-vs__logo" width="160" height="32" decoding="async"></a>
+      <span style="font-size: 13px; color: var(--lio-muted); letter-spacing: 0.04em;">150,000+ people switched to Lio</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="lio-lp-vs__hero">
+    <div class="lio-lp-vs__wrap">
+      <div class="lio-lp-vs__hero-stars">★★★★★ 1,000+ 5-star reviews</div>
+      <h1>{{ section.settings.headline | default: 'Lio vs Capnos, Ripple+, Cigtrus, MOXĒ, LUVV &amp; Cloudy: The Honest Comparison' }}</h1>
+      <p class="lio-lp-vs__hero-sub">{{ section.settings.sub | default: 'See why 150,000+ people chose Lio over every other flavored air device and nicotine-free inhaler on the market. Side-by-side breakdown of ritual fidelity, build quality, flavor, and value.' }}</p>
+      <p class="lio-lp-vs__hero-quote">"It blows my mind how a product like this in its simplicity hasn't existed since forever." — Achmed (43)</p>
+      <a href="{{ primary_cta_url }}" class="lio-lp-vs__cta" style="background: var(--lio-ink); color: var(--lio-cream);">
+        {%- if journey_pack and journey_pack.available -%}
+          Start Your Lio Journey — {{ journey_pack.price | money }}
+        {%- else -%}
+          Start Your Lio Journey — €39
+        {%- endif -%}
+      </a>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="lio-lp-vs__table-section">
+    <div class="lio-lp-vs__wrap">
+      <div class="lio-lp-vs__table-wrap">
+        <table class="lio-lp-vs__table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th class="lio-us">Lio®</th>
+              <th>Capnos</th>
+              <th>Ripple+</th>
+              <th>Cigtrus</th>
+              <th>MOXĒ</th>
+              <th>LUVV</th>
+              <th>Cloudy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nicotine-free</td>
+              <td class="lio-us-cell lio-check">✓</td>
+              <td class="lio-check">✓</td>
+              <td class="lio-check">✓</td>
+              <td class="lio-check">✓</td>
+              <td class="lio-check">✓</td>
+              <td class="lio-check">✓</td>
+              <td class="lio-check">✓</td>
+            </tr>
+            <tr>
+              <td>No vapor / no smoke</td>
+              <td class="lio-us-cell lio-check">✓</td>
+              <td class="lio-check">✓</td>
+              <td class="lio-cross">✗ vapor</td>
+              <td class="lio-check">✓</td>
+              <td class="lio-check">✓</td>
+              <td class="lio-cross">✗ vapor</td>
+              <td class="lio-check">✓</td>
+            </tr>
+            <tr>
+              <td>No battery / no charging</td>
+              <td class="lio-us-cell lio-check">✓</td>
+              <td class="lio-check">✓</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-check">✓</td>
+              <td class="lio-check">✓</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-check">✓</td>
+            </tr>
+            <tr>
+              <td>Handcrafted wood body</td>
+              <td class="lio-us-cell lio-check">✓</td>
+              <td class="lio-cross">✗ plastic/alum</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-cross">✗</td>
+            </tr>
+            <tr>
+              <td>Natural pre-saturated cores</td>
+              <td class="lio-us-cell lio-check">✓</td>
+              <td class="lio-cross">✗ drip wick</td>
+              <td class="lio-cross">✗ pod liquid</td>
+              <td>N/A</td>
+              <td class="lio-cross">✗ stick</td>
+              <td class="lio-cross">✗ pod liquid</td>
+              <td class="lio-check">✓</td>
+            </tr>
+            <tr>
+              <td>Adjustable airflow option</td>
+              <td class="lio-us-cell lio-check">✓ Plus/Pro</td>
+              <td class="lio-check">✓ premium</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-cross">✗</td>
+            </tr>
+            <tr>
+              <td>Magnetic fidget option</td>
+              <td class="lio-us-cell lio-check">✓ Pro</td>
+              <td class="lio-check">✓ Legura</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-cross">✗</td>
+            </tr>
+            <tr>
+              <td>Reusable device</td>
+              <td class="lio-us-cell lio-check">✓</td>
+              <td class="lio-check">✓</td>
+              <td class="lio-check">✓ w/pods</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-check">✓</td>
+            </tr>
+            <tr>
+              <td>Usable on planes</td>
+              <td class="lio-us-cell lio-check">✓</td>
+              <td class="lio-check">✓</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-check">✓</td>
+              <td class="lio-check">✓</td>
+              <td class="lio-cross">✗</td>
+              <td class="lio-check">✓</td>
+            </tr>
+            <tr>
+              <td>Audible "pop" on pull</td>
+              <td class="lio-us-cell" style="color: var(--lio-sage);">Silent</td>
+              <td class="lio-cross">✓ Yes</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Customer base</td>
+              <td class="lio-us-cell" style="font-weight: 700;">150,000+</td>
+              <td>~90,000</td>
+              <td>Unknown</td>
+              <td>Unknown</td>
+              <td>Unknown</td>
+              <td>Unknown</td>
+              <td>Small</td>
+            </tr>
+            <tr>
+              <td>Starting price</td>
+              <td class="lio-us-cell" style="font-weight: 700;">€39 bundle</td>
+              <td>~$35</td>
+              <td>~$15/pod</td>
+              <td>~$10</td>
+              <td>~$15</td>
+              <td>~$20</td>
+              <td>~$25</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHERE LIO WINS -->
+  <section class="lio-lp-vs__wins">
+    <div class="lio-lp-vs__wrap">
+      <h2>Where Lio wins</h2>
+      <div class="lio-lp-vs__wins-list">
+        <div class="lio-lp-vs__win">
+          <div class="lio-lp-vs__win-num">1</div>
+          <div>
+            <h3>The only device with handcrafted wood &mdash; every piece unique</h3>
+            <p>Capnos is aluminum or plastic. Ripple+ is plastic. MOXĒ is plastic. LUVV is plastic. Cigtrus is disposable plastic. Cloudy is plastic. Lio is olive or walnut wood, hand-finished, with grain variation in every unit. If you&rsquo;re going to hold a device in your hand 50 times a day, it should feel like an object you own &mdash; not like a disposable pen. This isn&rsquo;t a cosmetic detail. Users tell us the physical quality is a big part of why Lio replaces the habit so effectively &mdash; it feels like a ritual object, not a medicinal aid.</p>
+          </div>
+        </div>
+        <div class="lio-lp-vs__win">
+          <div class="lio-lp-vs__win-num">2</div>
+          <div>
+            <h3>Actually no battery, actually no vapor</h3>
+            <p>Read the fine print on Ripple+ and LUVV. Both are electronic devices with batteries that heat a formula and produce inhalable vapor. Both are technically e-cigarettes (just without nicotine). Both are restricted on planes, in many offices, and in most places vapes are banned. Lio, Capnos, Cigtrus, MOXĒ, and Cloudy are all genuinely non-electronic. You can use Lio on a plane. In a meeting. At a restaurant. No one will notice &mdash; there&rsquo;s nothing to exhale.</p>
+          </div>
+        </div>
+        <div class="lio-lp-vs__win">
+          <div class="lio-lp-vs__win-num">3</div>
+          <div>
+            <h3>The smartest core system in the category</h3>
+            <p>Capnos makes you drip essential oils onto a wick inside the device and wait for it to soak. MOXĒ is a single-use pen &mdash; when it&rsquo;s done, you throw it out. Ripple+ and LUVV use proprietary pods that cost ~$15 each. Cigtrus is entirely disposable. Lio&rsquo;s flavor cores are pre-saturated cotton plugs you fray, insert, and use for 2 days &mdash; then swap. No drip, no dry time, no alignment, no battery decoding.</p>
+          </div>
+        </div>
+        <div class="lio-lp-vs__win">
+          <div class="lio-lp-vs__win-num">4</div>
+          <div>
+            <h3>The only three-tier device lineup</h3>
+            <p>Most competitors offer one device, maybe two. Lio offers three: Original (fixed airflow, €29), Plus (adjustable airflow, +€9), and Pro (adjustable airflow + magnetic fidgeting, +€59). Heavy former smokers tend to want tighter airflow resistance &mdash; the Plus. Anxious fidgeters and nail-biters want the extra tactile input of the magnetic fidget &mdash; the Pro. Casual vape-curious users start with Original. Competitors force one-size-fits-all. Lio meets you where your habit actually is.</p>
+          </div>
+        </div>
+        <div class="lio-lp-vs__win">
+          <div class="lio-lp-vs__win-num">5</div>
+          <div>
+            <h3>150,000+ customers and 1,000+ 5-star reviews</h3>
+            <p>Capnos has shipped ~90,000 units globally. Most other competitors don&rsquo;t publish user counts at all. Lio has passed 150,000 users and accumulated over 1,000 verified 5-star reviews. That scale isn&rsquo;t just marketing &mdash; it&rsquo;s a signal that this category has a clear leader, and the wisdom-of-crowds has already chosen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HONEST SECTION -->
+  <section class="lio-lp-vs__honest">
+    <div class="lio-lp-vs__wrap">
+      <h2>Where competitors win (we'll be honest)</h2>
+      <p class="lio-sub">No product is best at everything. Here&rsquo;s when another option might suit you better.</p>
+      <div class="lio-lp-vs__honest-list">
+        <div class="lio-lp-vs__honest-item">
+          <strong>Capnos</strong>
+          <p>If your primary craving is the pressurized "throat hit" &mdash; the pop of a pull &mdash; Capnos&rsquo;s silicone valve delivers a stronger physical pressure than Lio&rsquo;s smooth airflow. For throat-hit purists, this is legitimate.</p>
+        </div>
+        <div class="lio-lp-vs__honest-item">
+          <strong>Ripple+</strong>
+          <p>If you want a nicotine-free device that looks and feels exactly like a vape &mdash; visible exhale and all &mdash; Ripple+ is closer to the traditional vape experience. But you won&rsquo;t break the vape ritual using it.</p>
+        </div>
+        <div class="lio-lp-vs__honest-item">
+          <strong>Cigtrus</strong>
+          <p>If you&rsquo;re testing the entire flavored air concept for under $15 before committing, Cigtrus is a reasonable experiment. You&rsquo;ll likely outgrow it in a week.</p>
+        </div>
+        <div class="lio-lp-vs__honest-item">
+          <strong>MOXĒ</strong>
+          <p>If your habit is mild and you mostly want a pleasant mint/essential-oil inhale a few times a day, MOXĒ is a clean, honest wellness pen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SWITCHER TESTIMONIALS -->
+  <section class="lio-lp-vs__testimonials">
+    <div class="lio-lp-vs__wrap">
+      <h2>What users say who switched</h2>
+      <div class="lio-lp-vs__quotes">
+        <div class="lio-lp-vs__quote">
+          "I tried Capnos first &mdash; the throat hit was good but I couldn&rsquo;t get the flavor to stay on the wick. Switched to Lio and the core system just works. Plus the wood device makes me actually want to pick it up."
+          <span class="lio-lp-vs__quote-author">— Verified customer, switched from Capnos</span>
+        </div>
+        <div class="lio-lp-vs__quote">
+          "Got Ripple+ thinking it would help me quit vaping. Turns out I was just vaping a different flavor. Switched to Lio four months ago &mdash; haven&rsquo;t reached for a real vape since."
+          <span class="lio-lp-vs__quote-author">— Verified customer, switched from Ripple+</span>
+        </div>
+        <div class="lio-lp-vs__quote">
+          "I had a stack of Cigtrus inhalers in my car, my desk, everywhere. They&rsquo;re fine for a day but then they&rsquo;re trash. Lio is a real device you keep."
+          <span class="lio-lp-vs__quote-author">— Verified customer, switched from Cigtrus</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="lio-lp-vs__cta-section">
+    <div class="lio-lp-vs__wrap">
+      <h2>See why 150,000+ people chose Lio</h2>
+      <p>Device + 30-day core supply + optional 90-Day Reset Program</p>
+      <a href="{{ primary_cta_url }}" class="lio-lp-vs__cta">
+        {%- if journey_pack and journey_pack.available -%}
+          Start Your Lio Journey — {{ journey_pack.price | money }}
+        {%- else -%}
+          Start Your Lio Journey — €39
+        {%- endif -%}
+      </a>
+      <p class="lio-lp-vs__cta-trust">No battery · No vapor · No smell · Use anywhere</p>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <div class="lio-lp-vs__compliance">
+    <p>Competitor trademarks are the property of their respective owners. Comparison based on publicly available product specifications as of April 2026. Lio is a wellness and aromatherapy device &mdash; not a medical device, smoking cessation aid, or therapeutic treatment. We make no health claims about this product. Individual results may vary.</p>
+  </div>
+
+</div>
