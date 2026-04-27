@@ -8,12 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "404": {
-    "general": {
-      "title": "Pagina nu a fost găsită",
-      "continue_shopping": "Continuă cumpărăturile"
-    }
-  },
   "general": {
     "page": "Pagina {{ page }}",
     "home": "Pagina principală",
@@ -93,6 +87,7 @@
       "sold_out_button": "Stoc epuizat",
       "unavailable_button": "Indisponibil",
       "added_to_cart": "Adăugat în coș!",
+      "added_to_cart_with_title": "{{ product_title }} a fost adăugat în coș.",
       "sold_out_badge": "Stoc epuizat",
       "on_sale_badge": "Reducere",
       "discount_badge_html": "Economisește {{ savings }}",
@@ -106,17 +101,7 @@
       "available_colors_count": {
         "one": "{{ count }} culoare disponibilă",
         "other": "{{ count }} culori disponibile"
-      },
-      "single": "Single",
-      "packs": "Packs",
-      "adding": "Adding...",
-      "added": "Added!",
-      "error": "Error",
-      "select_variant": "Select a variant",
-      "no_pack_variants": "No pack variants available",
-      "up_to_weeks": "up to {{ weeks }} weeks",
-      "weeks": "weeks",
-      "discount": "discount"
+      }
     },
     "gallery": {
       "close": "Închide galeria",
@@ -335,8 +320,7 @@
       "item_count": {
         "one": "{{ count }} articol",
         "few": "{{ count }} articole",
-        "other": "{{ count }} articole",
-        "zero": "{{ count }} items"
+        "other": "{{ count }} articole"
       },
       "continue_shopping": "Continuă cumpărăturile",
       "weight": "Greutate",
@@ -378,6 +362,10 @@
       "one_result": "Există un singur tarif de livrare pentru adresa ta:",
       "multiple_results": "Există mai multe tarife de livrare pentru adresa ta:",
       "error": "La preluarea tarifelor de livrare au survenit una sau mai multe erori:"
+    },
+    "discount": {
+      "label": "Cod de reducere",
+      "error": "Introduceți un cod de reducere valid"
     }
   },
   "404": {
@@ -394,7 +382,7 @@
       "products": "Produse",
       "suggestions": "Sugestii",
       "collections": "Colecții",
-      "posts": "Postări pe blog",
+      "articles": "Postări pe blog",
       "pages": "Pagini",
       "clear": "Șterge",
       "view_all": "Vezi tot",
@@ -458,29 +446,38 @@
       }
     }
   },
-  "bundle_pack": {
-    "button_select": "Selectează",
-    "button_add": "Adaugă",
-    "button_add_to_cart": "Adaugă în coș",
-    "button_adding_to_cart": "Se adaugă în coș...",
-    "summary_select_your_lio": "Alege-ți Lio",
-    "selected_label": "Selectat",
-    "tap_to_add": "Atinge + pentru a adăuga mai multe arome",
-    "optional_label": "Opțional",
-    "info_money_back": "Nu ai reușit în 30 de zile? Banii înapoi!",
-    "info_shipping": "Livrare gratuită și rapidă",
-    "success_added": "Adăugat cu succes în coș!",
-    "error_failed_add": "Nu s-a putut adăuga în coș",
-    "error_network": "Eroare de rețea. Încearcă din nou.",
-    "select_minimum_flavors": "Selectați minimum {count} arome",
-    "selected_cigarette": "Lio",
-    "selected_flavors": "Arome",
-    "selected_accessories": "Accesorii",
-    "total_price": "Total",
-    "savoury": "Slan",
-    "throat_hit": "Provoljno",
-    "sweetness": "Sladko",
-    "select_flavor": "Selectează aromă",
-    "close": "Închide"
+  "lander": {
+    "announce": "Noi am inventat Aerul Aromatizat. Brevetat și fabricat în Amsterdam din 2018.",
+    "nav": {
+      "what_it_is": "Ce este",
+      "how": "Cum funcționează",
+      "flavors": "Arome",
+      "evidence": "Dovezi Lio",
+      "faq": "Întrebări frecvente"
+    },
+    "cta": {
+      "build_kit": "Construiește kitul meu",
+      "pick_device": "Alege un dispozitiv",
+      "see_how": "Vezi cum funcționează"
+    },
+    "geo": {
+      "from": "Din",
+      "to": "către",
+      "free": "Livrare gratuită",
+      "working_days": "zile lucrătoare"
+    },
+    "cred": {
+      "invented_title": "Noi l-am inventat.",
+      "invented_meta": "Categoria — Aer Aromatizat",
+      "first_title": "Primii în Europa.",
+      "first_meta": "Din 2018 — Amsterdam",
+      "patented_title": "Suntem brevetați.",
+      "patented_meta": "Brevet UE EP3784213",
+      "family_title": "Afacere de familie.",
+      "family_meta": "Făcut manual — încă"
+    },
+    "loader": {
+      "text": "Se încarcă"
+    }
   }
 }

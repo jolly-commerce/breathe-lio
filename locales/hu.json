@@ -1,0 +1,45 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "lander": {
+    "announce": "Mi találtuk fel az Ízesített Levegőt. Szabadalmaztatva és gyártva Amszterdamban 2018 óta.",
+    "nav": {
+      "what_it_is": "Mi ez",
+      "how": "Hogyan működik",
+      "flavors": "Ízek",
+      "evidence": "Lio bizonyítékok",
+      "faq": "GYIK"
+    },
+    "cta": {
+      "build_kit": "Állítsd össze a készletem",
+      "pick_device": "Válassz eszközt",
+      "see_how": "Nézd meg, hogyan működik"
+    },
+    "geo": {
+      "from": "Honnan:",
+      "to": "ide:",
+      "free": "Ingyenes szállítás",
+      "working_days": "munkanap"
+    },
+    "cred": {
+      "invented_title": "Mi találtuk fel.",
+      "invented_meta": "A kategória — Ízesített Levegő",
+      "first_title": "Európában elsőként.",
+      "first_meta": "2018 óta — Amszterdam",
+      "patented_title": "Szabadalmaztatva vagyunk.",
+      "patented_meta": "EU szabadalom EP3784213",
+      "family_title": "Családi vállalkozás.",
+      "family_meta": "Kézzel készítve — még mindig"
+    },
+    "loader": {
+      "text": "Betöltés"
+    }
+  }
+}

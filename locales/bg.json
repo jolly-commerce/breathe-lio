@@ -1,0 +1,45 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "lander": {
+    "announce": "Ние изобретихме Ароматизирания Въздух. Патентовано и произведено в Амстердам от 2018 г.",
+    "nav": {
+      "what_it_is": "Какво е това",
+      "how": "Как работи",
+      "flavors": "Вкусове",
+      "evidence": "Доказателства Lio",
+      "faq": "ЧЗВ"
+    },
+    "cta": {
+      "build_kit": "Създай моя комплект",
+      "pick_device": "Избери устройство",
+      "see_how": "Виж как работи"
+    },
+    "geo": {
+      "from": "От",
+      "to": "до",
+      "free": "Безплатна доставка",
+      "working_days": "работни дни"
+    },
+    "cred": {
+      "invented_title": "Ние го изобретихме.",
+      "invented_meta": "Категорията — Ароматизиран Въздух",
+      "first_title": "Първи в Европа.",
+      "first_meta": "От 2018 г. — Амстердам",
+      "patented_title": "Ние сме патентовани.",
+      "patented_meta": "Патент на ЕС EP3784213",
+      "family_title": "Семеен бизнес.",
+      "family_meta": "Изработено на ръка — все още"
+    },
+    "loader": {
+      "text": "Зарежда се"
+    }
+  }
+}

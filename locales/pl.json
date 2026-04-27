@@ -8,12 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "404": {
-    "general": {
-      "title": "Nie znaleziono strony",
-      "continue_shopping": "Kontynuuj zakupy"
-    }
-  },
   "general": {
     "page": "Strona {{ page }}",
     "home": "Strona główna",
@@ -93,6 +87,7 @@
       "sold_out_button": "Wyprzedane",
       "unavailable_button": "Niedostępne",
       "added_to_cart": "Dodano do koszyka!",
+      "added_to_cart_with_title": "{{ product_title }} został dodany do koszyka.",
       "sold_out_badge": "Wyprzedane",
       "on_sale_badge": "Wyprzedaż",
       "discount_badge_html": "Oszczędzasz {{ savings }}",
@@ -108,17 +103,7 @@
         "few": "{{ count }} dostępne kolory",
         "many": "{{ count }} dostępnych kolorów",
         "other": "{{ count }} dostępne kolorów"
-      },
-      "single": "Single",
-      "packs": "Packs",
-      "adding": "Adding...",
-      "added": "Added!",
-      "error": "Error",
-      "select_variant": "Select a variant",
-      "no_pack_variants": "No pack variants available",
-      "up_to_weeks": "up to {{ weeks }} weeks",
-      "weeks": "weeks",
-      "discount": "discount"
+      }
     },
     "gallery": {
       "close": "Zamknij galerię",
@@ -157,8 +142,7 @@
       "low_stock_with_quantity_count": {
         "one": "Została tylko {{ count }} sztuka",
         "few": "Zostały tylko {{ count }} sztuki",
-        "many": "Zostało tylko {{ count }} sztuk",
-        "other": "Only {{count}} units left"
+        "many": "Zostało tylko {{ count }} sztuk"
       }
     },
     "store_availability": {
@@ -181,8 +165,7 @@
       "one": "{{ count }} produkt",
       "few": "{{ count }} produkty",
       "many": "{{ count }} produktów",
-      "other": "{{ count }} produktów",
-      "zero": "0 products"
+      "other": "{{ count }} produktów"
     },
     "faceting": {
       "filters": "Filtry",
@@ -226,8 +209,7 @@
         "zero": "{{ count }} komentarzy",
         "one": "{{ count }} komentarz",
         "few": "{{ count }} komentarze",
-        "many": "{{ count }} komentarzy",
-        "other": "{{ count }} comments"
+        "many": "{{ count }} komentarzy"
       }
     }
   },
@@ -346,8 +328,7 @@
         "one": "{{ count }} przedmiot",
         "few": "{{ count }} przedmioty",
         "many": "{{ count }} przedmiotów",
-        "other": "{{ count }} przedmiotu",
-        "zero": "{{ count }} items"
+        "other": "{{ count }} przedmiotu"
       },
       "continue_shopping": "Kontynuuj zakupy",
       "weight": "Waga",
@@ -389,6 +370,10 @@
       "one_result": "Dla podanego adresu dostępna jest jedna metoda dostawy:",
       "multiple_results": "Dla podanego adresu dostępne są poniższe metoda dostawy:",
       "error": "Wystąpił co najmniej jeden błąd podczas pobierania metod dostawy:"
+    },
+    "discount": {
+      "label": "Kod rabatowy",
+      "error": "Wprowadź poprawny kod rabatowy"
     }
   },
   "404": {
@@ -405,7 +390,7 @@
       "products": "Produkty",
       "suggestions": "Propozycje",
       "collections": "Kolekcje",
-      "posts": "Blog",
+      "articles": "Blog",
       "pages": "Strony",
       "clear": "Wyczyść",
       "view_all": "Zobacz wszystkie",
@@ -473,29 +458,38 @@
       }
     }
   },
-  "bundle_pack": {
-    "button_select": "Wybierz",
-    "button_add": "Dodaj",
-    "button_add_to_cart": "Dodaj do koszyka",
-    "button_adding_to_cart": "Dodawanie do koszyka...",
-    "summary_select_your_lio": "Wybierz swoje Lio",
-    "selected_label": "Wybrano",
-    "tap_to_add": "+ aby dodać kilka smaków",
-    "optional_label": "Opcjonalne",
-    "info_money_back": "Nie rzuciłeś w 30 dni? Zwrot pieniędzy!",
-    "info_shipping": "Darmowa i szybka dostawa",
-    "success_added": "Pomyślnie dodano do koszyka!",
-    "error_failed_add": "Nie udało się dodać do koszyka",
-    "error_network": "Błąd sieci. Spróbuj ponownie.",
-    "select_minimum_flavors": "Wybierz co najmniej {count} smaków",
-    "selected_cigarette": "Lio",
-    "selected_flavors": "Smaki",
-    "selected_accessories": "Akcesoria",
-    "total_price": "Razem",
-    "savoury": "Słodki",
-    "throat_hit": "Provozas",
-    "sweetness": "Słodki",
-    "select_flavor": "Wybierz smak",
-    "close": "Zamknij"
+  "lander": {
+    "announce": "To my wynaleźliśmy Aromatyzowane Powietrze. Opatentowane i produkowane w Amsterdamie od 2018 roku.",
+    "nav": {
+      "what_it_is": "Czym to jest",
+      "how": "Jak to działa",
+      "flavors": "Smaki",
+      "evidence": "Dowody Lio",
+      "faq": "FAQ"
+    },
+    "cta": {
+      "build_kit": "Skomponuj mój zestaw",
+      "pick_device": "Wybierz urządzenie",
+      "see_how": "Zobacz, jak to działa"
+    },
+    "geo": {
+      "from": "Z",
+      "to": "do",
+      "free": "Darmowa dostawa",
+      "working_days": "dni roboczych"
+    },
+    "cred": {
+      "invented_title": "To my to wynaleźliśmy.",
+      "invented_meta": "Kategoria — Aromatyzowane Powietrze",
+      "first_title": "Pierwsi w Europie.",
+      "first_meta": "Od 2018 — Amsterdam",
+      "patented_title": "Mamy patent.",
+      "patented_meta": "Patent UE EP3784213",
+      "family_title": "Firma rodzinna.",
+      "family_meta": "Wytwarzane ręcznie — nadal"
+    },
+    "loader": {
+      "text": "Ładowanie"
+    }
   }
 }

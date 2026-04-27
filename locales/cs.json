@@ -8,12 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "404": {
-    "general": {
-      "title": "Stránka nebyla nalezena",
-      "continue_shopping": "Pokračovat v nákupu"
-    }
-  },
   "general": {
     "page": "Strana {{ page }}",
     "home": "Domovská stránka",
@@ -93,6 +87,7 @@
       "sold_out_button": "Vyprodáno",
       "unavailable_button": "Není k dispozici",
       "added_to_cart": "Zboží bylo přidáno do vašeho košíku!",
+      "added_to_cart_with_title": "{{ product_title }} byl přidán do košíku.",
       "sold_out_badge": "Vyprodáno",
       "on_sale_badge": "Výprodej",
       "discount_badge_html": "Ušetřete {{ savings }}",
@@ -108,17 +103,7 @@
         "few": "Dostupné v {{ count }} barvách",
         "many": "Dostupné v {{ count }} barvách",
         "other": "Dostupné v {{ count }} barvách"
-      },
-      "single": "Single",
-      "packs": "Packs",
-      "adding": "Adding...",
-      "added": "Added!",
-      "error": "Error",
-      "select_variant": "Select a variant",
-      "no_pack_variants": "No pack variants available",
-      "up_to_weeks": "up to {{ weeks }} weeks",
-      "weeks": "weeks",
-      "discount": "discount"
+      }
     },
     "gallery": {
       "close": "Zavřít galerii",
@@ -345,8 +330,7 @@
       "item_count": {
         "one": "{{ count }} položka",
         "few": "{{ count }} položky",
-        "other": "{{ count }} položek",
-        "zero": "{{ count }} items"
+        "other": "{{ count }} položek"
       },
       "continue_shopping": "Pokračovat v nákupu",
       "weight": "Hmotnost",
@@ -388,6 +372,10 @@
       "one_result": "Pro vaši adresu je k dispozici jedna sazba za dopravu:",
       "multiple_results": "Pro vaši adresu je k dispozici několik sazeb za dopravu:",
       "error": "Při načítání přepravních sazeb došlo k jedné nebo více chyb:"
+    },
+    "discount": {
+      "label": "Slevový kód",
+      "error": "Zadejte platný slevový kód"
     }
   },
   "404": {
@@ -404,7 +392,7 @@
       "products": "Produkty",
       "suggestions": "Návrhy",
       "collections": "Kolekce",
-      "posts": "Příspěvky na blogu",
+      "articles": "Příspěvky na blogu",
       "pages": "Stránky",
       "clear": "Vymazat",
       "view_all": "Zobrazit vše",
@@ -472,29 +460,38 @@
       }
     }
   },
-  "bundle_pack": {
-    "button_select": "Vybrat",
-    "button_add": "Přidat",
-    "button_add_to_cart": "Přidat do košíku",
-    "button_adding_to_cart": "Přidává se do košíku...",
-    "summary_select_your_lio": "Vyberte si Lio",
-    "selected_label": "Vybráno",
-    "tap_to_add": "Klepněte na + pro přidání více příchutí",
-    "optional_label": "Volitelné",
-    "info_money_back": "Neskončili jste do 30 dní? Vrátíme peníze!",
-    "info_shipping": "Doprava zdarma a rychlá",
-    "success_added": "Úspěšně přidáno do košíku!",
-    "error_failed_add": "Nepodařilo se přidat do košíku",
-    "error_network": "Chyba sítě. Zkuste to znovu.",
-    "select_minimum_flavors": "Vyberte minimálně {count} příchutě",
-    "selected_cigarette": "Lio",
-    "selected_flavors": "Příchutě",
-    "selected_accessories": "Příslušenství",
-    "total_price": "Celkem",
-    "savoury": "Slaná",
-    "throat_hit": "Prohloušený chuť",
-    "sweetness": "Sladká",
-    "select_flavor": "Vybrat příchuť",
-    "close": "Zavřít"
+  "lander": {
+    "announce": "Vynalezli jsme Aromatizovaný Vzduch. Patentováno a vyrobeno v Amsterdamu od roku 2018.",
+    "nav": {
+      "what_it_is": "Co to je",
+      "how": "Jak to funguje",
+      "flavors": "Příchutě",
+      "evidence": "Důkazy Lio",
+      "faq": "FAQ"
+    },
+    "cta": {
+      "build_kit": "Sestavit mou sadu",
+      "pick_device": "Vybrat zařízení",
+      "see_how": "Podívat se, jak to funguje"
+    },
+    "geo": {
+      "from": "Z",
+      "to": "do",
+      "free": "Doprava zdarma",
+      "working_days": "pracovních dnů"
+    },
+    "cred": {
+      "invented_title": "Vynalezli jsme to.",
+      "invented_meta": "Kategorie — Aromatizovaný Vzduch",
+      "first_title": "První v Evropě.",
+      "first_meta": "Od roku 2018 — Amsterdam",
+      "patented_title": "Máme patent.",
+      "patented_meta": "Patent EU EP3784213",
+      "family_title": "Rodinný podnik.",
+      "family_meta": "Ručně vyrobeno — stále"
+    },
+    "loader": {
+      "text": "Načítání"
+    }
   }
 }

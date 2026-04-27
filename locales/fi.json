@@ -8,12 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "404": {
-    "general": {
-      "title": "Sivua ei löydy",
-      "continue_shopping": "Jatka ostoksia"
-    }
-  },
   "general": {
     "page": "Sivu {{ page }}",
     "home": "Etusivu",
@@ -93,6 +87,7 @@
       "sold_out_button": "Loppuunmyyty",
       "unavailable_button": "Ei saatavilla",
       "added_to_cart": "Lisätty ostoskoriin!",
+      "added_to_cart_with_title": "{{ product_title }} lisättiin ostoskoriin.",
       "sold_out_badge": "Loppuunmyyty",
       "on_sale_badge": "Alennuksessa",
       "discount_badge_html": "Säästä {{ savings }}",
@@ -106,17 +101,7 @@
       "available_colors_count": {
         "one": "{{ count }} väri saatavilla",
         "other": "{{ count }} väriä saatavilla"
-      },
-      "single": "Single",
-      "packs": "Packs",
-      "adding": "Adding...",
-      "added": "Added!",
-      "error": "Error",
-      "select_variant": "Select a variant",
-      "no_pack_variants": "No pack variants available",
-      "up_to_weeks": "up to {{ weeks }} weeks",
-      "weeks": "weeks",
-      "discount": "discount"
+      }
     },
     "gallery": {
       "close": "Sulje galleria",
@@ -334,8 +319,7 @@
       "empty": "Ostoskorisi on tyhjä",
       "item_count": {
         "one": "{{ count }} tuote",
-        "other": "{{ count }} tuotetta",
-        "zero": "{{ count }} items"
+        "other": "{{ count }} tuotetta"
       },
       "continue_shopping": "Jatka ostoksia",
       "weight": "Paino",
@@ -377,6 +361,10 @@
       "one_result": "Osoitteeseesi on yksi toimituskulu:",
       "multiple_results": "Osoitteeseesi on useita toimituskuluja:",
       "error": "Virhe noudettaessa toimituskuluja:"
+    },
+    "discount": {
+      "label": "Alennuskoodi",
+      "error": "Anna voimassa oleva alennuskoodi"
     }
   },
   "404": {
@@ -393,7 +381,7 @@
       "products": "Tuotteet",
       "suggestions": "Ehdotukset",
       "collections": "Kokoelmat",
-      "posts": "Blogiartikkelit",
+      "articles": "Blogiartikkelit",
       "pages": "Sivut",
       "clear": "Tyhjennä",
       "view_all": "Näytä kaikki",
@@ -457,29 +445,38 @@
       }
     }
   },
-  "bundle_pack": {
-    "button_select": "Valitse",
-    "button_add": "Lisää",
-    "button_add_to_cart": "Lisää ostoskoriin",
-    "button_adding_to_cart": "Lisätään ostoskoriin...",
-    "summary_select_your_lio": "Valitse Lio",
-    "selected_label": "Valittu",
-    "tap_to_add": "Napauta + lisätäksesi useita makuja",
-    "optional_label": "Valinnainen",
-    "info_money_back": "Et lopettanut 30 päivässä? Rahat takaisin!",
-    "info_shipping": "Ilmainen ja nopea toimitus",
-    "success_added": "Lisätty ostoskoriin!",
-    "error_failed_add": "Lisäys ostoskoriin epäonnistui",
-    "error_network": "Verkkovirhe. Yritä uudelleen.",
-    "select_minimum_flavors": "Valitse vähintään {count} makua",
-    "selected_cigarette": "Lio",
-    "selected_flavors": "Maut",
-    "selected_accessories": "Lisävarusteet",
-    "total_price": "Yhteensä",
-    "savoury": "Munuaiset",
-    "throat_hit": "Lujennetut munuaiset",
-    "sweetness": "Munuaiset",
-    "select_flavor": "Valitse maku",
-    "close": "Sulje"
+  "lander": {
+    "announce": "Me keksimme Maustetun Ilman. Patentoitu ja valmistettu Amsterdamissa vuodesta 2018.",
+    "nav": {
+      "what_it_is": "Mikä se on",
+      "how": "Miten se toimii",
+      "flavors": "Maut",
+      "evidence": "Lio-todisteet",
+      "faq": "UKK"
+    },
+    "cta": {
+      "build_kit": "Kokoa pakettini",
+      "pick_device": "Valitse laite",
+      "see_how": "Katso, miten se toimii"
+    },
+    "geo": {
+      "from": "Lähtöpaikka:",
+      "to": "kohde:",
+      "free": "Ilmainen toimitus",
+      "working_days": "arkipäivää"
+    },
+    "cred": {
+      "invented_title": "Me keksimme sen.",
+      "invented_meta": "Kategoria — Maustettu Ilma",
+      "first_title": "Ensimmäinen Euroopassa.",
+      "first_meta": "Vuodesta 2018 — Amsterdam",
+      "patented_title": "Olemme patentoituja.",
+      "patented_meta": "EU-patentti EP3784213",
+      "family_title": "Perheyritys.",
+      "family_meta": "Käsin tehty — yhä"
+    },
+    "loader": {
+      "text": "Ladataan"
+    }
   }
 }

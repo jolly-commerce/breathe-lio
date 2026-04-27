@@ -1,0 +1,45 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "lander": {
+    "announce": "Mi smo izumili Aromatizirani Zrak. Patentirano i proizvedeno u Amsterdamu od 2018.",
+    "nav": {
+      "what_it_is": "Što je to",
+      "how": "Kako funkcionira",
+      "flavors": "Okusi",
+      "evidence": "Lio dokazi",
+      "faq": "Česta pitanja"
+    },
+    "cta": {
+      "build_kit": "Sastavi moj komplet",
+      "pick_device": "Odaberi uređaj",
+      "see_how": "Pogledaj kako radi"
+    },
+    "geo": {
+      "from": "Iz",
+      "to": "u",
+      "free": "Besplatna dostava",
+      "working_days": "radnih dana"
+    },
+    "cred": {
+      "invented_title": "Mi smo to izumili.",
+      "invented_meta": "Kategorija — Aromatizirani Zrak",
+      "first_title": "Prvi u Europi.",
+      "first_meta": "Od 2018. — Amsterdam",
+      "patented_title": "Patentirani smo.",
+      "patented_meta": "EU patent EP3784213",
+      "family_title": "Obiteljski posao.",
+      "family_meta": "Ručno izrađeno — još uvijek"
+    },
+    "loader": {
+      "text": "Učitavanje"
+    }
+  }
+}

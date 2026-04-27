@@ -8,12 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "404": {
-    "general": {
-      "title": "Lapa nav atrasta",
-      "continue_shopping": "Turpināt iepirkšanos"
-    }
-  },
   "general": {
     "page": "{{ page }}. lappuse",
     "home": "Sākums",
@@ -93,6 +87,7 @@
       "sold_out_button": "Izpārdots",
       "unavailable_button": "Nav pieejams",
       "added_to_cart": "Pievienots grozam!",
+      "added_to_cart_with_title": "{{ product_title }} pievienots grozam.",
       "sold_out_badge": "Izpārdots",
       "on_sale_badge": "Atlaide",
       "discount_badge_html": "{{ savings }} ietaupījums",
@@ -106,17 +101,7 @@
       "available_colors_count": {
         "one": "Pieejama {{ count }} krāsa",
         "other": "Pieejamas {{ count }} krāsas"
-      },
-      "single": "Single",
-      "packs": "Packs",
-      "adding": "Adding...",
-      "added": "Added!",
-      "error": "Error",
-      "select_variant": "Select a variant",
-      "no_pack_variants": "No pack variants available",
-      "up_to_weeks": "up to {{ weeks }} weeks",
-      "weeks": "weeks",
-      "discount": "discount"
+      }
     },
     "gallery": {
       "close": "Aizvērt galeriju",
@@ -377,6 +362,10 @@
       "one_result": "Jūsu adresē ir pieejams viens piegādes tarifs:",
       "multiple_results": "Jūsu adresē ir pieejami vairāk piegādes tarifi:",
       "error": "Aprēķinot piegādes tarifus, radās viena vai vairākas kļūdas:"
+    },
+    "discount": {
+      "label": "Atlaides kods",
+      "error": "Ievadiet derīgu atlaides kodu"
     }
   },
   "404": {
@@ -393,7 +382,7 @@
       "products": "Produktus",
       "suggestions": "Ieteikumi",
       "collections": "Kolekcijas",
-      "posts": "Bloga rakstus",
+      "articles": "Bloga rakstus",
       "pages": "Lapas",
       "clear": "Notīrīt",
       "view_all": "Skatīt visu",
@@ -457,29 +446,38 @@
       }
     }
   },
-  "bundle_pack": {
-    "button_select": "Izvēlēties",
-    "button_add": "Pievienot",
-    "button_add_to_cart": "Pievienot grozam",
-    "button_adding_to_cart": "Pievieno grozam...",
-    "summary_select_your_lio": "Izvēlies savu Lio",
-    "selected_label": "Izvēlēts",
-    "tap_to_add": "Pieskaries +, lai pievienotu vairāk garšu",
-    "optional_label": "Neobligāti",
-    "info_money_back": "Neizdevās 30 dienu laikā? Naudas atmaksa!",
-    "info_shipping": "Bezmaksas un ātra piegāde",
-    "success_added": "Veiksmīgi pievienots grozam!",
-    "error_failed_add": "Neizdevās pievienot grozam",
-    "error_network": "Tīkla kļūda. Mēģiniet vēlreiz.",
-    "select_minimum_flavors": "Izvēlieties vismaz {count} garšas",
-    "selected_cigarette": "Lio",
-    "selected_flavors": "Garšas",
-    "selected_accessories": "Piederumi",
-    "total_price": "Kopā",
-    "savoury": "Garšas",
-    "throat_hit": "Garšas",
-    "sweetness": "Garšas",
-    "select_flavor": "Izvēlies garšu",
-    "close": "Aizvērt"
+  "lander": {
+    "announce": "Mēs izgudrojām Aromatizēto Gaisu. Patentēts un izgatavots Amsterdamā kopš 2018. gada.",
+    "nav": {
+      "what_it_is": "Kas tas ir",
+      "how": "Kā tas darbojas",
+      "flavors": "Garšas",
+      "evidence": "Lio pierādījumi",
+      "faq": "BUJ"
+    },
+    "cta": {
+      "build_kit": "Izveidot manu komplektu",
+      "pick_device": "Izvēlēties ierīci",
+      "see_how": "Apskatīt, kā tas darbojas"
+    },
+    "geo": {
+      "from": "No",
+      "to": "uz",
+      "free": "Bezmaksas piegāde",
+      "working_days": "darba dienas"
+    },
+    "cred": {
+      "invented_title": "Mēs to izgudrojām.",
+      "invented_meta": "Kategorija — Aromatizētais Gaiss",
+      "first_title": "Pirmie Eiropā.",
+      "first_meta": "Kopš 2018. — Amsterdama",
+      "patented_title": "Mēs esam patentēti.",
+      "patented_meta": "ES patents EP3784213",
+      "family_title": "Ģimenes uzņēmums.",
+      "family_meta": "Roku darbs — joprojām"
+    },
+    "loader": {
+      "text": "Notiek ielāde"
+    }
   }
 }

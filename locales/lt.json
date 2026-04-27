@@ -8,12 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "404": {
-    "general": {
-      "title": "Puslapis nerastas",
-      "continue_shopping": "Tęsti apsipirkimą"
-    }
-  },
   "general": {
     "page": "{{ page }} psl.",
     "home": "Pagrindinis",
@@ -93,6 +87,7 @@
       "sold_out_button": "Išparduota",
       "unavailable_button": "Neprieinama",
       "added_to_cart": "Įdėta į jūsų krepšelį!",
+      "added_to_cart_with_title": "Į krepšelį pridėta: {{ product_title }}.",
       "sold_out_badge": "Išparduota",
       "on_sale_badge": "Išpardavimas",
       "discount_badge_html": "Sutaupykite {{ savings }}",
@@ -107,17 +102,7 @@
         "one": "Parduodama {{ count }} spalvos",
         "few": "Parduodama {{ count }} spalvų",
         "other": "Parduodama {{ count }} spalvų"
-      },
-      "single": "Single",
-      "packs": "Packs",
-      "adding": "Adding...",
-      "added": "Added!",
-      "error": "Error",
-      "select_variant": "Select a variant",
-      "no_pack_variants": "No pack variants available",
-      "up_to_weeks": "up to {{ weeks }} weeks",
-      "weeks": "weeks",
-      "discount": "discount"
+      }
     },
     "gallery": {
       "close": "Uždaryti galeriją",
@@ -340,8 +325,7 @@
       "item_count": {
         "one": "{{ count }} prekė",
         "few": "{{ count }} prekės",
-        "other": "{{ count }} prekių",
-        "zero": "{{ count }} items"
+        "other": "{{ count }} prekių"
       },
       "continue_shopping": "Tęsti apsipirkimą",
       "weight": "Svoris",
@@ -383,6 +367,10 @@
       "one_result": "Jūsų adresui taikomas vienas siuntimo tarifas:",
       "multiple_results": "Jūsų adresui taikomi keli siuntimo tarifai:",
       "error": "Nuskaitant siuntimo tarifus įvyko viena arba daugiau klaidų:"
+    },
+    "discount": {
+      "label": "Nuolaidos kodas",
+      "error": "Įveskite galiojantį nuolaidos kodą"
     }
   },
   "404": {
@@ -399,7 +387,7 @@
       "products": "Prekės",
       "suggestions": "Pasiūlymai",
       "collections": "Rinkiniai",
-      "posts": "Tinklaraščio įrašai",
+      "articles": "Tinklaraščio įrašai",
       "pages": "Puslapiai",
       "clear": "Išvalyti",
       "view_all": "Peržiūrėti visus",
@@ -464,29 +452,38 @@
       }
     }
   },
-  "bundle_pack": {
-    "button_select": "Pasirinkti",
-    "button_add": "Pridėti",
-    "button_add_to_cart": "Pridėti į krepšelį",
-    "button_adding_to_cart": "Pridedama į krepšelį...",
-    "summary_select_your_lio": "Pasirinkite savo Lio",
-    "selected_label": "Pasirinkta",
-    "tap_to_add": "Bakstelėkite +, kad pridėtumėte kelis skonius",
-    "optional_label": "Nebūtina",
-    "info_money_back": "Per 30 dienų neatsisakėte? Grąžiname pinigus!",
-    "info_shipping": "Nemokamas ir greitas pristatymas",
-    "success_added": "Sėkmingai pridėta į krepšelį!",
-    "error_failed_add": "Nepavyko pridėti į krepšelį",
-    "error_network": "Tinklo klaida. Bandykite dar kartą.",
-    "select_minimum_flavors": "Pasirinkite mažiausiai {count} skonių",
-    "selected_cigarette": "Lio",
-    "selected_flavors": "Skonius",
-    "selected_accessories": "Priedai",
-    "total_price": "Iš viso",
-    "savoury": "Slanė",
-    "throat_hit": "Provozas",
-    "sweetness": "Sladus",
-    "select_flavor": "Pasirinkti skonį",
-    "close": "Užverti"
+  "lander": {
+    "announce": "Mes išradome Aromatizuotą Orą. Patentuota ir pagaminta Amsterdame nuo 2018 m.",
+    "nav": {
+      "what_it_is": "Kas tai",
+      "how": "Kaip tai veikia",
+      "flavors": "Skoniai",
+      "evidence": "Lio įrodymai",
+      "faq": "DUK"
+    },
+    "cta": {
+      "build_kit": "Sudaryti mano rinkinį",
+      "pick_device": "Pasirinkti įrenginį",
+      "see_how": "Pažiūrėti, kaip veikia"
+    },
+    "geo": {
+      "from": "Iš",
+      "to": "į",
+      "free": "Nemokamas pristatymas",
+      "working_days": "darbo dienų"
+    },
+    "cred": {
+      "invented_title": "Mes tai išradome.",
+      "invented_meta": "Kategorija — Aromatizuotas Oras",
+      "first_title": "Pirmieji Europoje.",
+      "first_meta": "Nuo 2018 m. — Amsterdamas",
+      "patented_title": "Mes patentuoti.",
+      "patented_meta": "ES patentas EP3784213",
+      "family_title": "Šeimos verslas.",
+      "family_meta": "Pagaminta rankomis — vis dar"
+    },
+    "loader": {
+      "text": "Įkeliama"
+    }
   }
 }

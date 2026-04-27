@@ -44,6 +44,12 @@
       "notify_me": "Notify me",
       "subscribed_successfully": "You have been subscribed to our newsletter."
     },
+    "klaviyo_signup": {
+      "first_name": "First name",
+      "phone": "Phone number",
+      "error_email": "Please enter a valid email address.",
+      "error_network": "Network error. Please try again."
+    },
     "localization": {
       "country": "Country",
       "language": "Language",
@@ -87,6 +93,7 @@
       "sold_out_button": "Sold out",
       "unavailable_button": "Unavailable",
       "added_to_cart": "Added to your cart!",
+      "added_to_cart_with_title": "{{ product_title }} added to your cart",
       "sold_out_badge": "Sold out",
       "on_sale_badge": "On sale",
       "discount_badge_html": "Save {{ savings }}",
@@ -100,17 +107,7 @@
       "available_colors_count": {
         "one": "{{ count }} color available",
         "other": "{{ count }} colors available"
-      },
-      "single": "Single",
-      "packs": "Packs",
-      "adding": "Adding...",
-      "added": "Added!",
-      "error": "Error",
-      "select_variant": "Select a variant",
-      "no_pack_variants": "No pack variants available",
-      "up_to_weeks": "up to {{ weeks }} weeks",
-      "weeks": "weeks",
-      "discount": "discount"
+      }
     },
     "gallery": {
       "close": "Close gallery",
@@ -218,9 +215,9 @@
   "contact": {
     "form": {
       "name": "Name",
-      "email": "Email",
-      "message": "your message",
-      "submit": "click to submit",
+      "email": "E-mail",
+      "message": "Message",
+      "submit": "Send message",
       "success_message": "Your message has been sent."
     }
   },
@@ -344,7 +341,7 @@
       "order_note": "Order note",
       "save_note": "Save",
       "view_cart": "View cart",
-      "checkout": "Continue to Checkout",
+      "checkout": "Checkout",
       "we_accept": "We accept"
     },
     "order": {
@@ -371,6 +368,10 @@
       "one_result": "There is one shipping rate for your address:",
       "multiple_results": "There are several shipping rates for your address:",
       "error": "One or more error occurred while retrieving shipping rates:"
+    },
+    "discount": {
+      "label": "Discount code",
+      "error": "Enter a valid discount code"
     }
   },
   "404": {
@@ -387,7 +388,7 @@
       "products": "Products",
       "suggestions": "Suggestions",
       "collections": "Collections",
-      "posts": "Blog posts",
+      "articles": "Blog posts",
       "pages": "Pages",
       "clear": "Clear",
       "view_all": "View all",
@@ -451,29 +452,67 @@
       }
     }
   },
-  "bundle_pack": {
-    "button_select": "Select",
-    "button_add": "Add",
-    "button_add_to_cart": "Add to cart",
-    "button_adding_to_cart": "Adding to cart...",
-    "summary_select_your_lio": "Select your Lio",
-    "selected_label": "Selected",
-    "tap_to_add": "Tap + to add multiple flavors",
-    "optional_label": "Optional",
-    "info_money_back": "Didn't quit in 30 Days? Money Back!",
-    "info_shipping": "Free & Fast Shipping",
-    "success_added": "Successfully added to cart!",
-    "error_failed_add": "Failed to add to cart",
-    "error_network": "Network error. Please try again.",
-    "select_minimum_flavors": "Select minimum {count} flavors",
-    "selected_cigarette": "Lio",
-    "selected_flavors": "Flavors",
-    "selected_accessories": "Accessories",
-    "total_price": "Total",
-    "savoury": "Savoury",
-    "throat_hit": "Throat hit",
-    "sweetness": "Sweetness",
-    "select_flavor": "Select flavor",
-    "close": "Close"
+  "sections": {
+    "lio_hero": {
+      "chip_count": "7,300+ reviews",
+      "patent_label": "Patented design",
+      "headline_pre": "Keep the",
+      "headline_marker": "ritual.",
+      "headline_soft": "Drop the",
+      "headline_end": "substance.",
+      "subhead": "A wooden diffuser for the hand-to-mouth habit. Breathe in natural flavored air — nothing to light, nothing to charge.",
+      "cta_primary_label": "Start your ritual",
+      "refill_cold_label": "Already have a Lio? Shop refills",
+      "refill_warm_label": "Welcome back — shop refills",
+      "cta_secondary_label": "See how Lio works",
+      "review_text": "From 15 a day to zero in three weeks.",
+      "review_name": "Marieke V. · Amsterdam",
+      "review_verified_label": "Verified",
+      "sticky_eyebrow": "From",
+      "sticky_price": "€27",
+      "sticky_label": "Start your ritual",
+      "cell_1_label": "Patented",
+      "cell_1_claim": "Design & tech",
+      "cell_2_label": "Lab-tested",
+      "cell_2_claim": "3rd-party safety",
+      "cell_3_label": "0%",
+      "cell_3_claim": "Nicotine & vapor",
+      "cell_4_label": "Plant-based",
+      "cell_4_claim": "Essential oils"
+    }
+  },
+  "lander": {
+    "announce": "We invented Flavored Air. Patented & made in Amsterdam since 2018.",
+    "nav": {
+      "what_it_is": "What it is",
+      "how": "How it works",
+      "flavors": "Flavors",
+      "evidence": "Lio evidence",
+      "faq": "FAQ"
+    },
+    "cta": {
+      "build_kit": "Build my kit",
+      "pick_device": "Pick a device",
+      "see_how": "See how it works"
+    },
+    "geo": {
+      "from": "From",
+      "to": "to",
+      "free": "Free shipping",
+      "working_days": "working days"
+    },
+    "cred": {
+      "invented_title": "We invented it.",
+      "invented_meta": "The category — Flavored Air",
+      "first_title": "First in Europe.",
+      "first_meta": "Since 2018 — Amsterdam",
+      "patented_title": "We are patented.",
+      "patented_meta": "EU Patent EP3784213",
+      "family_title": "A family business.",
+      "family_meta": "Built by hand — still is"
+    },
+    "loader": {
+      "text": "Loading"
+    }
   }
 }

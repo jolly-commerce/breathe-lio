@@ -1,0 +1,45 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "lander": {
+    "announce": "Inventámos o Ar Aromatizado. Patenteado e fabricado em Amesterdão desde 2018.",
+    "nav": {
+      "what_it_is": "O que é",
+      "how": "Como funciona",
+      "flavors": "Sabores",
+      "evidence": "Provas Lio",
+      "faq": "FAQ"
+    },
+    "cta": {
+      "build_kit": "Montar o meu kit",
+      "pick_device": "Escolher um dispositivo",
+      "see_how": "Ver como funciona"
+    },
+    "geo": {
+      "from": "De",
+      "to": "para",
+      "free": "Envio grátis",
+      "working_days": "dias úteis"
+    },
+    "cred": {
+      "invented_title": "Inventámo-lo.",
+      "invented_meta": "A categoria — Ar Aromatizado",
+      "first_title": "Primeiros na Europa.",
+      "first_meta": "Desde 2018 — Amesterdão",
+      "patented_title": "Somos patenteados.",
+      "patented_meta": "Patente UE EP3784213",
+      "family_title": "Um negócio familiar.",
+      "family_meta": "Feito à mão — ainda hoje"
+    },
+    "loader": {
+      "text": "A carregar"
+    }
+  }
+}

@@ -16,7 +16,11 @@
     <span>{{ section.settings.sticky_meta | default: '<del>€58</del><strong style="color: var(--forest); font-weight: 700;">€0.88/day</strong> · device free' }}</span>
   </div>
   <a href="{{ section.settings.sticky_link | default: '#offer' }}" class="btn-primary" aria-label="{{ section.settings.sticky_aria | default: 'Go to the offer section' }}">
-    {{ section.settings.sticky_label | default: 'Start' }}
+    {%- if section.settings.sticky_label != blank -%}
+      {{ section.settings.sticky_label }}
+    {%- else -%}
+      {{ 'lander.cta.pick_device' | t }}
+    {%- endif -%}
     <span class="arrow" aria-hidden="true"><svg><use href="#arrow"/></svg></span>
   </a>
 </div>

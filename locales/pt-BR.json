@@ -8,12 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "404": {
-    "general": {
-      "title": "Página não encontrada",
-      "continue_shopping": "Continuar comprando"
-    }
-  },
   "general": {
     "page": "Página {{ page }}",
     "home": "Início",
@@ -93,6 +87,7 @@
       "sold_out_button": "Esgotado",
       "unavailable_button": "Unavailable",
       "added_to_cart": "Adicionado ao carrinho!",
+      "added_to_cart_with_title": "{{ product_title }} foi adicionado ao carrinho.",
       "sold_out_badge": "Esgotado",
       "on_sale_badge": "Promoção",
       "discount_badge_html": "Economize {{ savings }}",
@@ -106,17 +101,7 @@
       "available_colors_count": {
         "one": "{{ count }} cor disponível",
         "other": "{{ count }} cores disponíveis"
-      },
-      "single": "Single",
-      "packs": "Packs",
-      "adding": "Adding...",
-      "added": "Added!",
-      "error": "Error",
-      "select_variant": "Select a variant",
-      "no_pack_variants": "No pack variants available",
-      "up_to_weeks": "up to {{ weeks }} weeks",
-      "weeks": "weeks",
-      "discount": "discount"
+      }
     },
     "gallery": {
       "close": "Fechar galeria",
@@ -334,8 +319,7 @@
       "empty": "Seu carrinho está vazio",
       "item_count": {
         "one": "{{ count }} item",
-        "other": "{{ count }} itens",
-        "zero": "{{ count }} items"
+        "other": "{{ count }} itens"
       },
       "continue_shopping": "Continuar comprando",
       "weight": "Peso",
@@ -377,6 +361,10 @@
       "one_result": "Temos um método de envio para o seu endereço:",
       "multiple_results": "Temos diversos métodos de envio para o seu endereço:",
       "error": "Um ou mais erros aconteceram durante a estimativa de frete:"
+    },
+    "discount": {
+      "label": "Código de desconto",
+      "error": "Insira um código de desconto válido"
     }
   },
   "404": {
@@ -393,7 +381,7 @@
       "products": "Produtos",
       "suggestions": "Sugestões",
       "collections": "Coleções",
-      "posts": "Posts de blog",
+      "articles": "Posts de blog",
       "pages": "Páginas",
       "clear": "Limpar",
       "view_all": "Ver tudo",
@@ -457,29 +445,38 @@
       }
     }
   },
-  "bundle_pack": {
-    "button_select": "Selecionar",
-    "button_add": "Adicionar",
-    "button_add_to_cart": "Adicionar ao carrinho",
-    "button_adding_to_cart": "Adicionando ao carrinho...",
-    "summary_select_your_lio": "Escolha seu Lio",
-    "selected_label": "Selecionado",
-    "tap_to_add": "Toque em + para adicionar vários sabores",
-    "optional_label": "Opcional",
-    "info_money_back": "Não parou em 30 dias? Devolvemos o dinheiro!",
-    "info_shipping": "Frete grátis e rápido",
-    "success_added": "Adicionado ao carrinho com sucesso!",
-    "error_failed_add": "Falha ao adicionar ao carrinho",
-    "error_network": "Erro de rede. Tente novamente.",
-    "select_minimum_flavors": "Selecione no mínimo {count} sabores",
-    "selected_cigarette": "Lio",
-    "selected_flavors": "Sabores",
-    "selected_accessories": "Acessórios",
-    "total_price": "Total",
-    "savoury": "Salado",
-    "throat_hit": "Reblandado",
-    "sweetness": "Doce",
-    "select_flavor": "Selecionar sabor",
-    "close": "Fechar"
+  "lander": {
+    "announce": "Nós inventamos o Ar Aromatizado. Patenteado e fabricado em Amsterdã desde 2018.",
+    "nav": {
+      "what_it_is": "O que é",
+      "how": "Como funciona",
+      "flavors": "Sabores",
+      "evidence": "Provas Lio",
+      "faq": "FAQ"
+    },
+    "cta": {
+      "build_kit": "Montar meu kit",
+      "pick_device": "Escolher um dispositivo",
+      "see_how": "Ver como funciona"
+    },
+    "geo": {
+      "from": "De",
+      "to": "para",
+      "free": "Frete grátis",
+      "working_days": "dias úteis"
+    },
+    "cred": {
+      "invented_title": "Nós inventamos.",
+      "invented_meta": "A categoria — Ar Aromatizado",
+      "first_title": "Primeiros na Europa.",
+      "first_meta": "Desde 2018 — Amsterdã",
+      "patented_title": "Somos patenteados.",
+      "patented_meta": "Patente UE EP3784213",
+      "family_title": "Um negócio familiar.",
+      "family_meta": "Feito à mão — ainda"
+    },
+    "loader": {
+      "text": "Carregando"
+    }
   }
 }

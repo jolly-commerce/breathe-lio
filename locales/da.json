@@ -8,12 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "404": {
-    "general": {
-      "title": "Siden blev ikke fundet",
-      "continue_shopping": "Fortsæt med at handle"
-    }
-  },
   "general": {
     "page": "Side {{ page }}",
     "home": "Startside",
@@ -93,6 +87,7 @@
       "sold_out_button": "Udsolgt",
       "unavailable_button": "Ikke tilgængelig",
       "added_to_cart": "Føjet til din indkøbskurv!",
+      "added_to_cart_with_title": "{{ product_title }} er blevet tilføjet til kurven.",
       "sold_out_badge": "Udsolgt",
       "on_sale_badge": "På tilbud",
       "discount_badge_html": "Spar {{ savings }}",
@@ -106,17 +101,7 @@
       "available_colors_count": {
         "one": "{{ count }} farve tilgængelig",
         "other": "{{ count }} farver tilgængelig"
-      },
-      "single": "Single",
-      "packs": "Packs",
-      "adding": "Adding...",
-      "added": "Added!",
-      "error": "Error",
-      "select_variant": "Select a variant",
-      "no_pack_variants": "No pack variants available",
-      "up_to_weeks": "up to {{ weeks }} weeks",
-      "weeks": "weeks",
-      "discount": "discount"
+      }
     },
     "gallery": {
       "close": "Luk gallery",
@@ -334,8 +319,7 @@
       "empty": "Din indkøbskurv er tom",
       "item_count": {
         "one": "{{ count }} vare",
-        "other": "{{ count }} varer",
-        "zero": "{{ count }} items"
+        "other": "{{ count }} varer"
       },
       "continue_shopping": "Fortsæt med at handle",
       "weight": "Vægt",
@@ -377,6 +361,10 @@
       "one_result": "Der er én leveringspris for din adresse:",
       "multiple_results": "Der er flere leveringspriser for din adresse:",
       "error": "Der opstod en eller flere fejl under hentning af leveringspriser:"
+    },
+    "discount": {
+      "label": "Rabatkode",
+      "error": "Indtast en gyldig rabatkode"
     }
   },
   "404": {
@@ -393,7 +381,7 @@
       "products": "Produkter",
       "suggestions": "Forslag",
       "collections": "Samlinger",
-      "posts": "Blogopslag",
+      "articles": "Blogopslag",
       "pages": "Sider",
       "clear": "Ryd",
       "view_all": "Vis alle",
@@ -457,29 +445,38 @@
       }
     }
   },
-  "bundle_pack": {
-    "button_select": "Vælg",
-    "button_add": "Tilføj",
-    "button_add_to_cart": "Læg i kurv",
-    "button_adding_to_cart": "Lægger i kurv...",
-    "summary_select_your_lio": "Vælg din Lio",
-    "selected_label": "Valgt",
-    "tap_to_add": "Tryk på + for at tilføje flere smage",
-    "optional_label": "Valgfrit",
-    "info_money_back": "Stoppede du ikke inden 30 dage? Penge tilbage!",
-    "info_shipping": "Gratis og hurtig levering",
-    "success_added": "Tilføjet til kurven!",
-    "error_failed_add": "Kunne ikke lægge i kurv",
-    "error_network": "Netværksfejl. Prøv igen.",
-    "select_minimum_flavors": "Vælg mindst {count} smag",
-    "selected_cigarette": "Lio",
-    "selected_flavors": "Smage",
-    "selected_accessories": "Tilbehør",
-    "total_price": "I alt",
-    "savoury": "Sød",
-    "throat_hit": "Prodlænd",
-    "sweetness": "Smag",
-    "select_flavor": "Vælg smag",
-    "close": "Luk"
+  "lander": {
+    "announce": "Vi opfandt Smagsfyldt Luft. Patenteret og lavet i Amsterdam siden 2018.",
+    "nav": {
+      "what_it_is": "Hvad det er",
+      "how": "Sådan virker det",
+      "flavors": "Smage",
+      "evidence": "Lio-bevis",
+      "faq": "FAQ"
+    },
+    "cta": {
+      "build_kit": "Byg mit kit",
+      "pick_device": "Vælg en enhed",
+      "see_how": "Se, hvordan det virker"
+    },
+    "geo": {
+      "from": "Fra",
+      "to": "til",
+      "free": "Gratis fragt",
+      "working_days": "hverdage"
+    },
+    "cred": {
+      "invented_title": "Vi opfandt det.",
+      "invented_meta": "Kategorien — Smagsfyldt Luft",
+      "first_title": "Først i Europa.",
+      "first_meta": "Siden 2018 — Amsterdam",
+      "patented_title": "Vi er patenterede.",
+      "patented_meta": "EU-patent EP3784213",
+      "family_title": "En familievirksomhed.",
+      "family_meta": "Håndlavet — stadig"
+    },
+    "loader": {
+      "text": "Indlæser"
+    }
   }
 }

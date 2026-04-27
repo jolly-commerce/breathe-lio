@@ -8,12 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "404": {
-    "general": {
-      "title": "Η σελίδα δεν βρέθηκε",
-      "continue_shopping": "Συνεχίστε τις αγορές σας"
-    }
-  },
   "general": {
     "page": "Σελίδα {{ page }}",
     "home": "Αρχική",
@@ -93,6 +87,7 @@
       "sold_out_button": "Εξαντλήθηκε",
       "unavailable_button": "Μη διαθέσιμο",
       "added_to_cart": "Προστέθηκε στο καλάθι σας!",
+      "added_to_cart_with_title": "Το {{ product_title }} προστέθηκε στο καλάθι.",
       "sold_out_badge": "Εξαντλήθηκε",
       "on_sale_badge": "Σε προσφορά",
       "discount_badge_html": "Εξοικονομήστε {{ savings }}",
@@ -106,17 +101,7 @@
       "available_colors_count": {
         "one": "{{ count }} χρώμα διαθέσιμο",
         "other": "{{ count }} διαθέσιμα χρώματα"
-      },
-      "single": "Single",
-      "packs": "Packs",
-      "adding": "Adding...",
-      "added": "Added!",
-      "error": "Error",
-      "select_variant": "Select a variant",
-      "no_pack_variants": "No pack variants available",
-      "up_to_weeks": "up to {{ weeks }} weeks",
-      "weeks": "weeks",
-      "discount": "discount"
+      }
     },
     "gallery": {
       "close": "Κλείσιμο γκαλερί",
@@ -334,8 +319,7 @@
       "empty": "Το καλάθι σας είναι άδειο",
       "item_count": {
         "one": "{{ count }} αντικείμενο",
-        "other": "{{ count }} αντικείμενα",
-        "zero": "{{ count }} items"
+        "other": "{{ count }} αντικείμενα"
       },
       "continue_shopping": "Συνεχίστε τις αγορές σας",
       "weight": "Βάρος",
@@ -377,6 +361,10 @@
       "one_result": "Υπάρχει μία χρέωση αποστολής για τη διεύθυνσή σας:",
       "multiple_results": "Υπάρχουν διάφορες χρεώσεις αποστολής για τη διεύθυνσή σας:",
       "error": "Παρουσιάστηκαν ένα ή περισσότερα σφάλματα κατά την ανάκτηση των χρεώσεων αποστολής:"
+    },
+    "discount": {
+      "label": "Κωδικός έκπτωσης",
+      "error": "Εισαγάγετε έναν έγκυρο κωδικό έκπτωσης"
     }
   },
   "404": {
@@ -393,7 +381,7 @@
       "products": "Προϊόντα",
       "suggestions": "Προτάσεις",
       "collections": "Συλλογές",
-      "posts": "Δημοσιεύσεις ιστολογίου",
+      "articles": "Δημοσιεύσεις ιστολογίου",
       "pages": "Σελίδες",
       "clear": "Εκκαθάριση",
       "view_all": "Προβολή όλων",
@@ -457,29 +445,38 @@
       }
     }
   },
-  "bundle_pack": {
-    "button_select": "Επιλογή",
-    "button_add": "Προσθήκη",
-    "button_add_to_cart": "Προσθήκη στο καλάθι",
-    "button_adding_to_cart": "Γίνεται προσθήκη στο καλάθι...",
-    "summary_select_your_lio": "Επίλεξε το Lio σου",
-    "selected_label": "Επιλέχθηκε",
-    "tap_to_add": "Πάτησε + για να προσθέσεις πολλές γεύσεις",
-    "optional_label": "Προαιρετικό",
-    "info_money_back": "Δεν τα κατάφερες σε 30 ημέρες; Επιστροφή χρημάτων!",
-    "info_shipping": "Δωρεάν και γρήγορη αποστολή",
-    "success_added": "Προστέθηκε επιτυχώς στο καλάθι!",
-    "error_failed_add": "Αποτυχία προσθήκης στο καλάθι",
-    "error_network": "Σφάλμα δικτύου. Προσπάθησε ξανά.",
-    "select_minimum_flavors": "Επιλέξτε τουλάχιστον {count} γεύσεις",
-    "selected_cigarette": "Lio",
-    "selected_flavors": "Γεύσεις",
-    "selected_accessories": "Αξεσουάρ",
-    "total_price": "Σύνολο",
-    "savoury": "Νοστιμάτα",
-    "throat_hit": "Μαύρο",
-    "sweetness": "Γλυκά",
-    "select_flavor": "Επιλογή γεύσης",
-    "close": "Κλείσιμο"
+  "lander": {
+    "announce": "Εμείς εφεύραμε τον Αρωματισμένο Αέρα. Πατενταρισμένο & κατασκευασμένο στο Άμστερνταμ από το 2018.",
+    "nav": {
+      "what_it_is": "Τι είναι",
+      "how": "Πώς λειτουργεί",
+      "flavors": "Γεύσεις",
+      "evidence": "Αποδείξεις Lio",
+      "faq": "Συχνές ερωτήσεις"
+    },
+    "cta": {
+      "build_kit": "Σχεδίασε το κιτ μου",
+      "pick_device": "Επίλεξε συσκευή",
+      "see_how": "Δες πώς λειτουργεί"
+    },
+    "geo": {
+      "from": "Από",
+      "to": "προς",
+      "free": "Δωρεάν αποστολή",
+      "working_days": "εργάσιμες ημέρες"
+    },
+    "cred": {
+      "invented_title": "Εμείς το εφεύραμε.",
+      "invented_meta": "Η κατηγορία — Αρωματισμένος Αέρας",
+      "first_title": "Πρώτοι στην Ευρώπη.",
+      "first_meta": "Από το 2018 — Άμστερνταμ",
+      "patented_title": "Είμαστε πατενταρισμένοι.",
+      "patented_meta": "Δίπλωμα Ευρεσιτεχνίας ΕΕ EP3784213",
+      "family_title": "Οικογενειακή επιχείρηση.",
+      "family_meta": "Κατασκευασμένο στο χέρι — ακόμα"
+    },
+    "loader": {
+      "text": "Φόρτωση"
+    }
   }
 }
