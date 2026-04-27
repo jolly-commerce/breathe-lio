@@ -228,8 +228,8 @@
       <div class="lio-pdp-step" data-step="device">
         <div class="lio-pdp-step-head">
           <span class="lio-pdp-step-tag" data-step-dot="device">●</span>
-          <span class="lio-pdp-step-title">{{ section.settings.step1_title | default: 'Pick your device' }}</span>
-          <span class="lio-pdp-step-meta"><strong id="lio-device-meta">Pick a device</strong></span>
+          <span class="lio-pdp-step-title">{{ 'lander.pdp.step1_title' | t }}</span>
+          <span class="lio-pdp-step-meta"><strong id="lio-device-meta">{{ 'lander.cta.pick_device' | t }}</strong></span>
         </div>
 
         <button type="button" class="lio-device-compare-cta" id="lio-device-info-btn" aria-haspopup="dialog">
@@ -514,7 +514,7 @@
         </div>
 
         <button type="button" class="lio-purchase-cta" id="lio-cta">
-          <span id="lio-cta-label">Pick a device</span>
+          <span id="lio-cta-label">{{ 'lander.cta.pick_device' | t }}</span>
           <span class="lio-purchase-cta-arrow" aria-hidden="true">→</span>
         </button>
 
@@ -783,7 +783,7 @@
 
       <div class="lio-sticky-info">
         <span class="lio-sticky-title" id="lio-sticky-title">{{ section.settings.sticky_title | default: 'Your Lio Kit' }}</span>
-        <span class="lio-sticky-meta" id="lio-sticky-meta">{{ section.settings.sticky_empty | default: 'Pick a device to start' }}</span>
+        <span class="lio-sticky-meta" id="lio-sticky-meta">{{ 'lander.pdp.pick_to_start' | t }}</span>
       </div>
 
       <div class="lio-sticky-pricing" id="lio-sticky-pricing" hidden>
@@ -792,7 +792,7 @@
       </div>
 
       <button type="button" class="lio-sticky-btn" id="lio-sticky-cta-btn" disabled>
-        <span id="lio-sticky-cta-label">Pick a device</span>
+        <span id="lio-sticky-cta-label">{{ 'lander.cta.pick_device' | t }}</span>
         <span class="lio-sticky-btn-arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </span>

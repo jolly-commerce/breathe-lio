@@ -694,6 +694,10 @@
       "lio_evidence": "Lio bewijs",
       "faq": "FAQ",
       "build_my_kit": "Stel mijn kit samen"
+    },
+    "pdp": {
+      "step1_title": "Kies je apparaat",
+      "pick_to_start": "Kies een apparaat om te starten"
     }
   }
 }

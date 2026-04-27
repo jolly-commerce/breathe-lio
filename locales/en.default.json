@@ -695,6 +695,10 @@
       "lio_evidence": "Lio evidence",
       "faq": "FAQ",
       "build_my_kit": "Build my kit"
+    },
+    "pdp": {
+      "step1_title": "Pick your device",
+      "pick_to_start": "Pick a device to start"
     }
   }
 }

@@ -15,21 +15,11 @@
     },
     "lander_header": {
       "type": "lio-lander-header",
-      "blocks": {
-        "n1": { "type": "nav_link", "settings": { "label": "What it is",   "anchor": "#shopify-section-flavored_air" } },
-        "n2": { "type": "nav_link", "settings": { "label": "How it works", "anchor": "#shopify-section-how" } },
-        "n3": { "type": "nav_link", "settings": { "label": "Flavors",      "anchor": "#shopify-section-flavors" } },
-        "n4": { "type": "nav_link", "settings": { "label": "Lio evidence", "anchor": "#shopify-section-evidence" } },
-        "n5": { "type": "nav_link", "settings": { "label": "FAQ",          "anchor": "#shopify-section-faq" } }
-      },
-      "block_order": ["n1", "n2", "n3", "n4", "n5"],
       "settings": {
-        "announce_text": "<p>We invented Flavored Air. <strong>Patented &amp; made in Amsterdam since 2018.</strong></p>",
         "announce_bg": "#1f3a2c",
         "announce_color": "#f5f1eb",
         "logo_text": "Lio",
         "show_cart": true,
-        "cta_label": "Build my kit",
         "cta_link": "#shopify-section-main",
         "show_locale": true,
         "locale_filter": "NL,AE,GB,BE,IT,DE,IE,US,ES,GR,AU,SA,PT,FR,CZ,RO,DK,AT,HR,CH,PL,HU,CY,FI,CA,SI,LT,SK,LV,BG"
@@ -275,8 +265,7 @@
       "settings": {
         "show_sticky": true,
         "sticky_title": "Build your perfect kit",
-        "sticky_meta": "<del>€58</del><strong style=\"color: var(--forest); font-weight: 700;\">€39</strong> · device free · 30-day money-back",
-        "sticky_label": "Pick a device",
+        "sticky_meta": "<del>€58</del><strong style=\"color: var(--forest); font-weight: 700;\">€39</strong> · device free · 90-day money-back",
         "sticky_link": "#shopify-section-main",
         "sticky_aria": "Pick a device — scroll to configurator",
         "hide_when_target": "#shopify-section-main"

@@ -79,7 +79,7 @@
             data-flv-sweet-label="{{ block.settings.sweet_label | default: 'Sweetness' | escape }}"
             data-flv-sweet-level="{{ block.settings.sweet_level | default: 1 }}"
             data-flv-sweet-value="{{ block.settings.sweet_value | default: 'Dry' | escape }}"
-            data-flv-cta="{{ block.settings.cta_label | default: 'Add' | escape }}"
+            data-flv-cta="{{ 'lander.kill.cta_label' | t | escape }}"
             data-flv-price="{{ block.settings.price | default: '€8,95' | escape }}"
             data-flv-price-meta="{{ block.settings.price_meta | escape }}"
             style="--tab-from: {{ block.settings.tint_from | default: '#d8f5e1' }}; --tab-to: {{ block.settings.tint_to | default: '#a8dfbb' }};"
@@ -188,7 +188,7 @@
 
           <div class="lfv-cta-row">
             <a class="lfv-btn" href="{{ section.settings.cta_link | default: '#offer' }}" data-lfv-cta>
-              <span data-lfv-cta-label>{{ first.settings.cta_label | default: 'Add' }}</span>
+              <span data-lfv-cta-label>{{ 'lander.kill.cta_label' | t }}</span>
               <span class="lfv-arrow" aria-hidden="true">
                 <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
