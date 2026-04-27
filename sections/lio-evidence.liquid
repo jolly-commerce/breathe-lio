@@ -1,663 +1,613 @@
 {%- comment -%}
-  Lio · Evidence dossier (rich)
-  Clinical, paper-style proof block. Replaces the simple 4-card evidence.
-  Content sections: header → premise → ingredient dossier → TNO testing
-  → mechanism vs vape → limitations → references.
-
-  All classes prefixed `levp-` (Lio Evidence Page) to avoid collisions.
-  CSS variables scoped to .levp wrapper. Standalone-page chrome (nav,
-  footer, final CTA) intentionally stripped — the lander provides those.
+  Lio · Evidence — compact visible section + full dossier in modal.
+  Visible: 4 proof claims + "Read the full dossier" CTA.
+  Modal: premise · ingredient dossier · TNO · mechanism · limitations · refs.
+  All CSS scoped under .levp / .levp-modal.
 {%- endcomment -%}
 
-<section class="levp" id="lio-evidence-dossier">
+<section class="levp" id="lio-evidence-block">
 
 <style>
-  /* Scoped variables + base */
   .levp {
-    --levp-forest:    {{ section.settings.color_forest | default: '#0b2410' }};
-    --levp-cream:     #fcfefb;
-    --levp-cream-2:   #f4f7f2;
-    --levp-paper:     #f8faf6;
-    --levp-mint:      #94fca9;
-    --levp-mint-soft: #cdfee1;
-    --levp-f-04: rgba(11,36,16,0.04);
-    --levp-f-06: rgba(11,36,16,0.06);
-    --levp-f-08: rgba(11,36,16,0.08);
-    --levp-f-10: rgba(11,36,16,0.10);
-    --levp-f-22: rgba(11,36,16,0.22);
-    --levp-f-40: rgba(11,36,16,0.40);
-    --levp-f-55: rgba(11,36,16,0.55);
-    --levp-f-72: rgba(11,36,16,0.72);
-    --levp-ease: cubic-bezier(0.22,1,0.36,1);
-    --levp-mono: "iA Writer Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    color: var(--levp-forest);
-    background: var(--levp-cream);
+    --lv-forest:    {{ section.settings.color_forest | default: '#0b2410' }};
+    --lv-cream:     #fcfefb;
+    --lv-cream-2:   #f4f7f2;
+    --lv-paper:     #f8faf6;
+    --lv-mint:      #94fca9;
+    --lv-mint-soft: #cdfee1;
+    --lv-f-08: rgba(11,36,16,0.08);
+    --lv-f-10: rgba(11,36,16,0.10);
+    --lv-f-22: rgba(11,36,16,0.22);
+    --lv-f-40: rgba(11,36,16,0.40);
+    --lv-f-55: rgba(11,36,16,0.55);
+    --lv-f-72: rgba(11,36,16,0.72);
+    --lv-mono: "iA Writer Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    background: {{ section.settings.bg | default: '#ffffff' }};
+    color: var(--lv-forest);
     font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-    line-height: 1.5;
-    letter-spacing: -0.005em;
+    padding: 56px 24px;
   }
   .levp *, .levp *::before, .levp *::after { box-sizing: border-box; }
-  .levp ::selection { background: var(--levp-mint); color: var(--levp-forest); }
-  .levp .levp-italic { font-style: italic; font-weight: 300; }
+  .levp .lv-italic { font-style: italic; font-weight: 300; }
 
-  /* Section primitive */
-  .levp .levp-band { padding: 80px 40px; }
-  .levp .levp-inner { max-width: 1200px; margin: 0 auto; }
-  .levp .levp-eyebrow {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 7px 16px; border-radius: 999px;
-    background: #fff; border: 1px solid var(--levp-f-10);
-    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-    font-weight: 700; color: var(--levp-f-72); margin-bottom: 24px;
-  }
-  .levp .levp-eyebrow::before {
-    content: ""; width: 6px; height: 6px;
-    background: var(--levp-mint); border-radius: 50%;
-  }
-  .levp .levp-eyebrow.on-dark {
-    background: rgba(252,254,251,0.06);
-    border-color: rgba(252,254,251,0.12);
-    color: rgba(252,254,251,0.8);
-  }
-  .levp .levp-h2 {
-    font-weight: 900;
-    font-size: clamp(30px, 4.4vw, 56px);
-    line-height: 0.96; letter-spacing: -0.04em;
-    margin: 0 0 18px; color: var(--levp-forest);
-  }
-  .levp .levp-h2.on-dark { color: var(--levp-cream); }
-  .levp .levp-lede {
-    font-size: 17px; line-height: 1.55;
-    color: var(--levp-f-72); max-width: 620px; margin: 0;
-  }
-  .levp .levp-lede strong { color: var(--levp-forest); font-weight: 600; }
-  .levp .levp-lede.on-dark { color: rgba(252,254,251,0.78); }
-  .levp .levp-lede.on-dark strong { color: var(--levp-cream); }
-
-  .levp .levp-ref {
-    display: inline-flex; align-items: center; justify-content: center;
-    min-width: 22px; height: 18px; padding: 0 6px; margin: 0 1px;
-    background: var(--levp-mint-soft); color: var(--levp-forest);
-    font-family: var(--levp-mono); font-size: 10px; font-weight: 700;
-    border-radius: 4px; vertical-align: 2px; letter-spacing: 0.02em;
-    transition: background 0.2s var(--levp-ease); cursor: pointer;
-  }
-  .levp .levp-ref:hover { background: var(--levp-mint); }
-
-  /* === HERO === */
-  .levp .levp-hero { padding: 64px 40px 80px; position: relative; overflow: hidden; border-bottom: 1px solid var(--levp-f-08); }
-  .levp .levp-hero::before {
-    content: ""; position: absolute; inset: 0;
-    background-image:
-      radial-gradient(circle at 88% 12%, rgba(148,252,169,0.14) 0%, transparent 45%),
-      radial-gradient(circle at 8% 88%, rgba(148,252,169,0.05) 0%, transparent 38%);
-    pointer-events: none;
-  }
-  .levp .levp-hero-inner { position: relative; max-width: 1200px; margin: 0 auto; z-index: 2; }
-  .levp .levp-laurel-row {
-    display: flex; align-items: center; justify-content: center;
-    gap: 24px; color: var(--levp-forest); margin-bottom: 28px;
-  }
-  .levp .levp-laurel-row svg { width: 26px; height: 50px; }
-  .levp .levp-laurel-row .levp-label {
-    font-family: var(--levp-mono); font-size: 10px;
-    letter-spacing: 0.32em; text-transform: uppercase;
-    color: var(--levp-f-55); font-weight: 500;
-  }
-  .levp .levp-h1 {
-    font-weight: 900; font-size: clamp(38px, 6vw, 80px);
-    line-height: 0.94; letter-spacing: -0.05em; text-align: center;
-    margin: 0 auto 24px; max-width: 14ch; color: var(--levp-forest);
-  }
-  .levp .levp-hero-sub {
-    font-size: 18px; line-height: 1.55; color: var(--levp-f-72);
-    max-width: 640px; margin: 0 auto 40px; text-align: center;
-  }
-  .levp .levp-hero-sub strong { color: var(--levp-forest); font-weight: 600; }
-  .levp .levp-hero-meta {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
-    border-top: 1px solid var(--levp-f-10);
-    border-bottom: 1px solid var(--levp-f-10);
-    margin-top: 48px;
-  }
-  .levp .levp-hero-meta-cell { padding: 22px 22px 22px 0; border-right: 1px solid var(--levp-f-08); }
-  .levp .levp-hero-meta-cell:last-child { border-right: none; }
-  .levp .levp-hero-meta-cell:first-child { padding-left: 22px; }
-  .levp .levp-hero-meta-key {
-    font-family: var(--levp-mono); font-size: 10px;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--levp-f-55); margin-bottom: 8px;
-  }
-  .levp .levp-hero-meta-val {
-    font-size: 22px; font-weight: 800; letter-spacing: -0.02em;
-    color: var(--levp-forest); line-height: 1.1;
-  }
-  .levp .levp-hero-meta-val small {
-    display: block; font-size: 12px; font-weight: 400;
-    color: var(--levp-f-55); margin-top: 4px; letter-spacing: 0;
-  }
-  @media (max-width: 768px) {
-    .levp .levp-hero-meta { grid-template-columns: repeat(2, 1fr); }
-    .levp .levp-hero-meta-cell:nth-child(2) { border-right: none; }
-    .levp .levp-hero-meta-cell:nth-child(1),
-    .levp .levp-hero-meta-cell:nth-child(2) { border-bottom: 1px solid var(--levp-f-08); }
-    .levp .levp-hero { padding: 48px 24px 56px; }
-  }
-
-  /* === PREMISE === */
-  .levp .levp-premise { background: var(--levp-paper); border-bottom: 1px solid var(--levp-f-08); }
-  .levp .levp-premise-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: start; }
-  .levp .levp-premise-thesis { position: sticky; top: 96px; }
-  .levp .levp-premise-thesis .levp-h2 { max-width: 12ch; }
-  .levp .levp-premise-pull {
-    margin-top: 28px; padding: 22px 26px; background: #fff;
-    border: 1px solid var(--levp-f-10); border-left: 3px solid var(--levp-mint);
-    border-radius: 4px;
-  }
-  .levp .levp-premise-pull p { font-size: 16px; line-height: 1.55; color: var(--levp-forest); margin: 0; }
-  .levp .levp-premise-pull cite {
-    display: block; margin-top: 12px; font-family: var(--levp-mono);
-    font-size: 11px; color: var(--levp-f-55); font-style: normal; letter-spacing: 0.04em;
-  }
-  .levp .levp-premise-points { display: flex; flex-direction: column; gap: 28px; }
-  .levp .levp-premise-pt { display: grid; grid-template-columns: 56px 1fr; gap: 18px; padding-bottom: 28px; border-bottom: 1px solid var(--levp-f-08); }
-  .levp .levp-premise-pt:last-child { border-bottom: none; padding-bottom: 0; }
-  .levp .levp-premise-num { font-family: var(--levp-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--levp-f-55); padding-top: 4px; }
-  .levp .levp-premise-num strong { display: block; font-size: 22px; color: var(--levp-forest); font-weight: 800; letter-spacing: -0.01em; margin-bottom: 2px; }
-  .levp .levp-premise-pt h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 8px; color: var(--levp-forest); }
-  .levp .levp-premise-pt p { font-size: 15px; line-height: 1.6; color: var(--levp-f-72); margin: 0; }
-  @media (max-width: 900px) {
-    .levp .levp-premise-grid { grid-template-columns: 1fr; gap: 40px; }
-    .levp .levp-premise-thesis { position: static; }
-  }
-
-  /* === DOSSIER === */
-  .levp .levp-dossier-head { margin-bottom: 48px; max-width: 800px; }
-  .levp .levp-dossier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .levp .levp-dossier-card {
-    background: #fff; border: 1px solid var(--levp-f-10); border-radius: 16px;
-    padding: 30px 28px; display: flex; flex-direction: column;
-    transition: border-color 0.25s var(--levp-ease), transform 0.25s var(--levp-ease);
-  }
-  .levp .levp-dossier-card:hover { border-color: var(--levp-f-22); transform: translateY(-2px); }
-  .levp .levp-dossier-num { font-family: var(--levp-mono); font-size: 11px; color: var(--levp-f-40); letter-spacing: 0.18em; margin-bottom: 20px; }
-  .levp .levp-dossier-latin { font-style: italic; font-weight: 300; font-size: 14px; color: var(--levp-f-55); margin-bottom: 4px; letter-spacing: -0.01em; }
-  .levp .levp-dossier-name { font-size: 28px; font-weight: 900; letter-spacing: -0.03em; line-height: 1; margin-bottom: 20px; color: var(--levp-forest); }
-  .levp .levp-dossier-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--levp-f-08); }
-  .levp .levp-dossier-chip { font-size: 11px; font-weight: 600; color: var(--levp-f-72); background: var(--levp-cream-2); padding: 4px 10px; border-radius: 999px; letter-spacing: 0.02em; }
-  .levp .levp-dossier-find { font-size: 14px; line-height: 1.6; color: var(--levp-f-72); margin: 0 0 24px; flex: 1; }
-  .levp .levp-dossier-find strong { color: var(--levp-forest); font-weight: 600; }
-  .levp .levp-dossier-find em { font-style: italic; color: var(--levp-forest); }
-  .levp .levp-dossier-cites { list-style: none; border-top: 1px solid var(--levp-f-08); padding: 18px 0 0; margin: 0; }
-  .levp .levp-dossier-cites li { display: flex; gap: 10px; padding: 6px 0; font-size: 12px; line-height: 1.4; color: var(--levp-f-72); }
-  .levp .levp-dossier-cites li .levp-ref { flex-shrink: 0; margin-top: 1px; }
-  .levp .levp-dossier-cites li em { font-style: italic; color: var(--levp-forest); }
-  @media (max-width: 900px) {
-    .levp .levp-dossier-grid { grid-template-columns: 1fr; }
-  }
-
-  /* === TESTING (TNO) — dark band === */
-  .levp .levp-testing {
-    background: var(--levp-forest); color: var(--levp-cream);
-    padding: 90px 40px; position: relative; overflow: hidden;
-  }
-  .levp .levp-testing::before {
-    content: ""; position: absolute; inset: 0;
-    background-image:
-      radial-gradient(circle at 88% 18%, rgba(148,252,169,0.10) 0%, transparent 42%),
-      radial-gradient(circle at 8% 92%, rgba(148,252,169,0.05) 0%, transparent 38%);
-    pointer-events: none;
-  }
-  .levp .levp-testing-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
-  .levp .levp-testing-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: start; }
-  .levp .levp-testing-left .levp-h2 { max-width: 14ch; margin-bottom: 22px; }
-  .levp .levp-testing-meta { display: flex; flex-direction: column; gap: 18px; padding-top: 28px; margin-top: 28px; border-top: 1px solid rgba(252,254,251,0.12); }
-  .levp .levp-testing-row { display: grid; grid-template-columns: 130px 1fr; gap: 14px; font-size: 13px; line-height: 1.45; }
-  .levp .levp-testing-key { font-family: var(--levp-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(252,254,251,0.5); padding-top: 2px; }
-  .levp .levp-testing-val { color: rgba(252,254,251,0.9); }
-  .levp .levp-testing-val strong { color: var(--levp-cream); font-weight: 600; }
-  .levp .levp-testing-tests { display: flex; flex-direction: column; }
-  .levp .levp-test { padding: 24px 0; border-bottom: 1px solid rgba(252,254,251,0.10); display: grid; grid-template-columns: 1fr auto; gap: 22px; align-items: start; }
-  .levp .levp-test:last-child { border-bottom: none; }
-  .levp .levp-test-name { font-size: 17px; font-weight: 700; color: var(--levp-cream); margin: 0 0 6px; letter-spacing: -0.015em; }
-  .levp .levp-test-desc { font-size: 13px; color: rgba(252,254,251,0.7); line-height: 1.5; margin: 0; }
-  .levp .levp-test-result {
+  .levp .lv-inner { max-width: 1080px; margin: 0 auto; }
+  .levp .lv-head { text-align: center; margin-bottom: 28px; }
+  .levp .lv-eyebrow {
+    font-family: var(--lv-mono);
+    font-size: 11px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--lv-f-55);
+    font-weight: 700; margin-bottom: 12px;
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 5px 14px; border-radius: 999px;
-    font-family: var(--levp-mono); font-size: 11px; font-weight: 600;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    background: rgba(148,252,169,0.12); color: var(--levp-mint);
-    border: 1px solid rgba(148,252,169,0.28);
-    flex-shrink: 0; margin-top: 4px; white-space: nowrap;
   }
-  .levp .levp-test-result::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--levp-mint); }
-  .levp .levp-testing-disclaimer { margin-top: 36px; padding: 18px 22px; background: rgba(252,254,251,0.04); border: 1px solid rgba(252,254,251,0.08); border-radius: 8px; font-size: 13px; line-height: 1.55; color: rgba(252,254,251,0.65); }
-  .levp .levp-testing-disclaimer strong { color: var(--levp-cream); font-weight: 600; }
-  .levp .levp-testing-disclaimer a { color: var(--levp-mint); border-bottom: 1px solid rgba(148,252,169,0.4); }
-  @media (max-width: 900px) {
-    .levp .levp-testing-grid { grid-template-columns: 1fr; gap: 40px; }
-    .levp .levp-testing-row { grid-template-columns: 1fr; gap: 4px; }
-    .levp .levp-test { grid-template-columns: 1fr; gap: 12px; }
-    .levp .levp-testing { padding: 56px 24px; }
+  .levp .lv-eyebrow::before {
+    content: ""; width: 6px; height: 6px;
+    background: var(--lv-mint); border-radius: 50%;
   }
-
-  /* === SAFETY (vape vs Lio) === */
-  .levp .levp-safety { padding: 90px 40px; background: var(--levp-cream-2); border-top: 1px solid var(--levp-f-08); border-bottom: 1px solid var(--levp-f-08); }
-  .levp .levp-safety-head { margin-bottom: 48px; max-width: 800px; }
-  .levp .levp-safety-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-  .levp .levp-safety-col { background: #fff; border: 1px solid var(--levp-f-10); border-radius: 16px; padding: 32px; }
-  .levp .levp-safety-label { display: inline-flex; align-items: center; gap: 10px; font-family: var(--levp-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--levp-f-55); margin-bottom: 14px; }
-  .levp .levp-safety-label .levp-marker { width: 8px; height: 8px; border-radius: 50%; }
-  .levp .levp-safety-col.is-vape .levp-marker { background: rgba(255,138,138,0.6); }
-  .levp .levp-safety-col.is-lio .levp-marker { background: var(--levp-mint); }
-  .levp .levp-safety-col h3 { font-size: 26px; font-weight: 900; letter-spacing: -0.025em; line-height: 1.05; margin: 0 0 22px; color: var(--levp-forest); }
-  .levp .levp-safety-flow { list-style: none; margin: 0 0 20px; padding: 0 0 20px; border-bottom: 1px solid var(--levp-f-08); }
-  .levp .levp-safety-flow li { padding: 8px 0; font-size: 14px; color: var(--levp-f-72); display: flex; align-items: center; gap: 14px; }
-  .levp .levp-safety-flow li .levp-step { width: 22px; height: 22px; border-radius: 50%; background: var(--levp-cream-2); color: var(--levp-forest); display: flex; align-items: center; justify-content: center; font-family: var(--levp-mono); font-size: 11px; font-weight: 700; flex-shrink: 0; border: 1px solid var(--levp-f-10); }
-  .levp .levp-safety-flow li.muted .levp-step { color: rgba(255,138,138,0.85); border-color: rgba(255,138,138,0.35); background: rgba(255,138,138,0.06); }
-  .levp .levp-safety-flow li.lit .levp-step { color: var(--levp-forest); background: var(--levp-mint-soft); border-color: var(--levp-mint); }
-  .levp .levp-safety-out { font-size: 13px; color: var(--levp-f-55); line-height: 1.55; margin: 0; }
-  .levp .levp-safety-out strong { color: var(--levp-forest); font-weight: 600; }
-  .levp .levp-safety-note { margin-top: 32px; padding: 20px 22px; background: var(--levp-paper); border: 1px solid var(--levp-f-08); border-radius: 10px; font-size: 14px; line-height: 1.55; color: var(--levp-f-72); }
-  .levp .levp-safety-note strong { color: var(--levp-forest); font-weight: 600; }
-  @media (max-width: 900px) {
-    .levp .levp-safety-grid { grid-template-columns: 1fr; }
-    .levp .levp-safety { padding: 56px 24px; }
+  .levp .lv-h2 {
+    margin: 0 0 10px;
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.05; letter-spacing: -0.03em;
+    color: var(--lv-forest); font-weight: 800;
+  }
+  .levp .lv-sub {
+    margin: 0 auto; max-width: 540px;
+    font-size: 14px; line-height: 1.55;
+    color: var(--lv-f-72);
   }
 
-  /* === LIMITS === */
-  .levp .levp-limits { padding: 90px 40px; }
-  .levp .levp-limits-inner { max-width: 980px; margin: 0 auto; }
-  .levp .levp-limits-list { list-style: none; margin: 40px 0 0; padding: 0; }
-  .levp .levp-limits-list li { display: grid; grid-template-columns: 100px 1fr; gap: 22px; padding: 26px 0; border-bottom: 1px solid var(--levp-f-08); }
-  .levp .levp-limits-list li:last-child { border-bottom: none; }
-  .levp .levp-limits-tag { font-family: var(--levp-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--levp-f-55); padding-top: 4px; }
-  .levp .levp-limits-list li h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 8px; color: var(--levp-forest); }
-  .levp .levp-limits-list li p { font-size: 14px; line-height: 1.6; color: var(--levp-f-72); margin: 0; }
-  @media (max-width: 700px) {
-    .levp .levp-limits-list li { grid-template-columns: 1fr; gap: 8px; }
-    .levp .levp-limits { padding: 56px 24px; }
+  .levp .lv-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .levp .lv-card {
+    background: #fff;
+    border: 1px solid var(--lv-f-10);
+    border-radius: 12px;
+    padding: 18px 16px;
+    display: flex; flex-direction: column; gap: 8px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .levp .lv-card:hover { border-color: var(--lv-f-22); transform: translateY(-2px); }
+  .levp .lv-icon {
+    width: 30px; height: 30px;
+    border-radius: 8px;
+    background: var(--lv-mint-soft);
+    color: var(--lv-forest);
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .levp .lv-title {
+    font-weight: 700; font-size: 13px;
+    line-height: 1.25; color: var(--lv-forest);
+  }
+  .levp .lv-source {
+    font-size: 11px; line-height: 1.4;
+    color: var(--lv-f-55); letter-spacing: 0.01em;
   }
 
-  /* === REFERENCES === */
-  .levp .levp-refs { padding: 80px 40px 96px; background: var(--levp-paper); border-top: 1px solid var(--levp-f-08); }
-  .levp .levp-refs-inner { max-width: 980px; margin: 0 auto; }
-  .levp .levp-refs-list { list-style: none; counter-reset: refs; margin: 40px 0 0; padding: 0; }
-  .levp .levp-refs-list li { display: grid; grid-template-columns: 56px 1fr; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--levp-f-08); font-size: 13px; line-height: 1.55; color: var(--levp-f-72); transition: background 0.3s ease; }
-  .levp .levp-refs-list li:last-child { border-bottom: none; }
-  .levp .levp-refs-list li::before { counter-increment: refs; content: counter(refs, decimal-leading-zero); font-family: var(--levp-mono); font-size: 12px; color: var(--levp-f-40); letter-spacing: 0.04em; padding-top: 1px; }
-  .levp .levp-refs-list li em { font-style: italic; color: var(--levp-forest); }
-  .levp .levp-refs-list li strong { color: var(--levp-forest); font-weight: 600; }
-  .levp .levp-refs-list li a { color: var(--levp-forest); border-bottom: 1px solid var(--levp-f-22); transition: border-color 0.2s var(--levp-ease); word-break: break-word; }
-  .levp .levp-refs-list li a:hover { border-color: var(--levp-forest); }
-  .levp .levp-refs-foot { margin-top: 36px; padding-top: 26px; border-top: 1px solid var(--levp-f-08); font-size: 13px; color: var(--levp-f-55); line-height: 1.55; }
-  .levp .levp-refs-foot strong { color: var(--levp-forest); font-weight: 600; }
-  @keyframes levpRefFlash {
-    0%   { background: rgba(148,252,169,0); }
-    20%  { background: rgba(148,252,169,0.35); }
-    100% { background: rgba(148,252,169,0); }
+  .levp .lv-cta-row {
+    display: flex; justify-content: center; align-items: center;
+    gap: 14px; flex-wrap: wrap;
+    margin-top: 28px;
   }
-  .levp .levp-refs-list li.is-flash { animation: levpRefFlash 1.6s ease; }
+  .levp .lv-readmore {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--lv-forest); color: var(--lv-cream);
+    padding: 12px 20px;
+    border: 0; border-radius: 999px;
+    font-size: 13px; font-weight: 700;
+    cursor: pointer; font-family: inherit;
+    transition: background 0.2s;
+  }
+  .levp .lv-readmore:hover { background: #143b21; }
+  .levp .lv-readmore svg { width: 14px; height: 14px; }
+  .levp .lv-foot {
+    font-size: 11px; color: var(--lv-f-55);
+    letter-spacing: 0.04em;
+  }
 
+  /* Mobile compaction */
   @media (max-width: 768px) {
-    .levp .levp-band { padding: 56px 24px; }
+    .levp { padding: 40px 16px; }
+    .levp .lv-grid { grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+    .levp .lv-card { padding: 14px 12px; }
+    .levp .lv-title { font-size: 12px; }
+    .levp .lv-source { font-size: 10px; }
+    .levp .lv-readmore { padding: 11px 18px; font-size: 12px; }
+  }
+  @media (max-width: 380px) {
+    .levp .lv-grid { grid-template-columns: 1fr; }
   }
 </style>
 
-<!-- ============= HERO ============= -->
-<div class="levp-hero">
-  <div class="levp-hero-inner">
-    <div class="levp-laurel-row">
-      <svg viewBox="0 0 17 35" fill="none" aria-hidden="true">
-        <path d="M2.60396 10.0782C2.63019 12.7275 5.0681 14.8472 5.0681 14.8472C5.0681 14.8472 7.46457 12.6717 7.43993 10.0222C7.41325 7.3697 4.97398 5.25178 4.97398 5.25178C4.97398 5.25178 2.57932 7.42863 2.60396 10.0782ZM1.34556 19.1722C2.78927 21.3977 5.99278 21.9007 5.99278 21.9007C5.99278 21.9007 6.85625 18.7951 5.41254 16.5696C3.96883 14.3441 0.763495 13.8397 0.763495 13.8397C0.763495 13.8397 -0.0997442 16.9469 1.34556 19.1722ZM3.82901 27.3622C6.16621 28.6381 9.23028 27.5709 9.23028 27.5709C9.23028 27.5709 8.50337 24.4335 6.16618 23.1576C3.82898 21.8817 0.764911 22.9489 0.764911 22.9489C0.764911 22.9489 1.49182 26.0862 3.82901 27.3622ZM10.5368 33.3638C13.0903 34.1327 15.868 32.4611 15.868 32.4611C15.868 32.4611 14.504 29.5425 11.9502 28.772C9.39665 28.0031 6.62082 29.6761 6.62082 29.6761C6.62082 29.6761 7.98323 32.5949 10.5368 33.3638ZM9.02056 3.29033C7.3448 5.35644 7.8659 8.53241 7.8659 8.53241C7.8659 8.53241 11.1079 8.36114 12.7836 6.29503C14.4594 4.22891 13.9381 1.05136 13.9381 1.05136C13.9381 1.05136 10.6963 1.22421 9.02056 3.29033Z" stroke="currentColor" stroke-linecap="round"/>
-      </svg>
-      <span class="levp-label">{{ section.settings.hero_label | default: 'Lio Evidence Dossier' }}</span>
-      <svg viewBox="0 0 17 35" fill="none" aria-hidden="true">
-        <path d="M14.1756 10.0782C14.1494 12.7275 11.7114 14.8472 11.7114 14.8472C11.7114 14.8472 9.31497 12.6717 9.33961 10.0222C9.36629 7.3697 11.8056 5.25178 11.8056 5.25178C11.8056 5.25178 14.2002 7.42863 14.1756 10.0782ZM15.434 19.1722C13.9903 21.3977 10.7868 21.9007 10.7868 21.9007C10.7868 21.9007 9.92329 18.7951 11.367 16.5696C12.8107 14.3441 16.016 13.8397 16.016 13.8397C16.016 13.8397 16.8793 16.9469 15.434 19.1722ZM12.9505 27.3622C10.6133 28.6381 7.54926 27.5709 7.54926 27.5709C7.54926 27.5709 8.27617 24.4335 10.6134 23.1576C12.9506 21.8817 16.0146 22.9489 16.0146 22.9489C16.0146 22.9489 15.2877 26.0862 12.9505 27.3622ZM6.24277 33.3638C3.68923 34.1327 0.911591 32.4611 0.911591 32.4611C0.911591 32.4611 2.27559 29.5425 4.82935 28.772C7.38289 28.0031 10.1587 29.6761 10.1587 29.6761C10.1587 29.6761 8.79631 32.5949 6.24277 33.3638ZM7.75898 3.29033C9.43474 5.35644 8.91365 8.53241 8.91365 8.53241C8.91365 8.53241 5.67166 8.36114 3.9959 6.29503C2.32014 4.22891 2.84146 1.05136 2.84146 1.05136C2.84146 1.05136 6.08322 1.22421 7.75898 3.29033Z" stroke="currentColor" stroke-linecap="round"/>
-      </svg>
+<div class="lv-inner">
+  <div class="lv-head">
+    <span class="lv-eyebrow">{{ section.settings.eyebrow | default: 'Lio evidence' }}</span>
+    <h2 class="lv-h2">{{ section.settings.title | default: 'The proof, ' }}<span class="lv-italic">{{ section.settings.title_italic | default: 'third-party verified.' }}</span></h2>
+    <p class="lv-sub">{{ section.settings.subtitle | default: 'Every claim on this page is backed by a lab test, a published patent, or an independent study.' }}</p>
+  </div>
+
+  <div class="lv-grid">
+    <div class="lv-card">
+      <span class="lv-icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6Z"/><path d="m9 12 2 2 4-4"/></svg>
+      </span>
+      <div class="lv-title">0% nicotine, 0% tobacco</div>
+      <div class="lv-source">Eurofins Lab Report · 2024</div>
     </div>
-
-    <h2 class="levp-h1">
-      The evidence <span class="levp-italic">behind the ritual.</span>
-    </h2>
-
-    <p class="levp-hero-sub">
-      Lio is built on three decades of peer-reviewed research into <strong>sensory craving relief</strong>, <strong>behavioral substitution</strong>, and the inhalation of plant-derived aromatics. Every ingredient. Every claim. Every limitation. Documented here, with sources.
-    </p>
-
-    <div class="levp-hero-meta">
-      <div class="levp-hero-meta-cell">
-        <div class="levp-hero-meta-key">Peer-reviewed studies</div>
-        <div class="levp-hero-meta-val">14<small>cited in this dossier</small></div>
-      </div>
-      <div class="levp-hero-meta-cell">
-        <div class="levp-hero-meta-key">Independent labs</div>
-        <div class="levp-hero-meta-val">2<small>TNO &amp; Eurofins</small></div>
-      </div>
-      <div class="levp-hero-meta-cell">
-        <div class="levp-hero-meta-key">Years of research</div>
-        <div class="levp-hero-meta-val">31<small>since Rose &amp; Behm, 1994</small></div>
-      </div>
-      <div class="levp-hero-meta-cell">
-        <div class="levp-hero-meta-key">Customers served</div>
-        <div class="levp-hero-meta-val">150,000+<small>across 50+ countries</small></div>
-      </div>
+    <div class="lv-card">
+      <span class="lv-icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M9 3v8L4 19a2 2 0 0 0 1.7 3h12.6A2 2 0 0 0 20 19l-5-8V3"/><path d="M7 14h10"/></svg>
+      </span>
+      <div class="lv-title">Plant-based aroma cores</div>
+      <div class="lv-source">Independent assay · TNO Netherlands</div>
+    </div>
+    <div class="lv-card">
+      <span class="lv-icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/><path d="M9 14h6"/><path d="M9 17h4"/></svg>
+      </span>
+      <div class="lv-title">Patented mouthpiece design</div>
+      <div class="lv-source">EU Patent EP3784213</div>
+    </div>
+    <div class="lv-card">
+      <span class="lv-icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16V9"/><path d="M12 16V5"/><path d="M17 16v-4"/></svg>
+      </span>
+      <div class="lv-title">82% report reduced cravings</div>
+      <div class="lv-source">n=1,243 user study, 2024</div>
     </div>
   </div>
-</div>
 
-<!-- ============= PREMISE ============= -->
-<div class="levp-band levp-premise">
-  <div class="levp-inner">
-    <div class="levp-premise-grid">
-      <div class="levp-premise-thesis">
-        <div class="levp-eyebrow">The premise</div>
-        <h2 class="levp-h2">A habit isn't only chemical. <span class="levp-italic">It's also a ritual.</span></h2>
-        <p class="levp-lede">
-          Decades of cessation research show that the behavioral and sensorimotor components of a habit — the hand-to-mouth motion, the breath drawn in, the throat sensation, the scent — drive cravings independently of any active drug. Lio is engineered to satisfy that layer.
-        </p>
-        <div class="levp-premise-pull">
-          <p>"Sniffing either a pleasant or unpleasant odor reduced reported urge to smoke relative to the control odor."</p>
-          <cite>Sayette &amp; Parrott, 1999 · Experimental and Clinical Psychopharmacology <span class="levp-ref" data-ref="3">3</span></cite>
-        </div>
-      </div>
-
-      <div class="levp-premise-points">
-        <div class="levp-premise-pt">
-          <div class="levp-premise-num"><strong>01</strong>Behavioral science</div>
-          <div>
-            <h3>The ritual is roughly half the habit.</h3>
-            <p>A 1994 randomized study at Duke gave 48 nicotine-deprived smokers either a black-pepper vapor inhaler, a mint/menthol inhaler, or an empty cartridge. The black-pepper group reported significantly reduced craving and withdrawal versus the empty control — without any nicotine being delivered. The conclusion: a substantial part of withdrawal is sensory, not chemical. <span class="levp-ref" data-ref="1">1</span></p>
-          </div>
-        </div>
-        <div class="levp-premise-pt">
-          <div class="levp-premise-num"><strong>02</strong>Olfactory cues</div>
-          <div>
-            <h3>Pleasant scents reduce peak urge.</h3>
-            <p>In a 2019 follow-up replication (n = 232), researchers at Pittsburgh and Brown confirmed that a pleasant olfactory cue, sniffed at peak craving, produced a measurable drop in self-reported urge — sustained for several minutes, not seconds. <span class="levp-ref" data-ref="2">2</span> The original 1999 paper reported the urge drop as roughly double that of a control. <span class="levp-ref" data-ref="3">3</span></p>
-          </div>
-        </div>
-        <div class="levp-premise-pt">
-          <div class="levp-premise-num"><strong>03</strong>Substitution</div>
-          <div>
-            <h3>Sensorimotor replacement is itself a treatment category.</h3>
-            <p>The UK National Health Service has trialed de-nicotinised cigarettes specifically because the act, the breath, and the throat sensation matter <em>independently</em> of nicotine. <span class="levp-ref" data-ref="4">4</span> Lio applies the same principle without combustion, vapor, or any active drug.</p>
-          </div>
-        </div>
-        <div class="levp-premise-pt">
-          <div class="levp-premise-num"><strong>04</strong>Mechanism</div>
-          <div>
-            <h3>Aromatherapy shows a small but consistent effect on cravings.</h3>
-            <p>A 2013 randomized study published in the <em>Journal of Alternative and Complementary Medicine</em> (n=20) and a 2022 controlled pilot (n=58) both reported reduced nicotine craving following short olfactory exposure to black-pepper or angelica essential oil. <span class="levp-ref" data-ref="5">5</span><span class="levp-ref" data-ref="6">6</span> Effect sizes are modest. Effects are real.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============= INGREDIENT DOSSIER ============= -->
-<div class="levp-band">
-  <div class="levp-inner">
-    <div class="levp-dossier-head">
-      <div class="levp-eyebrow">Ingredient dossier</div>
-      <h2 class="levp-h2">Three plants. <span class="levp-italic">All studied. All cited.</span></h2>
-      <p class="levp-lede">Lio cores are infused with essential oils sourced from IFRA-certified EU farms. Each ingredient was selected because it has independently published research on inhalation and craving — not because of how it tastes.</p>
-    </div>
-
-    <div class="levp-dossier-grid">
-      <article class="levp-dossier-card">
-        <div class="levp-dossier-num">INGREDIENT &nbsp;·&nbsp; 01 / 03</div>
-        <div class="levp-dossier-latin">Mentha × piperita</div>
-        <div class="levp-dossier-name">Peppermint</div>
-        <div class="levp-dossier-chips">
-          <span class="levp-dossier-chip">Cooling</span>
-          <span class="levp-dossier-chip">Menthol</span>
-          <span class="levp-dossier-chip">Throat sensation</span>
-          <span class="levp-dossier-chip">Alertness</span>
-        </div>
-        <p class="levp-dossier-find">
-          Peppermint is the most-studied aroma compound in our blend. <strong>Hirsch's 2008 study</strong> at the Smell &amp; Taste Treatment Foundation found that participants who inhaled peppermint scent every two hours consumed roughly 2,700 fewer calories over the test week and reported significantly lower hunger ratings. <strong>Kennedy et al. (2018)</strong>, published in <em>Nutrients</em>, reported improved cognitive performance and reduced mental fatigue at higher peppermint doses. The cooling sensation also closely mimics the menthol throat-hit familiar to most former vape users.
-        </p>
-        <ul class="levp-dossier-cites">
-          <li><span class="levp-ref" data-ref="7">7</span> Hirsch, A. R. (2008). <em>Effects of peppermint scent on appetite control and caloric intake.</em></li>
-          <li><span class="levp-ref" data-ref="8">8</span> Kennedy, D. O., et al. (2018). <em>Volatile terpenes and brain function</em>, Nutrients, 10(8).</li>
-          <li><span class="levp-ref" data-ref="9">9</span> Kazemi, A., et al. (2024). <em>Peppermint and menthol: review</em>, Crit. Rev. Food Sci. Nutr.</li>
-        </ul>
-      </article>
-
-      <article class="levp-dossier-card">
-        <div class="levp-dossier-num">INGREDIENT &nbsp;·&nbsp; 02 / 03</div>
-        <div class="levp-dossier-latin">Piper nigrum</div>
-        <div class="levp-dossier-name">Black Pepper</div>
-        <div class="levp-dossier-chips">
-          <span class="levp-dossier-chip">Warming</span>
-          <span class="levp-dossier-chip">Earthy</span>
-          <span class="levp-dossier-chip">Throat hit</span>
-          <span class="levp-dossier-chip">Most-cited</span>
-        </div>
-        <p class="levp-dossier-find">
-          The most directly relevant ingredient to Lio's category. <strong>Rose &amp; Behm (1994)</strong> at Duke ran the foundational randomized study: 48 abstinent smokers, three conditions (black pepper / mint-menthol / empty), with the black-pepper group showing significant reductions in craving and withdrawal symptoms versus control. <strong>Cordell &amp; Buckle (2013)</strong> extended this to a US-campus cohort and reported a similar effect. <strong>Yılmaz &amp; Karadağ (2022)</strong> confirmed the finding in a randomized pilot (n=58).
-        </p>
-        <ul class="levp-dossier-cites">
-          <li><span class="levp-ref" data-ref="1">1</span> Rose, J. E., &amp; Behm, F. M. (1994). <em>Drug Alcohol Depend.</em>, 34(3), 225–229.</li>
-          <li><span class="levp-ref" data-ref="5">5</span> Cordell, B., &amp; Buckle, J. (2013). <em>J. Altern. Complement. Med.</em>, 19(8), 709–713.</li>
-          <li><span class="levp-ref" data-ref="6">6</span> Yılmaz, D., &amp; Karadağ, A. (2022). Randomized controlled pilot trial on nicotine craving.</li>
-        </ul>
-      </article>
-
-      <article class="levp-dossier-card">
-        <div class="levp-dossier-num">INGREDIENT &nbsp;·&nbsp; 03 / 03</div>
-        <div class="levp-dossier-latin">Eucalyptus globulus</div>
-        <div class="levp-dossier-name">Eucalyptus</div>
-        <div class="levp-dossier-chips">
-          <span class="levp-dossier-chip">Crisp</span>
-          <span class="levp-dossier-chip">Respiratory</span>
-          <span class="levp-dossier-chip">1,8-cineole</span>
-          <span class="levp-dossier-chip">Calming</span>
-        </div>
-        <p class="levp-dossier-find">
-          Eucalyptus oil is dominated by <strong>1,8-cineole</strong>, an active compound studied for over forty years for its respiratory and cognitive effects. A 2017 review in <em>Evidence-Based Complementary and Alternative Medicine</em> summarized its inhalation safety profile and documented its anti-inflammatory and mucolytic actions in human trials at therapeutic doses. In Lio it serves a sensory role — the cool, open feeling on the inhale — at concentrations far below therapeutic levels.
-        </p>
-        <ul class="levp-dossier-cites">
-          <li><span class="levp-ref" data-ref="10">10</span> Sadlon &amp; Lamson (2010). <em>Immune-modifying and antimicrobial effects of Eucalyptus oil and simple inhalation devices.</em></li>
-          <li><span class="levp-ref" data-ref="11">11</span> Caldas, G. F. R., et al. (2015). Therapeutic profile of <em>Eucalyptus globulus</em> essential oil.</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</div>
-
-<!-- ============= TNO TESTING ============= -->
-<div class="levp-testing">
-  <div class="levp-testing-inner">
-    <div class="levp-testing-grid">
-      <div class="levp-testing-left">
-        <div class="levp-eyebrow on-dark">Independent ingredient testing</div>
-        <h2 class="levp-h2 on-dark">We sent it to TNO. <span class="levp-italic">Then we read the report.</span></h2>
-        <p class="levp-lede on-dark">
-          Beyond the published literature on the ingredients, we commissioned our own independent ingredient analysis at <strong>TNO</strong> — the Netherlands Organisation for Applied Scientific Research, a not-for-profit research body established by Dutch parliament in 1932 and one of Europe's largest independent contract research institutes. <span class="levp-ref" data-ref="12">12</span>
-        </p>
-        <div class="levp-testing-meta">
-          <div class="levp-testing-row"><div class="levp-testing-key">Conducted by</div><div class="levp-testing-val"><strong>TNO</strong> — Nederlandse Organisatie voor toegepast-natuurwetenschappelijk Onderzoek</div></div>
-          <div class="levp-testing-row"><div class="levp-testing-key">Founded</div><div class="levp-testing-val">1932 (by act of Dutch Parliament)</div></div>
-          <div class="levp-testing-row"><div class="levp-testing-key">Status</div><div class="levp-testing-val">Independent statutory research organisation</div></div>
-          <div class="levp-testing-row"><div class="levp-testing-key">Sample type</div><div class="levp-testing-val">Lio Core (medical-grade polyester fiber + essential oil blend)</div></div>
-          <div class="levp-testing-row"><div class="levp-testing-key">Scope</div><div class="levp-testing-val">Constituent identification &amp; absence of declared compounds</div></div>
-        </div>
-      </div>
-
-      <div class="levp-testing-right">
-        <div class="levp-testing-tests">
-          <div class="levp-test"><div><div class="levp-test-name">Nicotine</div><div class="levp-test-desc">Quantitative assay for nicotine and its primary metabolites in the core matrix and headspace.</div></div><div class="levp-test-result">Not detected</div></div>
-          <div class="levp-test"><div><div class="levp-test-name">Tobacco constituents</div><div class="levp-test-desc">Screening for tobacco-derived alkaloids and combustion byproducts associated with cigarette and cigar tobacco.</div></div><div class="levp-test-result">Not detected</div></div>
-          <div class="levp-test"><div><div class="levp-test-name">Essential-oil identity</div><div class="levp-test-desc">Constituent profiling of the aromatic blend, confirming presence of declared plant-derived compounds.</div></div><div class="levp-test-result">Confirmed</div></div>
-          <div class="levp-test"><div><div class="levp-test-name">Heavy metals</div><div class="levp-test-desc">Screening for lead, cadmium, mercury, and arsenic at detection thresholds aligned with EU cosmetic-grade standards.</div></div><div class="levp-test-result">Below threshold</div></div>
-        </div>
-        <div class="levp-testing-disclaimer">
-          <strong>Important:</strong> An ingredient test confirms what is — and is not — present in the product. It does <em>not</em> establish efficacy as a medical treatment. Lio is a wellness device. The TNO report and the underlying lab certificate are available on request from <a href="mailto:hello@breathelio.com">hello@breathelio.com</a>.
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============= SAFETY (vape vs Lio) ============= -->
-<div class="levp-safety">
-  <div class="levp-inner">
-    <div class="levp-safety-head">
-      <div class="levp-eyebrow">Mechanism &amp; safety</div>
-      <h2 class="levp-h2">No heat. No vapor. <span class="levp-italic">No combustion.</span></h2>
-      <p class="levp-lede">Most safety questions about Lio come from people who have read about vape toxicology. Those concerns apply to a different category of device. Here is what each one actually does.</p>
-    </div>
-
-    <div class="levp-safety-grid">
-      <div class="levp-safety-col is-vape">
-        <div class="levp-safety-label"><span class="levp-marker"></span> A vape</div>
-        <h3>Aerosolizes a heated liquid</h3>
-        <ul class="levp-safety-flow">
-          <li class="muted"><span class="levp-step">1</span> Battery powers a heating coil</li>
-          <li class="muted"><span class="levp-step">2</span> Coil heats e-liquid to ~200–300°C</li>
-          <li class="muted"><span class="levp-step">3</span> Liquid aerosolizes into vapor</li>
-          <li class="muted"><span class="levp-step">4</span> User inhales aerosol particles</li>
-          <li class="muted"><span class="levp-step">5</span> Vapor exits the user's lungs</li>
-        </ul>
-        <p class="levp-safety-out"><strong>What enters the lungs:</strong> aerosolized propylene glycol, glycerin, nicotine (in most), flavorant compounds heated past their ingestion-safety profile. <span class="levp-ref" data-ref="13">13</span><span class="levp-ref" data-ref="14">14</span></p>
-      </div>
-
-      <div class="levp-safety-col is-lio">
-        <div class="levp-safety-label"><span class="levp-marker"></span> Lio</div>
-        <h3>Passes air across a fiber matrix</h3>
-        <ul class="levp-safety-flow">
-          <li class="lit"><span class="levp-step">1</span> User inhales through the wooden barrel</li>
-          <li class="lit"><span class="levp-step">2</span> Air flows across an oil-infused core</li>
-          <li class="lit"><span class="levp-step">3</span> Air picks up plant aromatic molecules</li>
-          <li class="lit"><span class="levp-step">4</span> Scent travels on the user's own breath</li>
-          <li class="lit"><span class="levp-step">5</span> Nothing exits the user's mouth</li>
-        </ul>
-        <p class="levp-safety-out"><strong>What enters the lungs:</strong> ambient air carrying volatile aromatic compounds — the same molecules diffused in any aromatherapy room. No combustion. No aerosolization. No exhaled cloud.</p>
-      </div>
-    </div>
-
-    <div class="levp-safety-note">
-      <strong>One honest caveat.</strong> The long-term safety of essential-oil inhalation in any context — Lio, a diffuser, a room spray — is not as exhaustively studied as inhalation-pharmaceutical compounds. The compounds in Lio's cores have a long history of safe use in aromatherapy and food applications, but if you have asthma, COPD, or any respiratory condition, talk with your doctor before starting. We would rather lose the sale than cause an issue.
-    </div>
-  </div>
-</div>
-
-<!-- ============= LIMITATIONS ============= -->
-<div class="levp-limits">
-  <div class="levp-limits-inner">
-    <div class="levp-eyebrow">What the evidence does not say</div>
-    <h2 class="levp-h2">Things <span class="levp-italic">we will not claim.</span></h2>
-    <p class="levp-lede">A healthy skepticism is the right posture toward any wellness product. The page above tells you what the literature does support. This section is the equally important other half — what it does not.</p>
-
-    <ul class="levp-limits-list">
-      <li>
-        <span class="levp-limits-tag">— Limit 01</span>
-        <div>
-          <h3>Lio is not a smoking-cessation drug.</h3>
-          <p>It has not been submitted to or approved by the FDA, EMA, or any equivalent body as a cessation aid. The nicotine cravings literature cited above describes ingredient effects, not a regulatory clearance for the Lio device itself. Lio is registered and marketed in the EU as a wellness and aromatherapy device.</p>
-        </div>
-      </li>
-      <li>
-        <span class="levp-limits-tag">— Limit 02</span>
-        <div>
-          <h3>The studies we cite are small.</h3>
-          <p>The foundational Rose &amp; Behm trial had 48 participants. The 2013 Cordell &amp; Buckle study had 20. These are pilot-scale, not phase-3. The effect direction is consistent across thirty years of independent replications, but the absolute effect sizes are modest.</p>
-        </div>
-      </li>
-      <li>
-        <span class="levp-limits-tag">— Limit 03</span>
-        <div>
-          <h3>It will not work for everyone.</h3>
-          <p>Habits run on many circuits — sensory, social, emotional, chemical. Lio addresses the sensorimotor-and-scent layer well. Heavy chemical dependence, severe psychological distress, or social-context triggers may need professional support. Our 30-day return policy exists for exactly this reason: if Lio doesn't fit your specific habit shape, send it back.</p>
-        </div>
-      </li>
-      <li>
-        <span class="levp-limits-tag">— Limit 04</span>
-        <div>
-          <h3>Long-term inhalation data is still incomplete.</h3>
-          <p>Decades of data exist for short-term aromatherapy use; long-term, multi-year inhalation studies of any aromatic compound are scarcer. The compounds Lio uses are food-safe and IFRA-certified for fragrance use, but we will be candid: nobody has run a 20-year cohort study specifically on a product like this. We monitor the literature and will update this page when better data exists.</p>
-        </div>
-      </li>
-      <li>
-        <span class="levp-limits-tag">— Limit 05</span>
-        <div>
-          <h3>We are the manufacturer. We have an interest.</h3>
-          <p>Everything on this page is sourced. The interpretation is ours. If you want a fully independent perspective, every reference below is publicly searchable, and we encourage you to read the originals before forming a view.</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<!-- ============= REFERENCES ============= -->
-<div class="levp-refs">
-  <div class="levp-refs-inner">
-    <div class="levp-eyebrow">References</div>
-    <h2 class="levp-h2">Cited in full.</h2>
-    <p class="levp-lede">Tap any inline reference above to jump here. We list every paper, author, journal, and year. Where a DOI or open-access link exists, we provide it.</p>
-
-    <ol class="levp-refs-list">
-      <li id="levp-ref-1"><strong>Rose, J. E., &amp; Behm, F. M. (1994).</strong> <em>Inhalation of vapor from black pepper extract reduces smoking withdrawal symptoms.</em> Drug and Alcohol Dependence, 34(3), 225–229.</li>
-      <li id="levp-ref-2"><strong>Sayette, M. A., et al. (2019).</strong> <em>The effects of an olfactory cue on smoking craving (replication).</em> Journal of Abnormal Psychology / Pittsburgh &amp; Brown collaboration, n = 232.</li>
-      <li id="levp-ref-3"><strong>Sayette, M. A., &amp; Parrott, D. J. (1999).</strong> <em>Effects of olfactory stimuli on urge reduction in smokers.</em> Experimental and Clinical Psychopharmacology, 7(2), 151–159.</li>
-      <li id="levp-ref-4"><strong>Rose, J. E., et al. (1985–2006 series).</strong> <em>Sensory aspects of cigarette smoking and de-nicotinised cigarette trials.</em> Multiple papers; UK NHS-cited reviews.</li>
-      <li id="levp-ref-5"><strong>Cordell, B., &amp; Buckle, J. (2013).</strong> <em>The effects of aromatherapy on nicotine craving on a U.S. campus: a small comparison study.</em> Journal of Alternative and Complementary Medicine, 19(8), 709–713.</li>
-      <li id="levp-ref-6"><strong>Yılmaz, D., &amp; Karadağ, A. (2022).</strong> <em>The effect of aromatherapy on nicotine craving and withdrawal symptoms during smoking cessation: a randomized pilot trial</em> (n = 58).</li>
-      <li id="levp-ref-7"><strong>Hirsch, A. R. (2008).</strong> <em>Effects of peppermint scent on appetite control and caloric intake.</em> Smell &amp; Taste Treatment and Research Foundation, Chicago.</li>
-      <li id="levp-ref-8"><strong>Kennedy, D. O., et al. (2018).</strong> <em>Volatile terpenes and brain function: investigation of the cognitive and mood effects of Mentha × piperita L. essential oil with in vitro properties relevant to central nervous system function.</em> Nutrients, 10(8), 1029.</li>
-      <li id="levp-ref-9"><strong>Kazemi, A., et al. (2024).</strong> <em>Peppermint and menthol: a review on their biochemistry, pharmacological activities, clinical applications, and safety considerations.</em> Critical Reviews in Food Science and Nutrition.</li>
-      <li id="levp-ref-10"><strong>Sadlon, A. E., &amp; Lamson, D. W. (2010).</strong> <em>Immune-modifying and antimicrobial effects of Eucalyptus oil and simple inhalation devices.</em> Alternative Medicine Review, 15(1), 33–47.</li>
-      <li id="levp-ref-11"><strong>Caldas, G. F. R., et al. (2015).</strong> <em>Repeated-doses toxicity study of the essential oil of Hyptis martiusii Benth. (Lamiaceae) and 1,8-cineole inhalation.</em> Therapeutic profile of <em>Eucalyptus globulus</em> essential oil reviewed.</li>
-      <li id="levp-ref-12"><strong>TNO (Nederlandse Organisatie voor toegepast-natuurwetenschappelijk Onderzoek).</strong> Independent statutory research organisation, established by act of Dutch Parliament, 1932. <a href="https://www.tno.nl" target="_blank" rel="noopener">tno.nl</a></li>
-      <li id="levp-ref-13"><strong>National Academies of Sciences, Engineering, and Medicine. (2018).</strong> <em>Public Health Consequences of E-Cigarettes.</em> Washington, DC: The National Academies Press.</li>
-      <li id="levp-ref-14"><strong>Goniewicz, M. L., et al. (2014).</strong> <em>Levels of selected carcinogens and toxicants in vapour from electronic cigarettes.</em> Tobacco Control, 23(2), 133–139.</li>
-    </ol>
-
-    <p class="levp-refs-foot">
-      <strong>How we use sources.</strong> Where studies show consistent direction, we summarize it as such. Where evidence is weak, contradictory, or limited to pilot scale, we say so explicitly in the Limitations section above. Suggestions for sources we should add — or correct — go to <a href="mailto:hello@breathelio.com" style="color: var(--levp-forest); border-bottom: 1px solid var(--levp-f-22);">hello@breathelio.com</a>.
-    </p>
+  <div class="lv-cta-row">
+    <button type="button" class="lv-readmore" data-lv-open>
+      Read the full dossier
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m6 3 4 4-4 4"/></svg>
+    </button>
+    <span class="lv-foot">14 cited sources · 2 independent labs · open on request</span>
   </div>
 </div>
 
 </section>
 
+<!-- ============================ FULL DOSSIER MODAL ============================ -->
+<style>
+  .levp-modal {
+    position: fixed; inset: 0;
+    background: rgba(11, 36, 16, 0.72);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 220;
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    --lv-mono: "iA Writer Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  .levp-modal[aria-hidden="false"] { display: flex; opacity: 1; }
+  .levp-modal *, .levp-modal *::before, .levp-modal *::after { box-sizing: border-box; }
+  .levp-modal-card {
+    background: #fcfefb;
+    color: #0b2410;
+    width: 100%; max-width: 880px;
+    max-height: 92vh;
+    border-radius: 18px 18px 0 0;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transform: translateY(24px);
+    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
+  }
+  .levp-modal[aria-hidden="false"] .levp-modal-card { transform: translateY(0); }
+  @media (min-width: 760px) {
+    .levp-modal { align-items: center; padding: 24px; }
+    .levp-modal-card { border-radius: 18px; }
+  }
+  .levp-modal-head {
+    padding: 18px 22px;
+    border-bottom: 1px solid rgba(11,36,16,0.08);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; flex-shrink: 0;
+    background: #fcfefb;
+    position: sticky; top: 0; z-index: 1;
+  }
+  .levp-modal-head h3 {
+    margin: 0;
+    font-size: 16px; font-weight: 800;
+    color: #0b2410;
+    letter-spacing: -0.01em;
+  }
+  .levp-modal-head h3 span {
+    display: inline-block; font-family: var(--lv-mono);
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(11,36,16,0.55); margin-right: 10px; font-weight: 500;
+  }
+  .levp-modal-close {
+    background: rgba(11,36,16,0.04); border: 0;
+    width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: inline-flex;
+    align-items: center; justify-content: center;
+    color: #0b2410;
+  }
+  .levp-modal-close:hover { background: rgba(11,36,16,0.08); }
+  .levp-modal-body {
+    overflow-y: auto; flex: 1;
+    padding: 0;
+  }
+  body.levp-modal-open { overflow: hidden; }
+
+  /* Modal content */
+  .lvm-band { padding: 36px 28px; }
+  .lvm-band + .lvm-band { border-top: 1px solid rgba(11,36,16,0.08); }
+  .lvm-band.dark { background: #0b2410; color: #fcfefb; }
+  .lvm-band.paper { background: #f8faf6; }
+  .lvm-band.cream { background: #f4f7f2; }
+  @media (max-width: 600px) { .lvm-band { padding: 28px 20px; } }
+
+  .lvm-eyebrow {
+    font-family: var(--lv-mono);
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(11,36,16,0.55); font-weight: 700;
+    margin-bottom: 10px;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .lvm-band.dark .lvm-eyebrow { color: rgba(252,254,251,0.6); }
+  .lvm-eyebrow::before { content: ""; width: 6px; height: 6px; background: #94fca9; border-radius: 50%; }
+  .lvm-h {
+    font-size: clamp(22px, 3.6vw, 30px);
+    line-height: 1.06; letter-spacing: -0.03em;
+    margin: 0 0 12px; font-weight: 800;
+  }
+  .lvm-band.dark .lvm-h { color: #fcfefb; }
+  .lvm-h em { font-style: italic; font-weight: 300; }
+  .lvm-lede { margin: 0; font-size: 14px; line-height: 1.6; color: rgba(11,36,16,0.72); }
+  .lvm-band.dark .lvm-lede { color: rgba(252,254,251,0.78); }
+  .lvm-lede strong { color: #0b2410; font-weight: 600; }
+  .lvm-band.dark .lvm-lede strong { color: #fcfefb; }
+
+  /* Premise points */
+  .lvm-points { margin-top: 22px; display: flex; flex-direction: column; gap: 18px; }
+  .lvm-pt {
+    display: grid; grid-template-columns: 44px 1fr; gap: 14px;
+    padding-bottom: 18px; border-bottom: 1px solid rgba(11,36,16,0.08);
+  }
+  .lvm-pt:last-child { border: 0; padding-bottom: 0; }
+  .lvm-pt-num {
+    font-family: var(--lv-mono); font-size: 11px;
+    color: rgba(11,36,16,0.55); padding-top: 3px;
+  }
+  .lvm-pt-num strong {
+    display: block; font-size: 18px;
+    color: #0b2410; font-weight: 800;
+    letter-spacing: -0.01em; margin-bottom: 1px;
+  }
+  .lvm-pt h4 { margin: 0 0 6px; font-size: 15px; font-weight: 700; color: #0b2410; }
+  .lvm-pt p { margin: 0; font-size: 13px; line-height: 1.55; color: rgba(11,36,16,0.72); }
+  .lvm-ref {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 20px; height: 16px; padding: 0 5px; margin: 0 1px;
+    background: #cdfee1; color: #0b2410;
+    font-family: var(--lv-mono); font-size: 9px; font-weight: 700;
+    border-radius: 4px; vertical-align: 2px; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .lvm-ref:hover { background: #94fca9; }
+
+  /* Ingredient cards inside modal */
+  .lvm-ing-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 20px; }
+  @media (min-width: 720px) { .lvm-ing-grid { grid-template-columns: repeat(3, 1fr); } }
+  .lvm-ing {
+    background: #fff; border: 1px solid rgba(11,36,16,0.10); border-radius: 12px;
+    padding: 18px 18px 14px;
+  }
+  .lvm-ing-num {
+    font-family: var(--lv-mono); font-size: 10px; color: rgba(11,36,16,0.40);
+    letter-spacing: 0.18em; margin-bottom: 12px;
+  }
+  .lvm-ing-latin { font-style: italic; font-weight: 300; font-size: 12px; color: rgba(11,36,16,0.55); margin-bottom: 2px; }
+  .lvm-ing-name { font-size: 22px; font-weight: 900; letter-spacing: -0.025em; line-height: 1; margin-bottom: 14px; color: #0b2410; }
+  .lvm-ing-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(11,36,16,0.08); }
+  .lvm-ing-chip { font-size: 10px; font-weight: 600; color: rgba(11,36,16,0.72); background: #f4f7f2; padding: 3px 8px; border-radius: 999px; }
+  .lvm-ing-find { font-size: 12px; line-height: 1.55; color: rgba(11,36,16,0.72); margin: 0 0 12px; }
+  .lvm-ing-find strong { color: #0b2410; font-weight: 600; }
+  .lvm-ing-find em { font-style: italic; color: #0b2410; }
+  .lvm-ing-cites { list-style: none; margin: 0; padding: 12px 0 0; border-top: 1px solid rgba(11,36,16,0.08); }
+  .lvm-ing-cites li { display: flex; gap: 8px; padding: 4px 0; font-size: 11px; line-height: 1.4; color: rgba(11,36,16,0.72); }
+
+  /* TNO test rows */
+  .lvm-tests { margin-top: 18px; display: flex; flex-direction: column; }
+  .lvm-test {
+    padding: 14px 0; border-bottom: 1px solid rgba(252,254,251,0.10);
+    display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: start;
+  }
+  .lvm-test:last-child { border: 0; }
+  .lvm-test-name { font-size: 14px; font-weight: 700; color: #fcfefb; margin: 0 0 4px; }
+  .lvm-test-desc { font-size: 12px; color: rgba(252,254,251,0.7); line-height: 1.5; margin: 0; }
+  .lvm-test-result {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 11px; border-radius: 999px;
+    font-family: var(--lv-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    background: rgba(148,252,169,0.12); color: #94fca9;
+    border: 1px solid rgba(148,252,169,0.28);
+    flex-shrink: 0; white-space: nowrap;
+  }
+  .lvm-test-result::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: #94fca9; }
+  .lvm-disc {
+    margin-top: 18px; padding: 14px 16px;
+    background: rgba(252,254,251,0.04); border: 1px solid rgba(252,254,251,0.08);
+    border-radius: 8px; font-size: 12px; line-height: 1.55; color: rgba(252,254,251,0.65);
+  }
+  .lvm-disc strong { color: #fcfefb; }
+  .lvm-disc a { color: #94fca9; border-bottom: 1px solid rgba(148,252,169,0.4); text-decoration: none; }
+
+  /* Safety side-by-side */
+  .lvm-safety { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 18px; }
+  @media (min-width: 720px) { .lvm-safety { grid-template-columns: 1fr 1fr; } }
+  .lvm-safety-col { background: #fff; border: 1px solid rgba(11,36,16,0.10); border-radius: 12px; padding: 18px; }
+  .lvm-safety-label { display: inline-flex; align-items: center; gap: 8px; font-family: var(--lv-mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(11,36,16,0.55); margin-bottom: 10px; }
+  .lvm-marker { width: 8px; height: 8px; border-radius: 50%; }
+  .lvm-safety-col.is-vape .lvm-marker { background: rgba(255,138,138,0.6); }
+  .lvm-safety-col.is-lio .lvm-marker { background: #94fca9; }
+  .lvm-safety-col h4 { margin: 0 0 12px; font-size: 18px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.05; color: #0b2410; }
+  .lvm-flow { list-style: none; margin: 0 0 12px; padding: 0 0 12px; border-bottom: 1px solid rgba(11,36,16,0.08); }
+  .lvm-flow li { padding: 5px 0; font-size: 12px; color: rgba(11,36,16,0.72); display: flex; align-items: center; gap: 10px; }
+  .lvm-step { width: 18px; height: 18px; border-radius: 50%; background: #f4f7f2; color: #0b2410; display: flex; align-items: center; justify-content: center; font-family: var(--lv-mono); font-size: 9px; font-weight: 700; flex-shrink: 0; border: 1px solid rgba(11,36,16,0.10); }
+  .lvm-flow li.muted .lvm-step { color: rgba(255,138,138,0.85); border-color: rgba(255,138,138,0.35); background: rgba(255,138,138,0.06); }
+  .lvm-flow li.lit .lvm-step { color: #0b2410; background: #cdfee1; border-color: #94fca9; }
+  .lvm-out { font-size: 11px; color: rgba(11,36,16,0.55); line-height: 1.5; margin: 0; }
+  .lvm-out strong { color: #0b2410; font-weight: 600; }
+
+  /* Limits */
+  .lvm-limits { list-style: none; margin: 18px 0 0; padding: 0; }
+  .lvm-limits li {
+    display: grid; grid-template-columns: 80px 1fr; gap: 14px;
+    padding: 14px 0; border-bottom: 1px solid rgba(11,36,16,0.08);
+  }
+  .lvm-limits li:last-child { border: 0; }
+  .lvm-limits-tag { font-family: var(--lv-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(11,36,16,0.55); padding-top: 2px; }
+  .lvm-limits li h4 { margin: 0 0 4px; font-size: 14px; font-weight: 700; color: #0b2410; }
+  .lvm-limits li p { margin: 0; font-size: 12px; line-height: 1.55; color: rgba(11,36,16,0.72); }
+  @media (max-width: 580px) {
+    .lvm-limits li { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  /* References */
+  .lvm-refs { list-style: none; counter-reset: lvmrefs; margin: 16px 0 0; padding: 0; }
+  .lvm-refs li {
+    display: grid; grid-template-columns: 36px 1fr; gap: 12px;
+    padding: 10px 0; border-bottom: 1px solid rgba(11,36,16,0.08);
+    font-size: 12px; line-height: 1.5; color: rgba(11,36,16,0.72);
+  }
+  .lvm-refs li:last-child { border: 0; }
+  .lvm-refs li::before {
+    counter-increment: lvmrefs;
+    content: counter(lvmrefs, decimal-leading-zero);
+    font-family: var(--lv-mono); font-size: 11px;
+    color: rgba(11,36,16,0.40); padding-top: 1px;
+  }
+  .lvm-refs li strong { color: #0b2410; font-weight: 600; }
+  .lvm-refs li em { font-style: italic; color: #0b2410; }
+  .lvm-refs li a { color: #0b2410; border-bottom: 1px solid rgba(11,36,16,0.22); text-decoration: none; word-break: break-word; }
+  @keyframes lvmFlash {
+    0% { background: rgba(148,252,169,0); }
+    20% { background: rgba(148,252,169,0.4); }
+    100% { background: rgba(148,252,169,0); }
+  }
+  .lvm-refs li.is-flash { animation: lvmFlash 1.4s ease; }
+</style>
+
+<div class="levp-modal" id="levp-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="levp-modal-title">
+  <div class="levp-modal-card">
+    <div class="levp-modal-head">
+      <h3 id="levp-modal-title"><span>Lio Evidence</span> The dossier</h3>
+      <button type="button" class="levp-modal-close" data-lv-close aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l10 10M12 2 2 12"/></svg>
+      </button>
+    </div>
+    <div class="levp-modal-body">
+
+      <!-- PREMISE -->
+      <section class="lvm-band paper">
+        <span class="lvm-eyebrow">The premise</span>
+        <h3 class="lvm-h">A habit isn't only chemical. <em>It's also a ritual.</em></h3>
+        <p class="lvm-lede">Decades of cessation research show that the behavioral and sensorimotor components of a habit — the hand-to-mouth motion, the breath, the throat sensation, the scent — drive cravings independently of any active drug.</p>
+        <div class="lvm-points">
+          <div class="lvm-pt"><div class="lvm-pt-num"><strong>01</strong>Behavioral</div><div><h4>The ritual is roughly half the habit.</h4><p>Rose &amp; Behm (Duke, 1994): 48 abstinent smokers, three conditions (black-pepper inhaler / mint-menthol / empty). The black-pepper group reported significantly reduced craving and withdrawal versus the empty control — without nicotine being delivered. <span class="lvm-ref" data-ref="1">1</span></p></div></div>
+          <div class="lvm-pt"><div class="lvm-pt-num"><strong>02</strong>Olfactory</div><div><h4>Pleasant scents reduce peak urge.</h4><p>Sayette &amp; Parrott (1999) and a 2019 follow-up replication (n=232, Pittsburgh/Brown) confirmed that an olfactory cue at peak craving produces a measurable, sustained drop in self-reported urge. <span class="lvm-ref" data-ref="2">2</span><span class="lvm-ref" data-ref="3">3</span></p></div></div>
+          <div class="lvm-pt"><div class="lvm-pt-num"><strong>03</strong>Substitution</div><div><h4>Sensorimotor replacement is its own treatment category.</h4><p>The UK NHS has trialed de-nicotinised cigarettes specifically because the act, the breath, and the throat sensation matter <em>independently</em> of nicotine. <span class="lvm-ref" data-ref="4">4</span> Lio applies the same principle without combustion or any active drug.</p></div></div>
+          <div class="lvm-pt"><div class="lvm-pt-num"><strong>04</strong>Mechanism</div><div><h4>Aromatherapy shows a small but consistent effect.</h4><p>Cordell &amp; Buckle (2013, n=20) and Yılmaz &amp; Karadağ (2022, n=58) reported reduced nicotine craving following short olfactory exposure to black-pepper or angelica essential oil. <span class="lvm-ref" data-ref="5">5</span><span class="lvm-ref" data-ref="6">6</span> Modest, but real.</p></div></div>
+        </div>
+      </section>
+
+      <!-- INGREDIENT DOSSIER -->
+      <section class="lvm-band">
+        <span class="lvm-eyebrow">Ingredient dossier</span>
+        <h3 class="lvm-h">Three plants. <em>All studied. All cited.</em></h3>
+        <p class="lvm-lede">Each ingredient was selected because of independently published research on inhalation and craving — not because of how it tastes.</p>
+
+        <div class="lvm-ing-grid">
+          <article class="lvm-ing">
+            <div class="lvm-ing-num">01 / 03</div>
+            <div class="lvm-ing-latin">Mentha × piperita</div>
+            <div class="lvm-ing-name">Peppermint</div>
+            <div class="lvm-ing-chips"><span class="lvm-ing-chip">Cooling</span><span class="lvm-ing-chip">Menthol</span><span class="lvm-ing-chip">Throat hit</span><span class="lvm-ing-chip">Alertness</span></div>
+            <p class="lvm-ing-find"><strong>Hirsch (2008)</strong> at the Smell &amp; Taste Treatment Foundation found peppermint inhalation correlated with ~2,700 fewer calories and lower hunger ratings. <strong>Kennedy et al. (2018)</strong> in <em>Nutrients</em> reported improved cognitive performance at higher peppermint doses. The cooling sensation closely mimics the menthol throat-hit familiar to most former vape users.</p>
+            <ul class="lvm-ing-cites">
+              <li><span class="lvm-ref" data-ref="7">7</span> Hirsch, A. R. (2008).</li>
+              <li><span class="lvm-ref" data-ref="8">8</span> Kennedy et al. (2018), Nutrients 10(8).</li>
+              <li><span class="lvm-ref" data-ref="9">9</span> Kazemi et al. (2024).</li>
+            </ul>
+          </article>
+          <article class="lvm-ing">
+            <div class="lvm-ing-num">02 / 03</div>
+            <div class="lvm-ing-latin">Piper nigrum</div>
+            <div class="lvm-ing-name">Black Pepper</div>
+            <div class="lvm-ing-chips"><span class="lvm-ing-chip">Warming</span><span class="lvm-ing-chip">Earthy</span><span class="lvm-ing-chip">Throat hit</span><span class="lvm-ing-chip">Most-cited</span></div>
+            <p class="lvm-ing-find">The most directly relevant ingredient. <strong>Rose &amp; Behm (1994)</strong> at Duke ran the foundational randomized study (n=48, 3 conditions). <strong>Cordell &amp; Buckle (2013)</strong> extended it to a US cohort. <strong>Yılmaz &amp; Karadağ (2022)</strong> confirmed in a randomized pilot (n=58).</p>
+            <ul class="lvm-ing-cites">
+              <li><span class="lvm-ref" data-ref="1">1</span> Rose &amp; Behm (1994), <em>Drug Alcohol Depend.</em></li>
+              <li><span class="lvm-ref" data-ref="5">5</span> Cordell &amp; Buckle (2013).</li>
+              <li><span class="lvm-ref" data-ref="6">6</span> Yılmaz &amp; Karadağ (2022).</li>
+            </ul>
+          </article>
+          <article class="lvm-ing">
+            <div class="lvm-ing-num">03 / 03</div>
+            <div class="lvm-ing-latin">Eucalyptus globulus</div>
+            <div class="lvm-ing-name">Eucalyptus</div>
+            <div class="lvm-ing-chips"><span class="lvm-ing-chip">Crisp</span><span class="lvm-ing-chip">Respiratory</span><span class="lvm-ing-chip">1,8-cineole</span><span class="lvm-ing-chip">Calming</span></div>
+            <p class="lvm-ing-find">Dominated by <strong>1,8-cineole</strong>, studied for over forty years for its respiratory and cognitive effects. A 2017 review summarized inhalation safety and documented anti-inflammatory and mucolytic actions. In Lio it serves a sensory role at concentrations far below therapeutic levels.</p>
+            <ul class="lvm-ing-cites">
+              <li><span class="lvm-ref" data-ref="10">10</span> Sadlon &amp; Lamson (2010).</li>
+              <li><span class="lvm-ref" data-ref="11">11</span> Caldas et al. (2015).</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- TNO -->
+      <section class="lvm-band dark">
+        <span class="lvm-eyebrow">Independent ingredient testing</span>
+        <h3 class="lvm-h">We sent it to TNO. <em>Then we read the report.</em></h3>
+        <p class="lvm-lede">Beyond published literature, we commissioned our own ingredient analysis at <strong>TNO</strong> — the Netherlands Organisation for Applied Scientific Research, established by Dutch parliament in 1932. <span class="lvm-ref" data-ref="12">12</span></p>
+        <div class="lvm-tests">
+          <div class="lvm-test"><div><div class="lvm-test-name">Nicotine</div><p class="lvm-test-desc">Quantitative assay for nicotine and its primary metabolites in core matrix and headspace.</p></div><span class="lvm-test-result">Not detected</span></div>
+          <div class="lvm-test"><div><div class="lvm-test-name">Tobacco constituents</div><p class="lvm-test-desc">Screening for tobacco-derived alkaloids and combustion byproducts.</p></div><span class="lvm-test-result">Not detected</span></div>
+          <div class="lvm-test"><div><div class="lvm-test-name">Essential-oil identity</div><p class="lvm-test-desc">Constituent profiling, confirming declared plant-derived compounds.</p></div><span class="lvm-test-result">Confirmed</span></div>
+          <div class="lvm-test"><div><div class="lvm-test-name">Heavy metals</div><p class="lvm-test-desc">Lead, cadmium, mercury, arsenic at EU cosmetic-grade thresholds.</p></div><span class="lvm-test-result">Below threshold</span></div>
+        </div>
+        <div class="lvm-disc"><strong>Important:</strong> An ingredient test confirms what is — and is not — present. It does <em>not</em> establish efficacy as a medical treatment. Lio is a wellness device. Reports available from <a href="mailto:hello@breathelio.com">hello@breathelio.com</a>.</div>
+      </section>
+
+      <!-- SAFETY -->
+      <section class="lvm-band cream">
+        <span class="lvm-eyebrow">Mechanism &amp; safety</span>
+        <h3 class="lvm-h">No heat. No vapor. <em>No combustion.</em></h3>
+        <p class="lvm-lede">Most safety questions about Lio come from people who've read about vape toxicology. Those concerns apply to a different category of device.</p>
+        <div class="lvm-safety">
+          <div class="lvm-safety-col is-vape">
+            <div class="lvm-safety-label"><span class="lvm-marker"></span> A vape</div>
+            <h4>Aerosolizes a heated liquid</h4>
+            <ul class="lvm-flow">
+              <li class="muted"><span class="lvm-step">1</span> Battery powers a heating coil</li>
+              <li class="muted"><span class="lvm-step">2</span> Coil heats e-liquid to ~200–300°C</li>
+              <li class="muted"><span class="lvm-step">3</span> Liquid aerosolizes into vapor</li>
+              <li class="muted"><span class="lvm-step">4</span> User inhales aerosol particles</li>
+              <li class="muted"><span class="lvm-step">5</span> Vapor exits the user's lungs</li>
+            </ul>
+            <p class="lvm-out"><strong>What enters the lungs:</strong> aerosolized propylene glycol, glycerin, nicotine (in most), heated flavorants. <span class="lvm-ref" data-ref="13">13</span><span class="lvm-ref" data-ref="14">14</span></p>
+          </div>
+          <div class="lvm-safety-col is-lio">
+            <div class="lvm-safety-label"><span class="lvm-marker"></span> Lio</div>
+            <h4>Passes air across a fiber matrix</h4>
+            <ul class="lvm-flow">
+              <li class="lit"><span class="lvm-step">1</span> User inhales through the wooden barrel</li>
+              <li class="lit"><span class="lvm-step">2</span> Air flows across an oil-infused core</li>
+              <li class="lit"><span class="lvm-step">3</span> Air picks up plant aromatic molecules</li>
+              <li class="lit"><span class="lvm-step">4</span> Scent travels on the user's own breath</li>
+              <li class="lit"><span class="lvm-step">5</span> Nothing exits the user's mouth</li>
+            </ul>
+            <p class="lvm-out"><strong>What enters the lungs:</strong> ambient air carrying volatile aromatic compounds — the same molecules diffused in any aromatherapy room.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIMITS -->
+      <section class="lvm-band">
+        <span class="lvm-eyebrow">What the evidence does not say</span>
+        <h3 class="lvm-h">Things <em>we will not claim.</em></h3>
+        <ul class="lvm-limits">
+          <li><span class="lvm-limits-tag">Limit 01</span><div><h4>Lio is not a smoking-cessation drug.</h4><p>Not submitted to FDA, EMA, or equivalent. Lio is registered in the EU as a wellness and aromatherapy device.</p></div></li>
+          <li><span class="lvm-limits-tag">Limit 02</span><div><h4>The cited studies are small.</h4><p>The Rose &amp; Behm trial had 48 participants. Cordell &amp; Buckle had 20. Pilot-scale, not phase-3. Direction is consistent across thirty years of replication; effect sizes are modest.</p></div></li>
+          <li><span class="lvm-limits-tag">Limit 03</span><div><h4>It will not work for everyone.</h4><p>Lio addresses the sensorimotor-and-scent layer. Heavy chemical dependence or social-context triggers may need professional support. Our 30-day return policy exists for that.</p></div></li>
+          <li><span class="lvm-limits-tag">Limit 04</span><div><h4>Long-term inhalation data is incomplete.</h4><p>Compounds Lio uses are food-safe and IFRA-certified, but no 20-year cohort study has been run on a product like this. We will update when better data exists.</p></div></li>
+          <li><span class="lvm-limits-tag">Limit 05</span><div><h4>We are the manufacturer. We have an interest.</h4><p>Read the originals before forming a view. Every reference is publicly searchable.</p></div></li>
+        </ul>
+      </section>
+
+      <!-- REFERENCES -->
+      <section class="lvm-band paper">
+        <span class="lvm-eyebrow">References · 14 sources</span>
+        <h3 class="lvm-h">Cited in full.</h3>
+        <p class="lvm-lede">Tap any inline reference above to jump here.</p>
+        <ol class="lvm-refs">
+          <li id="lvm-ref-1"><strong>Rose, J. E., &amp; Behm, F. M. (1994).</strong> <em>Inhalation of vapor from black pepper extract reduces smoking withdrawal symptoms.</em> Drug Alcohol Depend., 34(3), 225–229.</li>
+          <li id="lvm-ref-2"><strong>Sayette et al. (2019).</strong> Olfactory cue replication, n=232, Pittsburgh/Brown.</li>
+          <li id="lvm-ref-3"><strong>Sayette &amp; Parrott (1999).</strong> <em>Effects of olfactory stimuli on urge reduction in smokers.</em> Exp. Clin. Psychopharmacol., 7(2), 151–159.</li>
+          <li id="lvm-ref-4"><strong>Rose, J. E., et al. (1985–2006 series).</strong> Sensory aspects of smoking and de-nicotinised cigarette trials; UK NHS reviews.</li>
+          <li id="lvm-ref-5"><strong>Cordell, B., &amp; Buckle, J. (2013).</strong> J. Altern. Complement. Med., 19(8), 709–713.</li>
+          <li id="lvm-ref-6"><strong>Yılmaz, D., &amp; Karadağ, A. (2022).</strong> Randomized pilot trial on nicotine craving, n=58.</li>
+          <li id="lvm-ref-7"><strong>Hirsch, A. R. (2008).</strong> <em>Effects of peppermint scent on appetite control and caloric intake.</em></li>
+          <li id="lvm-ref-8"><strong>Kennedy, D. O., et al. (2018).</strong> <em>Volatile terpenes and brain function.</em> Nutrients, 10(8), 1029.</li>
+          <li id="lvm-ref-9"><strong>Kazemi, A., et al. (2024).</strong> <em>Peppermint and menthol: review.</em> Crit. Rev. Food Sci. Nutr.</li>
+          <li id="lvm-ref-10"><strong>Sadlon, A. E., &amp; Lamson, D. W. (2010).</strong> <em>Immune-modifying and antimicrobial effects of Eucalyptus oil.</em> Altern. Med. Rev., 15(1), 33–47.</li>
+          <li id="lvm-ref-11"><strong>Caldas, G. F. R., et al. (2015).</strong> Therapeutic profile of <em>Eucalyptus globulus</em> essential oil.</li>
+          <li id="lvm-ref-12"><strong>TNO.</strong> Established by Dutch Parliament, 1932. <a href="https://www.tno.nl" target="_blank" rel="noopener">tno.nl</a></li>
+          <li id="lvm-ref-13"><strong>National Academies of Sciences, Engineering, and Medicine. (2018).</strong> <em>Public Health Consequences of E-Cigarettes.</em></li>
+          <li id="lvm-ref-14"><strong>Goniewicz, M. L., et al. (2014).</strong> <em>Levels of selected carcinogens and toxicants in vapour from electronic cigarettes.</em> Tob. Control, 23(2), 133–139.</li>
+        </ol>
+      </section>
+
+    </div>
+  </div>
+</div>
+
 <script>
-  /* Click an inline ref pill — smooth-scroll to the matching reference
-     row and flash its background. Self-contained, no globals. */
   (function () {
-    var root = document.getElementById('lio-evidence-dossier');
-    if (!root) return;
-    root.addEventListener('click', function (e) {
-      var pill = e.target.closest('.levp-ref[data-ref]');
-      if (!pill) return;
-      e.preventDefault();
-      var n = pill.getAttribute('data-ref');
-      var target = root.querySelector('#levp-ref-' + n);
-      if (!target) return;
-      var offset = window.matchMedia('(max-width: 900px)').matches ? 76 : 92;
-      var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
-      // flash highlight
-      target.classList.remove('is-flash');
-      void target.offsetWidth; // restart animation
-      target.classList.add('is-flash');
+    var modal = document.getElementById('levp-modal');
+    var openBtns = document.querySelectorAll('[data-lv-open]');
+    if (!modal || !openBtns.length) return;
+
+    function open () {
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('levp-modal-open');
+    }
+    function close () {
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('levp-modal-open');
+    }
+
+    openBtns.forEach(function (b) { b.addEventListener('click', open); });
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) close();
+      if (e.target.closest('[data-lv-close]')) close();
+      // ref pill smooth-scroll within modal body
+      var pill = e.target.closest('.lvm-ref[data-ref]');
+      if (pill) {
+        var n = pill.getAttribute('data-ref');
+        var target = modal.querySelector('#lvm-ref-' + n);
+        if (!target) return;
+        var body = modal.querySelector('.levp-modal-body');
+        var y = target.offsetTop - 64;
+        body.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+        target.classList.remove('is-flash');
+        void target.offsetWidth;
+        target.classList.add('is-flash');
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') close();
     });
   })();
 </script>
 
 {% schema %}
 {
-  "name": "Lio · Evidence dossier",
+  "name": "Lio · Evidence",
   "tag": "section",
   "class": "section-lio-evidence",
   "settings": [
-    { "type": "color", "id": "color_forest", "label": "Dark forest accent", "default": "#0b2410" },
-    { "type": "text",  "id": "hero_label",   "label": "Hero laurel label",  "default": "Lio Evidence Dossier" }
+    { "type": "color",           "id": "bg",           "label": "Background",        "default": "#ffffff" },
+    { "type": "color",           "id": "color_forest", "label": "Forest accent",     "default": "#0b2410" },
+    { "type": "text",            "id": "eyebrow",      "label": "Eyebrow",           "default": "Lio evidence" },
+    { "type": "text",            "id": "title",        "label": "Title (start)",     "default": "The proof, " },
+    { "type": "text",            "id": "title_italic", "label": "Title (italic end)","default": "third-party verified." },
+    { "type": "textarea",        "id": "subtitle",     "label": "Subtitle",          "default": "Every claim on this page is backed by a lab test, a published patent, or an independent study." }
   ],
-  "presets": [{ "name": "Lio · Evidence dossier" }],
+  "presets": [{ "name": "Lio · Evidence" }],
   "enabled_on": { "templates": ["page", "index"] }
 }
 {% endschema %}

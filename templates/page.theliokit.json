@@ -735,7 +735,9 @@
     },
     "evidence": {
       "type": "lio-evidence",
-      "settings": {}
+      "settings": {
+        "color_forest": "#0b2410"
+      }
     },
     "costcomp": {
       "type": "lio-costcomp",
