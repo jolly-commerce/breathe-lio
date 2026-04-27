@@ -1,0 +1,1057 @@
+{%- comment -%}
+  ============================================================
+  LIO PDP BUILDER — section
+  Renders the kit configurator (device · flavors · add-ons),
+  plus a JSON config blob that maps Shopify variant IDs and the
+  Loop selling plan ID into the JS module without touching code.
+  All merchant copy + variant pickers live in the schema below.
+  ============================================================
+{%- endcomment -%}
+
+{{ 'lio-pdp-builder.css' | asset_url | stylesheet_tag }}
+<link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+{%- liquid
+  assign d_plus  = section.settings.device_plus_product
+  assign d_pro   = section.settings.device_pro_product
+  assign f_minty = section.settings.flavor_minty_magic
+  assign f_pep   = section.settings.flavor_peppery_mint
+  assign f_cin   = section.settings.flavor_cinnamon_spice
+  assign f_raz   = section.settings.flavor_razzy_berry
+  assign f_man   = section.settings.flavor_mango_passion
+  assign f_orange = section.settings.flavor_ohh_my_orange
+  assign a_stand  = section.settings.addon_wood_stand
+  assign a_pouch  = section.settings.addon_travel_pouch
+  assign a_clean  = section.settings.addon_cleaning_kit
+
+  assign hero_default = section.settings.gallery_image_1 | default: section.settings.gallery_image_2
+-%}
+
+<section class="lio-pdp-section" id="lio-pdp-{{ section.id }}" data-section-type="lio-pdp-builder">
+
+  {%- if section.settings.announcement_text != blank -%}
+    <div class="lio-announcement">{{ section.settings.announcement_text }}</div>
+  {%- endif -%}
+
+  {%- if section.settings.breadcrumbs_text != blank -%}
+    <nav class="lio-breadcrumbs" aria-label="Breadcrumb">{{ section.settings.breadcrumbs_text }}</nav>
+  {%- endif -%}
+
+  <div class="lio-pdp">
+
+    {%- comment -%} ============ GALLERY ============ {%- endcomment -%}
+    <div class="lio-gallery">
+      <div class="lio-gallery-main" id="lio-gallery-main">
+        <img id="lio-gallery-hero" class="hero"
+          {% if hero_default %}
+            src="{{ hero_default | image_url: width: 1200 }}"
+            srcset="{{ hero_default | image_url: width: 600 }} 600w, {{ hero_default | image_url: width: 900 }} 900w, {{ hero_default | image_url: width: 1200 }} 1200w, {{ hero_default | image_url: width: 1800 }} 1800w"
+            sizes="(max-width: 980px) 100vw, 540px"
+          {% endif %}
+          alt="{{ section.settings.heading | default: 'Lio kit' | strip_html | escape }}"
+          width="1200" height="1200"
+          fetchpriority="high"
+          decoding="async">
+        {%- if section.settings.gallery_pin_number != blank -%}
+          <div class="lio-gallery-pin">
+            <div class="lio-gallery-pin-num">{{ section.settings.gallery_pin_number }}</div>
+            <div class="lio-gallery-pin-label">{{ section.settings.gallery_pin_label }}</div>
+          </div>
+        {%- endif -%}
+
+        {%- comment -%} ============ LIO EVIDENCE STICKER ============ {%- endcomment -%}
+        {%- liquid
+          assign evidence_count = 0
+          for b in section.blocks
+            if b.type == 'evidence_point'
+              assign evidence_count = evidence_count | plus: 1
+            endif
+          endfor
+        -%}
+        {%- if evidence_count > 0 -%}
+          <div class="lio-evidence" id="lio-evidence" data-state="min" aria-label="Lio Evidence">
+
+            {%- comment -%} ============ MAX (expanded) STATE ============ {%- endcomment -%}
+            <div class="lio-evidence-card" id="lio-evidence-card">
+              <div class="lio-evidence-heading">
+                {%- comment -%} Left laurel {%- endcomment -%}
+                <span class="lio-evidence-laurel" aria-hidden="true">
+                  <svg width="17" height="35" viewBox="0 0 17 35" fill="none">
+                    <path d="M2.60396 10.0782C2.63019 12.7275 5.0681 14.8472 5.0681 14.8472C5.0681 14.8472 7.46457 12.6717 7.43993 10.0222C7.41325 7.3697 4.97398 5.25178 4.97398 5.25178C4.97398 5.25178 2.57932 7.42863 2.60396 10.0782ZM1.34556 19.1722C2.78927 21.3977 5.99278 21.9007 5.99278 21.9007C5.99278 21.9007 6.85625 18.7951 5.41254 16.5696C3.96883 14.3441 0.763495 13.8397 0.763495 13.8397C0.763495 13.8397 -0.0997442 16.9469 1.34556 19.1722ZM3.82901 27.3622C6.16621 28.6381 9.23028 27.5709 9.23028 27.5709C9.23028 27.5709 8.50337 24.4335 6.16618 23.1576C3.82898 21.8817 0.764911 22.9489 0.764911 22.9489C0.764911 22.9489 1.49182 26.0862 3.82901 27.3622ZM10.5368 33.3638C13.0903 34.1327 15.868 32.4611 15.868 32.4611C15.868 32.4611 14.504 29.5425 11.9502 28.772C9.39665 28.0031 6.62082 29.6761 6.62082 29.6761C6.62082 29.6761 7.98323 32.5949 10.5368 33.3638ZM9.02056 3.29033C7.3448 5.35644 7.8659 8.53241 7.8659 8.53241C7.8659 8.53241 11.1079 8.36114 12.7836 6.29503C14.4594 4.22891 13.9381 1.05136 13.9381 1.05136C13.9381 1.05136 10.6963 1.22421 9.02056 3.29033Z" stroke="currentColor" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <p class="lio-evidence-title">
+                  <span>{{ section.settings.evidence_title_line1 | default: 'Lio' }}</span>
+                  <span>{{ section.settings.evidence_title_line2 | default: 'Evidence' }}</span>
+                </p>
+                {%- comment -%} Right laurel {%- endcomment -%}
+                <span class="lio-evidence-laurel" aria-hidden="true">
+                  <svg width="17" height="35" viewBox="0 0 17 35" fill="none">
+                    <path d="M14.1756 10.0782C14.1494 12.7275 11.7114 14.8472 11.7114 14.8472C11.7114 14.8472 9.31497 12.6717 9.33961 10.0222C9.36629 7.3697 11.8056 5.25178 11.8056 5.25178C11.8056 5.25178 14.2002 7.42863 14.1756 10.0782ZM15.434 19.1722C13.9903 21.3977 10.7868 21.9007 10.7868 21.9007C10.7868 21.9007 9.92329 18.7951 11.367 16.5696C12.8107 14.3441 16.016 13.8397 16.016 13.8397C16.016 13.8397 16.8793 16.9469 15.434 19.1722ZM12.9505 27.3622C10.6133 28.6381 7.54926 27.5709 7.54926 27.5709C7.54926 27.5709 8.27617 24.4335 10.6134 23.1576C12.9506 21.8817 16.0146 22.9489 16.0146 22.9489C16.0146 22.9489 15.2877 26.0862 12.9505 27.3622ZM6.24277 33.3638C3.68923 34.1327 0.911591 32.4611 0.911591 32.4611C0.911591 32.4611 2.27559 29.5425 4.82935 28.772C7.38289 28.0031 10.1587 29.6761 10.1587 29.6761C10.1587 29.6761 8.79631 32.5949 6.24277 33.3638ZM7.75898 3.29033C9.43474 5.35644 8.91365 8.53241 8.91365 8.53241C8.91365 8.53241 5.67166 8.36114 3.9959 6.29503C2.32014 4.22891 2.84146 1.05136 2.84146 1.05136C2.84146 1.05136 6.08322 1.22421 7.75898 3.29033Z" stroke="currentColor" stroke-linecap="round"/>
+                </svg>
+                </span>
+              </div>
+
+              <div class="lio-evidence-body">
+                <p class="lio-evidence-claim">
+                  {{ section.settings.evidence_claim_html | default: '<span class="bold">150,000+ people</span> have replaced the habit with Lio. Every claim third-party <span class="italics">tested</span>.' }}
+                </p>
+
+                <div class="lio-evidence-cta">
+                  {%- if section.settings.evidence_avatar_1 or section.settings.evidence_avatar_2 or section.settings.evidence_avatar_3 -%}
+                    <span class="lio-evidence-avatars" aria-hidden="true">
+                      {%- if section.settings.evidence_avatar_1 -%}<img src="{{ section.settings.evidence_avatar_1 | image_url: width: 64 }}" alt="" loading="lazy" decoding="async" width="32" height="32" style="z-index: 0;">{%- endif -%}
+                      {%- if section.settings.evidence_avatar_2 -%}<img src="{{ section.settings.evidence_avatar_2 | image_url: width: 64 }}" alt="" loading="lazy" decoding="async" width="32" height="32" style="z-index: 1;">{%- endif -%}
+                      {%- if section.settings.evidence_avatar_3 -%}<img src="{{ section.settings.evidence_avatar_3 | image_url: width: 64 }}" alt="" loading="lazy" decoding="async" width="32" height="32" style="z-index: 2;">{%- endif -%}
+                    </span>
+                  {%- endif -%}
+
+                  <button type="button" class="lio-evidence-learn" id="lio-evidence-learn" aria-controls="lio-evidence-panel" aria-expanded="false">
+                    <span>{{ section.settings.evidence_cta_label | default: 'View evidence & learn more' }}</span>
+                  </button>
+                </div>
+              </div>
+
+              <button type="button" class="lio-evidence-close" id="lio-evidence-close" aria-label="Minimise evidence panel">
+                <svg viewBox="0 0 6 6" width="6" height="6" fill="none" aria-hidden="true">
+                  <path d="M1 5.5L0.5 5L2.5 3L0.5 1L1 0.5L3 2.5L5 0.5L5.5 1L3.5 3L5.5 5L5 5.5L3 3.5L1 5.5Z" fill="currentColor"/>
+                </svg>
+              </button>
+            </div>
+
+            {%- comment -%} ============ MIN (collapsed) PILL — visible when state="min" ============ {%- endcomment -%}
+            <button type="button" class="lio-evidence-min" id="lio-evidence-min" aria-label="Open Lio Evidence" aria-expanded="false">
+              <span class="lio-evidence-min-mark" aria-hidden="true">
+                <svg width="12" height="24" viewBox="0 0 17 35" fill="none"><path d="M2.60396 10.0782C2.63019 12.7275 5.0681 14.8472 5.0681 14.8472C5.0681 14.8472 7.46457 12.6717 7.43993 10.0222C7.41325 7.3697 4.97398 5.25178 4.97398 5.25178C4.97398 5.25178 2.57932 7.42863 2.60396 10.0782ZM1.34556 19.1722C2.78927 21.3977 5.99278 21.9007 5.99278 21.9007C5.99278 21.9007 6.85625 18.7951 5.41254 16.5696C3.96883 14.3441 0.763495 13.8397 0.763495 13.8397C0.763495 13.8397 -0.0997442 16.9469 1.34556 19.1722ZM3.82901 27.3622C6.16621 28.6381 9.23028 27.5709 9.23028 27.5709C9.23028 27.5709 8.50337 24.4335 6.16618 23.1576C3.82898 21.8817 0.764911 22.9489 0.764911 22.9489C0.764911 22.9489 1.49182 26.0862 3.82901 27.3622ZM10.5368 33.3638C13.0903 34.1327 15.868 32.4611 15.868 32.4611C15.868 32.4611 14.504 29.5425 11.9502 28.772C9.39665 28.0031 6.62082 29.6761 6.62082 29.6761C6.62082 29.6761 7.98323 32.5949 10.5368 33.3638ZM9.02056 3.29033C7.3448 5.35644 7.8659 8.53241 7.8659 8.53241C7.8659 8.53241 11.1079 8.36114 12.7836 6.29503C14.4594 4.22891 13.9381 1.05136 13.9381 1.05136C13.9381 1.05136 10.6963 1.22421 9.02056 3.29033Z" stroke="currentColor" stroke-linecap="round"/></svg>
+              </span>
+              <span class="lio-evidence-min-text">{{ section.settings.evidence_min_label | default: 'Lio Evidence' }}</span>
+            </button>
+
+            {%- comment -%} ============ DETAILED PANEL — opens from "View evidence & learn more" ============ {%- endcomment -%}
+            <div class="lio-evidence-panel" id="lio-evidence-panel" role="dialog" aria-modal="true" aria-labelledby="lio-evidence-panel-title" hidden>
+              <div class="lio-evidence-panel-backdrop" data-evidence-panel-close></div>
+              <div class="lio-evidence-panel-card">
+                <button type="button" class="lio-evidence-panel-close" data-evidence-panel-close aria-label="Close">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+                <div class="lio-evidence-panel-head">
+                  <span class="lio-evidence-panel-eyebrow"><span class="dot"></span>{{ section.settings.evidence_eyebrow | default: 'LIO EVIDENCE' }}</span>
+                  <h3 class="lio-evidence-panel-title" id="lio-evidence-panel-title">{{ section.settings.evidence_panel_title | default: 'Verified by independent labs' }}</h3>
+                </div>
+                <ul class="lio-evidence-list" role="list">
+                  {%- for block in section.blocks -%}
+                    {%- if block.type == 'evidence_point' -%}
+                      <li class="lio-evidence-row" {{ block.shopify_attributes }}>
+                        <span class="lio-evidence-row-icon" aria-hidden="true">
+                          {%- case block.settings.icon -%}
+                            {%- when 'check' -%}<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            {%- when 'shield' -%}<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            {%- when 'beaker' -%}<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v6L4 19a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3L15 9V3"/><line x1="8" y1="3" x2="16" y2="3"/><line x1="6" y1="14" x2="18" y2="14"/></svg>
+                            {%- when 'chart' -%}<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg>
+                            {%- when 'doc' -%}<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+                            {%- else -%}<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                          {%- endcase -%}
+                        </span>
+                        <div class="lio-evidence-row-body">
+                          {%- if block.settings.title != blank -%}<strong class="lio-evidence-row-title">{{ block.settings.title }}</strong>{%- endif -%}
+                          {%- if block.settings.source != blank -%}<span class="lio-evidence-row-source">{{ block.settings.source }}</span>{%- endif -%}
+                        </div>
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+                {%- if section.settings.evidence_foot != blank -%}
+                  <p class="lio-evidence-foot">{{ section.settings.evidence_foot }}</p>
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="lio-gallery-thumbs" id="lio-gallery-thumbs">
+        {%- for i in (1..5) -%}
+          {%- assign img_key = 'gallery_image_' | append: i -%}
+          {%- assign img = section.settings[img_key] -%}
+          {%- if img -%}
+            {%- assign img_url = img | image_url: width: 1200 -%}
+            <button type="button" class="lio-gallery-thumb{% if forloop.first %} is-active{% endif %}" data-img="{{ img_url }}" aria-label="View image {{ i }}">
+              <img src="{{ img | image_url: width: 240 }}" alt="" loading="lazy" decoding="async" width="240" height="240">
+            </button>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    {%- comment -%} ============ CONFIG COLUMN ============ {%- endcomment -%}
+    <div class="lio-pdp-config">
+
+      <div class="lio-pdp-trust">
+        {%- if section.settings.rating_text != blank -%}
+          <span class="stars" aria-hidden="true">
+            {%- for i in (1..5) -%}
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+            {%- endfor -%}
+          </span>
+          <span><strong>{{ section.settings.rating_text }}</strong></span>
+        {%- endif -%}
+        {%- if section.settings.rating_text != blank and section.settings.trust_meta != blank -%}
+          <span class="pipe" aria-hidden="true"></span>
+        {%- endif -%}
+        {%- if section.settings.trust_meta != blank -%}
+          <span>{{ section.settings.trust_meta }}</span>
+        {%- endif -%}
+      </div>
+
+      <h1 class="lio-pdp-h1">{{ section.settings.heading | default: product.title | default: 'Lio' }}</h1>
+
+      {%- if section.settings.subheading != blank -%}
+        <p class="lio-pdp-sub">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.bullets != blank -%}
+        <div class="lio-pdp-bullet-row">
+          {%- assign bullets = section.settings.bullets | split: '|' -%}
+          {%- for b in bullets -%}
+            {%- assign bullet_text = b | strip -%}
+            {%- if bullet_text != blank -%}
+              <span class="lio-pdp-bullet">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                {{ bullet_text }}
+              </span>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} ============ STEP 1: DEVICE ============ {%- endcomment -%}
+      <div class="lio-pdp-step" data-step="device">
+        <div class="lio-pdp-step-head">
+          <span class="lio-pdp-step-tag" data-step-dot="device">●</span>
+          <span class="lio-pdp-step-title">{{ section.settings.step1_title | default: 'Pick your device' }}</span>
+          <span class="lio-pdp-step-meta"><strong id="lio-device-meta">Pick a device</strong></span>
+        </div>
+
+        <button type="button" class="lio-device-compare-cta" id="lio-device-info-btn" aria-haspopup="dialog">
+          <span class="lio-device-compare-cta-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          </span>
+          <span class="lio-device-compare-cta-text">{{ section.settings.device_info_label | default: 'Plus or Pro? — see the difference' }}</span>
+          <span class="lio-device-compare-cta-arrow" aria-hidden="true">→</span>
+        </button>
+
+        <div class="lio-device-options" id="lio-device-options">
+          <button type="button" class="lio-device-card" data-device="plus" aria-pressed="false">
+            {%- if section.settings.device_plus_flag != blank -%}
+              <span class="lio-device-card-flag">{{ section.settings.device_plus_flag }}</span>
+            {%- endif -%}
+            <span class="lio-device-card-img">
+              {%- if section.settings.device_plus_image -%}
+                <img src="{{ section.settings.device_plus_image | image_url: width: 360 }}" alt="{{ section.settings.device_plus_name | default: 'Lio Plus' | escape }}" width="360" height="360">
+              {%- endif -%}
+            </span>
+            <span class="lio-device-card-name">{{ section.settings.device_plus_name | default: 'Lio Plus' }}</span>
+            <span class="lio-device-card-tag">{{ section.settings.device_plus_tag | default: 'Replaces the inhale' }}</span>
+            <span class="lio-device-card-price">
+              {%- assign plus_sub = section.settings.device_plus_sub_price | default: '29.95' -%}
+              {%- assign plus_otp = section.settings.device_plus_otp_price | default: '29.95' -%}
+              <span class="lio-device-card-price-sub">€{{ plus_sub }}</span>
+              {%- if plus_sub != plus_otp -%}<span class="lio-device-card-price-otp">€{{ plus_otp }}</span>{%- endif -%}
+            </span>
+            <span class="lio-device-card-radio" aria-hidden="true"></span>
+          </button>
+
+          <button type="button" class="lio-device-card" data-device="pro" aria-pressed="false">
+            {%- if section.settings.device_pro_flag != blank -%}
+              <span class="lio-device-card-flag">{{ section.settings.device_pro_flag }}</span>
+            {%- endif -%}
+            <span class="lio-device-card-img">
+              {%- if section.settings.device_pro_image -%}
+                <img src="{{ section.settings.device_pro_image | image_url: width: 360 }}" alt="{{ section.settings.device_pro_name | default: 'Lio Pro' | escape }}" width="360" height="360">
+              {%- endif -%}
+            </span>
+            <span class="lio-device-card-name">{{ section.settings.device_pro_name | default: 'Lio Pro' }}</span>
+            <span class="lio-device-card-tag">{{ section.settings.device_pro_tag | default: 'Inhale + magnetic fidget' }}</span>
+            <span class="lio-device-card-price">
+              {%- assign pro_sub = section.settings.device_pro_sub_price | default: '79.95' -%}
+              {%- assign pro_otp = section.settings.device_pro_otp_price | default: '79.95' -%}
+              <span class="lio-device-card-price-sub">€{{ pro_sub }}</span>
+              {%- if pro_sub != pro_otp -%}<span class="lio-device-card-price-otp">€{{ pro_otp }}</span>{%- endif -%}
+            </span>
+            <span class="lio-device-card-radio" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        {%- comment -%} Wood selector — always visible, sits directly below the device cards {%- endcomment -%}
+        <div class="lio-wood-block" id="lio-wood-block">
+          <div class="lio-wood-row" data-wood-slot="primary">
+            <span class="lio-wood-label">{{ section.settings.wood_label_solo | default: 'Wood finish' }}</span>
+            <div class="lio-wood-options" data-wood-slot="primary" role="radiogroup" aria-label="Choose wood for device 1">
+              <button type="button" class="lio-wood-opt is-selected" data-wood="olive" data-slot="primary" role="radio" aria-checked="true">
+                <span class="lio-wood-swatch lio-wood-swatch--olive" aria-hidden="true"></span>
+                {{ section.settings.wood_olive_label | default: 'Olive' }}
+              </button>
+              <button type="button" class="lio-wood-opt" data-wood="walnut" data-slot="primary" role="radio" aria-checked="false">
+                <span class="lio-wood-swatch lio-wood-swatch--walnut" aria-hidden="true"></span>
+                {{ section.settings.wood_walnut_label | default: 'Walnut' }}
+              </button>
+            </div>
+          </div>
+          <div class="lio-wood-row" data-wood-slot="secondary" hidden>
+            <span class="lio-wood-label">{{ section.settings.wood_label_partner | default: "Partner's wood" }}</span>
+            <div class="lio-wood-options" data-wood-slot="secondary" role="radiogroup" aria-label="Choose wood for device 2">
+              <button type="button" class="lio-wood-opt is-selected" data-wood="olive" data-slot="secondary" role="radio" aria-checked="true">
+                <span class="lio-wood-swatch lio-wood-swatch--olive" aria-hidden="true"></span>
+                {{ section.settings.wood_olive_label | default: 'Olive' }}
+              </button>
+              <button type="button" class="lio-wood-opt" data-wood="walnut" data-slot="secondary" role="radio" aria-checked="false">
+                <span class="lio-wood-swatch lio-wood-swatch--walnut" aria-hidden="true"></span>
+                {{ section.settings.wood_walnut_label | default: 'Walnut' }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {%- comment -%} Quit Together moved to delivery section, just before the CTA {%- endcomment -%}
+        <div class="lio-after-device" id="lio-after-device" hidden></div>
+      </div>
+
+      {%- comment -%} ============ STEP 2: FLAVORS (gated until device picked) ============ {%- endcomment -%}
+      <div class="lio-pdp-step lio-pdp-step--gated" id="lio-step-flavors" data-step="flavors" hidden>
+        <div class="lio-pdp-step-head">
+          <span class="lio-pdp-step-tag" data-step-dot="flavors">●</span>
+          <span class="lio-pdp-step-title">{{ section.settings.step2_title | default: 'Build your bag mix' }}</span>
+          <span class="lio-pdp-step-meta"><strong id="lio-flavors-meta">0 of 3 picked</strong></span>
+        </div>
+
+        <div class="lio-flavors-panel">
+          {%- comment -%} TWO preset cards: 3 bags vs 6 bags (the 6-bag IS the bestseller) {%- endcomment -%}
+          <div class="lio-preset-grid" id="lio-preset-grid" role="radiogroup" aria-label="Bag pack size">
+            <button type="button" class="lio-preset" data-preset="3" role="radio" aria-checked="false">
+              <span class="lio-preset-count">3</span>
+              <span class="lio-preset-label">{{ section.settings.preset_3_label | default: 'bags · 30 days' }}</span>
+              <span class="lio-preset-foot">
+                <span class="lio-preset-price" data-preset-price="3">—</span>
+                <span class="lio-preset-perbag" data-preset-perbag="3">—</span>
+              </span>
+            </button>
+            <button type="button" class="lio-preset lio-preset--bestseller" data-preset="bestseller" role="radio" aria-checked="false">
+              <span class="lio-preset-flag">{{ section.settings.preset_bestseller_flag | default: 'Bestseller · 10% off' }}</span>
+              <span class="lio-preset-count">6</span>
+              <span class="lio-preset-label">{{ section.settings.preset_6_label | default: 'bags · 60 days' }}</span>
+              <span class="lio-preset-foot">
+                <span class="lio-preset-pricing">
+                  <span class="lio-preset-price" data-preset-price="bestseller">—</span>
+                  <span class="lio-preset-price-was" data-preset-price-was="bestseller">—</span>
+                </span>
+                <span class="lio-preset-perbag" data-preset-perbag="bestseller">—</span>
+              </span>
+            </button>
+          </div>
+
+          {%- comment -%} Tap to Explore hint {%- endcomment -%}
+          <div class="lio-flavor-hint" aria-hidden="true">
+            <span class="lio-flavor-hint-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </span>
+            <span class="lio-flavor-hint-body">
+              <strong>{{ section.settings.flavor_hint_title | default: 'Tap a core to explore' }}</strong>
+              <span>{{ section.settings.flavor_hint_text | default: 'View notes to find your perfect match' }}</span>
+            </span>
+          </div>
+
+          {%- comment -%} Auto-filled hint (only shown in bestseller mode) {%- endcomment -%}
+          <div class="lio-bestseller-hint" id="lio-bestseller-hint" hidden>
+            <span class="lio-bestseller-hint-icon" aria-hidden="true">✓</span>
+            <span class="lio-bestseller-hint-body">
+              <strong>{{ section.settings.bestseller_hint_title | default: 'Bestseller mix pre-filled' }}</strong>
+              <span>{{ section.settings.bestseller_hint_text | default: 'Tap any flavor below to swap. Discount stays.' }}</span>
+            </span>
+          </div>
+
+          <div class="lio-flavor-list-block">
+            <ul class="lio-flavor-list" id="lio-flavor-list" role="list"></ul>
+          </div>
+
+          <div class="lio-flavor-meta-bar">
+            <strong>{{ section.settings.meta_bar_text | default: 'Mix anything · Ships in 24h · Switch flavors anytime' }}</strong>
+          </div>
+        </div>
+      </div>
+
+      {%- comment -%} ============ STEP 3: ADD-ONS (collapsible, gated by device pick) ============ {%- endcomment -%}
+      <details class="lio-pdp-step lio-pdp-step--addons lio-pdp-step--gated" id="lio-addons-step" data-step="addons" hidden>
+        <summary class="lio-pdp-step-head lio-addons-summary">
+          <span class="lio-pdp-step-tag" data-step-dot="addons">●</span>
+          <span class="lio-pdp-step-title">{{ section.settings.step3_title | default: 'Add-ons — skip if you want' }}</span>
+          <span class="lio-addons-summary-meta">
+            <span class="lio-addons-summary-text">{{ section.settings.addons_summary_text | default: 'Stand · Pouch · Cleaning kit' }}</span>
+            <span class="lio-addons-summary-chev" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </span>
+        </summary>
+        <div class="lio-addons-row" id="lio-addons-row">
+          <button type="button" class="lio-addon" data-addon="wood-stand" data-price="{{ section.settings.addon_wood_stand_price | default: 14.95 }}" aria-pressed="false">
+            <span class="lio-addon-img"><span class="lio-addon-img-emoji" aria-hidden="true">{{ section.settings.addon_wood_stand_emoji | default: '🪵' }}</span></span>
+            <span class="lio-addon-name">{{ section.settings.addon_wood_stand_name | default: 'Wood Stand' }}</span>
+            <span class="lio-addon-price">€{{ section.settings.addon_wood_stand_price | default: '14.95' }}</span>
+            <span class="lio-addon-check" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="lio-addon" data-addon="travel-pouch" data-price="{{ section.settings.addon_travel_pouch_price | default: 9.95 }}" aria-pressed="false">
+            <span class="lio-addon-img"><span class="lio-addon-img-emoji" aria-hidden="true">{{ section.settings.addon_travel_pouch_emoji | default: '👜' }}</span></span>
+            <span class="lio-addon-name">{{ section.settings.addon_travel_pouch_name | default: 'Travel Pouch' }}</span>
+            <span class="lio-addon-price">€{{ section.settings.addon_travel_pouch_price | default: '9.95' }}</span>
+            <span class="lio-addon-check" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="lio-addon" data-addon="cleaning-kit" data-price="{{ section.settings.addon_cleaning_kit_price | default: 6.95 }}" aria-pressed="false">
+            <span class="lio-addon-img"><span class="lio-addon-img-emoji" aria-hidden="true">{{ section.settings.addon_cleaning_kit_emoji | default: '🧽' }}</span></span>
+            <span class="lio-addon-name">{{ section.settings.addon_cleaning_kit_name | default: 'Cleaning Kit' }}</span>
+            <span class="lio-addon-price">€{{ section.settings.addon_cleaning_kit_price | default: '6.95' }}</span>
+            <span class="lio-addon-check" aria-hidden="true"></span>
+          </button>
+        </div>
+      </details>
+
+      {%- comment -%} ============ STEP 4: DELIVERY + TOTALS ============ {%- endcomment -%}
+      <div class="lio-purchase-block">
+
+        <div class="lio-pdp-step-head lio-pdp-step-head--inverse">
+          <span class="lio-pdp-step-tag" data-step-dot="delivery">●</span>
+          <span class="lio-pdp-step-title">{{ section.settings.step4_title | default: 'Your delivery' }}</span>
+        </div>
+
+        <div class="lio-rhythm-toggle" role="radiogroup" aria-label="Delivery rhythm">
+          <button type="button" class="lio-rhythm-opt is-selected" data-mode="sub" role="radio" aria-checked="true">
+            {{ section.settings.rhythm_sub_label | default: 'Auto-refill · save 30%' }}
+            <span class="lio-rhythm-opt-savings">{{ section.settings.rhythm_sub_sub | default: 'New cores ship every 30 days. One click to pause or cancel.' }}</span>
+          </button>
+          <button type="button" class="lio-rhythm-opt" data-mode="otp" role="radio" aria-checked="false">
+            {{ section.settings.rhythm_otp_label | default: 'One-time' }}
+            <span class="lio-rhythm-opt-savings">{{ section.settings.rhythm_otp_sub | default: 'No refills · pay full price' }}</span>
+          </button>
+        </div>
+
+        <details class="lio-rhythm-explainer" id="lio-rhythm-explainer">
+          <summary>
+            <span class="lio-rhythm-explainer-icon" aria-hidden="true">?</span>
+            <span class="lio-rhythm-explainer-label">{{ section.settings.rhythm_explainer_label | default: "What you'll pay over time" }}</span>
+            <span class="lio-rhythm-explainer-chev" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </summary>
+          <div class="lio-rhythm-explainer-body">
+            <p><strong>{{ section.settings.rhythm_explainer_first | default: 'First delivery includes the device + your first bags.' }}</strong></p>
+            <p>{{ section.settings.rhythm_explainer_then | default: 'Then every 30 days: refill bags only — no device fee, no surprises. Skip a month, change flavors, or cancel from your dashboard.' }}</p>
+          </div>
+        </details>
+
+        <div class="lio-promise-badge" id="lio-promise-badge">
+          <span class="lio-promise-badge-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </span>
+          <span class="lio-promise-badge-body">
+            <strong>{{ section.settings.promise_title | default: '90-day money-back promise' }}</strong>
+            <span>{{ section.settings.promise_meta | default: 'If the ritual doesn’t land, we refund — used or not.' }}</span>
+          </span>
+        </div>
+
+        {%- if section.settings.benefits_html != blank -%}
+          <ul class="lio-benefits" id="lio-benefits">
+            {{ section.settings.benefits_html }}
+          </ul>
+        {%- endif -%}
+
+        {%- comment -%} Quit Together — secondary upsell, visually subordinate to the main CTA below {%- endcomment -%}
+        <button type="button" class="lio-quit-together lio-quit-together--subtle" id="lio-quit-together" aria-pressed="false">
+          <span class="lio-quit-together-flag">{{ section.settings.partner_duo_flag | default: '25% OFF' }}</span>
+          <span class="lio-quit-together-body">
+            <span class="lio-quit-together-title">{{ section.settings.partner_duo_label | default: 'Add Quit Together' }}</span>
+            <span class="lio-quit-together-meta">{{ section.settings.partner_duo_meta | default: 'Add a second device for someone you love. They quit with you.' }}</span>
+          </span>
+          <span class="lio-quit-together-check" aria-hidden="true"></span>
+        </button>
+
+        <div class="lio-totals">
+          {%- comment -%} Empty-state notification — replaces totals rows until selection is complete {%- endcomment -%}
+          <div class="lio-totals-empty" id="lio-totals-empty" hidden>
+            <span class="lio-totals-empty-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            </span>
+            <span class="lio-totals-empty-text" id="lio-totals-empty-text">{{ section.settings.totals_empty_initial | default: 'Pick your device to see your total' }}</span>
+          </div>
+
+          <div class="lio-totals-rows" id="lio-totals-rows">
+            <div class="lio-totals-row">
+              <span id="lio-device-line-name">Lio Plus</span>
+              <strong id="lio-device-line-price">—</strong>
+            </div>
+            <div class="lio-totals-row">
+              <span id="lio-bags-line-name">3 bags</span>
+              <strong id="lio-bags-line-price">—</strong>
+            </div>
+            <div class="lio-totals-row" id="lio-addons-line-row" hidden>
+              <span id="lio-addons-line-name">1 add-on</span>
+              <strong id="lio-addons-line-price">€0,00</strong>
+            </div>
+            <div class="lio-totals-row lio-totals-row--soft">
+              <span>{{ section.settings.totals_shipping_label | default: 'Shipping' }}</span>
+              <strong>{{ section.settings.totals_shipping_value | default: 'Free' }}</strong>
+            </div>
+            <div class="lio-totals-row lio-totals-row--soft">
+              <span>{{ section.settings.totals_tax_label | default: 'Tax' }}</span>
+              <strong>{{ section.settings.totals_tax_value | default: 'Included' }}</strong>
+            </div>
+            <div class="lio-totals-row lio-totals-row--soft lio-totals-row--delivery" id="lio-totals-delivery" hidden>
+              <span class="lio-totals-delivery-flag" id="lio-delivery-flag" aria-hidden="true">🌍</span>
+              <span class="lio-totals-delivery-text"></span>
+            </div>
+            <div class="lio-totals-row lio-totals-total">
+              <span id="lio-total-label">First delivery</span>
+              <span><span class="lio-total-strike" id="lio-total-strike" hidden></span><strong class="lio-total-value" id="lio-total">—</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="lio-purchase-cta" id="lio-cta">
+          <span id="lio-cta-label">Pick a device</span>
+          <span class="lio-purchase-cta-arrow" aria-hidden="true">→</span>
+        </button>
+
+        <div class="lio-cta-meta">
+          <p class="lio-reassurance" id="lio-reassurance">{{ section.settings.reassurance_sub | default: 'Pause or cancel anytime · 90-day money-back' }}</p>
+          <p class="lio-cta-scarcity">
+            <span class="lio-cta-scarcity-dot" aria-hidden="true"></span>
+            {{ section.settings.cta_scarcity | default: 'Ships from NL · 24h dispatch · Free EU shipping' }}
+          </p>
+        </div>
+
+        {%- comment -%} Payment-method strip — surface accepted methods near the decision {%- endcomment -%}
+        <ul class="lio-cta-payments" aria-label="Accepted payment methods">
+          <li title="iDEAL"><svg viewBox="0 0 40 24" width="34" height="20" fill="none" aria-hidden="true"><rect width="40" height="24" rx="3" fill="#fff" stroke="currentColor" stroke-opacity="0.15"/><text x="20" y="16" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" font-weight="800" fill="#cc0066">iDEAL</text></svg></li>
+          <li title="Bancontact"><svg viewBox="0 0 40 24" width="34" height="20" fill="none" aria-hidden="true"><rect width="40" height="24" rx="3" fill="#fff" stroke="currentColor" stroke-opacity="0.15"/><text x="20" y="16" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7" font-weight="800" fill="#005498">BCMC</text></svg></li>
+          <li title="Klarna"><svg viewBox="0 0 40 24" width="34" height="20" fill="none" aria-hidden="true"><rect width="40" height="24" rx="3" fill="#ffb3c7"/><text x="20" y="16" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" font-weight="800" fill="#0a0a0a">Klarna</text></svg></li>
+          <li title="Apple Pay"><svg viewBox="0 0 40 24" width="34" height="20" fill="none" aria-hidden="true"><rect width="40" height="24" rx="3" fill="#000"/><text x="20" y="16" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" font-weight="700" fill="#fff">Pay</text></svg></li>
+          <li title="Visa"><svg viewBox="0 0 40 24" width="34" height="20" fill="none" aria-hidden="true"><rect width="40" height="24" rx="3" fill="#fff" stroke="currentColor" stroke-opacity="0.15"/><text x="20" y="16" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" font-weight="800" fill="#1a1f71">VISA</text></svg></li>
+          <li title="Mastercard"><svg viewBox="0 0 40 24" width="34" height="20" fill="none" aria-hidden="true"><rect width="40" height="24" rx="3" fill="#fff" stroke="currentColor" stroke-opacity="0.15"/><circle cx="17" cy="12" r="5" fill="#eb001b"/><circle cx="23" cy="12" r="5" fill="#f79e1b" fill-opacity="0.85"/></svg></li>
+        </ul>
+
+        {%- comment -%} Inline review — single 5-star quote near the decision {%- endcomment -%}
+        <figure class="lio-cta-review">
+          <div class="lio-cta-review-stars" aria-hidden="true">★★★★★</div>
+          <blockquote>{{ section.settings.cta_review_quote | default: 'Replaced six years of vaping in week one. The ritual just clicked.' }}</blockquote>
+          <figcaption>— {{ section.settings.cta_review_author | default: 'Sam K., verified buyer' }}</figcaption>
+        </figure>
+      </div>
+
+      {%- liquid
+        assign trust_count = 0
+        assign faq_count   = 0
+        for b in section.blocks
+          if b.type == 'trust_item'
+            assign trust_count = trust_count | plus: 1
+          elsif b.type == 'faq_question'
+            assign faq_count = faq_count | plus: 1
+          endif
+        endfor
+      -%}
+
+      {%- if trust_count > 0 -%}
+        <div class="lio-pdp-trust-strip">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'trust_item' -%}
+              <div class="lio-trust-item" {{ block.shopify_attributes }}>
+                {%- if block.settings.icon -%}
+                  <div class="lio-trust-item-icon"><img src="{{ block.settings.icon | image_url: width: 64 }}" alt="" width="32" height="32" loading="lazy"></div>
+                {%- endif -%}
+                <div class="lio-trust-item-label">{{ block.settings.label }}</div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if faq_count > 0 -%}
+        <section class="lio-faq-inline" aria-labelledby="lio-faq-inline-title">
+          <header class="lio-faq-inline-head">
+            <span class="lio-faq-inline-eyebrow">{{ section.settings.faq_modal_eyebrow | default: 'Quick answers' }}</span>
+            <h3 class="lio-faq-inline-title" id="lio-faq-inline-title">{{ section.settings.faq_modal_title | default: 'Questions people ask before ordering.' }}</h3>
+          </header>
+          <div class="lio-faq-inline-list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'faq_question' -%}
+                <details class="lio-faq-item" {{ block.shopify_attributes }}>
+                  <summary>
+                    <span class="lio-faq-item-q">{{ block.settings.q }}</span>
+                    <span class="lio-faq-item-caret" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </span>
+                  </summary>
+                  <div class="lio-faq-item-a">{{ block.settings.a }}</div>
+                </details>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </section>
+      {%- endif -%}
+
+    </div>
+  </div>
+
+  {%- comment -%} ============ FLAVOR MODAL POPUP — rebuilt with floating cores ============ {%- endcomment -%}
+  {%- liquid
+    assign core_1 = section.settings.modal_core_1 | default: 'https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_25_2026_10_50_11_AM-Photoroom_1.webp?v=1777085540'
+    assign core_2 = section.settings.modal_core_2 | default: 'https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_25_2026_10_50_11_AM-Photoroom_2.webp?v=1777085540'
+    assign core_3 = section.settings.modal_core_3 | default: 'https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_25_2026_10_50_11_AM-Photoroom_3.webp?v=1777085541'
+  -%}
+  <div class="lio-flavor-modal" id="lio-flavor-modal" hidden role="dialog" aria-modal="true" aria-labelledby="lio-flavor-modal-title">
+    <div class="lio-flavor-modal-backdrop" data-flavor-modal-close></div>
+    <div class="lio-flavor-modal-stage">
+      {%- comment -%} 3 cores hovering around the card — purely decorative {%- endcomment -%}
+      <img class="lio-flavor-modal-core lio-flavor-modal-core--tl" src="{{ core_1 }}" alt="" aria-hidden="true" loading="lazy" decoding="async" width="160" height="160">
+      <img class="lio-flavor-modal-core lio-flavor-modal-core--mr" src="{{ core_2 }}" alt="" aria-hidden="true" loading="lazy" decoding="async" width="160" height="160">
+      <img class="lio-flavor-modal-core lio-flavor-modal-core--bl" src="{{ core_3 }}" alt="" aria-hidden="true" loading="lazy" decoding="async" width="160" height="160">
+
+      <div class="lio-flavor-modal-card">
+        <button type="button" class="lio-flavor-modal-close" data-flavor-modal-close aria-label="Close">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="lio-flavor-modal-visual" id="lio-flavor-modal-visual">
+          <img class="lio-flavor-modal-hero" id="lio-flavor-modal-hero" alt="" width="600" height="600" loading="lazy">
+        </div>
+        <div class="lio-flavor-modal-body">
+          <div class="lio-flavor-modal-top">
+            <span class="lio-flavor-modal-eyebrow">{{ section.settings.modal_eyebrow | default: '1 bag · 3 cores · 10 days' }}</span>
+            <span class="lio-flavor-modal-flag" id="lio-flavor-modal-flag" hidden></span>
+          </div>
+          <h3 class="lio-flavor-modal-title" id="lio-flavor-modal-title"></h3>
+          <p class="lio-flavor-modal-desc" id="lio-flavor-modal-desc"></p>
+          <div class="lio-flavor-modal-profile" id="lio-flavor-modal-profile"></div>
+
+          {%- comment -%} Per-flavor warning slot — JS only fills for razzy-berry + mango-passion {%- endcomment -%}
+          <aside class="lio-flavor-modal-note" id="lio-flavor-modal-note" hidden>
+            <span class="lio-flavor-note-icon" aria-hidden="true">!</span>
+            <span class="lio-flavor-note-body" id="lio-flavor-modal-note-body"></span>
+          </aside>
+
+          {%- comment -%} Testimonial review for this flavor {%- endcomment -%}
+          <figure class="lio-flavor-modal-testimonial" id="lio-flavor-modal-testimonial" hidden>
+            <span class="lio-flavor-modal-testimonial-mark" aria-hidden="true">"</span>
+            <div class="lio-flavor-modal-testimonial-stars" aria-hidden="true">★★★★★</div>
+            <blockquote class="lio-flavor-modal-testimonial-quote" id="lio-flavor-modal-testimonial-quote"></blockquote>
+            <figcaption class="lio-flavor-modal-testimonial-cite">
+              <strong id="lio-flavor-modal-testimonial-author"></strong>
+              <span id="lio-flavor-modal-testimonial-meta"></span>
+            </figcaption>
+          </figure>
+
+          <div class="lio-flavor-modal-cta-row">
+            <button type="button" class="lio-flavor-modal-cta" id="lio-flavor-modal-add">
+              <span id="lio-flavor-modal-cta-label">Add to mix</span>
+              <span class="lio-flavor-modal-cta-arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} ============ DEVICE COMPARE MODAL ============ {%- endcomment -%}
+  <div class="lio-device-modal" id="lio-device-modal" hidden role="dialog" aria-modal="true" aria-labelledby="lio-device-modal-title">
+    <div class="lio-flavor-modal-backdrop" data-device-modal-close></div>
+    <div class="lio-device-modal-card">
+      <button type="button" class="lio-flavor-modal-close" data-device-modal-close aria-label="Close">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="lio-device-modal-head">
+        <h3 class="lio-device-modal-title" id="lio-device-modal-title">{{ section.settings.device_modal_title | default: 'Lio Plus or Lio Pro?' }}</h3>
+        <p class="lio-device-modal-sub">{{ section.settings.device_modal_sub | default: "One does the inhale. One does the inhale and gives your hands something to do." }}</p>
+      </div>
+      <div class="lio-device-compare">
+        <div class="lio-device-compare-col">
+          <span class="lio-device-compare-tag is-plus" aria-hidden="true">●</span>
+          <div class="lio-device-compare-img">
+            <img src="{{ section.settings.device_modal_plus_image | default: 'https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_26_2026_07_08_56_PM_4_-Photoroom.png?v=1777207154' }}" alt="{{ section.settings.device_plus_name | default: 'Lio Plus' | escape }}" width="200" height="200" loading="lazy" decoding="async">
+          </div>
+          <h4 class="lio-device-compare-name">{{ section.settings.device_plus_name | default: 'Lio Plus' }}</h4>
+          <p class="lio-device-compare-line">{{ section.settings.device_modal_plus_line | default: 'Replaces the inhale. Period.' }}</p>
+          <ul class="lio-device-compare-list">
+            <li>Adjustable airflow (<strong>FlowDots</strong>)</li>
+            <li>Standard cores</li>
+            <li>Clean stainless steel interior</li>
+            <li>Simple, functional feel</li>
+          </ul>
+          <div class="lio-device-compare-foot">
+            {%- assign plus_sub2 = section.settings.device_plus_sub_price | default: '29.95' -%}
+            {%- assign plus_otp2 = section.settings.device_plus_otp_price | default: '29.95' -%}
+            <span class="lio-device-compare-price">€{{ plus_sub2 }}{%- if plus_sub2 != plus_otp2 -%}<small>/mo on sub</small>{%- endif -%}</span>
+            {%- if plus_sub2 != plus_otp2 -%}<span class="lio-device-compare-strike">€{{ plus_otp2 }} one-time</span>{%- endif -%}
+          </div>
+          <button type="button" class="lio-device-compare-pick" data-device-pick="plus">{{ section.settings.device_modal_pick_plus | default: 'Pick Lio Plus' }}</button>
+        </div>
+        <div class="lio-device-compare-col is-pro">
+          <span class="lio-device-compare-tag is-pro" aria-hidden="true">●</span>
+          <div class="lio-device-compare-img">
+            <img src="{{ section.settings.device_modal_pro_image | default: 'https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Lio_Pro_1.png?v=1777207149' }}" alt="{{ section.settings.device_pro_name | default: 'Lio Pro' | escape }}" width="200" height="200" loading="lazy" decoding="async">
+          </div>
+          <h4 class="lio-device-compare-name">{{ section.settings.device_pro_name | default: 'Lio Pro' }}</h4>
+          <p class="lio-device-compare-line">{{ section.settings.device_modal_pro_line | default: 'Replaces the moment — hands + inhale.' }}</p>
+          <ul class="lio-device-compare-list">
+            <li>Adjustable airflow (<strong>refined system</strong>)</li>
+            <li><strong>Magnetic fidget</strong> — rotate / play in hand</li>
+            <li><strong>Premium plated metal core</strong> (smoother, weighted)</li>
+            <li><strong>Hollow Pro cores</strong> — more controlled airflow</li>
+          </ul>
+          <div class="lio-device-compare-foot">
+            {%- assign pro_sub2 = section.settings.device_pro_sub_price | default: '79.95' -%}
+            {%- assign pro_otp2 = section.settings.device_pro_otp_price | default: '79.95' -%}
+            <span class="lio-device-compare-price">€{{ pro_sub2 }}{%- if pro_sub2 != pro_otp2 -%}<small>/mo on sub</small>{%- endif -%}</span>
+            {%- if pro_sub2 != pro_otp2 -%}<span class="lio-device-compare-strike">€{{ pro_otp2 }} one-time</span>{%- endif -%}
+          </div>
+          <button type="button" class="lio-device-compare-pick" data-device-pick="pro">{{ section.settings.device_modal_pick_pro | default: 'Pick Lio Pro' }}</button>
+        </div>
+      </div>
+      <div class="lio-device-compare-takeaway">
+        <p>{{ section.settings.device_modal_takeaway_html | default: '<strong>Want it to work →</strong> Plus. <strong>Want it to feel addictive to use →</strong> Pro.' }}</p>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} FAQ now renders inline at the bottom of the purchase column — no modal needed {%- endcomment -%}
+
+  {%- comment -%} ============ JSON CONFIG ============ {%- endcomment -%}
+  {%- liquid
+    assign country_code = localization.country.iso_code | default: 'NL'
+    assign country_name = localization.country.name | default: 'your country'
+  -%}
+  <script id="lio-pdp-config" type="application/json">
+    {
+      "currency": {{ cart.currency.iso_code | default: 'EUR' | json }},
+      "cart_url": {{ routes.cart_url | json }},
+      "loop_selling_plan_id": {{ section.settings.loop_selling_plan_id | json }},
+      "country_code": {{ country_code | json }},
+      "country_name": {{ country_name | json }},
+      "delivery_template": {{ section.settings.totals_delivery_template | json }},
+      "totals_empty_initial": {{ section.settings.totals_empty_initial | json }},
+      "totals_empty_flavors": {{ section.settings.totals_empty_flavors | json }},
+      "totals_empty_partial": {{ section.settings.totals_empty_partial | json }},
+      "partner_discount_pct": {{ section.settings.partner_discount_pct | default: 25 }},
+      "bestseller_discount_pct": {{ section.settings.bestseller_discount_pct | default: 10 }},
+      "partner_discount_code": {{ section.settings.partner_discount_code | default: '' | json }},
+      "bestseller_discount_code": {{ section.settings.bestseller_discount_code | default: '' | json }},
+      "wood_olive_label": {{ section.settings.wood_olive_label | default: 'Olive' | json }},
+      "wood_walnut_label": {{ section.settings.wood_walnut_label | default: 'Walnut' | json }},
+      "devices": {
+        "plus": {
+          "variantId": {%- if d_plus and d_plus.first_available_variant -%}{{ d_plus.first_available_variant.id | json }}{%- else -%}null{%- endif -%},
+          "otp": {{ section.settings.device_plus_otp_price | default: 29.95 }},
+          "sub": {{ section.settings.device_plus_sub_price | default: 29.95 }},
+          "name": {{ section.settings.device_plus_name | default: 'Lio Plus' | json }}
+        },
+        "pro": {
+          "variantId": {%- if d_pro and d_pro.first_available_variant -%}{{ d_pro.first_available_variant.id | json }}{%- else -%}null{%- endif -%},
+          "otp": {{ section.settings.device_pro_otp_price | default: 79.95 }},
+          "sub": {{ section.settings.device_pro_sub_price | default: 79.95 }},
+          "name": {{ section.settings.device_pro_name | default: 'Lio Pro' | json }}
+        }
+      },
+      "flavors": {
+        "minty-magic":    { "variantId": {%- if f_minty and f_minty.first_available_variant -%}{{ f_minty.first_available_variant.id | json }}{%- else -%}null{%- endif -%}, "description": {%- if f_minty -%}{{ f_minty.description | strip_html | strip | truncate: 380 | json }}{%- else -%}""{%- endif -%}, "bigImage": {%- if f_minty and f_minty.featured_image -%}{{ f_minty.featured_image | image_url: width: 600 | json }}{%- else -%}null{%- endif -%} },
+        "peppery-mint":   { "variantId": {%- if f_pep and f_pep.first_available_variant -%}{{ f_pep.first_available_variant.id | json }}{%- else -%}null{%- endif -%}, "description": {%- if f_pep -%}{{ f_pep.description | strip_html | strip | truncate: 380 | json }}{%- else -%}""{%- endif -%}, "bigImage": {%- if f_pep and f_pep.featured_image -%}{{ f_pep.featured_image | image_url: width: 600 | json }}{%- else -%}null{%- endif -%} },
+        "cinnamon-spice": { "variantId": {%- if f_cin and f_cin.first_available_variant -%}{{ f_cin.first_available_variant.id | json }}{%- else -%}null{%- endif -%}, "description": {%- if f_cin -%}{{ f_cin.description | strip_html | strip | truncate: 380 | json }}{%- else -%}""{%- endif -%}, "bigImage": {%- if f_cin and f_cin.featured_image -%}{{ f_cin.featured_image | image_url: width: 600 | json }}{%- else -%}null{%- endif -%} },
+        "razzy-berry":    { "variantId": {%- if f_raz and f_raz.first_available_variant -%}{{ f_raz.first_available_variant.id | json }}{%- else -%}null{%- endif -%}, "description": {%- if f_raz -%}{{ f_raz.description | strip_html | strip | truncate: 380 | json }}{%- else -%}""{%- endif -%}, "bigImage": {%- if f_raz and f_raz.featured_image -%}{{ f_raz.featured_image | image_url: width: 600 | json }}{%- else -%}null{%- endif -%} },
+        "mango-passion":  { "variantId": {%- if f_man and f_man.first_available_variant -%}{{ f_man.first_available_variant.id | json }}{%- else -%}null{%- endif -%}, "description": {%- if f_man -%}{{ f_man.description | strip_html | strip | truncate: 380 | json }}{%- else -%}""{%- endif -%}, "bigImage": {%- if f_man and f_man.featured_image -%}{{ f_man.featured_image | image_url: width: 600 | json }}{%- else -%}null{%- endif -%} },
+        "ohh-my-orange":  { "variantId": {%- if f_orange and f_orange.first_available_variant -%}{{ f_orange.first_available_variant.id | json }}{%- else -%}null{%- endif -%}, "description": {%- if f_orange -%}{{ f_orange.description | strip_html | strip | truncate: 380 | json }}{%- else -%}""{%- endif -%}, "bigImage": {%- if f_orange and f_orange.featured_image -%}{{ f_orange.featured_image | image_url: width: 600 | json }}{%- else -%}null{%- endif -%} }
+      },
+      "addons": {
+        "wood-stand":   { "variantId": {%- if a_stand and a_stand.first_available_variant -%}{{ a_stand.first_available_variant.id | json }}{%- else -%}null{%- endif -%}, "price": {{ section.settings.addon_wood_stand_price | default: 14.95 }} },
+        "travel-pouch": { "variantId": {%- if a_pouch and a_pouch.first_available_variant -%}{{ a_pouch.first_available_variant.id | json }}{%- else -%}null{%- endif -%}, "price": {{ section.settings.addon_travel_pouch_price | default: 9.95 }} },
+        "cleaning-kit": { "variantId": {%- if a_clean and a_clean.first_available_variant -%}{{ a_clean.first_available_variant.id | json }}{%- else -%}null{%- endif -%}, "price": {{ section.settings.addon_cleaning_kit_price | default: 6.95 }} }
+      }
+    }
+  </script>
+
+  {%- comment -%} ============ STICKY ATC ============ {%- endcomment -%}
+  <div class="lio-sticky" id="lio-sticky-cta" aria-hidden="true" data-state="empty">
+    <div class="lio-sticky-shell">
+      <div class="lio-sticky-thumb" id="lio-sticky-thumb" aria-hidden="true">
+        <img id="lio-sticky-img" alt="" width="64" height="64" decoding="async">
+        <span class="lio-sticky-thumb-fallback" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </span>
+      </div>
+
+      <div class="lio-sticky-info">
+        <span class="lio-sticky-title" id="lio-sticky-title">{{ section.settings.sticky_title | default: 'Your Lio Kit' }}</span>
+        <span class="lio-sticky-meta" id="lio-sticky-meta">{{ section.settings.sticky_empty | default: 'Pick a device to start' }}</span>
+      </div>
+
+      <div class="lio-sticky-pricing" id="lio-sticky-pricing" hidden>
+        <span class="lio-sticky-strike" id="lio-sticky-strike" hidden></span>
+        <strong class="lio-sticky-total" id="lio-sticky-total">€0,00</strong>
+      </div>
+
+      <button type="button" class="lio-sticky-btn" id="lio-sticky-cta-btn" disabled>
+        <span id="lio-sticky-cta-label">Pick a device</span>
+        <span class="lio-sticky-btn-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+</section>
+
+<script src="{{ 'lio-pdp-builder.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Lio PDP Builder",
+  "tag": "section",
+  "class": "lio-pdp-builder-wrap",
+  "enabled_on": { "templates": ["product", "page"] },
+  "settings": [
+    { "type": "header", "content": "Header copy" },
+    { "type": "text",   "id": "announcement_text",  "label": "Announcement bar",  "default": "Free EU shipping on €65+ · 90-day promise" },
+    { "type": "richtext", "id": "breadcrumbs_text", "label": "Breadcrumbs",        "default": "<p>Home / Shop / Build your kit</p>" },
+    { "type": "text",     "id": "rating_text",      "label": "Rating",             "default": "4.9 / 5" },
+    { "type": "text",     "id": "trust_meta",       "label": "Trust meta",         "default": "150,000+ customers · Founded Amsterdam, 2018" },
+    { "type": "inline_richtext", "id": "heading",   "label": "Heading",            "default": "Build your <i>perfect</i> kit." },
+    { "type": "richtext", "id": "subheading",       "label": "Sub-heading",        "default": "<p>One device. Your flavors. Delivered the rhythm you want.</p>" },
+    { "type": "textarea", "id": "bullets",          "label": "Bullets (pipe-separated)", "default": "Wooden, refillable diffuser|0 nicotine, 0 tobacco|Ships in 24h" },
+
+    { "type": "header", "content": "Step labels" },
+    { "type": "text", "id": "step1_title", "label": "Step 1 title", "default": "Pick your device" },
+    { "type": "text", "id": "step2_title", "label": "Step 2 title", "default": "Build your bag mix" },
+    { "type": "text", "id": "step3_title", "label": "Step 3 title", "default": "Add-ons (optional)" },
+    { "type": "text", "id": "slider_label", "label": "Slider label", "default": "How many bags?" },
+    { "type": "text", "id": "rec_chip_default", "label": "Recommendation chip default", "default": "Most popular" },
+    { "type": "text", "id": "meta_bar_text", "label": "Meta bar text", "default": "Mix anything · Ships in 24h · Switch flavors anytime" },
+
+    { "type": "header", "content": "Gallery" },
+    { "type": "image_picker", "id": "gallery_image_1", "label": "Gallery image 1 (hero)" },
+    { "type": "image_picker", "id": "gallery_image_2", "label": "Gallery image 2" },
+    { "type": "image_picker", "id": "gallery_image_3", "label": "Gallery image 3" },
+    { "type": "image_picker", "id": "gallery_image_4", "label": "Gallery image 4" },
+    { "type": "image_picker", "id": "gallery_image_5", "label": "Gallery image 5" },
+    { "type": "text", "id": "gallery_pin_number", "label": "Gallery pin number", "default": "150,000+" },
+    { "type": "text", "id": "gallery_pin_label",  "label": "Gallery pin label",  "default": "HABITS BROKEN" },
+
+    { "type": "header", "content": "Device — Lio Plus" },
+    { "type": "product",      "id": "device_plus_product",   "label": "Lio Plus product" },
+    { "type": "text",         "id": "device_plus_name",      "label": "Display name",  "default": "Lio Plus" },
+    { "type": "text",         "id": "device_plus_tag",       "label": "Tagline",       "default": "Wood · Lifetime warranty" },
+    { "type": "text",         "id": "device_plus_flag",      "label": "Flag",          "default": "Most popular" },
+    { "type": "image_picker", "id": "device_plus_image",     "label": "Image" },
+    { "type": "text",         "id": "device_plus_otp_price", "label": "One-time price (€) — decimals allowed", "default": "29.95" },
+    { "type": "text",         "id": "device_plus_sub_price", "label": "Sub price (€) — decimals allowed",      "default": "29.95" },
+
+    { "type": "header", "content": "Device — Lio Pro" },
+    { "type": "product",      "id": "device_pro_product",    "label": "Lio Pro product" },
+    { "type": "text",         "id": "device_pro_name",       "label": "Display name",  "default": "Lio Pro" },
+    { "type": "text",         "id": "device_pro_tag",        "label": "Tagline",       "default": "Premium wood · Engraving" },
+    { "type": "text",         "id": "device_pro_flag",       "label": "Flag" },
+    { "type": "image_picker", "id": "device_pro_image",      "label": "Image" },
+    { "type": "text",         "id": "device_pro_otp_price",  "label": "One-time price (€) — decimals allowed", "default": "79.95" },
+    { "type": "text",         "id": "device_pro_sub_price",  "label": "Sub price (€) — decimals allowed",      "default": "79.95" },
+
+    { "type": "header", "content": "Flavor products" },
+    { "type": "product", "id": "flavor_minty_magic",    "label": "Minty Magic" },
+    { "type": "product", "id": "flavor_peppery_mint",   "label": "Peppery Mint" },
+    { "type": "product", "id": "flavor_cinnamon_spice", "label": "Cinnamon Spice" },
+    { "type": "product", "id": "flavor_razzy_berry",    "label": "Razzy Berry" },
+    { "type": "product", "id": "flavor_mango_passion",  "label": "Mango Passion" },
+    { "type": "product", "id": "flavor_ohh_my_orange",  "label": "Ohh My Orange" },
+
+    { "type": "header", "content": "Add-on — Wood Stand" },
+    { "type": "product", "id": "addon_wood_stand",       "label": "Product" },
+    { "type": "text",    "id": "addon_wood_stand_name",  "label": "Display name",  "default": "Wood Stand" },
+    { "type": "text",    "id": "addon_wood_stand_emoji", "label": "Emoji",         "default": "🪵" },
+    { "type": "text",    "id": "addon_wood_stand_price", "label": "Price (€) — decimals allowed", "default": "14.95" },
+
+    { "type": "header", "content": "Add-on — Travel Pouch" },
+    { "type": "product", "id": "addon_travel_pouch",       "label": "Product" },
+    { "type": "text",    "id": "addon_travel_pouch_name",  "label": "Display name",  "default": "Travel Pouch" },
+    { "type": "text",    "id": "addon_travel_pouch_emoji", "label": "Emoji",         "default": "👜" },
+    { "type": "text",    "id": "addon_travel_pouch_price", "label": "Price (€) — decimals allowed", "default": "9.95" },
+
+    { "type": "header", "content": "Add-on — Cleaning Kit" },
+    { "type": "product", "id": "addon_cleaning_kit",       "label": "Product" },
+    { "type": "text",    "id": "addon_cleaning_kit_name",  "label": "Display name",  "default": "Cleaning Kit" },
+    { "type": "text",    "id": "addon_cleaning_kit_emoji", "label": "Emoji",         "default": "🧽" },
+    { "type": "text",    "id": "addon_cleaning_kit_price", "label": "Price (€) — decimals allowed", "default": "6.95" },
+
+    { "type": "header", "content": "Device compare modal" },
+    { "type": "text",     "id": "device_info_label",         "label": "Compare button label",     "default": "Plus or Pro? — see the difference" },
+    { "type": "text",     "id": "device_modal_title",        "label": "Compare title",            "default": "Lio Plus or Lio Pro?" },
+    { "type": "textarea", "id": "device_modal_sub",          "label": "Compare sub",              "default": "One does the inhale. One does the inhale and gives your hands something to do." },
+    { "type": "text",     "id": "device_modal_plus_line",    "label": "Plus one-liner",           "default": "Replaces the inhale. Period." },
+    { "type": "text",     "id": "device_modal_pro_line",     "label": "Pro one-liner",            "default": "Replaces the moment — hands + inhale." },
+    { "type": "text",     "id": "device_modal_plus_image",   "label": "Plus image URL",           "default": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_26_2026_07_08_56_PM_4_-Photoroom.png?v=1777207154" },
+    { "type": "text",     "id": "device_modal_pro_image",    "label": "Pro image URL",            "default": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Lio_Pro_1.png?v=1777207149" },
+    { "type": "text",     "id": "device_modal_pick_plus",    "label": "Pick Plus button",         "default": "Pick Lio Plus" },
+    { "type": "text",     "id": "device_modal_pick_pro",     "label": "Pick Pro button",          "default": "Pick Lio Pro" },
+    { "type": "richtext", "id": "device_modal_takeaway_html","label": "Takeaway line (HTML)",     "default": "<p>Want it to work — Plus. Want it to feel addictive to use — Pro.</p>" },
+
+    { "type": "header", "content": "Quit Together (partner)" },
+    { "type": "text",     "id": "partner_duo_label",  "label": "Quit Together label", "default": "Add Quit Together" },
+    { "type": "textarea", "id": "partner_duo_meta",   "label": "Quit Together sub",   "default": "Add a second device for someone you love. They quit with you." },
+    { "type": "text",     "id": "partner_duo_flag",   "label": "Quit Together flag",  "default": "25% OFF" },
+    { "type": "number",   "id": "partner_discount_pct", "label": "Partner discount %", "default": 25 },
+    { "type": "text",     "id": "partner_discount_code", "label": "Partner discount code", "info": "Auto-applied at checkout when Quit Together is selected. Create it in admin → Discounts." },
+
+    { "type": "header", "content": "Wood finish" },
+    { "type": "text", "id": "wood_label_solo",    "label": "Wood label (solo)",    "default": "Wood finish" },
+    { "type": "text", "id": "wood_label_partner", "label": "Wood label (partner)", "default": "Partner's wood" },
+    { "type": "text", "id": "wood_olive_label",   "label": "Olive label",          "default": "Olive" },
+    { "type": "text", "id": "wood_walnut_label",  "label": "Walnut label",         "default": "Walnut" },
+
+    { "type": "header", "content": "Bag-count presets" },
+    { "type": "text",   "id": "preset_3_label",          "label": "3-bag label",       "default": "bags" },
+    { "type": "text",   "id": "preset_3_meta",           "label": "3-bag sub-label",   "default": "Try the ritual · 30 days" },
+    { "type": "text",   "id": "preset_6_label",          "label": "6-bag label",       "default": "bags" },
+    { "type": "text",   "id": "preset_6_meta",           "label": "6-bag sub-label",   "default": "Build the habit · 60 days" },
+    { "type": "text",   "id": "preset_or_label",         "label": "Divider label",     "default": "Or build your own mix" },
+    { "type": "text",   "id": "preset_bestseller_label", "label": "Bestseller hero title", "default": "The Quit Trio" },
+    { "type": "text",   "id": "preset_bestseller_meta",  "label": "Bestseller hero sub",   "default": "2× Minty · 2× Peppery · 2× Cinnamon — pre-mixed for new quitters" },
+    { "type": "text",   "id": "preset_bestseller_flag",  "label": "Bestseller ribbon",     "default": "Bestseller" },
+    { "type": "text",   "id": "preset_bestseller_note",  "label": "Bestseller foot note",  "default": "60-day supply · ready to ship · skip the guesswork" },
+    { "type": "number", "id": "bestseller_discount_pct", "label": "Bestseller discount %", "default": 0, "info": "Set to 0 if your 6-bag price is already the final price (no strikethrough)." },
+    { "type": "text",   "id": "bestseller_discount_code","label": "Bestseller discount code", "info": "Auto-applied at checkout when Bestseller preset is selected." },
+
+    { "type": "header", "content": "Flavor section copy" },
+    { "type": "text",     "id": "flavor_hint_title",      "label": "Hint title",          "default": "Tap a core to explore" },
+    { "type": "text",     "id": "flavor_hint_text",       "label": "Hint sub",            "default": "View notes to find your perfect match" },
+    { "type": "text",     "id": "flavor_note_title",      "label": "Mild-flavor warning title (modal only)", "default": "Heads-up" },
+    { "type": "textarea", "id": "flavor_note_text",       "label": "Mild-flavor warning text (modal only)",  "default": "This flavor is on the milder side. Your taste buds may need 1–2 weeks after vapor or smoke before its full character lands." },
+    { "type": "text",     "id": "flavor_note_link_label", "label": "Warning CTA label",   "default": "Learn more" },
+    { "type": "url",      "id": "flavor_note_link",       "label": "Warning CTA link" },
+
+    { "type": "header", "content": "Totals copy" },
+    { "type": "text", "id": "totals_empty_initial",  "label": "Empty (no device picked)",  "default": "Pick your device to see your total" },
+    { "type": "text", "id": "totals_empty_flavors",  "label": "Empty (no flavors picked)", "default": "Pick your flavors to see your total" },
+    { "type": "text", "id": "totals_empty_partial",  "label": "Partial flavors picked",    "default": "Pick {n} more to see your total" },
+    { "type": "text", "id": "totals_shipping_label", "label": "Shipping label", "default": "Shipping" },
+    { "type": "text", "id": "totals_shipping_value", "label": "Shipping value", "default": "Free" },
+    { "type": "text", "id": "totals_tax_label",      "label": "Tax label",      "default": "Tax" },
+    { "type": "text", "id": "totals_tax_value",      "label": "Tax value",      "default": "Included" },
+    { "type": "textarea", "id": "totals_delivery_template", "label": "Delivery template", "info": "Use {country} and {days}.", "default": "Delivery to {country} takes {days} days on average" },
+
+    { "type": "header", "content": "Add-ons summary" },
+    { "type": "text", "id": "addons_summary_text", "label": "Collapsed summary", "default": "Stand · Pouch · Cleaning kit" },
+
+    { "type": "header", "content": "Flavor modal" },
+    { "type": "text", "id": "modal_eyebrow", "label": "Modal eyebrow", "default": "1 bag · 3 cores · 10 days" },
+    { "type": "text", "id": "modal_core_1",  "label": "Floating core 1 — image URL" },
+    { "type": "text", "id": "modal_core_2",  "label": "Floating core 2 — image URL" },
+    { "type": "text", "id": "modal_core_3",  "label": "Floating core 3 — image URL" },
+
+    { "type": "header", "content": "Lio Evidence (gallery sticker)" },
+    { "type": "text",     "id": "evidence_eyebrow",      "label": "Eyebrow",                    "default": "LIO EVIDENCE" },
+    { "type": "text",     "id": "evidence_min_label",    "label": "Minimised pill label",       "default": "Lio Evidence" },
+    { "type": "text",     "id": "evidence_title_line1",  "label": "Card heading line 1",        "default": "Lio" },
+    { "type": "text",     "id": "evidence_title_line2",  "label": "Card heading line 2",        "default": "Evidence" },
+    { "type": "richtext", "id": "evidence_claim_html",   "label": "Card claim",                 "default": "<p><strong>150,000+ people</strong> have replaced the habit with Lio. Every claim third-party <em>tested</em>.</p>" },
+    { "type": "image_picker", "id": "evidence_avatar_1", "label": "Avatar 1" },
+    { "type": "image_picker", "id": "evidence_avatar_2", "label": "Avatar 2" },
+    { "type": "image_picker", "id": "evidence_avatar_3", "label": "Avatar 3" },
+    { "type": "text",     "id": "evidence_cta_label",    "label": "CTA label",                  "default": "View evidence & learn more" },
+    { "type": "text",     "id": "evidence_panel_title",  "label": "Detail panel title",         "default": "Verified by independent labs" },
+    { "type": "textarea", "id": "evidence_foot",         "label": "Detail panel footer",        "default": "All claims independently verified. Sources available on request." },
+
+    { "type": "header", "content": "Sticky ATC (mobile)" },
+    { "type": "text", "id": "sticky_title", "label": "Title",          "default": "Your Lio Kit" },
+    { "type": "text", "id": "sticky_empty", "label": "Meta (no pick)", "default": "Pick a device to start" },
+
+    { "type": "header", "content": "FAQ" },
+    { "type": "text",     "id": "faq_trigger_label", "label": "FAQ button label", "default": "FAQ" },
+    { "type": "text",     "id": "faq_trigger_meta",  "label": "FAQ button sub",   "default": "Quick answers" },
+    { "type": "text",     "id": "faq_modal_eyebrow", "label": "FAQ modal eyebrow","default": "Quick answers" },
+    { "type": "text",     "id": "faq_modal_title",   "label": "FAQ modal title",  "default": "Questions people ask before ordering." },
+    { "type": "textarea", "id": "faq_modal_sub",     "label": "FAQ modal sub",    "default": "Tap any question to expand. Don't see yours? Email hello@breathelio.com — we read everything." },
+
+    { "type": "header", "content": "Subscription (Loop)" },
+    { "type": "text", "id": "loop_selling_plan_id", "label": "Loop selling plan ID", "info": "Numeric ID from the Loop dashboard. Applies to flavor cores when 'Subscribe' is selected." },
+
+    { "type": "header", "content": "Purchase block copy" },
+    { "type": "text",     "id": "step4_title",     "label": "Step 4 title",            "default": "Your delivery" },
+    { "type": "text",     "id": "rhythm_sub_label","label": "Auto-refill option label","default": "Auto-refill · save 30%" },
+    { "type": "textarea", "id": "rhythm_sub_sub",  "label": "Auto-refill sub-label",   "default": "New cores ship every 30 days. One click to pause or cancel." },
+    { "type": "text",     "id": "rhythm_otp_label","label": "One-time option label",   "default": "One-time" },
+    { "type": "text",     "id": "rhythm_otp_sub",  "label": "One-time option sub-label","default": "No refills · pay full price" },
+    { "type": "text",     "id": "rhythm_explainer_label","label": "Rhythm explainer label",   "default": "What you'll pay over time" },
+    { "type": "textarea", "id": "rhythm_explainer_first","label": "Rhythm explainer — first delivery", "default": "First delivery includes the device + your first bags." },
+    { "type": "textarea", "id": "rhythm_explainer_then", "label": "Rhythm explainer — recurring",      "default": "Then every 30 days: refill bags only — no device fee, no surprises. Skip a month, change flavors, or cancel from your dashboard." },
+    { "type": "text",     "id": "cta_scarcity",     "label": "Scarcity microcopy under CTA","default": "Ships from NL · 24h dispatch · Free EU shipping" },
+    { "type": "textarea", "id": "cta_review_quote", "label": "Inline review quote",         "default": "Replaced six years of vaping in week one. The ritual just clicked." },
+    { "type": "text",     "id": "cta_review_author","label": "Inline review author",        "default": "Sam K., verified buyer" },
+    { "type": "text",     "id": "promise_title",   "label": "Promise badge title",     "default": "90-day money-back promise" },
+    { "type": "textarea", "id": "promise_meta",    "label": "Promise badge meta",      "default": "If the ritual doesn’t land, we refund — used or not." },
+    { "type": "text",     "id": "bestseller_hint_title","label": "Bestseller hint title",       "default": "Bestseller mix pre-filled" },
+    { "type": "text",     "id": "bestseller_hint_text", "label": "Bestseller hint text",        "default": "Tap any flavor below to swap. Discount stays." },
+    { "type": "html", "id": "benefits_html", "label": "Benefits list (HTML <li> items)", "default": "<li><strong>Save 30%</strong> on every refill, forever</li><li><strong>Free shipping</strong> on every subscription delivery</li><li><strong>Cancel anytime</strong> in one click</li>" },
+    { "type": "text", "id": "reassurance_sub", "label": "Reassurance (sub mode)", "default": "Pause or cancel anytime · 90-day money-back guarantee" }
+  ],
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust strip item",
+      "limit": 6,
+      "settings": [
+        { "type": "image_picker", "id": "icon", "label": "Icon" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Free EU shipping" }
+      ]
+    },
+    {
+      "type": "faq_question",
+      "name": "FAQ question",
+      "limit": 12,
+      "settings": [
+        { "type": "text", "id": "q", "label": "Question" },
+        { "type": "richtext", "id": "a", "label": "Answer" }
+      ]
+    },
+    {
+      "type": "evidence_point",
+      "name": "Evidence point",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "select", "id": "icon", "label": "Icon", "default": "check",
+          "options": [
+            { "value": "check",  "label": "Check" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "beaker", "label": "Beaker (lab)" },
+            { "value": "chart",  "label": "Chart (data)" },
+            { "value": "doc",    "label": "Document (citation)" }
+          ]
+        },
+        { "type": "text", "id": "title",  "label": "Title" },
+        { "type": "text", "id": "source", "label": "Source / citation" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lio PDP Builder",
+      "blocks": [
+        { "type": "trust_item", "settings": { "label": "Free EU shipping" } },
+        { "type": "trust_item", "settings": { "label": "90-day promise" } },
+        { "type": "trust_item", "settings": { "label": "Pause anytime" } },
+        { "type": "trust_item", "settings": { "label": "Founded 2018" } },
+        { "type": "faq_question", "settings": { "q": "Is this a vape?", "a": "<p>No. A wooden aromatherapy diffuser. No battery, no coil, no liquid, no heating element. You breathe ordinary air through a wooden mouthpiece — the plant-oil core at the end gives it flavor and a cool menthol sensation. Nothing is heated, nothing is combusted.</p>" } },
+        { "type": "faq_question", "settings": { "q": "Will it feel like what I'm used to?", "a": "<p>Partly. The menthol cores give a real <strong>cool throat hit</strong> on the inhale — the physical sensation is there. What's not there is the nicotine kick. Think of it as the feeling without the substance.</p>" } },
+        { "type": "faq_question", "settings": { "q": "How long does one core last?", "a": "<p>Around <strong>7–10 days for a light user, 3–5 days if you use it heavily.</strong> The flavor is strongest the first day and gradually fades — when you can barely smell it before inhaling, swap it. The wooden body stays with you; only the core changes.</p>" } },
+        { "type": "faq_question", "settings": { "q": "What's actually in the cores?", "a": "<p>Medical-grade polyester fiber infused with <strong>food-safe plant essential oils</strong> — peppermint, cinnamon, mango, orange, depending on the variant. No synthetic aromas, no solvents, no propylene glycol. Third-party tested, every batch.</p>" } },
+        { "type": "faq_question", "settings": { "q": "What if it doesn't work for me?", "a": "<p>Try it for <strong>90 days</strong>. Use it the way it's meant to be used — every time you'd reach for your old habit. If the ritual doesn't land, <strong>full refund, used or not.</strong> No 'must be sealed' fine print, no restocking fee.</p>" } },
+        { "type": "faq_question", "settings": { "q": "How fast does it arrive?", "a": "<p>Shipped from the Netherlands. <strong>2–3 working days across Europe, 4–8 days outside.</strong> Free worldwide, no minimum. Tracking link by email the moment it leaves the warehouse.</p>" } },
+
+        { "type": "evidence_point", "settings": { "icon": "shield", "title": "0% nicotine, 0% tobacco",         "source": "Eurofins Lab Report · 2024" } },
+        { "type": "evidence_point", "settings": { "icon": "beaker", "title": "Plant-based aroma cores",          "source": "Independent assay · TNO Netherlands" } },
+        { "type": "evidence_point", "settings": { "icon": "doc",    "title": "Patented mouthpiece design",      "source": "EU Patent EP3784213" } },
+        { "type": "evidence_point", "settings": { "icon": "chart",  "title": "82% report reduced cravings",     "source": "n=1,243 user study, 2024" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
