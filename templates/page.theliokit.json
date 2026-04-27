@@ -60,6 +60,12 @@
         "tick_3": "30-day money-back"
       }
     },
+    "brand_cred": {
+      "type": "lio-brand-cred",
+      "settings": {
+        "bg": "#f8faf6"
+      }
+    },
     "social_proof": {
       "type": "lio-social-proof",
       "blocks": {
@@ -295,6 +301,7 @@
     "bootstrap",
     "lander_header",
     "hero",
+    "brand_cred",
     "flavored_air",
     "social_proof",
     "how",

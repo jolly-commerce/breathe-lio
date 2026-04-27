@@ -1,5 +1,8 @@
 <!-- ================== SECTION 3: HOW IT WORKS ================== -->
 <style>
+  /* Mobile slider: clean snap, IntersectionObserver dots, prev/next buttons */
+  .how-slider-controls { display: none; }
+
   @media (max-width: 768px) {
     .how-steps {
       display: flex !important;
@@ -7,37 +10,81 @@
       grid-template-columns: none !important;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      scroll-padding: 16px;
-      gap: 12px !important;
-      padding: 4px 16px 20px;
-      margin-left: -16px;
-      margin-right: -16px;
+      scroll-snap-stop: always;
+      gap: 14px !important;
+      padding: 6px 20px 8px;
+      margin-left: -20px;
+      margin-right: -20px;
       -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
     .how-steps::-webkit-scrollbar { display: none; }
-    .how-steps { scrollbar-width: none; -ms-overflow-style: none; }
     .how-steps .how-step {
-      flex: 0 0 86%;
+      flex: 0 0 calc(100% - 56px);
       scroll-snap-align: center;
-      max-width: 86%;
+      scroll-snap-stop: always;
+      min-width: 0;
+      max-width: calc(100% - 56px);
+    }
+    .how-slider-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 16px;
+      padding: 0 4px;
+    }
+    .how-slider-progress {
+      flex: 1;
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+    }
+    .how-slider-dot {
+      flex: 1;
+      max-width: 28px;
+      height: 3px;
+      border-radius: 2px;
+      background: rgba(11,36,16,0.14);
+      transition: background 0.25s ease, transform 0.25s ease;
+      cursor: pointer;
+      border: 0;
+      padding: 0;
+    }
+    .how-slider-dot.is-active {
+      background: #1f3a2c;
+      transform: scaleY(1.4);
+    }
+    .how-slider-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(11,36,16,0.14);
+      background: #fff;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #1f3a2c;
+      transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+      flex-shrink: 0;
+    }
+    .how-slider-btn:hover { background: rgba(11,36,16,0.04); border-color: #1f3a2c; }
+    .how-slider-btn[disabled], .how-slider-btn.is-disabled {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .how-slider-btn svg { width: 14px; height: 14px; }
+    .how-slider-counter {
+      font-family: var(--mono, ui-monospace, "SF Mono", Menlo, monospace);
+      font-size: 11px;
+      color: rgba(11,36,16,0.55);
+      letter-spacing: 0.08em;
+      min-width: 36px;
+      text-align: center;
     }
   }
-  .how-steps-dots {
-    display: none;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 12px;
-  }
-  @media (max-width: 768px) {
-    .how-steps-dots { display: flex; }
-  }
-  .how-steps-dots span {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.18);
-    transition: background 0.2s;
-  }
-  .how-steps-dots span.active { background: #1f3a2c; }
 </style>
 
 <section class="how" id="how">
@@ -100,22 +147,76 @@
         </div>
       </div>
     </div>
-    <div class="how-steps-dots" aria-hidden="true">
-      <span class="active"></span><span></span><span></span>
+    <div class="how-slider-controls" aria-label="Step navigation">
+      <button type="button" class="how-slider-btn" data-how-prev aria-label="Previous step">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m9 3-4 4 4 4"/></svg>
+      </button>
+      <div class="how-slider-progress" role="tablist">
+        <button type="button" class="how-slider-dot is-active" data-how-go="0" aria-label="Step 1"></button>
+        <button type="button" class="how-slider-dot" data-how-go="1" aria-label="Step 2"></button>
+        <button type="button" class="how-slider-dot" data-how-go="2" aria-label="Step 3"></button>
+      </div>
+      <span class="how-slider-counter" aria-live="polite"><span data-how-cur>01</span>/03</span>
+      <button type="button" class="how-slider-btn" data-how-next aria-label="Next step">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m5 3 4 4-4 4"/></svg>
+      </button>
     </div>
   </div>
 </section>
 <script>
   (function () {
-    var steps = document.querySelector('.how-steps');
-    var dots  = document.querySelectorAll('.how-steps-dots span');
-    if (!steps || !dots.length) return;
-    steps.addEventListener('scroll', function () {
-      var w = steps.clientWidth;
-      var i = Math.round(steps.scrollLeft / (w * 0.86));
-      i = Math.max(0, Math.min(dots.length - 1, i));
-      dots.forEach(function (d, idx) { d.classList.toggle('active', idx === i); });
-    }, { passive: true });
+    var slider = document.querySelector('.how-steps');
+    var prevBtn = document.querySelector('[data-how-prev]');
+    var nextBtn = document.querySelector('[data-how-next]');
+    var dots = document.querySelectorAll('[data-how-go]');
+    var counter = document.querySelector('[data-how-cur]');
+    if (!slider || !slider.children.length) return;
+
+    var slides = Array.prototype.slice.call(slider.children);
+    var current = 0;
+
+    function setActive (i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      current = i;
+      dots.forEach(function (d, idx) { d.classList.toggle('is-active', idx === i); });
+      if (counter) counter.textContent = (i + 1).toString().padStart(2, '0');
+      if (prevBtn) prevBtn.classList.toggle('is-disabled', i === 0);
+      if (nextBtn) nextBtn.classList.toggle('is-disabled', i === slides.length - 1);
+    }
+
+    function scrollTo (i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      var target = slides[i];
+      if (!target) return;
+      // Center the slide in viewport
+      var sliderRect = slider.getBoundingClientRect();
+      var targetRect = target.getBoundingClientRect();
+      var delta = (targetRect.left - sliderRect.left) - (sliderRect.width - targetRect.width) / 2;
+      slider.scrollBy({ left: delta, behavior: 'smooth' });
+    }
+
+    // IntersectionObserver tracks which slide is most visible (handles user swipe)
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        var best = null, bestRatio = 0;
+        entries.forEach(function (e) {
+          if (e.intersectionRatio > bestRatio) { bestRatio = e.intersectionRatio; best = e.target; }
+        });
+        if (best) {
+          var idx = slides.indexOf(best);
+          if (idx !== -1) setActive(idx);
+        }
+      }, { root: slider, threshold: [0.5, 0.75, 1] });
+      slides.forEach(function (s) { io.observe(s); });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { scrollTo(current - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { scrollTo(current + 1); });
+    dots.forEach(function (d, idx) {
+      d.addEventListener('click', function () { scrollTo(idx); });
+    });
+
+    setActive(0);
   })();
 </script>
 

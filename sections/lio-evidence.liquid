@@ -32,16 +32,25 @@
 
   .levp .lv-inner { max-width: 1080px; margin: 0 auto; }
   .levp .lv-head { text-align: center; margin-bottom: 28px; }
+  .levp .lv-laurel {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 14px;
+    color: var(--lv-forest);
+    margin-bottom: 14px;
+  }
+  .levp .lv-laurel svg { width: 22px; height: 44px; opacity: 0.9; }
+  .levp .lv-laurel-mark {
+    font-family: var(--lv-mono);
+    font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--lv-f-55);
+    font-weight: 700;
+  }
   .levp .lv-eyebrow {
     font-family: var(--lv-mono);
     font-size: 11px; letter-spacing: 0.22em;
     text-transform: uppercase; color: var(--lv-f-55);
     font-weight: 700; margin-bottom: 12px;
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-  .levp .lv-eyebrow::before {
-    content: ""; width: 6px; height: 6px;
-    background: var(--lv-mint); border-radius: 50%;
+    display: none; /* superseded by laurel mark */
   }
   .levp .lv-h2 {
     margin: 0 0 10px;
@@ -123,7 +132,15 @@
 
 <div class="lv-inner">
   <div class="lv-head">
-    <span class="lv-eyebrow">{{ section.settings.eyebrow | default: 'Lio evidence' }}</span>
+    <div class="lv-laurel" aria-hidden="true">
+      <svg viewBox="0 0 17 35" fill="none">
+        <path d="M2.60396 10.0782C2.63019 12.7275 5.0681 14.8472 5.0681 14.8472C5.0681 14.8472 7.46457 12.6717 7.43993 10.0222C7.41325 7.3697 4.97398 5.25178 4.97398 5.25178C4.97398 5.25178 2.57932 7.42863 2.60396 10.0782ZM1.34556 19.1722C2.78927 21.3977 5.99278 21.9007 5.99278 21.9007C5.99278 21.9007 6.85625 18.7951 5.41254 16.5696C3.96883 14.3441 0.763495 13.8397 0.763495 13.8397C0.763495 13.8397 -0.0997442 16.9469 1.34556 19.1722ZM3.82901 27.3622C6.16621 28.6381 9.23028 27.5709 9.23028 27.5709C9.23028 27.5709 8.50337 24.4335 6.16618 23.1576C3.82898 21.8817 0.764911 22.9489 0.764911 22.9489C0.764911 22.9489 1.49182 26.0862 3.82901 27.3622ZM10.5368 33.3638C13.0903 34.1327 15.868 32.4611 15.868 32.4611C15.868 32.4611 14.504 29.5425 11.9502 28.772C9.39665 28.0031 6.62082 29.6761 6.62082 29.6761C6.62082 29.6761 7.98323 32.5949 10.5368 33.3638ZM9.02056 3.29033C7.3448 5.35644 7.8659 8.53241 7.8659 8.53241C7.8659 8.53241 11.1079 8.36114 12.7836 6.29503C14.4594 4.22891 13.9381 1.05136 13.9381 1.05136C13.9381 1.05136 10.6963 1.22421 9.02056 3.29033Z" stroke="currentColor" stroke-linecap="round"/>
+      </svg>
+      <span class="lv-laurel-mark">{{ section.settings.eyebrow | default: 'Lio Evidence' }}</span>
+      <svg viewBox="0 0 17 35" fill="none">
+        <path d="M14.1756 10.0782C14.1494 12.7275 11.7114 14.8472 11.7114 14.8472C11.7114 14.8472 9.31497 12.6717 9.33961 10.0222C9.36629 7.3697 11.8056 5.25178 11.8056 5.25178C11.8056 5.25178 14.2002 7.42863 14.1756 10.0782ZM15.434 19.1722C13.9903 21.3977 10.7868 21.9007 10.7868 21.9007C10.7868 21.9007 9.92329 18.7951 11.367 16.5696C12.8107 14.3441 16.016 13.8397 16.016 13.8397C16.016 13.8397 16.8793 16.9469 15.434 19.1722ZM12.9505 27.3622C10.6133 28.6381 7.54926 27.5709 7.54926 27.5709C7.54926 27.5709 8.27617 24.4335 10.6134 23.1576C12.9506 21.8817 16.0146 22.9489 16.0146 22.9489C16.0146 22.9489 15.2877 26.0862 12.9505 27.3622ZM6.24277 33.3638C3.68923 34.1327 0.911591 32.4611 0.911591 32.4611C0.911591 32.4611 2.27559 29.5425 4.82935 28.772C7.38289 28.0031 10.1587 29.6761 10.1587 29.6761C10.1587 29.6761 8.79631 32.5949 6.24277 33.3638ZM7.75898 3.29033C9.43474 5.35644 8.91365 8.53241 8.91365 8.53241C8.91365 8.53241 5.67166 8.36114 3.9959 6.29503C2.32014 4.22891 2.84146 1.05136 2.84146 1.05136C2.84146 1.05136 6.08322 1.22421 7.75898 3.29033Z" stroke="currentColor" stroke-linecap="round"/>
+      </svg>
+    </div>
     <h2 class="lv-h2">{{ section.settings.title | default: 'The proof, ' }}<span class="lv-italic">{{ section.settings.title_italic | default: 'third-party verified.' }}</span></h2>
     <p class="lv-sub">{{ section.settings.subtitle | default: 'Every claim on this page is backed by a lab test, a published patent, or an independent study.' }}</p>
   </div>

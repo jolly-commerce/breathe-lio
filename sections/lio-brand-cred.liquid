@@ -1,0 +1,425 @@
+{%- comment -%}
+  Lio · Brand credibility strip.
+  Sits directly under the hero. Provides:
+  1. A geo-localized shipping pill (Amsterdam → user's country, free, X days)
+  2. Four credential buttons that open the brand-story modal
+  3. A modal with the founding story
+{%- endcomment -%}
+
+{%- liquid
+  assign ship_country = localization.country.name | default: 'your country'
+  assign ship_iso = localization.country.iso_code | default: ''
+  case ship_iso
+    when 'NL', 'BE', 'DE', 'LU', 'FR'
+      assign ship_days = '1–2'
+    when 'AT', 'IT', 'ES', 'PT', 'IE', 'DK', 'PL', 'CZ', 'SE', 'FI', 'GR', 'HU', 'SK', 'BG', 'RO', 'HR', 'SI', 'EE', 'LV', 'LT', 'CY'
+      assign ship_days = '2–3'
+    when 'GB', 'CH', 'NO', 'IS', 'MT'
+      assign ship_days = '3–4'
+    when 'US', 'CA'
+      assign ship_days = '5–7'
+    when 'AE', 'SA', 'AU', 'NZ', 'JP', 'SG'
+      assign ship_days = '6–9'
+    else
+      assign ship_days = '4–8'
+  endcase
+-%}
+
+<section class="lbc" id="lio-brand-cred">
+
+<style>
+  .lbc {
+    --lbc-forest: #0b2410;
+    --lbc-mint: #94fca9;
+    --lbc-mint-soft: #cdfee1;
+    --lbc-cream: #fcfefb;
+    --lbc-paper: #f8faf6;
+    --lbc-mono: "iA Writer Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    background: {{ section.settings.bg | default: '#f8faf6' }};
+    border-top: 1px solid rgba(11,36,16,0.06);
+    border-bottom: 1px solid rgba(11,36,16,0.06);
+    padding: 22px 24px;
+    color: var(--lbc-forest);
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  }
+  .lbc *, .lbc *::before, .lbc *::after { box-sizing: border-box; }
+
+  .lbc-inner { max-width: 1100px; margin: 0 auto; }
+
+  /* === GEO SHIPPING PILL === */
+  .lbc-geo {
+    display: flex; align-items: center; gap: 10px;
+    background: #fff;
+    border: 1px solid rgba(11,36,16,0.08);
+    border-radius: 999px;
+    padding: 8px 16px 8px 12px;
+    width: fit-content;
+    margin: 0 auto 18px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--lbc-forest);
+  }
+  .lbc-geo-icon {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--lbc-mint-soft);
+    color: var(--lbc-forest);
+    display: inline-flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .lbc-geo-icon svg { width: 13px; height: 13px; }
+  .lbc-geo strong { font-weight: 700; }
+  .lbc-geo .lbc-free {
+    color: var(--lbc-forest);
+    background: var(--lbc-mint);
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 999px;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* === CRED BUTTONS === */
+  .lbc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .lbc-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 14px 16px;
+    background: #fff;
+    border: 1px solid rgba(11,36,16,0.10);
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    color: var(--lbc-forest);
+    transition: border-color 0.2s, transform 0.2s, background 0.2s;
+  }
+  .lbc-btn:hover {
+    border-color: var(--lbc-forest);
+    transform: translateY(-1px);
+    background: var(--lbc-paper);
+  }
+  .lbc-btn-icon {
+    width: 26px; height: 26px;
+    border-radius: 7px;
+    background: var(--lbc-mint-soft);
+    color: var(--lbc-forest);
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .lbc-btn-icon svg { width: 14px; height: 14px; }
+  .lbc-btn-text {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .lbc-btn-meta {
+    font-family: var(--lbc-mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(11,36,16,0.55);
+    margin-top: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .lbc { padding: 18px 20px; }
+    .lbc-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .lbc-btn { padding: 12px 14px; }
+    .lbc-btn-text { font-size: 12px; }
+    .lbc-geo { font-size: 12px; padding: 7px 14px 7px 10px; flex-wrap: wrap; justify-content: center; text-align: center; }
+  }
+
+  /* === MODAL === */
+  .lbc-modal {
+    position: fixed; inset: 0;
+    background: rgba(11, 36, 16, 0.74);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 240;
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .lbc-modal[aria-hidden="false"] { display: flex; opacity: 1; }
+  .lbc-modal-card {
+    background: var(--lbc-cream);
+    color: var(--lbc-forest);
+    width: 100%;
+    max-width: 720px;
+    max-height: 92vh;
+    border-radius: 18px 18px 0 0;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transform: translateY(24px);
+    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  }
+  .lbc-modal[aria-hidden="false"] .lbc-modal-card { transform: translateY(0); }
+  @media (min-width: 760px) {
+    .lbc-modal { align-items: center; padding: 24px; }
+    .lbc-modal-card { border-radius: 18px; }
+  }
+  .lbc-modal-head {
+    padding: 18px 22px;
+    border-bottom: 1px solid rgba(11,36,16,0.08);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; flex-shrink: 0; background: var(--lbc-cream);
+    position: sticky; top: 0; z-index: 1;
+  }
+  .lbc-modal-head h3 {
+    margin: 0;
+    font-size: 16px; font-weight: 800;
+    color: var(--lbc-forest);
+    letter-spacing: -0.01em;
+  }
+  .lbc-modal-head h3 span {
+    display: inline-block; font-family: var(--lbc-mono);
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(11,36,16,0.55); margin-right: 10px; font-weight: 500;
+  }
+  .lbc-modal-close {
+    background: rgba(11,36,16,0.04); border: 0;
+    width: 34px; height: 34px; border-radius: 50%;
+    cursor: pointer; display: inline-flex;
+    align-items: center; justify-content: center;
+    color: var(--lbc-forest);
+  }
+  .lbc-modal-close:hover { background: rgba(11,36,16,0.08); }
+  .lbc-modal-body {
+    overflow-y: auto; flex: 1;
+    padding: 32px 28px;
+    line-height: 1.65;
+    font-size: 15px;
+    color: rgba(11,36,16,0.85);
+  }
+  .lbc-modal-body h4 {
+    margin: 22px 0 8px;
+    font-size: 13px;
+    font-family: var(--lbc-mono);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(11,36,16,0.55);
+    font-weight: 700;
+  }
+  .lbc-modal-body h4:first-child { margin-top: 0; }
+  .lbc-modal-body p { margin: 0 0 14px; }
+  .lbc-modal-body p strong { color: var(--lbc-forest); font-weight: 600; }
+  .lbc-modal-body em { font-style: italic; color: var(--lbc-forest); }
+  .lbc-modal-body .lbc-pull {
+    margin: 22px 0;
+    padding: 18px 22px;
+    background: var(--lbc-paper);
+    border-left: 3px solid var(--lbc-mint);
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--lbc-forest);
+  }
+  .lbc-modal-body .lbc-pull cite {
+    display: block;
+    margin-top: 10px;
+    font-family: var(--lbc-mono);
+    font-size: 11px;
+    color: rgba(11,36,16,0.55);
+    font-style: normal;
+    letter-spacing: 0.04em;
+  }
+  .lbc-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin: 26px 0;
+    border-top: 1px solid rgba(11,36,16,0.10);
+    border-bottom: 1px solid rgba(11,36,16,0.10);
+  }
+  .lbc-stat {
+    padding: 18px 16px;
+    border-right: 1px solid rgba(11,36,16,0.08);
+  }
+  .lbc-stat:last-child { border-right: none; }
+  .lbc-stat-key {
+    font-family: var(--lbc-mono);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(11,36,16,0.55);
+    margin-bottom: 6px;
+  }
+  .lbc-stat-val {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--lbc-forest);
+    line-height: 1.05;
+  }
+  .lbc-stat-val small {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(11,36,16,0.55);
+    margin-top: 2px;
+  }
+  body.lbc-modal-open { overflow: hidden; }
+  @media (max-width: 600px) {
+    .lbc-modal-body { padding: 22px 20px; }
+    .lbc-stats { grid-template-columns: 1fr; }
+    .lbc-stat { border-right: 0; border-bottom: 1px solid rgba(11,36,16,0.08); }
+    .lbc-stat:last-child { border-bottom: 0; }
+  }
+</style>
+
+<div class="lbc-inner">
+
+  <!-- Geo shipping pill -->
+  <div class="lbc-geo" role="status" aria-live="polite">
+    <span class="lbc-geo-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>
+    </span>
+    <span>From <strong>Amsterdam</strong> → <strong>{{ ship_country }}</strong></span>
+    <span class="lbc-free">Free shipping</span>
+    <span>· {{ ship_days }} working days</span>
+  </div>
+
+  <!-- 4 credential buttons -->
+  <div class="lbc-grid">
+    <button type="button" class="lbc-btn" data-lbc-open>
+      <span class="lbc-btn-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6Z"/><path d="m9 12 2 2 4-4"/></svg>
+      </span>
+      <span class="lbc-btn-text">We invented it.</span>
+      <span class="lbc-btn-meta">The category — Flavored Air</span>
+    </button>
+
+    <button type="button" class="lbc-btn" data-lbc-open>
+      <span class="lbc-btn-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg>
+      </span>
+      <span class="lbc-btn-text">First in Europe.</span>
+      <span class="lbc-btn-meta">Since 2018 — Amsterdam</span>
+    </button>
+
+    <button type="button" class="lbc-btn" data-lbc-open>
+      <span class="lbc-btn-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/><circle cx="12" cy="14" r="2.5"/><path d="M12 16.5v3"/></svg>
+      </span>
+      <span class="lbc-btn-text">We are patented.</span>
+      <span class="lbc-btn-meta">EU Patent EP3784213</span>
+    </button>
+
+    <button type="button" class="lbc-btn" data-lbc-open>
+      <span class="lbc-btn-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M14 18c0-2.5 1.7-4.5 3.5-4.5s3.5 2 3.5 4.5"/></svg>
+      </span>
+      <span class="lbc-btn-text">A family business.</span>
+      <span class="lbc-btn-meta">Built by hand — still is</span>
+    </button>
+  </div>
+
+</div>
+
+<!-- ============= BRAND STORY MODAL ============= -->
+<div class="lbc-modal" id="lbc-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lbc-modal-title">
+  <div class="lbc-modal-card">
+    <div class="lbc-modal-head">
+      <h3 id="lbc-modal-title"><span>Our story</span> Lio, since 2018</h3>
+      <button type="button" class="lbc-modal-close" data-lbc-close aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l10 10M12 2 2 12"/></svg>
+      </button>
+    </div>
+    <div class="lbc-modal-body">
+
+      <h4>Where it started</h4>
+      <p>Lio began in Amsterdam in 2018, in a small workshop on the Prinsengracht. Two of us — brothers — were watching the people closest to us try, and fail, to quit. <strong>The patches addressed half the habit. The chewing gum, less. The vapes, none of the right half.</strong></p>
+
+      <p>What was missing was the <em>ritual</em> — the hand-to-mouth motion, the deep breath, the small pause before going back to whatever was hard. The chemistry was solvable. The behavior wasn't. Nobody had built a tool for that.</p>
+
+      <h4>What we built</h4>
+      <p>Six prototypes, three years of testing, one patent. The result is a wooden mouth diffuser the size of a pen, with a replaceable plant-oil core at the tip. <strong>No battery. No vapor. No nicotine. No combustion.</strong> Just the ritual, kept. The chemistry, kicked.</p>
+
+      <div class="lbc-pull">
+        <p>"We didn't build a vape replacement. We built the half of the habit that nicotine replacement therapy was always missing."</p>
+        <cite>— Founders, 2018</cite>
+      </div>
+
+      <h4>The category we created</h4>
+      <p>We called it <strong>Flavored Air</strong> — because that's what it is. Air drawn through a wooden barrel, picking up plant aromatics from the core at the end. The whole thing exhales as ordinary breath. <strong>Lio was the first product in this category in Europe.</strong> The mouthpiece design is protected under EU Patent EP3784213.</p>
+
+      <div class="lbc-stats">
+        <div class="lbc-stat">
+          <div class="lbc-stat-key">Founded</div>
+          <div class="lbc-stat-val">2018<small>Amsterdam, NL</small></div>
+        </div>
+        <div class="lbc-stat">
+          <div class="lbc-stat-key">Habits broken</div>
+          <div class="lbc-stat-val">150,000+<small>across 50+ countries</small></div>
+        </div>
+        <div class="lbc-stat">
+          <div class="lbc-stat-key">Owned by</div>
+          <div class="lbc-stat-val">Family<small>independent, no investors</small></div>
+        </div>
+      </div>
+
+      <h4>Why a family business</h4>
+      <p>We are not VC-backed. There are no growth-at-all-costs investors pushing us into ad-channels we don't believe in or product lines we don't stand behind. We answer to the people who buy Lio, and to ourselves.</p>
+
+      <p>That means we get to keep the things that matter. <strong>Every order ships from the same Amsterdam warehouse, packed by the same team, since the day we started.</strong> Every email is read by a real person. The design hasn't been changed because a marketing department wanted to "refresh." It's the same wooden barrel, the same patented mouthpiece, the same plant-oil cores — improved, but never compromised.</p>
+
+      <h4>Why we still do it</h4>
+      <p>Because every now and then someone writes us about how Lio got them through a flight, a meeting, a year. <strong>That's what we built it for.</strong> The 150,000+ people on the other end of those orders aren't a customer-base metric to us. They're the reason this company exists.</p>
+
+      <p>If Lio is right for you — welcome. If not, we have a 90-day return policy, prepaid label, no questions asked. We'd rather you try it and send it back than not try at all.</p>
+
+    </div>
+  </div>
+</div>
+
+</section>
+
+<script>
+  (function () {
+    var modal = document.getElementById('lbc-modal');
+    var openBtns = document.querySelectorAll('[data-lbc-open]');
+    if (!modal || !openBtns.length) return;
+
+    function open () {
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lbc-modal-open');
+    }
+    function close () {
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lbc-modal-open');
+    }
+
+    openBtns.forEach(function (b) { b.addEventListener('click', open); });
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) close();
+      if (e.target.closest('[data-lbc-close]')) close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') close();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Lio · Brand cred",
+  "tag": "section",
+  "class": "section-lio-brand-cred",
+  "settings": [
+    { "type": "color", "id": "bg", "label": "Background", "default": "#f8faf6" }
+  ],
+  "presets": [{ "name": "Lio · Brand cred" }],
+  "enabled_on": { "templates": ["page", "index"] }
+}
+{% endschema %}
