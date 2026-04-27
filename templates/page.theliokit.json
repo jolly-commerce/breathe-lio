@@ -25,11 +25,11 @@
         "title_punct": ".",
         "title_mid": "Kick",
         "title_soft": "the bad.",
-        "subhead": "A wooden mouth diffuser for the <strong>hand-to-mouth ritual</strong>. Breathe in natural flavored air, nothing to light, nothing to charge.",
+        "subhead": "A wooden mouth diffuser for the <strong>hand-to-mouth ritual</strong>. Breathe in natural flavored air, nothing to light, nothing to charge. <strong>150,000+ habits broken since 2018.</strong>",
         "cta_label": "Build your kit — €39",
-        "cta_link": "/products/journey-pack-3?view=theliokit",
-        "refill_label": "Already have Lio? <strong>Shop refills.</strong>",
-        "refill_link": "/products/journey-pack-3?view=theliokit",
+        "cta_link": "#shopify-section-main",
+        "refill_label": "<strong>See how it works.</strong>",
+        "refill_link": "#shopify-section-how",
         "show_mobile_proof": true,
         "mobile_proof_stars": "★★★★★",
         "mobile_proof_text": "4.6 · 3,086 reviews",
@@ -54,7 +54,7 @@
         "r11": { "type": "review", "settings": { "quote": "Bought it skeptical. Reached for it 40× the first day without thinking. <mark>Bought two more.</mark>", "name": "Jonas W.", "avatar_letter": "", "avatar_from": "#a8be9a", "avatar_to": "#4e6e49", "stars": 5, "verified": true } },
         "r12": { "type": "review", "settings": { "quote": "Minty on the couch, Cinnamon at my desk. <mark>Different cores, one ritual.</mark>", "name": "Elise P.", "avatar_letter": "", "avatar_from": "#ecd1a1", "avatar_to": "#b08a43", "stars": 5, "verified": true } }
       },
-      "block_order": ["r1", "r2", "r3", "r4", "r5", "r6", "r7", "r8", "r9", "r10", "r11", "r12"],
+      "block_order": ["r1", "r2", "r3", "r4", "r5", "r6"],
       "settings": {
         "stat_display": "150,000",
         "stat_num": 150000,
@@ -81,7 +81,7 @@
         "show_underline": true,
         "subhead": "An all-natural, <strong>nicotine-free wooden mouth diffuser</strong>. Draw on it like you would anything else, the only thing you breathe is flavored air.",
         "cta_label": "Build your kit — €39",
-        "cta_link": "/products/journey-pack-3?view=theliokit",
+        "cta_link": "#shopify-section-main",
         "micro_1": "<strong>€0.88/day</strong>",
         "micro_2": "90-day money-back",
         "micro_3": "Ships from Amsterdam",
@@ -130,7 +130,7 @@
         "lede": "Your habit isn't the <span class=\"redact\">nicotine</span>. It's <strong>the hand to mouth, the deep breath, the pause</strong>. Lio gives you that back — nothing else.",
         "col_no_title": "Lio is not",
         "col_yes_title": "Lio is",
-        "show_faq": true,
+        "show_faq": false,
         "faq_count_label": "10 questions answered",
         "faq_title": "Questions people ask<br><em>before ordering.</em>",
         "faq_cue_closed": "Tap to reveal all answers",
@@ -138,9 +138,9 @@
         "show_cta": true,
         "reframe": "No <span class=\"redact\">nicotine</span>. <em>Just the ritual.</em>",
         "cta_label": "Build your kit — €39",
-        "cta_link": "/products/journey-pack-3?view=theliokit",
+        "cta_link": "#shopify-section-main",
         "ghost_label": "How it works",
-        "ghost_link": "#how"
+        "ghost_link": "#shopify-section-how"
       }
     },
     "flavors": {
@@ -162,7 +162,7 @@
         "aside_2": "Nicotine-free",
         "aside_3": "No vapor",
         "stage_eyebrow": "1 bag · 3 cores · 10 days",
-        "cta_link": "/products/journey-pack-3?view=theliokit",
+        "cta_link": "#shopify-section-main",
         "accent_1_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_25_2026_10_50_11_AM-Photoroom_2.webp?v=1777085540",
         "accent_2_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_25_2026_10_50_11_AM-Photoroom_3.webp?v=1777085541",
         "accent_3_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_25_2026_10_50_11_AM-Photoroom_1.webp?v=1777085540",
@@ -173,24 +173,8 @@
       "type": "lio-science",
       "settings": {}
     },
-    "bigquote": {
-      "type": "lio-bigquote",
-      "settings": {}
-    },
     "costcomp": {
       "type": "lio-costcomp",
-      "settings": {}
-    },
-    "moments": {
-      "type": "lio-moments",
-      "settings": {}
-    },
-    "homepage_reviews": {
-      "type": "lio-homepage-reviews",
-      "settings": {}
-    },
-    "ugc": {
-      "type": "lio-ugc",
       "settings": {}
     },
     "main": {
@@ -236,20 +220,10 @@
     "finalcta": {
       "type": "lio-finalcta",
       "settings": {
-        "cta_link": "/products/journey-pack-3?view=theliokit",
+        "cta_link": "#shopify-section-main",
         "cta_label": "Build your kit — €39",
-        "ghost_link": "#how",
+        "ghost_link": "#shopify-section-how",
         "ghost_label": "Read how it works"
-      }
-    },
-    "loox": {
-      "type": "lio-loox",
-      "settings": {
-        "eyebrow": "From real customers",
-        "heading": "What people are saying.",
-        "bg": "#ffffff",
-        "padding_top": 64,
-        "padding_bottom": 64
       }
     },
     "chrome": {
@@ -258,7 +232,7 @@
         "sticky_title": "Journey Pack · €39",
         "sticky_meta": "<del>€58</del><strong style=\"color: var(--forest); font-weight: 700;\">€0.88/day</strong> · device free",
         "sticky_label": "Build kit",
-        "sticky_link": "/products/journey-pack-3?view=theliokit",
+        "sticky_link": "#shopify-section-main",
         "sticky_aria": "Build your Lio kit"
       }
     }
@@ -266,22 +240,17 @@
   "order": [
     "bootstrap",
     "hero",
-    "social_proof",
     "flavored_air",
+    "social_proof",
     "videowall",
     "how",
     "killblock",
     "flavors",
     "science",
-    "bigquote",
     "costcomp",
-    "moments",
-    "homepage_reviews",
-    "ugc",
     "main",
     "faq",
     "finalcta",
-    "loox",
     "chrome"
   ]
 }
