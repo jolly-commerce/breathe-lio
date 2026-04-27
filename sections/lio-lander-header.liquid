@@ -5,6 +5,11 @@
 {%- endcomment -%}
 
 <style>
+  /* smooth in-page scrolling + sticky-header offset for any anchor target on this lander */
+  html { scroll-behavior: smooth; }
+  body [id^="shopify-section-"] { scroll-margin-top: 92px; }
+  @media (max-width: 900px) { body [id^="shopify-section-"] { scroll-margin-top: 76px; } }
+
   .lio-lh-announce {
     background: {{ section.settings.announce_bg | default: '#1f3a2c' }};
     color: {{ section.settings.announce_color | default: '#f5f1eb' }};
@@ -91,11 +96,76 @@
     transition: background 0.15s ease;
   }
   .lio-lh-cta:hover { background: #2a4d3c; }
+
+  /* country/currency switcher */
+  .lh-locale { position: relative; }
+  .lh-locale > summary {
+    list-style: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px 6px 8px;
+    border: 1px solid rgba(0,0,0,0.10);
+    border-radius: 999px;
+    background: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1f3a2c;
+    line-height: 1;
+    user-select: none;
+  }
+  .lh-locale > summary::-webkit-details-marker { display: none; }
+  .lh-locale > summary:hover { background: rgba(0,0,0,0.03); }
+  .lh-locale-flag {
+    font-size: 16px;
+    line-height: 1;
+  }
+  .lh-locale-code { letter-spacing: 0.04em; }
+  .lh-locale-caret { width: 10px; height: 10px; opacity: 0.6; }
+  .lh-locale-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    list-style: none;
+    margin: 0;
+    padding: 6px;
+    min-width: 220px;
+    z-index: 60;
+  }
+  .lh-locale-menu form { margin: 0; }
+  .lh-locale-menu button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 8px 10px;
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #2a2a2a;
+    text-align: left;
+    font-family: inherit;
+  }
+  .lh-locale-menu button:hover { background: rgba(31,58,44,0.06); }
+  .lh-locale-menu button[aria-current="true"] { background: rgba(31,58,44,0.10); font-weight: 700; color: #1f3a2c; }
+  .lh-locale-menu .lh-locale-flag { font-size: 18px; }
+  .lh-locale-menu .lh-locale-name { flex: 1; }
+  .lh-locale-menu .lh-locale-curr { opacity: 0.6; font-size: 11px; letter-spacing: 0.04em; }
+
   @media (max-width: 900px) {
     .lio-lh-nav { display: none; }
     .lio-lh-bar { padding: 10px 16px; }
     .lio-lh-cta { padding: 8px 14px; font-size: 12px; }
     .lio-lh-logo { font-size: 18px; }
+    .lh-locale > summary { padding: 5px 8px 5px 6px; font-size: 11px; }
+    .lh-locale-menu { min-width: 200px; right: auto; left: 0; }
   }
 </style>
 
@@ -119,8 +189,96 @@
   </nav>
 
   <div class="lio-lh-actions">
+    {%- if section.settings.show_locale and localization.available_countries.size > 1 -%}
+      {%- liquid
+        assign cur = localization.country
+        assign cur_flag = '🌍'
+        case cur.iso_code
+          when 'NL'; assign cur_flag = '🇳🇱'
+          when 'BE'; assign cur_flag = '🇧🇪'
+          when 'DE'; assign cur_flag = '🇩🇪'
+          when 'FR'; assign cur_flag = '🇫🇷'
+          when 'ES'; assign cur_flag = '🇪🇸'
+          when 'AE'; assign cur_flag = '🇦🇪'
+          when 'GB'; assign cur_flag = '🇬🇧'
+          when 'IT'; assign cur_flag = '🇮🇹'
+          when 'PT'; assign cur_flag = '🇵🇹'
+          when 'AT'; assign cur_flag = '🇦🇹'
+          when 'LU'; assign cur_flag = '🇱🇺'
+          when 'IE'; assign cur_flag = '🇮🇪'
+          when 'US'; assign cur_flag = '🇺🇸'
+          when 'CA'; assign cur_flag = '🇨🇦'
+          when 'CH'; assign cur_flag = '🇨🇭'
+          when 'SE'; assign cur_flag = '🇸🇪'
+          when 'DK'; assign cur_flag = '🇩🇰'
+          when 'NO'; assign cur_flag = '🇳🇴'
+          when 'FI'; assign cur_flag = '🇫🇮'
+          when 'PL'; assign cur_flag = '🇵🇱'
+          when 'AU'; assign cur_flag = '🇦🇺'
+        endcase
+      -%}
+      <details class="lh-locale">
+        <summary aria-label="Change country and currency">
+          <span class="lh-locale-flag">{{ cur_flag }}</span>
+          <span class="lh-locale-code">{{ cur.currency.iso_code }}</span>
+          <svg class="lh-locale-caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 4.5 6 8l3-3.5"/></svg>
+        </summary>
+        <ul class="lh-locale-menu">
+          {%- form 'localization', id: 'lh-locale-form' -%}
+            {%- for country in localization.available_countries -%}
+              {%- liquid
+                assign code = country.iso_code
+                assign show = false
+                if section.settings.locale_filter contains code
+                  assign show = true
+                elsif section.settings.locale_filter == blank
+                  assign show = true
+                endif
+
+                assign flag = '🌍'
+                case code
+                  when 'NL'; assign flag = '🇳🇱'
+                  when 'BE'; assign flag = '🇧🇪'
+                  when 'DE'; assign flag = '🇩🇪'
+                  when 'FR'; assign flag = '🇫🇷'
+                  when 'ES'; assign flag = '🇪🇸'
+                  when 'AE'; assign flag = '🇦🇪'
+                  when 'GB'; assign flag = '🇬🇧'
+                  when 'IT'; assign flag = '🇮🇹'
+                  when 'PT'; assign flag = '🇵🇹'
+                  when 'AT'; assign flag = '🇦🇹'
+                  when 'LU'; assign flag = '🇱🇺'
+                  when 'IE'; assign flag = '🇮🇪'
+                  when 'US'; assign flag = '🇺🇸'
+                  when 'CA'; assign flag = '🇨🇦'
+                  when 'CH'; assign flag = '🇨🇭'
+                  when 'SE'; assign flag = '🇸🇪'
+                  when 'DK'; assign flag = '🇩🇰'
+                  when 'NO'; assign flag = '🇳🇴'
+                  when 'FI'; assign flag = '🇫🇮'
+                  when 'PL'; assign flag = '🇵🇱'
+                  when 'AU'; assign flag = '🇦🇺'
+                endcase
+              -%}
+              {%- if show -%}
+                <li>
+                  <button type="submit" name="country_code" value="{{ code }}"
+                          {% if code == cur.iso_code %}aria-current="true"{% endif %}>
+                    <span class="lh-locale-flag">{{ flag }}</span>
+                    <span class="lh-locale-name">{{ country.name }}</span>
+                    <span class="lh-locale-curr">{{ country.currency.iso_code }}</span>
+                  </button>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+            <input type="hidden" name="return_to" value="{{ request.path }}">
+          {%- endform -%}
+        </ul>
+      </details>
+    {%- endif -%}
+
     {%- if section.settings.show_cart -%}
-      <a href="/cart" class="lio-lh-cart" aria-label="Cart">
+      <a href="{{ routes.cart_url }}" class="lio-lh-cart" aria-label="Cart">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
           <line x1="3" y1="6" x2="21" y2="6"/>
@@ -137,6 +295,17 @@
   </div>
 </header>
 
+<script>
+  /* close locale dropdown when clicking outside */
+  (function () {
+    var d = document.querySelector('.lh-locale');
+    if (!d) return;
+    document.addEventListener('click', function (e) {
+      if (!d.contains(e.target)) d.removeAttribute('open');
+    });
+  })();
+</script>
+
 {% schema %}
 {
   "name": "Lio · Lander header",
@@ -152,7 +321,10 @@
     { "type": "url",      "id": "logo_link",  "label": "Logo link",  "info": "Defaults to current page" },
     { "type": "checkbox", "id": "show_cart",  "label": "Show cart icon", "default": true },
     { "type": "text",     "id": "cta_label",  "label": "CTA label",  "default": "Build my kit" },
-    { "type": "url",      "id": "cta_link",   "label": "CTA link",   "info": "Should anchor to the configurator section" }
+    { "type": "url",      "id": "cta_link",   "label": "CTA link",   "info": "Should anchor to the configurator section" },
+    { "type": "header",   "content": "Country / currency switcher" },
+    { "type": "checkbox", "id": "show_locale",   "label": "Show country/currency switcher", "default": true },
+    { "type": "text",     "id": "locale_filter", "label": "Country filter (ISO codes, comma-separated)", "info": "Leave blank to show all available markets. Example: NL,BE,DE,FR,ES,AE", "default": "NL,BE,DE,FR,ES,AE" }
   ],
   "blocks": [
     {

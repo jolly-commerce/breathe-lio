@@ -16,49 +16,13 @@
     "lander_header": {
       "type": "lio-lander-header",
       "blocks": {
-        "n1": {
-          "type": "nav_link",
-          "settings": {
-            "label": "What it is",
-            "anchor": "#shopify-section-flavored_air"
-          }
-        },
-        "n2": {
-          "type": "nav_link",
-          "settings": {
-            "label": "How it works",
-            "anchor": "#shopify-section-how"
-          }
-        },
-        "n3": {
-          "type": "nav_link",
-          "settings": {
-            "label": "Flavors",
-            "anchor": "#shopify-section-flavors"
-          }
-        },
-        "n4": {
-          "type": "nav_link",
-          "settings": {
-            "label": "Lio evidence",
-            "anchor": "#shopify-section-science"
-          }
-        },
-        "n5": {
-          "type": "nav_link",
-          "settings": {
-            "label": "FAQ",
-            "anchor": "#shopify-section-faq"
-          }
-        }
+        "n1": { "type": "nav_link", "settings": { "label": "What it is",   "anchor": "#shopify-section-flavored_air" } },
+        "n2": { "type": "nav_link", "settings": { "label": "How it works", "anchor": "#shopify-section-how" } },
+        "n3": { "type": "nav_link", "settings": { "label": "Flavors",      "anchor": "#shopify-section-flavors" } },
+        "n4": { "type": "nav_link", "settings": { "label": "Lio evidence", "anchor": "#shopify-section-science" } },
+        "n5": { "type": "nav_link", "settings": { "label": "FAQ",          "anchor": "#shopify-section-faq" } }
       },
-      "block_order": [
-        "n1",
-        "n2",
-        "n3",
-        "n4",
-        "n5"
-      ],
+      "block_order": ["n1", "n2", "n3", "n4", "n5"],
       "settings": {
         "announce_text": "<p>We invented Flavored Air. <strong>Patented &amp; made in Amsterdam since 2018.</strong></p>",
         "announce_bg": "#1f3a2c",
@@ -66,7 +30,9 @@
         "logo_text": "Lio",
         "show_cart": true,
         "cta_label": "Build my kit",
-        "cta_link": "#shopify-section-main"
+        "cta_link": "#shopify-section-main",
+        "show_locale": true,
+        "locale_filter": "NL,BE,DE,FR,ES,AE"
       }
     },
     "hero": {
@@ -97,159 +63,20 @@
     "social_proof": {
       "type": "lio-social-proof",
       "blocks": {
-        "r1": {
-          "type": "review",
-          "settings": {
-            "quote": "Two years in and Lio is still the first thing I reach for. It just became <mark>part of how I live now.</mark>",
-            "name": "Natascha H.",
-            "avatar_letter": "",
-            "avatar_from": "#c4a57b",
-            "avatar_to": "#8b6a47",
-            "stars": 5,
-            "verified": true
-          }
-        },
-        "r2": {
-          "type": "review",
-          "settings": {
-            "quote": "Skeptical at first — how could a wooden stick do anything? Now <mark>I've recommended it to four friends.</mark>",
-            "name": "Emma F.",
-            "avatar_letter": "",
-            "avatar_from": "#e8b4a0",
-            "avatar_to": "#b07d6d",
-            "stars": 5,
-            "verified": true
-          }
-        },
-        "r3": {
-          "type": "review",
-          "settings": {
-            "quote": "The site, the product, the promises — <mark>all real.</mark> I use mine every single day now.",
-            "name": "Pedro C.",
-            "avatar_letter": "",
-            "avatar_from": "#9ab8d1",
-            "avatar_to": "#5a7896",
-            "stars": 5,
-            "verified": true
-          }
-        },
-        "r4": {
-          "type": "review",
-          "settings": {
-            "quote": "The resistance, the flavor, the ritual — <mark>perfectly satisfying.</mark> I'm genuinely happy with myself.",
-            "name": "Michelle K.",
-            "avatar_letter": "",
-            "avatar_from": "#94fca9",
-            "avatar_to": "#4fb36a",
-            "stars": 5,
-            "verified": true
-          }
-        },
-        "r5": {
-          "type": "review",
-          "settings": {
-            "quote": "Mint, Cinnamon, Cold Turkey — my three favourites. <mark>Very good and satisfying.</mark>",
-            "name": "Thomas B.",
-            "avatar_letter": "",
-            "avatar_from": "#d4a5b8",
-            "avatar_to": "#8a5d7a",
-            "stars": 5,
-            "verified": true
-          }
-        },
-        "r6": {
-          "type": "review",
-          "settings": {
-            "quote": "First week was weird. Now I don't know how I got through meetings without it. <mark>It's just there, quiet, in my pocket.</mark>",
-            "name": "Anna K.",
-            "avatar_letter": "",
-            "avatar_from": "#b9c9a6",
-            "avatar_to": "#6e8a52",
-            "stars": 5,
-            "verified": true
-          }
-        },
-        "r7": {
-          "type": "review",
-          "settings": {
-            "quote": "Flew Amsterdam to Dubai with it in hand the whole way. <mark>No one blinked. No one stopped me.</mark>",
-            "name": "Sofia M.",
-            "avatar_letter": "",
-            "avatar_from": "#eac488",
-            "avatar_to": "#b07a2e",
-            "stars": 5,
-            "verified": true
-          }
-        },
-        "r8": {
-          "type": "review",
-          "settings": {
-            "quote": "Cinnamon is unreal. My partner keeps stealing it. <mark>We ordered a second one.</mark>",
-            "name": "David L.",
-            "avatar_letter": "",
-            "avatar_from": "#d4a05a",
-            "avatar_to": "#7a4b1b",
-            "stars": 5,
-            "verified": true
-          }
-        },
-        "r9": {
-          "type": "review",
-          "settings": {
-            "quote": "Eight months into changing the habit and Lio is what replaced the hand motion. <mark>That was the whole game.</mark>",
-            "name": "Marco R.",
-            "avatar_letter": "",
-            "avatar_from": "#8faec3",
-            "avatar_to": "#3f6687",
-            "stars": 5,
-            "verified": true
-          }
-        },
-        "r10": {
-          "type": "review",
-          "settings": {
-            "quote": "The weight in the hand is the thing. Heavier than you'd think. <mark>Feels like a real object, not a gadget.</mark>",
-            "name": "Clara B.",
-            "avatar_letter": "",
-            "avatar_from": "#c8a1b1",
-            "avatar_to": "#76445d",
-            "stars": 5,
-            "verified": true
-          }
-        },
-        "r11": {
-          "type": "review",
-          "settings": {
-            "quote": "Bought it skeptical. Reached for it 40× the first day without thinking. <mark>Bought two more.</mark>",
-            "name": "Jonas W.",
-            "avatar_letter": "",
-            "avatar_from": "#a8be9a",
-            "avatar_to": "#4e6e49",
-            "stars": 5,
-            "verified": true
-          }
-        },
-        "r12": {
-          "type": "review",
-          "settings": {
-            "quote": "Minty on the couch, Cinnamon at my desk. <mark>Different cores, one ritual.</mark>",
-            "name": "Elise P.",
-            "avatar_letter": "",
-            "avatar_from": "#ecd1a1",
-            "avatar_to": "#b08a43",
-            "stars": 5,
-            "verified": true
-          }
-        }
+        "r1":  { "type": "review", "settings": { "quote": "Two years in and Lio is still the first thing I reach for. It just became <mark>part of how I live now.</mark>", "name": "Natascha H.", "avatar_letter": "", "avatar_from": "#c4a57b", "avatar_to": "#8b6a47", "stars": 5, "verified": true } },
+        "r2":  { "type": "review", "settings": { "quote": "Skeptical at first — how could a wooden stick do anything? Now <mark>I've recommended it to four friends.</mark>", "name": "Emma F.", "avatar_letter": "", "avatar_from": "#e8b4a0", "avatar_to": "#b07d6d", "stars": 5, "verified": true } },
+        "r3":  { "type": "review", "settings": { "quote": "The site, the product, the promises — <mark>all real.</mark> I use mine every single day now.", "name": "Pedro C.", "avatar_letter": "", "avatar_from": "#9ab8d1", "avatar_to": "#5a7896", "stars": 5, "verified": true } },
+        "r4":  { "type": "review", "settings": { "quote": "The resistance, the flavor, the ritual — <mark>perfectly satisfying.</mark> I'm genuinely happy with myself.", "name": "Michelle K.", "avatar_letter": "", "avatar_from": "#94fca9", "avatar_to": "#4fb36a", "stars": 5, "verified": true } },
+        "r5":  { "type": "review", "settings": { "quote": "Mint, Cinnamon, Cold Turkey — my three favourites. <mark>Very good and satisfying.</mark>", "name": "Thomas B.", "avatar_letter": "", "avatar_from": "#d4a5b8", "avatar_to": "#8a5d7a", "stars": 5, "verified": true } },
+        "r6":  { "type": "review", "settings": { "quote": "First week was weird. Now I don't know how I got through meetings without it. <mark>It's just there, quiet, in my pocket.</mark>", "name": "Anna K.", "avatar_letter": "", "avatar_from": "#b9c9a6", "avatar_to": "#6e8a52", "stars": 5, "verified": true } },
+        "r7":  { "type": "review", "settings": { "quote": "Flew Amsterdam to Dubai with it in hand the whole way. <mark>No one blinked. No one stopped me.</mark>", "name": "Sofia M.", "avatar_letter": "", "avatar_from": "#eac488", "avatar_to": "#b07a2e", "stars": 5, "verified": true } },
+        "r8":  { "type": "review", "settings": { "quote": "Cinnamon is unreal. My partner keeps stealing it. <mark>We ordered a second one.</mark>", "name": "David L.", "avatar_letter": "", "avatar_from": "#d4a05a", "avatar_to": "#7a4b1b", "stars": 5, "verified": true } },
+        "r9":  { "type": "review", "settings": { "quote": "Eight months into changing the habit and Lio is what replaced the hand motion. <mark>That was the whole game.</mark>", "name": "Marco R.", "avatar_letter": "", "avatar_from": "#8faec3", "avatar_to": "#3f6687", "stars": 5, "verified": true } },
+        "r10": { "type": "review", "settings": { "quote": "The weight in the hand is the thing. Heavier than you'd think. <mark>Feels like a real object, not a gadget.</mark>", "name": "Clara B.", "avatar_letter": "", "avatar_from": "#c8a1b1", "avatar_to": "#76445d", "stars": 5, "verified": true } },
+        "r11": { "type": "review", "settings": { "quote": "Bought it skeptical. Reached for it 40× the first day without thinking. <mark>Bought two more.</mark>", "name": "Jonas W.", "avatar_letter": "", "avatar_from": "#a8be9a", "avatar_to": "#4e6e49", "stars": 5, "verified": true } },
+        "r12": { "type": "review", "settings": { "quote": "Minty on the couch, Cinnamon at my desk. <mark>Different cores, one ritual.</mark>", "name": "Elise P.", "avatar_letter": "", "avatar_from": "#ecd1a1", "avatar_to": "#b08a43", "stars": 5, "verified": true } }
       },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "r4",
-        "r5",
-        "r6"
-      ],
+      "block_order": ["r1", "r2", "r3", "r4", "r5", "r6"],
       "settings": {
         "stat_display": "150,000",
         "stat_num": 150000,
@@ -263,45 +90,12 @@
     "flavored_air": {
       "type": "lio-flavored-air",
       "blocks": {
-        "t1": {
-          "type": "trust",
-          "settings": {
-            "icon": "patent",
-            "title": "Patented design",
-            "sub": "Invented in 2018"
-          }
-        },
-        "t2": {
-          "type": "trust",
-          "settings": {
-            "icon": "flask",
-            "title": "3rd-party tested",
-            "sub": "Independent toxicology"
-          }
-        },
-        "t3": {
-          "type": "trust",
-          "settings": {
-            "icon": "leaf",
-            "title": "Nicotine-free",
-            "sub": "Zero addictive substances"
-          }
-        },
-        "t4": {
-          "type": "trust",
-          "settings": {
-            "icon": "bolt-off",
-            "title": "Battery-free",
-            "sub": "No charging, no vapor"
-          }
-        }
+        "t1": { "type": "trust", "settings": { "icon": "patent",   "title": "Patented design",  "sub": "Invented in 2018" } },
+        "t2": { "type": "trust", "settings": { "icon": "flask",    "title": "3rd-party tested", "sub": "Independent toxicology" } },
+        "t3": { "type": "trust", "settings": { "icon": "leaf",     "title": "Nicotine-free",    "sub": "Zero addictive substances" } },
+        "t4": { "type": "trust", "settings": { "icon": "bolt-off", "title": "Battery-free",     "sub": "No charging, no vapor" } }
       },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3",
-        "t4"
-      ],
+      "block_order": ["t1", "t2", "t3", "t4"],
       "settings": {
         "eyebrow": "Invented in Amsterdam · Since 2018",
         "title_line_1": "Europe's first",
@@ -330,169 +124,28 @@
     "killblock": {
       "type": "lio-killblock",
       "blocks": {
-        "n1": {
-          "type": "item",
-          "settings": {
-            "column": "negative",
-            "text": "A <span class=\"redact\">cigarette</span>"
-          }
-        },
-        "n2": {
-          "type": "item",
-          "settings": {
-            "column": "negative",
-            "text": "A <span class=\"redact\">vape</span>"
-          }
-        },
-        "n3": {
-          "type": "item",
-          "settings": {
-            "column": "negative",
-            "text": "Vapor or smoke"
-          }
-        },
-        "n4": {
-          "type": "item",
-          "settings": {
-            "column": "negative",
-            "text": "<span class=\"redact\">Addictive</span>"
-          }
-        },
-        "n5": {
-          "type": "item",
-          "settings": {
-            "column": "negative",
-            "text": "Disposable"
-          }
-        },
-        "p1": {
-          "type": "item",
-          "settings": {
-            "column": "positive",
-            "text": "High-quality wood"
-          }
-        },
-        "p2": {
-          "type": "item",
-          "settings": {
-            "column": "positive",
-            "text": "Natural ingredients"
-          }
-        },
-        "p3": {
-          "type": "item",
-          "settings": {
-            "column": "positive",
-            "text": "A menthol throat hit"
-          }
-        },
-        "p4": {
-          "type": "item",
-          "settings": {
-            "column": "positive",
-            "text": "Usable anywhere"
-          }
-        },
-        "p5": {
-          "type": "item",
-          "settings": {
-            "column": "positive",
-            "text": "Refillable forever"
-          }
-        },
-        "q1": {
-          "type": "question",
-          "settings": {
-            "q": "Will it feel like what I'm used to?",
-            "a": "Partly. The menthol cores give a real <strong>cool throat hit</strong> on the inhale — the physical sensation is there. What's not there is the <span class=\"redact\">nicotine</span> kick. Think of it as the feeling without the substance."
-          }
-        },
-        "q2": {
-          "type": "question",
-          "settings": {
-            "q": "Is this a <span class=\"redact\">vape</span>?",
-            "a": "No. A <strong>wooden aromatherapy diffuser.</strong> No battery, no coil, no liquid, no heating element. You breathe ordinary air through a wooden mouthpiece — the plant-oil core at the end gives it flavor and a cool menthol sensation."
-          }
-        },
-        "q3": {
-          "type": "question",
-          "settings": {
-            "q": "Will this change my habit for me?",
-            "a": "Honest answer: <strong>willpower isn't included in the box.</strong> Lio handles the hand-to-mouth, the deep breath, the pause — the behavioral half nothing else covers. You still bring the decision. Together, it gets much easier."
-          }
-        },
-        "q4": {
-          "type": "question",
-          "settings": {
-            "q": "€39 — is it worth it?",
-            "a": "Less than a month of packs. The wooden body is <strong>yours to keep forever</strong> — only the cores refill (~€12/month). Most people break even inside three weeks."
-          }
-        },
-        "q5": {
-          "type": "question",
-          "settings": {
-            "q": "What if it doesn't work for me?",
-            "a": "Try it for <strong>30 days</strong>. Use it the way it's meant to be used — every time you'd reach for your old habit. If the ritual doesn't land, <strong>full refund, used or not.</strong>"
-          }
-        },
-        "q6": {
-          "type": "question",
-          "settings": {
-            "q": "How long does one core last?",
-            "a": "Around <strong>7–10 days for a light user, 3–5 days if you use it heavily.</strong> The wooden body stays with you; only the core changes."
-          }
-        },
-        "q7": {
-          "type": "question",
-          "settings": {
-            "q": "What's actually in the cores?",
-            "a": "Medical-grade polyester fiber infused with <strong>food-safe plant essential oils</strong> — peppermint, cinnamon, mango, orange, depending on the variant. Third-party tested, every batch."
-          }
-        },
-        "q8": {
-          "type": "question",
-          "settings": {
-            "q": "Can I use it on a plane or at work?",
-            "a": "Yes. No smoke, no vapor, no smell, no electronics. Customers use it on flights, in offices, cinemas, in bed next to their kids."
-          }
-        },
-        "q9": {
-          "type": "question",
-          "settings": {
-            "q": "How fast does it arrive?",
-            "a": "Shipped from the Netherlands. <strong>2–3 working days across Europe, 4–8 days outside.</strong> Free worldwide, no minimum. Tracking link by email."
-          }
-        },
-        "q10": {
-          "type": "question",
-          "settings": {
-            "q": "I've never smoked. Can I still use Lio?",
-            "a": "Absolutely. Many customers use Lio just for the ritual — a mindful pause during work, a calming breath before bed. <strong>No ex-smoker card required.</strong>"
-          }
-        }
+        "n1": { "type": "item", "settings": { "column": "negative", "text": "A <span class=\"redact\">cigarette</span>" } },
+        "n2": { "type": "item", "settings": { "column": "negative", "text": "A <span class=\"redact\">vape</span>" } },
+        "n3": { "type": "item", "settings": { "column": "negative", "text": "Vapor or smoke" } },
+        "n4": { "type": "item", "settings": { "column": "negative", "text": "<span class=\"redact\">Addictive</span>" } },
+        "n5": { "type": "item", "settings": { "column": "negative", "text": "Disposable" } },
+        "p1": { "type": "item", "settings": { "column": "positive", "text": "High-quality wood" } },
+        "p2": { "type": "item", "settings": { "column": "positive", "text": "Natural ingredients" } },
+        "p3": { "type": "item", "settings": { "column": "positive", "text": "A menthol throat hit" } },
+        "p4": { "type": "item", "settings": { "column": "positive", "text": "Usable anywhere" } },
+        "p5": { "type": "item", "settings": { "column": "positive", "text": "Refillable forever" } },
+        "q1":  { "type": "question", "settings": { "q": "Will it feel like what I'm used to?", "a": "Partly. The menthol cores give a real <strong>cool throat hit</strong> on the inhale — the physical sensation is there. What's not there is the <span class=\"redact\">nicotine</span> kick. Think of it as the feeling without the substance." } },
+        "q2":  { "type": "question", "settings": { "q": "Is this a <span class=\"redact\">vape</span>?", "a": "No. A <strong>wooden aromatherapy diffuser.</strong> No battery, no coil, no liquid, no heating element. You breathe ordinary air through a wooden mouthpiece — the plant-oil core at the end gives it flavor and a cool menthol sensation." } },
+        "q3":  { "type": "question", "settings": { "q": "Will this change my habit for me?", "a": "Honest answer: <strong>willpower isn't included in the box.</strong> Lio handles the hand-to-mouth, the deep breath, the pause — the behavioral half nothing else covers. You still bring the decision. Together, it gets much easier." } },
+        "q4":  { "type": "question", "settings": { "q": "€39 — is it worth it?", "a": "Less than a month of packs. The wooden body is <strong>yours to keep forever</strong> — only the cores refill (~€12/month). Most people break even inside three weeks." } },
+        "q5":  { "type": "question", "settings": { "q": "What if it doesn't work for me?", "a": "Try it for <strong>30 days</strong>. Use it the way it's meant to be used — every time you'd reach for your old habit. If the ritual doesn't land, <strong>full refund, used or not.</strong>" } },
+        "q6":  { "type": "question", "settings": { "q": "How long does one core last?", "a": "Around <strong>7–10 days for a light user, 3–5 days if you use it heavily.</strong> The wooden body stays with you; only the core changes." } },
+        "q7":  { "type": "question", "settings": { "q": "What's actually in the cores?", "a": "Medical-grade polyester fiber infused with <strong>food-safe plant essential oils</strong> — peppermint, cinnamon, mango, orange, depending on the variant. Third-party tested, every batch." } },
+        "q8":  { "type": "question", "settings": { "q": "Can I use it on a plane or at work?", "a": "Yes. No smoke, no vapor, no smell, no electronics. Customers use it on flights, in offices, cinemas, in bed next to their kids." } },
+        "q9":  { "type": "question", "settings": { "q": "How fast does it arrive?", "a": "Shipped from the Netherlands. <strong>2–3 working days across Europe, 4–8 days outside.</strong> Free worldwide, no minimum. Tracking link by email." } },
+        "q10": { "type": "question", "settings": { "q": "I've never smoked. Can I still use Lio?", "a": "Absolutely. Many customers use Lio just for the ritual — a mindful pause during work, a calming breath before bed. <strong>No ex-smoker card required.</strong>" } }
       },
-      "block_order": [
-        "n1",
-        "n2",
-        "n3",
-        "n4",
-        "n5",
-        "p1",
-        "p2",
-        "p3",
-        "p4",
-        "p5",
-        "q1",
-        "q2",
-        "q3",
-        "q4",
-        "q5",
-        "q6",
-        "q7",
-        "q8",
-        "q9",
-        "q10"
-      ],
+      "block_order": ["n1","n2","n3","n4","n5","p1","p2","p3","p4","p5","q1","q2","q3","q4","q5","q6","q7","q8","q9","q10"],
       "settings": {
         "eyebrow": "Straight answers",
         "headline": "Not a <span class=\"redact\">vape</span>. Not a <span class=\"redact\">cigarette</span>.<br>Just <em>flavored air.</em>",
@@ -515,207 +168,14 @@
     "flavors": {
       "type": "lio-flavors",
       "blocks": {
-        "f1": {
-          "type": "flavor",
-          "settings": {
-            "tab_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Mini_Minty_Magic.webp?v=1777086315",
-            "tab_name": "Minty Magic",
-            "tab_badge": "Bestseller",
-            "tab_badge_style": "default",
-            "tint_from": "#d8f5e1",
-            "tint_to": "#a8dfbb",
-            "hero_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Minty_Magic_9b8680d4-2bbf-4c62-a118-57026a52ad21.png?v=1777086252",
-            "flag_text": "Bestseller",
-            "flag_style": "default",
-            "title_pre": "Minty",
-            "title_italic": "Magic.",
-            "desc": "Cool peppermint, clean finish. Where nine out of ten start.",
-            "bot_1": "Lemon",
-            "bot_2": "Peppermint",
-            "bot_3": "",
-            "strength_label": "Strength",
-            "strength_level": 3,
-            "strength_value": "3 / 5",
-            "feel_label": "Feel",
-            "feel_level": 4,
-            "feel_value": "Cool",
-            "sweet_label": "Sweetness",
-            "sweet_level": 1,
-            "sweet_value": "Dry",
-            "cta_label": "Build your kit",
-            "price": "€8,95",
-            "price_meta": "· 3 cores · 10 days · €0,90/day"
-          }
-        },
-        "f2": {
-          "type": "flavor",
-          "settings": {
-            "tab_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Peppery_Mint.webp?v=1777086315",
-            "tab_name": "Peppery Mint",
-            "tab_badge": "Strongest",
-            "tab_badge_style": "default",
-            "tint_from": "#c8e0d2",
-            "tint_to": "#7fb89a",
-            "hero_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Cold_Turkey_6f4148b7-321d-4a5e-a923-1dce7a693c3e.png?v=1777086250",
-            "flag_text": "For cold-turkey days",
-            "flag_style": "default",
-            "title_pre": "Peppery",
-            "title_italic": "Mint.",
-            "desc": "Sharper hit. Built for the days the craving fights back.",
-            "bot_1": "Eucalyptus",
-            "bot_2": "Peppermint",
-            "bot_3": "Black pepper",
-            "strength_label": "Strength",
-            "strength_level": 5,
-            "strength_value": "5 / 5",
-            "feel_label": "Feel",
-            "feel_level": 5,
-            "feel_value": "Sharp",
-            "sweet_label": "Sweetness",
-            "sweet_level": 1,
-            "sweet_value": "Dry",
-            "cta_label": "Build your kit",
-            "price": "€8,95",
-            "price_meta": "· 3 cores · 10 days · €0,90/day"
-          }
-        },
-        "f3": {
-          "type": "flavor",
-          "settings": {
-            "tab_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Mini_Cinnamon_Spice.webp?v=1777086315",
-            "tab_name": "Cinnamon Spice",
-            "tab_badge": "",
-            "tab_badge_style": "default",
-            "tint_from": "#f3dcc1",
-            "tint_to": "#e8c8a0",
-            "hero_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Cinnamon_Spice_90440616-1cda-44ad-a674-eef9fd1f789d.png?v=1777086250",
-            "flag_text": "",
-            "flag_style": "default",
-            "title_pre": "Cinnamon",
-            "title_italic": "Spice.",
-            "desc": "Ceylon cinnamon with a hint of vanilla. Warm, not sweet.",
-            "bot_1": "Natural flavors",
-            "bot_2": "Peppermint",
-            "bot_3": "",
-            "strength_label": "Strength",
-            "strength_level": 4,
-            "strength_value": "4 / 5",
-            "feel_label": "Feel",
-            "feel_level": 2,
-            "feel_value": "Warm",
-            "sweet_label": "Sweetness",
-            "sweet_level": 2,
-            "sweet_value": "Soft",
-            "cta_label": "Build your kit",
-            "price": "€8,95",
-            "price_meta": "· 3 cores · 10 days · €0,90/day"
-          }
-        },
-        "f4": {
-          "type": "flavor",
-          "settings": {
-            "tab_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Mini_Razzy_Berry.webp?v=1777086315",
-            "tab_name": "Razzy Berry",
-            "tab_badge": "Mild",
-            "tab_badge_style": "warn",
-            "tint_from": "#fad0d9",
-            "tint_to": "#f0b8c8",
-            "hero_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/RazzyBerry.png?v=1777086252",
-            "flag_text": "Mild flavor",
-            "flag_style": "warn",
-            "title_pre": "Razzy",
-            "title_italic": "Berry.",
-            "desc": "Ripe raspberry, tart citrus finish. Light — never candy.",
-            "bot_1": "Natural flavors",
-            "bot_2": "",
-            "bot_3": "",
-            "strength_label": "Strength",
-            "strength_level": 2,
-            "strength_value": "2 / 5",
-            "feel_label": "Feel",
-            "feel_level": 3,
-            "feel_value": "Bright",
-            "sweet_label": "Sweetness",
-            "sweet_level": 3,
-            "sweet_value": "Tart",
-            "cta_label": "Build your kit",
-            "price": "€8,95",
-            "price_meta": "· 3 cores · 10 days · €0,90/day"
-          }
-        },
-        "f5": {
-          "type": "flavor",
-          "settings": {
-            "tab_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Mini_Mango_Passion.webp?v=1777086315",
-            "tab_name": "Mango Passion",
-            "tab_badge": "Mild",
-            "tab_badge_style": "warn",
-            "tint_from": "#fde5b8",
-            "tint_to": "#ffd998",
-            "hero_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Mango_Passion_e70f3b91-cb5d-40a8-908a-46ecd57c73db.png?v=1777086252",
-            "flag_text": "Mild flavor",
-            "flag_style": "warn",
-            "title_pre": "Mango",
-            "title_italic": "Passion.",
-            "desc": "Ripe mango over passionfruit. Subtle — not loud.",
-            "bot_1": "Natural flavors",
-            "bot_2": "",
-            "bot_3": "",
-            "strength_label": "Strength",
-            "strength_level": 2,
-            "strength_value": "2 / 5",
-            "feel_label": "Feel",
-            "feel_level": 2,
-            "feel_value": "Soft",
-            "sweet_label": "Sweetness",
-            "sweet_level": 4,
-            "sweet_value": "Fruity",
-            "cta_label": "Build your kit",
-            "price": "€8,95",
-            "price_meta": "· 3 cores · 10 days · €0,90/day"
-          }
-        },
-        "f6": {
-          "type": "flavor",
-          "settings": {
-            "tab_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Mini_Ohh_My_Orange.webp?v=1777086315",
-            "tab_name": "Ohh My Orange",
-            "tab_badge": "",
-            "tab_badge_style": "default",
-            "tint_from": "#ffd9bf",
-            "tint_to": "#ffc098",
-            "hero_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Ohh_My_Orange_2602fc26-c4f9-4d4a-8107-8be6ebeec089.png?v=1777086251",
-            "flag_text": "",
-            "flag_style": "default",
-            "title_pre": "Ohh My",
-            "title_italic": "Orange.",
-            "desc": "Valencia peel, clean citrus base. Bright afternoon lift.",
-            "bot_1": "Sweet orange",
-            "bot_2": "",
-            "bot_3": "",
-            "strength_label": "Strength",
-            "strength_level": 3,
-            "strength_value": "3 / 5",
-            "feel_label": "Feel",
-            "feel_level": 3,
-            "feel_value": "Zesty",
-            "sweet_label": "Sweetness",
-            "sweet_level": 3,
-            "sweet_value": "Citrus",
-            "cta_label": "Build your kit",
-            "price": "€8,95",
-            "price_meta": "· 3 cores · 10 days · €0,90/day"
-          }
-        }
+        "f1": { "type": "flavor", "settings": { "tab_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Mini_Minty_Magic.webp?v=1777086315", "tab_name": "Minty Magic", "tab_badge": "Bestseller", "tab_badge_style": "default", "tint_from": "#d8f5e1", "tint_to": "#a8dfbb", "hero_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Minty_Magic_9b8680d4-2bbf-4c62-a118-57026a52ad21.png?v=1777086252", "flag_text": "Bestseller", "flag_style": "default", "title_pre": "Minty", "title_italic": "Magic.", "desc": "Cool peppermint, clean finish. Where nine out of ten start.", "bot_1": "Lemon", "bot_2": "Peppermint", "bot_3": "", "strength_label": "Strength", "strength_level": 3, "strength_value": "3 / 5", "feel_label": "Feel", "feel_level": 4, "feel_value": "Cool", "sweet_label": "Sweetness", "sweet_level": 1, "sweet_value": "Dry", "cta_label": "Build your kit", "price": "€8,95", "price_meta": "· 3 cores · 10 days · €0,90/day" } },
+        "f2": { "type": "flavor", "settings": { "tab_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Peppery_Mint.webp?v=1777086315", "tab_name": "Peppery Mint", "tab_badge": "Strongest", "tab_badge_style": "default", "tint_from": "#c8e0d2", "tint_to": "#7fb89a", "hero_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Cold_Turkey_6f4148b7-321d-4a5e-a923-1dce7a693c3e.png?v=1777086250", "flag_text": "For cold-turkey days", "flag_style": "default", "title_pre": "Peppery", "title_italic": "Mint.", "desc": "Sharper hit. Built for the days the craving fights back.", "bot_1": "Eucalyptus", "bot_2": "Peppermint", "bot_3": "Black pepper", "strength_label": "Strength", "strength_level": 5, "strength_value": "5 / 5", "feel_label": "Feel", "feel_level": 5, "feel_value": "Sharp", "sweet_label": "Sweetness", "sweet_level": 1, "sweet_value": "Dry", "cta_label": "Build your kit", "price": "€8,95", "price_meta": "· 3 cores · 10 days · €0,90/day" } },
+        "f3": { "type": "flavor", "settings": { "tab_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Mini_Cinnamon_Spice.webp?v=1777086315", "tab_name": "Cinnamon Spice", "tab_badge": "", "tab_badge_style": "default", "tint_from": "#f3dcc1", "tint_to": "#e8c8a0", "hero_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Cinnamon_Spice_90440616-1cda-44ad-a674-eef9fd1f789d.png?v=1777086250", "flag_text": "", "flag_style": "default", "title_pre": "Cinnamon", "title_italic": "Spice.", "desc": "Ceylon cinnamon with a hint of vanilla. Warm, not sweet.", "bot_1": "Natural flavors", "bot_2": "Peppermint", "bot_3": "", "strength_label": "Strength", "strength_level": 4, "strength_value": "4 / 5", "feel_label": "Feel", "feel_level": 2, "feel_value": "Warm", "sweet_label": "Sweetness", "sweet_level": 2, "sweet_value": "Soft", "cta_label": "Build your kit", "price": "€8,95", "price_meta": "· 3 cores · 10 days · €0,90/day" } },
+        "f4": { "type": "flavor", "settings": { "tab_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Mini_Razzy_Berry.webp?v=1777086315", "tab_name": "Razzy Berry", "tab_badge": "Mild", "tab_badge_style": "warn", "tint_from": "#fad0d9", "tint_to": "#f0b8c8", "hero_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/RazzyBerry.png?v=1777086252", "flag_text": "Mild flavor", "flag_style": "warn", "title_pre": "Razzy", "title_italic": "Berry.", "desc": "Ripe raspberry, tart citrus finish. Light — never candy.", "bot_1": "Natural flavors", "bot_2": "", "bot_3": "", "strength_label": "Strength", "strength_level": 2, "strength_value": "2 / 5", "feel_label": "Feel", "feel_level": 3, "feel_value": "Bright", "sweet_label": "Sweetness", "sweet_level": 3, "sweet_value": "Tart", "cta_label": "Build your kit", "price": "€8,95", "price_meta": "· 3 cores · 10 days · €0,90/day" } },
+        "f5": { "type": "flavor", "settings": { "tab_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Mini_Mango_Passion.webp?v=1777086315", "tab_name": "Mango Passion", "tab_badge": "Mild", "tab_badge_style": "warn", "tint_from": "#fde5b8", "tint_to": "#ffd998", "hero_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Mango_Passion_e70f3b91-cb5d-40a8-908a-46ecd57c73db.png?v=1777086252", "flag_text": "Mild flavor", "flag_style": "warn", "title_pre": "Mango", "title_italic": "Passion.", "desc": "Ripe mango over passionfruit. Subtle — not loud.", "bot_1": "Natural flavors", "bot_2": "", "bot_3": "", "strength_label": "Strength", "strength_level": 2, "strength_value": "2 / 5", "feel_label": "Feel", "feel_level": 2, "feel_value": "Soft", "sweet_label": "Sweetness", "sweet_level": 4, "sweet_value": "Fruity", "cta_label": "Build your kit", "price": "€8,95", "price_meta": "· 3 cores · 10 days · €0,90/day" } },
+        "f6": { "type": "flavor", "settings": { "tab_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Mini_Ohh_My_Orange.webp?v=1777086315", "tab_name": "Ohh My Orange", "tab_badge": "", "tab_badge_style": "default", "tint_from": "#ffd9bf", "tint_to": "#ffc098", "hero_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Ohh_My_Orange_2602fc26-c4f9-4d4a-8107-8be6ebeec089.png?v=1777086251", "flag_text": "", "flag_style": "default", "title_pre": "Ohh My", "title_italic": "Orange.", "desc": "Valencia peel, clean citrus base. Bright afternoon lift.", "bot_1": "Sweet orange", "bot_2": "", "bot_3": "", "strength_label": "Strength", "strength_level": 3, "strength_value": "3 / 5", "feel_label": "Feel", "feel_level": 3, "feel_value": "Zesty", "sweet_label": "Sweetness", "sweet_level": 3, "sweet_value": "Citrus", "cta_label": "Build your kit", "price": "€8,95", "price_meta": "· 3 cores · 10 days · €0,90/day" } }
       },
-      "block_order": [
-        "f1",
-        "f2",
-        "f3",
-        "f4",
-        "f5",
-        "f6"
-      ],
+      "block_order": ["f1", "f2", "f3", "f4", "f5", "f6"],
       "settings": {
         "eyebrow": "Six cores · one ritual",
         "heading_pre": "Pick your",
@@ -737,109 +197,27 @@
     },
     "costcomp": {
       "type": "lio-costcomp",
-      "settings": {}
+      "settings": {
+        "compact": true
+      }
     },
     "main": {
       "type": "lio-pdp-builder",
       "blocks": {
-        "trust_shipping": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Free EU shipping"
-          }
-        },
-        "trust_promise": {
-          "type": "trust_item",
-          "settings": {
-            "label": "90-day promise"
-          }
-        },
-        "trust_pause": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Pause anytime"
-          }
-        },
-        "trust_founded": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Founded 2018"
-          }
-        },
-        "faq_vape": {
-          "type": "faq_question",
-          "settings": {
-            "q": "Is this a vape?",
-            "a": "<p>No. A wooden aromatherapy diffuser. No battery, no coil, no liquid, no heating element. You breathe ordinary air through a wooden mouthpiece — the plant-oil core at the end gives it flavor and a cool menthol sensation. Nothing is heated, nothing is combusted.</p>"
-          }
-        },
-        "faq_feel": {
-          "type": "faq_question",
-          "settings": {
-            "q": "Will it feel like what I'm used to?",
-            "a": "<p>Partly. The menthol cores give a real <strong>cool throat hit</strong> on the inhale — the physical sensation is there. What's not there is the nicotine kick. Think of it as the feeling without the substance.</p>"
-          }
-        },
-        "faq_lasts": {
-          "type": "faq_question",
-          "settings": {
-            "q": "How long does one core last?",
-            "a": "<p>Around <strong>7–10 days for a light user, 3–5 days if you use it heavily.</strong> The flavor is strongest the first day and gradually fades — when you can barely smell it before inhaling, swap it. The wooden body stays with you; only the core changes.</p>"
-          }
-        },
-        "faq_inside": {
-          "type": "faq_question",
-          "settings": {
-            "q": "What's actually in the cores?",
-            "a": "<p>Medical-grade polyester fiber infused with <strong>food-safe plant essential oils</strong> — peppermint, cinnamon, mango, orange, depending on the variant. No synthetic aromas, no solvents, no propylene glycol. Third-party tested, every batch.</p>"
-          }
-        },
-        "faq_refund": {
-          "type": "faq_question",
-          "settings": {
-            "q": "What if it doesn't work for me?",
-            "a": "<p>Try it for <strong>90 days</strong>. Use it the way it's meant to be used — every time you'd reach for your old habit. If the ritual doesn't land, <strong>full refund, used or not.</strong> No 'must be sealed' fine print, no restocking fee.</p>"
-          }
-        },
-        "faq_ship": {
-          "type": "faq_question",
-          "settings": {
-            "q": "How fast does it arrive?",
-            "a": "<p>Shipped from the Netherlands. <strong>2–3 working days across Europe, 4–8 days outside.</strong> Free worldwide, no minimum. Tracking link by email the moment it leaves the warehouse.</p>"
-          }
-        },
-        "ev_clean": {
-          "type": "evidence_point",
-          "settings": {
-            "icon": "shield",
-            "title": "0% nicotine, 0% tobacco",
-            "source": "Eurofins Lab Report · 2024"
-          }
-        },
-        "ev_plant": {
-          "type": "evidence_point",
-          "settings": {
-            "icon": "beaker",
-            "title": "Plant-based aroma cores",
-            "source": "Independent assay · TNO Netherlands"
-          }
-        },
-        "ev_patent": {
-          "type": "evidence_point",
-          "settings": {
-            "icon": "doc",
-            "title": "Patented mouthpiece design",
-            "source": "EU Patent EP3784213"
-          }
-        },
-        "ev_outcome": {
-          "type": "evidence_point",
-          "settings": {
-            "icon": "chart",
-            "title": "82% report reduced cravings",
-            "source": "n=1,243 user study, 2024"
-          }
-        }
+        "trust_shipping": { "type": "trust_item",   "settings": { "label": "Free EU shipping" } },
+        "trust_promise":  { "type": "trust_item",   "settings": { "label": "90-day promise" } },
+        "trust_pause":    { "type": "trust_item",   "settings": { "label": "Pause anytime" } },
+        "trust_founded":  { "type": "trust_item",   "settings": { "label": "Founded 2018" } },
+        "faq_vape":       { "type": "faq_question", "settings": { "q": "Is this a vape?", "a": "<p>No. A wooden aromatherapy diffuser. No battery, no coil, no liquid, no heating element. You breathe ordinary air through a wooden mouthpiece — the plant-oil core at the end gives it flavor and a cool menthol sensation. Nothing is heated, nothing is combusted.</p>" } },
+        "faq_feel":       { "type": "faq_question", "settings": { "q": "Will it feel like what I'm used to?", "a": "<p>Partly. The menthol cores give a real <strong>cool throat hit</strong> on the inhale — the physical sensation is there. What's not there is the nicotine kick. Think of it as the feeling without the substance.</p>" } },
+        "faq_lasts":      { "type": "faq_question", "settings": { "q": "How long does one core last?", "a": "<p>Around <strong>7–10 days for a light user, 3–5 days if you use it heavily.</strong> The flavor is strongest the first day and gradually fades — when you can barely smell it before inhaling, swap it. The wooden body stays with you; only the core changes.</p>" } },
+        "faq_inside":     { "type": "faq_question", "settings": { "q": "What's actually in the cores?", "a": "<p>Medical-grade polyester fiber infused with <strong>food-safe plant essential oils</strong> — peppermint, cinnamon, mango, orange, depending on the variant. No synthetic aromas, no solvents, no propylene glycol. Third-party tested, every batch.</p>" } },
+        "faq_refund":     { "type": "faq_question", "settings": { "q": "What if it doesn't work for me?", "a": "<p>Try it for <strong>90 days</strong>. Use it the way it's meant to be used — every time you'd reach for your old habit. If the ritual doesn't land, <strong>full refund, used or not.</strong> No 'must be sealed' fine print, no restocking fee.</p>" } },
+        "faq_ship":       { "type": "faq_question", "settings": { "q": "How fast does it arrive?", "a": "<p>Shipped from the Netherlands. <strong>2–3 working days across Europe, 4–8 days outside.</strong> Free worldwide, no minimum. Tracking link by email the moment it leaves the warehouse.</p>" } },
+        "ev_clean":       { "type": "evidence_point", "settings": { "icon": "shield", "title": "0% nicotine, 0% tobacco",     "source": "Eurofins Lab Report · 2024" } },
+        "ev_plant":       { "type": "evidence_point", "settings": { "icon": "beaker", "title": "Plant-based aroma cores",     "source": "Independent assay · TNO Netherlands" } },
+        "ev_patent":      { "type": "evidence_point", "settings": { "icon": "doc",    "title": "Patented mouthpiece design", "source": "EU Patent EP3784213" } },
+        "ev_outcome":     { "type": "evidence_point", "settings": { "icon": "chart",  "title": "82% report reduced cravings","source": "n=1,243 user study, 2024" } }
       },
       "block_order": [
         "trust_shipping",
@@ -861,7 +239,14 @@
     },
     "faq": {
       "type": "lio-faq",
-      "settings": {}
+      "settings": {
+        "show_whatsapp": true,
+        "whatsapp_number": "31612345678",
+        "whatsapp_title": "Still have a question?",
+        "whatsapp_sub": "Message our team on WhatsApp — usually within the hour.",
+        "whatsapp_label": "Chat on WhatsApp",
+        "whatsapp_message": "Hi Lio team — got a question before I order."
+      }
     },
     "finalcta": {
       "type": "lio-finalcta",
@@ -875,12 +260,13 @@
     "chrome": {
       "type": "lio-chrome",
       "settings": {
-        "show_sticky": false,
-        "sticky_title": "Journey Pack · €39",
-        "sticky_meta": "<del>€58</del><strong style=\"color: var(--forest); font-weight: 700;\">€0.88/day</strong> · device free",
-        "sticky_label": "Build My Journey Kit",
+        "show_sticky": true,
+        "sticky_title": "Build your perfect kit",
+        "sticky_meta": "<del>€58</del><strong style=\"color: var(--forest); font-weight: 700;\">€39</strong> · device free · 30-day money-back",
+        "sticky_label": "Pick a device",
         "sticky_link": "#shopify-section-main",
-        "sticky_aria": "Build my Journey Kit"
+        "sticky_aria": "Pick a device — scroll to configurator",
+        "hide_when_target": "#shopify-section-main"
       }
     },
     "lander_footer": {

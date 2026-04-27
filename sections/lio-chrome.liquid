@@ -10,7 +10,7 @@
 
 {%- if section.settings.show_sticky -%}
 <!-- ================== STICKY MOBILE CTA (bottom of viewport) ================== -->
-<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+<div class="sticky-cta" id="stickyCta" aria-hidden="true" data-hide-target="{{ section.settings.hide_when_target | default: '#shopify-section-main' }}">
   <div class="sticky-cta-info">
     <strong>{{ section.settings.sticky_title | default: 'Journey Pack · €39' }}</strong>
     <span>{{ section.settings.sticky_meta | default: '<del>€58</del><strong style="color: var(--forest); font-weight: 700;">€0.88/day</strong> · device free' }}</span>
@@ -20,6 +20,53 @@
     <span class="arrow" aria-hidden="true"><svg><use href="#arrow"/></svg></span>
   </a>
 </div>
+<style>
+  .sticky-cta[data-hide-target] {
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .sticky-cta[data-hide-target][aria-hidden="true"] {
+    transform: translateY(120%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .sticky-cta[data-hide-target][aria-hidden="false"] {
+    transform: translateY(0);
+    opacity: 1;
+  }
+</style>
+<script>
+  (function () {
+    var el = document.getElementById('stickyCta');
+    if (!el || !el.hasAttribute('data-hide-target')) return;
+    var sel = el.getAttribute('data-hide-target') || '#shopify-section-main';
+    var target = document.querySelector(sel);
+    var triggerY = 0;
+
+    function recalc () {
+      // Show after the user has scrolled past ~70% of the viewport (past hero)
+      triggerY = Math.max(window.innerHeight * 0.7, 420);
+    }
+
+    function update () {
+      var y = window.pageYOffset || document.documentElement.scrollTop;
+      var pastFold = y > triggerY;
+
+      var inOrPast = false;
+      if (target) {
+        var rect = target.getBoundingClientRect();
+        // hide once configurator's top is within or above the bottom 40% of viewport
+        inOrPast = rect.top < window.innerHeight * 0.6;
+      }
+
+      var show = pastFold && !inOrPast;
+      el.setAttribute('aria-hidden', show ? 'false' : 'true');
+    }
+
+    recalc(); update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', function () { recalc(); update(); });
+  })();
+</script>
 {%- endif -%}
 
 <!-- ================== VIDEO MODAL (shared) ================== -->
@@ -47,7 +94,8 @@
     { "type": "html",   "id": "sticky_meta",  "label": "Sub-line (HTML)", "default": "<del>€58</del><strong style=\"color: var(--forest); font-weight: 700;\">€0.88/day</strong> · device free" },
     { "type": "text",   "id": "sticky_label", "label": "Button label",   "default": "Start" },
     { "type": "url",    "id": "sticky_link",  "label": "Button link" },
-    { "type": "text",   "id": "sticky_aria",  "label": "Button aria-label", "default": "Go to the offer section" }
+    { "type": "text",   "id": "sticky_aria",  "label": "Button aria-label", "default": "Go to the offer section" },
+    { "type": "text",   "id": "hide_when_target", "label": "Hide when this section is visible", "info": "CSS selector. Default hides sticky once the configurator (#shopify-section-main) is in view.", "default": "#shopify-section-main" }
   ],
   "presets": [{ "name": "Lio · Page chrome" }],
   "enabled_on": { "templates": ["index", "page"] }
