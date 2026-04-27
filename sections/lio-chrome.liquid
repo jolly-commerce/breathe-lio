@@ -1,0 +1,52 @@
+<!-- ================== SCROLL PROGRESS BAR ================== -->
+<div class="scroll-progress" aria-hidden="true">
+  <div class="scroll-progress-fill" id="scrollProgressFill"></div>
+</div>
+
+<!-- ================== BACK TO TOP BUTTON ================== -->
+<button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<!-- ================== STICKY MOBILE CTA (bottom of viewport) ================== -->
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <div class="sticky-cta-info">
+    <strong>{{ section.settings.sticky_title | default: 'Journey Pack · €39' }}</strong>
+    <span>{{ section.settings.sticky_meta | default: '<del>€58</del><strong style="color: var(--forest); font-weight: 700;">€0.88/day</strong> · device free' }}</span>
+  </div>
+  <a href="{{ section.settings.sticky_link | default: '#offer' }}" class="btn-primary" aria-label="{{ section.settings.sticky_aria | default: 'Go to the offer section' }}">
+    {{ section.settings.sticky_label | default: 'Start' }}
+    <span class="arrow" aria-hidden="true"><svg><use href="#arrow"/></svg></span>
+  </a>
+</div>
+
+<!-- ================== VIDEO MODAL (shared) ================== -->
+<div class="video-modal" id="videoModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="video-modal-content">
+    <button class="video-modal-close" type="button" aria-label="Close video"><svg width="16" height="16"><use href="#close-x"/></svg></button>
+    <div class="video-modal-placeholder">
+      <div class="video-modal-placeholder-icon"><svg><use href="#play-solid"/></svg></div>
+      <strong id="videoModalName">Peter, 44</strong>
+      <p id="videoModalQuote">Eight months in, it's still the first thing I reach for.</p>
+      <p style="font-size: 11px; opacity: 0.4; margin-top: 12px; letter-spacing: 0.1em; text-transform: uppercase;">Video loads here in production</p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Lio · Page chrome",
+  "tag": "section",
+  "class": "section-lio-chrome",
+  "settings": [
+    { "type": "header", "content": "Sticky mobile CTA" },
+    { "type": "text",   "id": "sticky_title", "label": "Title",        "default": "Journey Pack · €39" },
+    { "type": "html",   "id": "sticky_meta",  "label": "Sub-line (HTML)", "default": "<del>€58</del><strong style=\"color: var(--forest); font-weight: 700;\">€0.88/day</strong> · device free" },
+    { "type": "text",   "id": "sticky_label", "label": "Button label",   "default": "Start" },
+    { "type": "url",    "id": "sticky_link",  "label": "Button link" },
+    { "type": "text",   "id": "sticky_aria",  "label": "Button aria-label", "default": "Go to the offer section" }
+  ],
+  "presets": [{ "name": "Lio · Page chrome" }],
+  "enabled_on": { "templates": ["index", "page"] }
+}
+{% endschema %}

@@ -1,0 +1,146 @@
+<!-- ================== SECTION 8: OFFER ================== -->
+<section class="offer" id="offer">
+  <div class="offer-inner">
+    <div class="offer-visual">
+      <div class="offer-visual-badge">
+        <span>Journey Pack · First month</span>
+      </div>
+
+      <div class="offer-visual-product">
+        <div class="offer-visual-product-stack">
+          <div class="offer-visual-item">
+            <div class="offer-visual-item-icon"><svg><use href="#item-device"/></svg></div>
+            <div class="offer-visual-item-text">
+              <strong>Lio Original — Walnut</strong>
+              <span>Hand-finished · fixed airflow</span>
+            </div>
+            <div class="offer-visual-item-value free">Free</div>
+          </div>
+          <div class="offer-visual-item">
+            <div class="offer-visual-item-icon"><svg><use href="#item-cores"/></svg></div>
+            <div class="offer-visual-item-text">
+              <strong>30 days of cores</strong>
+              <span>Choose your flavor · ~10 days per core</span>
+            </div>
+            <div class="offer-visual-item-value">Included</div>
+          </div>
+          <div class="offer-visual-item">
+            <div class="offer-visual-item-icon"><svg><use href="#item-guide"/></svg></div>
+            <div class="offer-visual-item-text">
+              <strong>The first-30 ritual guide</strong>
+              <span>Day-by-day playbook · email + PDF</span>
+            </div>
+            <div class="offer-visual-item-value">Included</div>
+          </div>
+          <div class="offer-visual-item">
+            <div class="offer-visual-item-icon"><svg><use href="#item-shield"/></svg></div>
+            <div class="offer-visual-item-text">
+              <strong>30-day home trial</strong>
+              <span>Prepaid return · full refund</span>
+            </div>
+            <div class="offer-visual-item-value">Included</div>
+          </div>
+
+          <div class="offer-visual-total">
+            <div class="offer-visual-total-label">You pay</div>
+            <div class="offer-visual-total-amount"><del>€58</del>€39</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="offer-content">
+      <div class="offer-eyebrow">The starter</div>
+      <h2 class="offer-h2">
+        The device is <span class="italic-word">on us.</span><br>
+        You just cover the first month.
+      </h2>
+      <p class="offer-sub">
+        You get the walnut body, thirty days of cores in the flavor you pick, and a day-by-day guide for the first month. If the ritual doesn't stick, <strong>we refund it — prepaid return, no questions.</strong>
+      </p>
+
+      <div class="offer-preselect" role="radiogroup" aria-label="Pick your starting flavor">
+        <div class="offer-preselect-label">Start with</div>
+        <div class="offer-preselect-flavors">
+          <label class="offer-flavor-chip">
+            <input type="radio" name="starter-flavor" value="minty" checked>
+            <span class="offer-flavor-chip-swatch" style="background: linear-gradient(135deg, #94fca9, #4fb36a);"></span>
+            Minty <span style="opacity: 0.6; font-weight: 500;">· most popular</span>
+          </label>
+          <label class="offer-flavor-chip">
+            <input type="radio" name="starter-flavor" value="cinnamon">
+            <span class="offer-flavor-chip-swatch" style="background: linear-gradient(135deg, #a05828, #6b3b1a);"></span>
+            Cinnamon
+          </label>
+          <label class="offer-flavor-chip">
+            <input type="radio" name="starter-flavor" value="fruity">
+            <span class="offer-flavor-chip-swatch" style="background: linear-gradient(135deg, #f5c8a8, #e8b4a0);"></span>
+            Fruity
+          </label>
+          <label class="offer-flavor-chip">
+            <input type="radio" name="starter-flavor" value="mixed">
+            <span class="offer-flavor-chip-swatch" style="background: linear-gradient(135deg, #94fca9, #e8b4a0 50%, #a05828);"></span>
+            Mixed Pack
+          </label>
+          <label class="offer-flavor-chip">
+            <input type="radio" name="starter-flavor" value="turkey">
+            <span class="offer-flavor-chip-swatch" style="background: linear-gradient(135deg, #1a3720, #0b2410);"></span>
+            Cold Turkey
+          </label>
+        </div>
+      </div>
+
+      <div class="offer-benefits" style="margin-top: 22px;">
+        <div class="offer-benefit">Keep the device forever — it's yours from day one.</div>
+        <div class="offer-benefit">Ships within 24h from Amsterdam · free EU &amp; UK shipping.</div>
+        <div class="offer-benefit">Pause, skip, or cancel refills any time.</div>
+      </div>
+
+      <div class="offer-cta-row">
+        <a href="{{ section.settings.cta_link | default: 'https://breathelio.com/products/journey-pack-3' }}" class="btn-primary">
+          {{ section.settings.cta_label | default: 'Start the ritual — €39' }}
+          <span class="arrow"><svg><use href="#arrow"/></svg></span>
+        </a>
+        <span class="daily-cost"><strong>€0.88 / day</strong> for the first month</span>
+      </div>
+
+      <div class="cta-ticks" style="margin-top: 14px;">
+        <span>30-day money-back</span>
+        <span>Ships from Amsterdam in 24h</span>
+        <span>Free EU, UK &amp; UAE shipping</span>
+      </div>
+
+      <div class="express-pay">
+        <div class="express-pay-label">Or check out faster with</div>
+        <div class="express-pay-methods">
+          <button type="button" class="pay-method shoppay" aria-label="Shop Pay express checkout">
+            <span class="pay-method-logo">Shop Pay</span>
+          </button>
+          <button type="button" class="pay-method apple" aria-label="Apple Pay">
+            <span class="pay-method-logo">Apple Pay</span>
+          </button>
+          <button type="button" class="pay-method google" aria-label="Google Pay">
+            <span class="pay-method-logo">G Pay</span>
+          </button>
+          <button type="button" class="pay-method ideal" aria-label="iDEAL">
+            <span class="pay-method-logo">iDEAL</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lio · Offer",
+  "tag": "section",
+  "class": "section-lio-offer",
+  "settings": [
+    { "type": "url",  "id": "cta_link",  "label": "Primary CTA link" },
+    { "type": "text", "id": "cta_label", "label": "Primary CTA label", "default": "Start the ritual — €39" }
+  ],
+  "presets": [{ "name": "Lio · Offer" }],
+  "enabled_on": { "templates": ["index", "page"] }
+}
+{% endschema %}

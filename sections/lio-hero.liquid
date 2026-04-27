@@ -1,0 +1,545 @@
+{%- comment -%}
+  Section: Lio · Hero (2026).
+  Mobile-first hero. (Social proof was extracted into sections/lio-social-proof.liquid.)
+  All styles are scoped under .lio-hero-2026 to avoid colliding with
+  legacy hero styles that may still live in lio-v29-homepage.css.
+{%- endcomment -%}
+
+{%- liquid
+  assign img = section.settings.hero_image
+  assign alt = section.settings.hero_image_alt | default: 'A Lio wooden diffuser held in the hand'
+-%}
+
+<div class="lio-hero-2026">
+
+  <div class="lhx-hero">
+    <div class="lhx-grid">
+
+      <figure class="lhx-visual">
+        {%- if img != blank -%}
+          {{ img | image_url: width: 1200 | image_tag:
+             widths: '400,600,800,1000,1200,1400',
+             sizes: '(min-width: 820px) 45vw, 100vw',
+             loading: 'eager',
+             fetchpriority: 'high',
+             decoding: 'async',
+             alt: alt,
+             class: 'lhx-visual-img' }}
+        {%- elsif section.settings.hero_image_url != blank -%}
+          <img class="lhx-visual-img"
+               src="{{ section.settings.hero_image_url }}"
+               alt="{{ alt | escape }}"
+               width="800" height="1000"
+               loading="eager" fetchpriority="high" decoding="async">
+        {%- endif -%}
+
+        {%- if section.settings.visual_pill != blank -%}
+          <span class="lhx-visual-pill" aria-label="{{ section.settings.visual_pill | escape }}">{{ section.settings.visual_pill }}</span>
+        {%- endif -%}
+
+        {%- if section.settings.show_mobile_proof and section.settings.mobile_proof_text != blank -%}
+          <span class="lhx-visual-proof" aria-label="{{ section.settings.mobile_proof_text | escape }}">
+            {%- if section.settings.mobile_proof_stars != blank -%}
+              <span class="lhx-visual-proof-stars" aria-hidden="true">{{ section.settings.mobile_proof_stars }}</span>
+            {%- endif -%}
+            <span>{{ section.settings.mobile_proof_text }}</span>
+          </span>
+        {%- endif -%}
+      </figure>
+
+      <div class="lhx-copy">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="lhx-eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+
+        <h1 class="lhx-title">
+          {{ section.settings.title_pre }}
+          {%- if section.settings.title_em != blank -%}
+            <span class="lhx-title-em">{{ section.settings.title_em }}</span>
+          {%- endif -%}{{ section.settings.title_punct }}<br>
+          {{ section.settings.title_mid }}
+          {%- if section.settings.title_soft != blank -%}
+            <span class="lhx-title-soft">{{ section.settings.title_soft }}</span>
+          {%- endif -%}
+        </h1>
+
+        {%- if section.settings.subhead != blank -%}
+          <p class="lhx-sub">{{ section.settings.subhead }}</p>
+        {%- endif -%}
+
+        <div class="lhx-cta">
+          <a href="{{ section.settings.cta_link | default: '#offer' }}" class="lhx-btn lhx-btn-primary">
+            <span>{{ section.settings.cta_label | default: 'Start the ritual' }}</span>
+            <span class="lhx-btn-arrow" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        {%- if section.settings.refill_label != blank -%}
+          <a href="{{ section.settings.refill_link | default: '#refills' }}" class="lhx-refills">
+            {{ section.settings.refill_label }}
+            <span class="lhx-refills-arrow" aria-hidden="true">→</span>
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.tick_1 != blank or section.settings.tick_2 != blank or section.settings.tick_3 != blank -%}
+          <div class="lhx-ticks" role="list">
+            {%- if section.settings.tick_1 != blank -%}<span role="listitem">{{ section.settings.tick_1 }}</span>{%- endif -%}
+            {%- if section.settings.tick_2 != blank -%}<span role="listitem">{{ section.settings.tick_2 }}</span>{%- endif -%}
+            {%- if section.settings.tick_3 != blank -%}<span role="listitem">{{ section.settings.tick_3 }}</span>{%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+
+{% stylesheet %}
+  /* ==========================================================
+     Lio · Hero (2026) — fully scoped under .lio-hero-2026
+     ========================================================== */
+  .lio-hero-2026 {
+    --forest: #0b2410;
+    --cream:  #fcfefb;
+    --bone:   #f4f7f2;
+    --mint:   #94fca9;
+    --mint-soft: #cdfee1;
+    --f-06: rgba(11, 36, 16, 0.06);
+    --f-10: rgba(11, 36, 16, 0.10);
+    --f-14: rgba(11, 36, 16, 0.14);
+    --f-40: rgba(11, 36, 16, 0.40);
+    --f-55: rgba(11, 36, 16, 0.55);
+    --f-72: rgba(11, 36, 16, 0.72);
+    --lhx-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --lhx-ease-out-strong: cubic-bezier(0.16, 1, 0.3, 1);
+    --lhx-s-1: 4px;
+    --lhx-s-2: 8px;
+    --lhx-s-3: 12px;
+    --lhx-s-4: 16px;
+    --lhx-s-5: 20px;
+    --lhx-s-6: 24px;
+    --lhx-s-8: 32px;
+    --lhx-s-10: 40px;
+    --lhx-s-12: 48px;
+    --lhx-s-16: 64px;
+    --lhx-r-md: 16px;
+    --lhx-r-lg: 22px;
+    --lhx-r-xl: 28px;
+
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    color: var(--forest);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.005em;
+    overflow: clip;
+    background: var(--cream);
+  }
+  .lio-hero-2026 *, .lio-hero-2026 *::before, .lio-hero-2026 *::after { box-sizing: border-box; }
+  .lio-hero-2026 ::selection { background: var(--mint); color: var(--forest); }
+
+  @keyframes lhx-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(148, 252, 169, 0.4); }
+    50%      { box-shadow: 0 0 0 6px rgba(148, 252, 169, 0); }
+  }
+  @keyframes lhx-rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes lhx-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes lhx-underline {
+    to { transform: scaleX(1); }
+  }
+
+  /* ========== HERO ========== */
+  .lio-hero-2026 .lhx-hero {
+    padding: var(--lhx-s-6) var(--lhx-s-5) var(--lhx-s-12);
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .lio-hero-2026 .lhx-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(600px circle at 80% 10%, rgba(148, 252, 169, 0.08) 0%, transparent 60%),
+      radial-gradient(500px circle at 10% 90%, rgba(11, 36, 16, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .lio-hero-2026 .lhx-grid {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--lhx-s-6);
+  }
+
+  /* Visual */
+  .lio-hero-2026 .lhx-visual {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--lhx-r-xl);
+    overflow: hidden;
+    background: var(--bone);
+    box-shadow: 0 24px 60px rgba(11, 36, 16, 0.10), 0 2px 4px rgba(11, 36, 16, 0.04);
+    margin: 0;
+    animation: lhx-fade-in 1s var(--lhx-ease) 0.1s both;
+  }
+  .lio-hero-2026 .lhx-visual-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .lio-hero-2026 .lhx-visual-pill {
+    position: absolute;
+    top: var(--lhx-s-3);
+    left: var(--lhx-s-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px 6px 10px;
+    background: color-mix(in srgb, var(--cream) 92%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--forest);
+    box-shadow: 0 4px 12px rgba(11, 36, 16, 0.08);
+  }
+  .lio-hero-2026 .lhx-visual-pill::before {
+    content: "";
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--mint);
+    animation: lhx-pulse 2.4s ease-in-out infinite;
+  }
+
+  /* Mobile-only short social proof, pinned to the bottom of the hero image */
+  .lio-hero-2026 .lhx-visual-proof {
+    position: absolute;
+    left: 50%;
+    bottom: var(--lhx-s-3);
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    background: color-mix(in srgb, var(--cream) 92%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    color: var(--forest);
+    white-space: nowrap;
+    box-shadow: 0 6px 16px rgba(11, 36, 16, 0.12);
+    max-width: calc(100% - var(--lhx-s-6));
+  }
+  .lio-hero-2026 .lhx-visual-proof-stars {
+    color: var(--forest);
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    line-height: 1;
+  }
+
+  /* Copy */
+  .lio-hero-2026 .lhx-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--lhx-s-3);
+    animation: lhx-rise 0.8s var(--lhx-ease-out-strong) 0.2s both;
+  }
+  .lio-hero-2026 .lhx-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid var(--f-10);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--f-72);
+  }
+  .lio-hero-2026 .lhx-eyebrow::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--mint);
+    animation: lhx-pulse 2.4s ease-in-out infinite;
+  }
+  .lio-hero-2026 .lhx-title {
+    font-size: clamp(40px, 11vw, 58px);
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+    font-weight: 900;
+    color: var(--forest);
+    margin: 4px 0 0;
+  }
+  .lio-hero-2026 .lhx-title-em {
+    font-weight: 300;
+    font-style: italic;
+    position: relative;
+    display: inline-block;
+    padding: 0 2px;
+  }
+  .lio-hero-2026 .lhx-title-em::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 0.03em;
+    height: 0.14em;
+    background: var(--mint);
+    z-index: -1;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: lhx-underline 1.4s var(--lhx-ease-out-strong) 0.9s forwards;
+  }
+  .lio-hero-2026 .lhx-title-soft {
+    font-weight: 300;
+    color: var(--f-55);
+    letter-spacing: -0.035em;
+  }
+  .lio-hero-2026 .lhx-sub {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--f-72);
+    max-width: 520px;
+    margin: 0;
+  }
+  .lio-hero-2026 .lhx-sub strong { color: var(--forest); font-weight: 600; }
+
+  /* CTA */
+  .lio-hero-2026 .lhx-cta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--lhx-s-3);
+    width: 100%;
+    margin-top: var(--lhx-s-2);
+  }
+  .lio-hero-2026 .lhx-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 22px 16px 26px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    cursor: pointer;
+    min-height: 52px;
+    transition: transform 0.15s var(--lhx-ease), box-shadow 0.2s var(--lhx-ease);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    text-decoration: none;
+    border: none;
+    font-family: inherit;
+  }
+  .lio-hero-2026 .lhx-btn:active { transform: scale(0.98); }
+  .lio-hero-2026 .lhx-btn-primary {
+    background: var(--mint);
+    color: var(--forest);
+    box-shadow: 0 8px 24px rgba(148, 252, 169, 0.35);
+  }
+  .lio-hero-2026 .lhx-btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--forest);
+    transform: translateY(101%);
+    transition: transform 0.35s var(--lhx-ease);
+    z-index: -1;
+  }
+  @media (hover: hover) {
+    .lio-hero-2026 .lhx-btn-primary:hover { color: var(--mint); }
+    .lio-hero-2026 .lhx-btn-primary:hover::after { transform: translateY(0); }
+    .lio-hero-2026 .lhx-btn-primary:hover .lhx-btn-arrow { background: var(--mint); color: var(--forest); }
+  }
+  .lio-hero-2026 .lhx-btn-arrow {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--mint);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.3s var(--lhx-ease), color 0.3s var(--lhx-ease);
+  }
+  .lio-hero-2026 .lhx-btn-arrow svg { width: 14px; height: 14px; }
+
+  /* Returning-customer refill link */
+  .lio-hero-2026 .lhx-refills {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--f-55);
+    text-decoration: none;
+    margin-top: calc(var(--lhx-s-2) * -1);
+    transition: color 0.2s var(--lhx-ease);
+    align-self: flex-start;
+  }
+  .lio-hero-2026 .lhx-refills strong,
+  .lio-hero-2026 .lhx-refills em {
+    color: var(--forest);
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: underline;
+    text-decoration-color: var(--mint);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+  .lio-hero-2026 .lhx-refills-arrow {
+    font-size: 14px;
+    line-height: 1;
+    transition: transform 0.25s var(--lhx-ease);
+  }
+  @media (hover: hover) {
+    .lio-hero-2026 .lhx-refills:hover { color: var(--forest); }
+    .lio-hero-2026 .lhx-refills:hover .lhx-refills-arrow { transform: translateX(3px); }
+  }
+
+  .lio-hero-2026 .lhx-ticks {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: var(--lhx-s-2);
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: var(--f-55);
+  }
+  .lio-hero-2026 .lhx-ticks span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+  }
+  .lio-hero-2026 .lhx-ticks span::before {
+    content: "";
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--mint);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8l3 3 5-6' stroke='%230b2410' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+  }
+
+  /* Desktop / tablet */
+  @media (min-width: 820px) {
+    .lio-hero-2026 .lhx-hero {
+      padding: var(--lhx-s-10) var(--lhx-s-10) var(--lhx-s-16);
+    }
+    .lio-hero-2026 .lhx-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: var(--lhx-s-16);
+      align-items: center;
+    }
+    .lio-hero-2026 .lhx-copy { order: 1; gap: var(--lhx-s-5); }
+    .lio-hero-2026 .lhx-visual { order: 2; aspect-ratio: 4 / 5; }
+    .lio-hero-2026 .lhx-visual-proof { display: none; }
+    .lio-hero-2026 .lhx-title {
+      font-size: clamp(58px, 6vw, 92px);
+      letter-spacing: -0.055em;
+    }
+    .lio-hero-2026 .lhx-sub {
+      font-size: 18px;
+      max-width: 480px;
+    }
+    .lio-hero-2026 .lhx-cta {
+      flex-direction: row;
+      width: auto;
+      align-items: center;
+      gap: var(--lhx-s-4);
+    }
+    .lio-hero-2026 .lhx-btn { min-width: 260px; }
+  }
+  @media (min-width: 1100px) {
+    .lio-hero-2026 .lhx-grid {
+      grid-template-columns: 1fr 0.95fr;
+      gap: 96px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lio-hero-2026 *,
+    .lio-hero-2026 *::before,
+    .lio-hero-2026 *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+{% endstylesheet %}
+
+
+{% schema %}
+{
+  "name": "Lio · Hero",
+  "tag": "section",
+  "class": "section-lio-hero",
+  "settings": [
+    { "type": "header", "content": "Visual" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "text", "id": "hero_image_url", "label": "Hero image URL (fallback)", "default": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_22_2026_12_14_47_PM.webp?v=1776831311" },
+    { "type": "text", "id": "hero_image_alt", "label": "Image alt text", "default": "A Lio wooden diffuser held in the hand" },
+    { "type": "text", "id": "visual_pill", "label": "Corner pill (e.g. 'Patented design')", "default": "Patented design" },
+
+    { "type": "header", "content": "Copy" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "First in Europe · Since 2018" },
+    { "type": "text", "id": "title_pre", "label": "Title — start", "default": "Keep the " },
+    { "type": "text", "id": "title_em", "label": "Title — italic word", "default": "ritual" },
+    { "type": "text", "id": "title_punct", "label": "Title — punctuation after italic", "default": "." },
+    { "type": "text", "id": "title_mid", "label": "Title — line 2 start", "default": "Kick " },
+    { "type": "text", "id": "title_soft", "label": "Title — softened end", "default": "the bad." },
+    { "type": "textarea", "id": "subhead", "label": "Subhead (HTML allowed)", "default": "A mouth diffuser for the <strong>hand-to-mouth ritual</strong>. Breathe in natural flavored air, nothing to light, nothing to charge." },
+
+    { "type": "header", "content": "Primary CTA" },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Start the ritual — €0.88/day" },
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+
+    { "type": "header", "content": "Returning-customer link" },
+    { "type": "text", "id": "refill_label", "label": "Label (wrap link phrase in <strong>…</strong>)", "default": "Already have Lio? <strong>Shop refills.</strong>" },
+    { "type": "url", "id": "refill_link", "label": "Link" },
+
+    { "type": "header", "content": "Mobile social proof (on hero image)" },
+    { "type": "checkbox", "id": "show_mobile_proof", "label": "Show on mobile", "default": true },
+    { "type": "text", "id": "mobile_proof_stars", "label": "Stars (leave blank to hide)", "default": "★★★★★" },
+    { "type": "text", "id": "mobile_proof_text", "label": "Proof text", "default": "4.6 · 3,086 reviews" },
+
+    { "type": "header", "content": "Trust ticks" },
+    { "type": "text", "id": "tick_1", "label": "Tick 1", "default": "Ships from Amsterdam" },
+    { "type": "text", "id": "tick_2", "label": "Tick 2", "default": "Free EU shipping" },
+    { "type": "text", "id": "tick_3", "label": "Tick 3", "default": "30-day money-back" }
+  ],
+  "presets": [
+    { "name": "Lio · Hero" }
+  ],
+  "enabled_on": { "templates": ["index", "page"] }
+}
+{% endschema %}

@@ -1,0 +1,63 @@
+<!-- ================== LOOX REVIEWS WIDGET ================== -->
+<section class="lio-loox" style="padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px; background: {{ section.settings.bg }};">
+  <div class="lio-loox-inner" style="max-width: 1200px; margin: 0 auto;">
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="section-eyebrow" style="text-align: center;">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="section-h2" style="text-align: center; margin: 8px auto 32px;">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div id="looxReviewsCarousel" data-loox-aggregate></div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lio · Loox reviews",
+  "tag": "section",
+  "class": "section-lio-loox",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "From real customers"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What people are saying."
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    }
+  ],
+  "presets": [{ "name": "Lio · Loox reviews" }],
+  "enabled_on": { "templates": ["index", "page"] }
+}
+{% endschema %}

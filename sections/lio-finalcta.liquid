@@ -1,0 +1,53 @@
+<!-- ================== SECTION 12: FINAL CTA ================== -->
+<section class="finalcta">
+  <div class="finalcta-inner">
+    <div class="finalcta-content">
+      <div class="finalcta-eyebrow">Your next breath starts here</div>
+      <h2 class="finalcta-h2">
+        Keep the <span class="italic-word">ritual.</span><br>
+        Kick <span class="soft">the bad.</span>
+      </h2>
+      <p class="finalcta-sub">
+        A wooden diffuser, thirty days of cores, a guide for the first month, and a <strong>30-day money-back guarantee.</strong> The whole thing for €39.
+      </p>
+      <div class="finalcta-ctas">
+        <a href="{{ section.settings.cta_link | default: 'https://breathelio.com/products/journey-pack-3' }}" class="btn-primary">
+          {{ section.settings.cta_label | default: 'Start the ritual — €39' }}
+          <span class="arrow"><svg><use href="#arrow"/></svg></span>
+        </a>
+        <a href="{{ section.settings.ghost_link | default: '#how' }}" class="btn-ghost">{{ section.settings.ghost_label | default: 'Read how it works' }}</a>
+      </div>
+      <div class="daily-cost on-dark" style="margin-bottom: 18px; justify-content: center; display: inline-flex;">
+        <strong>€0.88 / day</strong> for the first month
+      </div>
+      <div class="cta-ticks on-dark" style="justify-content: center;">
+        <span>30-day money-back</span>
+        <span>Ships from Amsterdam</span>
+        <span>Free EU, UK &amp; UAE shipping</span>
+      </div>
+      <div class="finalcta-mini" style="margin-top: 28px;">
+        <span><strong>150,000+</strong> customers</span>
+        <span class="sep"></span>
+        <span><strong>4.6 / 5</strong> · 3,086 reviews</span>
+        <span class="sep"></span>
+        <span>Ships from <strong>Amsterdam</strong></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lio · Final CTA",
+  "tag": "section",
+  "class": "section-lio-finalcta",
+  "settings": [
+    { "type": "url",  "id": "cta_link",    "label": "Primary CTA link" },
+    { "type": "text", "id": "cta_label",   "label": "Primary CTA label", "default": "Start the ritual — €39" },
+    { "type": "url",  "id": "ghost_link",  "label": "Ghost CTA link" },
+    { "type": "text", "id": "ghost_label", "label": "Ghost CTA label",   "default": "Read how it works" }
+  ],
+  "presets": [{ "name": "Lio · Final CTA" }],
+  "enabled_on": { "templates": ["index", "page"] }
+}
+{% endschema %}
