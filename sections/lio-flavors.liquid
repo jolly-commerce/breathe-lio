@@ -1,0 +1,1009 @@
+{%- comment -%}
+  Section: Lio · Flavors (v3 — direct port + inline script).
+  Tabs swap a central stage. Each flavor is a block. Inline <script>
+  (not {% javascript %}) runs at section render time so binding is
+  immediate and immune to any other section's JS bundle failures.
+  Section is scoped under .lio-flavor-2026 and uses section.id to
+  isolate IDs/listeners across multiple instances.
+{%- endcomment -%}
+
+{%- liquid
+  assign sid = section.id | replace: '_', '-' | replace: '.', '-'
+  assign flavors = section.blocks | where: 'type', 'flavor'
+  assign first = flavors.first
+-%}
+
+<div class="lio-flavor-2026" id="lfv-{{ sid }}">
+  <div class="lfv-inner">
+
+    {%- comment -%} ============ HEADER ============ {%- endcomment -%}
+    <div class="lfv-head">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="lfv-eyebrow">{{ section.settings.eyebrow }}</div>
+        {%- endif -%}
+        {%- if section.settings.heading_pre != blank or section.settings.heading_italic != blank -%}
+          <h2 class="lfv-h2">{{- section.settings.heading_pre -}}{%- if section.settings.heading_italic != blank %} <span class="lfv-italic">{{ section.settings.heading_italic }}</span>{% endif -%}</h2>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.aside_1 != blank or section.settings.aside_2 != blank or section.settings.aside_3 != blank -%}
+        <div class="lfv-aside">
+          {%- if section.settings.aside_1 != blank -%}<span>{{ section.settings.aside_1 }}</span>{%- endif -%}
+          {%- if section.settings.aside_2 != blank -%}<span class="lfv-dot" aria-hidden="true"></span><span>{{ section.settings.aside_2 }}</span>{%- endif -%}
+          {%- if section.settings.aside_3 != blank -%}<span class="lfv-dot" aria-hidden="true"></span><span>{{ section.settings.aside_3 }}</span>{%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} ============ TABS ============ {%- endcomment -%}
+    {%- if flavors.size > 0 -%}
+      <div class="lfv-tabs" role="tablist" aria-label="{{ section.settings.tabs_aria | default: 'Flavor selection' }}">
+        {%- for block in flavors -%}
+          {%- liquid
+            assign hero_src = ''
+            if block.settings.hero_image != blank
+              assign hero_src = block.settings.hero_image | image_url: width: 1000
+            elsif block.settings.hero_image_url != blank
+              assign hero_src = block.settings.hero_image_url
+            endif
+            assign tab_src = ''
+            if block.settings.tab_image != blank
+              assign tab_src = block.settings.tab_image | image_url: width: 144
+            elsif block.settings.tab_image_url != blank
+              assign tab_src = block.settings.tab_image_url
+            endif
+          -%}
+          <button
+            type="button"
+            class="lfv-tab{% if forloop.first %} is-active{% endif %}"
+            role="tab"
+            aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+            data-flavor="{{ block.id }}"
+            data-flv-tint-from="{{ block.settings.tint_from | default: '#eef9f1' }}"
+            data-flv-tint-to="{{ block.settings.tint_to | default: '#d8f0e0' }}"
+            data-flv-hero="{{ hero_src | escape }}"
+            data-flv-flag-text="{{ block.settings.flag_text | escape }}"
+            data-flv-flag-style="{{ block.settings.flag_style | default: 'default' }}"
+            data-flv-title-pre="{{ block.settings.title_pre | escape }}"
+            data-flv-title-italic="{{ block.settings.title_italic | escape }}"
+            data-flv-desc="{{ block.settings.desc | escape }}"
+            data-flv-bot1="{{ block.settings.bot_1 | escape }}"
+            data-flv-bot2="{{ block.settings.bot_2 | escape }}"
+            data-flv-bot3="{{ block.settings.bot_3 | escape }}"
+            data-flv-strength-label="{{ block.settings.strength_label | default: 'Strength' | escape }}"
+            data-flv-strength-level="{{ block.settings.strength_level | default: 3 }}"
+            data-flv-strength-value="{{ block.settings.strength_value | default: '3 / 5' | escape }}"
+            data-flv-feel-label="{{ block.settings.feel_label | default: 'Feel' | escape }}"
+            data-flv-feel-level="{{ block.settings.feel_level | default: 4 }}"
+            data-flv-feel-value="{{ block.settings.feel_value | default: 'Cool' | escape }}"
+            data-flv-sweet-label="{{ block.settings.sweet_label | default: 'Sweetness' | escape }}"
+            data-flv-sweet-level="{{ block.settings.sweet_level | default: 1 }}"
+            data-flv-sweet-value="{{ block.settings.sweet_value | default: 'Dry' | escape }}"
+            data-flv-cta="{{ block.settings.cta_label | default: 'Add' | escape }}"
+            data-flv-price="{{ block.settings.price | default: '€8,95' | escape }}"
+            data-flv-price-meta="{{ block.settings.price_meta | escape }}"
+            style="--tab-from: {{ block.settings.tint_from | default: '#d8f5e1' }}; --tab-to: {{ block.settings.tint_to | default: '#a8dfbb' }};"
+            {{ block.shopify_attributes }}>
+            <div class="lfv-tab-top">
+              {%- if tab_src != blank -%}
+                <img class="lfv-tab-swatch lfv-tab-swatch--image" src="{{ tab_src }}" alt="" width="36" height="36" loading="lazy" decoding="async">
+              {%- else -%}
+                <span class="lfv-tab-swatch" style="background: radial-gradient(circle at 30% 30%, {{ block.settings.tint_from | default: '#d0f5dd' }} 0%, {{ block.settings.tint_to | default: '#7cc596' }} 80%);"></span>
+              {%- endif -%}
+              <span class="lfv-tab-badge-slot">
+                {%- if block.settings.tab_badge != blank -%}
+                  <span class="lfv-tab-badge{% if block.settings.tab_badge_style == 'warn' %} is-warn{% endif %}">{{ block.settings.tab_badge }}</span>
+                {%- endif -%}
+              </span>
+            </div>
+            <div class="lfv-tab-name">{{ block.settings.tab_name }}</div>
+          </button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} ============ STAGE ============ {%- endcomment -%}
+    {%- if first -%}
+      {%- liquid
+        assign first_hero = ''
+        if first.settings.hero_image != blank
+          assign first_hero = first.settings.hero_image | image_url: width: 1000
+        elsif first.settings.hero_image_url != blank
+          assign first_hero = first.settings.hero_image_url
+        endif
+      -%}
+      <div class="lfv-stage" data-lfv-stage>
+
+        <div class="lfv-stage-visual"
+             data-lfv-visual
+             style="--stage-from: {{ first.settings.tint_from | default: '#eef9f1' }}; --stage-to: {{ first.settings.tint_to | default: '#d8f0e0' }};">
+          <div class="lfv-stage-cores">
+            {%- if first_hero != blank -%}
+              <img class="lfv-hero" data-lfv-hero src="{{ first_hero }}" alt="{{ first.settings.title_pre }}{{ first.settings.title_italic }}" width="600" height="600" loading="lazy" decoding="async">
+            {%- else -%}
+              <div class="lfv-hero lfv-hero--placeholder" data-lfv-hero aria-hidden="true"></div>
+            {%- endif -%}
+          </div>
+
+          {%- if section.settings.accent_1 != blank -%}
+            <img class="lfv-accent lfv-accent--tl" src="{{ section.settings.accent_1 | image_url: width: 300 }}" alt="" width="200" height="200" loading="lazy" decoding="async">
+          {%- elsif section.settings.accent_1_url != blank -%}
+            <img class="lfv-accent lfv-accent--tl" src="{{ section.settings.accent_1_url }}" alt="" width="200" height="200" loading="lazy" decoding="async">
+          {%- endif -%}
+          {%- if section.settings.accent_2 != blank -%}
+            <img class="lfv-accent lfv-accent--mr" src="{{ section.settings.accent_2 | image_url: width: 300 }}" alt="" width="200" height="200" loading="lazy" decoding="async">
+          {%- elsif section.settings.accent_2_url != blank -%}
+            <img class="lfv-accent lfv-accent--mr" src="{{ section.settings.accent_2_url }}" alt="" width="200" height="200" loading="lazy" decoding="async">
+          {%- endif -%}
+          {%- if section.settings.accent_3 != blank -%}
+            <img class="lfv-accent lfv-accent--bl" src="{{ section.settings.accent_3 | image_url: width: 300 }}" alt="" width="200" height="200" loading="lazy" decoding="async">
+          {%- elsif section.settings.accent_3_url != blank -%}
+            <img class="lfv-accent lfv-accent--bl" src="{{ section.settings.accent_3_url }}" alt="" width="200" height="200" loading="lazy" decoding="async">
+          {%- endif -%}
+
+          <span class="lfv-bot{% if first.settings.bot_2 == blank and first.settings.bot_3 == blank %} lfv-bot--solo{% else %} lfv-bot--p1{% endif %}{% if first.settings.bot_1 == blank %} is-hidden{% endif %}" data-lfv-bot="0">{{ first.settings.bot_1 }}</span>
+          <span class="lfv-bot lfv-bot--p2{% if first.settings.bot_2 == blank %} is-hidden{% endif %}" data-lfv-bot="1">{{ first.settings.bot_2 }}</span>
+          <span class="lfv-bot lfv-bot--p3{% if first.settings.bot_3 == blank %} is-hidden{% endif %}" data-lfv-bot="2">{{ first.settings.bot_3 }}</span>
+        </div>
+
+        <div class="lfv-body">
+          <div class="lfv-body-top">
+            {%- if section.settings.stage_eyebrow != blank -%}
+              <span class="lfv-stage-eyebrow">{{ section.settings.stage_eyebrow }}</span>
+            {%- endif -%}
+            <span class="lfv-flag{% if first.settings.flag_style == 'warn' %} is-warn{% endif %}{% if first.settings.flag_text == blank %} is-hidden{% endif %}" data-lfv-flag>{{ first.settings.flag_text }}</span>
+          </div>
+
+          <h3 class="lfv-title" data-lfv-title>{{- first.settings.title_pre -}}{%- if first.settings.title_italic != blank %} <span class="lfv-italic">{{ first.settings.title_italic }}</span>{% endif -%}</h3>
+          <p class="lfv-desc" data-lfv-desc>{{ first.settings.desc }}</p>
+
+          <div class="lfv-profile" data-lfv-profile>
+            {%- for i in (0..2) -%}
+              {%- liquid
+                if i == 0
+                  assign label = first.settings.strength_label | default: 'Strength'
+                  assign level = first.settings.strength_level | default: 3
+                  assign val = first.settings.strength_value | default: '3 / 5'
+                elsif i == 1
+                  assign label = first.settings.feel_label | default: 'Feel'
+                  assign level = first.settings.feel_level | default: 4
+                  assign val = first.settings.feel_value | default: 'Cool'
+                else
+                  assign label = first.settings.sweet_label | default: 'Sweetness'
+                  assign level = first.settings.sweet_level | default: 1
+                  assign val = first.settings.sweet_value | default: 'Dry'
+                endif
+              -%}
+              <div class="lfv-prow">
+                <span class="lfv-plabel">{{ label }}</span>
+                <div class="lfv-pmeter" data-level="{{ level }}">
+                  {%- for n in (1..5) -%}
+                    <span{% if n <= level %} class="is-on"{% endif %}></span>
+                  {%- endfor -%}
+                </div>
+                <span class="lfv-pvalue">{{ val }}</span>
+              </div>
+            {%- endfor -%}
+          </div>
+
+          <div class="lfv-cta-row">
+            <a class="lfv-btn" href="{{ section.settings.cta_link | default: '#offer' }}" data-lfv-cta>
+              <span data-lfv-cta-label>{{ first.settings.cta_label | default: 'Add' }}</span>
+              <span class="lfv-arrow" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+            <div class="lfv-price">
+              <strong data-lfv-price>{{ first.settings.price | default: '€8,95' }}</strong>
+              <span data-lfv-price-meta>{{ first.settings.price_meta }}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    {%- endif -%}
+
+  </div>
+
+  {%- comment -%} ============ INLINE SCRIPT ============ {%- endcomment -%}
+  <script>
+  (function() {
+    var ROOT = document.getElementById('lfv-{{ sid }}');
+    if (!ROOT || ROOT.dataset.lfvInit === '1') return;
+    ROOT.dataset.lfvInit = '1';
+
+    var tabs = ROOT.querySelectorAll('.lfv-tab');
+    if (!tabs.length) return;
+
+    var stage = ROOT.querySelector('[data-lfv-stage]');
+    var visual = ROOT.querySelector('[data-lfv-visual]');
+    var hero = ROOT.querySelector('[data-lfv-hero]');
+    var flag = ROOT.querySelector('[data-lfv-flag]');
+    var title = ROOT.querySelector('[data-lfv-title]');
+    var desc = ROOT.querySelector('[data-lfv-desc]');
+    var profile = ROOT.querySelector('[data-lfv-profile]');
+    var ctaLabel = ROOT.querySelector('[data-lfv-cta-label]');
+    var price = ROOT.querySelector('[data-lfv-price]');
+    var priceMeta = ROOT.querySelector('[data-lfv-price-meta]');
+    var bots = ROOT.querySelectorAll('[data-lfv-bot]');
+
+    function escapeHTML(s) {
+      return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+
+    function activate(tab) {
+      // 1) Always toggle active state — even if everything below fails, user gets feedback
+      for (var i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove('is-active');
+        tabs[i].setAttribute('aria-selected', 'false');
+      }
+      tab.classList.add('is-active');
+      tab.setAttribute('aria-selected', 'true');
+
+      var d = tab.dataset;
+
+      try {
+        if (visual) {
+          if (d.flvTintFrom) visual.style.setProperty('--stage-from', d.flvTintFrom);
+          if (d.flvTintTo) visual.style.setProperty('--stage-to', d.flvTintTo);
+        }
+        if (hero && d.flvHero) {
+          hero.setAttribute('src', d.flvHero);
+          var pre = (d.flvTitlePre || '').replace(/\s+$/, '');
+          var ital = (d.flvTitleItalic || '').replace(/^\s+/, '');
+          hero.setAttribute('alt', (pre ? pre + (ital ? ' ' : '') : '') + ital);
+        }
+        if (flag) {
+          if (d.flvFlagText && d.flvFlagText.trim() !== '') {
+            flag.textContent = d.flvFlagText;
+            flag.classList.remove('is-hidden');
+            flag.classList.toggle('is-warn', d.flvFlagStyle === 'warn');
+          } else {
+            flag.classList.add('is-hidden');
+          }
+        }
+        if (title) {
+          var preT = (d.flvTitlePre || '').replace(/\s+$/, '');
+          var itT = (d.flvTitleItalic || '').replace(/^\s+/, '');
+          var html = '';
+          if (preT) html += escapeHTML(preT);
+          if (itT) {
+            if (preT) html += ' ';
+            html += '<span class="lfv-italic">' + escapeHTML(itT) + '</span>';
+          }
+          title.innerHTML = html;
+        }
+        if (desc) desc.textContent = d.flvDesc || '';
+
+        // Botanicals — variable count
+        var values = [d.flvBot1 || '', d.flvBot2 || '', d.flvBot3 || ''];
+        var count = 0;
+        for (var v = 0; v < values.length; v++) if (values[v] && values[v].trim() !== '') count++;
+        for (var b = 0; b < bots.length; b++) {
+          var el = bots[b];
+          el.classList.remove('is-hidden', 'lfv-bot--solo', 'lfv-bot--p1', 'lfv-bot--p2', 'lfv-bot--p3');
+          if (b >= count || !values[b]) {
+            el.classList.add('is-hidden');
+            el.textContent = '';
+            continue;
+          }
+          if (count === 1) el.classList.add('lfv-bot--solo');
+          else el.classList.add('lfv-bot--p' + (b + 1));
+          el.textContent = values[b];
+          el.style.animation = 'none';
+          void el.offsetWidth;
+          el.style.animation = '';
+        }
+
+        // Profile
+        if (profile) {
+          var rows = [
+            [d.flvStrengthLabel || 'Strength', parseInt(d.flvStrengthLevel, 10) || 0, d.flvStrengthValue || ''],
+            [d.flvFeelLabel || 'Feel', parseInt(d.flvFeelLevel, 10) || 0, d.flvFeelValue || ''],
+            [d.flvSweetLabel || 'Sweetness', parseInt(d.flvSweetLevel, 10) || 0, d.flvSweetValue || '']
+          ];
+          var phtml = '';
+          for (var r = 0; r < rows.length; r++) {
+            var dots = '';
+            for (var n = 1; n <= 5; n++) dots += '<span' + (n <= rows[r][1] ? ' class="is-on"' : '') + '></span>';
+            phtml += '<div class="lfv-prow"><span class="lfv-plabel">' + escapeHTML(rows[r][0]) + '</span>' +
+                    '<div class="lfv-pmeter" data-level="' + rows[r][1] + '">' + dots + '</div>' +
+                    '<span class="lfv-pvalue">' + escapeHTML(rows[r][2]) + '</span></div>';
+          }
+          profile.innerHTML = phtml;
+        }
+
+        if (ctaLabel) ctaLabel.textContent = d.flvCta || 'Add';
+        if (price) price.textContent = d.flvPrice || '';
+        if (priceMeta) priceMeta.textContent = d.flvPriceMeta || '';
+      } catch (err) {
+        if (window.console) console.warn('lio-flavors swap error:', err);
+      }
+    }
+
+    // Bind clicks directly + a delegated fallback in case tabs are replaced later
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].addEventListener('click', function(e) {
+        e.preventDefault();
+        activate(this);
+      });
+    }
+    ROOT.addEventListener('click', function(e) {
+      var t = e.target.closest && e.target.closest('.lfv-tab');
+      if (t && ROOT.contains(t) && !t.classList.contains('is-active')) {
+        e.preventDefault();
+        activate(t);
+      }
+    });
+  })();
+  </script>
+</div>
+
+{% stylesheet %}
+  .lio-flavor-2026 {
+    --forest: #0b2410;
+    --white:  #ffffff;
+    --cream:  #fcfefb;
+    --cream-2:#f4f7f2;
+    --mint:   #94fca9;
+    --mint-soft: #cdfee1;
+    --f-06: rgba(11, 36, 16, 0.06);
+    --f-08: rgba(11, 36, 16, 0.08);
+    --f-10: rgba(11, 36, 16, 0.10);
+    --f-14: rgba(11, 36, 16, 0.14);
+    --f-40: rgba(11, 36, 16, 0.40);
+    --f-55: rgba(11, 36, 16, 0.55);
+    --f-72: rgba(11, 36, 16, 0.72);
+    --lfv-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    display: block;
+    background: var(--cream);
+    color: var(--forest);
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+    padding: 120px 40px;
+  }
+  .lio-flavor-2026 *, .lio-flavor-2026 *::before, .lio-flavor-2026 *::after { box-sizing: border-box; }
+  .lio-flavor-2026 a { color: inherit; text-decoration: none; }
+  .lio-flavor-2026 .lfv-italic { font-style: italic; font-weight: 300; }
+
+  .lio-flavor-2026 .lfv-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .lio-flavor-2026 .lfv-head {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 48px;
+    align-items: end;
+    margin-bottom: 48px;
+  }
+  .lio-flavor-2026 .lfv-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: var(--white);
+    border: 1px solid var(--f-10);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--f-72);
+    margin-bottom: 28px;
+  }
+  .lio-flavor-2026 .lfv-eyebrow::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--mint);
+    border-radius: 50%;
+  }
+  .lio-flavor-2026 .lfv-h2 {
+    font-weight: 900;
+    font-size: clamp(36px, 4.8vw, 72px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--forest);
+    margin: 0;
+    max-width: 14ch;
+  }
+  .lio-flavor-2026 .lfv-aside {
+    justify-self: end;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+    color: var(--f-72);
+    font-weight: 500;
+  }
+  .lio-flavor-2026 .lfv-dot {
+    width: 4px; height: 4px;
+    background: var(--f-40);
+    border-radius: 50%;
+  }
+
+  .lio-flavor-2026 .lfv-tabs {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .lio-flavor-2026 .lfv-tab {
+    background: var(--cream-2);
+    border: 1px solid transparent;
+    border-radius: 16px;
+    padding: 16px 14px;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    color: var(--forest);
+    transition: transform 0.3s var(--lfv-ease), background 0.3s var(--lfv-ease), border-color 0.3s var(--lfv-ease);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 128px;
+  }
+  .lio-flavor-2026 .lfv-tab::before {
+    content: "";
+    position: absolute;
+    top: -50%; right: -30%;
+    width: 140px; height: 140px;
+    background: radial-gradient(circle, var(--mint-soft) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s var(--lfv-ease);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .lio-flavor-2026 .lfv-tab:hover { transform: translateY(-2px); }
+  .lio-flavor-2026 .lfv-tab:hover::before { opacity: 0.6; }
+  .lio-flavor-2026 .lfv-tab.is-active {
+    background: linear-gradient(155deg, var(--tab-from) 0%, var(--tab-to) 100%);
+    border-color: var(--tab-from);
+    color: var(--forest);
+  }
+  .lio-flavor-2026 .lfv-tab.is-active::before {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, transparent 70%);
+    opacity: 1;
+  }
+  .lio-flavor-2026 .lfv-tab.is-active .lfv-tab-badge {
+    background: rgba(11, 36, 16, 0.85);
+    border-color: transparent;
+    color: var(--cream);
+  }
+  .lio-flavor-2026 .lfv-tab.is-active .lfv-tab-badge.is-warn {
+    background: rgba(168, 106, 26, 0.85);
+    border-color: transparent;
+    color: var(--cream);
+  }
+
+  .lio-flavor-2026 .lfv-tab-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 36px;
+  }
+  .lio-flavor-2026 .lfv-tab-swatch {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    box-shadow:
+      inset 0 -3px 5px rgba(0, 0, 0, 0.18),
+      inset 0 2px 3px rgba(255, 255, 255, 0.3),
+      0 3px 8px rgba(11, 36, 16, 0.12);
+    flex-shrink: 0;
+  }
+  .lio-flavor-2026 .lfv-tab-swatch--image {
+    width: 36px;
+    height: 36px;
+    border-radius: 0;
+    background: transparent !important;
+    box-shadow: none;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(11, 36, 16, 0.18));
+  }
+  .lio-flavor-2026 .lfv-tab-badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--mint);
+    color: var(--forest);
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .lio-flavor-2026 .lfv-tab-badge.is-warn {
+    background: rgba(255, 180, 80, 0.15);
+    border: 1px solid rgba(255, 180, 80, 0.4);
+    color: #a86a1a;
+  }
+  .lio-flavor-2026 .lfv-tab-badge-slot {
+    min-height: 18px;
+    display: flex;
+    align-items: center;
+  }
+  .lio-flavor-2026 .lfv-tab-name {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-top: auto;
+  }
+
+  .lio-flavor-2026 .lfv-stage {
+    background: var(--cream-2);
+    border-radius: 32px;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 56px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .lio-flavor-2026 .lfv-stage::before {
+    content: "";
+    position: absolute;
+    top: -30%; left: -15%;
+    width: 520px; height: 520px;
+    background: radial-gradient(circle, var(--mint-soft) 0%, transparent 65%);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  .lio-flavor-2026 .lfv-stage-visual {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+  }
+  .lio-flavor-2026 .lfv-stage-visual::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    background: linear-gradient(155deg, var(--stage-from) 0%, var(--stage-to) 100%);
+    transition: background 0.6s var(--lfv-ease);
+    z-index: 0;
+  }
+  .lio-flavor-2026 .lfv-stage-cores {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lio-flavor-2026 .lfv-hero {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 3;
+    border-radius: 24px;
+    animation: lfv-floatHero 5.5s var(--lfv-ease) infinite;
+    will-change: transform;
+  }
+  .lio-flavor-2026 .lfv-hero--placeholder {
+    background: rgba(11, 36, 16, 0.05);
+  }
+
+  .lio-flavor-2026 .lfv-accent {
+    position: absolute;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    filter:
+      drop-shadow(0 14px 22px rgba(11, 36, 16, 0.28))
+      drop-shadow(0 5px 10px rgba(11, 36, 16, 0.16));
+    will-change: transform;
+    z-index: 4;
+    pointer-events: none;
+  }
+  .lio-flavor-2026 .lfv-accent--tl { width: 32%; top: -10%; left: -10%; animation: lfv-floatA1 5.8s var(--lfv-ease) infinite; }
+  .lio-flavor-2026 .lfv-accent--mr { width: 30%; top: 32%; right: -12%; animation: lfv-floatA2 6.4s var(--lfv-ease) infinite -1.6s; }
+  .lio-flavor-2026 .lfv-accent--bl { width: 32%; bottom: -10%; left: 4%; animation: lfv-floatA3 7s var(--lfv-ease) infinite -3.1s; }
+
+  @keyframes lfv-floatHero {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+  }
+  @keyframes lfv-floatA1 {
+    0%, 100% { transform: translateY(0) rotate(-12deg); }
+    50%      { transform: translateY(-8px) rotate(-9deg); }
+  }
+  @keyframes lfv-floatA2 {
+    0%, 100% { transform: translateY(0) rotate(18deg); }
+    50%      { transform: translateY(-7px) rotate(15deg); }
+  }
+  @keyframes lfv-floatA3 {
+    0%, 100% { transform: translateY(0) rotate(-22deg); }
+    50%      { transform: translateY(-10px) rotate(-19deg); }
+  }
+  @keyframes lfv-rise {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .lio-flavor-2026 .lfv-bot {
+    position: absolute;
+    background: var(--white);
+    border: 1px solid var(--f-08);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--forest);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 10px 20px -8px rgba(11, 36, 16, 0.12);
+    z-index: 5;
+    animation: lfv-rise 0.5s var(--lfv-ease) forwards;
+    white-space: nowrap;
+  }
+  .lio-flavor-2026 .lfv-bot::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--mint);
+    border-radius: 50%;
+  }
+  .lio-flavor-2026 .lfv-bot--p1 { top: 10%; right: 6%; animation-delay: 0.12s; }
+  .lio-flavor-2026 .lfv-bot--p2 { bottom: 8%; right: 12%; animation-delay: 0.22s; }
+  .lio-flavor-2026 .lfv-bot--p3 { top: 48%; left: 8%; animation-delay: 0.32s; }
+  .lio-flavor-2026 .lfv-bot--solo { top: 12%; right: 6%; left: auto; bottom: auto; animation-delay: 0.12s; }
+  .lio-flavor-2026 .lfv-bot.is-hidden { display: none !important; }
+
+  .lio-flavor-2026 .lfv-body { position: relative; z-index: 2; }
+  .lio-flavor-2026 .lfv-body-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .lio-flavor-2026 .lfv-stage-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--f-55);
+  }
+  .lio-flavor-2026 .lfv-stage-eyebrow::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--mint);
+    border-radius: 50%;
+  }
+  .lio-flavor-2026 .lfv-flag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--mint);
+    color: var(--forest);
+  }
+  .lio-flavor-2026 .lfv-flag.is-warn {
+    background: rgba(255, 180, 80, 0.15);
+    border: 1px solid rgba(255, 180, 80, 0.4);
+    color: #a86a1a;
+  }
+  .lio-flavor-2026 .lfv-flag.is-hidden { display: none !important; }
+
+  .lio-flavor-2026 .lfv-title {
+    font-size: clamp(32px, 3.4vw, 52px);
+    font-weight: 900;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    margin: 0 0 14px;
+    color: var(--forest);
+  }
+  .lio-flavor-2026 .lfv-desc {
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--f-72);
+    margin: 0 0 24px;
+    max-width: 44ch;
+  }
+
+  .lio-flavor-2026 .lfv-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 0;
+    border-top: 1px solid var(--f-08);
+    border-bottom: 1px solid var(--f-08);
+    margin-bottom: 24px;
+  }
+  .lio-flavor-2026 .lfv-prow {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    align-items: center;
+    gap: 20px;
+  }
+  .lio-flavor-2026 .lfv-plabel {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--f-55);
+  }
+  .lio-flavor-2026 .lfv-pmeter {
+    display: flex;
+    gap: 6px;
+  }
+  .lio-flavor-2026 .lfv-pmeter span {
+    flex: 1;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--f-08);
+    transition: background 0.4s var(--lfv-ease);
+  }
+  .lio-flavor-2026 .lfv-pmeter span.is-on { background: var(--forest); }
+  .lio-flavor-2026 .lfv-pvalue {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--forest);
+    letter-spacing: -0.005em;
+    min-width: 56px;
+    text-align: right;
+  }
+
+  .lio-flavor-2026 .lfv-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .lio-flavor-2026 .lfv-btn {
+    background: var(--mint);
+    color: var(--forest);
+    padding: 18px 26px 18px 32px;
+    border: none;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.005em;
+    cursor: pointer;
+    transition: color 0.3s var(--lfv-ease);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    font-family: inherit;
+    text-decoration: none;
+  }
+  .lio-flavor-2026 .lfv-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--forest);
+    transform: translateY(101%);
+    transition: transform 0.4s var(--lfv-ease);
+    z-index: -1;
+  }
+  .lio-flavor-2026 .lfv-btn:hover { color: var(--mint); }
+  .lio-flavor-2026 .lfv-btn:hover::after { transform: translateY(0); }
+  .lio-flavor-2026 .lfv-arrow {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--mint);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s var(--lfv-ease);
+    flex-shrink: 0;
+  }
+  .lio-flavor-2026 .lfv-arrow svg { width: 14px; height: 14px; }
+  .lio-flavor-2026 .lfv-btn:hover .lfv-arrow {
+    background: var(--mint);
+    color: var(--forest);
+    transform: translateX(3px);
+  }
+
+  .lio-flavor-2026 .lfv-price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--f-55);
+  }
+  .lio-flavor-2026 .lfv-price strong {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--forest);
+    letter-spacing: -0.02em;
+  }
+
+  /* Swap is instant — no fade gating */
+
+  @media (max-width: 1100px) {
+    .lio-flavor-2026 .lfv-tabs { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 900px) {
+    .lio-flavor-2026 { padding: 80px 20px; }
+    .lio-flavor-2026 .lfv-head {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 32px;
+      align-items: start;
+    }
+    .lio-flavor-2026 .lfv-aside { justify-self: start; padding-bottom: 0; font-size: 13px; }
+    .lio-flavor-2026 .lfv-tabs {
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .lio-flavor-2026 .lfv-tab {
+      padding: 14px;
+      min-height: 108px;
+      border-radius: 14px;
+    }
+    .lio-flavor-2026 .lfv-tab-name { font-size: 15px; }
+    .lio-flavor-2026 .lfv-tab-badge { font-size: 8px; padding: 2px 7px; }
+
+    .lio-flavor-2026 .lfv-stage {
+      padding: 24px 20px 28px;
+      border-radius: 20px;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .lio-flavor-2026 .lfv-stage-visual { max-height: 360px; }
+    .lio-flavor-2026 .lfv-accent--tl { width: 28%; top: -8%; left: -7%; }
+    .lio-flavor-2026 .lfv-accent--mr { width: 26%; top: 34%; right: -10%; }
+    .lio-flavor-2026 .lfv-accent--bl { width: 28%; bottom: -9%; left: 4%; }
+    .lio-flavor-2026 .lfv-bot { font-size: 11px; padding: 6px 11px; }
+    .lio-flavor-2026 .lfv-bot--p1 { top: 8%; right: 4%; }
+    .lio-flavor-2026 .lfv-bot--p2 { bottom: 6%; right: 10%; }
+    .lio-flavor-2026 .lfv-bot--p3 { top: 48%; left: 6%; }
+    .lio-flavor-2026 .lfv-bot--solo { top: 10%; right: 4%; }
+    .lio-flavor-2026 .lfv-title { font-size: 30px; }
+    .lio-flavor-2026 .lfv-desc { font-size: 15px; margin-bottom: 20px; }
+    .lio-flavor-2026 .lfv-profile { padding: 16px 0; margin-bottom: 20px; gap: 12px; }
+    .lio-flavor-2026 .lfv-prow { grid-template-columns: 72px 1fr auto; gap: 14px; }
+    .lio-flavor-2026 .lfv-plabel { font-size: 10px; letter-spacing: 0.18em; }
+    .lio-flavor-2026 .lfv-pmeter span { height: 6px; }
+    .lio-flavor-2026 .lfv-pvalue { font-size: 12px; min-width: 48px; }
+    .lio-flavor-2026 .lfv-cta-row { width: 100%; }
+    .lio-flavor-2026 .lfv-btn { width: 100%; justify-content: space-between; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lio-flavor-2026 .lfv-tab,
+    .lio-flavor-2026 .lfv-hero,
+    .lio-flavor-2026 .lfv-accent,
+    .lio-flavor-2026 .lfv-bot,
+    .lio-flavor-2026 .lfv-pmeter span,
+    .lio-flavor-2026 .lfv-stage-visual::before { transition: none !important; animation: none !important; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Lio · Flavors",
+  "tag": "section",
+  "class": "section-lio-flavors",
+  "settings": [
+    { "type": "header", "content": "Header" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Six cores · one ritual" },
+    { "type": "text", "id": "heading_pre", "label": "Heading — pre italic", "default": "Pick your " },
+    { "type": "text", "id": "heading_italic", "label": "Heading — italic word", "default": "flavor." },
+    { "type": "text", "id": "aside_1", "label": "Trust pill 1", "default": "Plant-based" },
+    { "type": "text", "id": "aside_2", "label": "Trust pill 2", "default": "Nicotine-free" },
+    { "type": "text", "id": "aside_3", "label": "Trust pill 3", "default": "No vapor" },
+
+    { "type": "header", "content": "Stage shared" },
+    { "type": "text", "id": "stage_eyebrow", "label": "Eyebrow above title", "default": "1 bag · 3 cores · 10 days" },
+    { "type": "url", "id": "cta_link", "label": "CTA link" },
+
+    { "type": "header", "content": "Floating accent cores" },
+    { "type": "image_picker", "id": "accent_1", "label": "Accent 1 (top-left)" },
+    { "type": "text", "id": "accent_1_url", "label": "Accent 1 — URL fallback" },
+    { "type": "image_picker", "id": "accent_2", "label": "Accent 2 (mid-right)" },
+    { "type": "text", "id": "accent_2_url", "label": "Accent 2 — URL fallback" },
+    { "type": "image_picker", "id": "accent_3", "label": "Accent 3 (bottom-left)" },
+    { "type": "text", "id": "accent_3_url", "label": "Accent 3 — URL fallback" },
+
+    { "type": "header", "content": "Accessibility" },
+    { "type": "text", "id": "tabs_aria", "label": "Tab list aria-label", "default": "Flavor selection" }
+  ],
+  "blocks": [
+    {
+      "type": "flavor",
+      "name": "Flavor",
+      "limit": 12,
+      "settings": [
+        { "type": "header", "content": "Tab" },
+        { "type": "image_picker", "id": "tab_image", "label": "Tab image" },
+        { "type": "text", "id": "tab_image_url", "label": "Tab image — URL fallback" },
+        { "type": "text", "id": "tab_name", "label": "Tab name", "default": "Flavor name" },
+        { "type": "text", "id": "tab_badge", "label": "Tab badge (blank to hide)" },
+        { "type": "select", "id": "tab_badge_style", "label": "Tab badge style", "default": "default", "options": [
+          { "value": "default", "label": "Mint (default)" },
+          { "value": "warn", "label": "Warm (mild)" }
+        ] },
+
+        { "type": "header", "content": "Tint colors" },
+        { "type": "color", "id": "tint_from", "label": "Tint — light", "default": "#eef9f1" },
+        { "type": "color", "id": "tint_to",   "label": "Tint — deep",  "default": "#d8f0e0" },
+
+        { "type": "header", "content": "Hero" },
+        { "type": "image_picker", "id": "hero_image", "label": "Hero core image" },
+        { "type": "text", "id": "hero_image_url", "label": "Hero — URL fallback" },
+
+        { "type": "header", "content": "Stage flag" },
+        { "type": "text", "id": "flag_text", "label": "Flag text (blank to hide)" },
+        { "type": "select", "id": "flag_style", "label": "Flag style", "default": "default", "options": [
+          { "value": "default", "label": "Mint" },
+          { "value": "warn", "label": "Warm (mild)" }
+        ] },
+
+        { "type": "header", "content": "Title + description" },
+        { "type": "text", "id": "title_pre", "label": "Title — pre italic", "default": "Flavor " },
+        { "type": "text", "id": "title_italic", "label": "Title — italic word", "default": "Name." },
+        { "type": "textarea", "id": "desc", "label": "Description", "default": "One-line flavor descriptor." },
+
+        { "type": "header", "content": "Botanicals (1–3)" },
+        { "type": "text", "id": "bot_1", "label": "Botanical 1 (blank to hide)" },
+        { "type": "text", "id": "bot_2", "label": "Botanical 2 (blank to hide)" },
+        { "type": "text", "id": "bot_3", "label": "Botanical 3 (blank to hide)" },
+
+        { "type": "header", "content": "Sensory — Strength" },
+        { "type": "text", "id": "strength_label", "label": "Label", "default": "Strength" },
+        { "type": "range", "id": "strength_level", "label": "Level (1–5)", "min": 1, "max": 5, "step": 1, "default": 3 },
+        { "type": "text", "id": "strength_value", "label": "Value text", "default": "3 / 5" },
+
+        { "type": "header", "content": "Sensory — Feel" },
+        { "type": "text", "id": "feel_label", "label": "Label", "default": "Feel" },
+        { "type": "range", "id": "feel_level", "label": "Level (1–5)", "min": 1, "max": 5, "step": 1, "default": 4 },
+        { "type": "text", "id": "feel_value", "label": "Value text", "default": "Cool" },
+
+        { "type": "header", "content": "Sensory — Sweetness" },
+        { "type": "text", "id": "sweet_label", "label": "Label", "default": "Sweetness" },
+        { "type": "range", "id": "sweet_level", "label": "Level (1–5)", "min": 1, "max": 5, "step": 1, "default": 1 },
+        { "type": "text", "id": "sweet_value", "label": "Value text", "default": "Dry" },
+
+        { "type": "header", "content": "CTA + price" },
+        { "type": "text", "id": "cta_label", "label": "Button label", "default": "Build your kit" },
+        { "type": "text", "id": "price", "label": "Price", "default": "€8,95" },
+        { "type": "text", "id": "price_meta", "label": "Price meta line", "default": "· 3 cores · 10 days · €0,90/day" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lio · Flavors",
+      "blocks": [
+        { "type": "flavor", "settings": { "tab_name": "Minty Magic",   "tab_badge": "Bestseller", "tint_from": "#d8f5e1", "tint_to": "#a8dfbb", "title_pre": "Minty ",   "title_italic": "Magic.",   "desc": "Cool peppermint, clean finish. Where nine out of ten start.", "bot_1": "Lemon", "bot_2": "Peppermint", "flag_text": "Bestseller",        "strength_level": 3, "strength_value": "3 / 5", "feel_value": "Cool",   "feel_level": 4, "sweet_value": "Dry",   "sweet_level": 1, "cta_label": "Build your kit",   "price": "€8,95", "price_meta": "· 3 cores · 10 days · €0,90/day" } },
+        { "type": "flavor", "settings": { "tab_name": "Peppery Mint",  "tab_badge": "Strongest",  "tint_from": "#c8e0d2", "tint_to": "#7fb89a", "title_pre": "Peppery ", "title_italic": "Mint.",    "desc": "Sharper hit. Built for the days the craving fights back.",     "bot_1": "Eucalyptus", "bot_2": "Peppermint", "bot_3": "Black pepper", "flag_text": "For cold-turkey days", "strength_level": 5, "strength_value": "5 / 5", "feel_value": "Sharp",  "feel_level": 5, "sweet_value": "Dry",   "sweet_level": 1, "cta_label": "Build your kit",  "price": "€8,95", "price_meta": "· 3 cores · 10 days · €0,90/day" } },
+        { "type": "flavor", "settings": { "tab_name": "Cinnamon Spice","tint_from": "#f3dcc1", "tint_to": "#e8c8a0", "title_pre": "Cinnamon ","title_italic": "Spice.",   "desc": "Ceylon cinnamon with a hint of vanilla. Warm, not sweet.",     "bot_1": "Natural flavors", "bot_2": "Peppermint", "strength_level": 4, "strength_value": "4 / 5", "feel_value": "Warm",   "feel_level": 2, "sweet_value": "Soft",  "sweet_level": 2, "cta_label": "Build your kit","price": "€8,95", "price_meta": "· 3 cores · 10 days · €0,90/day" } },
+        { "type": "flavor", "settings": { "tab_name": "Razzy Berry",   "tab_badge": "Mild", "tab_badge_style": "warn", "tint_from": "#fad0d9", "tint_to": "#f0b8c8", "title_pre": "Razzy ",   "title_italic": "Berry.",   "desc": "Ripe raspberry, tart citrus finish. Light — never candy.", "bot_1": "Natural flavors", "flag_text": "Mild flavor", "flag_style": "warn", "strength_level": 2, "strength_value": "2 / 5", "feel_value": "Bright", "feel_level": 3, "sweet_value": "Tart",  "sweet_level": 3, "cta_label": "Build your kit",   "price": "€8,95", "price_meta": "· 3 cores · 10 days · €0,90/day" } },
+        { "type": "flavor", "settings": { "tab_name": "Mango Passion", "tab_badge": "Mild", "tab_badge_style": "warn", "tint_from": "#fde5b8", "tint_to": "#ffd998", "title_pre": "Mango ",   "title_italic": "Passion.", "desc": "Ripe mango over passionfruit. Subtle — not loud.", "bot_1": "Natural flavors", "flag_text": "Mild flavor", "flag_style": "warn", "strength_level": 2, "strength_value": "2 / 5", "feel_value": "Soft",   "feel_level": 2, "sweet_value": "Fruity","sweet_level": 4, "cta_label": "Build your kit", "price": "€8,95", "price_meta": "· 3 cores · 10 days · €0,90/day" } },
+        { "type": "flavor", "settings": { "tab_name": "Ohh My Orange", "tint_from": "#ffd9bf", "tint_to": "#ffc098", "title_pre": "Ohh My ",  "title_italic": "Orange.",  "desc": "Valencia peel, clean citrus base. Bright afternoon lift.", "bot_1": "Sweet orange", "strength_level": 3, "strength_value": "3 / 5", "feel_value": "Zesty",  "feel_level": 3, "sweet_value": "Citrus","sweet_level": 3, "cta_label": "Build your kit", "price": "€8,95", "price_meta": "· 3 cores · 10 days · €0,90/day" } }
+      ]
+    }
+  ],
+  "enabled_on": { "templates": ["index", "page"] }
+}
+{% endschema %}

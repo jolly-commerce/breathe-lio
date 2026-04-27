@@ -1,0 +1,683 @@
+{%- comment -%}
+  Section: Lio · Social proof — extracted from lio-hero. Standalone cards carousel
+  with stat headline + rating chip. All styles scoped under .lio-social-proof.
+{%- endcomment -%}
+
+{%- liquid
+  assign stat_num = section.settings.stat_num | default: 150000
+  assign stat_display = section.settings.stat_display | default: '150,000'
+  assign reviews = section.blocks | where: 'type', 'review'
+-%}
+
+<div class="lio-social-proof">
+  {%- if reviews.size > 0 -%}
+    <section class="lhx-proof lhx-proof--dark" aria-label="Customer proof">
+      <div class="lhx-proof-tile">
+
+        <header class="lhx-proof-head">
+          <div class="lhx-proof-headline">
+            <div class="lhx-proof-num" data-count="{{ stat_num }}">{{ stat_display }}<span class="lhx-plus">+</span></div>
+            {%- if section.settings.stat_label != blank -%}
+              <p class="lhx-proof-label">{{ section.settings.stat_label }}</p>
+            {%- endif -%}
+          </div>
+
+          {%- if section.settings.show_rating -%}
+            <div class="lhx-proof-rating" aria-label="Rated {{ section.settings.rating_score }} {{ section.settings.rating_subtext }}">
+              <div class="lhx-proof-rating-stars" aria-hidden="true">{{ section.settings.rating_stars | default: '★★★★★' }}</div>
+              <div class="lhx-proof-rating-meta">
+                <strong>{{ section.settings.rating_score | default: '4.6/5' }}</strong>
+                <span>{{ section.settings.rating_subtext | default: 'from 2,300+ verified reviews' }}</span>
+              </div>
+            </div>
+          {%- endif -%}
+        </header>
+
+        <div class="lhx-proof-carousel">
+          <div class="lhx-proof-viewport" role="region" aria-label="Verified customer reviews" tabindex="0">
+            <div class="lhx-proof-track" data-proof-track>
+              {%- for block in reviews -%}
+                <article class="lhx-proof-card" role="group" aria-roledescription="slide" aria-label="Review {{ forloop.index }} of {{ reviews.size }}" {{ block.shopify_attributes }}>
+                  <div class="lhx-proof-card-top">
+                    <div class="lhx-proof-card-stars" aria-label="{{ block.settings.stars | default: 5 }} out of 5 stars">
+                      {%- assign s = block.settings.stars | default: 5 -%}
+                      {%- for i in (1..s) -%}★{%- endfor -%}
+                    </div>
+                    {%- if block.settings.verified -%}
+                      <span class="lhx-proof-card-verify">Verified</span>
+                    {%- endif -%}
+                  </div>
+                  <blockquote class="lhx-proof-card-quote">{{ block.settings.quote }}</blockquote>
+                  <footer class="lhx-proof-card-attr">
+                    <span class="lhx-proof-card-avatar" aria-hidden="true" style="background: linear-gradient(135deg, {{ block.settings.avatar_from | default: '#c4a57b' }}, {{ block.settings.avatar_to | default: '#8b6a47' }});">{{ block.settings.avatar_letter | default: block.settings.name | slice: 0, 1 | upcase }}</span>
+                    <span class="lhx-proof-card-name">{{ block.settings.name }}</span>
+                  </footer>
+                </article>
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+
+        <div class="lhx-proof-controls">
+          <div class="lhx-proof-progress" aria-live="polite" aria-atomic="true">
+            <strong data-proof-progress>1</strong> of {{ reviews.size }} verified
+          </div>
+          <div class="lhx-proof-nav" aria-hidden="false">
+            <button class="lhx-proof-btn lhx-proof-btn--prev" type="button" data-proof-prev aria-label="Previous review">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="lhx-proof-btn lhx-proof-btn--next" type="button" data-proof-next aria-label="Next review">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .lio-social-proof {
+    --forest: #0b2410;
+    --cream:  #fcfefb;
+    --mint:   #94fca9;
+    --f-06:   rgba(11, 36, 16, 0.06);
+    --f-10:   rgba(11, 36, 16, 0.10);
+    --f-14:   rgba(11, 36, 16, 0.14);
+    --f-55:   rgba(11, 36, 16, 0.55);
+    --lhx-ease:            cubic-bezier(0.22, 1, 0.36, 1);
+    --lhx-ease-out-strong: cubic-bezier(0.16, 1, 0.3, 1);
+    --lhx-r-lg: 22px;
+
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    color: var(--forest);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.005em;
+  }
+  .lio-social-proof *, .lio-social-proof *::before, .lio-social-proof *::after { box-sizing: border-box; }
+  .lio-social-proof ::selection { background: var(--mint); color: var(--forest); }
+
+  @keyframes lsp-rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ========== PROOF ==========
+     Cards carousel — peek-style scroll on phones (1 + peek), 2 cards on tablet, 3 on desktop. */
+  .lio-social-proof .lhx-proof {
+    width: 100%;
+    padding: clamp(56px, 9vw, 96px) 0;
+    overflow: hidden;
+    position: relative;
+    animation: lsp-rise 0.9s var(--lhx-ease-out-strong) 0.1s both;
+  }
+  .lio-social-proof .lhx-proof-tile {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(28px, 4vw, 44px);
+    padding: 0 clamp(20px, 5vw, 40px);
+    position: relative;
+  }
+
+  /* Header */
+  .lio-social-proof .lhx-proof-head {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 4vw, 28px);
+    align-items: flex-start;
+  }
+  .lio-social-proof .lhx-proof-headline {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+  }
+  .lio-social-proof .lhx-proof-num {
+    font-size: clamp(60px, 14vw, 124px);
+    font-weight: 900;
+    letter-spacing: -0.065em;
+    line-height: 0.88;
+    color: var(--forest);
+    display: inline-flex;
+    align-items: baseline;
+    word-break: keep-all;
+  }
+  .lio-social-proof .lhx-proof-num .lhx-plus {
+    color: var(--mint);
+    font-weight: 900;
+  }
+  .lio-social-proof .lhx-proof-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--f-55);
+    line-height: 1.4;
+    max-width: 32ch;
+    margin: 0;
+  }
+
+  .lio-social-proof .lhx-proof-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 18px 10px 16px;
+    border: 1px solid var(--f-10);
+    border-radius: 999px;
+    background: rgba(11, 36, 16, 0.04);
+  }
+  .lio-social-proof .lhx-proof-rating-stars {
+    font-size: 14px;
+    color: var(--forest);
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+  .lio-social-proof .lhx-proof-rating-meta {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 7px;
+    font-size: 12px;
+    color: var(--f-55);
+    white-space: nowrap;
+  }
+  .lio-social-proof .lhx-proof-rating-meta strong {
+    color: var(--forest);
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: -0.005em;
+  }
+
+  /* Carousel — viewport extends past the tile padding so cards bleed into the edge. */
+  .lio-social-proof .lhx-proof-carousel {
+    position: relative;
+    margin: 0 calc(clamp(20px, 5vw, 40px) * -1);
+  }
+  .lio-social-proof .lhx-proof-viewport {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: clamp(20px, 5vw, 40px);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior-x: contain;
+    padding: 4px clamp(20px, 5vw, 40px);
+  }
+  .lio-social-proof .lhx-proof-viewport::-webkit-scrollbar { display: none; }
+  .lio-social-proof .lhx-proof-viewport:focus-visible {
+    outline: 2px solid var(--mint);
+    outline-offset: 4px;
+    border-radius: 6px;
+  }
+  .lio-social-proof .lhx-proof-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 86%;
+    gap: 14px;
+  }
+
+  .lio-social-proof .lhx-proof-card {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    background: var(--cream);
+    border: 1px solid var(--f-10);
+    border-radius: var(--lhx-r-lg);
+    padding: 22px 22px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+    margin: 0;
+    transition: transform 0.4s var(--lhx-ease), box-shadow 0.4s var(--lhx-ease), border-color 0.4s var(--lhx-ease);
+  }
+  @media (hover: hover) {
+    .lio-social-proof .lhx-proof-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--forest);
+      box-shadow: 0 10px 28px rgba(11, 36, 16, 0.12);
+    }
+  }
+  .lio-social-proof .lhx-proof-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .lio-social-proof .lhx-proof-card-stars {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--forest);
+    line-height: 1;
+  }
+  .lio-social-proof .lhx-proof-card-verify {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--forest);
+    white-space: nowrap;
+  }
+  .lio-social-proof .lhx-proof-card-verify::before {
+    content: "";
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    background: var(--mint);
+    flex-shrink: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8l3 3 5-6' stroke='%230b2410' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: 72% 72%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .lio-social-proof .lhx-proof-card-quote {
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+    color: var(--forest);
+    font-weight: 400;
+    margin: 0;
+    flex: 1;
+    font-style: normal;
+    text-wrap: pretty;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .lio-social-proof .lhx-proof-card-quote mark {
+    background: linear-gradient(transparent 60%, var(--mint) 60%);
+    color: inherit;
+    padding: 0 2px;
+  }
+  .lio-social-proof .lhx-proof-card-attr {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px solid var(--f-10);
+    padding-top: 14px;
+    margin: 0;
+  }
+  .lio-social-proof .lhx-proof-card-avatar {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .lio-social-proof .lhx-proof-card-name {
+    font-weight: 700;
+    color: var(--forest);
+    font-size: 13px;
+    letter-spacing: -0.005em;
+  }
+
+  /* Controls */
+  .lio-social-proof .lhx-proof-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: clamp(20px, 4vw, 28px);
+    border-top: 1px solid var(--f-06);
+    flex-wrap: wrap;
+    row-gap: 14px;
+  }
+  .lio-social-proof .lhx-proof-progress {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--f-55);
+    letter-spacing: 0.06em;
+    font-variant-numeric: tabular-nums;
+    text-transform: uppercase;
+  }
+  .lio-social-proof .lhx-proof-progress strong { color: var(--forest); font-weight: 800; }
+  .lio-social-proof .lhx-proof-nav {
+    display: flex;
+    gap: 8px;
+  }
+  .lio-social-proof .lhx-proof-btn {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--f-14);
+    background: transparent;
+    color: var(--forest);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    transition: background 0.2s var(--lhx-ease), color 0.2s var(--lhx-ease), border-color 0.2s var(--lhx-ease);
+  }
+  .lio-social-proof .lhx-proof-btn:hover {
+    background: var(--forest);
+    color: var(--mint);
+    border-color: var(--forest);
+  }
+  .lio-social-proof .lhx-proof-btn svg { width: 14px; height: 14px; }
+  .lio-social-proof .lhx-proof-btn--prev svg { transform: rotate(180deg); }
+
+  /* Tablet — 2 cards visible */
+  @media (min-width: 600px) {
+    .lio-social-proof .lhx-proof-track {
+      grid-auto-columns: 47%;
+      gap: 16px;
+    }
+  }
+  /* Desktop — 3 cards, side-by-side header */
+  @media (min-width: 1024px) {
+    .lio-social-proof .lhx-proof { padding: clamp(80px, 9vw, 128px) 0; }
+    .lio-social-proof .lhx-proof-tile { padding: 0 clamp(40px, 6vw, 64px); }
+    .lio-social-proof .lhx-proof-head {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .lio-social-proof .lhx-proof-headline { gap: 16px; }
+    .lio-social-proof .lhx-proof-num {
+      font-size: clamp(80px, 8vw, 132px);
+      letter-spacing: -0.07em;
+    }
+    .lio-social-proof .lhx-proof-rating { padding: 12px 22px 12px 18px; }
+    .lio-social-proof .lhx-proof-rating-meta { font-size: 13px; }
+    .lio-social-proof .lhx-proof-rating-meta strong { font-size: 17px; }
+    .lio-social-proof .lhx-proof-rating-stars { font-size: 16px; }
+    .lio-social-proof .lhx-proof-carousel {
+      margin: 0 calc(clamp(40px, 6vw, 64px) * -1);
+    }
+    .lio-social-proof .lhx-proof-viewport {
+      padding: 4px clamp(40px, 6vw, 64px);
+      scroll-padding-left: clamp(40px, 6vw, 64px);
+    }
+    .lio-social-proof .lhx-proof-track {
+      grid-auto-columns: 31.6%;
+      gap: 20px;
+    }
+    .lio-social-proof .lhx-proof-card { padding: 26px 26px 20px; }
+    .lio-social-proof .lhx-proof-card-quote {
+      font-size: 16px;
+      -webkit-line-clamp: 7;
+      line-clamp: 7;
+    }
+  }
+
+  /* Dark variant */
+  .lio-social-proof .lhx-proof--dark {
+    background: var(--forest);
+    color: var(--cream);
+  }
+  .lio-social-proof .lhx-proof--dark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(800px circle at 12% 18%, rgba(148, 252, 169, 0.14) 0%, transparent 55%),
+      radial-gradient(700px circle at 88% 85%, rgba(148, 252, 169, 0.06) 0%, transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .lio-social-proof .lhx-proof--dark .lhx-proof-tile {
+    position: relative;
+    z-index: 1;
+  }
+  .lio-social-proof .lhx-proof--dark .lhx-proof-num { color: var(--cream); }
+  .lio-social-proof .lhx-proof--dark .lhx-proof-num .lhx-plus { color: var(--mint); }
+  .lio-social-proof .lhx-proof--dark .lhx-proof-label { color: rgba(246, 242, 231, 0.55); }
+  .lio-social-proof .lhx-proof--dark .lhx-proof-rating {
+    background: rgba(252, 254, 251, 0.06);
+    border-color: rgba(148, 252, 169, 0.22);
+  }
+  .lio-social-proof .lhx-proof--dark .lhx-proof-rating-stars { color: var(--mint); }
+  .lio-social-proof .lhx-proof--dark .lhx-proof-rating-meta { color: rgba(246, 242, 231, 0.65); }
+  .lio-social-proof .lhx-proof--dark .lhx-proof-rating-meta strong { color: var(--cream); }
+  .lio-social-proof .lhx-proof--dark .lhx-proof-controls {
+    border-top-color: rgba(148, 252, 169, 0.16);
+  }
+  .lio-social-proof .lhx-proof--dark .lhx-proof-progress { color: rgba(246, 242, 231, 0.55); }
+  .lio-social-proof .lhx-proof--dark .lhx-proof-progress strong { color: var(--cream); }
+  .lio-social-proof .lhx-proof--dark .lhx-proof-btn {
+    border-color: rgba(148, 252, 169, 0.25);
+    color: var(--cream);
+  }
+  .lio-social-proof .lhx-proof--dark .lhx-proof-btn:hover {
+    background: var(--mint);
+    color: var(--forest);
+    border-color: var(--mint);
+  }
+  @media (hover: hover) {
+    .lio-social-proof .lhx-proof--dark .lhx-proof-card:hover {
+      border-color: var(--mint);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.30);
+    }
+  }
+  .lio-social-proof .lhx-proof--dark .lhx-proof-viewport:focus-visible { outline-color: var(--mint); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lio-social-proof *,
+    .lio-social-proof *::before,
+    .lio-social-proof *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  (function() {
+    'use strict';
+    document.querySelectorAll('.lio-social-proof').forEach(function(root) {
+
+      // --- Cards carousel (native scroll-snap, swipe on every device) ---
+      var track = root.querySelector('[data-proof-track]');
+      var viewport = track ? track.parentElement : null;
+      if (track && viewport) {
+        var slides = track.querySelectorAll('.lhx-proof-card');
+        if (slides.length) {
+          var progressEl = root.querySelector('[data-proof-progress]');
+          var prevBtn = root.querySelector('[data-proof-prev]');
+          var nextBtn = root.querySelector('[data-proof-next]');
+
+          var index = 0;
+          var autoTimer = null;
+          var paused = false;
+          var INTERVAL = 5500;
+          var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+          function getPad() {
+            var v = parseFloat(getComputedStyle(viewport).paddingLeft);
+            return isFinite(v) ? v : 0;
+          }
+          function snapTargetFor(slide) {
+            return Math.max(0, slide.offsetLeft - getPad());
+          }
+          function updateUI(i) {
+            if (progressEl) progressEl.textContent = String(i + 1);
+          }
+
+          function goTo(i, opts) {
+            opts = opts || {};
+            i = ((i % slides.length) + slides.length) % slides.length;
+            index = i;
+            var slide = slides[i];
+            if (!slide) return;
+            viewport.scrollTo({
+              left: snapTargetFor(slide),
+              behavior: opts.instant ? 'auto' : 'smooth'
+            });
+            updateUI(i);
+          }
+          var next = function() { goTo(index + 1); };
+          var prev = function() { goTo(index - 1); };
+
+          function startAuto() {
+            if (reducedMotion) return;
+            stopAuto();
+            autoTimer = window.setInterval(function() { if (!paused) next(); }, INTERVAL);
+          }
+          function stopAuto() {
+            if (autoTimer) { window.clearInterval(autoTimer); autoTimer = null; }
+          }
+          var restart = function() { stopAuto(); startAuto(); };
+
+          if (prevBtn) prevBtn.addEventListener('click', function() { prev(); restart(); });
+          if (nextBtn) nextBtn.addEventListener('click', function() { next(); restart(); });
+
+          var scrollRaf = null;
+          viewport.addEventListener('scroll', function() {
+            if (scrollRaf) cancelAnimationFrame(scrollRaf);
+            scrollRaf = requestAnimationFrame(function() {
+              var sl = viewport.scrollLeft;
+              var best = 0;
+              var bestDist = Infinity;
+              for (var n = 0; n < slides.length; n++) {
+                var d = Math.abs(snapTargetFor(slides[n]) - sl);
+                if (d < bestDist) { bestDist = d; best = n; }
+              }
+              if (best !== index) {
+                index = best;
+                updateUI(best);
+              }
+            });
+          }, { passive: true });
+
+          var pauseMark = function() { paused = true; };
+          var resumeMark = function() { window.setTimeout(function() { paused = false; }, 900); };
+          viewport.addEventListener('pointerdown', pauseMark);
+          viewport.addEventListener('pointerup', resumeMark);
+          viewport.addEventListener('pointercancel', resumeMark);
+          viewport.addEventListener('touchstart', pauseMark, { passive: true });
+          viewport.addEventListener('touchend', resumeMark, { passive: true });
+          viewport.addEventListener('touchcancel', resumeMark, { passive: true });
+
+          var proofParent = viewport.closest('.lhx-proof');
+          if (proofParent) {
+            proofParent.addEventListener('mouseenter', function() { paused = true; });
+            proofParent.addEventListener('mouseleave', function() { paused = false; });
+          }
+
+          viewport.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight') { e.preventDefault(); next(); restart(); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); restart(); }
+          });
+
+          if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function(entries) {
+              entries.forEach(function(entry) {
+                if (entry.isIntersecting) startAuto();
+                else stopAuto();
+              });
+            }, { threshold: 0.2 });
+            io.observe(proofParent || viewport);
+          } else {
+            startAuto();
+          }
+
+          var resizeRaf = null;
+          window.addEventListener('resize', function() {
+            if (resizeRaf) cancelAnimationFrame(resizeRaf);
+            resizeRaf = requestAnimationFrame(function() {
+              goTo(index, { instant: true });
+            });
+          }, { passive: true });
+
+          goTo(0, { instant: true });
+        }
+      }
+
+      // --- Stat counter ---
+      try {
+        var el = root.querySelector('.lhx-proof-num[data-count]');
+        if (!el) return;
+        if (!('IntersectionObserver' in window)) return;
+        if (!window.requestAnimationFrame) return;
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        var target = parseInt(el.getAttribute('data-count'), 10);
+        if (!isFinite(target) || target <= 0) return;
+
+        var plusHTML = '<span class="lhx-plus">+</span>';
+        var fmt = function(n) { return n.toLocaleString('en-US'); };
+
+        function run() {
+          var duration = 1800;
+          var start = performance.now();
+          function tick(now) {
+            var t = Math.min((now - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - t, 3);
+            el.innerHTML = fmt(Math.floor(target * eased)) + plusHTML;
+            if (t < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        }
+        var cio = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) { run(); cio.unobserve(e.target); }
+          });
+        }, { threshold: 0.4 });
+        cio.observe(el);
+      } catch (err) { /* fail silent */ }
+    });
+  })();
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Lio · Social proof",
+  "tag": "section",
+  "class": "section-lio-social-proof",
+  "settings": [
+    { "type": "header", "content": "Stat" },
+    { "type": "text",   "id": "stat_display", "label": "Stat display (e.g. '150,000')", "default": "150,000" },
+    { "type": "number", "id": "stat_num",     "label": "Stat numeric value (for count-up)", "default": 150000 },
+    { "type": "text",   "id": "stat_label",   "label": "Stat label", "default": "People who made Lio part of their day." },
+
+    { "type": "header",   "content": "Rating chip" },
+    { "type": "checkbox", "id": "show_rating",     "label": "Show rating chip", "default": true },
+    { "type": "text",     "id": "rating_stars",    "label": "Stars", "default": "★★★★★" },
+    { "type": "text",     "id": "rating_score",    "label": "Score (e.g. '4.6/5')", "default": "4.6/5" },
+    { "type": "text",     "id": "rating_subtext",  "label": "Subtext", "default": "from 2,300+ verified reviews" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review card",
+      "limit": 30,
+      "settings": [
+        { "type": "textarea", "id": "quote",         "label": "Quote (use <mark>…</mark> to highlight a phrase)", "default": "Two years in and Lio is still the first thing I reach for. It just became <mark>part of how I live now.</mark>" },
+        { "type": "text",     "id": "name",          "label": "Reviewer name", "default": "Natascha H." },
+        { "type": "text",     "id": "avatar_letter", "label": "Avatar letter (blank = first letter of name)" },
+        { "type": "color",    "id": "avatar_from",   "label": "Avatar gradient start", "default": "#c4a57b" },
+        { "type": "color",    "id": "avatar_to",     "label": "Avatar gradient end",   "default": "#8b6a47" },
+        { "type": "range",    "id": "stars",         "label": "Star count", "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "checkbox", "id": "verified",      "label": "Show 'Verified' label", "default": true }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lio · Social proof",
+      "blocks": [
+        { "type": "review", "settings": { "quote": "Two years in and Lio is still the first thing I reach for. It just became <mark>part of how I live now.</mark>", "name": "Natascha H.", "avatar_from": "#c4a57b", "avatar_to": "#8b6a47" } },
+        { "type": "review", "settings": { "quote": "Skeptical at first — how could a wooden stick do anything? Now <mark>I've recommended it to four friends.</mark>", "name": "Emma F.", "avatar_from": "#e8b4a0", "avatar_to": "#b07d6d" } },
+        { "type": "review", "settings": { "quote": "The site, the product, the promises — <mark>all real.</mark> I use mine every single day now.", "name": "Pedro C.", "avatar_from": "#9ab8d1", "avatar_to": "#5a7896" } },
+        { "type": "review", "settings": { "quote": "The resistance, the flavor, the ritual — <mark>perfectly satisfying.</mark> I'm genuinely happy with myself.", "name": "Michelle K.", "avatar_from": "#94fca9", "avatar_to": "#4fb36a" } },
+        { "type": "review", "settings": { "quote": "Mint, Cinnamon, Cold Turkey — my three favourites. <mark>Very good and satisfying.</mark>", "name": "Thomas B.", "avatar_from": "#d4a5b8", "avatar_to": "#8a5d7a" } }
+      ]
+    }
+  ],
+  "enabled_on": { "templates": ["index", "page", "product"] }
+}
+{% endschema %}

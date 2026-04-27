@@ -1,0 +1,31 @@
+{%- comment -%}
+  Section: Lio · Page bootstrap.
+  A zero-visual utility section that loads shared Lio homepage assets
+  (Typekit, CSS, JS) and renders the SVG icon sprite exactly once.
+  Keep this as the FIRST section on any page that uses Lio homepage sections.
+{%- endcomment -%}
+
+<link rel="preconnect" href="https://use.typekit.net" crossorigin>
+<link rel="stylesheet" href="https://use.typekit.net/xhz7hhk.css">
+{{ 'lio-v29-homepage.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'lio-v29-homepage.js' | asset_url }}" defer></script>
+
+{% render 'lio-icons' %}
+
+{% schema %}
+{
+  "name": "Lio · Bootstrap",
+  "tag": "section",
+  "class": "section-lio-bootstrap",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Loads shared Lio homepage assets (CSS, JS, icon sprite). Keep this at the top of any page that uses Lio homepage sections. It produces no visible output."
+    }
+  ],
+  "presets": [
+    { "name": "Lio · Bootstrap" }
+  ],
+  "enabled_on": { "templates": ["index", "page"] }
+}
+{% endschema %}

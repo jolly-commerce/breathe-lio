@@ -1,0 +1,836 @@
+{%- comment -%}
+  Section: Lio · Kill block (v33).
+  Is/isn't frame-setter + prominent collapsible FAQ card + reframe/CTA.
+  Every copy string is a schema setting. Every list item and FAQ Q&A
+  is a block so merchants can add/remove/reorder in the theme editor.
+  Translate & Adapt-ready. Scoped under .lio-killblock-v33.
+
+  Editor conventions for inline emphasis (merchants keep this simple):
+    <em>…</em>                  → mint italic accent (hero words)
+    <strong>…</strong>          → bold cream (body emphasis)
+    <span class="redact">…</span> → muted italic with a mint strike
+                                   (for sensitive category words)
+{%- endcomment -%}
+
+{%- liquid
+  assign pos_count = 0
+  assign neg_count = 0
+  assign q_count = 0
+  for b in section.blocks
+    if b.type == 'item'
+      if b.settings.column == 'negative'
+        assign neg_count = neg_count | plus: 1
+      else
+        assign pos_count = pos_count | plus: 1
+      endif
+    endif
+    if b.type == 'question'
+      assign q_count = q_count | plus: 1
+    endif
+  endfor
+-%}
+
+<div class="lio-killblock-v33">
+  <div class="kb-inner">
+
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="kb-eyebrow">{{ section.settings.eyebrow }}</span>
+    {%- endif -%}
+
+    {%- if section.settings.headline != blank -%}
+      <h2 class="kb-h">{{ section.settings.headline }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.lede != blank -%}
+      <p class="kb-lede">{{ section.settings.lede }}</p>
+    {%- endif -%}
+
+    {%- comment -%} ====== IS / ISN'T GRID ====== {%- endcomment -%}
+    {%- if pos_count > 0 or neg_count > 0 -%}
+      <div class="kb-grid">
+        <div class="kb-col kb-col-no">
+          <div class="kb-col-label">
+            <span class="kb-col-icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            </span>
+            {{ section.settings.col_no_title | default: 'Lio is not' }}
+          </div>
+          {%- if neg_count > 0 -%}
+            <ul class="kb-list">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'item' and block.settings.column == 'negative' -%}
+                  <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </div>
+
+        <div class="kb-col kb-col-yes">
+          <div class="kb-col-label">
+            <span class="kb-col-icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            {{ section.settings.col_yes_title | default: 'Lio is' }}
+          </div>
+          {%- if pos_count > 0 -%}
+            <ul class="kb-list">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'item' and block.settings.column != 'negative' -%}
+                  <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} ====== FAQ (outer collapsible) ====== {%- endcomment -%}
+    {%- if section.settings.show_faq and q_count > 0 -%}
+      <details class="kb-faq">
+        <summary>
+          <div class="kb-faq-card">
+            <div class="kb-faq-card-body">
+              {%- if section.settings.faq_count_label != blank -%}
+                <span class="kb-faq-count">
+                  <span class="kb-faq-count-dot" aria-hidden="true"></span>
+                  {{ section.settings.faq_count_label }}
+                </span>
+              {%- endif -%}
+              {%- if section.settings.faq_title != blank -%}
+                <h3 class="kb-faq-title">{{ section.settings.faq_title }}</h3>
+              {%- endif -%}
+              <p class="kb-faq-cue">
+                <span class="kb-faq-cue-text-closed">{{ section.settings.faq_cue_closed | default: 'Tap to reveal all answers' }}</span>
+                <span class="kb-faq-cue-text-open">{{ section.settings.faq_cue_open | default: 'Tap to hide' }}</span>
+                <svg class="kb-faq-cue-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </p>
+            </div>
+            <span class="kb-faq-head-caret" aria-hidden="true"></span>
+          </div>
+        </summary>
+
+        <div class="kb-faq-list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'question' -%}
+              <details class="kb-obj" {{ block.shopify_attributes }}>
+                <summary>
+                  <span>{{ block.settings.q }}</span>
+                  <span class="kb-obj-caret" aria-hidden="true"></span>
+                </summary>
+                <p class="kb-obj-a">{{ block.settings.a }}</p>
+              </details>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </details>
+    {%- endif -%}
+
+    {%- comment -%} ====== REFRAME + CTA ====== {%- endcomment -%}
+    {%- if section.settings.show_cta -%}
+      <div class="kb-reframe">
+        {%- if section.settings.reframe != blank -%}
+          <p class="kb-reframe-line">{{ section.settings.reframe }}</p>
+        {%- endif -%}
+        <div class="kb-cta-row">
+          {%- if section.settings.cta_label != blank -%}
+            <a href="{{ section.settings.cta_link | default: '#offer' }}" class="kb-btn">
+              {{ section.settings.cta_label }}
+              <span class="kb-arrow" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.ghost_label != blank -%}
+            <a href="{{ section.settings.ghost_link | default: '#how' }}" class="kb-btn-ghost">
+              {{ section.settings.ghost_label }}
+              <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% stylesheet %}
+  .lio-killblock-v33 {
+    --forest:    #112412;
+    --cream:     #fcfefb;
+    --mint:      #adfab1;
+    --c-55:      rgba(252, 254, 251, 0.55);
+    --c-72:      rgba(252, 254, 251, 0.72);
+    --c-92:      rgba(252, 254, 251, 0.92);
+    --c-08:      rgba(252, 254, 251, 0.08);
+    --c-12:      rgba(252, 254, 251, 0.12);
+    --ease:      cubic-bezier(0.22, 1, 0.36, 1);
+
+    display: block;
+    background: var(--forest);
+    color: var(--cream);
+    padding: 88px 40px;
+    position: relative;
+    overflow: hidden;
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+  }
+  @media (max-width: 768px) {
+    .lio-killblock-v33 { padding: 56px 20px; }
+  }
+  .lio-killblock-v33 *,
+  .lio-killblock-v33 *::before,
+  .lio-killblock-v33 *::after { box-sizing: border-box; }
+  .lio-killblock-v33 ::selection { background: var(--mint); color: var(--forest); }
+
+  .lio-killblock-v33::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 85% 15%, rgba(173, 250, 177, 0.12) 0%, transparent 42%),
+      radial-gradient(circle at 10% 90%, rgba(173, 250, 177, 0.06) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .lio-killblock-v33 .kb-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Eyebrow */
+  .lio-killblock-v33 .kb-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: rgba(252, 254, 251, 0.06);
+    border: 1px solid var(--c-12);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--c-72);
+    margin-bottom: 22px;
+  }
+  .lio-killblock-v33 .kb-eyebrow::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--mint);
+    border-radius: 50%;
+  }
+  @media (max-width: 768px) {
+    .lio-killblock-v33 .kb-eyebrow { margin-bottom: 16px; font-size: 10px; padding: 6px 14px; }
+  }
+
+  /* Headline + lede */
+  .lio-killblock-v33 .kb-h {
+    font-weight: 900;
+    font-size: clamp(34px, 5vw, 64px);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    color: var(--cream);
+    margin: 0 0 20px;
+    max-width: 18ch;
+  }
+  .lio-killblock-v33 .kb-h em,
+  .lio-killblock-v33 .kb-h i {
+    color: var(--mint);
+    font-weight: 300;
+    font-style: italic;
+  }
+  @media (max-width: 768px) {
+    .lio-killblock-v33 .kb-h { margin-bottom: 14px; }
+  }
+  .lio-killblock-v33 .kb-lede {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--c-72);
+    max-width: 520px;
+    margin: 0 0 40px;
+  }
+  .lio-killblock-v33 .kb-lede strong {
+    color: var(--cream);
+    font-weight: 600;
+  }
+  @media (max-width: 768px) {
+    .lio-killblock-v33 .kb-lede { font-size: 14.5px; margin-bottom: 26px; }
+  }
+
+  /* Is / Isn't grid */
+  .lio-killblock-v33 .kb-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--c-12);
+    margin-bottom: 36px;
+  }
+  .lio-killblock-v33 .kb-col { padding: 32px 32px 32px 0; }
+  .lio-killblock-v33 .kb-col + .kb-col {
+    border-left: 1px solid var(--c-12);
+    padding-left: 32px;
+    padding-right: 0;
+  }
+  @media (max-width: 768px) {
+    .lio-killblock-v33 .kb-grid { margin-bottom: 28px; }
+    .lio-killblock-v33 .kb-col { padding: 20px 12px 20px 0; }
+    .lio-killblock-v33 .kb-col + .kb-col { padding-left: 12px; }
+  }
+
+  .lio-killblock-v33 .kb-col-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--c-55);
+    margin-bottom: 22px;
+  }
+  @media (max-width: 768px) {
+    .lio-killblock-v33 .kb-col-label {
+      font-size: 9.5px;
+      letter-spacing: 0.16em;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+  }
+  .lio-killblock-v33 .kb-col-icon {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .lio-killblock-v33 .kb-col-icon svg { width: 10px; height: 10px; }
+  .lio-killblock-v33 .kb-col-no .kb-col-icon {
+    background: rgba(255, 138, 138, 0.14);
+    color: #ff8a8a;
+  }
+  .lio-killblock-v33 .kb-col-yes .kb-col-icon {
+    background: rgba(173, 250, 177, 0.14);
+    color: var(--mint);
+  }
+  @media (max-width: 768px) {
+    .lio-killblock-v33 .kb-col-icon { width: 18px; height: 18px; }
+    .lio-killblock-v33 .kb-col-icon svg { width: 8px; height: 8px; }
+  }
+
+  .lio-killblock-v33 .kb-list { list-style: none; margin: 0; padding: 0; }
+  .lio-killblock-v33 .kb-list li {
+    padding: 14px 0;
+    font-size: 16px;
+    line-height: 1.3;
+    font-weight: 500;
+    color: var(--c-92);
+    border-bottom: 1px solid var(--c-08);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    letter-spacing: -0.01em;
+  }
+  .lio-killblock-v33 .kb-list li:last-child { border-bottom: none; }
+  .lio-killblock-v33 .kb-list li::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .lio-killblock-v33 .kb-col-no .kb-list li::before { background: #ff8a8a; }
+  .lio-killblock-v33 .kb-col-yes .kb-list li::before { background: var(--mint); }
+  @media (max-width: 768px) {
+    .lio-killblock-v33 .kb-list li { font-size: 13.5px; padding: 11px 0; gap: 8px; }
+    .lio-killblock-v33 .kb-list li::before { width: 5px; height: 5px; }
+  }
+
+  /* FAQ block */
+  .lio-killblock-v33 .kb-faq {
+    margin-top: 72px;
+    padding-top: 56px;
+    border-top: 1px solid var(--c-12);
+    position: relative;
+  }
+  @media (max-width: 768px) {
+    .lio-killblock-v33 .kb-faq { margin-top: 44px; padding-top: 36px; }
+  }
+  .lio-killblock-v33 .kb-faq-list { border-top: 1px solid var(--c-12); }
+
+  .lio-killblock-v33 .kb-obj { border-bottom: 1px solid var(--c-08); }
+  .lio-killblock-v33 .kb-obj:last-child { border-bottom: 1px solid var(--c-12); }
+
+  .lio-killblock-v33 .kb-obj summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 22px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--c-92);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    transition: color 0.2s var(--ease);
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .lio-killblock-v33 .kb-obj summary::-webkit-details-marker { display: none !important; }
+  .lio-killblock-v33 .kb-obj summary::marker { content: "" !important; display: none; }
+  .lio-killblock-v33 .kb-obj summary:hover { color: var(--mint); }
+
+  .lio-killblock-v33 .kb-obj:not([open]) .kb-obj-a { display: none; }
+
+  .lio-killblock-v33 .kb-obj-caret {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: rgba(252, 254, 251, 0.06);
+    border: 1px solid var(--c-12);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.25s var(--ease);
+    position: relative;
+  }
+  .lio-killblock-v33 .kb-obj-caret::before,
+  .lio-killblock-v33 .kb-obj-caret::after {
+    content: "";
+    position: absolute;
+    background: var(--cream);
+    border-radius: 1px;
+    transition: transform 0.3s var(--ease), background 0.25s var(--ease);
+  }
+  .lio-killblock-v33 .kb-obj-caret::before { width: 9px; height: 1.5px; }
+  .lio-killblock-v33 .kb-obj-caret::after  { width: 1.5px; height: 9px; }
+  .lio-killblock-v33 .kb-obj[open] .kb-obj-caret {
+    background: var(--mint);
+    border-color: var(--mint);
+  }
+  .lio-killblock-v33 .kb-obj[open] .kb-obj-caret::before,
+  .lio-killblock-v33 .kb-obj[open] .kb-obj-caret::after { background: var(--forest); }
+  .lio-killblock-v33 .kb-obj[open] .kb-obj-caret::after { transform: scaleY(0); }
+  .lio-killblock-v33 .kb-obj summary:hover .kb-obj-caret { border-color: var(--mint); }
+
+  .lio-killblock-v33 .kb-obj-a {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--c-72);
+    margin: 0;
+    padding: 0 40px 24px 0;
+    font-weight: 400;
+    max-width: 70ch;
+    animation: kb-fade-in 0.3s var(--ease);
+  }
+  .lio-killblock-v33 .kb-obj-a strong { color: var(--cream); font-weight: 600; }
+
+  @keyframes kb-fade-in {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .lio-killblock-v33 .kb-obj summary { font-size: 14px; padding: 18px 0; gap: 12px; }
+    .lio-killblock-v33 .kb-obj-caret { width: 22px; height: 22px; }
+    .lio-killblock-v33 .kb-obj-caret::before { width: 8px; }
+    .lio-killblock-v33 .kb-obj-caret::after  { height: 8px; }
+    .lio-killblock-v33 .kb-obj-a { font-size: 13.5px; line-height: 1.55; padding: 0 20px 20px 0; }
+  }
+
+  /* Reframe + CTA */
+  .lio-killblock-v33 .kb-reframe {
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--c-12);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 768px) {
+    .lio-killblock-v33 .kb-reframe {
+      margin-top: 36px;
+      padding-top: 28px;
+      gap: 20px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  .lio-killblock-v33 .kb-reframe-line {
+    font-size: clamp(18px, 2.2vw, 26px);
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    margin: 0;
+    max-width: 28ch;
+  }
+  .lio-killblock-v33 .kb-reframe-line em,
+  .lio-killblock-v33 .kb-reframe-line i {
+    color: var(--mint);
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .lio-killblock-v33 .kb-btn {
+    background: var(--mint);
+    color: var(--forest);
+    padding: 16px 22px 16px 26px;
+    border: none;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.005em;
+    cursor: pointer;
+    transition: color 0.3s var(--ease);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    font-family: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .lio-killblock-v33 .kb-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--forest);
+    transform: translateY(101%);
+    transition: transform 0.4s var(--ease);
+    z-index: -1;
+  }
+  .lio-killblock-v33 .kb-btn:hover { color: var(--mint); }
+  .lio-killblock-v33 .kb-btn:hover::after { transform: translateY(0); }
+  .lio-killblock-v33 .kb-btn .kb-arrow {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--mint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s var(--ease);
+    flex-shrink: 0;
+  }
+  .lio-killblock-v33 .kb-btn:hover .kb-arrow {
+    background: var(--mint);
+    color: var(--forest);
+    transform: translateX(3px);
+  }
+  .lio-killblock-v33 .kb-btn .kb-arrow svg { width: 12px; height: 12px; }
+
+  .lio-killblock-v33 .kb-btn-ghost {
+    color: var(--cream);
+    padding: 16px 4px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--c-12);
+    transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+    white-space: nowrap;
+  }
+  .lio-killblock-v33 .kb-btn-ghost:hover { color: var(--mint); border-bottom-color: var(--mint); }
+  .lio-killblock-v33 .kb-btn-ghost svg { width: 12px; height: 12px; transition: transform 0.25s var(--ease); }
+  .lio-killblock-v33 .kb-btn-ghost:hover svg { transform: translateX(3px); }
+
+  .lio-killblock-v33 .kb-cta-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 768px) {
+    .lio-killblock-v33 .kb-cta-row { gap: 16px; width: 100%; }
+    .lio-killblock-v33 .kb-btn { flex: 0 1 auto; }
+  }
+
+  /* Redacted word — simple, editable */
+  .lio-killblock-v33 .redact {
+    position: relative;
+    display: inline-block;
+    padding: 0 0.08em;
+    font-style: italic;
+    font-weight: 400;
+    color: rgba(252, 254, 251, 0.62);
+    letter-spacing: 0.015em;
+  }
+  .lio-killblock-v33 .redact::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 54%;
+    height: 2px;
+    background: var(--mint);
+    transform: rotate(-3deg);
+    border-radius: 2px;
+    opacity: 0.85;
+  }
+
+  /* Outer FAQ accordion card */
+  .lio-killblock-v33 .kb-faq > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    display: block;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .lio-killblock-v33 .kb-faq > summary::-webkit-details-marker { display: none !important; }
+  .lio-killblock-v33 .kb-faq > summary::marker { content: "" !important; display: none; }
+  .lio-killblock-v33 .kb-faq:not([open]) .kb-faq-list { display: none; }
+
+  .lio-killblock-v33 .kb-faq-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+    padding: 28px 28px;
+    border: 1px solid var(--c-12);
+    border-radius: 20px;
+    background: rgba(252, 254, 251, 0.03);
+    transition: all 0.3s var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+  .lio-killblock-v33 .kb-faq-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 85% 50%, rgba(173, 250, 177, 0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s var(--ease);
+    pointer-events: none;
+  }
+  .lio-killblock-v33 .kb-faq > summary:hover .kb-faq-card {
+    border-color: rgba(173, 250, 177, 0.35);
+    background: rgba(173, 250, 177, 0.04);
+  }
+  .lio-killblock-v33 .kb-faq > summary:hover .kb-faq-card::before { opacity: 1; }
+  .lio-killblock-v33 .kb-faq[open] .kb-faq-card {
+    border-color: rgba(173, 250, 177, 0.25);
+    margin-bottom: 24px;
+  }
+
+  .lio-killblock-v33 .kb-faq-card-body { min-width: 0; }
+  .lio-killblock-v33 .kb-faq-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px 6px 10px;
+    border-radius: 999px;
+    background: var(--mint);
+    color: var(--forest);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 14px;
+    animation: kb-pulse 2.4s var(--ease) infinite;
+  }
+  .lio-killblock-v33 .kb-faq-count-dot {
+    width: 6px; height: 6px;
+    background: var(--forest);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  @keyframes kb-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(173, 250, 177, 0.5); }
+    50%      { box-shadow: 0 0 0 8px rgba(173, 250, 177, 0); }
+  }
+
+  .lio-killblock-v33 .kb-faq-title {
+    font-weight: 900;
+    font-size: clamp(26px, 3.4vw, 40px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--cream);
+    margin: 0 0 10px;
+    max-width: 18ch;
+    transition: color 0.25s var(--ease);
+  }
+  .lio-killblock-v33 .kb-faq-title em,
+  .lio-killblock-v33 .kb-faq-title i {
+    color: var(--mint);
+    font-weight: 300;
+    font-style: italic;
+  }
+  .lio-killblock-v33 .kb-faq-cue {
+    font-size: 14px;
+    color: var(--c-72);
+    margin: 0;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.25s var(--ease);
+  }
+  .lio-killblock-v33 .kb-faq-cue-arrow {
+    width: 14px; height: 14px;
+    transition: transform 0.3s var(--ease);
+  }
+  .lio-killblock-v33 .kb-faq > summary:hover .kb-faq-cue { color: var(--mint); }
+  .lio-killblock-v33 .kb-faq > summary:hover .kb-faq-cue-arrow { transform: translateX(4px); }
+  .lio-killblock-v33 .kb-faq[open] .kb-faq-cue { color: var(--mint); }
+  .lio-killblock-v33 .kb-faq[open] .kb-faq-cue-text-closed,
+  .lio-killblock-v33 .kb-faq:not([open]) .kb-faq-cue-text-open { display: none; }
+  .lio-killblock-v33 .kb-faq[open] .kb-faq-cue-arrow { transform: rotate(180deg); }
+
+  .lio-killblock-v33 .kb-faq-head-caret {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--mint);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s var(--ease);
+    position: relative;
+    box-shadow: 0 0 0 0 rgba(173, 250, 177, 0.5);
+    z-index: 2;
+  }
+  .lio-killblock-v33 .kb-faq-head-caret::before,
+  .lio-killblock-v33 .kb-faq-head-caret::after {
+    content: "";
+    position: absolute;
+    background: var(--forest);
+    border-radius: 2px;
+    transition: transform 0.3s var(--ease), background 0.25s var(--ease);
+  }
+  .lio-killblock-v33 .kb-faq-head-caret::before { width: 18px; height: 2.5px; }
+  .lio-killblock-v33 .kb-faq-head-caret::after  { width: 2.5px; height: 18px; }
+  .lio-killblock-v33 .kb-faq > summary:hover .kb-faq-head-caret {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 8px rgba(173, 250, 177, 0.15);
+  }
+  .lio-killblock-v33 .kb-faq[open] .kb-faq-head-caret { transform: rotate(45deg); }
+
+  @media (max-width: 768px) {
+    .lio-killblock-v33 .kb-faq-card { padding: 22px 20px; gap: 16px; border-radius: 18px; }
+    .lio-killblock-v33 .kb-faq-count { font-size: 10px; padding: 5px 10px 5px 8px; margin-bottom: 10px; }
+    .lio-killblock-v33 .kb-faq-cue { font-size: 12.5px; }
+    .lio-killblock-v33 .kb-faq-head-caret { width: 44px; height: 44px; }
+    .lio-killblock-v33 .kb-faq-head-caret::before { width: 16px; }
+    .lio-killblock-v33 .kb-faq-head-caret::after  { height: 16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lio-killblock-v33 .kb-faq-count,
+    .lio-killblock-v33 .kb-obj-a,
+    .lio-killblock-v33 .kb-btn,
+    .lio-killblock-v33 .kb-btn::after,
+    .lio-killblock-v33 .kb-btn .kb-arrow,
+    .lio-killblock-v33 .kb-btn-ghost,
+    .lio-killblock-v33 .kb-btn-ghost svg,
+    .lio-killblock-v33 .kb-faq-card,
+    .lio-killblock-v33 .kb-faq-head-caret,
+    .lio-killblock-v33 .kb-faq-cue-arrow,
+    .lio-killblock-v33 .kb-faq-cue,
+    .lio-killblock-v33 .kb-obj-caret,
+    .lio-killblock-v33 .kb-obj summary { animation: none !important; transition: none !important; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Lio · Kill block",
+  "tag": "section",
+  "class": "section-lio-killblock",
+  "settings": [
+    { "type": "header", "content": "Header" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Straight answers" },
+    { "type": "textarea", "id": "headline", "label": "Headline", "info": "Use <em> for mint italic, <span class=\"redact\"> to strike a word", "default": "Not a <span class=\"redact\">vape</span>. Not a <span class=\"redact\">cigarette</span>.<br>Just <em>flavored air.</em>" },
+    { "type": "textarea", "id": "lede", "label": "Lede paragraph", "default": "Your habit isn't the <span class=\"redact\">nicotine</span>. It's <strong>the hand to mouth, the deep breath, the pause</strong>. Lio gives you that back — nothing else." },
+
+    { "type": "header", "content": "Is / Isn't columns" },
+    { "type": "text", "id": "col_no_title", "label": "'Isn't' column title", "default": "Lio is not" },
+    { "type": "text", "id": "col_yes_title", "label": "'Is' column title", "default": "Lio is" },
+
+    { "type": "header", "content": "FAQ card" },
+    { "type": "checkbox", "id": "show_faq", "label": "Show FAQ card", "default": true },
+    { "type": "text", "id": "faq_count_label", "label": "Count pill text", "default": "12 questions answered" },
+    { "type": "textarea", "id": "faq_title", "label": "FAQ title (use <em> for mint italic)", "default": "Questions people ask<br><em>before ordering.</em>" },
+    { "type": "text", "id": "faq_cue_closed", "label": "Cue text when closed", "default": "Tap to reveal all answers" },
+    { "type": "text", "id": "faq_cue_open", "label": "Cue text when open", "default": "Tap to hide" },
+
+    { "type": "header", "content": "Reframe + CTA" },
+    { "type": "checkbox", "id": "show_cta", "label": "Show CTA row", "default": true },
+    { "type": "textarea", "id": "reframe", "label": "Reframe line (use <em> for mint italic)", "default": "No <span class=\"redact\">nicotine</span>. <em>Just the ritual.</em>" },
+    { "type": "text", "id": "cta_label", "label": "Primary CTA label", "default": "Get the Journey Pack" },
+    { "type": "url", "id": "cta_link", "label": "Primary CTA link" },
+    { "type": "text", "id": "ghost_label", "label": "Secondary link label", "default": "How it works" },
+    { "type": "url", "id": "ghost_link", "label": "Secondary link URL" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Is/Isn't item",
+      "limit": 20,
+      "settings": [
+        { "type": "select", "id": "column", "label": "Column", "default": "positive", "options": [
+          { "value": "positive", "label": "IS (mint dot)" },
+          { "value": "negative", "label": "ISN'T (red dot)" }
+        ] },
+        { "type": "text", "id": "text", "label": "Text (HTML allowed)", "default": "Label" }
+      ]
+    },
+    {
+      "type": "question",
+      "name": "FAQ question",
+      "limit": 24,
+      "settings": [
+        { "type": "text", "id": "q", "label": "Question (HTML allowed)", "default": "Question text" },
+        { "type": "textarea", "id": "a", "label": "Answer (HTML allowed)", "default": "Answer paragraph. Use <strong>…</strong> for emphasis, <span class=\"redact\">…</span> for sensitive words." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lio · Kill block",
+      "blocks": [
+        { "type": "item", "settings": { "column": "negative", "text": "A <span class=\"redact\">cigarette</span>" } },
+        { "type": "item", "settings": { "column": "negative", "text": "A <span class=\"redact\">vape</span>" } },
+        { "type": "item", "settings": { "column": "negative", "text": "Vapor or smoke" } },
+        { "type": "item", "settings": { "column": "negative", "text": "<span class=\"redact\">Addictive</span>" } },
+        { "type": "item", "settings": { "column": "negative", "text": "Disposable" } },
+        { "type": "item", "settings": { "column": "positive", "text": "High-quality wood" } },
+        { "type": "item", "settings": { "column": "positive", "text": "Natural ingredients" } },
+        { "type": "item", "settings": { "column": "positive", "text": "A menthol throat hit" } },
+        { "type": "item", "settings": { "column": "positive", "text": "Usable anywhere" } },
+        { "type": "item", "settings": { "column": "positive", "text": "Refillable forever" } },
+
+        { "type": "question", "settings": { "q": "Will it feel like what I'm used to?", "a": "Partly. The menthol cores give a real <strong>cool throat hit</strong> on the inhale — the physical sensation is there. What's not there is the <span class=\"redact\">nicotine</span> kick. Think of it as the feeling without the substance." } },
+        { "type": "question", "settings": { "q": "Is this a <span class=\"redact\">vape</span>?", "a": "No. A <strong>wooden aromatherapy diffuser.</strong> No battery, no coil, no liquid, no heating element. You breathe ordinary air through a wooden mouthpiece — the plant-oil core at the end gives it flavor and a cool menthol sensation. Nothing is heated, nothing is combusted." } },
+        { "type": "question", "settings": { "q": "Will this change my habit for me?", "a": "Honest answer: <strong>willpower isn't included in the box.</strong> Lio handles the hand-to-mouth, the deep breath, the pause — the behavioral half nothing else covers. You still bring the decision. Together, it gets much easier." } },
+        { "type": "question", "settings": { "q": "€49 — is it worth it?", "a": "Less than a month of packs. The wooden body is <strong>yours to keep forever</strong> — only the cores refill (~€12/month). Most people break even inside three weeks. After that, Lio is cheaper every single day than what it replaces." } },
+        { "type": "question", "settings": { "q": "What if it doesn't work for me?", "a": "Try it for <strong>90 days</strong>. Use it the way it's meant to be used — every time you'd reach for your old habit. If the ritual doesn't land, <strong>full refund, used or not.</strong> No 'must be sealed' fine print, no restocking fee." } },
+        { "type": "question", "settings": { "q": "How long does one core last?", "a": "Around <strong>7–10 days for a light user, 3–5 days if you use it heavily.</strong> The flavor is strongest the first day and gradually fades — when you can barely smell it before inhaling, swap it. The wooden body stays with you; only the core changes." } },
+        { "type": "question", "settings": { "q": "What's actually in the cores?", "a": "Medical-grade polyester fiber infused with <strong>food-safe plant essential oils</strong> — peppermint, cinnamon, mango, orange, depending on the variant. No synthetic aromas, no solvents, no propylene glycol. Third-party tested, every batch." } },
+        { "type": "question", "settings": { "q": "Can I use it on a plane or at work?", "a": "Yes. No smoke, no vapor, no smell, no electronics — nothing that sets off detectors or bothers the person next to you. Customers use it on flights, in offices, cinemas, in bed next to their kids. Nobody's ever asked one to stop." } },
+        { "type": "question", "settings": { "q": "I've read the core can fall out — true?", "a": "Early cores had this issue. <strong>The current design fixes it</strong> — slightly fray one end of the core before inserting and it holds firmly. 30-second trick we wish we'd communicated earlier. Every new order ships with instructions." } },
+        { "type": "question", "settings": { "q": "Are all the flavors mint-based?", "a": "The Starter Pack leans menthol-forward (Minty Magic, Cold Turkey, Cinnamon Spice) because those mimic the throat sensation best. The full range includes <strong>Oh My Orange, Mango Passion, and rotating seasonal cores</strong> that are warm and fruity. Pick refills à la carte." } },
+        { "type": "question", "settings": { "q": "How fast does it arrive?", "a": "Shipped from the Netherlands. <strong>2–3 working days across Europe, 4–8 days outside.</strong> Free worldwide, no minimum. Tracking link by email the moment it leaves the warehouse." } },
+        { "type": "question", "settings": { "q": "I've never smoked. Can I still use Lio?", "a": "Absolutely. Many customers use Lio just for the ritual — a mindful pause during work, a calming breath before bed, a fidget for anxious hands. <strong>No ex-smoker card required.</strong> It's an aromatherapy tool at its core." } }
+      ]
+    }
+  ],
+  "enabled_on": { "templates": ["index", "page"] }
+}
+{% endschema %}
