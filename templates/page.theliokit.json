@@ -231,9 +231,9 @@
       "settings": {
         "sticky_title": "Journey Pack · €39",
         "sticky_meta": "<del>€58</del><strong style=\"color: var(--forest); font-weight: 700;\">€0.88/day</strong> · device free",
-        "sticky_label": "Build kit",
+        "sticky_label": "Build My Journey Kit",
         "sticky_link": "#shopify-section-main",
-        "sticky_aria": "Build your Lio kit"
+        "sticky_aria": "Build my Journey Kit"
       }
     }
   },
