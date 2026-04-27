@@ -1,0 +1,175 @@
+{%- comment -%}
+  Lio Lander Footer — detailed footer for the cold-traffic lander.
+  Links only to: in-page anchors, contact, WhatsApp, and legal policies.
+  No site-wide navigation (no exits to other product/collection pages).
+{%- endcomment -%}
+
+<style>
+  .lio-lf {
+    background: {{ section.settings.bg | default: '#f5f1eb' }};
+    color: #5a5650;
+    padding: 56px 24px 120px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    font-size: 13px;
+    line-height: 1.7;
+    font-family: inherit;
+  }
+  .lio-lf-inner { max-width: 1100px; margin: 0 auto; }
+  .lio-lf-cols {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 32px;
+  }
+  .lio-lf-cols h4 {
+    margin: 0 0 14px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1f3a2c;
+    font-weight: 700;
+  }
+  .lio-lf-cols a {
+    display: block;
+    color: #5a5650;
+    text-decoration: none;
+    padding: 4px 0;
+    transition: color 0.15s ease;
+  }
+  .lio-lf-cols a:hover { color: #1f3a2c; text-decoration: underline; }
+  .lio-lf-tagline {
+    margin: 0 0 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #2a2a2a;
+    font-weight: 500;
+    max-width: 320px;
+  }
+  .lio-lf-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #1f3a2c;
+    margin-top: 12px;
+  }
+  .lio-lf-trust span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .lio-lf-trust span::before {
+    content: "✓";
+    color: #1f3a2c;
+    font-weight: 700;
+  }
+  .lio-lf-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    font-size: 12px;
+  }
+  .lio-lf-tag {
+    font-style: italic;
+    color: #1f3a2c;
+    font-weight: 500;
+  }
+  .lio-lf-payments {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+  .lio-lf-payments span {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #2a2a2a;
+    letter-spacing: 0.04em;
+  }
+  @media (max-width: 768px) {
+    .lio-lf-cols { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .lio-lf { padding: 40px 20px 100px; }
+    .lio-lf-bottom { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+
+<footer class="lio-lf">
+  <div class="lio-lf-inner">
+    <div class="lio-lf-cols">
+      <div>
+        <p class="lio-lf-tagline">{{ section.settings.tagline | default: 'Wooden mouth diffusers, made in Amsterdam. 150,000+ habits broken since 2018.' }}</p>
+        <div class="lio-lf-trust">
+          <span>{{ section.settings.trust_1 | default: '90-day money-back' }}</span>
+          <span>{{ section.settings.trust_2 | default: 'Free EU shipping' }}</span>
+          <span>{{ section.settings.trust_3 | default: 'Patented EU design' }}</span>
+        </div>
+        <div class="lio-lf-payments">
+          <span>VISA</span><span>Mastercard</span><span>iDEAL</span><span>Apple Pay</span><span>Shop Pay</span><span>PayPal</span>
+        </div>
+      </div>
+      <div>
+        <h4>On this page</h4>
+        <a href="#shopify-section-flavored_air">What it is</a>
+        <a href="#shopify-section-how">How it works</a>
+        <a href="#shopify-section-flavors">Flavors</a>
+        <a href="#shopify-section-science">Lio evidence</a>
+        <a href="#shopify-section-faq">FAQ</a>
+        <a href="#shopify-section-main">Build my kit</a>
+      </div>
+      <div>
+        <h4>Customer care</h4>
+        <a href="mailto:{{ section.settings.email | default: 'hello@breathelio.com' }}">{{ section.settings.email | default: 'hello@breathelio.com' }}</a>
+        {%- if section.settings.whatsapp_number != blank -%}
+          <a href="https://wa.me/{{ section.settings.whatsapp_number | replace: '+', '' | replace: ' ', '' }}" target="_blank" rel="noopener">WhatsApp us</a>
+        {%- endif -%}
+        <a href="/policies/refund-policy">90-day money-back</a>
+        <a href="/policies/shipping-policy">Shipping &amp; delivery</a>
+        <a href="/policies/contact-information">Contact info</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="/policies/privacy-policy">Privacy policy</a>
+        <a href="/policies/terms-of-service">Terms of service</a>
+        <a href="/policies/refund-policy">Refund policy</a>
+        <a href="/policies/shipping-policy">Shipping policy</a>
+        <a href="/policies/legal-notice">Legal notice</a>
+        <a href="/policies/cookie-policy">Cookie policy</a>
+      </div>
+    </div>
+    <div class="lio-lf-bottom">
+      <span>© {{ 'now' | date: '%Y' }} Lio · Made in Amsterdam · {{ section.settings.patent | default: 'EU Patent EP3784213' }}</span>
+      <span class="lio-lf-tag">{{ section.settings.closing_tag | default: 'Replace the ritual.' }}</span>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Lio · Lander footer",
+  "tag": "section",
+  "class": "section-lio-lander-footer",
+  "settings": [
+    { "type": "color",    "id": "bg",          "label": "Background",   "default": "#f5f1eb" },
+    { "type": "textarea", "id": "tagline",     "label": "Tagline",      "default": "Wooden mouth diffusers, made in Amsterdam. 150,000+ habits broken since 2018." },
+    { "type": "text",     "id": "email",       "label": "Email",        "default": "hello@breathelio.com" },
+    { "type": "text",     "id": "whatsapp_number", "label": "WhatsApp (intl format, no +)", "default": "31612345678" },
+    { "type": "text",     "id": "trust_1",     "label": "Trust pill 1", "default": "90-day money-back" },
+    { "type": "text",     "id": "trust_2",     "label": "Trust pill 2", "default": "Free EU shipping" },
+    { "type": "text",     "id": "trust_3",     "label": "Trust pill 3", "default": "Patented EU design" },
+    { "type": "text",     "id": "patent",      "label": "Patent line",  "default": "EU Patent EP3784213" },
+    { "type": "text",     "id": "closing_tag", "label": "Closing tagline", "default": "Replace the ritual." }
+  ],
+  "presets": [{ "name": "Lio · Lander footer" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

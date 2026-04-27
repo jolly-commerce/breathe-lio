@@ -8,6 +8,7 @@
   <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
+{%- if section.settings.show_sticky -%}
 <!-- ================== STICKY MOBILE CTA (bottom of viewport) ================== -->
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">
   <div class="sticky-cta-info">
@@ -19,6 +20,7 @@
     <span class="arrow" aria-hidden="true"><svg><use href="#arrow"/></svg></span>
   </a>
 </div>
+{%- endif -%}
 
 <!-- ================== VIDEO MODAL (shared) ================== -->
 <div class="video-modal" id="videoModal" aria-hidden="true" role="dialog" aria-modal="true">
@@ -39,8 +41,9 @@
   "tag": "section",
   "class": "section-lio-chrome",
   "settings": [
-    { "type": "header", "content": "Sticky mobile CTA" },
-    { "type": "text",   "id": "sticky_title", "label": "Title",        "default": "Journey Pack · €39" },
+    { "type": "header",   "content": "Sticky mobile CTA" },
+    { "type": "checkbox", "id": "show_sticky",  "label": "Show sticky CTA bar", "default": true },
+    { "type": "text",     "id": "sticky_title", "label": "Title",        "default": "Journey Pack · €39" },
     { "type": "html",   "id": "sticky_meta",  "label": "Sub-line (HTML)", "default": "<del>€58</del><strong style=\"color: var(--forest); font-weight: 700;\">€0.88/day</strong> · device free" },
     { "type": "text",   "id": "sticky_label", "label": "Button label",   "default": "Start" },
     { "type": "url",    "id": "sticky_link",  "label": "Button link" },

@@ -13,12 +13,32 @@
       "type": "lio-bootstrap",
       "settings": {}
     },
+    "lander_header": {
+      "type": "lio-lander-header",
+      "blocks": {
+        "n1": { "type": "nav_link", "settings": { "label": "What it is",   "anchor": "#shopify-section-flavored_air" } },
+        "n2": { "type": "nav_link", "settings": { "label": "How it works", "anchor": "#shopify-section-how" } },
+        "n3": { "type": "nav_link", "settings": { "label": "Flavors",      "anchor": "#shopify-section-flavors" } },
+        "n4": { "type": "nav_link", "settings": { "label": "Lio evidence", "anchor": "#shopify-section-science" } },
+        "n5": { "type": "nav_link", "settings": { "label": "FAQ",          "anchor": "#shopify-section-faq" } }
+      },
+      "block_order": ["n1", "n2", "n3", "n4", "n5"],
+      "settings": {
+        "announce_text": "<p>We invented Flavored Air. <strong>Patented &amp; made in Amsterdam since 2018.</strong></p>",
+        "announce_bg": "#1f3a2c",
+        "announce_color": "#f5f1eb",
+        "logo_text": "Lio",
+        "show_cart": true,
+        "cta_label": "Build my kit",
+        "cta_link": "#shopify-section-main"
+      }
+    },
     "hero": {
       "type": "lio-hero",
       "settings": {
         "hero_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_22_2026_12_14_47_PM.webp?v=1776831311",
         "hero_image_alt": "A Lio wooden diffuser held in the hand",
-        "visual_pill": "As seen on Meta",
+        "visual_pill": "Patented design",
         "eyebrow": "First in Europe · Since 2018",
         "title_pre": "Keep the",
         "title_em": "ritual",
@@ -130,7 +150,7 @@
         "lede": "Your habit isn't the <span class=\"redact\">nicotine</span>. It's <strong>the hand to mouth, the deep breath, the pause</strong>. Lio gives you that back — nothing else.",
         "col_no_title": "Lio is not",
         "col_yes_title": "Lio is",
-        "show_faq": false,
+        "show_faq": true,
         "faq_count_label": "10 questions answered",
         "faq_title": "Questions people ask<br><em>before ordering.</em>",
         "faq_cue_closed": "Tap to reveal all answers",
@@ -229,16 +249,32 @@
     "chrome": {
       "type": "lio-chrome",
       "settings": {
+        "show_sticky": false,
         "sticky_title": "Journey Pack · €39",
         "sticky_meta": "<del>€58</del><strong style=\"color: var(--forest); font-weight: 700;\">€0.88/day</strong> · device free",
         "sticky_label": "Build My Journey Kit",
         "sticky_link": "#shopify-section-main",
         "sticky_aria": "Build my Journey Kit"
       }
+    },
+    "lander_footer": {
+      "type": "lio-lander-footer",
+      "settings": {
+        "bg": "#f5f1eb",
+        "tagline": "Wooden mouth diffusers, made in Amsterdam. 150,000+ habits broken since 2018.",
+        "email": "hello@breathelio.com",
+        "whatsapp_number": "31612345678",
+        "trust_1": "90-day money-back",
+        "trust_2": "Free EU shipping",
+        "trust_3": "Patented EU design",
+        "patent": "EU Patent EP3784213",
+        "closing_tag": "Replace the ritual."
+      }
     }
   },
   "order": [
     "bootstrap",
+    "lander_header",
     "hero",
     "flavored_air",
     "social_proof",
@@ -251,6 +287,7 @@
     "main",
     "faq",
     "finalcta",
-    "chrome"
+    "chrome",
+    "lander_footer"
   ]
 }

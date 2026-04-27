@@ -210,19 +210,9 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
         added into the main element to ensure that dynamic sections added into the footer group are properly laid out.
         {%- endcomment -%}
         {%- if request.page_type != 'password' -%}
-          {%- if template == 'page.theliokit' -%}
-            <footer class="lio-lander-footer" style="padding:36px 24px 96px;text-align:center;background:#f5f1eb;border-top:1px solid rgba(0,0,0,0.08);color:#5a5650;font-size:13px;line-height:1.7;font-family:inherit;">
-              <p style="margin:0 0 6px;">© {{ 'now' | date: '%Y' }} Lio · Made in Amsterdam</p>
-              <p style="margin:0;">
-                <a href="mailto:hello@breathelio.com" style="color:inherit;text-decoration:underline;">hello@breathelio.com</a>
-                · <a href="/policies/refund-policy" style="color:inherit;text-decoration:underline;">90-day money-back</a>
-                · <a href="/policies/privacy-policy" style="color:inherit;text-decoration:underline;">Privacy</a>
-                · <a href="/policies/terms-of-service" style="color:inherit;text-decoration:underline;">Terms</a>
-              </p>
-            </footer>
-          {%- else -%}
+          {%- unless template == 'page.theliokit' -%}
             {%- sections 'footer-group' -%}
-          {%- endif -%}
+          {%- endunless -%}
         {%- endif -%}
       </main>
   

@@ -1,0 +1,181 @@
+{%- comment -%}
+  Lio Lander Header — minimal, in-page-nav header for the cold-traffic lander.
+  Includes: announcement bar, logo, in-page section nav, cart icon, primary CTA.
+  Renders only on the page.theliokit template (added directly in that template).
+{%- endcomment -%}
+
+<style>
+  .lio-lh-announce {
+    background: {{ section.settings.announce_bg | default: '#1f3a2c' }};
+    color: {{ section.settings.announce_color | default: '#f5f1eb' }};
+    text-align: center;
+    padding: 8px 16px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+    font-family: inherit;
+  }
+  .lio-lh-announce a { color: inherit; text-decoration: underline; }
+  .lio-lh-bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #ffffff;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: inherit;
+  }
+  .lio-lh-logo {
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: #1f3a2c;
+    text-decoration: none;
+  }
+  .lio-lh-nav {
+    display: flex;
+    gap: 22px;
+    flex: 1;
+    justify-content: center;
+  }
+  .lio-lh-nav a {
+    color: #2a2a2a;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: opacity 0.15s ease;
+  }
+  .lio-lh-nav a:hover { opacity: 0.6; }
+  .lio-lh-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .lio-lh-cart {
+    color: #1f3a2c;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.08);
+    transition: background 0.15s ease;
+  }
+  .lio-lh-cart:hover { background: rgba(0,0,0,0.04); }
+  .lio-lh-cart-count {
+    position: absolute;
+    background: #1f3a2c;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 1px 6px;
+    margin-top: -22px;
+    margin-left: 22px;
+  }
+  .lio-lh-cta {
+    background: #1f3a2c;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background 0.15s ease;
+  }
+  .lio-lh-cta:hover { background: #2a4d3c; }
+  @media (max-width: 900px) {
+    .lio-lh-nav { display: none; }
+    .lio-lh-bar { padding: 10px 16px; }
+    .lio-lh-cta { padding: 8px 14px; font-size: 12px; }
+    .lio-lh-logo { font-size: 18px; }
+  }
+</style>
+
+{%- if section.settings.announce_text != blank -%}
+  <div class="lio-lh-announce">
+    {{ section.settings.announce_text }}
+  </div>
+{%- endif -%}
+
+<header class="lio-lh-bar">
+  <a href="{{ section.settings.logo_link | default: '#' }}" class="lio-lh-logo">
+    {{ section.settings.logo_text | default: 'Lio' }}
+  </a>
+
+  <nav class="lio-lh-nav" aria-label="Page sections">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'nav_link' -%}
+        <a href="{{ block.settings.anchor }}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+      {%- endif -%}
+    {%- endfor -%}
+  </nav>
+
+  <div class="lio-lh-actions">
+    {%- if section.settings.show_cart -%}
+      <a href="/cart" class="lio-lh-cart" aria-label="Cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        {%- if cart.item_count > 0 -%}
+          <span class="lio-lh-cart-count">{{ cart.item_count }}</span>
+        {%- endif -%}
+      </a>
+    {%- endif -%}
+    <a href="{{ section.settings.cta_link | default: '#shopify-section-main' }}" class="lio-lh-cta">
+      {{ section.settings.cta_label | default: 'Build my kit' }}
+    </a>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Lio · Lander header",
+  "tag": "section",
+  "class": "section-lio-lander-header",
+  "settings": [
+    { "type": "header",   "content": "Announcement bar" },
+    { "type": "richtext", "id": "announce_text", "label": "Announcement text", "default": "<p>We invented Flavored Air. <strong>Patented &amp; made in Amsterdam since 2018.</strong></p>" },
+    { "type": "color",    "id": "announce_bg",   "label": "Announcement background", "default": "#1f3a2c" },
+    { "type": "color",    "id": "announce_color","label": "Announcement text color", "default": "#f5f1eb" },
+    { "type": "header",   "content": "Logo & CTA" },
+    { "type": "text",     "id": "logo_text",  "label": "Logo text",  "default": "Lio" },
+    { "type": "url",      "id": "logo_link",  "label": "Logo link",  "info": "Defaults to current page" },
+    { "type": "checkbox", "id": "show_cart",  "label": "Show cart icon", "default": true },
+    { "type": "text",     "id": "cta_label",  "label": "CTA label",  "default": "Build my kit" },
+    { "type": "url",      "id": "cta_link",   "label": "CTA link",   "info": "Should anchor to the configurator section" }
+  ],
+  "blocks": [
+    {
+      "type": "nav_link",
+      "name": "Nav link",
+      "settings": [
+        { "type": "text", "id": "label",  "label": "Label",  "default": "How it works" },
+        { "type": "text", "id": "anchor", "label": "Anchor (#shopify-section-...)", "default": "#shopify-section-how" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lio · Lander header",
+      "blocks": [
+        { "type": "nav_link", "settings": { "label": "What it is", "anchor": "#shopify-section-flavored_air" } },
+        { "type": "nav_link", "settings": { "label": "How it works", "anchor": "#shopify-section-how" } },
+        { "type": "nav_link", "settings": { "label": "Flavors", "anchor": "#shopify-section-flavors" } },
+        { "type": "nav_link", "settings": { "label": "Evidence", "anchor": "#shopify-section-science" } },
+        { "type": "nav_link", "settings": { "label": "FAQ", "anchor": "#shopify-section-faq" } }
+      ]
+    }
+  ],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}
