@@ -361,22 +361,11 @@
         </summary>
         <ul class="lh-locale-menu">
           {%- form 'localization', id: 'lh-locale-form' -%}
-            {%- for country in localization.available_countries -%}
-              {%- liquid
-                assign code = country.iso_code
-                assign show = false
-                if section.settings.locale_filter == blank
-                  assign show = true
-                else
-                  assign filter_clean = section.settings.locale_filter | replace: ' ', '' | upcase
-                  assign filter_list = filter_clean | split: ','
-                  if filter_list contains code
-                    assign show = true
-                  endif
-                endif
-                assign flag = code | replace: 'A','🇦' | replace: 'B','🇧' | replace: 'C','🇨' | replace: 'D','🇩' | replace: 'E','🇪' | replace: 'F','🇫' | replace: 'G','🇬' | replace: 'H','🇭' | replace: 'I','🇮' | replace: 'J','🇯' | replace: 'K','🇰' | replace: 'L','🇱' | replace: 'M','🇲' | replace: 'N','🇳' | replace: 'O','🇴' | replace: 'P','🇵' | replace: 'Q','🇶' | replace: 'R','🇷' | replace: 'S','🇸' | replace: 'T','🇹' | replace: 'U','🇺' | replace: 'V','🇻' | replace: 'W','🇼' | replace: 'X','🇽' | replace: 'Y','🇾' | replace: 'Z','🇿'
-              -%}
-              {%- if show -%}
+            {%- if section.settings.locale_filter == blank -%}
+              {%- comment -%} No filter — render all available_countries in Shopify's order {%- endcomment -%}
+              {%- for country in localization.available_countries -%}
+                {%- assign code = country.iso_code -%}
+                {%- assign flag = code | replace: 'A','🇦' | replace: 'B','🇧' | replace: 'C','🇨' | replace: 'D','🇩' | replace: 'E','🇪' | replace: 'F','🇫' | replace: 'G','🇬' | replace: 'H','🇭' | replace: 'I','🇮' | replace: 'J','🇯' | replace: 'K','🇰' | replace: 'L','🇱' | replace: 'M','🇲' | replace: 'N','🇳' | replace: 'O','🇴' | replace: 'P','🇵' | replace: 'Q','🇶' | replace: 'R','🇷' | replace: 'S','🇸' | replace: 'T','🇹' | replace: 'U','🇺' | replace: 'V','🇻' | replace: 'W','🇼' | replace: 'X','🇽' | replace: 'Y','🇾' | replace: 'Z','🇿' -%}
                 <li>
                   <button type="submit" name="country_code" value="{{ code }}"
                           {% if code == cur.iso_code %}aria-current="true"{% endif %}>
@@ -385,8 +374,33 @@
                     <span class="lh-locale-curr">{{ country.currency.iso_code }}</span>
                   </button>
                 </li>
-              {%- endif -%}
-            {%- endfor -%}
+              {%- endfor -%}
+            {%- else -%}
+              {%- comment -%} Filter present — iterate the filter LIST in user-defined order, match each to available_countries {%- endcomment -%}
+              {%- assign filter_clean = section.settings.locale_filter | replace: ' ', '' | upcase -%}
+              {%- assign filter_list = filter_clean | split: ',' -%}
+              {%- for code in filter_list -%}
+                {%- assign matched_name = '' -%}
+                {%- assign matched_curr = '' -%}
+                {%- for c in localization.available_countries -%}
+                  {%- if c.iso_code == code -%}
+                    {%- assign matched_name = c.name -%}
+                    {%- assign matched_curr = c.currency.iso_code -%}
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- if matched_name != '' -%}
+                  {%- assign flag = code | replace: 'A','🇦' | replace: 'B','🇧' | replace: 'C','🇨' | replace: 'D','🇩' | replace: 'E','🇪' | replace: 'F','🇫' | replace: 'G','🇬' | replace: 'H','🇭' | replace: 'I','🇮' | replace: 'J','🇯' | replace: 'K','🇰' | replace: 'L','🇱' | replace: 'M','🇲' | replace: 'N','🇳' | replace: 'O','🇴' | replace: 'P','🇵' | replace: 'Q','🇶' | replace: 'R','🇷' | replace: 'S','🇸' | replace: 'T','🇹' | replace: 'U','🇺' | replace: 'V','🇻' | replace: 'W','🇼' | replace: 'X','🇽' | replace: 'Y','🇾' | replace: 'Z','🇿' -%}
+                  <li>
+                    <button type="submit" name="country_code" value="{{ code }}"
+                            {% if code == cur.iso_code %}aria-current="true"{% endif %}>
+                      <span class="lh-locale-flag">{{ flag }}</span>
+                      <span class="lh-locale-name">{{ matched_name }}</span>
+                      <span class="lh-locale-curr">{{ matched_curr }}</span>
+                    </button>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
             <input type="hidden" name="return_to" value="{{ request.path }}">
           {%- endform -%}
         </ul>
