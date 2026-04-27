@@ -33,17 +33,9 @@
 <div class="lio-killblock-v33">
   <div class="kb-inner">
 
-    {%- if section.settings.eyebrow != blank -%}
-      <span class="kb-eyebrow">{{ section.settings.eyebrow }}</span>
-    {%- endif -%}
-
-    {%- if section.settings.headline != blank -%}
-      <h2 class="kb-h">{{ section.settings.headline }}</h2>
-    {%- endif -%}
-
-    {%- if section.settings.lede != blank -%}
-      <p class="kb-lede">{{ section.settings.lede }}</p>
-    {%- endif -%}
+    <span class="kb-eyebrow">{{ 'lander.kill.eyebrow' | t }}</span>
+    <h2 class="kb-h">{{ 'lander.kill.headline' | t }}</h2>
+    <p class="kb-lede">{{ 'lander.kill.lede' | t }}</p>
 
     {%- comment -%} ====== IS / ISN'T GRID ====== {%- endcomment -%}
     {%- if pos_count > 0 or neg_count > 0 -%}
@@ -53,7 +45,7 @@
             <span class="kb-col-icon" aria-hidden="true">
               <svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
             </span>
-            {{ section.settings.col_no_title | default: 'Lio is not' }}
+            {{ 'lander.kill.col_no_title' | t }}
           </div>
           {%- if neg_count > 0 -%}
             <ul class="kb-list">
@@ -71,7 +63,7 @@
             <span class="kb-col-icon" aria-hidden="true">
               <svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
-            {{ section.settings.col_yes_title | default: 'Lio is' }}
+            {{ 'lander.kill.col_yes_title' | t }}
           </div>
           {%- if pos_count > 0 -%}
             <ul class="kb-list">
@@ -130,24 +122,18 @@
     {%- comment -%} ====== REFRAME + CTA ====== {%- endcomment -%}
     {%- if section.settings.show_cta -%}
       <div class="kb-reframe">
-        {%- if section.settings.reframe != blank -%}
-          <p class="kb-reframe-line">{{ section.settings.reframe }}</p>
-        {%- endif -%}
+        <p class="kb-reframe-line">{{ 'lander.kill.reframe' | t }}</p>
         <div class="kb-cta-row">
-          {%- if section.settings.cta_label != blank -%}
-            <a href="{{ section.settings.cta_link | default: '#offer' }}" class="kb-btn">
-              {{ section.settings.cta_label }}
-              <span class="kb-arrow" aria-hidden="true">
-                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </a>
-          {%- endif -%}
-          {%- if section.settings.ghost_label != blank -%}
-            <a href="{{ section.settings.ghost_link | default: '#how' }}" class="kb-btn-ghost">
-              {{ section.settings.ghost_label }}
+          <a href="{{ section.settings.cta_link | default: '#offer' }}" class="kb-btn">
+            {{ 'lander.kill.cta_label' | t }}
+            <span class="kb-arrow" aria-hidden="true">
               <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          {%- endif -%}
+            </span>
+          </a>
+          <a href="{{ section.settings.ghost_link | default: '#how' }}" class="kb-btn-ghost">
+            {{ 'lander.kill.ghost_label' | t }}
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
       </div>
     {%- endif -%}

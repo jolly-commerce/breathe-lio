@@ -184,48 +184,48 @@
   <div class="lio-lf-inner">
     <div class="lio-lf-cols">
       <div>
-        <p class="lio-lf-tagline">{{ section.settings.tagline | default: 'Wooden mouth diffusers, made in Amsterdam. 150,000+ habits broken since 2018.' }}</p>
+        <p class="lio-lf-tagline">{{ 'lander.footer.tagline' | t }}</p>
         <div class="lio-lf-trust">
-          <span>{{ section.settings.trust_1 | default: '90-day money-back' }}</span>
-          <span>{{ section.settings.trust_2 | default: 'Free EU shipping' }}</span>
-          <span>{{ section.settings.trust_3 | default: 'Patented EU design' }}</span>
+          <span>{{ 'lander.footer.money_back' | t }}</span>
+          <span>{{ 'lander.hero.tick_2' | t }}</span>
+          <span>{{ 'lander.hero.visual_pill' | t }}</span>
         </div>
         <div class="lio-lf-payments">
           <span>VISA</span><span>Mastercard</span><span>iDEAL</span><span>Apple Pay</span><span>Shop Pay</span><span>PayPal</span>
         </div>
       </div>
       <div>
-        <h4>On this page</h4>
-        <a href="#shopify-section-flavored_air">What it is</a>
-        <a href="#shopify-section-how">How it works</a>
-        <a href="#shopify-section-flavors">Flavors</a>
-        <a href="#shopify-section-evidence">Lio evidence</a>
-        <a href="#shopify-section-faq">FAQ</a>
-        <a href="#shopify-section-main">Build my kit</a>
+        <h4>{{ 'lander.footer.on_this_page' | t }}</h4>
+        <a href="#shopify-section-flavored_air">{{ 'lander.footer.what_it_is' | t }}</a>
+        <a href="#shopify-section-how">{{ 'lander.footer.how_it_works' | t }}</a>
+        <a href="#shopify-section-flavors">{{ 'lander.footer.flavors' | t }}</a>
+        <a href="#shopify-section-evidence">{{ 'lander.footer.lio_evidence' | t }}</a>
+        <a href="#shopify-section-faq">{{ 'lander.footer.faq' | t }}</a>
+        <a href="#shopify-section-main">{{ 'lander.footer.build_my_kit' | t }}</a>
       </div>
       <div>
-        <h4>Customer care</h4>
+        <h4>{{ 'lander.footer.customer_care' | t }}</h4>
         <a href="mailto:{{ section.settings.email | default: 'hello@breathelio.com' }}">{{ section.settings.email | default: 'hello@breathelio.com' }}</a>
         {%- if section.settings.whatsapp_number != blank -%}
-          <a href="https://wa.me/{{ section.settings.whatsapp_number | replace: '+', '' | replace: ' ', '' }}" target="_blank" rel="noopener">WhatsApp us</a>
+          <a href="https://wa.me/{{ section.settings.whatsapp_number | replace: '+', '' | replace: ' ', '' }}" target="_blank" rel="noopener">{{ 'lander.footer.whatsapp' | t }}</a>
         {%- endif -%}
-        <button type="button" class="lio-policy-trigger" data-policy="refund">90-day money-back</button>
-        <button type="button" class="lio-policy-trigger" data-policy="shipping">Shipping &amp; delivery</button>
-        <a href="mailto:{{ section.settings.email | default: 'hello@breathelio.com' }}">Contact info</a>
+        <button type="button" class="lio-policy-trigger" data-policy="refund">{{ 'lander.footer.money_back' | t }}</button>
+        <button type="button" class="lio-policy-trigger" data-policy="shipping">{{ 'lander.footer.shipping_delivery' | t }}</button>
+        <a href="mailto:{{ section.settings.email | default: 'hello@breathelio.com' }}">{{ 'lander.footer.contact_info' | t }}</a>
       </div>
       <div>
-        <h4>Legal</h4>
-        <button type="button" class="lio-policy-trigger" data-policy="privacy">Privacy policy</button>
-        <button type="button" class="lio-policy-trigger" data-policy="terms">Terms of service</button>
-        <button type="button" class="lio-policy-trigger" data-policy="refund">Refund policy</button>
-        <button type="button" class="lio-policy-trigger" data-policy="shipping">Shipping policy</button>
-        <button type="button" class="lio-policy-trigger" data-policy="legal">Legal notice</button>
-        <button type="button" class="lio-policy-trigger" data-policy="cookie">Cookie policy</button>
+        <h4>{{ 'lander.footer.legal' | t }}</h4>
+        <button type="button" class="lio-policy-trigger" data-policy="privacy">{{ 'lander.footer.privacy' | t }}</button>
+        <button type="button" class="lio-policy-trigger" data-policy="terms">{{ 'lander.footer.terms' | t }}</button>
+        <button type="button" class="lio-policy-trigger" data-policy="refund">{{ 'lander.footer.refund' | t }}</button>
+        <button type="button" class="lio-policy-trigger" data-policy="shipping">{{ 'lander.footer.shipping' | t }}</button>
+        <button type="button" class="lio-policy-trigger" data-policy="legal">{{ 'lander.footer.legal_notice' | t }}</button>
+        <button type="button" class="lio-policy-trigger" data-policy="cookie">{{ 'lander.footer.cookie' | t }}</button>
       </div>
     </div>
     <div class="lio-lf-bottom">
       <span>© {{ 'now' | date: '%Y' }} Lio · Made in Amsterdam · {{ section.settings.patent | default: 'EU Patent EP3784213' }}</span>
-      <span class="lio-lf-tag">{{ section.settings.closing_tag | default: 'Replace the ritual.' }}</span>
+      <span class="lio-lf-tag">{{ 'lander.footer.closing_tag' | t }}</span>
     </div>
   </div>
 </footer>
