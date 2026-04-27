@@ -423,13 +423,28 @@
         </summary>
         <ul class="lh-locale-menu">
           {%- form 'localization', id: 'lh-locale-form' -%}
+            {%- comment -%}
+              Country → primary language mapping. When a user picks a flag we
+              also send locale_code so the page renders in the matching language
+              instead of staying in the market's currently-active language.
+            {%- endcomment -%}
+            {%- capture country_locales -%}
+              NL=nl,BE=nl,DE=de,AT=de,CH=de,FR=fr,IT=it,ES=es,PT=pt,GR=el,CY=el,GB=en,IE=en,US=en,CA=en,AU=en,AE=ar,SA=ar,CZ=cs,RO=ro,DK=da,FI=fi,PL=pl,HU=hu,SK=sk,SI=sl,LT=lt,LV=lv,BG=bg,HR=hr,EE=et,IS=is,LU=fr,MT=en,NO=nb,SE=sv,NZ=en,JP=ja,SG=en,IL=he,TR=tr,RU=ru,UA=uk
+            {%- endcapture -%}
+            {%- assign cl_pairs = country_locales | strip_newlines | strip | split: ',' -%}
+
             {%- if section.settings.locale_filter == blank -%}
               {%- comment -%} No filter — render all available_countries in Shopify's order {%- endcomment -%}
               {%- for country in localization.available_countries -%}
                 {%- assign code = country.iso_code -%}
+                {%- assign locale_for_code = 'en' -%}
+                {%- for pair in cl_pairs -%}
+                  {%- assign kv = pair | split: '=' -%}
+                  {%- if kv[0] == code -%}{%- assign locale_for_code = kv[1] -%}{%- endif -%}
+                {%- endfor -%}
                 {%- assign flag = code | replace: 'A','🇦' | replace: 'B','🇧' | replace: 'C','🇨' | replace: 'D','🇩' | replace: 'E','🇪' | replace: 'F','🇫' | replace: 'G','🇬' | replace: 'H','🇭' | replace: 'I','🇮' | replace: 'J','🇯' | replace: 'K','🇰' | replace: 'L','🇱' | replace: 'M','🇲' | replace: 'N','🇳' | replace: 'O','🇴' | replace: 'P','🇵' | replace: 'Q','🇶' | replace: 'R','🇷' | replace: 'S','🇸' | replace: 'T','🇹' | replace: 'U','🇺' | replace: 'V','🇻' | replace: 'W','🇼' | replace: 'X','🇽' | replace: 'Y','🇾' | replace: 'Z','🇿' -%}
                 <li>
-                  <button type="submit" name="country_code" value="{{ code }}"
+                  <button type="submit" name="country_code" value="{{ code }}" data-locale="{{ locale_for_code }}"
                           {% if code == cur.iso_code %}aria-current="true"{% endif %}>
                     <span class="lh-locale-flag">{{ flag }}</span>
                     <span class="lh-locale-name">{{ country.name }}</span>
@@ -438,7 +453,6 @@
                 </li>
               {%- endfor -%}
             {%- else -%}
-              {%- comment -%} Filter present — iterate the filter LIST in user-defined order, match each to available_countries {%- endcomment -%}
               {%- assign filter_clean = section.settings.locale_filter | replace: ' ', '' | upcase -%}
               {%- assign filter_list = filter_clean | split: ',' -%}
               {%- for code in filter_list -%}
@@ -451,9 +465,14 @@
                   {%- endif -%}
                 {%- endfor -%}
                 {%- if matched_name != '' -%}
+                  {%- assign locale_for_code = 'en' -%}
+                  {%- for pair in cl_pairs -%}
+                    {%- assign kv = pair | split: '=' -%}
+                    {%- if kv[0] == code -%}{%- assign locale_for_code = kv[1] -%}{%- endif -%}
+                  {%- endfor -%}
                   {%- assign flag = code | replace: 'A','🇦' | replace: 'B','🇧' | replace: 'C','🇨' | replace: 'D','🇩' | replace: 'E','🇪' | replace: 'F','🇫' | replace: 'G','🇬' | replace: 'H','🇭' | replace: 'I','🇮' | replace: 'J','🇯' | replace: 'K','🇰' | replace: 'L','🇱' | replace: 'M','🇲' | replace: 'N','🇳' | replace: 'O','🇴' | replace: 'P','🇵' | replace: 'Q','🇶' | replace: 'R','🇷' | replace: 'S','🇸' | replace: 'T','🇹' | replace: 'U','🇺' | replace: 'V','🇻' | replace: 'W','🇼' | replace: 'X','🇽' | replace: 'Y','🇾' | replace: 'Z','🇿' -%}
                   <li>
-                    <button type="submit" name="country_code" value="{{ code }}"
+                    <button type="submit" name="country_code" value="{{ code }}" data-locale="{{ locale_for_code }}"
                             {% if code == cur.iso_code %}aria-current="true"{% endif %}>
                       <span class="lh-locale-flag">{{ flag }}</span>
                       <span class="lh-locale-name">{{ matched_name }}</span>
@@ -463,6 +482,7 @@
                 {%- endif -%}
               {%- endfor -%}
             {%- endif -%}
+            <input type="hidden" name="locale_code" id="lh-locale-locale-code" value="{{ localization.language.iso_code | default: 'en' }}">
             <input type="hidden" name="return_to" value="{{ request.path }}">
           {%- endform -%}
         </ul>
@@ -495,6 +515,20 @@
     document.addEventListener('click', function (e) {
       if (!d.contains(e.target)) d.removeAttribute('open');
     });
+  })();
+
+  /* Locale switcher — set locale_code (language) before form submits.
+     Without this, Shopify uses the market's primary language and the URL
+     would stay as e.g. /en-nl instead of /nl-nl. */
+  (function () {
+    var form = document.getElementById('lh-locale-form');
+    var localeInput = document.getElementById('lh-locale-locale-code');
+    if (!form || !localeInput) return;
+    form.addEventListener('click', function (e) {
+      var btn = e.target.closest('button[name="country_code"][data-locale]');
+      if (!btn) return;
+      localeInput.value = btn.getAttribute('data-locale');
+    }, true); // capture phase, runs before form submit
   })();
 
   /* ============================================================
