@@ -10,6 +10,78 @@
   body [id^="shopify-section-"] { scroll-margin-top: 92px; }
   @media (max-width: 900px) { body [id^="shopify-section-"] { scroll-margin-top: 76px; } }
 
+  /* ─────────────────────────────────────────────────────────────
+     LANDER-WIDE polish: applied via body.lio-lander-page so other
+     templates are unaffected.
+     ───────────────────────────────────────────────────────────── */
+
+  /* Section-to-section spacing — reduce by ~20% globally */
+  .lio-lander-page section[class*="section-lio-"] { padding-top: 0; padding-bottom: 0; }
+  .lio-lander-page .how,
+  .lio-lander-page .killblock,
+  .lio-lander-page .flavors,
+  .lio-lander-page .science,
+  .lio-lander-page .costcomp,
+  .lio-lander-page .faq,
+  .lio-lander-page .flavored-air,
+  .lio-lander-page .social-proof,
+  .lio-lander-page .videowall,
+  .lio-lander-page .moments,
+  .lio-lander-page .ugc {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+  @media (max-width: 768px) {
+    .lio-lander-page .how,
+    .lio-lander-page .killblock,
+    .lio-lander-page .flavors,
+    .lio-lander-page .science,
+    .lio-lander-page .costcomp,
+    .lio-lander-page .faq,
+    .lio-lander-page .flavored-air,
+    .lio-lander-page .social-proof,
+    .lio-lander-page .videowall {
+      padding-top: 36px !important;
+      padding-bottom: 36px !important;
+    }
+  }
+
+  /* The two specific gaps the user flagged: shrink them harder */
+  .lio-lander-page .section-lio-social-proof + .section-lio-videowall .videowall,
+  .lio-lander-page .section-lio-videowall + .section-lio-how .how,
+  .lio-lander-page .section-lio-killblock + .section-lio-flavors .flavors,
+  .lio-lander-page .section-lio-flavors + .section-lio-science .science {
+    padding-top: 32px !important;
+  }
+  @media (max-width: 768px) {
+    .lio-lander-page .section-lio-social-proof + .section-lio-videowall .videowall,
+    .lio-lander-page .section-lio-videowall + .section-lio-how .how,
+    .lio-lander-page .section-lio-killblock + .section-lio-flavors .flavors,
+    .lio-lander-page .section-lio-flavors + .section-lio-science .science {
+      padding-top: 20px !important;
+    }
+  }
+
+  /* Configurator (Build your perfect kit) — mobile L/R padding */
+  @media (max-width: 768px) {
+    .lio-lander-page .lio-pdp,
+    .lio-lander-page .lio-pdp-section { padding-left: 20px !important; padding-right: 20px !important; box-sizing: border-box; }
+    .lio-lander-page .lio-announcement,
+    .lio-lander-page .lio-breadcrumbs { padding-left: 20px; padding-right: 20px; }
+  }
+
+  /* Sticky CTA — equal padding all sides */
+  .lio-lander-page .sticky-cta {
+    padding: 12px 14px !important;
+    box-sizing: border-box !important;
+    gap: 12px;
+    align-items: center;
+  }
+  .lio-lander-page .sticky-cta .btn-primary {
+    padding: 10px 18px !important;
+    box-sizing: border-box;
+  }
+
   .lio-lh-announce {
     background: {{ section.settings.announce_bg | default: '#1f3a2c' }};
     color: {{ section.settings.announce_color | default: '#f5f1eb' }};

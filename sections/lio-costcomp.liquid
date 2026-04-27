@@ -1,23 +1,41 @@
 <!-- ================== COST COMPARISON ================== -->
 {%- if section.settings.compact -%}
 <style>
+  /* Compact mode keeps the headline at full size — only tightens spacing
+     and shrinks meta/foot text. Bars become a horizontal mobile slider. */
   .costcomp.cc-compact { padding: 28px 16px !important; }
   .costcomp.cc-compact .costcomp-inner { max-width: 760px; }
   .costcomp.cc-compact .costcomp-head { margin-bottom: 20px; }
-  .costcomp.cc-compact .costcomp-h2 { font-size: clamp(22px, 4.2vw, 28px) !important; line-height: 1.15; margin: 6px 0 8px; }
-  .costcomp.cc-compact .costcomp-sub { font-size: 13px; max-width: 540px; margin: 0 auto; }
+  .costcomp.cc-compact .costcomp-sub { font-size: 14px; max-width: 540px; margin: 0 auto; }
   .costcomp.cc-compact .section-eyebrow { margin-bottom: 8px !important; font-size: 11px; }
-  .costcomp.cc-compact .costcomp-bars { gap: 8px !important; margin: 18px 0; }
-  .costcomp.cc-compact .costcomp-bar { padding: 10px 12px !important; }
-  .costcomp.cc-compact .costcomp-bar-label strong { font-size: 13px; }
-  .costcomp.cc-compact .costcomp-bar-label span { font-size: 11px; }
-  .costcomp.cc-compact .costcomp-bar-price { font-size: 18px !important; }
-  .costcomp.cc-compact .costcomp-bar-price small { font-size: 10px; }
+  .costcomp.cc-compact .costcomp-bars { gap: 10px !important; margin: 18px 0; }
   .costcomp.cc-compact .costcomp-savings { padding: 14px 16px !important; gap: 10px; }
-  .costcomp.cc-compact .costcomp-savings-left strong { font-size: 13px; }
-  .costcomp.cc-compact .costcomp-savings-left span { font-size: 12px; }
-  .costcomp.cc-compact .costcomp-savings-right { font-size: 22px !important; }
   .costcomp.cc-compact .costcomp-foot { font-size: 11px; line-height: 1.5; opacity: 0.7; margin-top: 14px; }
+
+  /* Mobile slider for bars */
+  @media (max-width: 768px) {
+    .costcomp.cc-compact .costcomp-bars {
+      display: flex !important;
+      flex-direction: row !important;
+      grid-template-columns: none !important;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 12px !important;
+      padding: 4px 16px 18px;
+      margin-left: -16px;
+      margin-right: -16px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .costcomp.cc-compact .costcomp-bars::-webkit-scrollbar { display: none; }
+    .costcomp.cc-compact .costcomp-bar {
+      flex: 0 0 78%;
+      scroll-snap-align: center;
+      max-width: 78%;
+    }
+    .costcomp.cc-compact .costcomp-savings { flex-direction: column; align-items: flex-start; text-align: left; }
+    .costcomp.cc-compact .costcomp-savings-right { font-size: 28px !important; }
+  }
 </style>
 {%- endif -%}
 

@@ -32,7 +32,7 @@
         "cta_label": "Build my kit",
         "cta_link": "#shopify-section-main",
         "show_locale": true,
-        "locale_filter": "NL,BE,DE,FR,ES,AE"
+        "locale_filter": "NL,BE,DE,FR,ES,IT,PT,AT,LU,IE,GB,CH,SE,DK,NO,FI,PL,GR,HU,CZ,SK,BG,RO,HR,SI,EE,LV,LT,IS,MT,CY,AE"
       }
     },
     "hero": {
@@ -195,6 +195,23 @@
       "type": "lio-science",
       "settings": {}
     },
+    "evidence": {
+      "type": "lio-evidence",
+      "blocks": {
+        "e1": { "type": "evidence", "settings": { "icon": "shield", "title": "0% nicotine, 0% tobacco",     "source": "Eurofins Lab Report · 2024" } },
+        "e2": { "type": "evidence", "settings": { "icon": "beaker", "title": "Plant-based aroma cores",     "source": "Independent assay · TNO Netherlands" } },
+        "e3": { "type": "evidence", "settings": { "icon": "doc",    "title": "Patented mouthpiece design",  "source": "EU Patent EP3784213" } },
+        "e4": { "type": "evidence", "settings": { "icon": "chart",  "title": "82% report reduced cravings", "source": "n=1,243 user study, 2024" } }
+      },
+      "block_order": ["e1", "e2", "e3", "e4"],
+      "settings": {
+        "bg": "#f5f1eb",
+        "eyebrow": "Lio evidence",
+        "title": "The proof, <em>third-party verified.</em>",
+        "subtitle": "Every claim on this page is backed by a lab test, a published patent, or an independent study.",
+        "foot": "Independent of paid endorsements. Reports available on request."
+      }
+    },
     "costcomp": {
       "type": "lio-costcomp",
       "settings": {
@@ -290,11 +307,12 @@
     "hero",
     "flavored_air",
     "social_proof",
-    "videowall",
     "how",
     "killblock",
+    "videowall",
     "flavors",
     "science",
+    "evidence",
     "costcomp",
     "main",
     "faq",

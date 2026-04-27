@@ -182,7 +182,7 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
   
     </head>
   
-    <body class="{% if settings.zoom_image_on_hover %}zoom-image--enabled{% endif %}">
+    <body class="{% if settings.zoom_image_on_hover %}zoom-image--enabled{% endif %}{% if template == 'page.theliokit' %} lio-lander-page{% endif %}">
       {%- render 'shadow-dom-templates' -%}
   
       <a href="#main" class="skip-to-content sr-only">{{ 'general.accessibility.skip_to_content' | t }}</a>
