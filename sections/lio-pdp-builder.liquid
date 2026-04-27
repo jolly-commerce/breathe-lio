@@ -33,9 +33,7 @@
     <div class="lio-announcement">{{ section.settings.announcement_text }}</div>
   {%- endif -%}
 
-  {%- if section.settings.breadcrumbs_text != blank -%}
-    <nav class="lio-breadcrumbs" aria-label="Breadcrumb">{{ section.settings.breadcrumbs_text }}</nav>
-  {%- endif -%}
+  <nav class="lio-breadcrumbs" aria-label="Breadcrumb">{{ 'lander.pdp.breadcrumbs' | t }}</nav>
 
   <div class="lio-pdp">
 
@@ -478,7 +476,7 @@
             <span class="lio-totals-empty-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
             </span>
-            <span class="lio-totals-empty-text" id="lio-totals-empty-text">{{ section.settings.totals_empty_initial | default: 'Pick your device to see your total' }}</span>
+            <span class="lio-totals-empty-text" id="lio-totals-empty-text">{{ 'lander.pdp.totals_empty' | t }}</span>
           </div>
 
           <div class="lio-totals-rows" id="lio-totals-rows">
@@ -732,9 +730,9 @@
       "country_code": {{ country_code | json }},
       "country_name": {{ country_name | json }},
       "delivery_template": {{ section.settings.totals_delivery_template | json }},
-      "totals_empty_initial": {{ section.settings.totals_empty_initial | json }},
-      "totals_empty_flavors": {{ section.settings.totals_empty_flavors | json }},
-      "totals_empty_partial": {{ section.settings.totals_empty_partial | json }},
+      "totals_empty_initial": {{ 'lander.pdp.totals_empty' | t | json }},
+      "totals_empty_flavors": {{ 'lander.pdp.totals_empty_flavors' | t | json }},
+      "totals_empty_partial": {{ 'lander.pdp.totals_empty_partial' | t | json }},
       "partner_discount_pct": {{ section.settings.partner_discount_pct | default: 25 }},
       "bestseller_discount_pct": {{ section.settings.bestseller_discount_pct | default: 10 }},
       "partner_discount_code": {{ section.settings.partner_discount_code | default: '' | json }},

@@ -267,7 +267,6 @@
         "sticky_title": "Build your perfect kit",
         "sticky_meta": "<del>€58</del><strong style=\"color: var(--forest); font-weight: 700;\">€39</strong> · device free · 90-day money-back",
         "sticky_link": "#shopify-section-main",
-        "sticky_aria": "Pick a device — scroll to configurator",
         "hide_when_target": "#shopify-section-main"
       }
     },

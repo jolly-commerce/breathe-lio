@@ -698,7 +698,11 @@
     },
     "pdp": {
       "step1_title": "Pick your device",
-      "pick_to_start": "Pick a device to start"
+      "pick_to_start": "Pick a device to start",
+      "breadcrumbs": "<p>Home / Shop / Build your kit</p>",
+      "totals_empty": "Pick your device to see your total",
+      "totals_empty_flavors": "Pick your flavors to see your total",
+      "totals_empty_partial": "Pick {n} more to see your total"
     }
   }
 }
