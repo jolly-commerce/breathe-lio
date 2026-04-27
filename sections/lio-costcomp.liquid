@@ -1,5 +1,27 @@
 <!-- ================== COST COMPARISON ================== -->
-<section class="costcomp" id="cost">
+{%- if section.settings.compact -%}
+<style>
+  .costcomp.cc-compact { padding: 28px 16px !important; }
+  .costcomp.cc-compact .costcomp-inner { max-width: 760px; }
+  .costcomp.cc-compact .costcomp-head { margin-bottom: 20px; }
+  .costcomp.cc-compact .costcomp-h2 { font-size: clamp(22px, 4.2vw, 28px) !important; line-height: 1.15; margin: 6px 0 8px; }
+  .costcomp.cc-compact .costcomp-sub { font-size: 13px; max-width: 540px; margin: 0 auto; }
+  .costcomp.cc-compact .section-eyebrow { margin-bottom: 8px !important; font-size: 11px; }
+  .costcomp.cc-compact .costcomp-bars { gap: 8px !important; margin: 18px 0; }
+  .costcomp.cc-compact .costcomp-bar { padding: 10px 12px !important; }
+  .costcomp.cc-compact .costcomp-bar-label strong { font-size: 13px; }
+  .costcomp.cc-compact .costcomp-bar-label span { font-size: 11px; }
+  .costcomp.cc-compact .costcomp-bar-price { font-size: 18px !important; }
+  .costcomp.cc-compact .costcomp-bar-price small { font-size: 10px; }
+  .costcomp.cc-compact .costcomp-savings { padding: 14px 16px !important; gap: 10px; }
+  .costcomp.cc-compact .costcomp-savings-left strong { font-size: 13px; }
+  .costcomp.cc-compact .costcomp-savings-left span { font-size: 12px; }
+  .costcomp.cc-compact .costcomp-savings-right { font-size: 22px !important; }
+  .costcomp.cc-compact .costcomp-foot { font-size: 11px; line-height: 1.5; opacity: 0.7; margin-top: 14px; }
+</style>
+{%- endif -%}
+
+<section class="costcomp{% if section.settings.compact %} cc-compact{% endif %}" id="cost">
   <div class="costcomp-inner">
     <div class="costcomp-head">
       <div class="section-eyebrow" style="margin-bottom: 28px;">What you'd spend this month</div>
@@ -83,7 +105,9 @@
   "name": "Lio · Cost comparison",
   "tag": "section",
   "class": "section-lio-costcomp",
-  "settings": [],
+  "settings": [
+    { "type": "checkbox", "id": "compact", "label": "Compact mode", "default": false }
+  ],
   "presets": [{ "name": "Lio · Cost comparison" }],
   "enabled_on": { "templates": ["index", "page"] }
 }

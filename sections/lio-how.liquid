@@ -1,4 +1,45 @@
 <!-- ================== SECTION 3: HOW IT WORKS ================== -->
+<style>
+  @media (max-width: 768px) {
+    .how-steps {
+      display: flex !important;
+      flex-direction: row !important;
+      grid-template-columns: none !important;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 16px;
+      gap: 12px !important;
+      padding: 4px 16px 20px;
+      margin-left: -16px;
+      margin-right: -16px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .how-steps::-webkit-scrollbar { display: none; }
+    .how-steps { scrollbar-width: none; -ms-overflow-style: none; }
+    .how-steps .how-step {
+      flex: 0 0 86%;
+      scroll-snap-align: center;
+      max-width: 86%;
+    }
+  }
+  .how-steps-dots {
+    display: none;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  @media (max-width: 768px) {
+    .how-steps-dots { display: flex; }
+  }
+  .how-steps-dots span {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.18);
+    transition: background 0.2s;
+  }
+  .how-steps-dots span.active { background: #1f3a2c; }
+</style>
+
 <section class="how" id="how">
   <div class="how-inner">
     <div class="how-head">
@@ -59,8 +100,24 @@
         </div>
       </div>
     </div>
+    <div class="how-steps-dots" aria-hidden="true">
+      <span class="active"></span><span></span><span></span>
+    </div>
   </div>
 </section>
+<script>
+  (function () {
+    var steps = document.querySelector('.how-steps');
+    var dots  = document.querySelectorAll('.how-steps-dots span');
+    if (!steps || !dots.length) return;
+    steps.addEventListener('scroll', function () {
+      var w = steps.clientWidth;
+      var i = Math.round(steps.scrollLeft / (w * 0.86));
+      i = Math.max(0, Math.min(dots.length - 1, i));
+      dots.forEach(function (d, idx) { d.classList.toggle('active', idx === i); });
+    }, { passive: true });
+  })();
+</script>
 
 {% schema %}
 {

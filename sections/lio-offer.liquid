@@ -1,4 +1,47 @@
 <!-- ================== SECTION 8: OFFER ================== -->
+<style>
+  .offer { padding-left: 24px; padding-right: 24px; box-sizing: border-box; }
+  @media (max-width: 768px) {
+    .offer { padding-left: 16px; padding-right: 16px; }
+  }
+  .offer .offer-inner { max-width: 1140px; margin: 0 auto; }
+  .offer-delivery {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f5f1eb;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin: 14px 0;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #2a2a2a;
+  }
+  .offer-delivery svg { flex-shrink: 0; }
+  .offer-delivery strong { color: #1f3a2c; }
+  .offer-delivery .small { display: block; opacity: 0.7; font-size: 12px; margin-top: 2px; }
+</style>
+
+{%- liquid
+  assign ship_country = localization.country.name | default: 'your country'
+  assign ship_iso = localization.country.iso_code | default: ''
+  case ship_iso
+    when 'NL', 'BE', 'DE', 'LU', 'FR'
+      assign ship_days = '1–2'
+    when 'AT', 'IT', 'ES', 'PT', 'IE', 'DK', 'PL', 'CZ', 'SE', 'FI'
+      assign ship_days = '2–3'
+    when 'GB', 'CH', 'NO'
+      assign ship_days = '3–4'
+    when 'US', 'CA'
+      assign ship_days = '5–7'
+    when 'AU', 'NZ', 'AE', 'SG', 'JP'
+      assign ship_days = '6–9'
+    else
+      assign ship_days = '4–8'
+  endcase
+-%}
+
 <section class="offer" id="offer">
   <div class="offer-inner">
     <div class="offer-visual">
@@ -94,6 +137,16 @@
         <div class="offer-benefit">Keep the device forever — it's yours from day one.</div>
         <div class="offer-benefit">Ships within 24h from Amsterdam · free EU &amp; UK shipping.</div>
         <div class="offer-benefit">Pause, skip, or cancel refills any time.</div>
+      </div>
+
+      <div class="offer-delivery" role="status" aria-live="polite">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/>
+        </svg>
+        <div>
+          <strong>Shipped from Amsterdam</strong> · arrives in <strong>{{ ship_days }} working days</strong> to {{ ship_country }}
+          <span class="small">Tracking emailed the moment it leaves the warehouse</span>
+        </div>
       </div>
 
       <div class="offer-cta-row">
