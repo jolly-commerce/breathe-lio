@@ -134,9 +134,14 @@
     list-style: none;
     margin: 0;
     padding: 6px;
-    min-width: 220px;
+    min-width: 240px;
+    max-height: 360px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     z-index: 60;
   }
+  .lh-locale-menu::-webkit-scrollbar { width: 8px; }
+  .lh-locale-menu::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.18); border-radius: 8px; }
   .lh-locale-menu form { margin: 0; }
   .lh-locale-menu button {
     display: flex;
@@ -192,30 +197,7 @@
     {%- if section.settings.show_locale and localization.available_countries.size > 1 -%}
       {%- liquid
         assign cur = localization.country
-        assign cur_flag = '🌍'
-        case cur.iso_code
-          when 'NL'; assign cur_flag = '🇳🇱'
-          when 'BE'; assign cur_flag = '🇧🇪'
-          when 'DE'; assign cur_flag = '🇩🇪'
-          when 'FR'; assign cur_flag = '🇫🇷'
-          when 'ES'; assign cur_flag = '🇪🇸'
-          when 'AE'; assign cur_flag = '🇦🇪'
-          when 'GB'; assign cur_flag = '🇬🇧'
-          when 'IT'; assign cur_flag = '🇮🇹'
-          when 'PT'; assign cur_flag = '🇵🇹'
-          when 'AT'; assign cur_flag = '🇦🇹'
-          when 'LU'; assign cur_flag = '🇱🇺'
-          when 'IE'; assign cur_flag = '🇮🇪'
-          when 'US'; assign cur_flag = '🇺🇸'
-          when 'CA'; assign cur_flag = '🇨🇦'
-          when 'CH'; assign cur_flag = '🇨🇭'
-          when 'SE'; assign cur_flag = '🇸🇪'
-          when 'DK'; assign cur_flag = '🇩🇰'
-          when 'NO'; assign cur_flag = '🇳🇴'
-          when 'FI'; assign cur_flag = '🇫🇮'
-          when 'PL'; assign cur_flag = '🇵🇱'
-          when 'AU'; assign cur_flag = '🇦🇺'
-        endcase
+        assign cur_flag = cur.iso_code | replace: 'A','🇦' | replace: 'B','🇧' | replace: 'C','🇨' | replace: 'D','🇩' | replace: 'E','🇪' | replace: 'F','🇫' | replace: 'G','🇬' | replace: 'H','🇭' | replace: 'I','🇮' | replace: 'J','🇯' | replace: 'K','🇰' | replace: 'L','🇱' | replace: 'M','🇲' | replace: 'N','🇳' | replace: 'O','🇴' | replace: 'P','🇵' | replace: 'Q','🇶' | replace: 'R','🇷' | replace: 'S','🇸' | replace: 'T','🇹' | replace: 'U','🇺' | replace: 'V','🇻' | replace: 'W','🇼' | replace: 'X','🇽' | replace: 'Y','🇾' | replace: 'Z','🇿'
       -%}
       <details class="lh-locale">
         <summary aria-label="Change country and currency">
@@ -229,36 +211,16 @@
               {%- liquid
                 assign code = country.iso_code
                 assign show = false
-                if section.settings.locale_filter contains code
+                if section.settings.locale_filter == blank
                   assign show = true
-                elsif section.settings.locale_filter == blank
-                  assign show = true
+                else
+                  assign filter_clean = section.settings.locale_filter | replace: ' ', '' | upcase
+                  assign filter_list = filter_clean | split: ','
+                  if filter_list contains code
+                    assign show = true
+                  endif
                 endif
-
-                assign flag = '🌍'
-                case code
-                  when 'NL'; assign flag = '🇳🇱'
-                  when 'BE'; assign flag = '🇧🇪'
-                  when 'DE'; assign flag = '🇩🇪'
-                  when 'FR'; assign flag = '🇫🇷'
-                  when 'ES'; assign flag = '🇪🇸'
-                  when 'AE'; assign flag = '🇦🇪'
-                  when 'GB'; assign flag = '🇬🇧'
-                  when 'IT'; assign flag = '🇮🇹'
-                  when 'PT'; assign flag = '🇵🇹'
-                  when 'AT'; assign flag = '🇦🇹'
-                  when 'LU'; assign flag = '🇱🇺'
-                  when 'IE'; assign flag = '🇮🇪'
-                  when 'US'; assign flag = '🇺🇸'
-                  when 'CA'; assign flag = '🇨🇦'
-                  when 'CH'; assign flag = '🇨🇭'
-                  when 'SE'; assign flag = '🇸🇪'
-                  when 'DK'; assign flag = '🇩🇰'
-                  when 'NO'; assign flag = '🇳🇴'
-                  when 'FI'; assign flag = '🇫🇮'
-                  when 'PL'; assign flag = '🇵🇱'
-                  when 'AU'; assign flag = '🇦🇺'
-                endcase
+                assign flag = code | replace: 'A','🇦' | replace: 'B','🇧' | replace: 'C','🇨' | replace: 'D','🇩' | replace: 'E','🇪' | replace: 'F','🇫' | replace: 'G','🇬' | replace: 'H','🇭' | replace: 'I','🇮' | replace: 'J','🇯' | replace: 'K','🇰' | replace: 'L','🇱' | replace: 'M','🇲' | replace: 'N','🇳' | replace: 'O','🇴' | replace: 'P','🇵' | replace: 'Q','🇶' | replace: 'R','🇷' | replace: 'S','🇸' | replace: 'T','🇹' | replace: 'U','🇺' | replace: 'V','🇻' | replace: 'W','🇼' | replace: 'X','🇽' | replace: 'Y','🇾' | replace: 'Z','🇿'
               -%}
               {%- if show -%}
                 <li>
@@ -303,6 +265,99 @@
     document.addEventListener('click', function (e) {
       if (!d.contains(e.target)) d.removeAttribute('open');
     });
+  })();
+</script>
+
+<script>
+  /* ============================================================
+     Lio lander — explicit CTA scroll handler.
+     Catches ALL hash-anchor clicks and scrolls with header offset.
+     Also normalizes #shopify-section-main / #offer / #main / #lio-pdp-*
+     to whatever wrapper the configurator actually rendered into.
+     This works even if the section's href setting got transformed
+     by Shopify's url-type validation, or if the section ID format
+     differs in a future Shopify build.
+     ============================================================ */
+  (function () {
+    function findConfigurator () {
+      // ordered: most specific first
+      return document.querySelector('#shopify-section-main')
+          || document.querySelector('[id^="shopify-section-"][id$="__main"]')
+          || document.querySelector('.lio-pdp-builder-wrap')
+          || document.querySelector('.lio-pdp-section')
+          || document.querySelector('[data-section-type="lio-pdp-builder"]');
+    }
+
+    function getOffset () {
+      return window.matchMedia('(max-width: 900px)').matches ? 76 : 92;
+    }
+
+    function smoothTo (el) {
+      if (!el) return false;
+      var top = el.getBoundingClientRect().top + window.pageYOffset - getOffset();
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      return true;
+    }
+
+    var configAliases = ['#shopify-section-main', '#offer', '#main', '#cost', '#lio-pdp-main'];
+
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href]');
+      if (!link) return;
+
+      var href = link.getAttribute('href') || '';
+      // only handle in-page anchors
+      if (href.charAt(0) !== '#') return;
+      if (href === '#' || href.length < 2) return;
+
+      var target;
+      // Configurator aliases — always resolve to the configurator wrapper
+      if (configAliases.indexOf(href) !== -1) {
+        target = findConfigurator();
+      } else {
+        try { target = document.querySelector(href); } catch (_) { target = null; }
+      }
+
+      if (!target) return; // let browser handle / no-op
+
+      e.preventDefault();
+      smoothTo(target);
+      // update URL hash without re-jumping
+      if (history.replaceState) history.replaceState(null, '', href);
+    }, false);
+
+    /* Heuristic safety net: rewrite obviously-broken CTA hrefs on page load.
+       If a CTA button contains words like "Build", "Pick", "Start", "Kit"
+       and its href is empty / "#" / external journey-pack URL, point it
+       at the configurator on this page instead. */
+    function normalizeCtas () {
+      var config = findConfigurator();
+      if (!config) return;
+      var aliasHref = '#' + config.id;
+      var verbs = /(build|pick|start|kit|order|get the|shop the journey|claim)/i;
+
+      var candidates = document.querySelectorAll(
+        'a.lhx-btn-primary, a.lfl-btn, a.kb-btn, a.lfv-btn, a.btn-primary, a.lio-lh-cta, .sticky-cta a'
+      );
+      candidates.forEach(function (a) {
+        var label = (a.textContent || '').trim();
+        var href = a.getAttribute('href') || '';
+        var external = /^https?:/i.test(href);
+        var brokenHash = (href === '' || href === '#');
+        // Only touch if it looks like a config CTA AND href is broken/external journey-pack
+        var isJourneyExt = external && /journey-pack/i.test(href);
+        if ((brokenHash || isJourneyExt) && verbs.test(label)) {
+          a.setAttribute('href', aliasHref);
+          a.dataset.lioRewritten = '1';
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', normalizeCtas);
+    } else {
+      normalizeCtas();
+    }
   })();
 </script>
 
