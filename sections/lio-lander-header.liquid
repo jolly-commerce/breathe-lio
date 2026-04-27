@@ -82,6 +82,88 @@
     box-sizing: border-box;
   }
 
+  /* ─────────────────────────────────────────────────────────────
+     UNIFORM HORIZONTAL PADDING across every section on the lander.
+     One rule, one value. Desktop: 24px. Mobile: 20px.
+     Targets every known Lio section wrapper class.
+     ───────────────────────────────────────────────────────────── */
+  .lio-lander-page .lio-lh-bar,
+  .lio-lander-page .lio-lh-announce,
+  .lio-lander-page .hero,
+  .lio-lander-page .lhx-hero,
+  .lio-lander-page .social-proof,
+  .lio-lander-page .lsp-section,
+  .lio-lander-page .flavored-air,
+  .lio-lander-page .lfl-section,
+  .lio-lander-page .videowall,
+  .lio-lander-page .vw-section,
+  .lio-lander-page .how,
+  .lio-lander-page .killblock,
+  .lio-lander-page .kb-section,
+  .lio-lander-page .flavors,
+  .lio-lander-page .lfv-section,
+  .lio-lander-page .moments,
+  .lio-lander-page .science,
+  .lio-lander-page .ugc,
+  .lio-lander-page .costcomp,
+  .lio-lander-page .offer,
+  .lio-lander-page .faq,
+  .lio-lander-page .finalcta,
+  .lio-lander-page .levp,
+  .lio-lander-page .lio-ev,
+  .lio-lander-page .lio-lf,
+  .lio-lander-page .lio-pdp-section,
+  .lio-lander-page .lio-pdp {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    box-sizing: border-box !important;
+  }
+  @media (max-width: 768px) {
+    .lio-lander-page .lio-lh-bar,
+    .lio-lander-page .lio-lh-announce,
+    .lio-lander-page .hero,
+    .lio-lander-page .lhx-hero,
+    .lio-lander-page .social-proof,
+    .lio-lander-page .lsp-section,
+    .lio-lander-page .flavored-air,
+    .lio-lander-page .lfl-section,
+    .lio-lander-page .videowall,
+    .lio-lander-page .vw-section,
+    .lio-lander-page .how,
+    .lio-lander-page .killblock,
+    .lio-lander-page .kb-section,
+    .lio-lander-page .flavors,
+    .lio-lander-page .lfv-section,
+    .lio-lander-page .moments,
+    .lio-lander-page .science,
+    .lio-lander-page .ugc,
+    .lio-lander-page .costcomp,
+    .lio-lander-page .offer,
+    .lio-lander-page .faq,
+    .lio-lander-page .finalcta,
+    .lio-lander-page .levp,
+    .lio-lander-page .lio-ev,
+    .lio-lander-page .lio-lf,
+    .lio-lander-page .lio-pdp-section,
+    .lio-lander-page .lio-pdp {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+  }
+  /* And inner content containers — ensure they don't double-pad */
+  .lio-lander-page [class$="-inner"],
+  .lio-lander-page .lvm-band,
+  .lio-lander-page .levp-modal-card {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  /* Exception: some inner containers carry the only padding (no outer wrapper).
+     Restore for these specific cases. */
+  .lio-lander-page .lvm-band { padding-left: 28px !important; padding-right: 28px !important; }
+  @media (max-width: 600px) {
+    .lio-lander-page .lvm-band { padding-left: 20px !important; padding-right: 20px !important; }
+  }
+
   .lio-lh-announce {
     background: {{ section.settings.announce_bg | default: '#1f3a2c' }};
     color: {{ section.settings.announce_color | default: '#f5f1eb' }};
