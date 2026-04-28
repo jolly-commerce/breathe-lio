@@ -355,7 +355,7 @@
       </svg>
     </span>
     <span class="lio-page-loader-bar"><span></span></span>
-    <span class="lio-page-loader-text">{{ 'lander.loader.text' | t }}…</span>
+    <span class="lio-page-loader-text">{{ 'lander.loader.text' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}…</span>
   </div>
 </div>
 <style>
@@ -401,7 +401,7 @@
 </script>
 
 <div class="lio-lh-announce">
-  {{ 'lander.announce' | t }}
+  {{ 'lander.announce' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
 </div>
 
 <header class="lio-lh-bar">
@@ -410,11 +410,11 @@
   </a>
 
   <nav class="lio-lh-nav" aria-label="Page sections">
-    <a href="#shopify-section-flavored_air">{{ 'lander.nav.what_it_is' | t }}</a>
-    <a href="#shopify-section-how">{{ 'lander.nav.how' | t }}</a>
-    <a href="#shopify-section-flavors">{{ 'lander.nav.flavors' | t }}</a>
-    <a href="#shopify-section-evidence">{{ 'lander.nav.evidence' | t }}</a>
-    <a href="#shopify-section-faq">{{ 'lander.nav.faq' | t }}</a>
+    <a href="#shopify-section-flavored_air">{{ 'lander.nav.what_it_is' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</a>
+    <a href="#shopify-section-how">{{ 'lander.nav.how' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</a>
+    <a href="#shopify-section-flavors">{{ 'lander.nav.flavors' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</a>
+    <a href="#shopify-section-evidence">{{ 'lander.nav.evidence' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</a>
+    <a href="#shopify-section-faq">{{ 'lander.nav.faq' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</a>
   </nav>
 
   <div class="lio-lh-actions">
@@ -510,7 +510,7 @@
       </a>
     {%- endif -%}
     <a href="{{ section.settings.cta_link | default: '#shopify-section-main' }}" class="lio-lh-cta">
-      {{ 'lander.cta.build_kit' | t }}
+      {{ 'lander.cta.build_kit' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
     </a>
   </div>
 </header>

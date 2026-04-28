@@ -16,23 +16,23 @@
     <div class="lfl-grid">
       <div class="lfl-left">
 
-        <div class="lfl-eyebrow">{{ 'lander.fa.eyebrow' | t }}</div>
+        <div class="lfl-eyebrow">{{ 'lander.fa.eyebrow' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</div>
 
         <h2 class="lfl-title">
-          <span class="lfl-line">{{ 'lander.fa.title_line_1' | t }}</span>
+          <span class="lfl-line">{{ 'lander.fa.title_line_1' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
           <span class="lfl-line">
             {%- if section.settings.show_underline -%}
               <span class="lfl-circle" data-lfl-circle>
                 <svg viewBox="0 0 360 10" preserveAspectRatio="none" aria-hidden="true"><path d="M 5 5 L 355 5"/></svg>
-                {{ 'lander.fa.title_line_2' | t }}
+                {{ 'lander.fa.title_line_2' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
               </span>
             {%- else -%}
-              {{ 'lander.fa.title_line_2' | t }}
+              {{ 'lander.fa.title_line_2' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
             {%- endif -%}
           </span>
         </h2>
 
-        <p class="lfl-sub">{{ 'lander.fa.subhead' | t }}</p>
+        <p class="lfl-sub">{{ 'lander.fa.subhead' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
 
         {%- if trust_blocks.size > 0 -%}
           <div class="lfl-trust" role="list" aria-label="{{ section.settings.trust_aria | default: 'Product proof points' }}">
@@ -71,15 +71,15 @@
 
         <div class="lfl-cta-row">
           <a href="{{ section.settings.cta_link | default: '#offer' }}" class="lfl-btn">
-            <span>{{ 'lander.fa.cta_label' | t }}</span>
+            <span>{{ 'lander.fa.cta_label' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
             <span class="lfl-btn-arrow" aria-hidden="true">
               <svg viewBox="0 0 16 16"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </a>
           <div class="lfl-cta-micro">
-            <span class="lfl-cta-micro-item">{{ 'lander.fa.micro_1' | t }}</span>
-            <span class="lfl-cta-micro-sep" aria-hidden="true"></span><span class="lfl-cta-micro-item">{{ 'lander.fa.micro_2' | t }}</span>
-            <span class="lfl-cta-micro-sep" aria-hidden="true"></span><span class="lfl-cta-micro-item">{{ 'lander.fa.micro_3' | t }}</span>
+            <span class="lfl-cta-micro-item">{{ 'lander.fa.micro_1' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+            <span class="lfl-cta-micro-sep" aria-hidden="true"></span><span class="lfl-cta-micro-item">{{ 'lander.fa.micro_2' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+            <span class="lfl-cta-micro-sep" aria-hidden="true"></span><span class="lfl-cta-micro-item">{{ 'lander.fa.micro_3' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
           </div>
         </div>
       </div>

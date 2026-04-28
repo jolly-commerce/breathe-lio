@@ -50,20 +50,20 @@
       </figure>
 
       <div class="lhx-copy">
-        <span class="lhx-eyebrow">{{ 'lander.hero.eyebrow' | t }}</span>
+        <span class="lhx-eyebrow">{{ 'lander.hero.eyebrow' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
 
         <h1 class="lhx-title">
-          {{ 'lander.hero.title_pre' | t }}
-          <span class="lhx-title-em">{{ 'lander.hero.title_em' | t }}</span>{{ 'lander.hero.title_punct' | t }}<br>
-          {{ 'lander.hero.title_mid' | t }}
-          <span class="lhx-title-soft">{{ 'lander.hero.title_soft' | t }}</span>
+          {{ 'lander.hero.title_pre' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+          <span class="lhx-title-em">{{ 'lander.hero.title_em' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>{{ 'lander.hero.title_punct' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}<br>
+          {{ 'lander.hero.title_mid' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+          <span class="lhx-title-soft">{{ 'lander.hero.title_soft' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
         </h1>
 
-        <p class="lhx-sub">{{ 'lander.hero.subhead' | t }}</p>
+        <p class="lhx-sub">{{ 'lander.hero.subhead' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
 
         <div class="lhx-cta">
           <a href="{{ section.settings.cta_link | default: '#offer' }}" class="lhx-btn lhx-btn-primary">
-            <span>{{ 'lander.cta.build_kit' | t }}</span>
+            <span>{{ 'lander.cta.build_kit' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
             <span class="lhx-btn-arrow" aria-hidden="true">
               <svg viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -73,14 +73,14 @@
         </div>
 
         <a href="{{ section.settings.refill_link | default: '#refills' }}" class="lhx-refills">
-          {{ 'lander.hero.refill_label' | t }}
+          {{ 'lander.hero.refill_label' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
           <span class="lhx-refills-arrow" aria-hidden="true">→</span>
         </a>
 
         <div class="lhx-ticks" role="list">
-          <span role="listitem">{{ 'lander.hero.tick_1' | t }}</span>
-          <span role="listitem">{{ 'lander.hero.tick_2' | t }}</span>
-          <span role="listitem">{{ 'lander.hero.tick_3' | t }}</span>
+          <span role="listitem">{{ 'lander.hero.tick_1' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+          <span role="listitem">{{ 'lander.hero.tick_2' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+          <span role="listitem">{{ 'lander.hero.tick_3' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
         </div>
       </div>
 

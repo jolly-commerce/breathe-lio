@@ -184,48 +184,48 @@
   <div class="lio-lf-inner">
     <div class="lio-lf-cols">
       <div>
-        <p class="lio-lf-tagline">{{ 'lander.footer.tagline' | t }}</p>
+        <p class="lio-lf-tagline">{{ 'lander.footer.tagline' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
         <div class="lio-lf-trust">
-          <span>{{ 'lander.footer.money_back' | t }}</span>
-          <span>{{ 'lander.hero.tick_2' | t }}</span>
-          <span>{{ 'lander.hero.visual_pill' | t }}</span>
+          <span>{{ 'lander.footer.money_back' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+          <span>{{ 'lander.hero.tick_2' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+          <span>{{ 'lander.hero.visual_pill' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
         </div>
         <div class="lio-lf-payments">
           <span>VISA</span><span>Mastercard</span><span>iDEAL</span><span>Apple Pay</span><span>Shop Pay</span><span>PayPal</span>
         </div>
       </div>
       <div>
-        <h4>{{ 'lander.footer.on_this_page' | t }}</h4>
-        <a href="#shopify-section-flavored_air">{{ 'lander.footer.what_it_is' | t }}</a>
-        <a href="#shopify-section-how">{{ 'lander.footer.how_it_works' | t }}</a>
-        <a href="#shopify-section-flavors">{{ 'lander.footer.flavors' | t }}</a>
-        <a href="#shopify-section-evidence">{{ 'lander.footer.lio_evidence' | t }}</a>
-        <a href="#shopify-section-faq">{{ 'lander.footer.faq' | t }}</a>
-        <a href="#shopify-section-main">{{ 'lander.footer.build_my_kit' | t }}</a>
+        <h4>{{ 'lander.footer.on_this_page' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</h4>
+        <a href="#shopify-section-flavored_air">{{ 'lander.footer.what_it_is' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</a>
+        <a href="#shopify-section-how">{{ 'lander.footer.how_it_works' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</a>
+        <a href="#shopify-section-flavors">{{ 'lander.footer.flavors' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</a>
+        <a href="#shopify-section-evidence">{{ 'lander.footer.lio_evidence' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</a>
+        <a href="#shopify-section-faq">{{ 'lander.footer.faq' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</a>
+        <a href="#shopify-section-main">{{ 'lander.footer.build_my_kit' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</a>
       </div>
       <div>
-        <h4>{{ 'lander.footer.customer_care' | t }}</h4>
+        <h4>{{ 'lander.footer.customer_care' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</h4>
         <a href="mailto:{{ section.settings.email | default: 'hello@breathelio.com' }}">{{ section.settings.email | default: 'hello@breathelio.com' }}</a>
         {%- if section.settings.whatsapp_number != blank -%}
-          <a href="https://wa.me/{{ section.settings.whatsapp_number | replace: '+', '' | replace: ' ', '' }}" target="_blank" rel="noopener">{{ 'lander.footer.whatsapp' | t }}</a>
+          <a href="https://wa.me/{{ section.settings.whatsapp_number | replace: '+', '' | replace: ' ', '' }}" target="_blank" rel="noopener">{{ 'lander.footer.whatsapp' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</a>
         {%- endif -%}
-        <button type="button" class="lio-policy-trigger" data-policy="refund">{{ 'lander.footer.money_back' | t }}</button>
-        <button type="button" class="lio-policy-trigger" data-policy="shipping">{{ 'lander.footer.shipping_delivery' | t }}</button>
-        <a href="mailto:{{ section.settings.email | default: 'hello@breathelio.com' }}">{{ 'lander.footer.contact_info' | t }}</a>
+        <button type="button" class="lio-policy-trigger" data-policy="refund">{{ 'lander.footer.money_back' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</button>
+        <button type="button" class="lio-policy-trigger" data-policy="shipping">{{ 'lander.footer.shipping_delivery' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</button>
+        <a href="mailto:{{ section.settings.email | default: 'hello@breathelio.com' }}">{{ 'lander.footer.contact_info' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</a>
       </div>
       <div>
-        <h4>{{ 'lander.footer.legal' | t }}</h4>
-        <button type="button" class="lio-policy-trigger" data-policy="privacy">{{ 'lander.footer.privacy' | t }}</button>
-        <button type="button" class="lio-policy-trigger" data-policy="terms">{{ 'lander.footer.terms' | t }}</button>
-        <button type="button" class="lio-policy-trigger" data-policy="refund">{{ 'lander.footer.refund' | t }}</button>
-        <button type="button" class="lio-policy-trigger" data-policy="shipping">{{ 'lander.footer.shipping' | t }}</button>
-        <button type="button" class="lio-policy-trigger" data-policy="legal">{{ 'lander.footer.legal_notice' | t }}</button>
-        <button type="button" class="lio-policy-trigger" data-policy="cookie">{{ 'lander.footer.cookie' | t }}</button>
+        <h4>{{ 'lander.footer.legal' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</h4>
+        <button type="button" class="lio-policy-trigger" data-policy="privacy">{{ 'lander.footer.privacy' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</button>
+        <button type="button" class="lio-policy-trigger" data-policy="terms">{{ 'lander.footer.terms' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</button>
+        <button type="button" class="lio-policy-trigger" data-policy="refund">{{ 'lander.footer.refund' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</button>
+        <button type="button" class="lio-policy-trigger" data-policy="shipping">{{ 'lander.footer.shipping' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</button>
+        <button type="button" class="lio-policy-trigger" data-policy="legal">{{ 'lander.footer.legal_notice' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</button>
+        <button type="button" class="lio-policy-trigger" data-policy="cookie">{{ 'lander.footer.cookie' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</button>
       </div>
     </div>
     <div class="lio-lf-bottom">
       <span>© {{ 'now' | date: '%Y' }} Lio · Made in Amsterdam · {{ section.settings.patent | default: 'EU Patent EP3784213' }}</span>
-      <span class="lio-lf-tag">{{ 'lander.footer.closing_tag' | t }}</span>
+      <span class="lio-lf-tag">{{ 'lander.footer.closing_tag' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
     </div>
   </div>
 </footer>

@@ -2,33 +2,33 @@
 <section class="finalcta">
   <div class="finalcta-inner">
     <div class="finalcta-content">
-      <div class="finalcta-eyebrow">{{ 'lander.finalcta.eyebrow' | t }}</div>
+      <div class="finalcta-eyebrow">{{ 'lander.finalcta.eyebrow' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</div>
       <h2 class="finalcta-h2">
-        {{ 'lander.finalcta.h2_pre' | t }} <span class="italic-word">{{ 'lander.finalcta.h2_em' | t }}</span><br>
-        {{ 'lander.finalcta.h2_post' | t }} <span class="soft">{{ 'lander.finalcta.h2_soft' | t }}</span>
+        {{ 'lander.finalcta.h2_pre' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }} <span class="italic-word">{{ 'lander.finalcta.h2_em' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span><br>
+        {{ 'lander.finalcta.h2_post' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }} <span class="soft">{{ 'lander.finalcta.h2_soft' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
       </h2>
-      <p class="finalcta-sub">{{ 'lander.finalcta.sub' | t }}</p>
+      <p class="finalcta-sub">{{ 'lander.finalcta.sub' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
       <div class="finalcta-ctas">
         <a href="{{ section.settings.cta_link | default: 'https://breathelio.com/products/journey-pack-3' }}" class="btn-primary">
-          {{ 'lander.finalcta.cta_label' | t }}
+          {{ 'lander.finalcta.cta_label' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
           <span class="arrow"><svg><use href="#arrow"/></svg></span>
         </a>
-        <a href="{{ section.settings.ghost_link | default: '#how' }}" class="btn-ghost">{{ 'lander.finalcta.ghost_label' | t }}</a>
+        <a href="{{ section.settings.ghost_link | default: '#how' }}" class="btn-ghost">{{ 'lander.finalcta.ghost_label' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</a>
       </div>
       <div class="daily-cost on-dark" style="margin-bottom: 18px; justify-content: center; display: inline-flex;">
-        {{ 'lander.finalcta.daily_cost' | t }}
+        {{ 'lander.finalcta.daily_cost' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
       </div>
       <div class="cta-ticks on-dark" style="justify-content: center;">
-        <span>{{ 'lander.finalcta.tick_1' | t }}</span>
-        <span>{{ 'lander.finalcta.tick_2' | t }}</span>
-        <span>{{ 'lander.finalcta.tick_3' | t }}</span>
+        <span>{{ 'lander.finalcta.tick_1' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+        <span>{{ 'lander.finalcta.tick_2' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+        <span>{{ 'lander.finalcta.tick_3' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
       </div>
       <div class="finalcta-mini" style="margin-top: 28px;">
-        <span>{{ 'lander.finalcta.mini_customers' | t }}</span>
+        <span>{{ 'lander.finalcta.mini_customers' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
         <span class="sep"></span>
-        <span>{{ 'lander.finalcta.mini_rating' | t }}</span>
+        <span>{{ 'lander.finalcta.mini_rating' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
         <span class="sep"></span>
-        <span>{{ 'lander.finalcta.mini_origin' | t }}</span>
+        <span>{{ 'lander.finalcta.mini_origin' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
       </div>
     </div>
   </div>

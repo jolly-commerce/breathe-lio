@@ -19,7 +19,7 @@
     {%- if section.settings.sticky_label != blank -%}
       {{ section.settings.sticky_label }}
     {%- else -%}
-      {{ 'lander.cta.pick_device' | t }}
+      {{ 'lander.cta.pick_device' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
     {%- endif -%}
     <span class="arrow" aria-hidden="true"><svg><use href="#arrow"/></svg></span>
   </a>

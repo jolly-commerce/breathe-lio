@@ -91,14 +91,14 @@
   <div class="how-inner">
     <div class="how-head">
       <div>
-        <div class="section-eyebrow">{{ 'lander.how.eyebrow' | t }}</div>
+        <div class="section-eyebrow">{{ 'lander.how.eyebrow' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</div>
         <h2 class="section-h2">
-          {{ 'lander.how.h2_pre' | t }}<br>
-          <span class="italic-word">{{ 'lander.how.h2_em' | t }}</span> {{ 'lander.how.h2_post' | t }}
+          {{ 'lander.how.h2_pre' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}<br>
+          <span class="italic-word">{{ 'lander.how.h2_em' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span> {{ 'lander.how.h2_post' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
         </h2>
       </div>
       <div class="how-head-right">
-        <p>{{ 'lander.how.lede' | t }}</p>
+        <p>{{ 'lander.how.lede' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
       </div>
     </div>
 
@@ -108,10 +108,10 @@
         <div class="how-step-visual">
           <svg><use href="#step-insert"/></svg>
         </div>
-        <h3 class="how-step-title">{{ 'lander.how.step_1_title_pre' | t }} <span class="italic-word">{{ 'lander.how.step_1_title_em' | t }}</span></h3>
-        <p class="how-step-body">{{ 'lander.how.step_1_body' | t }}</p>
+        <h3 class="how-step-title">{{ 'lander.how.step_1_title_pre' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }} <span class="italic-word">{{ 'lander.how.step_1_title_em' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span></h3>
+        <p class="how-step-body">{{ 'lander.how.step_1_body' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
         <div class="how-step-spec">
-          <span>{{ 'lander.how.step_1_spec' | t }}</span>
+          <span>{{ 'lander.how.step_1_spec' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
         </div>
       </div>
 
@@ -120,10 +120,10 @@
         <div class="how-step-visual">
           <svg><use href="#step-inhale"/></svg>
         </div>
-        <h3 class="how-step-title">{{ 'lander.how.step_2_title_pre' | t }} <span class="italic-word">{{ 'lander.how.step_2_title_em' | t }}</span></h3>
-        <p class="how-step-body">{{ 'lander.how.step_2_body' | t }}</p>
+        <h3 class="how-step-title">{{ 'lander.how.step_2_title_pre' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }} <span class="italic-word">{{ 'lander.how.step_2_title_em' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span></h3>
+        <p class="how-step-body">{{ 'lander.how.step_2_body' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
         <div class="how-step-spec">
-          <span>{{ 'lander.how.step_2_spec' | t }}</span>
+          <span>{{ 'lander.how.step_2_spec' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
         </div>
       </div>
 
@@ -132,10 +132,10 @@
         <div class="how-step-visual">
           <svg><use href="#step-reset"/></svg>
         </div>
-        <h3 class="how-step-title">{{ 'lander.how.step_3_title_pre' | t }} <span class="italic-word">{{ 'lander.how.step_3_title_em' | t }}</span></h3>
-        <p class="how-step-body">{{ 'lander.how.step_3_body' | t }}</p>
+        <h3 class="how-step-title">{{ 'lander.how.step_3_title_pre' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }} <span class="italic-word">{{ 'lander.how.step_3_title_em' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span></h3>
+        <p class="how-step-body">{{ 'lander.how.step_3_body' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
         <div class="how-step-spec">
-          <span>{{ 'lander.how.step_3_spec' | t }}</span>
+          <span>{{ 'lander.how.step_3_spec' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
         </div>
       </div>
     </div>

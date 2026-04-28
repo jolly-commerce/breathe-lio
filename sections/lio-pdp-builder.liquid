@@ -33,7 +33,7 @@
     <div class="lio-announcement">{{ section.settings.announcement_text }}</div>
   {%- endif -%}
 
-  <nav class="lio-breadcrumbs" aria-label="Breadcrumb">{{ 'lander.pdp.breadcrumbs' | t }}</nav>
+  <nav class="lio-breadcrumbs" aria-label="Breadcrumb">{{ 'lander.pdp.breadcrumbs' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</nav>
 
   <div class="lio-pdp">
 
@@ -226,8 +226,8 @@
       <div class="lio-pdp-step" data-step="device">
         <div class="lio-pdp-step-head">
           <span class="lio-pdp-step-tag" data-step-dot="device">●</span>
-          <span class="lio-pdp-step-title">{{ 'lander.pdp.step1_title' | t }}</span>
-          <span class="lio-pdp-step-meta"><strong id="lio-device-meta">{{ 'lander.cta.pick_device' | t }}</strong></span>
+          <span class="lio-pdp-step-title">{{ 'lander.pdp.step1_title' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+          <span class="lio-pdp-step-meta"><strong id="lio-device-meta">{{ 'lander.cta.pick_device' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</strong></span>
         </div>
 
         <button type="button" class="lio-device-compare-cta" id="lio-device-info-btn" aria-haspopup="dialog">
@@ -476,7 +476,7 @@
             <span class="lio-totals-empty-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
             </span>
-            <span class="lio-totals-empty-text" id="lio-totals-empty-text">{{ 'lander.pdp.totals_empty' | t }}</span>
+            <span class="lio-totals-empty-text" id="lio-totals-empty-text">{{ 'lander.pdp.totals_empty' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
           </div>
 
           <div class="lio-totals-rows" id="lio-totals-rows">
@@ -512,7 +512,7 @@
         </div>
 
         <button type="button" class="lio-purchase-cta" id="lio-cta">
-          <span id="lio-cta-label">{{ 'lander.cta.pick_device' | t }}</span>
+          <span id="lio-cta-label">{{ 'lander.cta.pick_device' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
           <span class="lio-purchase-cta-arrow" aria-hidden="true">→</span>
         </button>
 
@@ -781,7 +781,7 @@
 
       <div class="lio-sticky-info">
         <span class="lio-sticky-title" id="lio-sticky-title">{{ section.settings.sticky_title | default: 'Your Lio Kit' }}</span>
-        <span class="lio-sticky-meta" id="lio-sticky-meta">{{ 'lander.pdp.pick_to_start' | t }}</span>
+        <span class="lio-sticky-meta" id="lio-sticky-meta">{{ 'lander.pdp.pick_to_start' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
       </div>
 
       <div class="lio-sticky-pricing" id="lio-sticky-pricing" hidden>
@@ -790,7 +790,7 @@
       </div>
 
       <button type="button" class="lio-sticky-btn" id="lio-sticky-cta-btn" disabled>
-        <span id="lio-sticky-cta-label">{{ 'lander.cta.pick_device' | t }}</span>
+        <span id="lio-sticky-cta-label">{{ 'lander.cta.pick_device' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
         <span class="lio-sticky-btn-arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </span>
