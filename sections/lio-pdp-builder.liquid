@@ -168,17 +168,45 @@
       </div>
 
       <div class="lio-gallery-thumbs" id="lio-gallery-thumbs">
-        {%- for i in (1..5) -%}
+        {%- assign first_real = false -%}
+        {%- for i in (1..8) -%}
           {%- assign img_key = 'gallery_image_' | append: i -%}
           {%- assign img = section.settings[img_key] -%}
           {%- if img -%}
             {%- assign img_url = img | image_url: width: 1200 -%}
-            <button type="button" class="lio-gallery-thumb{% if forloop.first %} is-active{% endif %}" data-img="{{ img_url }}" aria-label="View image {{ i }}">
+            <button type="button" class="lio-gallery-thumb{% unless first_real %} is-active{% endunless %}" data-img="{{ img_url }}" aria-label="View image {{ i }}">
               <img src="{{ img | image_url: width: 240 }}" alt="" loading="lazy" decoding="async" width="240" height="240">
             </button>
+            {%- assign first_real = true -%}
+          {%- else -%}
+            <span class="lio-gallery-thumb is-placeholder" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2"/>
+                <circle cx="8.5" cy="10.5" r="1.5"/>
+                <path d="m3 17 6-6 5 5 3-3 4 4"/>
+              </svg>
+            </span>
           {%- endif -%}
         {%- endfor -%}
       </div>
+      <style>
+        .lio-gallery-thumb.is-placeholder {
+          aspect-ratio: 1 / 1;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(11, 36, 16, 0.04);
+          border: 1px dashed rgba(11, 36, 16, 0.18);
+          color: rgba(11, 36, 16, 0.32);
+          border-radius: 8px;
+          cursor: default;
+          pointer-events: none;
+        }
+        .lio-gallery-thumb.is-placeholder svg { width: 22px; height: 22px; }
+        @media (max-width: 768px) {
+          .lio-gallery-thumb.is-placeholder svg { width: 16px; height: 16px; }
+        }
+      </style>
     </div>
 
     {%- comment -%} ============ CONFIG COLUMN ============ {%- endcomment -%}
@@ -832,6 +860,9 @@
     { "type": "image_picker", "id": "gallery_image_3", "label": "Gallery image 3" },
     { "type": "image_picker", "id": "gallery_image_4", "label": "Gallery image 4" },
     { "type": "image_picker", "id": "gallery_image_5", "label": "Gallery image 5" },
+    { "type": "image_picker", "id": "gallery_image_6", "label": "Gallery image 6" },
+    { "type": "image_picker", "id": "gallery_image_7", "label": "Gallery image 7" },
+    { "type": "image_picker", "id": "gallery_image_8", "label": "Gallery image 8" },
     { "type": "text", "id": "gallery_pin_number", "label": "Gallery pin number", "default": "150,000+" },
     { "type": "text", "id": "gallery_pin_label",  "label": "Gallery pin label",  "default": "HABITS BROKEN" },
 

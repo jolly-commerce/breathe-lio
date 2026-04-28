@@ -68,12 +68,12 @@
     }
   }
 
-  /* Configurator (Build your perfect kit) — mobile L/R padding */
+  /* Configurator (Build your perfect kit) — tight mobile L/R padding */
   @media (max-width: 768px) {
     .lio-lander-page .lio-pdp,
-    .lio-lander-page .lio-pdp-section { padding-left: 20px !important; padding-right: 20px !important; box-sizing: border-box; }
+    .lio-lander-page .lio-pdp-section { padding-left: 10px !important; padding-right: 10px !important; box-sizing: border-box; }
     .lio-lander-page .lio-announcement,
-    .lio-lander-page .lio-breadcrumbs { padding-left: 20px; padding-right: 20px; }
+    .lio-lander-page .lio-breadcrumbs { padding-left: 10px; padding-right: 10px; }
   }
 
   /* Sticky CTA — anchored bottom of viewport at all times */
@@ -157,11 +157,15 @@
     .lio-lander-page .finalcta,
     .lio-lander-page .levp,
     .lio-lander-page .lio-ev,
-    .lio-lander-page .lio-lf,
-    .lio-lander-page .lio-pdp-section,
-    .lio-lander-page .lio-pdp {
+    .lio-lander-page .lio-lf {
       padding-left: 20px !important;
       padding-right: 20px !important;
+    }
+    /* Configurator: extra-tight padding so the full kit-builder UI fits */
+    .lio-lander-page .lio-pdp-section,
+    .lio-lander-page .lio-pdp {
+      padding-left: 10px !important;
+      padding-right: 10px !important;
     }
   }
   /* And inner content containers — ensure they don't double-pad */

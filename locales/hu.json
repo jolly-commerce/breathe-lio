@@ -230,6 +230,9 @@
       "totals_empty": "Válaszd ki az eszközöd, hogy lásd az összeget",
       "totals_empty_flavors": "Válaszd ki az ízeket, hogy lásd az összeget",
       "totals_empty_partial": "Válassz még {n}-et, hogy lásd az összeget"
+    },
+    "brand": {
+      "stat_founded_sub": "Amszterdam, Hollandia"
     }
   }
 }

@@ -668,6 +668,9 @@
       "totals_empty": "Alege-ți dispozitivul pentru a vedea totalul",
       "totals_empty_flavors": "Alege-ți aromele pentru a vedea totalul",
       "totals_empty_partial": "Mai alege {n} pentru a vedea totalul"
+    },
+    "brand": {
+      "stat_founded_sub": "Amsterdam, Țările de Jos"
     }
   }
 }

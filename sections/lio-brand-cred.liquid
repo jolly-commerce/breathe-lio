@@ -337,7 +337,6 @@
       </button>
     </div>
     <div class="lbc-modal-body">
-      {%- assign UNESC_PRE = '' -%}
       <h4>{{ 'lander.brand.h_started' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</h4>
       <p>{{ 'lander.brand.p_started_1' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
       <p>{{ 'lander.brand.p_started_2' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
@@ -356,7 +355,7 @@
       <div class="lbc-stats">
         <div class="lbc-stat">
           <div class="lbc-stat-key">{{ 'lander.brand.stat_founded' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</div>
-          <div class="lbc-stat-val">2018<small>Amsterdam, NL</small></div>
+          <div class="lbc-stat-val">2018<small>{{ 'lander.brand.stat_founded_sub' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</small></div>
         </div>
         <div class="lbc-stat">
           <div class="lbc-stat-key">{{ 'lander.brand.stat_habits' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</div>

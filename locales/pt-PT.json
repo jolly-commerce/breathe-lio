@@ -230,6 +230,9 @@
       "totals_empty": "Escolhe o teu dispositivo para ver o total",
       "totals_empty_flavors": "Escolhe os teus sabores para ver o total",
       "totals_empty_partial": "Escolhe mais {n} para ver o total"
+    },
+    "brand": {
+      "stat_founded_sub": "Amesterdão, Países Baixos"
     }
   }
 }

@@ -668,6 +668,9 @@
       "totals_empty": "Izvēlies savu ierīci, lai redzētu kopējo summu",
       "totals_empty_flavors": "Izvēlies garšas, lai redzētu kopējo summu",
       "totals_empty_partial": "Izvēlies vēl {n}, lai redzētu kopējo summu"
+    },
+    "brand": {
+      "stat_founded_sub": "Amsterdama, Nīderlande"
     }
   }
 }

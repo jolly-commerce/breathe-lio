@@ -682,6 +682,9 @@
       "totals_empty": "Vyber si zařízení pro zobrazení součtu",
       "totals_empty_flavors": "Vyber si příchutě pro zobrazení součtu",
       "totals_empty_partial": "Vyber ještě {n} pro zobrazení součtu"
+    },
+    "brand": {
+      "stat_founded_sub": "Amsterdam, Nizozemsko"
     }
   }
 }

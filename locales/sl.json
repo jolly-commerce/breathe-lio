@@ -681,6 +681,9 @@
       "totals_empty": "Izberi svojo napravo, da vidiš skupaj",
       "totals_empty_flavors": "Izberi okuse, da vidiš skupaj",
       "totals_empty_partial": "Izberi še {n}, da vidiš skupaj"
+    },
+    "brand": {
+      "stat_founded_sub": "Amsterdam, Nizozemska"
     }
   }
 }

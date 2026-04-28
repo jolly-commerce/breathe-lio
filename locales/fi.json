@@ -667,6 +667,9 @@
       "totals_empty": "Valitse laitteesi nähdäksesi summan",
       "totals_empty_flavors": "Valitse mausi nähdäksesi summan",
       "totals_empty_partial": "Valitse vielä {n} nähdäksesi summan"
+    },
+    "brand": {
+      "stat_founded_sub": "Amsterdam, Alankomaat"
     }
   }
 }

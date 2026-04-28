@@ -681,6 +681,9 @@
       "totals_empty": "Vyber si zariadenie pre zobrazenie súčtu",
       "totals_empty_flavors": "Vyber si príchute pre zobrazenie súčtu",
       "totals_empty_partial": "Vyber ešte {n} pre zobrazenie súčtu"
+    },
+    "brand": {
+      "stat_founded_sub": "Amsterdam, Holandsko"
     }
   }
 }

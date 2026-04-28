@@ -667,6 +667,9 @@
       "totals_empty": "Vælg din enhed for at se totalen",
       "totals_empty_flavors": "Vælg dine smage for at se totalen",
       "totals_empty_partial": "Vælg {n} mere for at se totalen"
+    },
+    "brand": {
+      "stat_founded_sub": "Amsterdam, Holland"
     }
   }
 }

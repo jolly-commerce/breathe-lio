@@ -674,6 +674,9 @@
       "totals_empty": "Pasirink savo įrenginį, kad matytum sumą",
       "totals_empty_flavors": "Pasirink skonius, kad matytum sumą",
       "totals_empty_partial": "Pasirink dar {n}, kad matytum sumą"
+    },
+    "brand": {
+      "stat_founded_sub": "Amsterdamas, Nyderlandai"
     }
   }
 }
