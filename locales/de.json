@@ -673,6 +673,31 @@
       "totals_empty": "Wähle dein Gerät, um die Summe zu sehen",
       "totals_empty_flavors": "Wähle deine Geschmacksrichtungen, um die Summe zu sehen",
       "totals_empty_partial": "Wähle noch {n}, um die Summe zu sehen"
+    },
+    "brand": {
+      "modal_eyebrow": "Unsere Geschichte",
+      "modal_title": "Lio, seit 2018",
+      "h_started": "Wo es begann",
+      "p_started_1": "Lio begann 2018 in Amsterdam, in einer kleinen Werkstatt an der Prinsengracht. Zwei von uns — Brüder — sahen den Menschen, die uns am nächsten standen, beim Versuch zu, aufzuhören – und beim Scheitern. <strong>Die Pflaster adressierten die Hälfte der Gewohnheit. Der Kaugummi noch weniger. Die Vapes, keine der richtigen Hälften.</strong>",
+      "p_started_2": "Was fehlte, war das <em>Ritual</em> — die Hand-zum-Mund-Bewegung, der tiefe Atemzug, die kleine Pause, bevor man zurück zu dem geht, was schwer war. Die Chemie war lösbar. Das Verhalten nicht. Niemand hatte dafür ein Werkzeug gebaut.",
+      "h_built": "Was wir gebaut haben",
+      "p_built": "Sechs Prototypen, drei Jahre Tests, ein Patent. Das Ergebnis ist ein hölzerner Mund-Diffuser in Stiftgröße mit einem austauschbaren Pflanzenöl-Core an der Spitze. <strong>Keine Batterie. Kein Dampf. Kein Nikotin. Keine Verbrennung.</strong> Nur das Ritual, bewahrt. Die Chemie, abgewählt.",
+      "pull_quote": "„Wir haben keinen Vape-Ersatz gebaut. Wir haben die Hälfte der Gewohnheit gebaut, die Nikotin-Ersatztherapie immer vermisst hat.\"",
+      "pull_attr": "— Gründer, 2018",
+      "h_category": "Die Kategorie, die wir geschaffen haben",
+      "p_category": "Wir nannten sie <strong>Flavored Air</strong> — weil sie das ist. Luft, die durch einen Holzlauf gezogen wird und am Ende Pflanzenaromen vom Core aufnimmt. Das Ganze wird als gewöhnlicher Atem ausgeatmet. <strong>Lio war das erste Produkt dieser Kategorie in Europa.</strong> Das Mundstück-Design ist unter EU-Patent EP3784213 geschützt.",
+      "stat_founded": "Gegründet",
+      "stat_habits": "Gewohnheiten gebrochen",
+      "stat_habits_sub": "in über 50 Ländern",
+      "stat_owned": "Eigentümer",
+      "stat_owned_val": "Familie",
+      "stat_owned_sub": "unabhängig, keine Investoren",
+      "h_family": "Warum ein Familienunternehmen",
+      "p_family_1": "Wir sind nicht VC-finanziert. Es gibt keine Wachstum-um-jeden-Preis-Investoren, die uns in Werbekanäle drängen, an die wir nicht glauben, oder Produktlinien, hinter denen wir nicht stehen. Wir sind den Menschen, die Lio kaufen, und uns selbst Rechenschaft schuldig.",
+      "p_family_2": "Das bedeutet, wir können die Dinge behalten, die zählen. <strong>Jede Bestellung wird aus demselben Amsterdamer Lager verschickt, vom selben Team verpackt, seit dem ersten Tag.</strong> Jede E-Mail wird von einem echten Menschen gelesen. Das Design wurde nicht geändert, weil eine Marketingabteilung „auffrischen\" wollte. Es ist derselbe Holzlauf, dasselbe patentierte Mundstück, dieselben Pflanzenöl-Cores — verbessert, aber nie kompromittiert.",
+      "h_still": "Warum wir es immer noch tun",
+      "p_still_1": "Weil ab und zu jemand uns schreibt, wie Lio ihm durch einen Flug, eine Besprechung, ein Jahr geholfen hat. <strong>Dafür haben wir es gebaut.</strong> Die 150.000+ Menschen am anderen Ende dieser Bestellungen sind für uns keine Kundenstamm-Metrik. Sie sind der Grund, warum dieses Unternehmen existiert.",
+      "p_still_2": "Wenn Lio das Richtige für dich ist — willkommen. Wenn nicht, haben wir eine 90-Tage-Rückgabepolitik, vorbezahltes Etikett, keine Fragen. Lieber probierst du es aus und schickst es zurück, als gar nicht zu probieren."
     }
   }
 }

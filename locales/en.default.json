@@ -703,6 +703,31 @@
       "totals_empty": "Pick your device to see your total",
       "totals_empty_flavors": "Pick your flavors to see your total",
       "totals_empty_partial": "Pick {n} more to see your total"
+    },
+    "brand": {
+      "modal_eyebrow": "Our story",
+      "modal_title": "Lio, since 2018",
+      "h_started": "Where it started",
+      "p_started_1": "Lio began in Amsterdam in 2018, in a small workshop on the Prinsengracht. Two of us — brothers — were watching the people closest to us try, and fail, to quit. <strong>The patches addressed half the habit. The chewing gum, less. The vapes, none of the right half.</strong>",
+      "p_started_2": "What was missing was the <em>ritual</em> — the hand-to-mouth motion, the deep breath, the small pause before going back to whatever was hard. The chemistry was solvable. The behavior wasn't. Nobody had built a tool for that.",
+      "h_built": "What we built",
+      "p_built": "Six prototypes, three years of testing, one patent. The result is a wooden mouth diffuser the size of a pen, with a replaceable plant-oil core at the tip. <strong>No battery. No vapor. No nicotine. No combustion.</strong> Just the ritual, kept. The chemistry, kicked.",
+      "pull_quote": "\"We didn't build a vape replacement. We built the half of the habit that nicotine replacement therapy was always missing.\"",
+      "pull_attr": "— Founders, 2018",
+      "h_category": "The category we created",
+      "p_category": "We called it <strong>Flavored Air</strong> — because that's what it is. Air drawn through a wooden barrel, picking up plant aromatics from the core at the end. The whole thing exhales as ordinary breath. <strong>Lio was the first product in this category in Europe.</strong> The mouthpiece design is protected under EU Patent EP3784213.",
+      "stat_founded": "Founded",
+      "stat_habits": "Habits broken",
+      "stat_habits_sub": "across 50+ countries",
+      "stat_owned": "Owned by",
+      "stat_owned_val": "Family",
+      "stat_owned_sub": "independent, no investors",
+      "h_family": "Why a family business",
+      "p_family_1": "We are not VC-backed. There are no growth-at-all-costs investors pushing us into ad-channels we don't believe in or product lines we don't stand behind. We answer to the people who buy Lio, and to ourselves.",
+      "p_family_2": "That means we get to keep the things that matter. <strong>Every order ships from the same Amsterdam warehouse, packed by the same team, since the day we started.</strong> Every email is read by a real person. The design hasn't been changed because a marketing department wanted to \"refresh.\" It's the same wooden barrel, the same patented mouthpiece, the same plant-oil cores — improved, but never compromised.",
+      "h_still": "Why we still do it",
+      "p_still_1": "Because every now and then someone writes us about how Lio got them through a flight, a meeting, a year. <strong>That's what we built it for.</strong> The 150,000+ people on the other end of those orders aren't a customer-base metric to us. They're the reason this company exists.",
+      "p_still_2": "If Lio is right for you — welcome. If not, we have a 90-day return policy, prepaid label, no questions asked. We'd rather you try it and send it back than not try at all."
     }
   }
 }

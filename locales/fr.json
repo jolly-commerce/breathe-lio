@@ -696,6 +696,31 @@
       "totals_empty": "Choisis ton appareil pour voir le total",
       "totals_empty_flavors": "Choisis tes saveurs pour voir le total",
       "totals_empty_partial": "Choisis encore {n} pour voir le total"
+    },
+    "brand": {
+      "modal_eyebrow": "Notre histoire",
+      "modal_title": "Lio, depuis 2018",
+      "h_started": "Où tout a commencé",
+      "p_started_1": "Lio est né à Amsterdam en 2018, dans un petit atelier sur le Prinsengracht. Nous étions deux — frères — à regarder les personnes qui nous étaient les plus proches essayer, et échouer, à arrêter. <strong>Les patchs s'attaquaient à la moitié de l'habitude. La gomme à mâcher, encore moins. Les vapes, à aucun bon côté.</strong>",
+      "p_started_2": "Ce qui manquait était le <em>rituel</em> — le geste main-bouche, la respiration profonde, la petite pause avant de retourner à ce qui était difficile. La chimie était soluble. Le comportement, non. Personne n'avait construit un outil pour cela.",
+      "h_built": "Ce que nous avons construit",
+      "p_built": "Six prototypes, trois ans de tests, un brevet. Le résultat est un diffuseur buccal en bois de la taille d'un stylo, avec un core à l'huile végétale remplaçable au bout. <strong>Pas de batterie. Pas de vapeur. Pas de nicotine. Pas de combustion.</strong> Juste le rituel, gardé. La chimie, abandonnée.",
+      "pull_quote": "« Nous n'avons pas construit un remplacement de vape. Nous avons construit la moitié de l'habitude que la thérapie de remplacement de la nicotine a toujours manquée. »",
+      "pull_attr": "— Fondateurs, 2018",
+      "h_category": "La catégorie que nous avons créée",
+      "p_category": "Nous l'avons appelé <strong>Air Aromatisé</strong> — parce que c'est ce que c'est. De l'air tiré à travers un tube en bois, ramassant des aromates végétaux du core au bout. Le tout est exhalé comme une respiration ordinaire. <strong>Lio a été le premier produit de cette catégorie en Europe.</strong> La conception de l'embout est protégée par le brevet UE EP3784213.",
+      "stat_founded": "Fondé",
+      "stat_habits": "Habitudes brisées",
+      "stat_habits_sub": "dans plus de 50 pays",
+      "stat_owned": "Détenu par",
+      "stat_owned_val": "Famille",
+      "stat_owned_sub": "indépendant, sans investisseurs",
+      "h_family": "Pourquoi une entreprise familiale",
+      "p_family_1": "Nous ne sommes pas financés par du capital-risque. Il n'y a pas d'investisseurs croissance-à-tout-prix qui nous poussent dans des canaux publicitaires auxquels nous ne croyons pas ou des gammes de produits que nous ne soutenons pas. Nous répondons aux personnes qui achètent Lio, et à nous-mêmes.",
+      "p_family_2": "Cela veut dire que nous pouvons garder les choses qui comptent. <strong>Chaque commande est expédiée du même entrepôt d'Amsterdam, emballée par la même équipe, depuis le premier jour.</strong> Chaque e-mail est lu par une vraie personne. Le design n'a pas changé parce qu'un département marketing voulait « rafraîchir ». C'est le même tube en bois, le même embout breveté, les mêmes cores à l'huile végétale — améliorés, mais jamais compromis.",
+      "h_still": "Pourquoi nous le faisons encore",
+      "p_still_1": "Parce que de temps en temps, quelqu'un nous écrit pour nous raconter comment Lio l'a aidé à traverser un vol, une réunion, une année. <strong>C'est pour cela que nous l'avons construit.</strong> Les 150 000+ personnes à l'autre bout de ces commandes ne sont pas une métrique de base clients pour nous. Elles sont la raison d'être de cette entreprise.",
+      "p_still_2": "Si Lio est fait pour toi — bienvenue. Sinon, nous avons une politique de retour de 90 jours, étiquette prépayée, sans questions. Nous préférons que tu essaies et le renvoies plutôt que de ne pas essayer du tout."
     }
   }
 }

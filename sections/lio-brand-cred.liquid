@@ -331,54 +331,50 @@
 <div class="lbc-modal" id="lbc-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lbc-modal-title">
   <div class="lbc-modal-card">
     <div class="lbc-modal-head">
-      <h3 id="lbc-modal-title"><span>Our story</span> Lio, since 2018</h3>
+      <h3 id="lbc-modal-title"><span>{{ 'lander.brand.modal_eyebrow' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span> {{ 'lander.brand.modal_title' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</h3>
       <button type="button" class="lbc-modal-close" data-lbc-close aria-label="Close">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l10 10M12 2 2 12"/></svg>
       </button>
     </div>
     <div class="lbc-modal-body">
+      {%- assign UNESC_PRE = '' -%}
+      <h4>{{ 'lander.brand.h_started' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</h4>
+      <p>{{ 'lander.brand.p_started_1' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
+      <p>{{ 'lander.brand.p_started_2' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
 
-      <h4>Where it started</h4>
-      <p>Lio began in Amsterdam in 2018, in a small workshop on the Prinsengracht. Two of us — brothers — were watching the people closest to us try, and fail, to quit. <strong>The patches addressed half the habit. The chewing gum, less. The vapes, none of the right half.</strong></p>
-
-      <p>What was missing was the <em>ritual</em> — the hand-to-mouth motion, the deep breath, the small pause before going back to whatever was hard. The chemistry was solvable. The behavior wasn't. Nobody had built a tool for that.</p>
-
-      <h4>What we built</h4>
-      <p>Six prototypes, three years of testing, one patent. The result is a wooden mouth diffuser the size of a pen, with a replaceable plant-oil core at the tip. <strong>No battery. No vapor. No nicotine. No combustion.</strong> Just the ritual, kept. The chemistry, kicked.</p>
+      <h4>{{ 'lander.brand.h_built' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</h4>
+      <p>{{ 'lander.brand.p_built' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
 
       <div class="lbc-pull">
-        <p>"We didn't build a vape replacement. We built the half of the habit that nicotine replacement therapy was always missing."</p>
-        <cite>— Founders, 2018</cite>
+        <p>{{ 'lander.brand.pull_quote' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
+        <cite>{{ 'lander.brand.pull_attr' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</cite>
       </div>
 
-      <h4>The category we created</h4>
-      <p>We called it <strong>Flavored Air</strong> — because that's what it is. Air drawn through a wooden barrel, picking up plant aromatics from the core at the end. The whole thing exhales as ordinary breath. <strong>Lio was the first product in this category in Europe.</strong> The mouthpiece design is protected under EU Patent EP3784213.</p>
+      <h4>{{ 'lander.brand.h_category' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</h4>
+      <p>{{ 'lander.brand.p_category' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
 
       <div class="lbc-stats">
         <div class="lbc-stat">
-          <div class="lbc-stat-key">Founded</div>
+          <div class="lbc-stat-key">{{ 'lander.brand.stat_founded' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</div>
           <div class="lbc-stat-val">2018<small>Amsterdam, NL</small></div>
         </div>
         <div class="lbc-stat">
-          <div class="lbc-stat-key">Habits broken</div>
-          <div class="lbc-stat-val">150,000+<small>across 50+ countries</small></div>
+          <div class="lbc-stat-key">{{ 'lander.brand.stat_habits' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</div>
+          <div class="lbc-stat-val">150,000+<small>{{ 'lander.brand.stat_habits_sub' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</small></div>
         </div>
         <div class="lbc-stat">
-          <div class="lbc-stat-key">Owned by</div>
-          <div class="lbc-stat-val">Family<small>independent, no investors</small></div>
+          <div class="lbc-stat-key">{{ 'lander.brand.stat_owned' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</div>
+          <div class="lbc-stat-val">{{ 'lander.brand.stat_owned_val' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}<small>{{ 'lander.brand.stat_owned_sub' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</small></div>
         </div>
       </div>
 
-      <h4>Why a family business</h4>
-      <p>We are not VC-backed. There are no growth-at-all-costs investors pushing us into ad-channels we don't believe in or product lines we don't stand behind. We answer to the people who buy Lio, and to ourselves.</p>
+      <h4>{{ 'lander.brand.h_family' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</h4>
+      <p>{{ 'lander.brand.p_family_1' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
+      <p>{{ 'lander.brand.p_family_2' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
 
-      <p>That means we get to keep the things that matter. <strong>Every order ships from the same Amsterdam warehouse, packed by the same team, since the day we started.</strong> Every email is read by a real person. The design hasn't been changed because a marketing department wanted to "refresh." It's the same wooden barrel, the same patented mouthpiece, the same plant-oil cores — improved, but never compromised.</p>
-
-      <h4>Why we still do it</h4>
-      <p>Because every now and then someone writes us about how Lio got them through a flight, a meeting, a year. <strong>That's what we built it for.</strong> The 150,000+ people on the other end of those orders aren't a customer-base metric to us. They're the reason this company exists.</p>
-
-      <p>If Lio is right for you — welcome. If not, we have a 90-day return policy, prepaid label, no questions asked. We'd rather you try it and send it back than not try at all.</p>
-
+      <h4>{{ 'lander.brand.h_still' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</h4>
+      <p>{{ 'lander.brand.p_still_1' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
+      <p>{{ 'lander.brand.p_still_2' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
     </div>
   </div>
 </div>

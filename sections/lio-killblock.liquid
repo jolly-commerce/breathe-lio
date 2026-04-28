@@ -47,15 +47,13 @@
             </span>
             {{ 'lander.kill.col_no_title' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
           </div>
-          {%- if neg_count > 0 -%}
-            <ul class="kb-list">
-              {%- for block in section.blocks -%}
-                {%- if block.type == 'item' and block.settings.column == 'negative' -%}
-                  <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
-                {%- endif -%}
-              {%- endfor -%}
-            </ul>
-          {%- endif -%}
+          <ul class="kb-list">
+            <li>{{ 'lander.kill.n1' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</li>
+            <li>{{ 'lander.kill.n2' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</li>
+            <li>{{ 'lander.kill.n3' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</li>
+            <li>{{ 'lander.kill.n4' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</li>
+            <li>{{ 'lander.kill.n5' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</li>
+          </ul>
         </div>
 
         <div class="kb-col kb-col-yes">
@@ -65,15 +63,13 @@
             </span>
             {{ 'lander.kill.col_yes_title' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
           </div>
-          {%- if pos_count > 0 -%}
-            <ul class="kb-list">
-              {%- for block in section.blocks -%}
-                {%- if block.type == 'item' and block.settings.column != 'negative' -%}
-                  <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
-                {%- endif -%}
-              {%- endfor -%}
-            </ul>
-          {%- endif -%}
+          <ul class="kb-list">
+            <li>{{ 'lander.kill.p1' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</li>
+            <li>{{ 'lander.kill.p2' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</li>
+            <li>{{ 'lander.kill.p3' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</li>
+            <li>{{ 'lander.kill.p4' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</li>
+            <li>{{ 'lander.kill.p5' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</li>
+          </ul>
         </div>
       </div>
     {%- endif -%}

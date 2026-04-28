@@ -702,6 +702,31 @@
       "totals_empty": "Scegli il tuo dispositivo per vedere il totale",
       "totals_empty_flavors": "Scegli i tuoi aromi per vedere il totale",
       "totals_empty_partial": "Scegline ancora {n} per vedere il totale"
+    },
+    "brand": {
+      "modal_eyebrow": "La nostra storia",
+      "modal_title": "Lio, dal 2018",
+      "h_started": "Dove tutto è iniziato",
+      "p_started_1": "Lio è nato ad Amsterdam nel 2018, in un piccolo laboratorio sul Prinsengracht. In due — fratelli — guardavamo le persone più vicine a noi provare, e fallire, a smettere. <strong>I cerotti affrontavano metà dell'abitudine. La gomma da masticare, ancora meno. I vape, nessuna metà giusta.</strong>",
+      "p_started_2": "Quello che mancava era il <em>rituale</em> — il movimento mano-bocca, il respiro profondo, la piccola pausa prima di tornare a ciò che era difficile. La chimica era risolvibile. Il comportamento no. Nessuno aveva costruito uno strumento per questo.",
+      "h_built": "Cosa abbiamo costruito",
+      "p_built": "Sei prototipi, tre anni di test, un brevetto. Il risultato è un diffusore orale in legno delle dimensioni di una penna, con un core sostituibile all'olio vegetale all'estremità. <strong>Niente batteria. Niente vapore. Niente nicotina. Niente combustione.</strong> Solo il rituale, mantenuto. La chimica, scartata.",
+      "pull_quote": "\"Non abbiamo costruito un sostituto della vape. Abbiamo costruito la metà dell'abitudine che la terapia di sostituzione alla nicotina ha sempre dimenticato.\"",
+      "pull_attr": "— Fondatori, 2018",
+      "h_category": "La categoria che abbiamo creato",
+      "p_category": "L'abbiamo chiamata <strong>Aria Aromatizzata</strong> — perché è esattamente quello. Aria che passa attraverso un cilindro di legno, raccogliendo aromi vegetali dal core all'estremità. Il tutto viene espirato come respiro ordinario. <strong>Lio è stato il primo prodotto in questa categoria in Europa.</strong> Il design del bocchino è protetto dal brevetto UE EP3784213.",
+      "stat_founded": "Fondata",
+      "stat_habits": "Abitudini interrotte",
+      "stat_habits_sub": "in oltre 50 paesi",
+      "stat_owned": "Di proprietà",
+      "stat_owned_val": "Famiglia",
+      "stat_owned_sub": "indipendente, senza investitori",
+      "h_family": "Perché un'azienda familiare",
+      "p_family_1": "Non siamo finanziati da venture capital. Non ci sono investitori orientati alla crescita a tutti i costi che ci spingono in canali pubblicitari in cui non crediamo o linee di prodotto che non sosteniamo. Rispondiamo alle persone che comprano Lio, e a noi stessi.",
+      "p_family_2": "Questo significa che possiamo conservare le cose che contano. <strong>Ogni ordine viene spedito dallo stesso magazzino di Amsterdam, imballato dallo stesso team, dal primo giorno.</strong> Ogni email è letta da una persona reale. Il design non è cambiato perché un reparto marketing voleva \"rinnovarlo.\" È lo stesso cilindro di legno, lo stesso bocchino brevettato, gli stessi core all'olio vegetale — migliorati, mai compromessi.",
+      "h_still": "Perché lo facciamo ancora",
+      "p_still_1": "Perché ogni tanto qualcuno ci scrive per raccontare come Lio l'ha aiutato a superare un volo, una riunione, un anno. <strong>È per questo che l'abbiamo costruito.</strong> Le 150.000+ persone all'altro capo di quegli ordini non sono per noi una metrica della base clienti. Sono il motivo per cui questa azienda esiste.",
+      "p_still_2": "Se Lio è giusto per te — benvenuto. Altrimenti, abbiamo una politica di reso di 90 giorni, etichetta prepagata, senza domande. Preferiamo che tu provi e lo rispedisca piuttosto che non provarci affatto."
     }
   }
 }
