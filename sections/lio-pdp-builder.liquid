@@ -30,7 +30,7 @@
 <section class="lio-pdp-section" id="lio-pdp-{{ section.id }}" data-section-type="lio-pdp-builder">
 
   {%- if section.settings.announcement_text != blank -%}
-    <div class="lio-announcement">{{ section.settings.announcement_text }}</div>
+    <div class="lio-announcement">{{ 'lander.config.announcement' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</div>
   {%- endif -%}
 
   <nav class="lio-breadcrumbs" aria-label="Breadcrumb">{{ 'lander.pdp.breadcrumbs' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</nav>
@@ -105,7 +105,7 @@
                   {%- endif -%}
 
                   <button type="button" class="lio-evidence-learn" id="lio-evidence-learn" aria-controls="lio-evidence-panel" aria-expanded="false">
-                    <span>{{ section.settings.evidence_cta_label | default: 'View evidence & learn more' }}</span>
+                    <span>{{ 'lander.config.evidence_cta' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
                   </button>
                 </div>
               </div>
@@ -122,7 +122,7 @@
               <span class="lio-evidence-min-mark" aria-hidden="true">
                 <svg width="12" height="24" viewBox="0 0 17 35" fill="none"><path d="M2.60396 10.0782C2.63019 12.7275 5.0681 14.8472 5.0681 14.8472C5.0681 14.8472 7.46457 12.6717 7.43993 10.0222C7.41325 7.3697 4.97398 5.25178 4.97398 5.25178C4.97398 5.25178 2.57932 7.42863 2.60396 10.0782ZM1.34556 19.1722C2.78927 21.3977 5.99278 21.9007 5.99278 21.9007C5.99278 21.9007 6.85625 18.7951 5.41254 16.5696C3.96883 14.3441 0.763495 13.8397 0.763495 13.8397C0.763495 13.8397 -0.0997442 16.9469 1.34556 19.1722ZM3.82901 27.3622C6.16621 28.6381 9.23028 27.5709 9.23028 27.5709C9.23028 27.5709 8.50337 24.4335 6.16618 23.1576C3.82898 21.8817 0.764911 22.9489 0.764911 22.9489C0.764911 22.9489 1.49182 26.0862 3.82901 27.3622ZM10.5368 33.3638C13.0903 34.1327 15.868 32.4611 15.868 32.4611C15.868 32.4611 14.504 29.5425 11.9502 28.772C9.39665 28.0031 6.62082 29.6761 6.62082 29.6761C6.62082 29.6761 7.98323 32.5949 10.5368 33.3638ZM9.02056 3.29033C7.3448 5.35644 7.8659 8.53241 7.8659 8.53241C7.8659 8.53241 11.1079 8.36114 12.7836 6.29503C14.4594 4.22891 13.9381 1.05136 13.9381 1.05136C13.9381 1.05136 10.6963 1.22421 9.02056 3.29033Z" stroke="currentColor" stroke-linecap="round"/></svg>
               </span>
-              <span class="lio-evidence-min-text">{{ section.settings.evidence_min_label | default: 'Lio Evidence' }}</span>
+              <span class="lio-evidence-min-text">{{ 'lander.config.evidence_min' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
             </button>
 
             {%- comment -%} ============ DETAILED PANEL — opens from "View evidence & learn more" ============ {%- endcomment -%}
@@ -133,8 +133,8 @@
                   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </button>
                 <div class="lio-evidence-panel-head">
-                  <span class="lio-evidence-panel-eyebrow"><span class="dot"></span>{{ section.settings.evidence_eyebrow | default: 'LIO EVIDENCE' }}</span>
-                  <h3 class="lio-evidence-panel-title" id="lio-evidence-panel-title">{{ section.settings.evidence_panel_title | default: 'Verified by independent labs' }}</h3>
+                  <span class="lio-evidence-panel-eyebrow"><span class="dot"></span>{{ 'lander.config.evidence_eyebrow' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+                  <h3 class="lio-evidence-panel-title" id="lio-evidence-panel-title">{{ 'lander.config.evidence_title' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</h3>
                 </div>
                 <ul class="lio-evidence-list" role="list">
                   {%- for block in section.blocks -%}
@@ -358,7 +358,7 @@
           <span class="pipe" aria-hidden="true"></span>
         {%- endif -%}
         {%- if section.settings.trust_meta != blank -%}
-          <span>{{ section.settings.trust_meta }}</span>
+          <span>{{ 'lander.config.trust_meta' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
         {%- endif -%}
       </div>
 
@@ -410,7 +410,7 @@
               {%- endif -%}
             </span>
             <span class="lio-device-card-name">{{ section.settings.device_plus_name | default: 'Lio Plus' }}</span>
-            <span class="lio-device-card-tag">{{ section.settings.device_plus_tag | default: 'Replaces the inhale' }}</span>
+            <span class="lio-device-card-tag">{{ 'lander.config.device_plus_tag' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
             <span class="lio-device-card-price">
               {%- assign plus_sub = section.settings.device_plus_sub_price | default: '29.95' -%}
               {%- assign plus_otp = section.settings.device_plus_otp_price | default: '29.95' -%}
@@ -430,7 +430,7 @@
               {%- endif -%}
             </span>
             <span class="lio-device-card-name">{{ section.settings.device_pro_name | default: 'Lio Pro' }}</span>
-            <span class="lio-device-card-tag">{{ section.settings.device_pro_tag | default: 'Inhale + magnetic fidget' }}</span>
+            <span class="lio-device-card-tag">{{ 'lander.config.device_pro_tag' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
             <span class="lio-device-card-price">
               {%- assign pro_sub = section.settings.device_pro_sub_price | default: '79.95' -%}
               {%- assign pro_otp = section.settings.device_pro_otp_price | default: '79.95' -%}
@@ -444,20 +444,20 @@
         {%- comment -%} Wood selector — always visible, sits directly below the device cards {%- endcomment -%}
         <div class="lio-wood-block" id="lio-wood-block">
           <div class="lio-wood-row" data-wood-slot="primary">
-            <span class="lio-wood-label">{{ section.settings.wood_label_solo | default: 'Wood finish' }}</span>
+            <span class="lio-wood-label">{{ 'lander.config.wood_label_solo' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
             <div class="lio-wood-options" data-wood-slot="primary" role="radiogroup" aria-label="Choose wood for device 1">
               <button type="button" class="lio-wood-opt is-selected" data-wood="olive" data-slot="primary" role="radio" aria-checked="true">
                 <span class="lio-wood-swatch lio-wood-swatch--olive" aria-hidden="true"></span>
-                {{ section.settings.wood_olive_label | default: 'Olive' }}
+                {{ 'lander.config.wood_olive' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
               </button>
               <button type="button" class="lio-wood-opt" data-wood="walnut" data-slot="primary" role="radio" aria-checked="false">
                 <span class="lio-wood-swatch lio-wood-swatch--walnut" aria-hidden="true"></span>
-                {{ section.settings.wood_walnut_label | default: 'Walnut' }}
+                {{ 'lander.config.wood_walnut' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
               </button>
             </div>
           </div>
           <div class="lio-wood-row" data-wood-slot="secondary" hidden>
-            <span class="lio-wood-label">{{ section.settings.wood_label_partner | default: "Partner's wood" }}</span>
+            <span class="lio-wood-label">{{ 'lander.config.wood_label_partner' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
             <div class="lio-wood-options" data-wood-slot="secondary" role="radiogroup" aria-label="Choose wood for device 2">
               <button type="button" class="lio-wood-opt is-selected" data-wood="olive" data-slot="secondary" role="radio" aria-checked="true">
                 <span class="lio-wood-swatch lio-wood-swatch--olive" aria-hidden="true"></span>
@@ -479,7 +479,7 @@
       <div class="lio-pdp-step lio-pdp-step--gated" id="lio-step-flavors" data-step="flavors" hidden>
         <div class="lio-pdp-step-head">
           <span class="lio-pdp-step-tag" data-step-dot="flavors">●</span>
-          <span class="lio-pdp-step-title">{{ section.settings.step2_title | default: 'Build your bag mix' }}</span>
+          <span class="lio-pdp-step-title">{{ 'lander.config.step2_title' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
           <span class="lio-pdp-step-meta"><strong id="lio-flavors-meta">0 of 3 picked</strong></span>
         </div>
 
@@ -495,7 +495,7 @@
               </span>
             </button>
             <button type="button" class="lio-preset lio-preset--bestseller" data-preset="bestseller" role="radio" aria-checked="false">
-              <span class="lio-preset-flag">{{ section.settings.preset_bestseller_flag | default: 'Bestseller · 10% off' }}</span>
+              <span class="lio-preset-flag">{{ 'lander.config.bestseller_flag' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
               <span class="lio-preset-count">6</span>
               <span class="lio-preset-label">{{ section.settings.preset_6_label | default: 'bags · 60 days' }}</span>
               <span class="lio-preset-foot">
@@ -514,8 +514,8 @@
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
             </span>
             <span class="lio-flavor-hint-body">
-              <strong>{{ section.settings.flavor_hint_title | default: 'Tap a core to explore' }}</strong>
-              <span>{{ section.settings.flavor_hint_text | default: 'View notes to find your perfect match' }}</span>
+              <strong>{{ 'lander.config.flavor_hint_title' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</strong>
+              <span>{{ 'lander.config.flavor_hint_text' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
             </span>
           </div>
 
@@ -533,7 +533,7 @@
           </div>
 
           <div class="lio-flavor-meta-bar">
-            <strong>{{ section.settings.meta_bar_text | default: 'Mix anything · Ships in 24h · Switch flavors anytime' }}</strong>
+            <strong>{{ 'lander.config.meta_bar' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</strong>
           </div>
         </div>
       </div>
@@ -542,9 +542,9 @@
       <details class="lio-pdp-step lio-pdp-step--addons lio-pdp-step--gated" id="lio-addons-step" data-step="addons" hidden>
         <summary class="lio-pdp-step-head lio-addons-summary">
           <span class="lio-pdp-step-tag" data-step-dot="addons">●</span>
-          <span class="lio-pdp-step-title">{{ section.settings.step3_title | default: 'Add-ons — skip if you want' }}</span>
+          <span class="lio-pdp-step-title">{{ 'lander.config.step3_title' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
           <span class="lio-addons-summary-meta">
-            <span class="lio-addons-summary-text">{{ section.settings.addons_summary_text | default: 'Stand · Pouch · Cleaning kit' }}</span>
+            <span class="lio-addons-summary-text">{{ 'lander.config.addons_summary' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
             <span class="lio-addons-summary-chev" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </span>
@@ -553,19 +553,19 @@
         <div class="lio-addons-row" id="lio-addons-row">
           <button type="button" class="lio-addon" data-addon="wood-stand" data-price="{{ section.settings.addon_wood_stand_price | default: 14.95 }}" aria-pressed="false">
             <span class="lio-addon-img"><span class="lio-addon-img-emoji" aria-hidden="true">{{ section.settings.addon_wood_stand_emoji | default: '🪵' }}</span></span>
-            <span class="lio-addon-name">{{ section.settings.addon_wood_stand_name | default: 'Wood Stand' }}</span>
+            <span class="lio-addon-name">{{ 'lander.config.addon_stand' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
             <span class="lio-addon-price">€{{ section.settings.addon_wood_stand_price | default: '14.95' }}</span>
             <span class="lio-addon-check" aria-hidden="true"></span>
           </button>
           <button type="button" class="lio-addon" data-addon="travel-pouch" data-price="{{ section.settings.addon_travel_pouch_price | default: 9.95 }}" aria-pressed="false">
             <span class="lio-addon-img"><span class="lio-addon-img-emoji" aria-hidden="true">{{ section.settings.addon_travel_pouch_emoji | default: '👜' }}</span></span>
-            <span class="lio-addon-name">{{ section.settings.addon_travel_pouch_name | default: 'Travel Pouch' }}</span>
+            <span class="lio-addon-name">{{ 'lander.config.addon_pouch' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
             <span class="lio-addon-price">€{{ section.settings.addon_travel_pouch_price | default: '9.95' }}</span>
             <span class="lio-addon-check" aria-hidden="true"></span>
           </button>
           <button type="button" class="lio-addon" data-addon="cleaning-kit" data-price="{{ section.settings.addon_cleaning_kit_price | default: 6.95 }}" aria-pressed="false">
             <span class="lio-addon-img"><span class="lio-addon-img-emoji" aria-hidden="true">{{ section.settings.addon_cleaning_kit_emoji | default: '🧽' }}</span></span>
-            <span class="lio-addon-name">{{ section.settings.addon_cleaning_kit_name | default: 'Cleaning Kit' }}</span>
+            <span class="lio-addon-name">{{ 'lander.config.addon_clean' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
             <span class="lio-addon-price">€{{ section.settings.addon_cleaning_kit_price | default: '6.95' }}</span>
             <span class="lio-addon-check" aria-hidden="true"></span>
           </button>
@@ -582,11 +582,11 @@
 
         <div class="lio-rhythm-toggle" role="radiogroup" aria-label="Delivery rhythm">
           <button type="button" class="lio-rhythm-opt is-selected" data-mode="sub" role="radio" aria-checked="true">
-            {{ section.settings.rhythm_sub_label | default: 'Auto-refill · save 30%' }}
+            {{ 'lander.config.rhythm_sub' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
             <span class="lio-rhythm-opt-savings">{{ section.settings.rhythm_sub_sub | default: 'New cores ship every 30 days. One click to pause or cancel.' }}</span>
           </button>
           <button type="button" class="lio-rhythm-opt" data-mode="otp" role="radio" aria-checked="false">
-            {{ section.settings.rhythm_otp_label | default: 'One-time' }}
+            {{ 'lander.config.rhythm_otp' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
             <span class="lio-rhythm-opt-savings">{{ section.settings.rhythm_otp_sub | default: 'No refills · pay full price' }}</span>
           </button>
         </div>
