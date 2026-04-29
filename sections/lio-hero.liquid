@@ -50,7 +50,7 @@
       </figure>
 
       <div class="lhx-copy">
-        <span class="lhx-eyebrow">{{ 'lander.hero.eyebrow' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+        <span class="lhx-eyebrow">{{ 'lander.hero.patent_eyebrow' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
 
         <h1 class="lhx-title">
           {{ 'lander.hero.title_pre' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
@@ -65,6 +65,14 @@
           <a href="{{ section.settings.cta_link | default: '#offer' }}" class="lhx-btn lhx-btn-primary">
             <span>{{ 'lander.cta.build_kit' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
             <span class="lhx-btn-arrow" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+          <a href="#shopify-section-how" class="lhx-btn lhx-btn-ghost">
+            <span>{{ 'lander.hero.how_label' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+            <span class="lhx-btn-arrow lhx-btn-arrow-ghost" aria-hidden="true">
               <svg viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -253,7 +261,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--lhx-s-3);
+    gap: var(--lhx-s-5);
     animation: lhx-rise 0.8s var(--lhx-ease-out-strong) 0.2s both;
   }
   .lio-hero-2026 .lhx-eyebrow {
@@ -323,9 +331,29 @@
   .lio-hero-2026 .lhx-cta {
     display: flex;
     flex-direction: column;
-    gap: var(--lhx-s-3);
+    gap: 14px;
     width: 100%;
-    margin-top: var(--lhx-s-2);
+    margin-top: var(--lhx-s-3);
+  }
+  .lio-hero-2026 .lhx-btn-ghost {
+    background: transparent;
+    color: var(--forest);
+    border: 1.5px solid rgba(11, 36, 16, 0.18);
+    box-shadow: none;
+  }
+  .lio-hero-2026 .lhx-btn-ghost .lhx-btn-arrow-ghost {
+    background: rgba(11, 36, 16, 0.08);
+    color: var(--forest);
+  }
+  @media (hover: hover) {
+    .lio-hero-2026 .lhx-btn-ghost:hover {
+      border-color: var(--forest);
+      background: rgba(11, 36, 16, 0.04);
+    }
+    .lio-hero-2026 .lhx-btn-ghost:hover .lhx-btn-arrow-ghost {
+      background: var(--forest);
+      color: var(--mint);
+    }
   }
   .lio-hero-2026 .lhx-btn {
     display: inline-flex;
@@ -451,7 +479,7 @@
       gap: var(--lhx-s-16);
       align-items: center;
     }
-    .lio-hero-2026 .lhx-copy { order: 1; gap: var(--lhx-s-5); }
+    .lio-hero-2026 .lhx-copy { order: 1; gap: var(--lhx-s-6); }
     .lio-hero-2026 .lhx-visual { order: 2; aspect-ratio: 4 / 5; }
     .lio-hero-2026 .lhx-visual-proof { display: none; }
     .lio-hero-2026 .lhx-title {
@@ -501,7 +529,7 @@
     { "type": "text", "id": "visual_pill", "label": "Corner pill (e.g. 'Patented design')", "default": "Patented design" },
 
     { "type": "header", "content": "Copy" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "First in Europe · Since 2018" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Patented · Since 2018" },
     { "type": "text", "id": "title_pre", "label": "Title — start", "default": "Keep the " },
     { "type": "text", "id": "title_em", "label": "Title — italic word", "default": "ritual" },
     { "type": "text", "id": "title_punct", "label": "Title — punctuation after italic", "default": "." },
