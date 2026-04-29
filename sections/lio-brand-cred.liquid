@@ -54,11 +54,13 @@
     border-radius: 999px;
     padding: 8px 16px 8px 12px;
     width: fit-content;
+    max-width: 100%;
     margin: 0 auto 18px;
     font-size: 13px;
     line-height: 1.4;
     color: var(--lbc-forest);
   }
+  .lbc-geo-row { display: inline-flex; align-items: center; gap: 8px; }
   .lbc-geo-icon {
     width: 22px; height: 22px;
     border-radius: 50%;
@@ -134,7 +136,15 @@
     .lbc-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
     .lbc-btn { padding: 12px 14px; }
     .lbc-btn-text { font-size: 12px; }
-    .lbc-geo { font-size: 12px; padding: 7px 14px 7px 10px; flex-wrap: wrap; justify-content: center; text-align: center; }
+    .lbc-geo {
+      font-size: 12px;
+      padding: 10px 14px;
+      flex-direction: column;
+      gap: 6px;
+      border-radius: 18px;
+      text-align: center;
+    }
+    .lbc-geo-row { flex-wrap: wrap; justify-content: center; }
   }
 
   /* === MODAL === */
@@ -282,12 +292,16 @@
 
   <!-- Geo shipping pill -->
   <div class="lbc-geo" role="status" aria-live="polite">
-    <span class="lbc-geo-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>
+    <span class="lbc-geo-row lbc-geo-row-1">
+      <span class="lbc-geo-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>
+      </span>
+      <span>{{ 'lander.geo.from' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }} <strong>Amsterdam</strong> → <strong>{{ ship_country }}</strong></span>
     </span>
-    <span>{{ 'lander.geo.from' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }} <strong>Amsterdam</strong> → <strong>{{ ship_country }}</strong></span>
-    <span class="lbc-free">{{ 'lander.geo.free' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
-    <span>· {{ ship_days }} {{ 'lander.geo.working_days' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+    <span class="lbc-geo-row lbc-geo-row-2">
+      <span class="lbc-free">{{ 'lander.geo.free' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+      <span>· {{ ship_days }} {{ 'lander.geo.working_days' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+    </span>
   </div>
 
   <!-- 4 credential buttons -->
