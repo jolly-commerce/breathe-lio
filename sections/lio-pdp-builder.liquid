@@ -25,9 +25,29 @@
   .lio-lander-page .lio-announcement,
   .lio-lander-page .lio-breadcrumbs { display: none !important; }
 
-  /* Gallery: hide the evidence overlay (handled by the dedicated evidence section) */
+  /* Gallery: keep only the clean hero image.
+     – Drop the evidence overlay (own section now)
+     – Drop the gallery pin (decorative, breaks rhythm)
+     – Drop the peek-slideshow + its controls (placeholders look unfinished
+       when fewer than 8 gallery images are set, which is the case here) */
   .lio-lander-page .lio-evidence,
-  .lio-lander-page .lio-gallery-pin { display: none !important; }
+  .lio-lander-page .lio-gallery-pin,
+  .lio-lander-page .lio-gal-slides,
+  .lio-lander-page .lio-gal-controls { display: none !important; }
+
+  /* Tighten the hero image frame now that nothing sits on top */
+  .lio-lander-page .lio-gallery-main {
+    border-radius: 18px;
+    overflow: hidden;
+    background: rgba(11,36,16,0.04);
+  }
+  .lio-lander-page .lio-gallery-main .hero {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
 
   /* Config column: hide trust pill (rating) + bullet row under description.
      The offer above + brand-strip already carry these. */
