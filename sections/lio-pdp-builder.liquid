@@ -25,60 +25,92 @@
   .lio-lander-page .lio-announcement,
   .lio-lander-page .lio-breadcrumbs { display: none !important; }
 
-  /* Gallery — clean hero image + thumbnail strip below.
-     – Hide evidence overlay (own section now)
-     – Hide gallery pin (decorative, breaks rhythm)
+  /* Gallery — square hero (1:1) + horizontal slider of square (1:1) thumbnails.
+     Number of thumbs is whatever the admin sets in section settings
+     (gallery_image_1 .. _8). When they set 0, we fall back to 4 brand defaults.
+     – Hide evidence overlay (own section)
+     – Hide gallery pin (decorative)
      – Hide placeholder slides (unfinished look)
-     – Hide arrow/dot controls (thumbnails are self-explanatory)
-     – Restyle slideshow into a 4-up thumbnail row that swaps the hero on click */
+     – Hide arrow/dot controls (slider is swipe-driven; click to swap hero) */
   .lio-lander-page .lio-evidence,
   .lio-lander-page .lio-gallery-pin,
   .lio-lander-page .lio-gal-slide.is-placeholder,
   .lio-lander-page .lio-gal-controls { display: none !important; }
 
-  /* Hero image frame */
+  /* Hero image — strict 1:1 square */
   .lio-lander-page .lio-gallery-main {
     border-radius: 18px;
     overflow: hidden;
     background: rgba(11,36,16,0.04);
+    aspect-ratio: 1 / 1;
+    width: 100%;
   }
   .lio-lander-page .lio-gallery-main .hero {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: 100% !important;
     display: block;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+    object-fit: cover !important;
+    object-position: center !important;
     transition: opacity 0.18s ease;
   }
   .lio-lander-page .lio-gallery-main .hero.is-swapping { opacity: 0.55; }
 
-  /* Thumbnail row */
+  /* Thumbnail SLIDER — horizontal scroll, snap-aligned, no scrollbar.
+     Each thumb is 1:1 square. Slider shows ~4 at once on desktop,
+     ~3.5 on mobile so the user knows there's more to swipe to. */
   .lio-lander-page .lio-gal-slides {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 8px !important;
-    padding: 12px 0 0 !important;
-    margin: 0 !important;
-    overflow: visible !important;
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
     scroll-padding-inline: 0 !important;
+    gap: 8px !important;
+    padding: 12px 0 4px !important;
+    margin: 0 !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    overscroll-behavior-x: contain !important;
   }
-  @media (max-width: 480px) {
-    .lio-lander-page .lio-gal-slides { grid-template-columns: repeat(4, 1fr) !important; gap: 6px !important; }
-  }
+  .lio-lander-page .lio-gal-slides::-webkit-scrollbar { display: none !important; }
   .lio-lander-page .lio-gal-slide {
-    flex: 0 0 auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    flex: 0 0 calc((100% - 24px) / 4) !important;  /* 4 visible: (100% − 3 × 8px gap) / 4 */
+    width: calc((100% - 24px) / 4) !important;
+    max-width: none !important;
     aspect-ratio: 1 / 1 !important;
     border-radius: 10px !important;
+    overflow: hidden;
     cursor: pointer;
     border: 1.5px solid transparent !important;
+    background: rgba(11,36,16,0.04);
     transition: border-color 0.15s ease, transform 0.12s ease !important;
-    scroll-snap-align: none !important;
+    scroll-snap-align: start !important;
   }
   .lio-lander-page .lio-gal-slide:hover { transform: translateY(-1px); border-color: rgba(11,36,16,0.18) !important; }
   .lio-lander-page .lio-gal-slide.is-active { border-color: #0b2410 !important; }
-  .lio-lander-page .lio-gal-slide img { border-radius: 8px; }
+  .lio-lander-page .lio-gal-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block;
+    border-radius: 8px;
+  }
+  /* On mobile, show ~3.5 thumbs so the next one peeks (signals scroll) */
+  @media (max-width: 768px) {
+    .lio-lander-page .lio-gal-slide {
+      flex-basis: 28% !important;
+      width: 28% !important;
+    }
+  }
+  @media (max-width: 480px) {
+    .lio-lander-page .lio-gal-slides { gap: 6px !important; }
+    .lio-lander-page .lio-gal-slide {
+      flex-basis: 30% !important;
+      width: 30% !important;
+      border-radius: 8px !important;
+    }
+  }
 
   /* Config column: hide trust pill (rating) + bullet row under description.
      The offer above + brand-strip already carry these. */
@@ -124,6 +156,78 @@
     padding-top: 24px;
     padding-bottom: 32px;
   }
+
+  /* Step heads — clearer hierarchy: bigger title, subdued meta */
+  .lio-lander-page .lio-pdp-step-head {
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(11,36,16,0.06);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .lio-lander-page .lio-pdp-step-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0b2410;
+    flex: 1;
+  }
+  .lio-lander-page .lio-pdp-step-meta {
+    font-size: 12px;
+    color: rgba(11,36,16,0.55);
+    font-weight: 500;
+  }
+  .lio-lander-page .lio-pdp-step-meta strong { color: #0b2410; }
+
+  /* Totals — cleaner, lines + emphasised total row */
+  .lio-lander-page .lio-totals {
+    margin-top: 18px;
+    padding: 16px 14px 12px;
+    background: rgba(11,36,16,0.03);
+    border-radius: 12px;
+  }
+  .lio-lander-page .lio-totals-row {
+    display: flex; justify-content: space-between;
+    padding: 7px 0;
+    font-size: 13.5px;
+    color: rgba(11,36,16,0.72);
+  }
+  .lio-lander-page .lio-totals-row strong { color: #0b2410; font-weight: 600; }
+  .lio-lander-page .lio-totals-row--soft { color: rgba(11,36,16,0.55); font-size: 12.5px; }
+  .lio-lander-page .lio-totals-total {
+    border-top: 1px solid rgba(11,36,16,0.10);
+    margin-top: 6px;
+    padding-top: 12px;
+    font-size: 16px;
+  }
+  .lio-lander-page .lio-totals-total .lio-total-value {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0b2410;
+    letter-spacing: -0.02em;
+  }
+
+  /* Primary CTA inside the configurator — more visual weight */
+  .lio-lander-page .lio-purchase-cta {
+    margin-top: 16px !important;
+    padding: 16px 22px !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    background: #0b2410 !important;
+    color: #fcfefb !important;
+    border-radius: 999px !important;
+    box-shadow: 0 12px 28px rgba(11,36,16,0.18) !important;
+    letter-spacing: -0.005em !important;
+    width: 100%;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    transition: transform 0.15s ease, box-shadow 0.2s ease !important;
+  }
+  .lio-lander-page .lio-purchase-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 32px rgba(11,36,16,0.22) !important;
+  }
+  .lio-lander-page .lio-purchase-cta:active { transform: scale(0.98); }
 </style>
 <script>
   /* theliokit gallery: click a thumbnail → swap the hero image. */
