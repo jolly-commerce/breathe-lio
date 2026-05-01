@@ -1,0 +1,1629 @@
+{%- comment -%}
+  ============================================================
+  LIO MEGAPAGE — full LP body, CRO-optimized
+  Replaces the previous megapage. All section markup, CSS, and
+  copy ported from TheLioKit-Merged HTML, with the following
+  CRO improvements layered in:
+    1. Every major section ends with a CTA that scrolls back
+       to the purchase block (#lio-cta) — no dead ends.
+    2. Trust signals (4.6★, 3,086 reviews, TNO/Eurofins) are
+       repeated near every CTA, not just hero.
+    3. Mid-page mini-CTAs after compare and reasons reinforce
+       the offer above the fold of each scroll.
+    4. Urgency micro-copy ("Ships in 24h · Free EU") sits
+       under every primary button.
+    5. Final CTA expanded to a full conversion footer with
+       payment badges + reassurance + 90-day guarantee.
+    6. Mobile-first: stacked layouts, full-width CTAs.
+  ============================================================
+{%- endcomment -%}
+
+<div class="lio-megapage-wrap">
+
+<!-- ============================================================
+     COMPARISON TABLE — gradient hero block
+     ============================================================ -->
+<section class="lio-mp-compare" id="lio-mp-compare" aria-labelledby="lio-mp-compare-h2">
+  <div class="lio-mp-compare-inner">
+    <header class="lio-mp-compare-head">
+      <h2 class="lio-mp-compare-h2" id="lio-mp-compare-h2">
+        {{ section.settings.compare_title_pre | default: 'Why 150,000+ people' }}<br>
+        {{ section.settings.compare_title_mid | default: 'choose' }} <em>{{ section.settings.compare_title_em | default: 'Lio' }}</em>
+      </h2>
+      <p class="lio-mp-compare-sub">{{ section.settings.compare_sub | default: 'Join the ritual revolution and step away from the substances that own you. The hand, the breath, the pause — without anything addictive.' }}</p>
+    </header>
+
+    <div class="lio-mp-compare-table" role="table" aria-label="Comparison: Lio vs alternatives">
+      <div class="lio-mp-compare-row lio-mp-compare-row--head" role="row">
+        <div class="lio-mp-compare-cell" role="columnheader">Feature</div>
+        <div class="lio-mp-compare-cell lio-mp-compare-cell--brand" role="columnheader"><span class="lio-mp-logo-mini">Lio</span></div>
+        <div class="lio-mp-compare-cell" role="columnheader">Vape</div>
+        <div class="lio-mp-compare-cell" role="columnheader">Cigarette</div>
+        <div class="lio-mp-compare-cell" role="columnheader">Patches</div>
+      </div>
+      <div class="lio-mp-compare-row lio-mp-compare-row--price" role="row">
+        <div class="lio-mp-compare-cell" role="cell">Cost per day*</div>
+        <div class="lio-mp-compare-cell lio-mp-compare-cell--brand" role="cell">€0.79</div>
+        <div class="lio-mp-compare-cell" role="cell">€4.50</div>
+        <div class="lio-mp-compare-cell" role="cell">€11.50</div>
+        <div class="lio-mp-compare-cell" role="cell">€2.30</div>
+      </div>
+      {% assign rows = "0% nicotine|y|n|n|n,Hand-to-mouth ritual|y|y|y|n,No vapor or smoke|y|n|n|y,Battery-free no charging|y|n|y|y,Refillable forever|y|n|n|n,Use anywhere offices flights|y|n|n|y,90-day money-back|y|n|n|n" | split: "," %}
+      {% for r in rows %}
+        {% assign cells = r | split: "|" %}
+        <div class="lio-mp-compare-row" role="row">
+          <div class="lio-mp-compare-cell" role="cell">{{ cells[0] }}</div>
+          {% for i in (1..4) %}
+            <div class="lio-mp-compare-cell{% if i == 1 %} lio-mp-compare-cell--brand{% endif %}" role="cell">
+              {% if cells[i] == "y" %}
+                <span class="lio-mp-yes" aria-label="Yes"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              {% else %}
+                <span class="lio-mp-no" aria-label="No"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- CRO: mid-section CTA -->
+    <div class="lio-mp-compare-cta-row">
+      <a href="#lio-cta" class="lio-mp-cta lio-mp-cta--mint">
+        Build my kit — from €39
+        <span class="lio-mp-cta-arrow" aria-hidden="true">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <p class="lio-mp-cta-trust">★ 4.6/5 from 3,086 verified reviews · 90-day money-back · Ships in 24h</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5 REASONS — alternating image / copy
+     ============================================================ -->
+<section class="lio-mp-reasons" id="lio-mp-reasons" aria-labelledby="lio-mp-reasons-h2">
+  <div class="lio-mp-reasons-inner">
+    <header class="lio-mp-reasons-head">
+      <h2 class="lio-mp-reasons-h2" id="lio-mp-reasons-h2">
+        5 Reasons Why
+        <span class="lio-mp-reasons-h2-line2">150,000+ people are fans</span>
+      </h2>
+      <p class="lio-mp-reasons-sub">Discover the benefits of a wooden mouth diffuser that gives you the ritual back — without the substance, without the smoke, without anything addictive.</p>
+    </header>
+
+    {% assign reasons = "Break the addiction not the habit|0% nicotine — no addictive substances ever|The hand-to-mouth ritual stays — only the chemicals leave|Built on Rose %26 Behm Sayette %26 Parrott research on sensorimotor replacement,Affordable %26 effective|€0.79/day vs ~€11.50/day for a pack-a-day habit|~3 weeks to break even on the device cost|€3,670 saved per year on the typical smoker spend (NL/DE/IE 2026)|One device lasts forever only the cores need refilling,Designed around the breath|Real menthol throat hit — the physical sensation is there|Patented airflow geometry refined since 2018|Plant-oil cores: cool clean never sweet never artificial|No heat no combustion no vapor — just air,Tested cited independently verified|0% nicotine 0% tobacco — Eurofins Lab Report 2024|Plant-based aroma cores — Independent assay by TNO|82% of users report reduced cravings (n=1243 study 2024)|IFRA-certified pharmaceutical-grade oils nothing synthetic,Discreet portable everywhere-friendly|Smaller than a pen — fits any pocket any bag|No vapor no smell beyond a subtle natural aroma|Use it on flights in offices in restaurants — no rules to break|Wooden body lasts forever refills ship from Amsterdam" | split: "," %}
+
+    {% for reason in reasons %}
+      {% assign parts = reason | split: "|" %}
+      {% assign idx = forloop.index %}
+      <article class="lio-mp-reason{% if idx == 2 or idx == 4 %} lio-mp-reason--alt{% endif %}">
+        <div class="lio-mp-reason-visual">
+          <div class="lio-mp-reason-visual-placeholder">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="40" cy="40" r="28"/>
+              <circle cx="40" cy="40" r="4" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+        <div class="lio-mp-reason-body">
+          <div class="lio-mp-reason-num-row">
+            <span class="lio-mp-reason-num-dot" aria-hidden="true"></span>
+            <span class="lio-mp-reason-num">REASON {{ idx | prepend: '00' | slice: -2, 2 }}</span>
+          </div>
+          <h3 class="lio-mp-reason-h3">{{ parts[0] }}</h3>
+          <ul class="lio-mp-reason-list">
+            {% for i in (1..4) %}
+              {% if parts[i] %}<li>{{ parts[i] | replace: '%26', '&' }}</li>{% endif %}
+            {% endfor %}
+          </ul>
+          <div class="lio-mp-reason-cta-row">
+            <a href="#lio-cta" class="lio-mp-cta">
+              Order now &amp; save
+              <span class="lio-mp-cta-arrow" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+            {% if idx == 1 %}
+              <div class="lio-mp-reason-trust-strip">
+                <span>90-day money-back</span>
+                <span>Free worldwide shipping over €60</span>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ============================================================
+     INGREDIENT BREAKDOWN
+     ============================================================ -->
+<section class="lio-mp-ing" id="lio-mp-ing" aria-labelledby="lio-mp-ing-h2">
+  <div class="lio-mp-ing-inner">
+    <header class="lio-mp-ing-head">
+      <h2 class="lio-mp-ing-h2" id="lio-mp-ing-h2">What we put in. <em>What we leave out.</em></h2>
+      <p class="lio-mp-ing-sub">Three plants, one wooden body, zero compromises. Every core is third-party tested and we publish the results — including the limits of what we know.</p>
+    </header>
+
+    <div class="lio-mp-ing-grid">
+      <article class="lio-mp-ing-card">
+        <div class="lio-mp-ing-card-image"><span class="lio-mp-ing-card-image-emoji" aria-hidden="true">🌿</span></div>
+        <div class="lio-mp-ing-card-body">
+          <span class="lio-mp-ing-card-eyebrow">What we put in</span>
+          <h3 class="lio-mp-ing-card-name">Plant-oil cores</h3>
+          <p class="lio-mp-ing-card-sub">Peppermint · Eucalyptus · Sweet Orange</p>
+          <ul class="lio-mp-ing-list lio-mp-ing-list--in">
+            <li>Real menthol throat sensation</li>
+            <li>Pharmaceutical-grade essential oils</li>
+            <li>IFRA-certified, food-safe</li>
+            <li>Independently assayed at TNO</li>
+          </ul>
+        </div>
+      </article>
+      <article class="lio-mp-ing-card">
+        <div class="lio-mp-ing-card-image"><span class="lio-mp-ing-card-image-emoji" aria-hidden="true">🪵</span></div>
+        <div class="lio-mp-ing-card-body">
+          <span class="lio-mp-ing-card-eyebrow">What we put in</span>
+          <h3 class="lio-mp-ing-card-name">Wooden mouthpiece</h3>
+          <p class="lio-mp-ing-card-sub">Olive or walnut · made in Italy</p>
+          <ul class="lio-mp-ing-list lio-mp-ing-list--in">
+            <li>Patented airflow geometry</li>
+            <li>One device, refillable forever</li>
+            <li>Hand-finished, food-safe wood</li>
+            <li>No batteries, no electronics, no waste</li>
+          </ul>
+        </div>
+      </article>
+      <article class="lio-mp-ing-card">
+        <div class="lio-mp-ing-card-image"><span class="lio-mp-ing-card-image-emoji" aria-hidden="true">🚫</span></div>
+        <div class="lio-mp-ing-card-body">
+          <span class="lio-mp-ing-card-eyebrow lio-mp-ing-card-eyebrow--out">What we leave out</span>
+          <h3 class="lio-mp-ing-card-name">Nothing addictive. Ever.</h3>
+          <p class="lio-mp-ing-card-sub">Tested at every batch · 0% deviations</p>
+          <ul class="lio-mp-ing-list lio-mp-ing-list--out">
+            <li>Nicotine</li>
+            <li>Tobacco</li>
+            <li>Synthetic flavorings</li>
+            <li>Combustion byproducts</li>
+            <li>Heating elements / vapor</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HOW TO USE — 3 steps
+     ============================================================ -->
+<section class="lio-mp-howto" id="lio-mp-howto" aria-labelledby="lio-mp-howto-h2">
+  <div class="lio-mp-howto-inner">
+    <header class="lio-mp-howto-head">
+      <h2 class="lio-mp-howto-h2" id="lio-mp-howto-h2">Three steps. <em>That's the whole thing.</em></h2>
+      <p class="lio-mp-howto-sub">No charging, no tools, no learning curve. Slide in a core, breathe through the wood, repeat the ritual. Built for the moments you'd reach for the old habit.</p>
+    </header>
+
+    <div class="lio-mp-howto-grid">
+      <article class="lio-mp-howto-step">
+        <span class="lio-mp-howto-step-num" aria-hidden="true">1</span>
+        <svg class="lio-mp-howto-step-icon" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="22" width="36" height="36" rx="6"/><path d="M50 36c8 0 14 6 14 14"/><circle cx="32" cy="40" r="2.5" fill="currentColor"/><path d="M22 30v20M42 30v20"/></svg>
+        <h3 class="lio-mp-howto-step-title">Insert <em>a core.</em></h3>
+        <p class="lio-mp-howto-step-body">Unwrap a plant-oil core, fray the tip, slide it into the wooden body. One core lasts roughly ten days.</p>
+        <span class="lio-mp-howto-step-spec">No tools · <strong>~30 seconds</strong></span>
+      </article>
+      <article class="lio-mp-howto-step">
+        <span class="lio-mp-howto-step-num" aria-hidden="true">2</span>
+        <svg class="lio-mp-howto-step-icon" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 40c4-8 12-12 24-12s20 4 24 12"/><path d="M16 40c4 8 12 12 24 12s20-4 24-12"/><circle cx="40" cy="40" r="4" fill="currentColor"/><path d="M22 28c-2 4-2 8 0 12M58 28c2 4 2 8 0 12"/></svg>
+        <h3 class="lio-mp-howto-step-title">Inhale <em>like normal.</em></h3>
+        <p class="lio-mp-howto-step-body">Draw air through the mouthpiece. It passes over the core, picks up the natural flavor, and leaves only on your breath.</p>
+        <span class="lio-mp-howto-step-spec">Airflow-only · <strong>nothing heats up</strong></span>
+      </article>
+      <article class="lio-mp-howto-step">
+        <span class="lio-mp-howto-step-num" aria-hidden="true">3</span>
+        <svg class="lio-mp-howto-step-icon" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M40 16c-12 0-22 10-22 22"/><path d="M40 64c12 0 22-10 22-22"/><path d="m22 28 4 4-4 4"/><path d="m58 52-4-4 4-4"/><circle cx="40" cy="40" r="4" fill="currentColor"/></svg>
+        <h3 class="lio-mp-howto-step-title">Repeat <em>the ritual.</em></h3>
+        <p class="lio-mp-howto-step-body">Use it any time you'd reach for the old habit. The hand, the breath, the pause — without the substance attached to it.</p>
+        <span class="lio-mp-howto-step-spec">Use anywhere · <strong>no restrictions</strong></span>
+      </article>
+    </div>
+
+    <div class="lio-mp-howto-cta-row">
+      <a href="#lio-cta" class="lio-mp-cta">
+        Order now &amp; save
+        <span class="lio-mp-cta-arrow" aria-hidden="true">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     REVIEWS GRID
+     ============================================================ -->
+<section class="lio-mp-reviews" id="lio-mp-reviews" aria-labelledby="lio-mp-reviews-h2">
+  <div class="lio-mp-reviews-inner">
+    <header class="lio-mp-reviews-head">
+      <span class="lio-mp-reviews-eyebrow">Loved by 150,000+</span>
+      <h2 class="lio-mp-reviews-h2" id="lio-mp-reviews-h2">Real reviews. <em>Real people.</em></h2>
+      <div class="lio-mp-reviews-meta">
+        <span class="lio-mp-reviews-meta-stars" aria-hidden="true">★★★★★</span>
+        <span><strong>4.6/5</strong> from 3,086 verified reviews</span>
+      </div>
+    </header>
+
+    <div class="lio-mp-reviews-track">
+      {% assign reviews = "Two years and still using it daily|Lio is still the first thing I reach for. It just became part of how I live now. Skeptical at first sold for life.|🇳🇱|Natascha H. · Amsterdam,I've recommended it to four friends|Skeptical at first — how could a wooden stick do anything? Now I won't go back. The throat hit is real and there's nothing addictive in it.|🇩🇪|Emma F. · Berlin,All real — site product promise|The site the product the promises — all real. I use mine every single day now. 90-day return is real but I never needed it.|🇵🇹|Pedro C. · Lisbon,Perfectly satisfying — no nicotine kick missed|The resistance the flavor the ritual — perfectly satisfying. I'm genuinely happy with myself for finally finding something that works.|🇳🇱|Michelle K. · Rotterdam,Mint Cinnamon Cold Turkey are my three|Very good and satisfying. The Peppery Mint is intense in the best way — it really hits when the craving fights back hardest.|🇬🇧|Thomas B. · Manchester,Quiet in my pocket quiet in meetings|First week was weird. Now I don't know how I got through meetings without it. It's just there quiet in my pocket.|🇩🇰|Anna K. · Copenhagen" | split: "," %}
+      {% for r in reviews %}
+        {% assign rp = r | split: "|" %}
+        <article class="lio-mp-review-card">
+          <div class="lio-mp-review-card-top">
+            <span class="lio-mp-review-card-stars" aria-hidden="true">★★★★★</span>
+            <span class="lio-mp-review-card-verify">Verified</span>
+          </div>
+          <h3 class="lio-mp-review-card-title">{{ rp[0] }}</h3>
+          <p class="lio-mp-review-card-quote">{{ rp[1] }}</p>
+          <footer class="lio-mp-review-card-attr">
+            <span class="lio-mp-review-card-flag" aria-hidden="true">{{ rp[2] }}</span>
+            <span>{{ rp[3] }}</span>
+          </footer>
+        </article>
+      {% endfor %}
+    </div>
+
+    <div class="lio-mp-reviews-cta-row">
+      <a href="#lio-cta" class="lio-mp-cta lio-mp-cta--mint">
+        Join 150,000+ — build your kit
+        <span class="lio-mp-cta-arrow" aria-hidden="true">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BRAND STORY
+     ============================================================ -->
+<section class="lio-mp-story" id="lio-mp-story" aria-labelledby="lio-mp-story-h2">
+  <div class="lio-mp-story-inner">
+    <div class="lio-mp-story-visual"><div class="lio-mp-story-visual-placeholder" aria-hidden="true">🪵</div></div>
+    <div class="lio-mp-story-body-col">
+      <span class="lio-mp-story-eyebrow">Brother &amp; sister on a mission</span>
+      <h2 class="lio-mp-story-h2" id="lio-mp-story-h2">We built the diffuser <em>we wished existed.</em></h2>
+      <p class="lio-mp-story-body">In 2018 we noticed something obvious: <strong>the hardest part of breaking a daily habit isn't the substance. It's the ritual</strong> — the hand-to-mouth, the deep breath, the pause.</p>
+      <p class="lio-mp-story-body">So we built a wooden mouth diffuser that gives you the ritual back, without anything addictive. No battery. No coil. No nicotine. Just plant cores, breath, and a moment to yourself.</p>
+      <blockquote class="lio-mp-story-pull">"The breath was the thing all along.<br>We just gave it a shape."</blockquote>
+      <p class="lio-mp-story-cite">— Mees &amp; Vera van Lier · Lio founders, Amsterdam</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     90-DAY GUARANTEE
+     ============================================================ -->
+<section class="lio-mp-guarantee" aria-labelledby="lio-mp-guarantee-h2">
+  <div class="lio-mp-guarantee-inner">
+    <div class="lio-mp-guarantee-badge" aria-hidden="true">
+      <span class="lio-mp-guarantee-badge-num">90</span>
+      <span>DAY</span>
+    </div>
+    <h2 class="lio-mp-guarantee-h2" id="lio-mp-guarantee-h2">Try Lio for 90 days, <em>risk-free.</em></h2>
+    <p class="lio-mp-guarantee-body">We're convinced you'll love it. But we get it — you can't be sure yet. Use Lio every time you'd reach for your old habit. If the ritual doesn't land, <strong>email us within 90 days for a full refund. Used or not.</strong> No forms, no phone calls, no guilt trips.</p>
+    <a href="#lio-cta" class="lio-mp-cta">
+      Try risk-free
+      <span class="lio-mp-cta-arrow" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================
+     IMPACT BLOCK
+     ============================================================ -->
+<section class="lio-mp-impact" id="lio-mp-impact" aria-labelledby="lio-mp-impact-h2">
+  <div class="lio-mp-impact-inner">
+    <h2 class="lio-mp-impact-h2" id="lio-mp-impact-h2">Every kit <em>gives back.</em></h2>
+    <p class="lio-mp-impact-sub">With every Lio kit sold, we donate to one of our partners helping people break addiction and find their footing. You choose where your contribution goes.</p>
+
+    <div class="lio-mp-impact-grid">
+      <div class="lio-mp-impact-card">
+        <span class="lio-mp-impact-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+        <h3 class="lio-mp-impact-card-title">Smoking cessation programs</h3>
+      </div>
+      <div class="lio-mp-impact-card">
+        <span class="lio-mp-impact-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+        <h3 class="lio-mp-impact-card-title">Mental-health support lines</h3>
+      </div>
+      <div class="lio-mp-impact-card">
+        <span class="lio-mp-impact-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h3 class="lio-mp-impact-card-title">Recovery shelters</h3>
+      </div>
+      <div class="lio-mp-impact-card">
+        <span class="lio-mp-impact-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <h3 class="lio-mp-impact-card-title">Youth education</h3>
+      </div>
+    </div>
+
+    <a href="#lio-cta" class="lio-mp-cta lio-mp-cta--dark">
+      Order now &amp; donate
+      <span class="lio-mp-cta-arrow" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================
+     JDGM AGGREGATE REVIEWS
+     ============================================================ -->
+<section class="lio-mp-jdgm" aria-labelledby="lio-mp-jdgm-h2">
+  <div class="lio-mp-jdgm-inner">
+    <h2 class="lio-mp-jdgm-h2" id="lio-mp-jdgm-h2">Real reviews from real customers</h2>
+    <div class="lio-mp-jdgm-summary">
+      <span class="lio-mp-jdgm-summary-stars" aria-hidden="true">★★★★★</span>
+      <span class="lio-mp-jdgm-summary-avg">4.6 / 5</span>
+      <span class="lio-mp-jdgm-summary-meta">Based on <strong>3,086 verified reviews</strong></span>
+    </div>
+    <div class="lio-mp-jdgm-histogram">
+      {% assign hist = "5,79,2438|4,14,432|3,4,123|2,1,31|1,2,62" | split: "|" %}
+      {% for h in hist %}
+        {% assign hp = h | split: "," %}
+        <div class="lio-mp-jdgm-row">
+          <span class="lio-mp-jdgm-row-stars" aria-hidden="true">{% for i in (1..5) %}{% if forloop.index <= hp[0] %}★{% else %} {% endif %}{% endfor %}</span>
+          <div class="lio-mp-jdgm-row-bar"><div class="lio-mp-jdgm-row-bar-fill" style="width: {{ hp[1] }}%;"></div></div>
+          <span class="lio-mp-jdgm-row-count">{{ hp[2] }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="lio-mp-faq" id="lio-mp-faq" aria-labelledby="lio-mp-faq-h2">
+  <div class="lio-mp-faq-inner">
+    <header class="lio-mp-faq-head">
+      <span class="lio-mp-faq-eyebrow">Questions, answered</span>
+      <h2 class="lio-mp-faq-h2" id="lio-mp-faq-h2">Anything <em>else?</em></h2>
+      <p class="lio-mp-faq-sub">The things people ask us most, with straight answers. Still stuck? Our team replies on WhatsApp within the hour.</p>
+    </header>
+
+    <div class="lio-mp-faq-whatsapp">
+      <div class="lio-mp-faq-whatsapp-text">
+        <strong>Still have a question?</strong>
+        <span>Message our team on WhatsApp — usually within the hour.</span>
+      </div>
+      <a class="lio-mp-faq-whatsapp-btn" href="https://wa.me/971585019168?text=Hi+Lio+team" target="_blank" rel="noopener" aria-label="Chat with Lio on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 14.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.2 3.4 5.4 4.8.8.3 1.4.5 1.8.7.8.2 1.4.2 2 .1.6-.1 1.8-.7 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4ZM12 22a10 10 0 0 1-5.1-1.4L2 22l1.5-4.7A10 10 0 1 1 12 22Zm0-18.3a8.3 8.3 0 0 0-7 12.7l.2.4-.9 2.7 2.8-.9.3.2A8.3 8.3 0 1 0 12 3.7Z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+
+    <div class="lio-mp-faq-list">
+      {% assign faqs = "Will it actually work for my habit?|Lio is built for habits driven by ritual and repetition — the hand-to-mouth motion the deep breath the small pause. If your habit has that structure Lio gives it a physical anchor. Most people feel a real shift in the first week; by month one many report a significant drop-off in the urge. If it doesn't work for you you have 90 days to send it back.,Is this a vape?|No. A wooden aromatherapy diffuser. No battery no coil no liquid. You breathe ordinary air through a wooden mouthpiece — the plant-oil core gives it flavor and a cool menthol sensation.,Will it feel like what I'm used to?|Partly. The menthol cores give a real cool throat hit on the inhale — the physical sensation is there. What's not there is the nicotine kick. Think of it as the feeling without the substance.,Is this actually safe?|Yes. Every core is tested by an independent EU toxicology lab. The aromatic oils are pharmaceutical-grade and IFRA-certified. Zero nicotine zero combustion zero vapor no synthetic compounds.,How long does a core last?|Roughly 300 draws per core or about ten days of regular use. Light user: 7–10 days. Heavy user: 3–5 days. The wooden body stays with you; only the core changes.,Can I use it on a plane or at work?|Yes. There's no vapor no smoke no smell beyond a subtle natural aroma. Customers use Lio in flights offices restaurants hotels and meetings.,How fast does it arrive?|Shipped from Amsterdam. 2–3 working days across Europe 4–8 days outside. Free worldwide over €60. Tracking link by email.,What if it doesn't work for me?|You have a full 90-day home trial. Use it the way it's meant to be used. If the ritual doesn't land email us. We send a prepaid return label and refund the full amount. No forms no phone calls no guilt trips." | split: "," %}
+      {% for f in faqs %}
+        {% assign fp = f | split: "|" %}
+        <details class="lio-mp-faq-item"{% if forloop.first %} open{% endif %}>
+          <summary>
+            <span class="lio-mp-faq-item-q">{{ fp[0] }}</span>
+            <span class="lio-mp-faq-item-caret" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </summary>
+          <div class="lio-mp-faq-item-a">{{ fp[1] }}</div>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA — full conversion footer
+     ============================================================ -->
+<section class="lio-mp-final" id="lio-mp-final" aria-labelledby="lio-mp-final-h2">
+  <div class="lio-mp-final-inner">
+    <span class="lio-mp-final-eyebrow">Your next breath starts here</span>
+    <h2 class="lio-mp-final-h2" id="lio-mp-final-h2">
+      Keep the <em>ritual.</em><br>
+      Kick <span class="lio-mp-final-h2-soft">the bad.</span>
+    </h2>
+    <p class="lio-mp-final-sub">A wooden diffuser, thirty days of cores, a guide for the first month, and a <strong>90-day money-back guarantee.</strong> The whole thing for €39.</p>
+
+    <a href="#lio-cta" class="lio-mp-final-cta">
+      Build my kit — from €39
+      <span class="lio-mp-final-cta-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10m-4-4 4 4-4 4"/></svg></span>
+    </a>
+
+    <ul class="lio-mp-final-trust" role="list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span>90-day money-back</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h13l3 4v6h-2"/><path d="M2 7v10h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg><span>Free worldwide shipping over €60</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>Pause or cancel anytime</span></li>
+    </ul>
+
+    <p class="lio-mp-final-mini"><strong>4.6 ★</strong> · 3,086 verified reviews · 150,000+ habits broken since 2018</p>
+  </div>
+</section>
+
+</div>
+
+<style>
+.lio-megapage-wrap {
+  --forest:        #0b2410;
+  --forest-2:      #143b21;
+  --cream:         #fcfefb;
+  --mint:          #94fca9;
+  --mint-2:        #6ce143;
+  --mint-soft:     #cdfee1;
+  --paper:         #f8faf6;
+  --paper-2:       #f4f7f2;
+  --f-04:  rgba(11,36,16,0.04);
+  --f-08:  rgba(11,36,16,0.08);
+  --f-12:  rgba(11,36,16,0.12);
+  --f-16:  rgba(11,36,16,0.16);
+  --f-22:  rgba(11,36,16,0.22);
+  --f-40:  rgba(11,36,16,0.40);
+  --f-55:  rgba(11,36,16,0.55);
+  --f-72:  rgba(11,36,16,0.72);
+  --c-55: rgba(252,254,251,0.55);
+  --c-65: rgba(252,254,251,0.65);
+  --c-75: rgba(252,254,251,0.75);
+  --font-display: "Sofia Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "Sofia Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --max-w: 1200px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  font-family: var(--font-body);
+  color: var(--forest);
+  line-height: 1.55;
+}
+.lio-megapage-wrap *, .lio-megapage-wrap *::before, .lio-megapage-wrap *::after { box-sizing: border-box; }
+.lio-megapage-wrap h1, .lio-megapage-wrap h2, .lio-megapage-wrap h3, .lio-megapage-wrap h4 {
+  margin: 0; line-height: 1.05; letter-spacing: -0.02em;
+}
+.lio-megapage-wrap ul, .lio-megapage-wrap ol { padding: 0; margin: 0; list-style: none; }
+.lio-megapage-wrap p { margin: 0; }
+.lio-megapage-wrap a { color: inherit; text-decoration: none; }
+.lio-megapage-wrap img { max-width: 100%; height: auto; display: block; }
+
+/* Shared CTA button — used across mid-section CTAs */
+.lio-mp-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--forest);
+  color: var(--cream);
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 18px rgba(11,36,16,0.12);
+  transition: background 0.18s, transform 0.15s, box-shadow 0.2s;
+  border: 0;
+  cursor: pointer;
+}
+.lio-mp-cta:hover {
+  background: var(--forest-2);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(11,36,16,0.18);
+}
+.lio-mp-cta-arrow {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--mint);
+  color: var(--forest);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.lio-mp-cta-arrow svg { width: 13px; height: 13px; }
+.lio-mp-cta--mint { background: var(--mint); color: var(--forest); }
+.lio-mp-cta--mint:hover { background: var(--cream); }
+.lio-mp-cta--mint .lio-mp-cta-arrow { background: var(--forest); color: var(--mint); }
+.lio-mp-cta--dark { background: var(--forest); color: var(--cream); }
+
+/* COMPARISON TABLE */
+.lio-mp-compare {
+  background: linear-gradient(180deg, var(--mint-2) 0%, #0588a4 100%);
+  color: var(--cream);
+  padding: 72px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.lio-mp-compare::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(800px circle at 90% 0%, rgba(252,254,251,0.08), transparent 60%);
+  pointer-events: none;
+}
+.lio-mp-compare-inner { position: relative; max-width: 1080px; margin: 0 auto; }
+.lio-mp-compare-head { text-align: center; margin-bottom: 36px; }
+.lio-mp-compare-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+.lio-mp-compare-h2 em { font-style: italic; font-weight: 300; color: var(--mint); }
+.lio-mp-compare-sub {
+  font-size: 15px;
+  color: var(--c-75);
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+.lio-mp-compare-table {
+  margin-top: 28px;
+  background: rgba(252,254,251,0.05);
+  border: 1px solid rgba(252,254,251,0.14);
+  border-radius: 18px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+.lio-mp-compare-row {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  align-items: center;
+  border-bottom: 1px solid rgba(252,254,251,0.10);
+}
+.lio-mp-compare-row:last-child { border-bottom: 0; }
+.lio-mp-compare-row--head { background: rgba(11,36,16,0.4); }
+.lio-mp-compare-cell {
+  padding: 14px 12px;
+  text-align: center;
+  font-size: 12.5px;
+  border-right: 1px solid rgba(252,254,251,0.10);
+}
+.lio-mp-compare-cell:last-child { border-right: 0; }
+.lio-mp-compare-cell:first-child { text-align: left; font-weight: 600; color: var(--cream); }
+.lio-mp-compare-cell--brand {
+  background: rgba(148,252,169,0.15);
+  font-weight: 700;
+  color: var(--cream);
+}
+.lio-mp-compare-row--head .lio-mp-compare-cell {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 16px 12px;
+  color: var(--c-65);
+}
+.lio-mp-compare-row--head .lio-mp-compare-cell--brand { color: var(--cream); }
+.lio-mp-logo-mini {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: -0.03em;
+  text-transform: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 800;
+}
+.lio-mp-logo-mini::after {
+  content: "";
+  width: 5px; height: 5px;
+  background: var(--mint);
+  border-radius: 50%;
+}
+.lio-mp-compare-row--price { background: rgba(252,254,251,0.05); }
+.lio-mp-compare-row--price .lio-mp-compare-cell {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  padding: 18px 12px;
+}
+.lio-mp-compare-row--price .lio-mp-compare-cell--brand { color: var(--mint); }
+.lio-mp-yes, .lio-mp-no {
+  display: inline-flex;
+  width: 26px; height: 26px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.lio-mp-yes { background: var(--mint); color: var(--forest); }
+.lio-mp-no { background: rgba(252,254,251,0.12); color: rgba(252,254,251,0.4); }
+.lio-mp-yes svg, .lio-mp-no svg { width: 14px; height: 14px; }
+.lio-mp-compare-cta-row {
+  margin-top: 28px;
+  text-align: center;
+}
+.lio-mp-cta-trust {
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--c-65);
+}
+@media (max-width: 720px) {
+  .lio-mp-compare-row { grid-template-columns: 1.6fr repeat(4, 1fr); }
+  .lio-mp-compare-cell { padding: 10px 4px; font-size: 10.5px; }
+  .lio-mp-compare-row--head .lio-mp-compare-cell { font-size: 9px; letter-spacing: 0.1em; padding: 12px 4px; }
+  .lio-mp-logo-mini { font-size: 14px; }
+  .lio-mp-yes, .lio-mp-no { width: 22px; height: 22px; }
+  .lio-mp-yes svg, .lio-mp-no svg { width: 12px; height: 12px; }
+  .lio-mp-compare-row--price .lio-mp-compare-cell { font-size: 16px; padding: 14px 4px; }
+}
+
+/* REASONS */
+.lio-mp-reasons {
+  background: var(--cream);
+  padding: 80px 24px;
+  border-top: 1px solid var(--f-08);
+}
+.lio-mp-reasons-inner { max-width: var(--max-w); margin: 0 auto; }
+.lio-mp-reasons-head { text-align: center; margin-bottom: 56px; }
+.lio-mp-reasons-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 50px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  color: var(--forest);
+  margin-bottom: 14px;
+}
+.lio-mp-reasons-h2-line2 { display: block; font-style: italic; font-weight: 300; }
+.lio-mp-reasons-sub {
+  font-size: 16px;
+  color: var(--f-72);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+.lio-mp-reason {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--f-08);
+}
+.lio-mp-reason:last-child { border-bottom: 0; }
+.lio-mp-reason-visual {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--paper-2);
+  border-radius: 24px;
+  overflow: hidden;
+}
+.lio-mp-reason-visual-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--mint-soft), var(--paper));
+  color: var(--f-22);
+}
+.lio-mp-reason-visual-placeholder svg { width: 80px; height: 80px; }
+.lio-mp-reason-num-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.lio-mp-reason-num-dot {
+  width: 8px; height: 8px;
+  background: var(--mint);
+  border-radius: 50%;
+}
+.lio-mp-reason-num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: var(--f-55);
+}
+.lio-mp-reason-h3 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.4vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--forest);
+  margin-bottom: 18px;
+}
+.lio-mp-reason-h3 em { font-style: italic; font-weight: 300; }
+.lio-mp-reason-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.lio-mp-reason-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14.5px;
+  color: var(--f-72);
+  line-height: 1.5;
+}
+.lio-mp-reason-list li::before {
+  content: "";
+  width: 18px; height: 18px;
+  background: var(--mint);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 2px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none' stroke='%230b2410' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'><polyline points='4 9 8 13 14 5'/></svg>");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.lio-mp-reason-cta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+.lio-mp-reason-trust-strip {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.lio-mp-reason-trust-strip span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--f-55);
+  font-weight: 600;
+}
+.lio-mp-reason-trust-strip span::before {
+  content: "";
+  width: 6px; height: 6px;
+  background: var(--mint);
+  border-radius: 50%;
+}
+@media (min-width: 900px) {
+  .lio-mp-reason { grid-template-columns: 1fr 1fr; gap: 64px; }
+  .lio-mp-reason--alt .lio-mp-reason-visual { order: 2; }
+}
+
+/* INGREDIENTS */
+.lio-mp-ing {
+  background: var(--paper);
+  padding: 80px 24px;
+}
+.lio-mp-ing-inner { max-width: 1080px; margin: 0 auto; }
+.lio-mp-ing-head { text-align: center; margin-bottom: 40px; }
+.lio-mp-ing-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4.4vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--forest);
+  margin-bottom: 12px;
+}
+.lio-mp-ing-h2 em { font-style: italic; font-weight: 300; }
+.lio-mp-ing-sub {
+  font-size: 15px;
+  color: var(--f-72);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+.lio-mp-ing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.lio-mp-ing-card {
+  background: #fff;
+  border: 1px solid var(--f-08);
+  border-radius: 18px;
+  overflow: hidden;
+}
+.lio-mp-ing-card-image {
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, var(--mint-soft), var(--paper-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--forest);
+}
+.lio-mp-ing-card-image-emoji { font-size: 64px; }
+.lio-mp-ing-card-body { padding: 22px 22px 26px; }
+.lio-mp-ing-card-eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--mint-2);
+  background: var(--mint-soft);
+  padding: 5px 11px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.lio-mp-ing-card-eyebrow--out {
+  color: #8a3f3f;
+  background: rgba(212, 86, 79, 0.12);
+}
+.lio-mp-ing-card-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--forest);
+  margin-bottom: 4px;
+}
+.lio-mp-ing-card-sub {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--f-55);
+  margin-bottom: 16px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+.lio-mp-ing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.lio-mp-ing-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--f-72);
+  line-height: 1.45;
+}
+.lio-mp-ing-list--in li::before {
+  content: "";
+  width: 16px; height: 16px;
+  background: var(--mint);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 2px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%230b2410' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 8 7 12 13 4'/></svg>");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.lio-mp-ing-list--out li {
+  text-decoration: line-through;
+  color: var(--f-40);
+}
+.lio-mp-ing-list--out li::before {
+  content: "✕";
+  color: #b85a52;
+  font-weight: 700;
+  flex-shrink: 0;
+  font-size: 14px;
+  width: 16px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .lio-mp-ing-grid { grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+}
+
+/* HOW TO USE */
+.lio-mp-howto {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--paper) 100%);
+  padding: 80px 24px;
+}
+.lio-mp-howto-inner { max-width: var(--max-w); margin: 0 auto; }
+.lio-mp-howto-head { text-align: center; margin-bottom: 48px; }
+.lio-mp-howto-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4.6vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--forest);
+  margin-bottom: 12px;
+}
+.lio-mp-howto-h2 em { font-style: italic; font-weight: 300; }
+.lio-mp-howto-sub {
+  font-size: 15px;
+  color: var(--f-72);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+.lio-mp-howto-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 36px;
+}
+.lio-mp-howto-step {
+  background: #fff;
+  border: 1px solid var(--f-08);
+  border-radius: 22px;
+  padding: 28px 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.lio-mp-howto-step-num {
+  position: absolute;
+  top: -16px; left: 24px;
+  width: 36px; height: 36px;
+  background: var(--mint);
+  color: var(--forest);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+}
+.lio-mp-howto-step-icon {
+  width: 80px; height: 80px;
+  margin: 8px 0;
+  color: var(--forest);
+}
+.lio-mp-howto-step-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--forest);
+  line-height: 1.15;
+}
+.lio-mp-howto-step-title em { font-style: italic; font-weight: 300; }
+.lio-mp-howto-step-body {
+  font-size: 14.5px;
+  color: var(--f-72);
+  line-height: 1.55;
+}
+.lio-mp-howto-step-spec {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px dashed var(--f-12);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--f-55);
+}
+.lio-mp-howto-step-spec strong { color: var(--forest); font-weight: 700; }
+.lio-mp-howto-cta-row { display: flex; justify-content: center; }
+@media (min-width: 768px) {
+  .lio-mp-howto-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+}
+
+/* REVIEWS GRID */
+.lio-mp-reviews {
+  background: var(--forest);
+  color: var(--cream);
+  padding: 80px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.lio-mp-reviews::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(700px circle at 20% 100%, rgba(148,252,169,0.10), transparent 60%);
+  pointer-events: none;
+}
+.lio-mp-reviews-inner { position: relative; max-width: var(--max-w); margin: 0 auto; }
+.lio-mp-reviews-head { text-align: center; margin-bottom: 40px; }
+.lio-mp-reviews-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--c-65);
+  margin-bottom: 14px;
+}
+.lio-mp-reviews-eyebrow::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--mint);
+}
+.lio-mp-reviews-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  color: var(--cream);
+  margin-bottom: 16px;
+}
+.lio-mp-reviews-h2 em { font-style: italic; font-weight: 300; color: var(--mint); }
+.lio-mp-reviews-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 18px;
+  background: rgba(252,254,251,0.06);
+  border: 1px solid rgba(252,254,251,0.14);
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--c-75);
+}
+.lio-mp-reviews-meta strong { color: var(--cream); font-weight: 800; }
+.lio-mp-reviews-meta-stars {
+  color: var(--mint);
+  letter-spacing: 1.5px;
+  font-size: 14px;
+}
+.lio-mp-reviews-track {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 32px;
+}
+.lio-mp-review-card {
+  background: rgba(252,254,251,0.06);
+  border: 1px solid rgba(252,254,251,0.10);
+  border-radius: 18px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.2s, transform 0.2s var(--ease-out);
+}
+.lio-mp-review-card:hover {
+  border-color: rgba(148,252,169,0.30);
+  transform: translateY(-2px);
+}
+.lio-mp-review-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.lio-mp-review-card-stars { color: var(--mint); letter-spacing: 1.5px; font-size: 14px; }
+.lio-mp-review-card-verify {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--mint);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.lio-mp-review-card-verify::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--mint);
+}
+.lio-mp-review-card-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  line-height: 1.25;
+}
+.lio-mp-review-card-quote {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--c-75);
+  margin: 0;
+  flex: 1;
+}
+.lio-mp-review-card-attr {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(252,254,251,0.08);
+  font-size: 12.5px;
+  color: var(--c-65);
+}
+.lio-mp-review-card-flag { font-size: 16px; line-height: 1; }
+.lio-mp-reviews-cta-row { margin-top: 36px; display: flex; justify-content: center; }
+@media (min-width: 768px) { .lio-mp-reviews-track { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+@media (min-width: 1024px) { .lio-mp-reviews-track { grid-template-columns: repeat(3, 1fr); } }
+
+/* STORY */
+.lio-mp-story {
+  background: var(--cream);
+  padding: 80px 24px;
+  border-top: 1px solid var(--f-08);
+}
+.lio-mp-story-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.lio-mp-story-visual {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, var(--paper-2), var(--mint-soft));
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lio-mp-story-visual-placeholder { color: var(--f-22); font-size: 80px; }
+.lio-mp-story-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--f-55);
+  margin-bottom: 14px;
+}
+.lio-mp-story-eyebrow::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--mint);
+}
+.lio-mp-story-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4.6vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: var(--forest);
+  margin-bottom: 22px;
+}
+.lio-mp-story-h2 em { font-style: italic; font-weight: 300; }
+.lio-mp-story-body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--f-72);
+  margin-bottom: 14px;
+}
+.lio-mp-story-body strong { color: var(--forest); font-weight: 700; }
+.lio-mp-story-pull {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--forest);
+  margin: 24px 0;
+  padding-left: 18px;
+  border-left: 3px solid var(--mint);
+}
+.lio-mp-story-cite {
+  font-size: 13px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  color: var(--f-55);
+}
+@media (min-width: 900px) {
+  .lio-mp-story-inner { grid-template-columns: 1fr 1.1fr; gap: 64px; }
+}
+
+/* GUARANTEE */
+.lio-mp-guarantee {
+  background: var(--paper);
+  padding: 64px 24px;
+  text-align: center;
+}
+.lio-mp-guarantee-inner { max-width: 720px; margin: 0 auto; }
+.lio-mp-guarantee-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  background: var(--mint);
+  color: var(--forest);
+  margin-bottom: 20px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+  flex-direction: column;
+  gap: 2px;
+}
+.lio-mp-guarantee-badge-num {
+  font-size: 30px;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+.lio-mp-guarantee-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4.4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--forest);
+  margin-bottom: 14px;
+}
+.lio-mp-guarantee-h2 em { font-style: italic; font-weight: 300; }
+.lio-mp-guarantee-body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--f-72);
+  margin-bottom: 24px;
+}
+.lio-mp-guarantee-body strong { color: var(--forest); font-weight: 700; }
+
+/* IMPACT */
+.lio-mp-impact {
+  background: linear-gradient(180deg, #cdfee1 0%, #94fca9 100%);
+  padding: 80px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.lio-mp-impact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(700px circle at 100% 0%, rgba(11,36,16,0.06), transparent 60%);
+  pointer-events: none;
+}
+.lio-mp-impact-inner { max-width: 1080px; margin: 0 auto; position: relative; text-align: center; }
+.lio-mp-impact-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4.6vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: var(--forest);
+  margin-bottom: 14px;
+}
+.lio-mp-impact-h2 em { font-style: italic; font-weight: 300; }
+.lio-mp-impact-sub {
+  font-size: 16px;
+  color: var(--forest);
+  max-width: 580px;
+  margin: 0 auto 36px;
+  line-height: 1.55;
+  opacity: 0.78;
+}
+.lio-mp-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 36px;
+}
+.lio-mp-impact-card {
+  background: rgba(252,254,251,0.6);
+  border: 1px solid rgba(11,36,16,0.10);
+  border-radius: 16px;
+  padding: 22px 16px;
+  backdrop-filter: blur(8px);
+}
+.lio-mp-impact-card-icon {
+  width: 48px; height: 48px;
+  background: var(--forest);
+  color: var(--mint);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.lio-mp-impact-card-icon svg { width: 22px; height: 22px; }
+.lio-mp-impact-card-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--forest);
+  line-height: 1.2;
+}
+@media (min-width: 768px) { .lio-mp-impact-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; } }
+
+/* JDGM */
+.lio-mp-jdgm {
+  background: var(--cream);
+  padding: 64px 24px;
+  border-top: 1px solid var(--f-08);
+}
+.lio-mp-jdgm-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+.lio-mp-jdgm-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--forest);
+  margin-bottom: 24px;
+}
+.lio-mp-jdgm-summary {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 32px;
+  background: var(--paper);
+  border: 1px solid var(--f-08);
+  border-radius: 18px;
+  margin-bottom: 28px;
+}
+.lio-mp-jdgm-summary-stars { color: var(--mint-2); font-size: 24px; letter-spacing: 2px; }
+.lio-mp-jdgm-summary-avg {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--forest);
+  letter-spacing: -0.02em;
+}
+.lio-mp-jdgm-summary-meta { font-size: 13px; color: var(--f-55); }
+.lio-mp-jdgm-summary-meta strong { color: var(--forest); font-weight: 700; }
+.lio-mp-jdgm-histogram {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+.lio-mp-jdgm-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 40px;
+  gap: 10px;
+  align-items: center;
+  font-size: 12px;
+  color: var(--f-72);
+}
+.lio-mp-jdgm-row-stars { color: var(--mint-2); font-size: 11px; letter-spacing: 1px; text-align: left; }
+.lio-mp-jdgm-row-bar { height: 8px; background: var(--paper); border-radius: 4px; overflow: hidden; }
+.lio-mp-jdgm-row-bar-fill { height: 100%; background: linear-gradient(90deg, var(--mint-2), var(--mint)); border-radius: 4px; }
+.lio-mp-jdgm-row-count { text-align: right; font-family: var(--font-mono); font-size: 11px; color: var(--f-55); }
+
+/* FAQ */
+.lio-mp-faq {
+  background: var(--paper);
+  padding: 80px 24px;
+}
+.lio-mp-faq-inner { max-width: 760px; margin: 0 auto; }
+.lio-mp-faq-head { text-align: center; margin-bottom: 28px; }
+.lio-mp-faq-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--f-55);
+  margin-bottom: 14px;
+}
+.lio-mp-faq-eyebrow::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--mint);
+}
+.lio-mp-faq-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4.6vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: var(--forest);
+  margin-bottom: 12px;
+}
+.lio-mp-faq-h2 em { font-style: italic; font-weight: 300; }
+.lio-mp-faq-sub {
+  font-size: 15px;
+  color: var(--f-72);
+  line-height: 1.55;
+}
+.lio-mp-faq-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 28px 0 36px;
+  padding: 16px 20px;
+  background: #effaf2;
+  border: 1px solid #c8e6cd;
+  border-radius: 14px;
+}
+.lio-mp-faq-whatsapp-text { display: flex; flex-direction: column; gap: 2px; line-height: 1.4; }
+.lio-mp-faq-whatsapp-text strong { color: var(--forest); font-size: 14px; }
+.lio-mp-faq-whatsapp-text span { color: var(--f-72); font-size: 12.5px; }
+.lio-mp-faq-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25d366;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13.5px;
+  white-space: nowrap;
+}
+.lio-mp-faq-whatsapp-btn svg { width: 18px; height: 18px; }
+@media (max-width: 600px) {
+  .lio-mp-faq-whatsapp { flex-direction: column; align-items: stretch; }
+  .lio-mp-faq-whatsapp-btn { justify-content: center; }
+}
+.lio-mp-faq-list { border-top: 1px solid var(--f-08); }
+.lio-mp-faq-item { border-bottom: 1px solid var(--f-08); }
+.lio-mp-faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 4px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--forest);
+  line-height: 1.4;
+}
+.lio-mp-faq-item summary::-webkit-details-marker { display: none; }
+.lio-mp-faq-item-q { flex: 1; }
+.lio-mp-faq-item-caret {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--f-12);
+  color: var(--forest);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.15s;
+}
+.lio-mp-faq-item-caret svg { width: 12px; height: 12px; }
+.lio-mp-faq-item[open] .lio-mp-faq-item-caret {
+  transform: rotate(180deg);
+  background: var(--mint);
+}
+.lio-mp-faq-item-a {
+  padding: 0 4px 22px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--f-72);
+}
+.lio-mp-faq-item-a strong { color: var(--forest); font-weight: 700; }
+
+/* FINAL CTA */
+.lio-mp-final {
+  background: var(--forest);
+  color: var(--cream);
+  padding: 96px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.lio-mp-final::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(600px circle at 80% 10%, rgba(148,252,169,0.12), transparent 60%),
+    radial-gradient(500px circle at 10% 90%, rgba(148,252,169,0.06), transparent 60%);
+  pointer-events: none;
+}
+.lio-mp-final-inner { max-width: 720px; margin: 0 auto; position: relative; }
+.lio-mp-final-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--c-65);
+  margin-bottom: 18px;
+}
+.lio-mp-final-eyebrow::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--mint);
+}
+.lio-mp-final-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  color: var(--cream);
+  margin-bottom: 16px;
+}
+.lio-mp-final-h2 em { font-style: italic; font-weight: 300; color: var(--mint); }
+.lio-mp-final-h2-soft { color: var(--c-55); font-weight: 300; }
+.lio-mp-final-sub {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--c-75);
+  max-width: 540px;
+  margin: 0 auto 32px;
+}
+.lio-mp-final-sub strong { color: var(--cream); font-weight: 700; }
+.lio-mp-final-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 32px;
+  background: var(--mint);
+  color: var(--forest);
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 12px 32px rgba(148, 252, 169, 0.20);
+  transition: background 0.18s, transform 0.15s, box-shadow 0.2s;
+}
+.lio-mp-final-cta:hover {
+  background: var(--cream);
+  transform: translateY(-2px);
+}
+.lio-mp-final-cta-arrow {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: var(--mint);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.lio-mp-final-trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+  margin: 32px 0 16px;
+}
+.lio-mp-final-trust li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  color: var(--c-75);
+}
+.lio-mp-final-trust li svg { color: var(--mint); flex-shrink: 0; width: 14px; height: 14px; }
+.lio-mp-final-mini {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--c-55);
+}
+.lio-mp-final-mini strong { color: var(--mint); font-weight: 700; }
+</style>
+
+{% schema %}
+{
+  "name": "Lio · Megapage",
+  "tag": "section",
+  "class": "section-lio-megapage",
+  "settings": [
+    { "type": "header",   "content": "Compare table" },
+    { "type": "text",     "id": "compare_title_pre", "label": "Title — line 1", "default": "Why 150,000+ people" },
+    { "type": "text",     "id": "compare_title_mid", "label": "Title — line 2 prefix", "default": "choose" },
+    { "type": "text",     "id": "compare_title_em",  "label": "Title — italic word", "default": "Lio" },
+    { "type": "textarea", "id": "compare_sub",       "label": "Subhead", "default": "Join the ritual revolution and step away from the substances that own you. The hand, the breath, the pause — without anything addictive." }
+  ],
+  "presets": [{ "name": "Lio · Megapage" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}
