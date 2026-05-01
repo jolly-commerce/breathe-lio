@@ -211,6 +211,88 @@
   @media (prefers-reduced-motion: reduce) {
     .lio-lander-page * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   }
+
+  /* ============================================================
+     theliokit — UNIVERSAL CONTAINER WIDTH
+     Every wide content container caps at 1180px. Narrow text
+     sections (quick-faq 760, finalcta 720) keep intentional smaller
+     widths because narrow line lengths read better.
+     This single rule supersedes the per-section max-width values
+     (1080 / 1100 / 1200 / 1280 / 1320 / 1440) for visual rhythm.
+     ============================================================ */
+  .lio-lander-page .lhx-hero,
+  .lio-lander-page .lhx-proof-tile,
+  .lio-lander-page .lbs-inner,
+  .lio-lander-page .lio-ot-inner,
+  .lio-lander-page .lfl-inner,
+  .lio-lander-page .how-v2-inner,
+  .lio-lander-page .kb-inner,
+  .lio-lander-page .lfv-inner,
+  .lio-lander-page .levp .lv-inner,
+  .lio-lander-page .costcomp-inner,
+  .lio-lander-page .ccx-tk,
+  .lio-lander-page .lio-pdp,
+  .lio-lander-page .lio-lf-inner {
+    max-width: 1180px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
+  }
+
+  /* ============================================================
+     theliokit — UNIVERSAL HORIZONTAL PADDING
+     One scale, three breakpoints. Every section has the same gutter.
+     ≥769px:  24px
+     ≤768px:  20px
+     ≤480px:  16px
+     The configurator gets the same gutter (was 10px — too tight
+     now that the section is simplified).
+     ============================================================ */
+  .lio-lander-page section[class*="section-lio-"],
+  .lio-lander-page .lio-lh-bar,
+  .lio-lander-page .lio-pdp-section,
+  .lio-lander-page .lio-pdp {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    box-sizing: border-box !important;
+  }
+  @media (max-width: 768px) {
+    .lio-lander-page section[class*="section-lio-"],
+    .lio-lander-page .lio-lh-bar,
+    .lio-lander-page .lio-pdp-section,
+    .lio-lander-page .lio-pdp {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+  }
+  @media (max-width: 480px) {
+    .lio-lander-page section[class*="section-lio-"],
+    .lio-lander-page .lio-lh-bar,
+    .lio-lander-page .lio-pdp-section,
+    .lio-lander-page .lio-pdp {
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+    }
+  }
+
+  /* Inner containers must NOT double-pad — outer section provides the gutter */
+  .lio-lander-page .lhx-hero,
+  .lio-lander-page .lhx-proof-tile,
+  .lio-lander-page .lbs-inner,
+  .lio-lander-page .lio-ot-inner,
+  .lio-lander-page .lfl-inner,
+  .lio-lander-page .how-v2-inner,
+  .lio-lander-page .kb-inner,
+  .lio-lander-page .lfv-inner,
+  .lio-lander-page .levp .lv-inner,
+  .lio-lander-page .costcomp-inner,
+  .lio-lander-page .ccx-tk,
+  .lio-lander-page .lio-lf-inner,
+  .lio-lander-page .lio-qf-inner,
+  .lio-lander-page .lfc-tk-inner {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 </style>
 {%- endif -%}
 
