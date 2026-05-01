@@ -159,6 +159,31 @@
       document.addEventListener('DOMContentLoaded', init);
     } else { init(); }
   })();
+
+  /* theliokit rhythm watcher: set body[data-rhythm="sub|otp"] so CSS can
+     hide the 90-day promise badge when one-time payment is selected. */
+  (function () {
+    function syncRhythm () {
+      var opts = document.querySelectorAll('.lio-rhythm-opt');
+      if (!opts.length) return;
+      var active = document.querySelector('.lio-rhythm-opt[aria-checked="true"]')
+                || document.querySelector('.lio-rhythm-opt.is-selected');
+      if (!active) return;
+      var mode = active.getAttribute('data-mode') || 'sub';
+      document.body.setAttribute('data-rhythm', mode);
+    }
+    function bind () {
+      var opts = document.querySelectorAll('.lio-rhythm-opt');
+      if (!opts.length) return;
+      opts.forEach(function (o) {
+        o.addEventListener('click', function () { setTimeout(syncRhythm, 30); });
+      });
+      syncRhythm();
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', bind);
+    } else { bind(); }
+  })();
 </script>
 {%- endif -%}
 

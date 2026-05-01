@@ -10,29 +10,40 @@
 
 <section class="lio-qf" id="shopify-section-{{ section.id }}-content" aria-labelledby="lio-qf-title">
   <div class="lio-qf-inner">
-    <header class="lio-qf-head">
-      <span class="lio-qf-eyebrow">{{ section.settings.eyebrow | default: 'Before you order' }}</span>
-      <h2 class="lio-qf-h2" id="lio-qf-title">
-        {{ section.settings.title_pre | default: 'Questions people ask' }}
-        <em>{{ section.settings.title_em | default: 'before ordering.' }}</em>
-      </h2>
-    </header>
+    <details class="lio-qf-outer">
+      <summary class="lio-qf-outer-summary">
+        <div class="lio-qf-outer-head">
+          <span class="lio-qf-eyebrow">{{ section.settings.eyebrow | default: 'Before you order' }}</span>
+          <h2 class="lio-qf-h2" id="lio-qf-title">
+            {{ section.settings.title_pre | default: 'Questions people ask' }}
+            <em>{{ section.settings.title_em | default: 'before ordering.' }}</em>
+          </h2>
+          <span class="lio-qf-outer-cue">
+            <span class="lio-qf-outer-cue-closed">{{ section.settings.cue_closed | default: 'Tap to reveal answers' }}</span>
+            <span class="lio-qf-outer-cue-open">{{ section.settings.cue_open | default: 'Tap to hide' }}</span>
+          </span>
+        </div>
+        <span class="lio-qf-outer-caret" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </summary>
 
-    <div class="lio-qf-list">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'q' -%}
-          <details class="lio-qf-item" {{ block.shopify_attributes }}>
-            <summary>
-              <span class="lio-qf-item-q">{{ block.settings.q }}</span>
-              <span class="lio-qf-item-caret" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </span>
-            </summary>
-            <div class="lio-qf-item-a">{{ block.settings.a }}</div>
-          </details>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
+      <div class="lio-qf-list">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'q' -%}
+            <details class="lio-qf-item" {{ block.shopify_attributes }}>
+              <summary>
+                <span class="lio-qf-item-q">{{ block.settings.q }}</span>
+                <span class="lio-qf-item-caret" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </span>
+              </summary>
+              <div class="lio-qf-item-a">{{ block.settings.a }}</div>
+            </details>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </details>
   </div>
 </section>
 
@@ -57,7 +68,60 @@
   .lio-qf *, .lio-qf *::before, .lio-qf *::after { box-sizing: border-box; }
   .lio-qf-inner { max-width: 760px; margin: 0 auto; }
 
-  .lio-qf-head { text-align: center; margin-bottom: 20px; }
+  /* ─── Outer collapsible ─── */
+  .lio-qf-outer {
+    background: #fff;
+    border: 1px solid var(--qf-line-08);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+  }
+  .lio-qf-outer[open] { box-shadow: 0 12px 30px rgba(11,36,16,0.05); }
+  .lio-qf-outer-summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 16px;
+    padding: 22px 24px;
+  }
+  .lio-qf-outer-summary::-webkit-details-marker { display: none; }
+  .lio-qf-outer-head { flex: 1; min-width: 0; }
+  .lio-qf-outer-cue {
+    display: block;
+    margin-top: 8px;
+    font-family: var(--qf-mono);
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--qf-text-55);
+    font-weight: 700;
+  }
+  .lio-qf-outer-cue-open { display: none; }
+  .lio-qf-outer[open] .lio-qf-outer-cue-closed { display: none; }
+  .lio-qf-outer[open] .lio-qf-outer-cue-open { display: inline; }
+  .lio-qf-outer-caret {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--qf-paper);
+    color: var(--qf-forest);
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: transform 0.2s ease, background 0.15s ease;
+  }
+  .lio-qf-outer[open] .lio-qf-outer-caret {
+    transform: rotate(180deg);
+    background: var(--qf-mint-soft);
+  }
+  .lio-qf-outer .lio-qf-list {
+    padding: 0 24px 14px;
+    margin-top: 0;
+    border-top: 1px solid var(--qf-line-08);
+  }
+  .lio-qf-outer .lio-qf-list .lio-qf-item:first-child { border-top: 0; }
+  @media (max-width: 600px) {
+    .lio-qf-outer-summary { padding: 18px 20px; gap: 12px; }
+    .lio-qf-outer .lio-qf-list { padding: 0 20px 10px; }
+  }
+
+  .lio-qf-head { text-align: left; margin-bottom: 0; }
   .lio-qf-eyebrow {
     display: inline-flex; align-items: center; gap: 8px;
     font-family: var(--qf-mono);

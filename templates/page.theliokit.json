@@ -21,7 +21,7 @@
         "logo_text": "Lio",
         "logo_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/lio-logo-Photoroom_1.webp?v=1776826288",
         "show_cart": true,
-        "cta_link": "#shopify-section-offer",
+        "cta_link": "#shopify-section-flavors",
         "show_locale": true,
         "locale_filter": "NL,AE,GB,BE,IT,DE,IE,US,ES,GR,AU,SA,PT,FR,CZ,RO,DK,AT,HR,CH,PL,HU,CY,FI,CA,SI,LT,SK,LV,BG"
       }
@@ -43,39 +43,6 @@
         "title_em": "before ordering."
       }
     },
-    "offer": {
-      "type": "lio-offer-tiers",
-      "settings": {
-        "eyebrow": "The kit · Pick a path",
-        "title_pre": "Pick the level.",
-        "title_em": "We've already done the matching.",
-        "subhead": "Three opinionated bundles. Six cores. Every kit ready to ship from Amsterdam. The bestseller is what 8 in 10 people pick — for a reason.",
-        "tier_1_tag": "Starter",
-        "tier_1_name": "The Starter",
-        "tier_1_line": "Try the ritual for a month.",
-        "tier_1_price": "€39",
-        "tier_1_perday": "~€1.30/day · then refills from €0.88/day",
-        "tier_1_cta": "Choose Starter",
-        "tier_2_flag": "Most popular · Save 21%",
-        "tier_2_tag": "Bestseller",
-        "tier_2_name": "The 60-Day Kit",
-        "tier_2_line": "Where 8 in 10 people land. Long enough for the habit to actually shift.",
-        "tier_2_price": "€69",
-        "tier_2_was": "€87",
-        "tier_2_perday": "~€1.15/day · then refills from €0.79/day",
-        "tier_2_cta": "Choose 60-Day Kit",
-        "tier_3_flag": "Save 32% · Two kits, one price",
-        "tier_3_tag": "Couple's",
-        "tier_3_name": "Quit Together",
-        "tier_3_line": "Two devices, one ritual. Quitting alone is hard. Together, it sticks.",
-        "tier_3_price": "€119",
-        "tier_3_was": "€174",
-        "tier_3_perday": "~€0.66/day per person · refills from €0.59/day",
-        "tier_3_cta": "Choose Quit Together",
-        "customize_label": "Or build your kit your way →",
-        "builder_anchor": "#shopify-section-main"
-      }
-    },
     "hero": {
       "type": "lio-hero",
       "settings": {
@@ -90,7 +57,7 @@
         "title_soft": "the bad.",
         "subhead": "A wooden mouth diffuser for the <strong>hand-to-mouth ritual</strong>. Breathe in natural flavored air, nothing to light, nothing to charge. <strong>150,000+ habits broken since 2018.</strong>",
         "cta_label": "Pick your kit — from €39",
-        "cta_link": "#shopify-section-offer",
+        "cta_link": "#shopify-section-flavors",
         "refill_label": "",
         "refill_link": "",
         "show_mobile_proof": true,
@@ -150,7 +117,7 @@
         "show_underline": true,
         "subhead": "An all-natural, <strong>nicotine-free wooden mouth diffuser</strong>. Draw on it like you would anything else, the only thing you breathe is flavored air.",
         "cta_label": "Pick your kit — from €39",
-        "cta_link": "#shopify-section-offer",
+        "cta_link": "#shopify-section-flavors",
         "micro_1": "<strong>From €0.88/day after refills</strong>",
         "micro_2": "90-day money-back",
         "micro_3": "Free worldwide shipping",
@@ -203,7 +170,7 @@
         "show_cta": true,
         "reframe": "No <span class=\"redact\">nicotine</span>. <em>Just the ritual.</em>",
         "cta_label": "Pick your kit — from €39",
-        "cta_link": "#shopify-section-offer",
+        "cta_link": "#shopify-section-flavors",
         "ghost_label": "How it works",
         "ghost_link": "#shopify-section-how"
       }
@@ -227,7 +194,7 @@
         "aside_2": "Nicotine-free",
         "aside_3": "No vapor",
         "stage_eyebrow": "1 bag · 3 cores · 10 days",
-        "cta_link": "#shopify-section-offer",
+        "cta_link": "#shopify-section-flavors",
         "accent_1_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_25_2026_10_50_11_AM-Photoroom_2.webp?v=1777085540",
         "accent_2_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_25_2026_10_50_11_AM-Photoroom_3.webp?v=1777085541",
         "accent_3_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_25_2026_10_50_11_AM-Photoroom_1.webp?v=1777085540",
@@ -264,10 +231,10 @@
         "faq_inside":     { "type": "faq_question", "settings": { "q": "What's actually in the cores?", "a": "<p>Medical-grade polyester fiber infused with <strong>food-safe plant essential oils</strong> — peppermint, cinnamon, mango, orange, depending on the variant. No synthetic aromas, no solvents, no propylene glycol. Third-party tested, every batch.</p>" } },
         "faq_refund":     { "type": "faq_question", "settings": { "q": "What if it doesn't work for me?", "a": "<p>Try it for <strong>90 days</strong>. Use it the way it's meant to be used — every time you'd reach for your old habit. If the ritual doesn't land, <strong>full refund, used or not.</strong> No 'must be sealed' fine print, no restocking fee.</p>" } },
         "faq_ship":       { "type": "faq_question", "settings": { "q": "How fast does it arrive?", "a": "<p>Shipped from the Netherlands. <strong>2–3 working days across Europe, 4–8 days outside.</strong> Free worldwide, no minimum. Tracking link by email the moment it leaves the warehouse.</p>" } },
-        "ev_clean":       { "type": "evidence_point", "settings": { "icon": "shield", "title": "0% nicotine, 0% tobacco",     "source": "Eurofins Lab Report · 2024" } },
-        "ev_plant":       { "type": "evidence_point", "settings": { "icon": "beaker", "title": "Plant-based aroma cores",     "source": "Independent assay · TNO" } },
-        "ev_patent":      { "type": "evidence_point", "settings": { "icon": "doc",    "title": "Patented design", "source": "" } },
-        "ev_outcome":     { "type": "evidence_point", "settings": { "icon": "chart",  "title": "82% report reduced cravings","source": "n=1,243 user study, 2024" } }
+        "ev_clean":       { "type": "evidence_point", "settings": { "icon": "shield", "title": "Independently tested by TNO", "source": "Netherlands Organisation for Applied Scientific Research" } },
+        "ev_plant":       { "type": "evidence_point", "settings": { "icon": "beaker", "title": "No combustion · no heating · no vapor", "source": "TNO toxicological assessment" } },
+        "ev_patent":      { "type": "evidence_point", "settings": { "icon": "doc",    "title": "≥ 10× below DNEL safety thresholds", "source": "European reference values · TNO 2024" } },
+        "ev_outcome":     { "type": "evidence_point", "settings": { "icon": "chart",  "title": "Zero CMR-classified substances", "source": "Dutch Ministry SZW classification" } }
       },
       "block_order": [
         "trust_shipping",
@@ -301,10 +268,20 @@
     "finalcta": {
       "type": "lio-finalcta",
       "settings": {
-        "cta_link": "#shopify-section-offer",
+        "cta_link": "#shopify-section-flavors",
         "cta_label": "Pick your kit — from €39",
         "ghost_link": "#shopify-section-how",
         "ghost_label": "Read how it works"
+      }
+    },
+    "chrome": {
+      "type": "lio-chrome",
+      "settings": {
+        "show_sticky": true,
+        "sticky_title": "Pick the flavors",
+        "sticky_meta": "From <strong style=\"color: var(--forest); font-weight: 700;\">€39</strong> · 90-day money-back · free worldwide shipping",
+        "sticky_link": "#shopify-section-flavors",
+        "hide_when_target": "#shopify-section-flavors"
       }
     },
     "lander_footer": {
@@ -328,17 +305,17 @@
     "hero",
     "brand_cred",
     "quick_faq",
-    "offer",
     "social_proof",
     "flavored_air",
     "how",
-    "killblock",
     "flavors",
     "evidence",
     "costcomp",
     "main",
+    "killblock",
     "faq",
     "finalcta",
+    "chrome",
     "lander_footer"
   ]
 }

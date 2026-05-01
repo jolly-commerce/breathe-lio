@@ -487,16 +487,14 @@
       <section class="lvm-band dark">
         <span class="lvm-eyebrow">Independent ingredient testing</span>
         <h3 class="lvm-h">We sent it to TNO. <em>Then we read the report.</em></h3>
-        {%- if template.suffix == 'theliokit' -%}
-          <p class="lvm-lede">Beyond published literature, we commissioned our own ingredient analysis at <strong>TNO</strong>. <span class="lvm-ref" data-ref="12">12</span></p>
-        {%- else -%}
-          <p class="lvm-lede">Beyond published literature, we commissioned our own ingredient analysis at <strong>TNO</strong> — the Netherlands Organisation for Applied Scientific Research, established by Dutch parliament in 1932. <span class="lvm-ref" data-ref="12">12</span></p>
-        {%- endif -%}
+        <p class="lvm-lede">We commissioned an independent toxicological assessment at <strong>TNO</strong>, the Netherlands Organisation for Applied Scientific Research. The report identified <strong>17 naturally-occurring aromatic compounds</strong> — all from essential oils such as peppermint, eucalyptus, and citrus (menthol, eucalyptol, menthone, limonene, α-pinene, etc.). Every finding below is taken directly from that report. <span class="lvm-ref" data-ref="12">12</span></p>
         <div class="lvm-tests">
-          <div class="lvm-test"><div><div class="lvm-test-name">Nicotine</div><p class="lvm-test-desc">Quantitative assay for nicotine and its primary metabolites in core matrix and headspace.</p></div><span class="lvm-test-result">Not detected</span></div>
-          <div class="lvm-test"><div><div class="lvm-test-name">Tobacco constituents</div><p class="lvm-test-desc">Screening for tobacco-derived alkaloids and combustion byproducts.</p></div><span class="lvm-test-result">Not detected</span></div>
-          <div class="lvm-test"><div><div class="lvm-test-name">Essential-oil identity</div><p class="lvm-test-desc">Constituent profiling, confirming declared plant-derived compounds.</p></div><span class="lvm-test-result">Confirmed</span></div>
-          <div class="lvm-test"><div><div class="lvm-test-name">Heavy metals</div><p class="lvm-test-desc">Lead, cadmium, mercury, arsenic at EU cosmetic-grade thresholds.</p></div><span class="lvm-test-result">Below threshold</span></div>
+          <div class="lvm-test"><div><div class="lvm-test-name">Combustion · heating · vapor</div><p class="lvm-test-desc">No burning, no heating element, no aerosolisation — confirmed in the report intro.</p></div><span class="lvm-test-result">None present</span></div>
+          <div class="lvm-test"><div><div class="lvm-test-name">CMR-classified substances</div><p class="lvm-test-desc">Carcinogenic, mutagenic, or reprotoxic substances per Dutch Ministry of Social Affairs &amp; Employment (SZW) classification.</p></div><span class="lvm-test-result">Zero</span></div>
+          <div class="lvm-test"><div><div class="lvm-test-name">DNEL safety thresholds</div><p class="lvm-test-desc">Estimated daily exposure vs. European Derived No-Effect Levels — the regulatory safety reference values.</p></div><span class="lvm-test-result">≥ 10× below</span></div>
+          <div class="lvm-test"><div><div class="lvm-test-name">8-hour occupational exposure limits</div><p class="lvm-test-desc">Time-weighted limits applied to a full working-day exposure scenario.</p></div><span class="lvm-test-result">Below all</span></div>
+          <div class="lvm-test"><div><div class="lvm-test-name">Limonene (long-term, year-round)</div><p class="lvm-test-desc">Daily-use scenario assessed against the indicative Maximum Permissible Risk (MTR) for general-population air quality.</p></div><span class="lvm-test-result">Below MTR</span></div>
+          <div class="lvm-test"><div><div class="lvm-test-name">Compounds identified</div><p class="lvm-test-desc">All 17 are naturally-occurring aromatic molecules from essential oils (peppermint, eucalyptus, citrus).</p></div><span class="lvm-test-result">17 natural</span></div>
         </div>
         {%- assign lvm_email = 'hello@breathelio.com' -%}
         {%- if template.suffix == 'theliokit' -%}{%- assign lvm_email = 'support@breathelio.com' -%}{%- endif -%}
