@@ -240,36 +240,89 @@
   }
 
   /* ============================================================
-     theliokit — UNIVERSAL HORIZONTAL PADDING
-     One scale, three breakpoints. Every section has the same gutter.
+     theliokit — FULL-WIDTH SECTION WRAPPERS
+     Section wrappers (the Shopify outer <div>) get ZERO horizontal
+     padding so each section's background stretches edge-to-edge of
+     the viewport. Each section's INNER element provides the
+     content gutter — that gutter is the next rule below.
+     ============================================================ */
+  .lio-lander-page section[class*="section-lio-"],
+  .lio-lander-page .shopify-section,
+  .lio-lander-page .shopify-section-group-header-group {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  body.lio-lander-page,
+  body.lio-lander-page main { margin: 0 !important; padding-left: 0 !important; padding-right: 0 !important; }
+
+  /* ============================================================
+     theliokit — INNER SECTION GUTTER
+     Every section's inner content element gets one universal
+     horizontal padding. Three breakpoints, one rule.
      ≥769px:  24px
      ≤768px:  20px
      ≤480px:  16px
-     The configurator gets the same gutter (was 10px — too tight
-     now that the section is simplified).
      ============================================================ */
-  .lio-lander-page section[class*="section-lio-"],
   .lio-lander-page .lio-lh-bar,
+  .lio-lander-page .lhx-hero,
+  .lio-lander-page .lbs,
+  .lio-lander-page .lio-qf,
+  .lio-lander-page .lhx-proof,
+  .lio-lander-page .lio-flavored-2026,
+  .lio-lander-page .how-v2,
+  .lio-lander-page .lio-flavor-2026,
+  .lio-lander-page .levp,
+  .lio-lander-page .costcomp,
   .lio-lander-page .lio-pdp-section,
-  .lio-lander-page .lio-pdp {
+  .lio-lander-page .lio-killblock-v33,
+  .lio-lander-page .faq,
+  .lio-lander-page .lfc-tk,
+  .lio-lander-page .finalcta,
+  .lio-lander-page .lio-lf {
     padding-left: 24px !important;
     padding-right: 24px !important;
     box-sizing: border-box !important;
   }
   @media (max-width: 768px) {
-    .lio-lander-page section[class*="section-lio-"],
     .lio-lander-page .lio-lh-bar,
+    .lio-lander-page .lhx-hero,
+    .lio-lander-page .lbs,
+    .lio-lander-page .lio-qf,
+    .lio-lander-page .lhx-proof,
+    .lio-lander-page .lio-flavored-2026,
+    .lio-lander-page .how-v2,
+    .lio-lander-page .lio-flavor-2026,
+    .lio-lander-page .levp,
+    .lio-lander-page .costcomp,
     .lio-lander-page .lio-pdp-section,
-    .lio-lander-page .lio-pdp {
+    .lio-lander-page .lio-killblock-v33,
+    .lio-lander-page .faq,
+    .lio-lander-page .lfc-tk,
+    .lio-lander-page .finalcta,
+    .lio-lander-page .lio-lf {
       padding-left: 20px !important;
       padding-right: 20px !important;
     }
   }
   @media (max-width: 480px) {
-    .lio-lander-page section[class*="section-lio-"],
     .lio-lander-page .lio-lh-bar,
+    .lio-lander-page .lhx-hero,
+    .lio-lander-page .lbs,
+    .lio-lander-page .lio-qf,
+    .lio-lander-page .lhx-proof,
+    .lio-lander-page .lio-flavored-2026,
+    .lio-lander-page .how-v2,
+    .lio-lander-page .lio-flavor-2026,
+    .lio-lander-page .levp,
+    .lio-lander-page .costcomp,
     .lio-lander-page .lio-pdp-section,
-    .lio-lander-page .lio-pdp {
+    .lio-lander-page .lio-killblock-v33,
+    .lio-lander-page .faq,
+    .lio-lander-page .lfc-tk,
+    .lio-lander-page .finalcta,
+    .lio-lander-page .lio-lf {
       padding-left: 16px !important;
       padding-right: 16px !important;
     }
@@ -331,11 +384,11 @@
     .lio-lander-page .lio-killblock-v33 .kb-h { font-size: clamp(26px, 6.4vw, 32px) !important; }
   }
 
-  /* Inner containers must NOT double-pad — outer section provides the gutter */
-  .lio-lander-page .lhx-hero,
-  .lio-lander-page .lhx-proof-tile,
+  /* Innermost content containers (max-width: 1180px wrappers) sit INSIDE
+     the gutter-padded section — they must not double-pad. */
   .lio-lander-page .lbs-inner,
-  .lio-lander-page .lio-ot-inner,
+  .lio-lander-page .lio-qf-inner,
+  .lio-lander-page .lhx-proof-tile,
   .lio-lander-page .lfl-inner,
   .lio-lander-page .how-v2-inner,
   .lio-lander-page .kb-inner,
@@ -344,7 +397,6 @@
   .lio-lander-page .costcomp-inner,
   .lio-lander-page .ccx-tk,
   .lio-lander-page .lio-lf-inner,
-  .lio-lander-page .lio-qf-inner,
   .lio-lander-page .lfc-tk-inner {
     padding-left: 0 !important;
     padding-right: 0 !important;
