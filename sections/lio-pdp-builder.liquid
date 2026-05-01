@@ -11,6 +11,71 @@
 {{ 'lio-pdp-builder.css' | asset_url | stylesheet_tag }}
 <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
+{%- if template.suffix == 'theliokit' -%}
+<style>
+  /* ============================================================
+     theliokit: simplify the configurator.
+     The offer section above already handles the buy decision —
+     the configurator below is for visitors who want to customize.
+     Strip every redundant element so the customize experience
+     stays focused: device → flavors → totals → CTA. Done.
+     ============================================================ */
+
+  /* Section header — hide the announcement + breadcrumbs */
+  .lio-lander-page .lio-announcement,
+  .lio-lander-page .lio-breadcrumbs { display: none !important; }
+
+  /* Gallery: hide the evidence overlay (handled by the dedicated evidence section) */
+  .lio-lander-page .lio-evidence,
+  .lio-lander-page .lio-gallery-pin { display: none !important; }
+
+  /* Config column: hide trust pill (rating) + bullet row under description.
+     The offer above + brand-strip already carry these. */
+  .lio-lander-page .lio-pdp-trust,
+  .lio-lander-page .lio-pdp-bullet-row { display: none !important; }
+
+  /* Cleaner H1 — give it space, drop sub-padding */
+  .lio-lander-page .lio-pdp-h1 { margin-top: 4px; }
+
+  /* DELIVERY block: drop the busy elements.
+     Keep: title, rhythm toggle, promise badge, totals, CTA, reassurance.
+     Drop: rhythm explainer details, benefits HTML, Quit Together,
+           inline payments strip, inline review, scarcity line. */
+  .lio-lander-page .lio-rhythm-explainer,
+  .lio-lander-page .lio-benefits,
+  .lio-lander-page .lio-quit-together,
+  .lio-lander-page .lio-cta-payments,
+  .lio-lander-page .lio-cta-review,
+  .lio-lander-page .lio-cta-scarcity { display: none !important; }
+
+  /* Tighten reassurance line */
+  .lio-lander-page .lio-cta-meta { margin-top: 14px; }
+  .lio-lander-page .lio-reassurance {
+    text-align: center;
+    font-size: 12.5px;
+    color: rgba(11,36,16,0.55);
+    margin: 0;
+  }
+
+  /* Bottom of section: drop the duplicate trust strip + inline FAQ.
+     Mini FAQ at the top of the page + dedicated FAQ section already cover this. */
+  .lio-lander-page .lio-pdp-trust-strip,
+  .lio-lander-page .lio-faq-inline { display: none !important; }
+
+  /* Step 3: optional accessories — gone for theliokit.
+     The 60-Day Kit + Couple's already include the pouch; the Starter
+     stays focused. Removing reduces decisions before the CTA. */
+  .lio-lander-page #lio-addons-step,
+  .lio-lander-page .lio-pdp-step--addons { display: none !important; }
+
+  /* A bit of breathing room around the simplified config */
+  .lio-lander-page [data-section-type="lio-pdp-builder"] {
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+</style>
+{%- endif -%}
+
 {%- liquid
   assign d_plus  = section.settings.device_plus_product
   assign d_pro   = section.settings.device_pro_product
@@ -206,32 +271,32 @@
       </div>
 
       <style>
-        /* Peek-slideshow: main slide centered, next slide peeking ~12% at right edge */
+        /* Peek-slideshow: full-width track with consistent edge padding.
+           scroll-padding-inline keeps each snapped slide visually centered;
+           every slide gets equal 6% peek on the trailing side. */
         .lio-gal-slides {
           display: flex;
-          gap: 8px;
+          gap: 12px;
           overflow-x: auto;
           scroll-snap-type: x mandatory;
-          scroll-snap-stop: always;
+          scroll-padding-inline: 6%;
           -webkit-overflow-scrolling: touch;
           scrollbar-width: none;
           -ms-overflow-style: none;
-          padding: 0 0 6px;
+          padding: 0 6% 8px;
           margin: 0;
+          overscroll-behavior-x: contain;
         }
         .lio-gal-slides::-webkit-scrollbar { display: none; }
         .lio-gal-slide {
           flex: 0 0 88%;
           aspect-ratio: 1 / 1;
-          scroll-snap-align: center;
-          scroll-snap-stop: always;
-          border-radius: 14px;
+          scroll-snap-align: start;
+          border-radius: 16px;
           overflow: hidden;
           background: rgba(11,36,16,0.04);
           position: relative;
         }
-        .lio-gal-slide:first-child { margin-left: 6%; }
-        .lio-gal-slide:last-child { margin-right: 6%; }
         .lio-gal-slide img {
           width: 100%; height: 100%;
           object-fit: cover;
@@ -248,7 +313,7 @@
         /* Controls below slides */
         .lio-gal-controls {
           display: flex; align-items: center; justify-content: center;
-          gap: 14px; margin-top: 14px;
+          gap: 14px; margin-top: 16px;
         }
         .lio-gal-arrow {
           width: 36px; height: 36px;
@@ -273,10 +338,8 @@
         .lio-gal-dot.is-active { background: #0b2410; transform: scale(1.3); }
 
         @media (min-width: 980px) {
-          /* On desktop, use a slightly wider slide and smaller peek */
-          .lio-gal-slide { flex: 0 0 92%; }
-          .lio-gal-slide:first-child { margin-left: 4%; }
-          .lio-gal-slide:last-child { margin-right: 4%; }
+          .lio-gal-slides { padding: 0 4% 10px; scroll-padding-inline: 4%; gap: 14px; }
+          .lio-gal-slide { flex: 0 0 92%; border-radius: 20px; }
         }
       </style>
 
@@ -362,11 +425,9 @@
         {%- endif -%}
       </div>
 
-      <h1 class="lio-pdp-h1">{{ section.settings.heading | default: product.title | default: 'Lio' }}</h1>
+      <h1 class="lio-pdp-h1">{{ 'lander.config.h1' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</h1>
 
-      {%- if section.settings.subheading != blank -%}
-        <p class="lio-pdp-sub">{{ section.settings.subheading }}</p>
-      {%- endif -%}
+      <p class="lio-pdp-sub">{{ 'lander.config.subheading' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
 
       {%- if section.settings.bullets != blank -%}
         <div class="lio-pdp-bullet-row">
@@ -524,7 +585,7 @@
             <span class="lio-bestseller-hint-icon" aria-hidden="true">✓</span>
             <span class="lio-bestseller-hint-body">
               <strong>{{ section.settings.bestseller_hint_title | default: 'Bestseller mix pre-filled' }}</strong>
-              <span>{{ section.settings.bestseller_hint_text | default: 'Tap any flavor below to swap. Discount stays.' }}</span>
+              <span>{{ 'lander.config.bestseller_hint' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
             </span>
           </div>
 
@@ -577,13 +638,13 @@
 
         <div class="lio-pdp-step-head lio-pdp-step-head--inverse">
           <span class="lio-pdp-step-tag" data-step-dot="delivery">●</span>
-          <span class="lio-pdp-step-title">{{ section.settings.step4_title | default: 'Your delivery' }}</span>
+          <span class="lio-pdp-step-title">{{ 'lander.config.step4_title' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
         </div>
 
         <div class="lio-rhythm-toggle" role="radiogroup" aria-label="Delivery rhythm">
           <button type="button" class="lio-rhythm-opt is-selected" data-mode="sub" role="radio" aria-checked="true">
             {{ 'lander.config.rhythm_sub' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
-            <span class="lio-rhythm-opt-savings">{{ section.settings.rhythm_sub_sub | default: 'New cores ship every 30 days. One click to pause or cancel.' }}</span>
+            <span class="lio-rhythm-opt-savings">{{ 'lander.config.rhythm_sub_sub' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
           </button>
           <button type="button" class="lio-rhythm-opt" data-mode="otp" role="radio" aria-checked="false">
             {{ 'lander.config.rhythm_otp' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
@@ -601,7 +662,7 @@
           </summary>
           <div class="lio-rhythm-explainer-body">
             <p><strong>{{ section.settings.rhythm_explainer_first | default: 'First delivery includes the device + your first bags.' }}</strong></p>
-            <p>{{ section.settings.rhythm_explainer_then | default: 'Then every 30 days: refill bags only — no device fee, no surprises. Skip a month, change flavors, or cancel from your dashboard.' }}</p>
+            <p>{{ 'lander.config.rhythm_explainer_then' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
           </div>
         </details>
 
@@ -734,7 +795,7 @@
         <section class="lio-faq-inline" aria-labelledby="lio-faq-inline-title">
           <header class="lio-faq-inline-head">
             <span class="lio-faq-inline-eyebrow">{{ section.settings.faq_modal_eyebrow | default: 'Quick answers' }}</span>
-            <h3 class="lio-faq-inline-title" id="lio-faq-inline-title">{{ section.settings.faq_modal_title | default: 'Questions people ask before ordering.' }}</h3>
+            <h3 class="lio-faq-inline-title" id="lio-faq-inline-title">{{ 'lander.config.faq_modal_title' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</h3>
           </header>
           <div class="lio-faq-inline-list">
             {%- for block in section.blocks -%}
@@ -1210,7 +1271,7 @@
 
         { "type": "evidence_point", "settings": { "icon": "shield", "title": "0% nicotine, 0% tobacco",         "source": "Eurofins Lab Report · 2024" } },
         { "type": "evidence_point", "settings": { "icon": "beaker", "title": "Plant-based aroma cores",          "source": "Independent assay · TNO Netherlands" } },
-        { "type": "evidence_point", "settings": { "icon": "doc",    "title": "Patented mouthpiece design",      "source": "EU Patent EP3784213" } },
+        { "type": "evidence_point", "settings": { "icon": "doc",    "title": "Patented mouthpiece design",      "source": "Patent EP3784213" } },
         { "type": "evidence_point", "settings": { "icon": "chart",  "title": "82% report reduced cravings",     "source": "n=1,243 user study, 2024" } }
       ]
     }

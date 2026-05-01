@@ -1,0 +1,171 @@
+{%- comment -%}
+  ==================================================================
+  LIO · QUICK FAQ (Theliokit)
+  Compact, above-the-fold accordion of the 5 highest-stakes pre-purchase
+  questions. Sits between brand-cred and the offer. Each question is a
+  block so merchants can edit/reorder freely. Subtle line-list style so
+  it doesn't compete visually with the offer below.
+  ==================================================================
+{%- endcomment -%}
+
+<section class="lio-qf" id="shopify-section-{{ section.id }}-content" aria-labelledby="lio-qf-title">
+  <div class="lio-qf-inner">
+    <header class="lio-qf-head">
+      <span class="lio-qf-eyebrow">{{ section.settings.eyebrow | default: 'Before you order' }}</span>
+      <h2 class="lio-qf-h2" id="lio-qf-title">
+        {{ section.settings.title_pre | default: 'Questions people ask' }}
+        <em>{{ section.settings.title_em | default: 'before ordering.' }}</em>
+      </h2>
+    </header>
+
+    <div class="lio-qf-list">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'q' -%}
+          <details class="lio-qf-item" {{ block.shopify_attributes }}>
+            <summary>
+              <span class="lio-qf-item-q">{{ block.settings.q }}</span>
+              <span class="lio-qf-item-caret" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <div class="lio-qf-item-a">{{ block.settings.a }}</div>
+          </details>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .lio-qf {
+    --qf-forest:    #0b2410;
+    --qf-cream:     #fcfefb;
+    --qf-paper:     #f8faf6;
+    --qf-mint:      #94fca9;
+    --qf-mint-soft: #cdfee1;
+    --qf-line-08:   rgba(11,36,16,0.08);
+    --qf-line-12:   rgba(11,36,16,0.12);
+    --qf-text-72:   rgba(11,36,16,0.72);
+    --qf-text-55:   rgba(11,36,16,0.55);
+    --qf-mono: "iA Writer Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    background: {{ section.settings.bg | default: '#fcfefb' }};
+    color: var(--qf-forest);
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    padding: 36px 24px 44px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .lio-qf *, .lio-qf *::before, .lio-qf *::after { box-sizing: border-box; }
+  .lio-qf-inner { max-width: 760px; margin: 0 auto; }
+
+  .lio-qf-head { text-align: center; margin-bottom: 20px; }
+  .lio-qf-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--qf-mono);
+    font-size: 11px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--qf-text-55);
+    font-weight: 700; margin-bottom: 10px;
+  }
+  .lio-qf-eyebrow::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--qf-mint);
+  }
+  .lio-qf-h2 {
+    margin: 0;
+    font-size: clamp(22px, 3.6vw, 30px);
+    line-height: 1.1; letter-spacing: -0.025em;
+    font-weight: 800; color: var(--qf-forest);
+  }
+  .lio-qf-h2 em { font-style: italic; font-weight: 300; }
+
+  .lio-qf-list {
+    margin-top: 22px;
+    border-top: 1px solid var(--qf-line-08);
+  }
+  .lio-qf-item { border-bottom: 1px solid var(--qf-line-08); }
+  .lio-qf-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 16px 4px;
+    display: flex; align-items: center; gap: 14px;
+    transition: color 0.15s ease;
+  }
+  .lio-qf-item summary::-webkit-details-marker { display: none; }
+  .lio-qf-item summary:hover { color: var(--qf-forest); }
+  .lio-qf-item-q {
+    flex: 1;
+    font-size: 15px; line-height: 1.4;
+    font-weight: 600;
+    color: var(--qf-forest);
+  }
+  .lio-qf-item-caret {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--qf-paper);
+    color: var(--qf-forest);
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: transform 0.2s ease, background 0.15s ease;
+  }
+  .lio-qf-item[open] .lio-qf-item-caret {
+    transform: rotate(180deg);
+    background: var(--qf-mint-soft);
+  }
+  .lio-qf-item-a {
+    padding: 0 4px 18px;
+    font-size: 14px; line-height: 1.6;
+    color: var(--qf-text-72);
+    max-width: 620px;
+  }
+  .lio-qf-item-a strong { color: var(--qf-forest); font-weight: 600; }
+  .lio-qf-item-a a {
+    color: var(--qf-forest);
+    text-decoration: underline;
+    text-decoration-color: var(--qf-mint);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 600px) {
+    .lio-qf { padding: 28px 20px 36px; }
+    .lio-qf-item-q { font-size: 14px; }
+    .lio-qf-item-a { font-size: 13.5px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Lio · Quick FAQ",
+  "tag": "section",
+  "class": "section-lio-quick-faq",
+  "settings": [
+    { "type": "color",    "id": "bg",         "label": "Background", "default": "#fcfefb" },
+    { "type": "text",     "id": "eyebrow",    "label": "Eyebrow",    "default": "Before you order" },
+    { "type": "text",     "id": "title_pre",  "label": "Title (start)", "default": "Questions people ask" },
+    { "type": "text",     "id": "title_em",   "label": "Title (italic)", "default": "before ordering." }
+  ],
+  "blocks": [
+    {
+      "type": "q",
+      "name": "Question",
+      "settings": [
+        { "type": "text",     "id": "q", "label": "Question", "default": "Is this a vape?" },
+        { "type": "richtext", "id": "a", "label": "Answer",   "default": "<p>No. A wooden aromatherapy diffuser. No battery, no coil, no liquid. You breathe ordinary air through a wooden mouthpiece — the plant-oil core gives it flavor and a cool menthol sensation.</p>" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Lio · Quick FAQ",
+      "blocks": [
+        { "type": "q", "settings": { "q": "Is this a vape?", "a": "<p>No. A wooden aromatherapy diffuser. No battery, no coil, no liquid. You breathe ordinary air through a wooden mouthpiece — the plant-oil core gives it flavor and a cool menthol sensation.</p>" } },
+        { "type": "q", "settings": { "q": "Will it feel like what I'm used to?", "a": "<p>Partly. The menthol cores give a real <strong>cool throat hit</strong> on the inhale — the physical sensation is there. What's not there is the nicotine kick. Think of it as the feeling without the substance.</p>" } },
+        { "type": "q", "settings": { "q": "What if it doesn't work for me?", "a": "<p>Try it for <strong>90 days</strong>. Use it the way it's meant to be used — every time you'd reach for your old habit. If the ritual doesn't land, <strong>full refund, used or not.</strong></p>" } },
+        { "type": "q", "settings": { "q": "How long does one core last?", "a": "<p>Around <strong>7–10 days for a light user, 3–5 days if you use it heavily.</strong> The wooden body stays with you; only the core changes.</p>" } },
+        { "type": "q", "settings": { "q": "How fast does it arrive?", "a": "<p>Shipped from Amsterdam. <strong>2–3 working days across Europe, 4–8 days outside.</strong> Free worldwide, no minimum. Tracking link by email.</p>" } }
+      ]
+    }
+  ],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

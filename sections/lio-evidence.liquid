@@ -487,14 +487,20 @@
       <section class="lvm-band dark">
         <span class="lvm-eyebrow">Independent ingredient testing</span>
         <h3 class="lvm-h">We sent it to TNO. <em>Then we read the report.</em></h3>
-        <p class="lvm-lede">Beyond published literature, we commissioned our own ingredient analysis at <strong>TNO</strong> — the Netherlands Organisation for Applied Scientific Research, established by Dutch parliament in 1932. <span class="lvm-ref" data-ref="12">12</span></p>
+        {%- if template.suffix == 'theliokit' -%}
+          <p class="lvm-lede">Beyond published literature, we commissioned our own ingredient analysis at <strong>TNO</strong>. <span class="lvm-ref" data-ref="12">12</span></p>
+        {%- else -%}
+          <p class="lvm-lede">Beyond published literature, we commissioned our own ingredient analysis at <strong>TNO</strong> — the Netherlands Organisation for Applied Scientific Research, established by Dutch parliament in 1932. <span class="lvm-ref" data-ref="12">12</span></p>
+        {%- endif -%}
         <div class="lvm-tests">
           <div class="lvm-test"><div><div class="lvm-test-name">Nicotine</div><p class="lvm-test-desc">Quantitative assay for nicotine and its primary metabolites in core matrix and headspace.</p></div><span class="lvm-test-result">Not detected</span></div>
           <div class="lvm-test"><div><div class="lvm-test-name">Tobacco constituents</div><p class="lvm-test-desc">Screening for tobacco-derived alkaloids and combustion byproducts.</p></div><span class="lvm-test-result">Not detected</span></div>
           <div class="lvm-test"><div><div class="lvm-test-name">Essential-oil identity</div><p class="lvm-test-desc">Constituent profiling, confirming declared plant-derived compounds.</p></div><span class="lvm-test-result">Confirmed</span></div>
           <div class="lvm-test"><div><div class="lvm-test-name">Heavy metals</div><p class="lvm-test-desc">Lead, cadmium, mercury, arsenic at EU cosmetic-grade thresholds.</p></div><span class="lvm-test-result">Below threshold</span></div>
         </div>
-        <div class="lvm-disc"><strong>Important:</strong> An ingredient test confirms what is — and is not — present. It does <em>not</em> establish efficacy as a medical treatment. Lio is a wellness device. Reports available from <a href="mailto:hello@breathelio.com">hello@breathelio.com</a>.</div>
+        {%- assign lvm_email = 'hello@breathelio.com' -%}
+        {%- if template.suffix == 'theliokit' -%}{%- assign lvm_email = 'support@breathelio.com' -%}{%- endif -%}
+        <div class="lvm-disc"><strong>Important:</strong> An ingredient test confirms what is — and is not — present. It does <em>not</em> establish efficacy as a medical treatment. Lio is a wellness device. Reports available from <a href="mailto:{{ lvm_email }}">{{ lvm_email }}</a>.</div>
       </section>
 
       <!-- SAFETY -->
@@ -560,7 +566,11 @@
           <li id="lvm-ref-9"><strong>Kazemi, A., et al. (2024).</strong> <em>Peppermint and menthol: review.</em> Crit. Rev. Food Sci. Nutr.</li>
           <li id="lvm-ref-10"><strong>Sadlon, A. E., &amp; Lamson, D. W. (2010).</strong> <em>Immune-modifying and antimicrobial effects of Eucalyptus oil.</em> Altern. Med. Rev., 15(1), 33–47.</li>
           <li id="lvm-ref-11"><strong>Caldas, G. F. R., et al. (2015).</strong> Therapeutic profile of <em>Eucalyptus globulus</em> essential oil.</li>
-          <li id="lvm-ref-12"><strong>TNO.</strong> Established by Dutch Parliament, 1932. <a href="https://www.tno.nl" target="_blank" rel="noopener">tno.nl</a></li>
+          {%- if template.suffix == 'theliokit' -%}
+            <li id="lvm-ref-12"><strong>TNO.</strong> <a href="https://www.tno.nl" target="_blank" rel="noopener">tno.nl</a></li>
+          {%- else -%}
+            <li id="lvm-ref-12"><strong>TNO.</strong> Established by Dutch Parliament, 1932. <a href="https://www.tno.nl" target="_blank" rel="noopener">tno.nl</a></li>
+          {%- endif -%}
           <li id="lvm-ref-13"><strong>National Academies of Sciences, Engineering, and Medicine. (2018).</strong> <em>Public Health Consequences of E-Cigarettes.</em></li>
           <li id="lvm-ref-14"><strong>Goniewicz, M. L., et al. (2014).</strong> <em>Levels of selected carcinogens and toxicants in vapour from electronic cigarettes.</em> Tob. Control, 23(2), 133–139.</li>
         </ol>

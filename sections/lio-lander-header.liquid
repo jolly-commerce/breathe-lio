@@ -4,6 +4,216 @@
   Renders only on the page.theliokit template (added directly in that template).
 {%- endcomment -%}
 
+{%- if template.suffix == 'theliokit' -%}
+<script>(function(){document.documentElement.classList.add('lio-lander-page');document.body && document.body.classList.add('lio-lander-page');document.addEventListener('DOMContentLoaded',function(){document.body.classList.add('lio-lander-page');});})();</script>
+<style>
+  /* ============================================================
+     theliokit — header simplification + LOGO IMAGE
+     ============================================================ */
+  .lio-lh-nav { display: none !important; }
+  .lio-lh-actions { margin-left: auto; }
+
+  .lio-lh-logo--img { padding: 4px 0; line-height: 0; display: inline-flex; align-items: center; }
+  .lio-lh-logo-img { display: block; height: 32px; width: auto; max-width: 140px; object-fit: contain; }
+  @media (max-width: 900px) { .lio-lh-logo-img { height: 26px; max-width: 112px; } }
+  @media (max-width: 480px) { .lio-lh-logo-img { height: 24px; max-width: 96px; } }
+
+  /* ============================================================
+     theliokit — GLOBAL MOBILE PASS
+     Applies to all sections under .lio-lander-page on screens ≤ 900px.
+     Goals: ≥48px touch targets, fluid type scale, consistent rhythm,
+     no horizontal overflow, breathable spacing, predictable hierarchy.
+     ============================================================ */
+
+  body.lio-lander-page,
+  body.lio-lander-page main { overflow-x: hidden; }
+
+  /* Ensure all images are fluid — never break layout on small screens */
+  .lio-lander-page img:not(.lio-lh-logo-img) { max-width: 100%; height: auto; }
+
+  /* iOS no-zoom-on-focus: minimum 16px on inputs */
+  .lio-lander-page input, .lio-lander-page textarea, .lio-lander-page select { font-size: 16px; }
+
+  /* Generic CTA touch target — anything resembling a primary button */
+  @media (max-width: 900px) {
+    .lio-lander-page .lhx-btn-primary,
+    .lio-lander-page .kb-btn,
+    .lio-lander-page .lfl-btn,
+    .lio-lander-page .lfv-btn,
+    .lio-lander-page .lio-purchase-cta,
+    .lio-lander-page .lio-offer-card-cta,
+    .lio-lander-page .lio-ot-card-cta,
+    .lio-lander-page .lfc-tk-cta,
+    .lio-lander-page .btn-primary {
+      min-height: 52px !important;
+      padding-top: 14px !important;
+      padding-bottom: 14px !important;
+      font-size: 15px !important;
+      letter-spacing: -0.005em !important;
+    }
+    /* Ghost / secondary CTAs */
+    .lio-lander-page .kb-btn-ghost,
+    .lio-lander-page .lhx-btn-ghost,
+    .lio-lander-page .btn-ghost {
+      min-height: 48px !important;
+      padding-top: 12px !important;
+      padding-bottom: 12px !important;
+    }
+    /* Any small interactive pill or chip */
+    .lio-lander-page .lbs-link,
+    .lio-lander-page .lio-offer-customize a,
+    .lio-lander-page .lio-ot-customize a {
+      min-height: 44px !important;
+      display: inline-flex !important;
+      align-items: center;
+    }
+    /* Tap highlight */
+    .lio-lander-page button,
+    .lio-lander-page a {
+      -webkit-tap-highlight-color: rgba(11,36,16,0.08);
+    }
+    /* :active feedback */
+    .lio-lander-page .lhx-btn-primary:active,
+    .lio-lander-page .lio-ot-card-cta:active,
+    .lio-lander-page .lfc-tk-cta:active,
+    .lio-lander-page .kb-btn:active { transform: scale(0.98); }
+  }
+
+  /* Vertical rhythm — section padding (one consistent value).
+     Existing rules in this section file already cap horizontal padding;
+     here we tune vertical only. */
+  @media (max-width: 768px) {
+    .lio-lander-page .lhx-hero,
+    .lio-lander-page .lbs,
+    .lio-lander-page .lio-qf,
+    .lio-lander-page .section-lio-offer-tiers .lio-ot,
+    .lio-lander-page .lsp-section,
+    .lio-lander-page .flavored-air,
+    .lio-lander-page .how,
+    .lio-lander-page .killblock,
+    .lio-lander-page .flavors,
+    .lio-lander-page .levp,
+    .lio-lander-page .costcomp,
+    .lio-lander-page .faq,
+    .lio-lander-page .lfc-tk { padding-top: 40px !important; padding-bottom: 40px !important; }
+    .lio-lander-page .lhx-hero { padding-top: 20px !important; padding-bottom: 28px !important; }
+    .lio-lander-page .lbs { padding-top: 18px !important; padding-bottom: 22px !important; }
+    .lio-lander-page .lio-qf { padding-top: 28px !important; padding-bottom: 36px !important; }
+  }
+  @media (max-width: 480px) {
+    .lio-lander-page .lhx-hero,
+    .lio-lander-page .lbs,
+    .lio-lander-page .lio-qf,
+    .lio-lander-page .section-lio-offer-tiers .lio-ot,
+    .lio-lander-page .lsp-section,
+    .lio-lander-page .flavored-air,
+    .lio-lander-page .how,
+    .lio-lander-page .killblock,
+    .lio-lander-page .flavors,
+    .lio-lander-page .levp,
+    .lio-lander-page .costcomp,
+    .lio-lander-page .faq,
+    .lio-lander-page .lfc-tk { padding-top: 32px !important; padding-bottom: 32px !important; }
+    .lio-lander-page .lhx-hero { padding-top: 16px !important; padding-bottom: 24px !important; }
+  }
+
+  /* Typography scale for mobile — predictable, never giant */
+  @media (max-width: 768px) {
+    .lio-lander-page h1, .lio-lander-page .lhx-title { font-size: clamp(38px, 9vw, 48px) !important; line-height: 1.0 !important; letter-spacing: -0.04em !important; }
+    .lio-lander-page h2:not(.lhx-title) { font-size: clamp(24px, 6.2vw, 30px) !important; line-height: 1.1 !important; letter-spacing: -0.025em !important; }
+    .lio-lander-page h3:not(.lhx-title) { font-size: clamp(18px, 4.6vw, 22px) !important; line-height: 1.2 !important; }
+    .lio-lander-page p { font-size: 14.5px; line-height: 1.6; }
+    /* Hero subhead a touch larger for readability */
+    .lio-lander-page .lhx-sub { font-size: 15px !important; line-height: 1.55 !important; }
+  }
+
+  /* Sticky header on mobile — keep tight + safe-area aware */
+  @media (max-width: 768px) {
+    .lio-lh-bar {
+      padding: 10px 16px !important;
+      padding-top: max(10px, env(safe-area-inset-top)) !important;
+    }
+    .lio-lh-cta { padding: 9px 14px !important; font-size: 12.5px !important; }
+    .lio-lh-cart { width: 36px !important; height: 36px !important; }
+    .lio-lh-actions { gap: 10px !important; }
+  }
+
+  /* Killblock — ensure dark-on-light contrast + mobile padding inside */
+  @media (max-width: 768px) {
+    .lio-killblock-v33 { padding: 48px 20px !important; }
+    .lio-killblock-v33 .kb-h { font-size: clamp(28px, 7.2vw, 34px) !important; line-height: 1.05 !important; }
+    .lio-killblock-v33 .kb-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+  }
+
+  /* Flavored-air explainer — center text on mobile, image stacks */
+  @media (max-width: 768px) {
+    .lio-lander-page .flavored-air .lfl-grid,
+    .lio-lander-page .lfl-section .lfl-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  }
+
+  /* Flavors picker — touch-friendly tabs */
+  @media (max-width: 768px) {
+    .lio-lander-page .lfv-tabs,
+    .lio-lander-page .flavors .tabs {
+      gap: 6px !important;
+      padding: 4px !important;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .lio-lander-page .lfv-tabs::-webkit-scrollbar,
+    .lio-lander-page .flavors .tabs::-webkit-scrollbar { display: none; }
+    .lio-lander-page .lfv-tab,
+    .lio-lander-page .flavors .tab {
+      flex-shrink: 0 !important;
+      scroll-snap-align: center !important;
+      min-height: 44px !important;
+    }
+  }
+
+  /* PDP builder — single column always on mobile, tightened */
+  @media (max-width: 980px) {
+    .lio-lander-page .lio-pdp { display: flex !important; flex-direction: column !important; gap: 22px !important; }
+    .lio-lander-page .lio-pdp-config { width: 100% !important; }
+  }
+  @media (max-width: 768px) {
+    .lio-lander-page .lio-device-options { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+    .lio-lander-page .lio-device-card { padding: 14px 10px !important; min-height: 200px; }
+    .lio-lander-page .lio-preset-grid { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+    .lio-lander-page .lio-preset { min-height: 110px !important; }
+    .lio-lander-page .lio-flavor-list { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+    .lio-lander-page .lio-rhythm-toggle { gap: 6px !important; }
+    .lio-lander-page .lio-rhythm-opt { padding: 12px 10px !important; min-height: 56px; }
+    .lio-lander-page .lio-totals-row { font-size: 13.5px; }
+    .lio-lander-page .lio-pdp-h1 { font-size: clamp(24px, 6vw, 30px) !important; line-height: 1.1 !important; }
+  }
+
+  /* Social proof — give review carousel breathing room + larger taps */
+  @media (max-width: 768px) {
+    .lio-lander-page .lsp-section,
+    .lio-lander-page .social-proof { padding-left: 0 !important; padding-right: 0 !important; }
+    .lio-lander-page .lsp-rail,
+    .lio-lander-page .lsp-track { padding-left: 20px; padding-right: 20px; }
+  }
+
+  /* Evidence cards — 2-up always on mobile */
+  @media (max-width: 768px) {
+    .lio-lander-page .levp .lv-grid { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+  }
+
+  /* FAQ section — bigger tap area */
+  @media (max-width: 768px) {
+    .lio-lander-page .faq summary { min-height: 56px !important; padding: 18px 4px !important; }
+  }
+
+  /* Reduced motion respect */
+  @media (prefers-reduced-motion: reduce) {
+    .lio-lander-page * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+</style>
+{%- endif -%}
+
 <style>
   /* smooth in-page scrolling + sticky-header offset for any anchor target on this lander */
   html { scroll-behavior: smooth; }
@@ -409,8 +619,12 @@
 </div>
 
 <header class="lio-lh-bar">
-  <a href="{{ section.settings.logo_link | default: '#' }}" class="lio-lh-logo">
-    {{ section.settings.logo_text | default: 'Lio' }}
+  <a href="{{ section.settings.logo_link | default: '#' }}" class="lio-lh-logo{% if section.settings.logo_image_url != blank %} lio-lh-logo--img{% endif %}" aria-label="{{ section.settings.logo_text | default: 'Lio' | escape }}">
+    {%- if section.settings.logo_image_url != blank -%}
+      <img src="{{ section.settings.logo_image_url }}" alt="{{ section.settings.logo_text | default: 'Lio' | escape }}" class="lio-lh-logo-img" width="120" height="40" loading="eager" decoding="async">
+    {%- else -%}
+      {{ section.settings.logo_text | default: 'Lio' }}
+    {%- endif -%}
   </a>
 
   <nav class="lio-lh-nav" aria-label="Page sections">
@@ -675,8 +889,9 @@
     { "type": "color",    "id": "announce_bg",   "label": "Announcement background", "default": "#1f3a2c" },
     { "type": "color",    "id": "announce_color","label": "Announcement text color", "default": "#f5f1eb" },
     { "type": "header",   "content": "Logo & CTA" },
-    { "type": "text",     "id": "logo_text",  "label": "Logo text",  "default": "Lio" },
-    { "type": "url",      "id": "logo_link",  "label": "Logo link",  "info": "Defaults to current page" },
+    { "type": "text",     "id": "logo_text",      "label": "Logo text (alt + fallback)",  "default": "Lio" },
+    { "type": "text",     "id": "logo_image_url", "label": "Logo image URL (overrides text when set)" },
+    { "type": "url",      "id": "logo_link",      "label": "Logo link",  "info": "Defaults to current page" },
     { "type": "checkbox", "id": "show_cart",  "label": "Show cart icon", "default": true },
     { "type": "url",      "id": "cta_link",   "label": "CTA link",   "info": "Should anchor to the configurator section. Label is translated automatically." },
     { "type": "header",   "content": "Country / currency switcher" },

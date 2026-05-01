@@ -1,0 +1,492 @@
+{%- comment -%}
+  ==================================================================
+  LIO · OFFER TIERS (Theliokit LP)
+  Above-the-fold bundle ladder. 3 opinionated tiers; bestseller
+  centered + elevated. Each tier CTA either scrolls to the kit
+  configurator (default) or, when a variant ID is provided, sends
+  the visitor straight to /cart/add?id=...&quantity=1.
+  Designed for one-glance comprehension on cold ad traffic.
+  ==================================================================
+{%- endcomment -%}
+
+{%- liquid
+  assign cart_url = routes.cart_url
+  assign builder_anchor = section.settings.builder_anchor | default: '#shopify-section-main'
+
+  assign t1_variant = section.settings.tier_1_variant_id
+  assign t2_variant = section.settings.tier_2_variant_id
+  assign t3_variant = section.settings.tier_3_variant_id
+
+  if t1_variant != blank
+    assign t1_href = cart_url | append: '/add?id=' | append: t1_variant | append: '&quantity=1'
+  else
+    assign t1_href = builder_anchor
+  endif
+  if t2_variant != blank
+    assign t2_href = cart_url | append: '/add?id=' | append: t2_variant | append: '&quantity=1'
+  else
+    assign t2_href = builder_anchor
+  endif
+  if t3_variant != blank
+    assign t3_href = cart_url | append: '/add?id=' | append: t3_variant | append: '&quantity=1'
+  else
+    assign t3_href = builder_anchor
+  endif
+-%}
+
+<section class="lio-ot" id="shopify-section-{{ section.id }}-content" aria-labelledby="lio-ot-title">
+  <div class="lio-ot-inner">
+    <header class="lio-ot-head">
+      <span class="lio-ot-eyebrow">{{ section.settings.eyebrow | default: 'The kit · Pick a path' }}</span>
+      <h2 class="lio-ot-h2" id="lio-ot-title">
+        {{ section.settings.title_pre | default: 'Pick the level.' }}
+        <em>{{ section.settings.title_em | default: "We've already done the matching." }}</em>
+      </h2>
+      <p class="lio-ot-sub">{{ section.settings.subhead | default: "Three opinionated bundles. Six cores. Every kit ready to ship from Amsterdam. The bestseller is what 8 in 10 people pick — for a reason." }}</p>
+    </header>
+
+    <div class="lio-ot-grid" role="radiogroup" aria-label="Choose a kit">
+
+      {%- comment -%} =================== TIER 1 =================== {%- endcomment -%}
+      <article class="lio-ot-card" data-tier="starter">
+        <div class="lio-ot-card-tag">{{ section.settings.tier_1_tag | default: 'Starter' }}</div>
+        <h3 class="lio-ot-card-name">{{ section.settings.tier_1_name | default: 'The Starter' }}</h3>
+        <p class="lio-ot-card-line">{{ section.settings.tier_1_line | default: 'Try the ritual for a month.' }}</p>
+
+        <ul class="lio-ot-card-includes">
+          <li>1 wooden device · choose olive or walnut</li>
+          <li>3 flavor bags (Minty Magic, Cinnamon Spice, Ohh My Orange)</li>
+          <li>30 days of cores included</li>
+          <li>90-day money-back · free worldwide shipping</li>
+        </ul>
+
+        <div class="lio-ot-card-price">
+          <span class="lio-ot-card-price-now">{{ section.settings.tier_1_price | default: '€39' }}</span>
+          {%- if section.settings.tier_1_was != blank -%}
+            <span class="lio-ot-card-price-was">{{ section.settings.tier_1_was }}</span>
+          {%- endif -%}
+        </div>
+        <span class="lio-ot-card-perday">{{ section.settings.tier_1_perday | default: '~€1.30/day · then refills from €0.88/day' }}</span>
+
+        <a href="{{ t1_href }}" class="lio-ot-card-cta" data-tier-cta="starter">
+          {{ section.settings.tier_1_cta | default: 'Choose Starter' }}
+          <span aria-hidden="true">→</span>
+        </a>
+      </article>
+
+      {%- comment -%} =================== TIER 2 =================== {%- endcomment -%}
+      <article class="lio-ot-card lio-ot-card--hero" data-tier="bestseller" aria-current="true">
+        <div class="lio-ot-card-flag">{{ section.settings.tier_2_flag | default: 'Most popular · Save 21%' }}</div>
+        <div class="lio-ot-card-tag">{{ section.settings.tier_2_tag | default: 'Bestseller' }}</div>
+        <h3 class="lio-ot-card-name">{{ section.settings.tier_2_name | default: 'The 60-Day Kit' }}</h3>
+        <p class="lio-ot-card-line">{{ section.settings.tier_2_line | default: "Where 8 in 10 people land. Long enough for the habit to actually shift." }}</p>
+
+        <ul class="lio-ot-card-includes">
+          <li>1 wooden device · choose olive or walnut</li>
+          <li><strong>6 flavor bags</strong> · curated mix across all 6 cores</li>
+          <li><strong>60 days</strong> of cores included</li>
+          <li>Free travel pouch (€9.95 value)</li>
+          <li>10% off refills, forever (with subscribe)</li>
+          <li>90-day money-back · free worldwide shipping</li>
+        </ul>
+
+        <div class="lio-ot-card-price">
+          <span class="lio-ot-card-price-now">{{ section.settings.tier_2_price | default: '€69' }}</span>
+          <span class="lio-ot-card-price-was">{{ section.settings.tier_2_was | default: '€87' }}</span>
+        </div>
+        <span class="lio-ot-card-perday">{{ section.settings.tier_2_perday | default: '~€1.15/day · then refills from €0.79/day' }}</span>
+
+        <a href="{{ t2_href }}" class="lio-ot-card-cta lio-ot-card-cta--primary" data-tier-cta="bestseller">
+          {{ section.settings.tier_2_cta | default: 'Choose 60-Day Kit' }}
+          <span aria-hidden="true">→</span>
+        </a>
+      </article>
+
+      {%- comment -%} =================== TIER 3 =================== {%- endcomment -%}
+      <article class="lio-ot-card" data-tier="couples">
+        <div class="lio-ot-card-flag lio-ot-card-flag--soft">{{ section.settings.tier_3_flag | default: 'Save 32% · Two kits, one price' }}</div>
+        <div class="lio-ot-card-tag">{{ section.settings.tier_3_tag | default: "Couple's" }}</div>
+        <h3 class="lio-ot-card-name">{{ section.settings.tier_3_name | default: 'Quit Together' }}</h3>
+        <p class="lio-ot-card-line">{{ section.settings.tier_3_line | default: 'Two devices, one ritual. Quitting alone is hard. Together, it sticks.' }}</p>
+
+        <ul class="lio-ot-card-includes">
+          <li><strong>2 wooden devices</strong> · pick wood for each</li>
+          <li><strong>12 flavor bags</strong> · the full curated mix</li>
+          <li><strong>90 days</strong> of cores for two</li>
+          <li>2× travel pouches included</li>
+          <li>25% off refills, forever (with subscribe)</li>
+          <li>90-day money-back · free worldwide shipping</li>
+        </ul>
+
+        <div class="lio-ot-card-price">
+          <span class="lio-ot-card-price-now">{{ section.settings.tier_3_price | default: '€119' }}</span>
+          <span class="lio-ot-card-price-was">{{ section.settings.tier_3_was | default: '€174' }}</span>
+        </div>
+        <span class="lio-ot-card-perday">{{ section.settings.tier_3_perday | default: '~€0.66/day per person · refills from €0.59/day' }}</span>
+
+        <a href="{{ t3_href }}" class="lio-ot-card-cta" data-tier-cta="couples">
+          {{ section.settings.tier_3_cta | default: 'Choose Quit Together' }}
+          <span aria-hidden="true">→</span>
+        </a>
+      </article>
+
+    </div>
+
+    {%- comment -%} =================== RISK REVERSAL STACK =================== {%- endcomment -%}
+    <ul class="lio-ot-trust" role="list">
+      <li>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        <span><strong>90-day money-back.</strong> Used or not.</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h13l3 4v6h-2"/><path d="M2 7v10h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+        <span><strong>Free worldwide shipping.</strong> Tracked, 2–7 days.</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span><strong>Pause or cancel anytime.</strong> No lock-in.</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M7 6V4h10v2"/><path d="M3 11h18"/></svg>
+        <span><strong>iDEAL · Klarna · Apple Pay.</strong> All major cards.</span>
+      </li>
+    </ul>
+
+    <p class="lio-ot-customize">
+      <a href="{{ builder_anchor }}">{{ section.settings.customize_label | default: 'Or build your kit your way →' }}</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  /* ============================================================
+     LIO · OFFER TIERS — scoped styles (.lio-ot)
+     ============================================================ */
+  .lio-ot {
+    --lo-forest:    #0b2410;
+    --lo-forest-2:  #143b21;
+    --lo-cream:     #fcfefb;
+    --lo-paper:     #f4f7f2;
+    --lo-paper-2:   #f8faf6;
+    --lo-mint:      #94fca9;
+    --lo-mint-soft: #cdfee1;
+    --lo-line-08:   rgba(11,36,16,0.08);
+    --lo-line-12:   rgba(11,36,16,0.12);
+    --lo-line-22:   rgba(11,36,16,0.22);
+    --lo-text-72:   rgba(11,36,16,0.72);
+    --lo-text-55:   rgba(11,36,16,0.55);
+    --lo-text-40:   rgba(11,36,16,0.40);
+    --lo-mono: "iA Writer Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    background: var(--lo-paper-2);
+    color: var(--lo-forest);
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    padding: 64px 24px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .lio-ot *, .lio-ot *::before, .lio-ot *::after { box-sizing: border-box; }
+
+  .lio-ot-inner { max-width: 1180px; margin: 0 auto; }
+
+  /* ---- Header ---- */
+  .lio-ot-head { text-align: center; margin-bottom: 36px; }
+  .lio-ot-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--lo-mono);
+    font-size: 11px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--lo-text-55);
+    font-weight: 700; margin-bottom: 14px;
+  }
+  .lio-ot-eyebrow::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--lo-mint);
+  }
+  .lio-ot-h2 {
+    margin: 0 0 12px;
+    font-size: clamp(28px, 4.6vw, 44px);
+    line-height: 1.04; letter-spacing: -0.03em;
+    font-weight: 800; color: var(--lo-forest);
+  }
+  .lio-ot-h2 em { font-style: italic; font-weight: 300; }
+  .lio-ot-sub {
+    margin: 0 auto; max-width: 580px;
+    font-size: 15px; line-height: 1.6;
+    color: var(--lo-text-72);
+  }
+
+  /* ---- Grid ---- */
+  .lio-ot-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 32px;
+    align-items: stretch;
+  }
+  @media (min-width: 880px) {
+    .lio-ot-grid {
+      grid-template-columns: 1fr 1.08fr 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+  }
+
+  /* ---- Card ---- */
+  .lio-ot-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid var(--lo-line-12);
+    border-radius: 18px;
+    padding: 26px 24px 24px;
+    display: flex; flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+  }
+  .lio-ot-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(11,36,16,0.06);
+    border-color: var(--lo-line-22);
+  }
+  .lio-ot-card-tag {
+    font-family: var(--lo-mono);
+    font-size: 10px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--lo-text-55);
+    font-weight: 700; margin-bottom: 8px;
+  }
+  .lio-ot-card-name {
+    margin: 0 0 6px;
+    font-size: 22px; line-height: 1.1;
+    font-weight: 800; letter-spacing: -0.02em;
+    color: var(--lo-forest);
+  }
+  .lio-ot-card-line {
+    margin: 0 0 18px;
+    font-size: 13px; line-height: 1.55;
+    color: var(--lo-text-72);
+  }
+
+  .lio-ot-card-includes {
+    list-style: none; padding: 0; margin: 0 0 22px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .lio-ot-card-includes li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13px; line-height: 1.45;
+    color: var(--lo-text-72);
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--lo-line-08);
+  }
+  .lio-ot-card-includes li:last-child { border-bottom: 0; }
+  .lio-ot-card-includes li::before {
+    content: "";
+    flex-shrink: 0;
+    width: 16px; height: 16px;
+    margin-top: 1px;
+    background: var(--lo-mint-soft);
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b2410' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
+    background-size: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .lio-ot-card-includes li strong { color: var(--lo-forest); font-weight: 600; }
+
+  /* ---- Price ---- */
+  .lio-ot-card-price {
+    display: flex; align-items: baseline; gap: 10px;
+    margin: 4px 0 4px;
+  }
+  .lio-ot-card-price-now {
+    font-size: 36px; line-height: 1; font-weight: 900;
+    letter-spacing: -0.03em; color: var(--lo-forest);
+  }
+  .lio-ot-card-price-was {
+    font-size: 16px; font-weight: 600;
+    color: var(--lo-text-40); text-decoration: line-through;
+  }
+  .lio-ot-card-perday {
+    font-size: 12px; color: var(--lo-text-55);
+    margin-bottom: 18px;
+  }
+
+  /* ---- CTA ---- */
+  .lio-ot-card-cta {
+    display: inline-flex; align-items: center; justify-content: space-between;
+    gap: 10px;
+    padding: 14px 18px;
+    background: var(--lo-cream); color: var(--lo-forest);
+    border: 1.5px solid var(--lo-forest);
+    border-radius: 999px;
+    font-size: 14px; font-weight: 700;
+    text-decoration: none;
+    transition: background 0.18s ease, color 0.18s ease, transform 0.15s ease;
+    margin-top: auto;
+  }
+  .lio-ot-card-cta:hover {
+    background: var(--lo-forest); color: var(--lo-cream);
+    transform: translateY(-1px);
+  }
+  .lio-ot-card-cta--primary {
+    background: var(--lo-forest); color: var(--lo-cream);
+    border-color: var(--lo-forest);
+  }
+  .lio-ot-card-cta--primary:hover {
+    background: var(--lo-forest-2); color: var(--lo-cream);
+  }
+
+  /* ---- Bestseller hero card ---- */
+  .lio-ot-card--hero {
+    background: var(--lo-cream);
+    border: 1.5px solid var(--lo-forest);
+    box-shadow: 0 24px 50px rgba(11,36,16,0.10);
+    padding-top: 38px;
+  }
+  @media (min-width: 880px) {
+    .lio-ot-card--hero { transform: scale(1.02); }
+    .lio-ot-card--hero:hover { transform: scale(1.02) translateY(-2px); }
+  }
+  .lio-ot-card-flag {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--lo-forest); color: var(--lo-mint);
+    font-family: var(--lo-mono);
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 700;
+    padding: 6px 14px; border-radius: 999px;
+    white-space: nowrap;
+  }
+  .lio-ot-card-flag--soft {
+    background: var(--lo-mint-soft); color: var(--lo-forest);
+  }
+  .lio-ot-card--hero .lio-ot-card-name { font-size: 26px; }
+  .lio-ot-card--hero .lio-ot-card-price-now { font-size: 44px; }
+
+  /* ---- Trust strip ---- */
+  .lio-ot-trust {
+    list-style: none; padding: 0;
+    margin: 36px auto 0;
+    max-width: 880px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 18px;
+  }
+  @media (min-width: 720px) {
+    .lio-ot-trust { grid-template-columns: repeat(4, 1fr); gap: 14px 22px; }
+  }
+  .lio-ot-trust li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 12px; line-height: 1.45;
+    color: var(--lo-text-72);
+  }
+  .lio-ot-trust li svg {
+    flex-shrink: 0; color: var(--lo-forest); margin-top: 1px;
+  }
+  .lio-ot-trust li strong { color: var(--lo-forest); font-weight: 600; }
+
+  /* ---- Customize link ---- */
+  .lio-ot-customize {
+    text-align: center; margin: 28px 0 0; font-size: 13px;
+  }
+  .lio-ot-customize a {
+    color: var(--lo-forest); text-decoration: none;
+    border-bottom: 1px solid var(--lo-line-22);
+    padding-bottom: 2px; font-weight: 600;
+    transition: border-color 0.15s ease;
+  }
+  .lio-ot-customize a:hover { border-color: var(--lo-forest); }
+
+  /* ---- Mobile compaction ---- */
+  @media (max-width: 879px) {
+    .lio-ot { padding: 48px 16px; }
+    .lio-ot-card { padding: 22px 20px 20px; }
+    .lio-ot-card--hero {
+      padding-top: 32px;
+      order: -1; /* float bestseller to the top on mobile */
+    }
+    .lio-ot-card-name { font-size: 20px; }
+    .lio-ot-card--hero .lio-ot-card-name { font-size: 22px; }
+    .lio-ot-card-price-now { font-size: 32px; }
+    .lio-ot-card--hero .lio-ot-card-price-now { font-size: 38px; }
+    .lio-ot-card-includes li { font-size: 12.5px; }
+  }
+
+  /* ---- Reduced motion ---- */
+  @media (prefers-reduced-motion: reduce) {
+    .lio-ot-card,
+    .lio-ot-card-cta { transition: none; }
+    .lio-ot-card:hover,
+    .lio-ot-card--hero:hover { transform: none; }
+  }
+</style>
+
+<script>
+  (function () {
+    var section = document.getElementById('shopify-section-{{ section.id }}-content');
+    if (!section) return;
+    section.querySelectorAll('[data-tier-cta]').forEach(function (cta) {
+      cta.addEventListener('click', function (e) {
+        var tier = cta.getAttribute('data-tier-cta');
+        try {
+          window.dispatchEvent(new CustomEvent('lio-offer:select', { detail: { tier: tier } }));
+        } catch (err) {}
+        var href = cta.getAttribute('href') || '';
+        if (href.charAt(0) === '#') {
+          var target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Lio · Offer tiers",
+  "tag": "section",
+  "class": "section-lio-offer-tiers",
+  "settings": [
+    { "type": "header",   "content": "Header" },
+    { "type": "text",     "id": "eyebrow",     "label": "Eyebrow",      "default": "The kit · Pick a path" },
+    { "type": "text",     "id": "title_pre",   "label": "Title (start)","default": "Pick the level." },
+    { "type": "text",     "id": "title_em",    "label": "Title (italic)","default": "We've already done the matching." },
+    { "type": "textarea", "id": "subhead",     "label": "Subhead",      "default": "Three opinionated bundles. Six cores. Every kit ready to ship from Amsterdam. The bestseller is what 8 in 10 people pick — for a reason." },
+
+    { "type": "header",   "content": "Tier 1 · Starter" },
+    { "type": "text",     "id": "tier_1_tag",   "label": "Tag",         "default": "Starter" },
+    { "type": "text",     "id": "tier_1_name",  "label": "Name",        "default": "The Starter" },
+    { "type": "text",     "id": "tier_1_line",  "label": "One-liner",   "default": "Try the ritual for a month." },
+    { "type": "text",     "id": "tier_1_price", "label": "Price",       "default": "€39" },
+    { "type": "text",     "id": "tier_1_was",   "label": "Strikethrough price (optional)" },
+    { "type": "text",     "id": "tier_1_perday","label": "Per-day line","default": "~€1.30/day · then refills from €0.88/day" },
+    { "type": "text",     "id": "tier_1_cta",   "label": "Button label","default": "Choose Starter" },
+    { "type": "text",     "id": "tier_1_variant_id", "label": "Shopify variant ID (optional, direct add-to-cart)" },
+
+    { "type": "header",   "content": "Tier 2 · Bestseller" },
+    { "type": "text",     "id": "tier_2_flag",  "label": "Flag",        "default": "Most popular · Save 21%" },
+    { "type": "text",     "id": "tier_2_tag",   "label": "Tag",         "default": "Bestseller" },
+    { "type": "text",     "id": "tier_2_name",  "label": "Name",        "default": "The 60-Day Kit" },
+    { "type": "text",     "id": "tier_2_line",  "label": "One-liner",   "default": "Where 8 in 10 people land. Long enough for the habit to actually shift." },
+    { "type": "text",     "id": "tier_2_price", "label": "Price",       "default": "€69" },
+    { "type": "text",     "id": "tier_2_was",   "label": "Strikethrough price","default": "€87" },
+    { "type": "text",     "id": "tier_2_perday","label": "Per-day line","default": "~€1.15/day · then refills from €0.79/day" },
+    { "type": "text",     "id": "tier_2_cta",   "label": "Button label","default": "Choose 60-Day Kit" },
+    { "type": "text",     "id": "tier_2_variant_id", "label": "Shopify variant ID (optional)" },
+
+    { "type": "header",   "content": "Tier 3 · Couple's" },
+    { "type": "text",     "id": "tier_3_flag",  "label": "Flag",        "default": "Save 32% · Two kits, one price" },
+    { "type": "text",     "id": "tier_3_tag",   "label": "Tag",         "default": "Couple's" },
+    { "type": "text",     "id": "tier_3_name",  "label": "Name",        "default": "Quit Together" },
+    { "type": "text",     "id": "tier_3_line",  "label": "One-liner",   "default": "Two devices, one ritual. Quitting alone is hard. Together, it sticks." },
+    { "type": "text",     "id": "tier_3_price", "label": "Price",       "default": "€119" },
+    { "type": "text",     "id": "tier_3_was",   "label": "Strikethrough price","default": "€174" },
+    { "type": "text",     "id": "tier_3_perday","label": "Per-day line","default": "~€0.66/day per person · refills from €0.59/day" },
+    { "type": "text",     "id": "tier_3_cta",   "label": "Button label","default": "Choose Quit Together" },
+    { "type": "text",     "id": "tier_3_variant_id", "label": "Shopify variant ID (optional)" },
+
+    { "type": "header",   "content": "Footer" },
+    { "type": "text",     "id": "customize_label", "label": "Customize link label", "default": "Or build your kit your way →" },
+    { "type": "text",     "id": "builder_anchor",  "label": "Builder anchor (where customize + fallback CTAs scroll to)", "default": "#shopify-section-main" }
+  ],
+  "presets": [{ "name": "Lio · Offer tiers" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

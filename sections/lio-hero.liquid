@@ -10,6 +10,14 @@
   assign alt = section.settings.hero_image_alt | default: 'A Lio wooden diffuser held in the hand'
 -%}
 
+{%- if template.suffix == 'theliokit' -%}
+<style>
+  /* theliokit: clean hero — single primary CTA, no secondary noise */
+  .lio-hero-2026 .lhx-btn-ghost,
+  .lio-hero-2026 .lhx-refills { display: none !important; }
+</style>
+{%- endif -%}
+
 <div class="lio-hero-2026">
 
   <div class="lhx-hero">

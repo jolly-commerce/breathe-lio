@@ -1,4 +1,167 @@
-<!-- ================== SECTION 12: FINAL CTA ================== -->
+{%- if template.suffix == 'theliokit' -%}
+<!-- ============== FINAL CTA · Theliokit (rebuilt) ============== -->
+<section class="lfc-tk">
+  <div class="lfc-tk-inner">
+    <span class="lfc-tk-eyebrow">{{ 'lander.finalcta.eyebrow' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+    <h2 class="lfc-tk-h2">
+      {{ 'lander.finalcta.h2_pre' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+      <em>{{ 'lander.finalcta.h2_em' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</em>
+      {{ 'lander.finalcta.h2_post' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+      <span class="lfc-tk-soft">{{ 'lander.finalcta.h2_soft' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+    </h2>
+    <p class="lfc-tk-sub">{{ 'lander.finalcta.sub' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
+
+    <a href="{{ section.settings.cta_link | default: '#shopify-section-offer' }}" class="lfc-tk-cta">
+      <span>{{ section.settings.cta_label | default: 'Pick your kit — from €39' }}</span>
+      <span class="lfc-tk-cta-arrow" aria-hidden="true">
+        <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10m-4-4 4 4-4 4"/></svg>
+      </span>
+    </a>
+
+    <ul class="lfc-tk-trust" role="list">
+      <li>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        <span>90-day money-back</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h13l3 4v6h-2"/><path d="M2 7v10h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+        <span>Free worldwide shipping</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span>Pause or cancel anytime</span>
+      </li>
+    </ul>
+
+    <p class="lfc-tk-mini">
+      <strong>4.6 ★</strong> · 3,086 verified reviews · 150,000+ habits broken since 2018
+    </p>
+  </div>
+</section>
+
+<style>
+  .lfc-tk {
+    --f-forest:    #0b2410;
+    --f-forest-2:  #143b21;
+    --f-cream:     #fcfefb;
+    --f-mint:      #94fca9;
+    --f-mint-soft: #cdfee1;
+    --f-mono: "iA Writer Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    background: var(--f-forest);
+    color: var(--f-cream);
+    padding: 88px 28px;
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow: hidden;
+  }
+  .lfc-tk::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(600px circle at 80% 10%, rgba(148,252,169,0.10) 0%, transparent 60%),
+      radial-gradient(500px circle at 10% 90%, rgba(148,252,169,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .lfc-tk *, .lfc-tk *::before, .lfc-tk *::after { box-sizing: border-box; position: relative; }
+  .lfc-tk-inner { max-width: 720px; margin: 0 auto; }
+
+  .lfc-tk-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--f-mono);
+    font-size: 11px; letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(252,254,251,0.65);
+    font-weight: 700; margin-bottom: 18px;
+  }
+  .lfc-tk-eyebrow::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--f-mint);
+  }
+  .lfc-tk-h2 {
+    margin: 0 0 14px;
+    font-size: clamp(32px, 5.6vw, 52px);
+    line-height: 1.04; letter-spacing: -0.035em;
+    font-weight: 800;
+    color: var(--f-cream);
+  }
+  .lfc-tk-h2 em { font-style: italic; font-weight: 300; color: var(--f-mint); }
+  .lfc-tk-h2 .lfc-tk-soft { color: rgba(252,254,251,0.55); font-weight: 300; }
+  .lfc-tk-sub {
+    margin: 0 auto 32px;
+    max-width: 540px;
+    font-size: 16px; line-height: 1.6;
+    color: rgba(252,254,251,0.75);
+  }
+
+  .lfc-tk-cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 12px;
+    padding: 16px 26px;
+    background: var(--f-mint);
+    color: var(--f-forest);
+    border-radius: 999px;
+    font-size: 15px; font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(148, 252, 169, 0.20);
+    transition: background 0.18s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  }
+  .lfc-tk-cta:hover {
+    background: var(--f-cream);
+    transform: translateY(-1px);
+    box-shadow: 0 14px 36px rgba(148, 252, 169, 0.30);
+  }
+  .lfc-tk-cta-arrow {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--f-forest);
+    color: var(--f-mint);
+    display: inline-flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .lfc-tk-trust {
+    list-style: none; padding: 0; margin: 28px 0 16px;
+    display: flex; flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 22px;
+  }
+  .lfc-tk-trust li {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 12.5px;
+    color: rgba(252,254,251,0.78);
+  }
+  .lfc-tk-trust li svg { color: var(--f-mint); flex-shrink: 0; }
+
+  .lfc-tk-mini {
+    margin: 0;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: rgba(252,254,251,0.55);
+  }
+  .lfc-tk-mini strong {
+    color: var(--f-mint);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 720px) {
+    .lfc-tk { padding: 64px 24px; }
+    .lfc-tk-cta { padding: 14px 22px; font-size: 14px; }
+    .lfc-tk-trust { gap: 6px 16px; }
+    .lfc-tk-trust li { font-size: 12px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lfc-tk-cta { transition: none; }
+    .lfc-tk-cta:hover { transform: none; }
+  }
+</style>
+{%- else -%}
+<!-- ================== SECTION 12: FINAL CTA (legacy) ================== -->
 <section class="finalcta">
   <div class="finalcta-inner">
     <div class="finalcta-content">
@@ -33,6 +196,7 @@
     </div>
   </div>
 </section>
+{%- endif -%}
 
 {% schema %}
 {

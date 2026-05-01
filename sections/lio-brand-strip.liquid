@@ -1,0 +1,480 @@
+{%- comment -%}
+  ==================================================================
+  LIO · BRAND STRIP (Theliokit)
+  Replaces lio-brand-cred for the LP. A premium, scannable strip:
+  – Geo shipping line (origin + dest + free + days, with country flag)
+  – Four icon USPs (no chunky cards — clean hairline pills)
+  – One "Why we built Lio →" link opens a refined story modal
+  ==================================================================
+{%- endcomment -%}
+
+{%- liquid
+  assign ship_country = localization.country.name | default: 'your country'
+  assign ship_iso = localization.country.iso_code | default: ''
+  case ship_iso
+    when 'NL', 'BE', 'DE', 'LU', 'FR'
+      assign ship_days = '1–2'
+    when 'AT', 'IT', 'ES', 'PT', 'IE', 'DK', 'PL', 'CZ', 'SE', 'FI', 'GR', 'HU', 'SK', 'BG', 'RO', 'HR', 'SI', 'EE', 'LV', 'LT', 'CY'
+      assign ship_days = '2–3'
+    when 'GB', 'CH', 'NO', 'IS', 'MT'
+      assign ship_days = '3–4'
+    when 'US', 'CA'
+      assign ship_days = '5–7'
+    when 'AE', 'SA', 'AU', 'NZ', 'JP', 'SG'
+      assign ship_days = '6–9'
+    else
+      assign ship_days = '4–8'
+  endcase
+
+  assign dest_flag = ship_iso | replace: 'A','🇦' | replace: 'B','🇧' | replace: 'C','🇨' | replace: 'D','🇩' | replace: 'E','🇪' | replace: 'F','🇫' | replace: 'G','🇬' | replace: 'H','🇭' | replace: 'I','🇮' | replace: 'J','🇯' | replace: 'K','🇰' | replace: 'L','🇱' | replace: 'M','🇲' | replace: 'N','🇳' | replace: 'O','🇴' | replace: 'P','🇵' | replace: 'Q','🇶' | replace: 'R','🇷' | replace: 'S','🇸' | replace: 'T','🇹' | replace: 'U','🇺' | replace: 'V','🇻' | replace: 'W','🇼' | replace: 'X','🇽' | replace: 'Y','🇾' | replace: 'Z','🇿'
+-%}
+
+<section class="lbs" id="shopify-section-{{ section.id }}-content">
+  <div class="lbs-inner">
+
+    {%- comment -%} ─── GEO SHIPPING ROW ─── {%- endcomment -%}
+    <div class="lbs-geo" role="status" aria-live="polite">
+      <span class="lbs-geo-route">
+        <span class="lbs-geo-flag" aria-hidden="true">🇳🇱</span>
+        <span class="lbs-geo-arrow" aria-hidden="true">
+          <svg viewBox="0 0 16 8" width="22" height="8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M0 4h13M10 1l3 3-3 3"/></svg>
+        </span>
+        <span class="lbs-geo-flag" aria-hidden="true">{{ dest_flag | default: '🌍' }}</span>
+      </span>
+      <span class="lbs-geo-text">
+        <strong>Free shipping to {{ ship_country }}</strong>
+        <span class="lbs-geo-meta">Tracked · {{ ship_days }} working days · ships from Amsterdam</span>
+      </span>
+      <span class="lbs-geo-badge">FREE</span>
+    </div>
+
+    {%- comment -%} ─── USP STRIP ─── {%- endcomment -%}
+    <ul class="lbs-usps" role="list">
+      <li class="lbs-usp">
+        <span class="lbs-usp-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6Z"/><path d="m9 12 2 2 4-4"/></svg>
+        </span>
+        <span class="lbs-usp-text">
+          <strong>Patented design</strong>
+          <span>Invented in 2018</span>
+        </span>
+      </li>
+      <li class="lbs-usp">
+        <span class="lbs-usp-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M9 3v8L4 19a2 2 0 0 0 1.7 3h12.6A2 2 0 0 0 20 19l-5-8V3"/><path d="M7 14h10"/></svg>
+        </span>
+        <span class="lbs-usp-text">
+          <strong>3rd-party tested</strong>
+          <span>Independent toxicology</span>
+        </span>
+      </li>
+      <li class="lbs-usp">
+        <span class="lbs-usp-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 21c-4-2-7-6-7-11V5l7-3 7 3v5c0 5-3 9-7 11z"/><path d="M11 12c2-2 2-4 0-6"/></svg>
+        </span>
+        <span class="lbs-usp-text">
+          <strong>Nicotine-free</strong>
+          <span>Zero addictive substances</span>
+        </span>
+      </li>
+      <li class="lbs-usp">
+        <span class="lbs-usp-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/><line x1="3" y1="3" x2="21" y2="21"/></svg>
+        </span>
+        <span class="lbs-usp-text">
+          <strong>Battery-free</strong>
+          <span>No charging, no vapor</span>
+        </span>
+      </li>
+    </ul>
+
+    <div class="lbs-cta-row">
+      <button type="button" class="lbs-link" data-lbs-open aria-controls="lbs-modal" aria-expanded="false">
+        <span>Why we built Lio</span>
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+{%- comment -%} ─── STORY MODAL ─── {%- endcomment -%}
+<div class="lbs-modal" id="lbs-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lbs-modal-title">
+  <div class="lbs-modal-backdrop" data-lbs-close></div>
+  <div class="lbs-modal-card">
+    <button type="button" class="lbs-modal-close" data-lbs-close aria-label="Close">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <div class="lbs-modal-head">
+      <span class="lbs-modal-eyebrow">Why we built Lio</span>
+      <h3 class="lbs-modal-title" id="lbs-modal-title">{{ section.settings.modal_title | default: 'A diffuser for the ritual.' }} <em>{{ section.settings.modal_title_em | default: 'Not the substance.' }}</em></h3>
+    </div>
+
+    <div class="lbs-modal-body">
+      <p>{{ section.settings.story_p1 | default: "In 2018 we noticed something obvious: the hardest part of breaking a daily habit isn't the substance. It's the ritual — the hand-to-mouth, the deep breath, the pause." }}</p>
+      <p>{{ section.settings.story_p2 | default: "So we built a wooden mouth diffuser that gives you the ritual back, without anything addictive. No battery. No coil. No nicotine. Just plant cores, breath, and a moment to yourself." }}</p>
+
+      <blockquote class="lbs-pull">
+        <p>{{ section.settings.pull_quote | default: 'The breath was the thing all along. We just gave it a shape.' }}</p>
+        <cite>— {{ section.settings.pull_attr | default: 'Lio founders, Amsterdam' }}</cite>
+      </blockquote>
+
+      <ul class="lbs-stats">
+        <li>
+          <span class="lbs-stat-val">2018</span>
+          <span class="lbs-stat-key">Founded</span>
+        </li>
+        <li>
+          <span class="lbs-stat-val">150,000+</span>
+          <span class="lbs-stat-key">Habits broken</span>
+        </li>
+        <li>
+          <span class="lbs-stat-val">100%</span>
+          <span class="lbs-stat-key">Founder-owned</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+  .lbs {
+    --lbs-forest:    #0b2410;
+    --lbs-forest-2:  #143b21;
+    --lbs-cream:     #fcfefb;
+    --lbs-paper:     #f8faf6;
+    --lbs-mint:      #94fca9;
+    --lbs-mint-soft: #cdfee1;
+    --lbs-line-08:   rgba(11,36,16,0.08);
+    --lbs-line-12:   rgba(11,36,16,0.12);
+    --lbs-text-72:   rgba(11,36,16,0.72);
+    --lbs-text-55:   rgba(11,36,16,0.55);
+    --lbs-mono: "iA Writer Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    background: {{ section.settings.bg | default: '#ffffff' }};
+    color: var(--lbs-forest);
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    border-top: 1px solid var(--lbs-line-08);
+    border-bottom: 1px solid var(--lbs-line-08);
+    padding: 24px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .lbs *, .lbs *::before, .lbs *::after { box-sizing: border-box; }
+  .lbs-inner { max-width: 1180px; margin: 0 auto; }
+
+  /* ─── GEO ROW ─── */
+  .lbs-geo {
+    display: flex; align-items: center; gap: 14px;
+    padding: 12px 18px;
+    background: var(--lbs-paper);
+    border: 1px solid var(--lbs-line-08);
+    border-radius: 14px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 22px;
+  }
+  .lbs-geo-route {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 22px; line-height: 1;
+    flex-shrink: 0;
+  }
+  .lbs-geo-arrow {
+    color: var(--lbs-text-55);
+    display: inline-flex; align-items: center;
+  }
+  .lbs-geo-text {
+    display: flex; flex-direction: column; gap: 2px;
+    line-height: 1.3;
+  }
+  .lbs-geo-text strong {
+    font-size: 14px; font-weight: 700;
+    color: var(--lbs-forest);
+  }
+  .lbs-geo-meta {
+    font-size: 11px;
+    color: var(--lbs-text-55);
+    letter-spacing: 0.01em;
+  }
+  .lbs-geo-badge {
+    display: inline-flex; align-items: center;
+    background: var(--lbs-forest);
+    color: var(--lbs-mint);
+    font-family: var(--lbs-mono);
+    font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 999px;
+    flex-shrink: 0;
+  }
+
+  /* ─── USP STRIP ─── */
+  .lbs-usps {
+    list-style: none; padding: 0; margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .lbs-usp {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 14px;
+    background: #fff;
+    border: 1px solid var(--lbs-line-08);
+    border-radius: 12px;
+    transition: border-color 0.18s ease, transform 0.15s ease;
+  }
+  .lbs-usp:hover {
+    border-color: var(--lbs-line-12);
+    transform: translateY(-1px);
+  }
+  .lbs-usp-icon {
+    width: 32px; height: 32px;
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: var(--lbs-mint-soft);
+    color: var(--lbs-forest);
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .lbs-usp-text {
+    display: flex; flex-direction: column;
+    line-height: 1.3;
+    min-width: 0;
+  }
+  .lbs-usp-text strong {
+    font-size: 13px; font-weight: 700;
+    color: var(--lbs-forest);
+    letter-spacing: -0.005em;
+  }
+  .lbs-usp-text span {
+    font-size: 11px;
+    color: var(--lbs-text-55);
+  }
+
+  /* ─── CTA LINK ─── */
+  .lbs-cta-row { text-align: center; margin-top: 16px; }
+  .lbs-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: transparent; border: 0;
+    padding: 6px 0;
+    color: var(--lbs-forest);
+    font: inherit; font-size: 13px; font-weight: 600;
+    cursor: pointer;
+    border-bottom: 1px solid var(--lbs-line-12);
+    transition: border-color 0.15s ease, gap 0.15s ease;
+  }
+  .lbs-link:hover { border-color: var(--lbs-forest); gap: 10px; }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 720px) {
+    .lbs { padding: 18px 20px; }
+    .lbs-geo {
+      flex-direction: column; gap: 8px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .lbs-geo-text { align-items: center; }
+    .lbs-usps { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .lbs-usp { padding: 10px 12px; }
+    .lbs-usp-icon { width: 28px; height: 28px; }
+    .lbs-usp-text strong { font-size: 12px; }
+    .lbs-usp-text span { font-size: 10.5px; }
+  }
+
+  /* ─── MODAL ─── */
+  .lbs-modal {
+    position: fixed; inset: 0;
+    z-index: 240;
+    display: none;
+    align-items: flex-end; justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  }
+  .lbs-modal[aria-hidden="false"] { display: flex; opacity: 1; }
+  .lbs-modal *, .lbs-modal *::before, .lbs-modal *::after { box-sizing: border-box; }
+  .lbs-modal-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(11, 36, 16, 0.74);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .lbs-modal-card {
+    position: relative;
+    background: var(--lbs-cream, #fcfefb);
+    color: var(--lbs-forest, #0b2410);
+    width: 100%; max-width: 620px;
+    max-height: 92vh;
+    border-radius: 22px 22px 0 0;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transform: translateY(28px);
+    transition: transform 0.32s cubic-bezier(0.22,1,0.36,1);
+    box-shadow: 0 30px 60px rgba(11, 36, 16, 0.30);
+  }
+  .lbs-modal[aria-hidden="false"] .lbs-modal-card { transform: translateY(0); }
+  @media (min-width: 720px) {
+    .lbs-modal { align-items: center; padding: 24px; }
+    .lbs-modal-card { border-radius: 22px; }
+  }
+  .lbs-modal-close {
+    position: absolute; top: 14px; right: 14px;
+    background: rgba(11,36,16,0.05);
+    border: 0;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--lbs-forest, #0b2410);
+    transition: background 0.15s ease;
+    z-index: 1;
+  }
+  .lbs-modal-close:hover { background: rgba(11,36,16,0.10); }
+
+  .lbs-modal-head {
+    padding: 36px 28px 8px;
+  }
+  .lbs-modal-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--lbs-mono);
+    font-size: 10px; letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(11,36,16,0.55);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .lbs-modal-eyebrow::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--lbs-mint, #94fca9);
+  }
+  .lbs-modal-title {
+    margin: 0;
+    font-size: clamp(22px, 3.4vw, 28px);
+    line-height: 1.1; letter-spacing: -0.025em;
+    font-weight: 800;
+    color: var(--lbs-forest, #0b2410);
+  }
+  .lbs-modal-title em { font-style: italic; font-weight: 300; color: rgba(11,36,16,0.55); }
+
+  .lbs-modal-body {
+    padding: 18px 28px 32px;
+    overflow-y: auto;
+    flex: 1;
+    line-height: 1.65;
+    font-size: 15px;
+    color: rgba(11,36,16,0.78);
+  }
+  .lbs-modal-body p { margin: 0 0 14px; }
+  .lbs-modal-body p strong { color: var(--lbs-forest, #0b2410); font-weight: 600; }
+
+  .lbs-pull {
+    margin: 22px 0;
+    padding: 18px 22px;
+    background: var(--lbs-paper, #f8faf6);
+    border-left: 3px solid var(--lbs-mint, #94fca9);
+    border-radius: 6px;
+  }
+  .lbs-pull p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--lbs-forest, #0b2410);
+    font-style: italic;
+  }
+  .lbs-pull cite {
+    display: block;
+    margin-top: 10px;
+    font-family: var(--lbs-mono);
+    font-size: 11px;
+    color: rgba(11,36,16,0.55);
+    font-style: normal;
+    letter-spacing: 0.04em;
+  }
+
+  .lbs-stats {
+    list-style: none; padding: 0; margin: 26px 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(11,36,16,0.08);
+    border-bottom: 1px solid rgba(11,36,16,0.08);
+  }
+  .lbs-stats li {
+    padding: 18px 14px;
+    text-align: center;
+    border-right: 1px solid rgba(11,36,16,0.08);
+  }
+  .lbs-stats li:last-child { border-right: 0; }
+  .lbs-stat-val {
+    display: block;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--lbs-forest, #0b2410);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .lbs-stat-key {
+    font-family: var(--lbs-mono);
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(11,36,16,0.55);
+  }
+
+  body.lbs-modal-open { overflow: hidden; }
+  @media (max-width: 600px) {
+    .lbs-modal-head { padding: 32px 22px 6px; }
+    .lbs-modal-body { padding: 14px 22px 28px; font-size: 14px; }
+    .lbs-stats { grid-template-columns: 1fr; }
+    .lbs-stats li {
+      border-right: 0;
+      border-bottom: 1px solid rgba(11,36,16,0.08);
+    }
+    .lbs-stats li:last-child { border-bottom: 0; }
+  }
+</style>
+
+<script>
+  (function () {
+    var modal = document.getElementById('lbs-modal');
+    if (!modal) return;
+    var triggers = document.querySelectorAll('[data-lbs-open]');
+    function open () {
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lbs-modal-open');
+      triggers.forEach(function (t) { t.setAttribute('aria-expanded', 'true'); });
+    }
+    function close () {
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lbs-modal-open');
+      triggers.forEach(function (t) { t.setAttribute('aria-expanded', 'false'); });
+    }
+    triggers.forEach(function (t) { t.addEventListener('click', open); });
+    modal.addEventListener('click', function (e) {
+      if (e.target.closest('[data-lbs-close]') || e.target.classList.contains('lbs-modal-backdrop')) close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') close();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Lio · Brand strip",
+  "tag": "section",
+  "class": "section-lio-brand-strip",
+  "settings": [
+    { "type": "color",    "id": "bg",            "label": "Background", "default": "#ffffff" },
+    { "type": "header",   "content": "Story modal" },
+    { "type": "text",     "id": "modal_title",   "label": "Modal title (start)", "default": "A diffuser for the ritual." },
+    { "type": "text",     "id": "modal_title_em","label": "Modal title (italic)", "default": "Not the substance." },
+    { "type": "textarea", "id": "story_p1",      "label": "Paragraph 1", "default": "In 2018 we noticed something obvious: the hardest part of breaking a daily habit isn't the substance. It's the ritual — the hand-to-mouth, the deep breath, the pause." },
+    { "type": "textarea", "id": "story_p2",      "label": "Paragraph 2", "default": "So we built a wooden mouth diffuser that gives you the ritual back, without anything addictive. No battery. No coil. No nicotine. Just plant cores, breath, and a moment to yourself." },
+    { "type": "textarea", "id": "pull_quote",    "label": "Pull quote",  "default": "The breath was the thing all along. We just gave it a shape." },
+    { "type": "text",     "id": "pull_attr",     "label": "Pull quote attribution", "default": "Lio founders, Amsterdam" }
+  ],
+  "presets": [{ "name": "Lio · Brand strip" }],
+  "enabled_on": { "templates": ["page"] }
+}
+{% endschema %}

@@ -224,7 +224,11 @@
       </div>
     </div>
     <div class="lio-lf-bottom">
-      <span>© {{ 'now' | date: '%Y' }} Lio · Made in Amsterdam · {{ section.settings.patent | default: 'EU Patent EP3784213' }}</span>
+      {%- if template.suffix == 'theliokit' -%}
+        <span>© {{ 'now' | date: '%Y' }} Lio · Made in Amsterdam</span>
+      {%- else -%}
+        <span>© {{ 'now' | date: '%Y' }} Lio · Made in Amsterdam · Patent EP3784213</span>
+      {%- endif -%}
       <span class="lio-lf-tag">{{ 'lander.footer.closing_tag' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
     </div>
   </div>
@@ -262,11 +266,11 @@
     <h4>Who we share data with</h4>
     <p>We share data only with vendors that help us run the business: Shopify (commerce platform), our payment processors, our shipping carriers, our email/SMS providers, and our analytics provider. All are GDPR-compliant.</p>
     <h4>Your rights</h4>
-    <p>You have the right to access, correct, delete, restrict, or port your data, and to object to processing. Email <a href="mailto:hello@breathelio.com">hello@breathelio.com</a> with your request — we respond within 14 days.</p>
+    <p>You have the right to access, correct, delete, restrict, or port your data, and to object to processing. Email <a href="mailto:{{ section.settings.email | default: 'hello@breathelio.com' }}">{{ section.settings.email | default: 'hello@breathelio.com' }}</a> with your request — we respond within 14 days.</p>
     <h4>Retention</h4>
     <p>Order data is retained for 7 years to satisfy EU tax and accounting obligations. Marketing data is retained until you unsubscribe.</p>
     <h4>Contact</h4>
-    <p>BreatheLio B.V. · Amsterdam, the Netherlands · <a href="mailto:hello@breathelio.com">hello@breathelio.com</a></p>
+    <p>BreatheLio B.V. · Amsterdam, the Netherlands · <a href="mailto:{{ section.settings.email | default: 'hello@breathelio.com' }}">{{ section.settings.email | default: 'hello@breathelio.com' }}</a></p>
   {% endif %}
   <div class="lio-modal-meta">Last updated {{ 'now' | date: '%B %Y' }}.</div>
 </template>
@@ -284,7 +288,11 @@
     <h4>Pricing &amp; taxes</h4>
     <p>Prices are shown in your local currency where Shopify Markets is enabled. EU prices include VAT. Outside the EU, applicable customs/duties are the buyer's responsibility.</p>
     <h4>Intellectual property</h4>
-    <p>The Lio brand, logo, product designs, copy, photography, and the patented mouthpiece (EU Patent EP3784213) are the property of BreatheLio B.V. You may not reproduce or commercially use any of it without written permission.</p>
+    {%- if template.suffix == 'theliokit' -%}
+      <p>The Lio brand, logo, product designs, copy, photography, and the patented mouthpiece are the property of BreatheLio B.V. You may not reproduce or commercially use any of it without written permission.</p>
+    {%- else -%}
+      <p>The Lio brand, logo, product designs, copy, photography, and the patented mouthpiece (Patent EP3784213) are the property of BreatheLio B.V. You may not reproduce or commercially use any of it without written permission.</p>
+    {%- endif -%}
     <h4>Liability</h4>
     <p>To the fullest extent permitted by law, BreatheLio B.V.'s liability for any claim arising from a purchase is limited to the amount paid for that order. We are not liable for indirect or consequential damages.</p>
     <h4>Governing law</h4>
@@ -301,7 +309,7 @@
     <p>You have <strong>90 days</strong> from delivery to try Lio. If the ritual doesn't stick — used or not, opened or sealed — email us and we'll send a prepaid return label and refund the full purchase price (excluding any expedited shipping you paid for).</p>
     <h4>How to request a refund</h4>
     <ol>
-      <li>Email <a href="mailto:hello@breathelio.com">hello@breathelio.com</a> with your order number and reason.</li>
+      <li>Email <a href="mailto:{{ section.settings.email | default: 'hello@breathelio.com' }}">{{ section.settings.email | default: 'hello@breathelio.com' }}</a> with your order number and reason.</li>
       <li>We send a prepaid return label within 1 business day.</li>
       <li>Drop the package at your local carrier point.</li>
       <li>Refund issued within 5 business days of receiving the return.</li>
@@ -328,7 +336,7 @@
     {{ shipping_body }}
   {% else %}
     <h4>Where we ship</h4>
-    <p>From our warehouse in Amsterdam to <strong>all of the EU, the UK, Switzerland, Norway, the UAE, the United States, Canada, Australia, and most of the world</strong>. If your country isn't available at checkout, email <a href="mailto:hello@breathelio.com">hello@breathelio.com</a>.</p>
+    <p>From our warehouse in Amsterdam to <strong>all of the EU, the UK, Switzerland, Norway, the UAE, the United States, Canada, Australia, and most of the world</strong>. If your country isn't available at checkout, email <a href="mailto:{{ section.settings.email | default: 'hello@breathelio.com' }}">{{ section.settings.email | default: 'hello@breathelio.com' }}</a>.</p>
     <h4>Cost</h4>
     <ul>
       <li><strong>Free</strong> across the EU and UK on every order.</li>
@@ -347,7 +355,7 @@
     <h4>Customs &amp; duties</h4>
     <p>Within the EU, all taxes and duties are included. Outside the EU, the buyer is responsible for any local customs charges.</p>
     <h4>Lost or damaged shipments</h4>
-    <p>Email <a href="mailto:hello@breathelio.com">hello@breathelio.com</a> with photos within 14 days of delivery. We replace damaged-in-transit goods at no cost.</p>
+    <p>Email <a href="mailto:{{ section.settings.email | default: 'hello@breathelio.com' }}">{{ section.settings.email | default: 'hello@breathelio.com' }}</a> with photos within 14 days of delivery. We replace damaged-in-transit goods at no cost.</p>
   {% endif %}
   <div class="lio-modal-meta">Last updated {{ 'now' | date: '%B %Y' }}.</div>
 </template>
@@ -357,11 +365,15 @@
   <p><strong>BreatheLio B.V.</strong></p>
   <p>Trade name: Lio<br>
   Registered office: Amsterdam, the Netherlands<br>
-  Chamber of Commerce (KvK): on request via <a href="mailto:hello@breathelio.com">hello@breathelio.com</a><br>
+  Chamber of Commerce (KvK): on request via <a href="mailto:{{ section.settings.email | default: 'hello@breathelio.com' }}">{{ section.settings.email | default: 'hello@breathelio.com' }}</a><br>
   VAT (BTW): on request<br>
-  Email: <a href="mailto:hello@breathelio.com">hello@breathelio.com</a></p>
+  Email: <a href="mailto:{{ section.settings.email | default: 'hello@breathelio.com' }}">{{ section.settings.email | default: 'hello@breathelio.com' }}</a></p>
   <h4>Patents</h4>
-  <p>Lio's mouthpiece design is protected under EU Patent EP3784213. Lio, the Lio logo, and "Flavored Air" are trademarks of BreatheLio B.V.</p>
+  {%- if template.suffix == 'theliokit' -%}
+    <p>Lio's mouthpiece is a patented design. Lio, the Lio logo, and "Flavored Air" are trademarks of BreatheLio B.V.</p>
+  {%- else -%}
+    <p>Lio's mouthpiece design is protected under Patent EP3784213. Lio, the Lio logo, and "Flavored Air" are trademarks of BreatheLio B.V.</p>
+  {%- endif -%}
   <h4>Out-of-court dispute resolution</h4>
   <p>Consumers in the EU can use the European Commission's Online Dispute Resolution platform: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. We are willing but not legally obliged to participate in such proceedings.</p>
   <h4>Health disclaimer</h4>
@@ -384,7 +396,7 @@
   <h4>Third-party cookies</h4>
   <p>Some content (e.g., embedded videos) may set cookies from the third party serving it. Their cookie policies apply.</p>
   <h4>Contact</h4>
-  <p>Questions: <a href="mailto:hello@breathelio.com">hello@breathelio.com</a></p>
+  <p>Questions: <a href="mailto:{{ section.settings.email | default: 'hello@breathelio.com' }}">{{ section.settings.email | default: 'hello@breathelio.com' }}</a></p>
   <div class="lio-modal-meta">Last updated {{ 'now' | date: '%B %Y' }}.</div>
 </template>
 
