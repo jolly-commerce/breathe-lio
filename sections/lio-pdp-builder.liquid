@@ -25,17 +25,18 @@
   .lio-lander-page .lio-announcement,
   .lio-lander-page .lio-breadcrumbs { display: none !important; }
 
-  /* Gallery: keep only the clean hero image.
-     – Drop the evidence overlay (own section now)
-     – Drop the gallery pin (decorative, breaks rhythm)
-     – Drop the peek-slideshow + its controls (placeholders look unfinished
-       when fewer than 8 gallery images are set, which is the case here) */
+  /* Gallery — clean hero image + thumbnail strip below.
+     – Hide evidence overlay (own section now)
+     – Hide gallery pin (decorative, breaks rhythm)
+     – Hide placeholder slides (unfinished look)
+     – Hide arrow/dot controls (thumbnails are self-explanatory)
+     – Restyle slideshow into a 4-up thumbnail row that swaps the hero on click */
   .lio-lander-page .lio-evidence,
   .lio-lander-page .lio-gallery-pin,
-  .lio-lander-page .lio-gal-slides,
+  .lio-lander-page .lio-gal-slide.is-placeholder,
   .lio-lander-page .lio-gal-controls { display: none !important; }
 
-  /* Tighten the hero image frame now that nothing sits on top */
+  /* Hero image frame */
   .lio-lander-page .lio-gallery-main {
     border-radius: 18px;
     overflow: hidden;
@@ -47,7 +48,37 @@
     display: block;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+    transition: opacity 0.18s ease;
   }
+  .lio-lander-page .lio-gallery-main .hero.is-swapping { opacity: 0.55; }
+
+  /* Thumbnail row */
+  .lio-lander-page .lio-gal-slides {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8px !important;
+    padding: 12px 0 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    scroll-padding-inline: 0 !important;
+  }
+  @media (max-width: 480px) {
+    .lio-lander-page .lio-gal-slides { grid-template-columns: repeat(4, 1fr) !important; gap: 6px !important; }
+  }
+  .lio-lander-page .lio-gal-slide {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 10px !important;
+    cursor: pointer;
+    border: 1.5px solid transparent !important;
+    transition: border-color 0.15s ease, transform 0.12s ease !important;
+    scroll-snap-align: none !important;
+  }
+  .lio-lander-page .lio-gal-slide:hover { transform: translateY(-1px); border-color: rgba(11,36,16,0.18) !important; }
+  .lio-lander-page .lio-gal-slide.is-active { border-color: #0b2410 !important; }
+  .lio-lander-page .lio-gal-slide img { border-radius: 8px; }
 
   /* Config column: hide trust pill (rating) + bullet row under description.
      The offer above + brand-strip already carry these. */
@@ -94,6 +125,41 @@
     padding-bottom: 32px;
   }
 </style>
+<script>
+  /* theliokit gallery: click a thumbnail → swap the hero image. */
+  (function () {
+    function init () {
+      var hero = document.getElementById('lio-gallery-hero');
+      var track = document.getElementById('lio-gal-slides');
+      if (!hero || !track) return;
+      var slides = track.querySelectorAll('.lio-gal-slide:not(.is-placeholder)');
+      if (!slides.length) return;
+      // Mark the first as active by default
+      slides[0].classList.add('is-active');
+      slides.forEach(function (slide) {
+        slide.addEventListener('click', function (e) {
+          e.preventDefault();
+          var img = slide.querySelector('img');
+          if (!img) return;
+          slides.forEach(function (s) { s.classList.remove('is-active'); });
+          slide.classList.add('is-active');
+          hero.classList.add('is-swapping');
+          // wait one frame, then swap
+          requestAnimationFrame(function () {
+            setTimeout(function () {
+              if (img.src) hero.src = img.src;
+              if (img.srcset) hero.srcset = img.srcset;
+              hero.classList.remove('is-swapping');
+            }, 120);
+          });
+        });
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else { init(); }
+  })();
+</script>
 {%- endif -%}
 
 {%- liquid

@@ -43,6 +43,15 @@
         <em>{{ section.settings.title_em | default: "We've already done the matching." }}</em>
       </h2>
       <p class="lio-ot-sub">{{ section.settings.subhead | default: "Three opinionated bundles. Six cores. Every kit ready to ship from Amsterdam. The bestseller is what 8 in 10 people pick — for a reason." }}</p>
+
+      <ul class="lio-ot-proof" role="list">
+        <li>
+          <span class="lio-ot-proof-stars" aria-hidden="true">★★★★★</span>
+          <span><strong>4.6/5</strong> · 3,086 reviews</span>
+        </li>
+        <li><strong>150,000+</strong> habits broken since 2018</li>
+        <li><strong>30 countries</strong> · ships from Amsterdam</li>
+      </ul>
     </header>
 
     <div class="lio-ot-grid" role="radiogroup" aria-label="Choose a kit">
@@ -80,6 +89,7 @@
         <div class="lio-ot-card-tag">{{ section.settings.tier_2_tag | default: 'Bestseller' }}</div>
         <h3 class="lio-ot-card-name">{{ section.settings.tier_2_name | default: 'The 60-Day Kit' }}</h3>
         <p class="lio-ot-card-line">{{ section.settings.tier_2_line | default: "Where 8 in 10 people land. Long enough for the habit to actually shift." }}</p>
+        <span class="lio-ot-card-recommend" aria-label="Editor recommendation">✓ Recommended for first-timers</span>
 
         <ul class="lio-ot-card-includes">
           <li>1 wooden device · choose olive or walnut</li>
@@ -211,6 +221,45 @@
     margin: 0 auto; max-width: 580px;
     font-size: 15px; line-height: 1.6;
     color: var(--lo-text-72);
+  }
+
+  /* Social-proof bar — sits under the subhead, before the cards.
+     Anchors trust at the moment of decision instead of post-hoc. */
+  .lio-ot-proof {
+    list-style: none; padding: 0; margin: 22px auto 0;
+    max-width: 760px;
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 8px 22px;
+    font-size: 12.5px;
+    color: var(--lo-text-72);
+  }
+  .lio-ot-proof li {
+    display: inline-flex; align-items: center; gap: 7px;
+    white-space: nowrap;
+  }
+  .lio-ot-proof li strong { color: var(--lo-forest); font-weight: 700; }
+  .lio-ot-proof-stars {
+    color: #d4a05a;
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+  @media (max-width: 600px) {
+    .lio-ot-proof { gap: 6px 14px; font-size: 11.5px; }
+  }
+
+  .lio-ot-card-recommend {
+    display: inline-flex; align-items: center;
+    margin: 0 0 16px;
+    background: var(--lo-mint-soft);
+    color: var(--lo-forest);
+    font-family: var(--lo-mono);
+    font-size: 10px; letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 6px;
+    width: fit-content;
   }
 
   /* ---- Grid ---- */
