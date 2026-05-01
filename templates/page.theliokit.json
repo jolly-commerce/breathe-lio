@@ -21,7 +21,7 @@
         "logo_text": "Lio",
         "logo_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/lio-logo-Photoroom_1.webp?v=1776826288",
         "show_cart": true,
-        "cta_link": "#shopify-section-flavors",
+        "cta_link": "#shopify-section-main",
         "show_locale": true,
         "locale_filter": "NL,AE,GB,BE,IT,DE,IE,US,ES,GR,AU,SA,PT,FR,CZ,RO,DK,AT,HR,CH,PL,HU,CY,FI,CA,SI,LT,SK,LV,BG"
       }
@@ -57,7 +57,7 @@
         "title_soft": "the bad.",
         "subhead": "A wooden mouth diffuser for the <strong>hand-to-mouth ritual</strong>. Breathe in natural flavored air, nothing to light, nothing to charge. <strong>150,000+ habits broken since 2018.</strong>",
         "cta_label": "Pick your kit — from €39",
-        "cta_link": "#shopify-section-flavors",
+        "cta_link": "#shopify-section-main",
         "refill_label": "",
         "refill_link": "",
         "show_mobile_proof": true,
@@ -117,7 +117,7 @@
         "show_underline": true,
         "subhead": "An all-natural, <strong>nicotine-free wooden mouth diffuser</strong>. Draw on it like you would anything else, the only thing you breathe is flavored air.",
         "cta_label": "Pick your kit — from €39",
-        "cta_link": "#shopify-section-flavors",
+        "cta_link": "#shopify-section-main",
         "micro_1": "<strong>From €0.88/day after refills</strong>",
         "micro_2": "90-day money-back",
         "micro_3": "Free worldwide shipping",
@@ -170,7 +170,7 @@
         "show_cta": true,
         "reframe": "No <span class=\"redact\">nicotine</span>. <em>Just the ritual.</em>",
         "cta_label": "Pick your kit — from €39",
-        "cta_link": "#shopify-section-flavors",
+        "cta_link": "#shopify-section-main",
         "ghost_label": "How it works",
         "ghost_link": "#shopify-section-how"
       }
@@ -194,7 +194,7 @@
         "aside_2": "Nicotine-free",
         "aside_3": "No vapor",
         "stage_eyebrow": "1 bag · 3 cores · 10 days",
-        "cta_link": "#shopify-section-flavors",
+        "cta_link": "#shopify-section-main",
         "accent_1_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_25_2026_10_50_11_AM-Photoroom_2.webp?v=1777085540",
         "accent_2_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_25_2026_10_50_11_AM-Photoroom_3.webp?v=1777085541",
         "accent_3_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_25_2026_10_50_11_AM-Photoroom_1.webp?v=1777085540",
@@ -268,20 +268,10 @@
     "finalcta": {
       "type": "lio-finalcta",
       "settings": {
-        "cta_link": "#shopify-section-flavors",
+        "cta_link": "#shopify-section-main",
         "cta_label": "Pick your kit — from €39",
         "ghost_link": "#shopify-section-how",
         "ghost_label": "Read how it works"
-      }
-    },
-    "chrome": {
-      "type": "lio-chrome",
-      "settings": {
-        "show_sticky": true,
-        "sticky_title": "Pick the flavors",
-        "sticky_meta": "From <strong style=\"color: var(--forest); font-weight: 700;\">€39</strong> · 90-day money-back · free worldwide shipping",
-        "sticky_link": "#shopify-section-flavors",
-        "hide_when_target": "#shopify-section-flavors"
       }
     },
     "lander_footer": {
@@ -315,7 +305,6 @@
     "killblock",
     "faq",
     "finalcta",
-    "chrome",
     "lander_footer"
   ]
 }

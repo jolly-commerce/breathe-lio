@@ -29,18 +29,48 @@
       </summary>
 
       <div class="lio-qf-list">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'q' -%}
-            <details class="lio-qf-item" {{ block.shopify_attributes }}>
-              <summary>
-                <span class="lio-qf-item-q">{{ block.settings.q }}</span>
-                <span class="lio-qf-item-caret" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                </span>
-              </summary>
-              <div class="lio-qf-item-a">{{ block.settings.a }}</div>
-            </details>
-          {%- endif -%}
+        {%- comment -%}
+          Renders the canonical 10 pre-purchase questions from the same
+          translation keys the killblock uses (lander.killfaq.qN_q / qN_a).
+          That way NL/EN/all 30 locales translate automatically — no
+          duplicated copy in two places.
+        {%- endcomment -%}
+        {%- for i in (1..10) -%}
+          <details class="lio-qf-item">
+            <summary>
+              <span class="lio-qf-item-q">
+                {%- case i -%}
+                  {%- when 1 -%}{{ 'lander.killfaq.q1_q' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                  {%- when 2 -%}{{ 'lander.killfaq.q2_q' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                  {%- when 3 -%}{{ 'lander.killfaq.q3_q' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                  {%- when 4 -%}{{ 'lander.killfaq.q4_q' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                  {%- when 5 -%}{{ 'lander.killfaq.q5_q' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                  {%- when 6 -%}{{ 'lander.killfaq.q6_q' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                  {%- when 7 -%}{{ 'lander.killfaq.q7_q' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                  {%- when 8 -%}{{ 'lander.killfaq.q8_q' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                  {%- when 9 -%}{{ 'lander.killfaq.q9_q' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                  {%- when 10 -%}{{ 'lander.killfaq.q10_q' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                {%- endcase -%}
+              </span>
+              <span class="lio-qf-item-caret" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </summary>
+            <div class="lio-qf-item-a">
+              {%- case i -%}
+                {%- when 1 -%}{{ 'lander.killfaq.q1_a' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                {%- when 2 -%}{{ 'lander.killfaq.q2_a' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                {%- when 3 -%}{{ 'lander.killfaq.q3_a' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                {%- when 4 -%}{{ 'lander.killfaq.q4_a' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                {%- when 5 -%}{{ 'lander.killfaq.q5_a' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                {%- when 6 -%}{{ 'lander.killfaq.q6_a' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                {%- when 7 -%}{{ 'lander.killfaq.q7_a' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                {%- when 8 -%}{{ 'lander.killfaq.q8_a' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                {%- when 9 -%}{{ 'lander.killfaq.q9_a' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+                {%- when 10 -%}{{ 'lander.killfaq.q10_a' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+              {%- endcase -%}
+            </div>
+          </details>
         {%- endfor -%}
       </div>
     </details>

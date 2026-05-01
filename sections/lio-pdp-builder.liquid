@@ -344,31 +344,37 @@
       </div>
 
       {%- comment -%} ============ SLIDESHOW (peek-style, swipeable) ============ {%- endcomment -%}
+      {%- liquid
+        assign real_image_count = 0
+        for i in (1..8)
+          assign img_key = 'gallery_image_' | append: i
+          if section.settings[img_key]
+            assign real_image_count = real_image_count | plus: 1
+          endif
+        endfor
+      -%}
       <div class="lio-gal-slides" id="lio-gal-slides" role="list">
-        {%- assign placeholder_count = 0 -%}
-        {%- for i in (1..8) -%}
-          {%- assign img_key = 'gallery_image_' | append: i -%}
-          {%- assign img = section.settings[img_key] -%}
-          {%- if img -%}
-            <div class="lio-gal-slide" role="listitem" data-i="{{ forloop.index0 }}">
-              <img src="{{ img | image_url: width: 1200 }}"
-                   srcset="{{ img | image_url: width: 600 }} 600w, {{ img | image_url: width: 900 }} 900w, {{ img | image_url: width: 1200 }} 1200w"
-                   sizes="(max-width: 980px) 88vw, 540px"
-                   alt="" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" decoding="async">
-            </div>
-          {%- else -%}
-            {%- assign placeholder_count = placeholder_count | plus: 1 -%}
-            {%- if placeholder_count <= 4 -%}
-              <div class="lio-gal-slide is-placeholder" role="listitem" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="5" width="18" height="14" rx="2"/>
-                  <circle cx="8.5" cy="10.5" r="1.5"/>
-                  <path d="m3 17 6-6 5 5 3-3 4 4"/>
-                </svg>
+        {%- if real_image_count > 0 -%}
+          {%- for i in (1..8) -%}
+            {%- assign img_key = 'gallery_image_' | append: i -%}
+            {%- assign img = section.settings[img_key] -%}
+            {%- if img -%}
+              <div class="lio-gal-slide" role="listitem" data-i="{{ forloop.index0 }}">
+                <img src="{{ img | image_url: width: 1200 }}"
+                     srcset="{{ img | image_url: width: 600 }} 600w, {{ img | image_url: width: 900 }} 900w, {{ img | image_url: width: 1200 }} 1200w"
+                     sizes="(max-width: 980px) 88vw, 540px"
+                     alt="" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" decoding="async" width="1200" height="1200">
               </div>
             {%- endif -%}
-          {%- endif -%}
-        {%- endfor -%}
+          {%- endfor -%}
+        {%- elsif template.suffix == 'theliokit' -%}
+          {%- comment -%} theliokit: fall back to brand-curated thumbnails so the gallery
+              is never empty when the merchant hasn't set gallery_image_X yet. {%- endcomment -%}
+          <div class="lio-gal-slide" role="listitem" data-i="0"><img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_22_2026_12_14_47_PM.webp?v=1776831311&width=600" alt="Lio diffuser, held in hand" loading="eager" decoding="async" width="600" height="600"></div>
+          <div class="lio-gal-slide" role="listitem" data-i="1"><img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/1744795548_V3-ezgif.com-resize_1_e80d9f10-215d-41b6-a431-fd5bbc180e3a_2.gif?v=1765685909" alt="Lio in motion" loading="lazy" decoding="async" width="600" height="600"></div>
+          <div class="lio-gal-slide" role="listitem" data-i="2"><img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Minty_Magic_9b8680d4-2bbf-4c62-a118-57026a52ad21.png?v=1777086252&width=600" alt="Minty Magic core" loading="lazy" decoding="async" width="600" height="600"></div>
+          <div class="lio-gal-slide" role="listitem" data-i="3"><img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Cinnamon_Spice_90440616-1cda-44ad-a674-eef9fd1f789d.png?v=1777086250&width=600" alt="Cinnamon Spice core" loading="lazy" decoding="async" width="600" height="600"></div>
+        {%- endif -%}
       </div>
 
       <div class="lio-gal-controls" aria-label="Gallery navigation">
