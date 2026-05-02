@@ -12,11 +12,49 @@
     "main": {
       "type": "lio-pdp-builder",
       "blocks": {
-        "trust_shipping": { "type": "trust_item", "settings": { "label": "Free EU shipping" } }
+        "trust_shipping": { "type": "trust_item",   "settings": { "label": "Free EU shipping" } },
+        "trust_promise":  { "type": "trust_item",   "settings": { "label": "90-day promise" } },
+        "trust_pause":    { "type": "trust_item",   "settings": { "label": "Pause anytime" } },
+        "trust_founded":  { "type": "trust_item",   "settings": { "label": "Founded 2018" } },
+        "faq_vape":       { "type": "faq_question", "settings": { "q": "Is this a vape?", "a": "<p>No. A wooden aromatherapy diffuser. No battery, no coil, no liquid, no heating element. You breathe ordinary air through a wooden mouthpiece — the plant-oil core at the end gives it flavor and a cool menthol sensation. Nothing is heated, nothing is combusted.</p>" } },
+        "faq_feel":       { "type": "faq_question", "settings": { "q": "Will it feel like what I'm used to?", "a": "<p>Partly. The menthol cores give a real <strong>cool throat hit</strong> on the inhale — the physical sensation is there. What's not there is the nicotine kick. Think of it as the feeling without the substance.</p>" } },
+        "faq_lasts":      { "type": "faq_question", "settings": { "q": "How long does one core last?", "a": "<p>Around <strong>7–10 days for a light user, 3–5 days if you use it heavily.</strong> The flavor is strongest the first day and gradually fades — when you can barely smell it before inhaling, swap it. The wooden body stays with you; only the core changes.</p>" } },
+        "faq_inside":     { "type": "faq_question", "settings": { "q": "What's actually in the cores?", "a": "<p>Medical-grade polyester fiber infused with <strong>food-safe plant essential oils</strong> — peppermint, cinnamon, mango, orange, depending on the variant. No synthetic aromas, no solvents, no propylene glycol. Third-party tested, every batch.</p>" } },
+        "faq_refund":     { "type": "faq_question", "settings": { "q": "What if it doesn't work for me?", "a": "<p>Try it for <strong>90 days</strong>. Use it the way it's meant to be used — every time you'd reach for your old habit. If the ritual doesn't land, <strong>full refund, used or not.</strong> No 'must be sealed' fine print, no restocking fee.</p>" } },
+        "faq_ship":       { "type": "faq_question",  "settings": { "q": "How fast does it arrive?", "a": "<p>Shipped from the Netherlands. <strong>2–3 working days across Europe, 4–8 days outside.</strong> Free worldwide, no minimum. Tracking link by email the moment it leaves the warehouse.</p>" } },
+        "ev_clean":       { "type": "evidence_point", "settings": { "icon": "shield", "title": "0% nicotine, 0% tobacco",     "source": "Eurofins Lab Report · 2024" } },
+        "ev_plant":       { "type": "evidence_point", "settings": { "icon": "beaker", "title": "Plant-based aroma cores",     "source": "Independent assay · TNO Netherlands" } },
+        "ev_patent":      { "type": "evidence_point", "settings": { "icon": "doc",    "title": "Patented mouthpiece design", "source": "EU Patent EP3784213" } },
+        "ev_outcome":     { "type": "evidence_point", "settings": { "icon": "chart",  "title": "82% report reduced cravings","source": "n=1,243 user study, 2024" } }
       },
-      "block_order": ["trust_shipping"],
+      "block_order": [
+        "trust_shipping",
+        "trust_promise",
+        "trust_pause",
+        "trust_founded",
+        "faq_vape",
+        "faq_feel",
+        "faq_lasts",
+        "faq_inside",
+        "faq_refund",
+        "faq_ship",
+        "ev_clean",
+        "ev_plant",
+        "ev_patent",
+        "ev_outcome"
+      ],
       "settings": {}
-    }
+    },
+    "lio_reviews":      { "type": "lio-product-reviews",      "settings": {} },
+    "lio_social_proof": { "type": "lio-product-social-proof", "settings": {} },
+    "lio_support":      { "type": "lio-product-support",      "settings": {} },
+    "lio_usps":         { "type": "lio-product-usps",         "settings": {} }
   },
-  "order": ["main"]
+  "order": [
+    "main",
+    "lio_reviews",
+    "lio_social_proof",
+    "lio_support",
+    "lio_usps"
+  ]
 }
