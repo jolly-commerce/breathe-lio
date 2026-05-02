@@ -1,4 +1,3 @@
-
 {%- comment -%}
 ------------------------------------------------------------------------------------------------------------------------
 NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing this theme as much as we did for
@@ -10,391 +9,103 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
 
 <!doctype html>
 
-  <html lang="{{ request.locale.iso_code }}" dir="{% render 'direction' %}">
-    <head>
-      
-  <script>
-  document.addEventListener("instant:add-to-cart", () => {
-    const cartDrawer = document.querySelector("#cart-drawer");
-    fetch("/?section_id=cart-drawer")
-      .then((res) => res.text())
-      .then((text) => {
-        const sectionHTML = new DOMParser().parseFromString(text, "text/html");
-        const cartInnerHTML = sectionHTML.getElementById("cart-drawer").innerHTML;
-        cartDrawer.innerHTML = cartInnerHTML;
-        cartDrawer.setAttribute("open", "");
-      });
-  });
-</script>
-   <script>
-      (function(w,d,t,r,u)
+<html lang="{{ request.locale.iso_code }}" dir="{% render 'direction' %}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="theme-color" content="{{ settings.header_background }}">
+
+    <title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% if current_page != 1 %} &ndash; {{ 'general.page' | t: page: current_page }}{% endif %}{% endif %}</title>
+
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 96 }}">
+      <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180 }}">
+    {%- endif -%}
+
+    {%- comment -%}Few prefetch to increase performance on commonly used third-parties{%- endcomment -%}
+    <link rel="preconnect" href="https://cdn.shopify.com">
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
+
+    {%- unless settings.heading_font.system? -%}
+      <link rel="preload" href="{{ settings.heading_font | font_url }}" as="font" type="font/woff2" crossorigin>
+    {%- endunless -%}
+
+    {%- unless settings.text_font.system? -%}
+      <link rel="preload" href="{{ settings.text_font | font_url }}" as="font" type="font/woff2" crossorigin>
+    {%- endunless -%}
+
+    {%- render 'social-meta-tags' -%}
+    {%- render 'microdata-schema' -%}
+    {%- render 'css-variables' -%}
+    {%- render 'js-variables' -%}
+
+    <script type="importmap">
+      {%- comment -%}On Safari 16.3 and lower, a polyfill is used to load importmap{%- endcomment -%}
       {
-          var f,n,i;
-          w[u]=w[u]||[],f=function()
-          {
-              var o={ti:"187222956", enableAutoSpaTracking: true};
-              o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")
-          },
-          n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function()
-          {
-              var s=this.readyState;
-              s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)
-          },
-          i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)
-      })
-      (window,document,"script","//bat.bing.com/bat.js","uetq");
-  </script>   
-  
-      <script>
-      window.Shopify = window.Shopify || {theme: {id: {{ theme.id }}, role: '{{ theme.role }}' } };
-      window._template = {
-          directory: "{{ template.directory }}",
-          name: "{{ template.name }}",
-          suffix: "{{ template.suffix }}"
-      };
+        "imports": {
+          "vendor": "{{ 'vendor.min.js' | asset_url }}",
+          "theme": "{{ 'theme.js' | asset_url }}",
+          "photoswipe": "{{ 'photoswipe.min.js' | asset_url }}"
+        }
+      }
     </script>
-    <script type="module" src="https://cdn.intelligems.io/esm/62549bbbf8d8/bundle.js" async></script>
-      
-  
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
-      <meta name="theme-color" content="{{ settings.header_background }}">
-  
-      <title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% if current_page != 1 %} &ndash; {{ 'general.page' | t: page: current_page }}{% endif %}{% endif %}</title>
-  
-      {%- if page_description -%}
-        <meta name="description" content="{{ page_description | escape }}">
+
+    <script type="module" src="{{ 'vendor.min.js' | asset_url }}"></script>
+    <script type="module" src="{{ 'theme.js' | asset_url }}"></script>
+
+    {{ content_for_header }}
+
+    {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
+
+    {%- render 'lio-global-styles' -%}
+  </head>
+
+  <body class="{% if settings.zoom_image_on_hover %}zoom-image--enabled{% endif %}">
+    {%- render 'shadow-dom-templates' -%}
+
+    <a href="#main" class="skip-to-content sr-only">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+    {%- comment -%}
+    This placeholder will be filled to screen readers for any kind of announcements
+    {%- endcomment -%}
+    <div class="sr-only" role="status" aria-live="polite" aria-atomic="true">
+      <span id="status-announcement"></span>
+    </div>
+
+    <div class="sr-only" role="alert" aria-live="assertive" aria-atomic="true">
+      <span id="error-announcement"></span>
+    </div>
+
+    {%- if request.page_type != 'password' -%}
+      {%- sections 'header-group' -%}
+      {%- sections 'overlay-group' -%}
+
+      {%- if settings.cart_type == 'popover' -%}
+        <cart-notification-drawer open-from="bottom" class="quick-buy-drawer drawer"></cart-notification-drawer>
       {%- endif -%}
-  
-   <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
-  
-  <style>
-    @font-face {
-      font-family: "Suncoast";
-      src: url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/suncoastgrot-medium.woff2?v=1764391279") format("woff2"),
-           url("https://cdn.shopify.com/s/files/1/0659/6676/8379/files/suncoastgrot-medium.woff?v=1764391362") format("woff");
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-  </style>
-      
-      <link rel="canonical" href="{{ canonical_url }}">
-  
-      {%- if settings.favicon -%}
-        <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 96 }}">
-        <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180 }}">
-      {%- endif -%}
-  
-      {%- comment -%}Few prefetch to increase performance on commonly used third-parties{%- endcomment -%}
-      <link rel="preconnect" href="https://cdn.shopify.com">
-      <link rel="preconnect" href="https://cdn.intelligems.io">
-      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
-      <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
-  
-      {%- unless settings.heading_font.system? -%}
-        <link rel="preload" href="{{ settings.heading_font | font_url }}" as="font" type="font/woff2" crossorigin>
-      {%- endunless -%}
-  
-      {%- unless settings.text_font.system? -%}
-        <link rel="preload" href="{{ settings.text_font | font_url }}" as="font" type="font/woff2" crossorigin>
-      {%- endunless -%}
-  
-      {%- render 'social-meta-tags' -%}
-      {%- render 'microdata-schema' -%}
-      {%- render 'css-variables' -%}
-      {%- render 'js-variables' -%}
-      {%- render 'layout-scripts' -%}
-      {%- render 'layout-styles' -%}
-  
-      <script>
-        if (!(HTMLScriptElement.supports && HTMLScriptElement.supports('importmap'))) {
-          const importMapPolyfill = document.createElement('script');
-          importMapPolyfill.async = true;
-          importMapPolyfill.src = "{{ 'es-module-shims.min.js' | asset_url }}";
-  
-          document.head.appendChild(importMapPolyfill);
-        }
-      </script>
-  
-      <script type="importmap">
-        {%- comment -%}On Safari 16.3 and lower, a polyfill is used to load importmap{%- endcomment -%}
-        {
-          "imports": {
-            "vendor": "{{ 'vendor.min.js' | asset_url }}",
-            "theme": "{{ 'theme.js' | asset_url }}",
-            "photoswipe": "{{ 'photoswipe.min.js' | asset_url }}"
-          }
-        }
-      </script>
-  
-      <script type="module" src="{{ 'vendor.min.js' | asset_url }}"></script>
-      <script type="module" src="{{ 'theme.js' | asset_url }}"></script>
-  
-      {%- if tinyscript -%}{{ content_for_header }}{%- else -%}{% render 'tiny-script-control' %}{%- endif -%}
-  
-      {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
-      {{- 'custom.css' | asset_url | stylesheet_tag: preload: true -}}
-      {{- 'usps.css' | asset_url | stylesheet_tag: preload: true -}}
-  
-  
-      <style>
-        .instant-slider-slide:has([alt="lp001--var"]) {
-          display: none !important;
-        }
-  
-        body.test_lp001 .instant-slider-slide:has([alt="lp001--control"]) {
-          display: none !important;
-        }
-  
-        body.test_lp001 .instant-slider-slide:has([alt="lp001--var"]) {
-          display: flex !important;
-        }
-        
-      </style>
-  
-  
-      <script>
-  // Safely defer only specific non-critical CSS
-  window.addEventListener('load', function() {
-    // List of CSS files that are safe to defer
-    const deferTheseCSS = [
-      'block-sticky-atc.css',
-      'block-shipping-info.css',
-      'block-payment-icons',
-      'block-countdown-timer',
-      'block-benefits',
-      'accelerated-checkout-backwards-compat.css'
-    ];
-    
-    const styleSheets = document.querySelectorAll('link[rel="stylesheet"]');
-    styleSheets.forEach(sheet => {
-      // Only defer if it matches our safe list
-      const shouldDefer = deferTheseCSS.some(css => sheet.href.includes(css));
-      if (shouldDefer) {
-        sheet.media = 'print';
-        sheet.onload = function() { this.media = 'all'; };
-      }
-    });
-  });
-  </script>
-  
-    </head>
-  
-    <body class="{% if settings.zoom_image_on_hover %}zoom-image--enabled{% endif %}{% if template == 'page.theliokit' %} lio-lander-page{% endif %}">
-      {%- render 'shadow-dom-templates' -%}
-  
-      <a href="#main" class="skip-to-content sr-only">{{ 'general.accessibility.skip_to_content' | t }}</a>
-  
+    {%- endif -%}
+
+    {%- if request.page_type == 'customers/account' or request.page_type == 'customers/order' or request.page_type == 'customers/addresses' -%}
+      {%- section 'account-banner' -%}
+    {%- endif -%}
+
+    <main role="main" id="main" class="anchor">
+      {{ content_for_layout }}
+
+      {%- comment -%}
+      IMPLEMENTATION NOTE: due to the very complex logic of margin/padding collapsing in Impact, the footer group is
+      added into the main element to ensure that dynamic sections added into the footer group are properly laid out.
+      {%- endcomment -%}
       {%- if request.page_type != 'password' -%}
-        {%- unless template == 'page.theliokit' -%}
-          {%- sections 'header-group' -%}
-          {%- sections 'overlay-group' -%}
-        {%- endunless -%}
-
-        {%- if settings.cart_type == 'popover' -%}
-          <cart-notification-drawer open-from="bottom" class="quick-buy-drawer drawer"></cart-notification-drawer>
-        {%- endif -%}
+        {%- sections 'footer-group' -%}
       {%- endif -%}
-  
-      {%- if request.page_type == 'customers/account' or request.page_type == 'customers/order' or request.page_type == 'customers/addresses' -%}
-        {%- section 'account-banner' -%}
-      {%- endif -%}
-  
-      <main role="main" id="main" class="anchor">
-        {{ content_for_layout }}
-  
-        {%- comment -%}
-        IMPLEMENTATION NOTE: due to the very complex logic of margin/padding collapsing in Impact, the footer group is
-        added into the main element to ensure that dynamic sections added into the footer group are properly laid out.
-        {%- endcomment -%}
-        {%- if request.page_type != 'password' -%}
-          {%- unless template == 'page.theliokit' -%}
-            {%- sections 'footer-group' -%}
-          {%- endunless -%}
-        {%- endif -%}
-      </main>
-  
-      <script>
-    document.addEventListener("instant:add-to-cart", () => {
-      window.SLIDECART_UPDATE();
-      window.SLIDECART_OPEN();
-    });
-  </script>
-  
-      {% if product %}
-  <script>
-    window.addEventListener('load', function() {
-    var _learnq = window._learnq || [];
-    function addedToCart() {
-     fetch(`${window.location.origin}/cart.js`)
-     .then(res => res.clone().json().then(data => {
-      var cart = {
-        total_price: data.total_price/100,
-        $value: data.total_price/100,
-        total_discount: data.total_discount,
-        original_total_price: data.original_total_price/100,
-        items: data.items
-      }
-      if (item !== 'undefined') {
-        cart = Object.assign(cart, item)
-      }
-      if (klAjax) {
-         _learnq.push(['track', 'Added to Cart', cart]);
-         klAjax = false;
-        }
-     }))
-    };
-    (function (ns, fetch) {
-      ns.fetch = function() {
-        const response = fetch.apply(this, arguments);
-        response.then(res => {
-          if (`${window.location.origin}/cart/add.js`
-            .includes(res.url) && res.url !== '') {
-                addedToCart()
-          }
-        });
-        return response
-       }
-    }(window, window.fetch));
-    var klAjax = true;
-    var atcButtons = document.querySelectorAll("form[action*='/cart/add'] button[type='submit']");
-    for (var i = 0; i < atcButtons.length; i++) { 
-      atcButtons[i].addEventListener("click", function() {
-        if (klAjax) {
-          _learnq.push(['track', 'Added to Cart', item]);
-          klAjax = false;
-        }
-      })
-    }
-    });
-  </script>
-        
-  {% endif %}
-  
-  <!-- Swiper JS -->
-  <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  
-  <!-- jQuery 3.7.1 -->
-  <script
-    defer
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  ></script>
-  
-  <script>
-    $(document).on("click", '.close_menu', function(e) { 
-      $('#header-sidebar-menu [is=close-button]').trigger('click');
-    });
-  </script>
-      
-      <script src="{{ 'wixkraft.js' | asset_url }}" defer="defer"></script>
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.faq-accordion-header').forEach(fheader => {
-      fheader.addEventListener('click', function() {
-        const fpanel = document.querySelector(`#${fheader.dataset.target}`);
-        const ftoggle = fheader.querySelector('.faq-toggle');
-        
-        if (fheader.classList.contains('faq-active')) {
-          fheader.classList.remove('faq-active');
-          fpanel.classList.remove('open');
-          ftoggle.classList.remove('faq-active');
-        } else {
-          fheader.classList.add('faq-active');
-          fpanel.classList.add('open');
-          ftoggle.classList.add('faq-active');
-        }
-      });
-    });
-  });
-      </script>
-      <script>
-    function increaseQuantity(input) {
-      input.stepUp(); 
-     changeLineItemQuantity(input);
-  }
-  function decreaseQuantity(input) {
-      input.stepDown(); 
-   changeLineItemQuantity(input);
-  }
-       function changeLineItemQuantity(input) {
-      const lineKey = input.getAttribute('data-line-key');
-      const targetQuantity = parseInt(input.value);
-      const lineItemQuantityElement = input.closest("line-item-quantity");
-      lineItemQuantityElement._changeLineItemQuantity(lineKey, targetQuantity);
-  }
-  </script>
-     <script>
-    function initCartRecommendationSlider() {
-      const slider = document.getElementById("recommendation-slider");
-      const leftBtn = document.querySelector(".left-navigation");
-      const rightBtn = document.querySelector(".right-navigation");
-  
-      if (!slider || !leftBtn || !rightBtn) return;
-  
-      const scrollAmount = 300;
-  
-      leftBtn.onclick = () => {
-        slider.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-      };
-  
-      rightBtn.onclick = () => {
-        slider.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      };
-    }
-  
-    document.addEventListener("DOMContentLoaded", initCartRecommendationSlider);
-  
-    document.addEventListener("cart:change", function (event) {
-      setTimeout(() => {
-        initCartRecommendationSlider();
-        console.log("hello-cart");
-      }, 3000);
-    });
-  </script>
-  
-   
-<script>
-  document.addEventListener("instant:add-to-cart", () => {
-    const cartDrawer = document.querySelector("#cart-drawer");
-    fetch("/?section_id=cart-drawer")
-      .then((res) => res.text())
-      .then((text) => {
-        const sectionHTML = new DOMParser().parseFromString(text, "text/html");
-        const cartInnerHTML = sectionHTML.getElementById("cart-drawer").innerHTML;
-        cartDrawer.innerHTML = cartInnerHTML;
-        cartDrawer.setAttribute("open", "");
-      });
-  });
-</script>
-
-
-<script>
-  document.addEventListener(
-    "click",
-    (e) => {
-      const link = e.target.closest('a[href^="#scroll-"]');
-      if (!link) return;
-
-      const href = link.getAttribute("href");
-      if (!href || href === "#") return;
-
-      e.preventDefault();
-
-      const targetClass = href.slice(1); // remove #
-      const target = document.querySelector("." + CSS.escape(targetClass));
-
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    },
-    true // <-- CAPTURE mode (important)
-  );
-</script>
-
-    </body>
-  </html>
+    </main>
+  </body>
+</html>

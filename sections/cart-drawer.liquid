@@ -1,301 +1,154 @@
-<cart-drawer {% if request.design_mode %}handle-section-events{% endif %} class="cart-drawer drawer drawer--lg" id="cart-drawer">
-  {%- if cart.item_count == 0 -%}
-    <button is="close-button" aria-label="{{ 'general.accessibility.close' | t | escape }}">
-      {%- render 'icon' with 'close' -%}
-    </button>
+{%- comment -%}
+  ============================================================
+  LIO CART DRAWER — universal, Huel-inspired
+  Replaces Impact's <cart-drawer> shell with a custom drawer
+  driven by lio-cart.{css,js}. One drawer for everything; per-
+  line subscription toggle, free-shipping bar, tier rewards,
+  cross-sell carousel, undo toast.
 
-    <div class="empty-state align-self-center">
-      <div class="empty-state__icon-wrapper">
-        {%- render 'icon' with 'cart', width: 32, height: 32, stroke_width: 1 -%}
-        <span class="count-bubble count-bubble--lg">0</span>
-      </div>
+  Header keeps using [aria-controls="cart-drawer"] — lio-cart.js
+  delegates clicks on that selector to open this drawer.
+  ============================================================
+{%- endcomment -%}
+{{ 'lio-cart.css'        | asset_url | stylesheet_tag }}
+{{ 'lio-bundle-cart.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'lio-bundle-cart.js' | asset_url }}" defer></script>
+<script src="{{ 'lio-cart.js'        | asset_url }}" defer></script>
 
-      <div class="prose">
-        <p class="h5">{{ 'cart.general.empty' | t }}</p>
+{%- liquid
+  assign currency = cart.currency.iso_code | default: 'EUR'
+  assign locale   = request.locale.iso_code | default: 'en'
+  assign ship_threshold_cents = section.settings.ship_threshold | default: 65 | times: 100
 
-        {%- assign button_content = 'cart.general.continue_shopping' | t -%}
-{%- render 'button', is: 'close-button', size: 'xl', content: button_content -%}      </div>
+  capture cross_sell_json
+    echo '['
+    assign first = true
+    for product in section.settings.cross_sell_products
+      if first == false
+        echo ','
+      endif
+      assign first = false
+      assign img = product.featured_image | image_url: width: 240
+      assign variant = product.first_available_variant
+      echo '{'
+      echo '"handle":'
+      echo product.handle | json
+      echo ',"title":'
+      echo product.title | json
+      echo ',"image":'
+      echo img | json
+      echo ',"price":'
+      echo product.price
+      echo ',"variantId":'
+      if variant
+        echo variant.id
+      else
+        echo 'null'
+      endif
+      echo '}'
+    endfor
+    echo ']'
+  endcapture
+-%}
+
+<div
+  id="lio-cart"
+  class="lc-drawer-root"
+  aria-hidden="true"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Shopping cart"
+  data-currency="{{ currency }}"
+  data-locale="{{ locale }}"
+  data-ship-threshold="{{ ship_threshold_cents }}"
+  data-selling-plan-id="{{ section.settings.loop_selling_plan_id }}"
+  data-cross-sell-handles='{{ cross_sell_json | strip_newlines | strip }}'
+>
+  <div class="lc-backdrop" data-lc-close></div>
+
+  <aside class="lc-drawer" aria-labelledby="lc-head-title">
+    <header class="lc-head">
+      <h2 class="lc-head-title" id="lc-head-title">
+        {{ section.settings.title | default: 'Your cart' }}
+        <span class="lc-head-count" aria-live="polite">{{ cart.item_count }}</span>
+      </h2>
+      <button type="button" class="lc-head-close" data-lc-close aria-label="Close cart">
+        <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 3l10 10M13 3 3 13"/></svg>
+      </button>
+    </header>
+
+    <div class="lc-rewards" aria-live="polite"></div>
+
+    <div class="lc-body">
+      {%- comment -%} JS hydrates with /cart.json on open {%- endcomment -%}
     </div>
-  {%- else -%}
-    <div class="cart-drawer__inner">
-      <div class="cart-drawer__top">
-        <div class="h-stack items-center justify-between">
-          <div class="h-stack grow gap-2 sm:gap-2.5">
-            <p class="h5">{{- 'cart.general.title' | t -}} <span> ({{ cart.item_count }})</span> </p>
-            {% comment %}
-            <cart-count class="count-bubble count-bubble--md">{{ cart.item_count }}</cart-count>
-    {% endcomment %}
-          </div>
 
-          <button type="button" is="close-button" class="drawer__close-icon">
-            <span class="sr-only">{{ 'general.accessibility.close' | t }}</span>
-            {%- render 'icon' with 'drawer-cross-custom' -%}
-          </button>
+    <div class="lc-xsell" style="display:none">
+      {%- comment -%} Cross-sell carousel — JS hydrates from data-cross-sell-handles {%- endcomment -%}
+    </div>
+
+    <footer class="lc-foot">
+      {%- if section.settings.show_discount_field -%}
+        <div class="lc-discount">
+          <button type="button" class="lc-discount-toggle">{{ section.settings.discount_label | default: 'Have a discount code?' }}</button>
+          <form class="lc-discount-form" action="/discount" method="get">
+            <input type="text" name="code" class="lc-discount-input" placeholder="Code" autocomplete="off">
+            <button type="submit" class="lc-discount-apply">Apply</button>
+          </form>
         </div>
+      {%- endif -%}
 
-        {%- if settings.cart_show_free_shipping_threshold -%}
-          {%- render 'free-shipping-bar' -%}
-        {%- endif -%}
+      <div class="lc-totals" aria-live="polite"></div>
+
+      <button type="button" class="lc-checkout" disabled>
+        <span class="lc-checkout-label">Checkout</span>
+        <span class="lc-checkout-arrow" aria-hidden="true">
+          <svg viewBox="0 0 14 14" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h8m-3-3 3 3-3 3"/></svg>
+        </span>
+      </button>
+
+      <div class="lc-trust" aria-hidden="true">
+        <span>
+          <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h12l-1 8H3L2 5Z"/><path d="M5 5V3a3 3 0 0 1 6 0v2"/></svg>
+          {{ section.settings.trust_1 | default: 'Free EU €65+' }}
+        </span>
+        <span>
+          <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M5 8l2 2 4-4"/></svg>
+          {{ section.settings.trust_2 | default: 'Pause anytime' }}
+        </span>
+        <span>
+          <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1v14M3 8h10"/></svg>
+          {{ section.settings.trust_3 | default: '90-day refund' }}
+        </span>
       </div>
+    </footer>
+  </aside>
 
-      <div class="v-stack gap-6 sm:gap-8">
-        <div class="cart-drawer__line-items">
-          {%- for line_item in cart.items -%}
-            {%- render 'line-item', line_item: line_item, show_desktop_quantity: true -%}
-          {%- endfor -%}
-        </div>
-
-        {%- if section.settings.products.count > 0 -%}
-          <div class="cart-drawer__recommendations">
-            <div class="v-stack gap-2.5 sm:gap-4">
-              {%- capture carousel_id -%}cart-drawer-recommendations{%- endcapture -%}
-
-              {%- liquid
-                assign horizontal_products_blends = true
-                assign product_card_background = section.settings.product_card_background | default: product.settings.product_card_background
-
-                if product_card_background != 'rgba(0,0,0,0)' and product_card_background != blank and product_card_background != settings.dialog_background
-                  assign horizontal_products_blends = false
-                endif
-
-                assign rendered_recommendations = 0
-
-                capture recommendations
-                  for recommended_product in section.settings.products
-                    assign item_count_in_cart = cart | line_items_for: recommended_product
-
-                    if item_count_in_cart.size == 0
-                      render 'cart-product-card', product: recommended_product, show_add_to_cart: true, background: section.settings.product_card_background, text_color: section.settings.product_card_text_color
-                      assign rendered_recommendations = rendered_recommendations | plus: 1
-                    endif
-                  endfor
-                endcapture
-              -%}
-
-              {%- if rendered_recommendations > 0 -%}
-                <div class="h-stack justify-between gap-4">
-                  {%- if section.settings.recommendations_title != blank -%}
-                    <p class="recom-title-main">{{ section.settings.recommendations_title | escape }}</p>
-                  {%- endif -%}
- {%- if rendered_recommendations > 1 -%}
-                 <div class="navigation-links">
-   <img loading="lazy" class="left-navigation" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/left-cirlce-got.svg?v=1750158089" width="24" height="24" />
-    <img loading="lazy" class="right-navigation" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/right-cirlce-got.svg?v=1750158089" width="24" height="24" />
-   </div>
-   {% endif %}
-                </div>
-              {%- endif -%}
-
-              {%- if recommendations != blank -%}
-                  <div id="recommendation-slider" class="custom-cart-recom">
-  {{ recommendations }}
+  {%- comment -%} Undo toast — sits above the drawer so it stays visible during line removals {%- endcomment -%}
+  <div class="lc-undo" role="status" aria-live="polite">
+    <span class="lc-undo-text">Removed item</span>
+    <button type="button" class="lc-undo-action">Undo</button>
+  </div>
 </div>
-
-              {%- endif -%}
-
-
-            </div>
-          </div>
-        {%- endif -%}
-      </div>
-    </div>
-
-    <div class="v-stack gap-4 sm:gap-4" slot="footer">
-      <div class="v-stack gap-1">
-        {% for discount_application in cart.cart_level_discount_applications %}
-          <div class="h-stack gap-4 justify-between">
-            <div class="badge">
-              {%- render 'icon' with 'discount' -%} {{- discount_application.title -}}
-            </div>
-
-            <span class="text-subdued">-{{ discount_application.total_allocated_amount | money }}</span>
-          </div>
-        {% endfor %}
-
-        <div class="h-stack gap-4 justify-between">
-          <span class="h5 total-label">{{ 'cart.general.total' | t }}</span>
-          <span class="total-value">{{- cart.total_price | money_with_currency -}}</span>
-        </div>
-
-        {%- if section.settings.show_shipping_text -%}
-          {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
-            <p class="text-subdued text-sm cart-drawer__shipping-info">{{ 'cart.general.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}</p>
-          {%- elsif cart.taxes_included -%}
-            <p class="text-subdued text-sm">{{ 'cart.general.taxes_included_but_shipping_at_checkout' | t }}</p>
-          {%- elsif shop.shipping_policy.body != blank -%}
-            <p class="text-subdued text-sm">{{ 'cart.general.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}</p>
-          {%- else -%}
-            <p class="text-subdued text-sm">{{ 'cart.general.taxes_and_shipping_at_checkout' | t }}</p>
-          {%- endif -%}
-        {%- endif -%}
-
-        {%- if section.settings.show_cart_note -%}
-         
-
-          <cart-note-dialog id="cart-drawer-note" class="cart-drawer__note">
-            <div class="cart-drawer__note-inner">
-              <div class="v-stack gap-4 sm:gap-5">
-                <p class="h5">{{ 'cart.general.order_note' | t }}</p>
-
-                <cart-note class="v-stack gap-4">
-                  {%- assign order_note = 'cart.general.order_note' | t -%}
-                  {%- assign order_save_label = 'cart.general.save_note' | t -%}
-
-                  {%- render 'input', name: 'note', multiline: 3, label: order_note, value: cart.note -%}
-
-                  <div class="justify-self-start">
-                    {%- render 'button', type: 'button', content: order_save_label, size: 'lg', is: 'close-button', secondary: true -%}
-                  </div>
-                </cart-note>
-              </div>
-            </div>
-          </cart-note-dialog>
-        {%- endif -%}
-      </div>
-
-      <form action="{{ routes.cart_url }}" method="POST" class="cart-checkout-btn buy-buttons {% if section.settings.show_checkout_button %}buy-buttons--compact{% endif %}">
-        {%- assign checkout_label = 'cart.general.checkout' | t -%}
-
-
-        {%- if section.settings.show_checkout_button -%}
-          {%- render 'button', type: 'submit', content: checkout_label, icon: 'custom-cart-card', name: 'checkout', size: 'xl' -%}
-        {%- endif -%}
-      </form>
-      <div class="free-c-text"></div>
-      <div class="cart-drawer__guarantee-text">
-        {% render 'icon' with 'check-circle-transparent' %}
-        <span>{{ section.settings.guarantee_label }}</span>
-      </div>
-    </div>
-  {%- endif -%}
-</cart-drawer>
 
 {% schema %}
 {
   "name": "Cart drawer",
   "settings": [
-    {
-      "type": "paragraph",
-      "content": "Cart drawer won't appear to your customers if you have set the cart type to Page in the global theme settings."
-    },
-    {
-      "type": "paragraph",
-      "content": "Free shipping bar can be configured in global cart settings."
-    },
-       {
-     "type": "image_picker",
-     "id": "cart-icon-1",
-     "label": "icon-1"
-      },
-              {
-    "type": "text",
-    "id": "cart-usp-1",
-    "label": "usp-1"
-      },
-                    {
-     "type": "image_picker",
-     "id": "cart-icon-2",
-     "label": "icon-2"
-      },
-              {
-    "type": "text",
-    "id": "cart-usp-2",
-    "label": "usp-2"
-      },
-    {
-      "type": "checkbox",
-      "id": "show_cart_note",
-      "label": "Show cart note",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_shipping_text",
-      "label": "Show shipping text",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_view_cart_button",
-      "label": "Show view cart button",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_checkout_button",
-      "label": "Show checkout button",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Product recommendations"
-    },
-    {
-      "type": "text",
-      "id": "recommendations_title",
-      "label": "Heading",
-      "default": "Trending this month"
-    },
-    {
-      "type": "product_list",
-      "id": "products",
-      "label": "Recommendations",
-      "info": "Suggest additional products to your customers. Recommendations already in the cart are automatically hidden.",
-      "limit": 10
-    },
-    {
-      "type": "color",
-      "id": "product_card_background",
-      "label": "Product card background"
-    },
-    {
-      "type": "color",
-      "id": "product_card_text_color",
-      "label": "Product card text"
-    },
-    {
-      "type": "header",
-      "content": "Shipping cost labels"
-    },
-    {
-      "type": "text",
-      "id": "shipping_cost_label",
-      "label": "Shipping cost label",
-      "default": "Shipping cost"
-    },
-    {
-      "type": "text",
-      "id": "shipping_free_label",
-      "label": "Shipping free label",
-      "default": "Free"
-    },
-    {
-      "type": "text",
-      "id": "shipping_calculated_label",
-      "label": "Shipping calculated label",
-      "default": "Calculated at checkout"
-    },
-    {
-      "type": "text",
-      "id": "guarantee_label",
-      "label": "Guarantee label",
-      "default": "30-Day Money-Back Guarantee"
-    },
-    {
-      "type": "header",
-      "content": "Lio bundle info"
-    },
-    {
-      "type": "text",
-      "id": "subscription_label",
-      "label": "Subscription label",
-      "default": "Subscribed"
-    },
-    {
-      "type": "image_picker",
-      "id": "subscription_icon",
-      "label": "Subscription icon"
-    }
+    { "type": "paragraph", "content": "Universal Lio cart drawer. Same drawer everywhere — PDP, Flow, Journey Pack." },
+    { "type": "text",    "id": "title",            "label": "Drawer title",                 "default": "Your cart" },
+    { "type": "number",  "id": "ship_threshold",   "label": "Free-shipping threshold (€)",  "default": 65 },
+    { "type": "text",    "id": "loop_selling_plan_id", "label": "Loop selling plan ID",     "info": "Numeric ID. Used by the per-line Auto-refill toggle to switch items into subscription." },
+    { "type": "checkbox","id": "show_discount_field","label": "Show discount code field",   "default": true },
+    { "type": "text",    "id": "discount_label",   "label": "Discount toggle label",        "default": "Have a discount code?" },
+
+    { "type": "header",  "content": "Trust line (above-checkout)" },
+    { "type": "text",    "id": "trust_1", "label": "Trust 1", "default": "Free EU €65+" },
+    { "type": "text",    "id": "trust_2", "label": "Trust 2", "default": "Pause anytime" },
+    { "type": "text",    "id": "trust_3", "label": "Trust 3", "default": "90-day refund" },
+
+    { "type": "header",  "content": "Cross-sell" },
+    { "type": "product_list", "id": "cross_sell_products", "label": "Cross-sell products", "limit": 8, "info": "Shown in the cart drawer's 'You might like' rail. Items already in cart are auto-hidden." }
   ]
 }
 {% endschema %}

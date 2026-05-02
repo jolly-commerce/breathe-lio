@@ -1,386 +1,66 @@
-{%- comment -%}
-  Lio · How it works (v2 — rebuilt 2026)
-  Three-step mechanism explainer. Premium card design with a horizontal
-  timeline on desktop and a peek-slideshow on mobile.
-  All copy via t-filter so the section translates per locale.
-{%- endcomment -%}
-
-<section class="how-v2" id="how">
-  <div class="how-v2-inner">
-
-    <header class="how-v2-head">
-      <span class="how-v2-eyebrow">{{ 'lander.how.eyebrow' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
-      <h2 class="how-v2-h2">
-        {{ 'lander.how.h2_pre' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}<br>
-        <span class="how-v2-italic">{{ 'lander.how.h2_em' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span> {{ 'lander.how.h2_post' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
-      </h2>
-      <p class="how-v2-lede">{{ 'lander.how.lede' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
-    </header>
-
-    <div class="how-v2-track" id="how-v2-track" role="list">
-      <article class="how-v2-card" role="listitem">
-        <div class="how-v2-num"><span>01</span></div>
-        <div class="how-v2-visual">
-          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="14" y="22" width="36" height="36" rx="6"/>
-            <path d="M50 36c8 0 14 6 14 14"/>
-            <circle cx="32" cy="40" r="2.5" fill="currentColor"/>
-            <path d="M22 30v20M42 30v20"/>
-          </svg>
-        </div>
-        <h3 class="how-v2-title">{{ 'lander.how.step_1_title_pre' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }} <span class="how-v2-italic">{{ 'lander.how.step_1_title_em' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span></h3>
-        <p class="how-v2-body">{{ 'lander.how.step_1_body' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
-        <span class="how-v2-spec">{{ 'lander.how.step_1_spec' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
-      </article>
-
-      <article class="how-v2-card" role="listitem">
-        <div class="how-v2-num"><span>02</span></div>
-        <div class="how-v2-visual">
-          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M16 40c4-8 12-12 24-12s20 4 24 12"/>
-            <path d="M16 40c4 8 12 12 24 12s20-4 24-12"/>
-            <circle cx="40" cy="40" r="4" fill="currentColor"/>
-            <path d="M22 28c-2 4-2 8 0 12M58 28c2 4 2 8 0 12"/>
-          </svg>
-        </div>
-        <h3 class="how-v2-title">{{ 'lander.how.step_2_title_pre' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }} <span class="how-v2-italic">{{ 'lander.how.step_2_title_em' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span></h3>
-        <p class="how-v2-body">{{ 'lander.how.step_2_body' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
-        <span class="how-v2-spec">{{ 'lander.how.step_2_spec' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
-      </article>
-
-      <article class="how-v2-card" role="listitem">
-        <div class="how-v2-num"><span>03</span></div>
-        <div class="how-v2-visual">
-          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="40" cy="40" r="22"/>
-            <path d="M40 18v22l14 7"/>
-            <path d="M22 40h-6M58 40h6"/>
-          </svg>
-        </div>
-        <h3 class="how-v2-title">{{ 'lander.how.step_3_title_pre' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }} <span class="how-v2-italic">{{ 'lander.how.step_3_title_em' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span></h3>
-        <p class="how-v2-body">{{ 'lander.how.step_3_body' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
-        <span class="how-v2-spec">{{ 'lander.how.step_3_spec' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
-      </article>
-    </div>
-
-    <div class="how-v2-controls" aria-hidden="true">
-      <button type="button" class="how-v2-arrow is-disabled" data-howv2-prev aria-label="Previous step">
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m9 3-4 4 4 4"/></svg>
-      </button>
-      <div class="how-v2-progress">
-        <button type="button" class="how-v2-pdot is-active" data-howv2-go="0" aria-label="Step 1"></button>
-        <button type="button" class="how-v2-pdot" data-howv2-go="1" aria-label="Step 2"></button>
-        <button type="button" class="how-v2-pdot" data-howv2-go="2" aria-label="Step 3"></button>
+<!-- ================== SECTION 3: HOW IT WORKS ================== -->
+<section class="how" id="how">
+  <div class="how-inner">
+    <div class="how-head">
+      <div>
+        <div class="section-eyebrow">The mechanism</div>
+        <h2 class="section-h2">
+          Three steps.<br>
+          <span class="italic-word">That's the</span> whole thing.
+        </h2>
       </div>
-      <span class="how-v2-counter"><span data-howv2-cur>01</span> <span class="how-v2-counter-sep">/</span> 03</span>
-      <button type="button" class="how-v2-arrow" data-howv2-next aria-label="Next step">
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m5 3 4 4-4 4"/></svg>
-      </button>
+      <div class="how-head-right">
+        <p>
+          Most habit tools fight the chemistry. Lio works on the <strong>behavior</strong> — the hand reaching for something, the breath drawn in, the tiny pause that resets you.
+        </p>
+      </div>
     </div>
 
+    <div class="how-steps">
+      <div class="how-step">
+        <span class="how-step-num">01</span>
+        <div class="how-step-visual">
+          <svg><use href="#step-insert"/></svg>
+        </div>
+        <h3 class="how-step-title">Insert <span class="italic-word">a core.</span></h3>
+        <p class="how-step-body">
+          Unwrap a plant-oil core, fray the tip, slide it into the walnut body. One core lasts roughly ten days.
+        </p>
+        <div class="how-step-spec">
+          <span>No tools · <strong>~30 seconds</strong></span>
+        </div>
+      </div>
+
+      <div class="how-step">
+        <span class="how-step-num">02</span>
+        <div class="how-step-visual">
+          <svg><use href="#step-inhale"/></svg>
+        </div>
+        <h3 class="how-step-title">Inhale <span class="italic-word">like normal.</span></h3>
+        <p class="how-step-body">
+          Draw air through the mouthpiece. It passes over the core, picks up the natural flavor, and leaves only on your breath.
+        </p>
+        <div class="how-step-spec">
+          <span>Airflow-only · <strong>nothing heats up</strong></span>
+        </div>
+      </div>
+
+      <div class="how-step">
+        <span class="how-step-num">03</span>
+        <div class="how-step-visual">
+          <svg><use href="#step-reset"/></svg>
+        </div>
+        <h3 class="how-step-title">Reset <span class="italic-word">the urge.</span></h3>
+        <p class="how-step-body">
+          You got the ritual. You got the pause. You got the breath. The loop closes — without the substance it was built around.
+        </p>
+        <div class="how-step-spec">
+          <span>Use anywhere · <strong>no restrictions</strong></span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-
-<style>
-  .how-v2 {
-    --hv-forest: #0b2410;
-    --hv-mint: #94fca9;
-    --hv-mint-soft: #cdfee1;
-    --hv-cream: #fcfefb;
-    --hv-paper: #f8faf6;
-    --hv-mono: "iA Writer Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    --hv-f-08: rgba(11,36,16,0.08);
-    --hv-f-12: rgba(11,36,16,0.12);
-    --hv-f-22: rgba(11,36,16,0.22);
-    --hv-f-55: rgba(11,36,16,0.55);
-    --hv-f-72: rgba(11,36,16,0.72);
-
-    background: var(--hv-cream);
-    color: var(--hv-forest);
-    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-    padding: 64px 24px;
-  }
-  .how-v2 *, .how-v2 *::before, .how-v2 *::after { box-sizing: border-box; }
-  .how-v2-inner { max-width: 1180px; margin: 0 auto; }
-  .how-v2-italic { font-style: italic; font-weight: 400; }
-
-  /* HEADER */
-  .how-v2-head {
-    text-align: center;
-    margin-bottom: 44px;
-    max-width: 680px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .how-v2-eyebrow {
-    display: inline-block;
-    font-family: var(--hv-mono);
-    font-size: 11px; letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--hv-f-55);
-    font-weight: 700;
-    margin-bottom: 14px;
-    padding: 5px 12px;
-    border-radius: 999px;
-    background: var(--hv-paper);
-    border: 1px solid var(--hv-f-08);
-  }
-  .how-v2-h2 {
-    margin: 0 0 14px;
-    font-size: clamp(28px, 4.4vw, 44px);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    font-weight: 800;
-    color: var(--hv-forest);
-  }
-  .how-v2-lede {
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.55;
-    color: var(--hv-f-72);
-  }
-  .how-v2-lede strong { color: var(--hv-forest); font-weight: 600; }
-
-  /* TRACK + CARDS */
-  .how-v2-track {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    position: relative;
-  }
-  /* Connecting timeline behind the cards (desktop) */
-  .how-v2-track::before {
-    content: "";
-    position: absolute;
-    top: 56px;
-    left: calc(16.66% + 24px);
-    right: calc(16.66% + 24px);
-    height: 1px;
-    background: linear-gradient(90deg, var(--hv-mint) 0%, var(--hv-f-22) 50%, var(--hv-mint) 100%);
-    opacity: 0.5;
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  .how-v2-card {
-    position: relative;
-    z-index: 1;
-    background: #fff;
-    border: 1px solid var(--hv-f-08);
-    border-radius: 18px;
-    padding: 28px 26px 26px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease, border-color 0.3s ease;
-  }
-  .how-v2-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(11,36,16,0.06);
-    border-color: var(--hv-f-22);
-  }
-
-  .how-v2-num {
-    width: 56px; height: 56px;
-    border-radius: 50%;
-    background: var(--hv-forest);
-    color: var(--hv-mint);
-    font-family: var(--hv-mono);
-    font-size: 14px; font-weight: 700;
-    letter-spacing: 0.04em;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 22px;
-    flex-shrink: 0;
-    box-shadow: 0 0 0 6px var(--hv-cream);
-  }
-
-  .how-v2-visual {
-    width: 80px; height: 80px;
-    border-radius: 14px;
-    background: var(--hv-paper);
-    color: var(--hv-forest);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 22px;
-    transition: background 0.25s ease, color 0.25s ease;
-  }
-  .how-v2-card:hover .how-v2-visual {
-    background: var(--hv-mint-soft);
-    color: var(--hv-forest);
-  }
-  .how-v2-visual svg { width: 50px; height: 50px; }
-
-  .how-v2-title {
-    margin: 0 0 12px;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.15;
-    letter-spacing: -0.015em;
-    color: var(--hv-forest);
-  }
-
-  .how-v2-body {
-    margin: 0 0 18px;
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--hv-f-72);
-  }
-
-  .how-v2-spec {
-    margin-top: auto;
-    display: inline-flex;
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: var(--hv-paper);
-    border: 1px solid var(--hv-f-08);
-    font-size: 12px;
-    color: var(--hv-f-72);
-    line-height: 1.4;
-  }
-  .how-v2-spec strong { color: var(--hv-forest); font-weight: 600; }
-
-  /* CONTROLS — hidden on desktop */
-  .how-v2-controls { display: none; }
-
-  /* MOBILE — peek-slideshow */
-  @media (max-width: 900px) {
-    .how-v2 { padding: 44px 16px; }
-    .how-v2-head { margin-bottom: 28px; }
-    .how-v2-track {
-      display: flex !important;
-      flex-direction: row !important;
-      grid-template-columns: none !important;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-snap-stop: always;
-      -webkit-overflow-scrolling: touch;
-      gap: 12px !important;
-      padding: 4px 0 8px;
-      margin-left: -16px;
-      margin-right: -16px;
-      padding-left: 16px;
-      padding-right: 16px;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    .how-v2-track::-webkit-scrollbar { display: none; }
-    .how-v2-track::before { display: none; }
-    .how-v2-card {
-      flex: 0 0 86%;
-      scroll-snap-align: center;
-      scroll-snap-stop: always;
-      min-width: 0;
-      max-width: 86%;
-    }
-    .how-v2-card:hover { transform: none; box-shadow: none; }
-
-    .how-v2-controls {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin-top: 18px;
-      padding: 0 4px;
-    }
-    .how-v2-arrow {
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      border: 1px solid var(--hv-f-12);
-      background: #fff;
-      cursor: pointer;
-      display: inline-flex; align-items: center; justify-content: center;
-      color: var(--hv-forest);
-      flex-shrink: 0;
-      transition: background 0.15s, border-color 0.15s, opacity 0.2s;
-    }
-    .how-v2-arrow:hover { background: var(--hv-paper); border-color: var(--hv-forest); }
-    .how-v2-arrow.is-disabled { opacity: 0.32; pointer-events: none; }
-    .how-v2-arrow svg { width: 13px; height: 13px; }
-    .how-v2-progress {
-      flex: 1;
-      display: flex;
-      gap: 6px;
-      justify-content: center;
-    }
-    .how-v2-pdot {
-      flex: 1;
-      max-width: 32px;
-      height: 3px;
-      border-radius: 2px;
-      background: var(--hv-f-12);
-      cursor: pointer;
-      border: 0;
-      padding: 0;
-      transition: background 0.25s ease, transform 0.25s ease;
-    }
-    .how-v2-pdot.is-active {
-      background: var(--hv-forest);
-      transform: scaleY(1.6);
-    }
-    .how-v2-counter {
-      font-family: var(--hv-mono);
-      font-size: 11px;
-      color: var(--hv-f-55);
-      letter-spacing: 0.04em;
-      min-width: 44px;
-      text-align: center;
-      font-variant-numeric: tabular-nums;
-    }
-    .how-v2-counter-sep { opacity: 0.5; margin: 0 1px; }
-  }
-</style>
-
-<script>
-  (function () {
-    var track = document.getElementById('how-v2-track');
-    if (!track) return;
-    var slides = track.querySelectorAll('.how-v2-card');
-    if (slides.length < 2) return;
-    var prev = document.querySelector('[data-howv2-prev]');
-    var next = document.querySelector('[data-howv2-next]');
-    var dots = document.querySelectorAll('[data-howv2-go]');
-    var counter = document.querySelector('[data-howv2-cur]');
-    var current = 0;
-
-    function setActive(i) {
-      i = Math.max(0, Math.min(slides.length - 1, i));
-      current = i;
-      dots.forEach(function (d, idx) { d.classList.toggle('is-active', idx === i); });
-      if (counter) counter.textContent = (i + 1).toString().padStart(2, '0');
-      if (prev) prev.classList.toggle('is-disabled', i === 0);
-      if (next) next.classList.toggle('is-disabled', i === slides.length - 1);
-    }
-
-    function goTo(i) {
-      i = Math.max(0, Math.min(slides.length - 1, i));
-      var target = slides[i];
-      if (!target) return;
-      var trackRect = track.getBoundingClientRect();
-      var slideRect = target.getBoundingClientRect();
-      var delta = (slideRect.left - trackRect.left) - (trackRect.width - slideRect.width) / 2;
-      track.scrollBy({ left: delta, behavior: 'smooth' });
-    }
-
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        var best = null, bestRatio = 0;
-        entries.forEach(function (e) {
-          if (e.intersectionRatio > bestRatio) { bestRatio = e.intersectionRatio; best = e.target; }
-        });
-        if (best) {
-          var idx = Array.prototype.indexOf.call(slides, best);
-          if (idx !== -1) setActive(idx);
-        }
-      }, { root: track, threshold: [0.5, 0.75, 1] });
-      slides.forEach(function (s) { io.observe(s); });
-    }
-
-    if (prev) prev.addEventListener('click', function () { goTo(current - 1); });
-    if (next) next.addEventListener('click', function () { goTo(current + 1); });
-    dots.forEach(function (d, idx) { d.addEventListener('click', function () { goTo(idx); }); });
-
-    setActive(0);
-  })();
-</script>
 
 {% schema %}
 {

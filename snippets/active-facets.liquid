@@ -52,7 +52,7 @@ Supported variables
     {%- if request.page_type == 'collection' -%}
       {%- assign default_url = collection.url -%}
     {%- else -%}
-      {%- capture default_url -%}{{ routes.search_url }}?q={{ search.terms }}&type=product&sort_by={{ search.sort_by }}{%- endcapture -%}
+      {%- capture default_url -%}{{ routes.search_url }}?q={{ search.terms }}&sort_by={{ search.sort_by }}{%- endcapture -%}
     {%- endif -%}
 
     <a href="{{ default_url }}" is="facet-link" class="facet-clear-all text-subdued">

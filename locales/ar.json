@@ -96,7 +96,7 @@
       "view_in_space": "العرض في مساحتك",
       "taxes_included": "شامل الضريبة.",
       "taxes_excluded": "شامل الضريبة.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">يتم حساب رسوم الضرائب</a> عند إتمام الطلب",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">يتم حساب رسوم الضرائب<\/a> عند إتمام الطلب",
       "size_chart": "مخطط المقاسات",
       "available_colors_count": {
         "one": "الألوان المتاحة: {{ count }}",
@@ -336,9 +336,9 @@
       "view_cart": "عرض سلة المشتريات",
       "checkout": "إتمام الشراء",
       "we_accept": "نحن نقبل",
-      "taxes_and_shipping_policy_at_checkout_html": "يتم حساب الضرائب ورسوم <a href=\"{{ link }}\" class=\"link\">الشحن</a> عند إتمام الطلب",
+      "taxes_and_shipping_policy_at_checkout_html": "يتم حساب الضرائب ورسوم <a href=\"{{ link }}\" class=\"link\">الشحن<\/a> عند إتمام الطلب",
       "taxes_included_but_shipping_at_checkout": "السعر شامل الضرائب ويتم حساب رسوم الشحن عند إتمام الطلب",
-      "taxes_included_and_shipping_policy_html": "السعر شامل الضرائب. ويتم حساب رسوم <a href=\"{{ link }}\" class=\"link\">الشحن</a> عند إتمام الطلب.",
+      "taxes_included_and_shipping_policy_html": "السعر شامل الضرائب. ويتم حساب رسوم <a href=\"{{ link }}\" class=\"link\">الشحن<\/a> عند إتمام الطلب.",
       "taxes_and_shipping_at_checkout": "يتم حساب الضرائب ورسوم الشحن عند إتمام الطلب"
     },
     "order": {
@@ -447,40 +447,6 @@
         "one": "لقد حصل على مراجعة واحدة.",
         "other": "لقد حصل على {{ count }} من المراجعات."
       }
-    }
-  },
-  "lander": {
-    "announce": "نحن من اخترعنا الهواء المنكَّه. براءة اختراع وصُنع في أمستردام منذ 2018.",
-    "nav": {
-      "what_it_is": "ما هو",
-      "how": "كيف يعمل",
-      "flavors": "النكهات",
-      "evidence": "أدلة Lio",
-      "faq": "الأسئلة الشائعة"
-    },
-    "cta": {
-      "build_kit": "اصنع طقمي",
-      "pick_device": "اختر جهازاً",
-      "see_how": "اطّلع على آلية العمل"
-    },
-    "geo": {
-      "from": "من",
-      "to": "إلى",
-      "free": "شحن مجاني",
-      "working_days": "أيام عمل"
-    },
-    "cred": {
-      "invented_title": "نحن من اخترعناه.",
-      "invented_meta": "الفئة — الهواء المنكَّه",
-      "first_title": "الأوائل في أوروبا.",
-      "first_meta": "منذ 2018 — أمستردام",
-      "patented_title": "حاصلون على براءة اختراع.",
-      "patented_meta": "براءة الاختراع EP3784213",
-      "family_title": "شركة عائلية.",
-      "family_meta": "مصنوع يدوياً — وما زال"
-    },
-    "loader": {
-      "text": "جارٍ التحميل"
     }
   }
 }

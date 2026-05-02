@@ -8,12 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "404": {
-    "general": {
-      "title": "找不到頁面",
-      "continue_shopping": "繼續購物"
-    }
-  },
   "general": {
     "page": "第 {{ page }} 頁",
     "home": "首頁",
@@ -42,7 +36,7 @@
       "share_email": "透過電子郵件分享"
     },
     "rating": {
-      "info": "{{ rating_value }} / {{ rating_max }} 顆星"
+      "info": "{{ rating_value }} \/ {{ rating_max }} 顆星"
     },
     "newsletter": {
       "email": "電子郵件",
@@ -51,7 +45,7 @@
       "subscribed_successfully": "您已訂閱我們的電子報。"
     },
     "localization": {
-      "country": "國家/地區",
+      "country": "國家\/地區",
       "language": "語言",
       "change_country_accessibility_text": "更改國家或貨幣",
       "change_language_accessibility_text": "更改語言"
@@ -93,6 +87,7 @@
       "sold_out_button": "已售完",
       "unavailable_button": "暫不提供",
       "added_to_cart": "已加入購物車！",
+      "added_to_cart_with_title": "{{ product_title }} 已加入購物車。",
       "sold_out_badge": "已售完",
       "on_sale_badge": "特價",
       "discount_badge_html": "省下 {{ savings }}",
@@ -101,22 +96,12 @@
       "view_in_space": "在您的空間查看",
       "taxes_included": "含稅。",
       "taxes_excluded": "未含稅。",
-      "shipping_policy_html": "結帳時<a href=\"{{ link }}\" class=\"link\">已計算運費</a>",
+      "shipping_policy_html": "結帳時<a href=\"{{ link }}\" class=\"link\">已計算運費<\/a>",
       "size_chart": "尺寸表",
       "available_colors_count": {
         "one": "有 {{ count }} 種顏色",
         "other": "有 {{ count }} 種顏色"
-      },
-      "single": "Single",
-      "packs": "Packs",
-      "adding": "Adding...",
-      "added": "Added!",
-      "error": "Error",
-      "select_variant": "Select a variant",
-      "no_pack_variants": "No pack variants available",
-      "up_to_weeks": "up to {{ weeks }} weeks",
-      "weeks": "weeks",
-      "discount": "discount"
+      }
     },
     "gallery": {
       "close": "關閉圖片庫",
@@ -323,8 +308,8 @@
       "address2": "地址行 2",
       "city": "城市",
       "zip": "郵遞區號",
-      "country": "國家/地區",
-      "province": "省/州",
+      "country": "國家\/地區",
+      "province": "省\/州",
       "set_default": "設為預設地址"
     }
   },
@@ -333,9 +318,7 @@
       "title": "購物車",
       "empty": "您的購物車為空",
       "item_count": {
-        "other": "{{ count }} 件商品",
-        "zero": "{{ count }} items",
-        "one": "{{ count }} item"
+        "other": "{{ count }} 件商品"
       },
       "continue_shopping": "繼續購物",
       "weight": "重量",
@@ -348,9 +331,9 @@
       "view_cart": "查看購物車",
       "checkout": "結帳",
       "we_accept": "我們接受",
-      "taxes_and_shipping_policy_at_checkout_html": "結帳時計算稅費和<a href=\"{{ link }}\" class=\"link\">運費</a>",
+      "taxes_and_shipping_policy_at_checkout_html": "結帳時計算稅費和<a href=\"{{ link }}\" class=\"link\">運費<\/a>",
       "taxes_included_but_shipping_at_checkout": "含稅並於結帳時計算運費",
-      "taxes_included_and_shipping_policy_html": "含稅。在結帳時計算<a href=\"{{ link }}\" class=\"link\">運費</a>。",
+      "taxes_included_and_shipping_policy_html": "含稅。在結帳時計算<a href=\"{{ link }}\" class=\"link\">運費<\/a>。",
       "taxes_and_shipping_at_checkout": "結帳時計算稅費運費"
     },
     "order": {
@@ -369,14 +352,18 @@
     },
     "shipping_estimator": {
       "estimate_shipping": "預估運費",
-      "country": "國家/地區",
-      "province": "省/州",
+      "country": "國家\/地區",
+      "province": "省\/州",
       "zip": "郵遞區號",
       "estimate": "預估",
       "no_results": "很抱歉，我們無法配送至您的地址。",
       "one_result": "配送至您的地址有一種運費：",
       "multiple_results": "配送至您的地址有數種運費：",
       "error": "檢索運費時出現一個或多個錯誤："
+    },
+    "discount": {
+      "label": "折扣碼",
+      "error": "請輸入有效的折扣碼"
     }
   },
   "404": {
@@ -393,7 +380,7 @@
       "products": "產品",
       "suggestions": "建議",
       "collections": "系列",
-      "posts": "部落格文章",
+      "articles": "部落格文章",
       "pages": "頁面",
       "clear": "清除",
       "view_all": "查看全部",
@@ -448,7 +435,7 @@
   },
   "apps": {
     "shopify_reviews": {
-      "review_info": "此產品的評價：{{ rating_value }} / {{ rating_max }} 顆星。",
+      "review_info": "此產品的評價：{{ rating_value }} \/ {{ rating_max }} 顆星。",
       "leave_review": "留下評價",
       "review_count": {
         "zero": "此產品尚無評價。",
@@ -456,30 +443,5 @@
         "other": "已收到 {{ count }} 則評價。"
       }
     }
-  },
-  "bundle_pack": {
-    "button_select": "選擇",
-    "button_add": "加入",
-    "button_add_to_cart": "加入購物車",
-    "button_adding_to_cart": "加入購物車中...",
-    "summary_select_your_lio": "選擇你的 Lio",
-    "selected_label": "已選擇",
-    "tap_to_add": "點擊 + 新增多種口味",
-    "optional_label": "可選",
-    "info_money_back": "30 天內未成功？提供退款保障！",
-    "info_shipping": "快速且免費配送",
-    "success_added": "已成功加入購物車！",
-    "error_failed_add": "加入購物車失敗",
-    "error_network": "網路錯誤，請再試一次",
-    "select_minimum_flavors": "請至少選擇 {count} 種口味",
-    "selected_cigarette": "Lio",
-    "selected_flavors": "口味",
-    "selected_accessories": "配件",
-    "total_price": "合計",
-    "savoury": "甜味",
-    "throat_hit": "辛辣",
-    "sweetness": "甜味",
-    "select_flavor": "選擇口味",
-    "close": "關閉"
   }
 }

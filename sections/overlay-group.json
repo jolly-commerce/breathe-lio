@@ -13,56 +13,22 @@
   "sections": {
     "newsletter-popup": {
       "type": "newsletter-popup",
-      "disabled": true,
-      "settings": {
-        "apparition_delay": 5,
-        "show_only_on_index": true,
-        "show_only_for_visitors": true,
-        "show_only_once": true,
-        "title": "Signup for our newsletter",
-        "button_text": "Subscribe",
-        "subtext": "Describe what your customers will receive when subscribing to your newsletter."
-      }
+      "settings": {}
     },
     "privacy-banner": {
       "type": "privacy-banner",
       "disabled": true,
-      "settings": {
-        "privacy_bar_title": "Cookie policy",
-        "privacy_bar_content": "<p>We use cookies and similar technologies to provide the best experience on our website. Refer to our Privacy Policy for more information.</p>"
-      }
+      "settings": {}
     },
     "cart-drawer": {
       "type": "cart-drawer",
-      "disabled": true,
-      "settings": {
-        "cart-icon-1": "shopify://shop_images/trick.svg",
-        "cart-usp-1": "60-Day Money-Back Guarantee",
-        "cart-icon-2": "shopify://shop_images/buses.svg",
-        "cart-usp-2": "3-7 days delivery",
-        "show_cart_note": false,
-        "show_shipping_text": false,
-        "show_view_cart_button": false,
-        "show_checkout_button": true,
-        "recommendations_title": "Add Extra Cores",
-        "products": [],
-        "product_card_background": "#f2f2f2",
-        "product_card_text_color": "",
-        "shipping_cost_label": "Shipping cost",
-        "shipping_free_label": "Free",
-        "shipping_calculated_label": "Calculated at checkout",
-        "guarantee_label": "30-Day Money-Back Guarantee",
-        "subscription_label": "Subscribed"
-      }
+      "settings": {}
     },
     "search-drawer": {
       "type": "search-drawer",
-      "disabled": true,
       "settings": {
         "full_width": false,
-        "show_article_category": true,
-        "search_menu": "",
-        "search_menu_show_title": true
+        "show_article_category": true
       }
     }
   },

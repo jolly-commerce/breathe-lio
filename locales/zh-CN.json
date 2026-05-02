@@ -8,12 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "404": {
-    "general": {
-      "title": "未找到页面",
-      "continue_shopping": "继续购物"
-    }
-  },
   "general": {
     "page": "第 {{ page }} 页",
     "home": "首页",
@@ -42,7 +36,7 @@
       "share_email": "通过电子邮件分享"
     },
     "rating": {
-      "info": "{{ rating_value }} / {{ rating_max }} 颗星"
+      "info": "{{ rating_value }} \/ {{ rating_max }} 颗星"
     },
     "newsletter": {
       "email": "电子邮件",
@@ -51,7 +45,7 @@
       "subscribed_successfully": "您已订阅我们的新闻通讯。"
     },
     "localization": {
-      "country": "国家/地区",
+      "country": "国家\/地区",
       "language": "语言",
       "change_country_accessibility_text": "更改国家或货币",
       "change_language_accessibility_text": "更改语言"
@@ -93,6 +87,7 @@
       "sold_out_button": "已售罄",
       "unavailable_button": "暂不可用",
       "added_to_cart": "已添加到购物车！",
+      "added_to_cart_with_title": "{{ product_title }} 已加入购物车。",
       "sold_out_badge": "已售罄",
       "on_sale_badge": "特价",
       "discount_badge_html": "节省 {{ savings }}",
@@ -101,22 +96,12 @@
       "view_in_space": "在您的空间中查看",
       "taxes_included": "含税。",
       "taxes_excluded": "不含税。",
-      "shipping_policy_html": "结账时<a href=\"{{ link }}\" class=\"link\">计算运费</a>",
+      "shipping_policy_html": "结账时<a href=\"{{ link }}\" class=\"link\">计算运费<\/a>",
       "size_chart": "尺码表",
       "available_colors_count": {
         "one": "{{ count }} 种颜色可选",
         "other": "{{ count }} 种颜色可选"
-      },
-      "single": "Single",
-      "packs": "Packs",
-      "adding": "Adding...",
-      "added": "Added!",
-      "error": "Error",
-      "select_variant": "Select a variant",
-      "no_pack_variants": "No pack variants available",
-      "up_to_weeks": "up to {{ weeks }} weeks",
-      "weeks": "weeks",
-      "discount": "discount"
+      }
     },
     "gallery": {
       "close": "关闭图库",
@@ -323,8 +308,8 @@
       "address2": "地址行 2",
       "city": "城市",
       "zip": "邮编",
-      "country": "国家/地区",
-      "province": "省/直辖市/自治区",
+      "country": "国家\/地区",
+      "province": "省\/直辖市\/自治区",
       "set_default": "设为默认地址"
     }
   },
@@ -333,9 +318,7 @@
       "title": "购物车",
       "empty": "您的购物车为空",
       "item_count": {
-        "other": "{{ count }} 件商品",
-        "zero": "{{ count }} items",
-        "one": "{{ count }} item"
+        "other": "{{ count }} 件商品"
       },
       "continue_shopping": "继续购物",
       "weight": "重量",
@@ -348,9 +331,9 @@
       "view_cart": "查看购物车",
       "checkout": "结账",
       "we_accept": "我们接受",
-      "taxes_and_shipping_policy_at_checkout_html": "结账时计算税费和<a href=\"{{ link }}\" class=\"link\">运费</a>",
+      "taxes_and_shipping_policy_at_checkout_html": "结账时计算税费和<a href=\"{{ link }}\" class=\"link\">运费<\/a>",
       "taxes_included_but_shipping_at_checkout": "含税并在结账时计算运费",
-      "taxes_included_and_shipping_policy_html": "含税。在结账时计算<a href=\"{{ link }}\" class=\"link\">运费</a>。",
+      "taxes_included_and_shipping_policy_html": "含税。在结账时计算<a href=\"{{ link }}\" class=\"link\">运费<\/a>。",
       "taxes_and_shipping_at_checkout": "结账时计算税费和运费"
     },
     "order": {
@@ -369,14 +352,18 @@
     },
     "shipping_estimator": {
       "estimate_shipping": "预估运费",
-      "country": "国家/地区",
-      "province": "省/直辖市/自治区",
+      "country": "国家\/地区",
+      "province": "省\/直辖市\/自治区",
       "zip": "邮编",
       "estimate": "预估",
       "no_results": "抱歉，我们无法为您的地址提供配送。",
       "one_result": "您的地址有一种运费：",
       "multiple_results": "您的地址有多种运费：",
       "error": "检索运费时出现一个或多个错误："
+    },
+    "discount": {
+      "label": "折扣码",
+      "error": "请输入有效的折扣码"
     }
   },
   "404": {
@@ -393,7 +380,7 @@
       "products": "产品",
       "suggestions": "建议",
       "collections": "产品系列",
-      "posts": "博客文章",
+      "articles": "博客文章",
       "pages": "页面",
       "clear": "清除",
       "view_all": "查看全部",
@@ -416,7 +403,7 @@
     },
     "issued": {
       "remaining_amount": "剩余金额",
-      "out_of_html": "/ {{ initial_value }}",
+      "out_of_html": "\/ {{ initial_value }}",
       "redeem_instructions": "在结账时使用此代码兑换礼品卡：",
       "code": "礼品卡代码",
       "expires_on": "有效期至：{{ expires_on }}",
@@ -448,7 +435,7 @@
   },
   "apps": {
     "shopify_reviews": {
-      "review_info": "此产品的评分为 {{ rating_value }} / {{ rating_max }} 颗星。",
+      "review_info": "此产品的评分为 {{ rating_value }} \/ {{ rating_max }} 颗星。",
       "leave_review": "发表评价",
       "review_count": {
         "zero": "此产品尚无评价。",
@@ -456,30 +443,5 @@
         "other": "已收到 {{ count }} 条评价。"
       }
     }
-  },
-  "bundle_pack": {
-    "button_select": "选择",
-    "button_add": "添加",
-    "button_add_to_cart": "加入购物车",
-    "button_adding_to_cart": "正在加入购物车...",
-    "summary_select_your_lio": "选择你的 Lio",
-    "selected_label": "已选择",
-    "tap_to_add": "点击 + 添加多个口味",
-    "optional_label": "可选",
-    "info_money_back": "30 天内未成功？退款保障！",
-    "info_shipping": "快速且免费配送",
-    "success_added": "已成功加入购物车！",
-    "error_failed_add": "加入购物车失败",
-    "error_network": "网络错误，请重试",
-    "select_minimum_flavors": "请选择至少 {count} 种口味",
-    "selected_cigarette": "Lio",
-    "selected_flavors": "口味",
-    "selected_accessories": "配件",
-    "total_price": "合计",
-    "savoury": "甜味",
-    "throat_hit": "辛辣",
-    "sweetness": "甜味",
-    "select_flavor": "选择口味",
-    "close": "关闭"
   }
 }

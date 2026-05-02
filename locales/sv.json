@@ -8,12 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "404": {
-    "general": {
-      "title": "Sidan kan inte hittas",
-      "continue_shopping": "Fortsätt handla"
-    }
-  },
   "general": {
     "page": "Sida {{ page }}",
     "home": "Hem",
@@ -93,6 +87,7 @@
       "sold_out_button": "Utsåld",
       "unavailable_button": "Inte tillgänglig",
       "added_to_cart": "Tillagt i din varukorg!",
+      "added_to_cart_with_title": "{{ product_title }} har lagts till i varukorgen.",
       "sold_out_badge": "Utsåld",
       "on_sale_badge": "Till salu",
       "discount_badge_html": "Spara {{savings }}",
@@ -106,17 +101,7 @@
       "available_colors_count": {
         "one": "{{ count }} färg tillgänglig",
         "other": "{{ count }} färger tillgängliga"
-      },
-      "error": "Fel",
-      "single": "Single",
-      "packs": "Packs",
-      "adding": "Adding...",
-      "added": "Added!",
-      "select_variant": "Select a variant",
-      "no_pack_variants": "No pack variants available",
-      "up_to_weeks": "up to {{ weeks }} weeks",
-      "weeks": "weeks",
-      "discount": "discount"
+      }
     },
     "gallery": {
       "close": "Stäng bildgalleriet",
@@ -334,8 +319,7 @@
       "empty": "Din varukorg är tom",
       "item_count": {
         "one": "{{ count }} artikel",
-        "other": "{{ count }} artiklar",
-        "zero": "{{ count }} items"
+        "other": "{{ count }} artiklar"
       },
       "continue_shopping": "Fortsätt handla",
       "weight": "Vikt",
@@ -377,6 +361,10 @@
       "one_result": "Det finns en fraktkostnad för din adress:",
       "multiple_results": "Det finns flera fraktpriser för din adress:",
       "error": "Ett eller flera fel uppstod vid hämtning av fraktpriser:"
+    },
+    "discount": {
+      "label": "Rabattkod",
+      "error": "Ange en giltig rabattkod"
     }
   },
   "404": {
@@ -393,7 +381,7 @@
       "products": "Produkter",
       "suggestions": "Förslag",
       "collections": "Samlingar",
-      "posts": "Blogginlägg",
+      "articles": "Blogginlägg",
       "pages": "Sidor",
       "clear": "Ta bort",
       "view_all": "Visa alla",
@@ -456,30 +444,5 @@
         "other": "Den har fått {{ count }} recensioner."
       }
     }
-  },
-  "bundle_pack": {
-    "button_select": "Välj",
-    "button_add": "Lägg till",
-    "button_add_to_cart": "Lägg i varukorgen",
-    "button_adding_to_cart": "Lägger i varukorgen...",
-    "summary_select_your_lio": "Välj din Lio",
-    "selected_label": "Valt",
-    "tap_to_add": "Tryck på + för att lägga till flera smaker",
-    "optional_label": "Valfritt",
-    "info_money_back": "Inte slutat på 30 dagar? Pengarna tillbaka!",
-    "info_shipping": "Fri och snabb frakt",
-    "success_added": "Tillagt i varukorgen!",
-    "error_failed_add": "Kunde inte lägga i varukorgen",
-    "error_network": "Nätverksfel. Försök igen.",
-    "select_minimum_flavors": "Välj minst {count} smaker",
-    "selected_cigarette": "Lio",
-    "selected_flavors": "Smaker",
-    "selected_accessories": "Tillbehör",
-    "total_price": "Totalt",
-    "savoury": "Söd",
-    "throat_hit": "Prodlænd",
-    "sweetness": "Smag",
-    "select_flavor": "Välj smak",
-    "close": "Stäng"
   }
 }

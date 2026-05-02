@@ -8,12 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "404": {
-    "general": {
-      "title": "Сторінку не знайдено",
-      "continue_shopping": "Продовжити покупки"
-    }
-  },
   "general": {
     "page": "Сторінка {{ page }}",
     "home": "Головна",
@@ -93,6 +87,7 @@
       "sold_out_button": "Розпродано",
       "unavailable_button": "Недоступно",
       "added_to_cart": "Додано в кошик!",
+      "added_to_cart_with_title": "{{ product_title }} додано до кошика.",
       "sold_out_badge": "Розпродано",
       "on_sale_badge": "Розпродаж",
       "discount_badge_html": "Заощадьте {{ savings }}",
@@ -101,22 +96,12 @@
       "view_in_space": "Переглянути у своєму просторі",
       "taxes_included": "Податок враховано.",
       "taxes_excluded": "Податок не враховано.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Вартість доставки</a> обчислюється під час оформлення замовлення",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Вартість доставки<\/a> обчислюється під час оформлення замовлення",
       "size_chart": "Таблиця розмірів",
       "available_colors_count": {
         "one": "Доступно кольорів: {{ count }}",
         "other": "Доступно кольорів: {{ count }}"
-      },
-      "single": "Single",
-      "packs": "Packs",
-      "adding": "Adding...",
-      "added": "Added!",
-      "error": "Error",
-      "select_variant": "Select a variant",
-      "no_pack_variants": "No pack variants available",
-      "up_to_weeks": "up to {{ weeks }} weeks",
-      "weeks": "weeks",
-      "discount": "discount"
+      }
     },
     "gallery": {
       "close": "Закрити галерею",
@@ -336,8 +321,7 @@
         "one": "{{ count }} предмет",
         "few": "{{ count }} предмети",
         "many": "{{ count }} предметів",
-        "other": "{{ count }} предмет",
-        "zero": "{{ count }} items"
+        "other": "{{ count }} предмет"
       },
       "continue_shopping": "Продовжити покупки",
       "weight": "Вага",
@@ -350,9 +334,9 @@
       "view_cart": "Переглянути кошик",
       "checkout": "Оформити замовлення",
       "we_accept": "Ми приймаємо",
-      "taxes_and_shipping_policy_at_checkout_html": "Податки й <a href=\"{{ link }}\" class=\"link\">вартість доставки</a> обчислюються під час оформлення замовлення",
+      "taxes_and_shipping_policy_at_checkout_html": "Податки й <a href=\"{{ link }}\" class=\"link\">вартість доставки<\/a> обчислюються під час оформлення замовлення",
       "taxes_included_but_shipping_at_checkout": "Податок враховано, і вартість доставки обчислюється під час оформлення замовлення",
-      "taxes_included_and_shipping_policy_html": "Податок враховано. <a href=\"{{ link }}\" class=\"link\">Вартість доставки</a> обчислюється під час оформлення замовлення.",
+      "taxes_included_and_shipping_policy_html": "Податок враховано. <a href=\"{{ link }}\" class=\"link\">Вартість доставки<\/a> обчислюється під час оформлення замовлення.",
       "taxes_and_shipping_at_checkout": "Податки та вартість доставки обчислюються під час оформлення замовлення"
     },
     "order": {
@@ -379,6 +363,10 @@
       "one_result": "Для вашої адреси є один тариф на доставку:",
       "multiple_results": "Для вашої адреси є кілька тарифів на доставку:",
       "error": "Під час отримання тарифів на доставку сталась одна або кілька помилок:"
+    },
+    "discount": {
+      "label": "Промокод",
+      "error": "Введіть дійсний промокод"
     }
   },
   "404": {
@@ -395,7 +383,7 @@
       "products": "Товари",
       "suggestions": "Пропозиції",
       "collections": "Колекції",
-      "posts": "Дописи в блозі",
+      "articles": "Дописи в блозі",
       "pages": "Сторінки",
       "clear": "Очистити",
       "view_all": "Переглянути все",
@@ -458,30 +446,5 @@
         "other": "Отримано відгуків: {{ count }}."
       }
     }
-  },
-  "bundle_pack": {
-    "button_select": "Обрати",
-    "button_add": "Додати",
-    "button_add_to_cart": "Додати до кошика",
-    "button_adding_to_cart": "Додаємо до кошика...",
-    "summary_select_your_lio": "Обери свій Lio",
-    "selected_label": "Обрано",
-    "tap_to_add": "Натисни +, щоб додати кілька смаків",
-    "optional_label": "Необов'язково",
-    "info_money_back": "Не кинув за 30 днів? Повернемо гроші!",
-    "info_shipping": "Безкоштовна та швидка доставка",
-    "success_added": "Успішно додано до кошика!",
-    "error_failed_add": "Не вдалося додати до кошика",
-    "error_network": "Помилка мережі. Спробуйте ще раз.",
-    "select_minimum_flavors": "Оберіть мінімум {count} смаків",
-    "selected_cigarette": "Lio",
-    "selected_flavors": "Смаки",
-    "selected_accessories": "Аксесуари",
-    "total_price": "Разом",
-    "savoury": "Смаки",
-    "throat_hit": "Смаки",
-    "sweetness": "Смаки",
-    "select_flavor": "Обрати смак",
-    "close": "Закрити"
   }
 }

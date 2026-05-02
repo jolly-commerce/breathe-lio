@@ -85,7 +85,7 @@
 
           <facet-drawer header-bordered id="facets-drawer" class="facets-drawer drawer" open-from="left">
             <p class="h5" slot="header">{{ 'collection.faceting.filters' | t }}</p>
-            {%- render 'facets-vertical', results: collection, show_filters: true, show_sort_by: section.settings.show_sort_by, update_on_change: false -%}
+            {%- render 'facets-vertical', results: collection, show_filters: show_filters, show_sort_by: section.settings.show_sort_by, update_on_change: false -%}
           </facet-drawer>
 
           {%- if section.settings.filter_layout == 'horizontal' -%}
@@ -95,9 +95,19 @@
           {%- endif -%}
 
           {%- comment -%}We also need to render the button, that is floating on mobile{%- endcomment -%}
-          {%- if show_filters -%}
+          {%- if show_filters or section.settings.show_sort_by -%}
+            {%- capture content_key -%}
+              {%- if show_filters and section.settings.show_sort_by -%}
+                collection.faceting.filter_and_sort
+              {%- elsif show_filters and section.settings.show_sort_by == false -%}
+                collection.faceting.filter_button
+              {%- elsif show_filters == false and section.settings.show_sort_by -%}
+                collection.faceting.sort_by
+              {%- endif -%}
+            {%- endcapture -%}
+
             <facet-floating-filter class="facets__floating-filter md:hidden">
-              {%- assign filter_label = 'collection.faceting.filter_and_sort' | t -%}
+              {%- assign filter_label = content_key | t -%}
               {%- render 'button', size: 'xl', content: filter_label, icon: 'filter', style: 'fill', background: settings.text_color, text_color: settings.background, aria_controls: 'facets-drawer' -%}
             </facet-floating-filter>
           {%- endif -%}
@@ -172,7 +182,7 @@
                             {%- when 'promotion_video' -%}
                               {%- if block.settings.video -%}
                                 <video-media autoplay>
-                                  {{- block.settings.video | video_tag: playsinline: true, muted: true, loop: true, preload: 'none' -}}
+                                  {{- block.settings.video | video_tag: playsinline: true, muted: true, loop: true, preload: 'metadata' -}}
                                 </video-media>
                               {%- else -%}
                                 <video-media host="{{ block.settings.external_video_url.type }}" autoplay>

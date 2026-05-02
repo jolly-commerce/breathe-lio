@@ -8,16 +8,34 @@
  * ------------------------------------------------------------
  */
 {
-  "name": "Footer 1",
   "type": "footer",
+  "name": "Footer group",
   "sections": {
-    "instant-FwU08Hd6XP50g2C3": {
-      "type": "instant-FwU08Hd6XP50g2C3",
-      "custom_css": [],
+    "lio-footer": {
+      "type": "lio-footer",
+      "blocks": {
+        "trust-ship":   { "type": "trust", "settings": { "icon": "ship",   "title": "Ships from Amsterdam", "sub": "Same-day before 4pm CET" } },
+        "trust-free":   { "type": "trust", "settings": { "icon": "check",  "title": "Free EU shipping",     "sub": "Over €50" } },
+        "trust-return": { "type": "trust", "settings": { "icon": "return", "title": "60-day returns",       "sub": "Even if opened" } },
+        "trust-leaf":   { "type": "trust", "settings": { "icon": "leaf",   "title": "0% nicotine, ever",    "sub": "Plant-based · EU-tested" } },
+
+        "col-shop":    { "type": "menu", "settings": { "title": "Shop",    "links_html": "<ul><li><a href=\"/collections/first-month-packs\">First-month packs</a></li><li><a href=\"/collections/diffusers\">Diffusers</a></li><li><a href=\"/collections/cores\">Refill flavors</a></li><li><a href=\"/collections/accessories\">Accessories</a></li><li><a href=\"/collections/cores-club\">The Cores Club</a></li></ul>" } },
+        "col-learn":   { "type": "menu", "settings": { "title": "Learn",   "links_html": "<ul><li><a href=\"/pages/how-it-works\">How Lio works</a></li><li><a href=\"/pages/ingredients\">Ingredients</a></li><li><a href=\"/pages/reviews\">Reviews</a></li><li><a href=\"/pages/about\">Our story</a></li><li><a href=\"/pages/wholesale\">Wholesale</a></li></ul>" } },
+        "col-support": { "type": "menu", "settings": { "title": "Support", "links_html": "<ul><li><a href=\"/pages/faq\">FAQ</a></li><li><a href=\"/account/orders\">Track your order</a></li><li><a href=\"/pages/contact\">Contact us</a></li><li><a href=\"/policies/refund-policy\">Refund policy</a></li><li><a href=\"/policies/shipping-policy\">Shipping</a></li></ul>" } }
+      },
+      "block_order": [
+        "trust-ship",
+        "trust-free",
+        "trust-return",
+        "trust-leaf",
+        "col-shop",
+        "col-learn",
+        "col-support"
+      ],
       "settings": {}
     }
   },
   "order": [
-    "instant-FwU08Hd6XP50g2C3"
+    "lio-footer"
   ]
 }

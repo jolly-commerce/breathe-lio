@@ -8,12 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "404": {
-    "general": {
-      "title": "Страница не найдена",
-      "continue_shopping": "Продолжить покупки"
-    }
-  },
   "general": {
     "page": "Стр. {{ page }}",
     "home": "Главная",
@@ -93,6 +87,7 @@
       "sold_out_button": "Нет в наличии",
       "unavailable_button": "Недоступно",
       "added_to_cart": "Добавлено в корзину!",
+      "added_to_cart_with_title": "{{ product_title }} добавлен в корзину.",
       "sold_out_badge": "Нет в наличии",
       "on_sale_badge": "Распродажа",
       "discount_badge_html": "Сэкономьте {{ savings }}",
@@ -101,22 +96,12 @@
       "view_in_space": "Просматривайте в реальных условиях",
       "taxes_included": "Цена указана с учетом налогов.",
       "taxes_excluded": "Цена указана без учета налогов.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Стоимость доставки рассчитывается</a> при оформлении заказа",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Стоимость доставки рассчитывается<\/a> при оформлении заказа",
       "size_chart": "Размерная сетка",
       "available_colors_count": {
         "one": "{{ count }} цвет доступен",
         "other": "Доступно цветов: {{ count }}"
-      },
-      "single": "Single",
-      "packs": "Packs",
-      "adding": "Adding...",
-      "added": "Added!",
-      "error": "Error",
-      "select_variant": "Select a variant",
-      "no_pack_variants": "No pack variants available",
-      "up_to_weeks": "up to {{ weeks }} weeks",
-      "weeks": "weeks",
-      "discount": "discount"
+      }
     },
     "gallery": {
       "close": "Закрыть галерею",
@@ -336,8 +321,7 @@
         "one": "{{ count }} предмет",
         "few": "{{ count }} предмета",
         "many": "{{ count }} предметов",
-        "other": "{{ count }} предмет",
-        "zero": "{{ count }} items"
+        "other": "{{ count }} предмет"
       },
       "continue_shopping": "Продолжить покупки",
       "weight": "Вес",
@@ -350,9 +334,9 @@
       "view_cart": "Просмотреть корзину",
       "checkout": "Оформить заказ",
       "we_accept": "Мы принимаем следующие виды оплаты:",
-      "taxes_and_shipping_policy_at_checkout_html": "Налоги и <a href=\"{{ link }}\" class=\"link\">стоимость доставки</a> рассчитываются при оформлении заказа",
+      "taxes_and_shipping_policy_at_checkout_html": "Налоги и <a href=\"{{ link }}\" class=\"link\">стоимость доставки<\/a> рассчитываются при оформлении заказа",
       "taxes_included_but_shipping_at_checkout": "Включенные в цену налоги и стоимость доставки рассчитываются при оформлении заказа",
-      "taxes_included_and_shipping_policy_html": "Налог включен в цену. <a href=\"{{ link }}\" class=\"link\">Стоимость доставки</a> рассчитывается при оформлении заказа.",
+      "taxes_included_and_shipping_policy_html": "Налог включен в цену. <a href=\"{{ link }}\" class=\"link\">Стоимость доставки<\/a> рассчитывается при оформлении заказа.",
       "taxes_and_shipping_at_checkout": "Налоги и стоимость доставки рассчитываются при оформлении доставки"
     },
     "order": {
@@ -379,6 +363,10 @@
       "one_result": "Для вашего адреса действует один тариф на доставку:",
       "multiple_results": "Для вашего адреса действует несколько тарифов на доставку:",
       "error": "При расчете тарифов на доставку возникли ошибки:"
+    },
+    "discount": {
+      "label": "Промокод",
+      "error": "Введите действительный промокод"
     }
   },
   "404": {
@@ -395,7 +383,7 @@
       "products": "Товары",
       "suggestions": "Рекомендации",
       "collections": "Коллекции",
-      "posts": "Публикации в блоге",
+      "articles": "Публикации в блоге",
       "pages": "Страницы",
       "clear": "Очистить",
       "view_all": "Показать все",
@@ -458,30 +446,5 @@
         "other": "Получено отзывов: {{ count }}."
       }
     }
-  },
-  "bundle_pack": {
-    "button_select": "Выбрать",
-    "button_add": "Добавить",
-    "button_add_to_cart": "Добавить в корзину",
-    "button_adding_to_cart": "Добавляем в корзину...",
-    "summary_select_your_lio": "Выберите ваш Lio",
-    "selected_label": "Выбрано",
-    "tap_to_add": "Нажмите +, чтобы добавить несколько вкусов",
-    "optional_label": "Необязательно",
-    "info_money_back": "Не бросили за 30 дней? Деньги вернём!",
-    "info_shipping": "Бесплатная и быстрая доставка",
-    "success_added": "Успешно добавлено в корзину!",
-    "error_failed_add": "Не удалось добавить в корзину",
-    "error_network": "Сетевая ошибка. Попробуйте ещё раз.",
-    "select_minimum_flavors": "Выберите минимум {count} вкусов",
-    "selected_cigarette": "Lio",
-    "selected_flavors": "Вкусы",
-    "selected_accessories": "Аксессуары",
-    "total_price": "Итого",
-    "savoury": "Сладкая",
-    "throat_hit": "Провокационная",
-    "sweetness": "Сладкая",
-    "select_flavor": "Выберите вкус",
-    "close": "Закрыть"
   }
 }

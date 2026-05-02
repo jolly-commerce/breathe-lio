@@ -8,15 +8,122 @@
  * ------------------------------------------------------------
  */
 {
-  "name": "The New Header Lio",
   "type": "header",
+  "name": "Header group",
   "sections": {
-    "instant-0hPUuJ1NCR7Kgw41": {
-      "type": "instant-0hPUuJ1NCR7Kgw41",
-      "settings": {}
+    "famstrip": {
+      "type": "lio-famstrip",
+      "settings": {
+        "show_on_homepage_only": false,
+        "show_avatars": true,
+        "text": "<p><strong>We invented the category.</strong> Amsterdam, 2018 · Every flavored-air brand in Europe is a copy.</p>",
+        "link_text": "Meet us →",
+        "link_url": "/pages/about",
+        "background": "#fcfefb",
+        "text_color": "#0b2410"
+      }
+    },
+    "announcement-bar": {
+      "type": "announcement-marquee",
+      "blocks": {
+        "msg_not_vape": {
+          "type": "message",
+          "settings": {
+            "text": "Not a vape",
+            "style": "strike",
+            "url": ""
+          }
+        },
+        "msg_not_cig": {
+          "type": "message",
+          "settings": {
+            "text": "Not a cigarette",
+            "style": "strike",
+            "url": ""
+          }
+        },
+        "msg_no_nic": {
+          "type": "message",
+          "settings": {
+            "text": "No nicotine",
+            "style": "strike",
+            "url": ""
+          }
+        },
+        "msg_no_smoke": {
+          "type": "message",
+          "settings": {
+            "text": "No smoke",
+            "style": "strike",
+            "url": ""
+          }
+        },
+        "msg_invented": {
+          "type": "message",
+          "settings": {
+            "text": "Invented in Amsterdam · Copied by the world",
+            "style": "highlight",
+            "url": ""
+          }
+        },
+        "msg_what": {
+          "type": "message",
+          "settings": {
+            "text": "A wooden diffuser · Plant oils · Your own breath",
+            "style": "normal",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "msg_not_vape",
+        "msg_not_cig",
+        "msg_no_nic",
+        "msg_no_smoke",
+        "msg_invented",
+        "msg_what"
+      ],
+      "settings": {
+        "enable_sticky": false,
+        "show_on_homepage_only": true,
+        "scrolling_speed": 20,
+        "aria_label": "What Lio is",
+        "background": "#0b2410",
+        "text_color": "#fcfefb",
+        "accent_color": "#94fca9",
+        "muted_color": "#f6f2e773"
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "enable_sticky": true,
+        "hide_on_scroll": true,
+        "logo": "shopify://shop_images/lio-logo-Photoroom_1.webp",
+        "logo_max_width": 40,
+        "logo_mobile_max_width": 25,
+        "menu": "main-menu",
+        "sidebar_menu": "",
+        "mobile_menu_extra": "",
+        "menu_open_trigger": "click",
+        "opening_from": "bottom",
+        "layout": "logo_left_navigation_center",
+        "show_social_media": false,
+        "show_locale_selector": true,
+        "show_country_selector": true,
+        "show_country_flag": true,
+        "show_country_name": false,
+        "transparent_header_text_color": "#ffffff",
+        "transparent_logo": "shopify://shop_images/lio-logo-Photoroom_1.webp",
+        "reduce_padding": true,
+        "background_opacity": 100,
+        "background_blur_radius": 20
+      }
     }
   },
   "order": [
-    "instant-0hPUuJ1NCR7Kgw41"
+    "famstrip",
+    "announcement-bar",
+    "header"
   ]
 }

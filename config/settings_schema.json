@@ -3,9 +3,36 @@
     "name": "theme_info",
     "theme_name": "Impact",
     "theme_author": "Maestrooo",
-    "theme_version": "6.5.0",
+    "theme_version": "7.0.1",
     "theme_documentation_url": "https://support.maestrooo.com/",
     "theme_support_url": "https://support.maestrooo.com/article/203-contact-us"
+  },
+  {
+    "name": "Lio · Brand colors",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Core Lio palette — used across all Lio sections. Change these to rebrand all Lio components at once."
+      },
+      {
+        "type": "color",
+        "id": "lio_forest",
+        "label": "Forest (primary dark)",
+        "default": "#0b2410"
+      },
+      {
+        "type": "color",
+        "id": "lio_chalk",
+        "label": "Chalk (primary light)",
+        "default": "#fcfefb"
+      },
+      {
+        "type": "color",
+        "id": "lio_mint",
+        "label": "Mint (accent)",
+        "default": "#94fca9"
+      }
+    ]
   },
   {
     "name": "Appearance and spacing",
@@ -515,6 +542,12 @@
       },
       {
         "type": "checkbox",
+        "id": "show_page_transition",
+        "label": "Show page transition",
+        "default": false
+      },
+      {
+        "type": "checkbox",
         "id": "zoom_image_on_hover",
         "label": "Zoom image on hover",
         "info": "Various images are zoomed when hovered.",
@@ -621,18 +654,6 @@
         "id": "show_quick_buy",
         "label": "Show quick buy",
         "default": true
-      },
-            {
-        "type": "text",
-        "id": "rating-text",
-        "label": "card-rating-text",
-        "default" : "345 Reviews"
-      },
-                  {
-        "type": "text",
-        "id": "card-info",
-        "label": "card-info",
-        "default" : "Break your bad habit"
       },
       {
         "type": "checkbox",
@@ -829,7 +850,8 @@
         "id": "cart_free_shipping_threshold",
         "label": "Free shipping minimum amount",
         "info": "Indicate the value in your store main currency.",
-        "default": "50"
+        "default": "50",
+        "visible_if": "{{ settings.cart_show_free_shipping_threshold }}"
       }
     ]
   },

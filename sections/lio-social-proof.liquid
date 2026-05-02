@@ -10,13 +10,16 @@
 -%}
 
 <div class="lio-social-proof">
+  {%- if reviews.size > 0 -%}
     <section class="lhx-proof lhx-proof--dark" aria-label="Customer proof">
       <div class="lhx-proof-tile">
 
         <header class="lhx-proof-head">
           <div class="lhx-proof-headline">
             <div class="lhx-proof-num" data-count="{{ stat_num }}">{{ stat_display }}<span class="lhx-plus">+</span></div>
-            <p class="lhx-proof-label">{{ 'lander.social.stat_label' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</p>
+            {%- if section.settings.stat_label != blank -%}
+              <p class="lhx-proof-label">{{ section.settings.stat_label }}</p>
+            {%- endif -%}
           </div>
 
           {%- if section.settings.show_rating -%}
@@ -24,7 +27,7 @@
               <div class="lhx-proof-rating-stars" aria-hidden="true">{{ section.settings.rating_stars | default: '★★★★★' }}</div>
               <div class="lhx-proof-rating-meta">
                 <strong>{{ section.settings.rating_score | default: '4.6/5' }}</strong>
-                <span>{{ 'lander.social.rating_subtext' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+                <span>{{ section.settings.rating_subtext | default: 'from 2,300+ verified reviews' }}</span>
               </div>
             </div>
           {%- endif -%}
@@ -33,79 +36,31 @@
         <div class="lhx-proof-carousel">
           <div class="lhx-proof-viewport" role="region" aria-label="Verified customer reviews" tabindex="0">
             <div class="lhx-proof-track" data-proof-track>
-                <article class="lhx-proof-card" role="group" aria-roledescription="slide" aria-label="Review 1 of 6">
+              {%- for block in reviews -%}
+                <article class="lhx-proof-card" role="group" aria-roledescription="slide" aria-label="Review {{ forloop.index }} of {{ reviews.size }}" {{ block.shopify_attributes }}>
                   <div class="lhx-proof-card-top">
-                    <div class="lhx-proof-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                    <span class="lhx-proof-card-verify">{{ 'lander.social.verified' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
+                    <div class="lhx-proof-card-stars" aria-label="{{ block.settings.stars | default: 5 }} out of 5 stars">
+                      {%- assign s = block.settings.stars | default: 5 -%}
+                      {%- for i in (1..s) -%}★{%- endfor -%}
+                    </div>
+                    {%- if block.settings.verified -%}
+                      <span class="lhx-proof-card-verify">Verified</span>
+                    {%- endif -%}
                   </div>
-                  <blockquote class="lhx-proof-card-quote">{{ 'lander.social.q1' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</blockquote>
+                  <blockquote class="lhx-proof-card-quote">{{ block.settings.quote }}</blockquote>
                   <footer class="lhx-proof-card-attr">
-                    <span class="lhx-proof-card-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #c4a57b, #8b6a47);">N</span>
-                    <span class="lhx-proof-card-name">Natascha H.</span>
+                    <span class="lhx-proof-card-avatar" aria-hidden="true" style="background: linear-gradient(135deg, {{ block.settings.avatar_from | default: '#c4a57b' }}, {{ block.settings.avatar_to | default: '#8b6a47' }});">{{ block.settings.avatar_letter | default: block.settings.name | slice: 0, 1 | upcase }}</span>
+                    <span class="lhx-proof-card-name">{{ block.settings.name }}</span>
                   </footer>
                 </article>
-                <article class="lhx-proof-card" role="group" aria-roledescription="slide" aria-label="Review 2 of 6">
-                  <div class="lhx-proof-card-top">
-                    <div class="lhx-proof-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                    <span class="lhx-proof-card-verify">{{ 'lander.social.verified' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
-                  </div>
-                  <blockquote class="lhx-proof-card-quote">{{ 'lander.social.q2' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</blockquote>
-                  <footer class="lhx-proof-card-attr">
-                    <span class="lhx-proof-card-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #e8b4a0, #b07d6d);">E</span>
-                    <span class="lhx-proof-card-name">Emma F.</span>
-                  </footer>
-                </article>
-                <article class="lhx-proof-card" role="group" aria-roledescription="slide" aria-label="Review 3 of 6">
-                  <div class="lhx-proof-card-top">
-                    <div class="lhx-proof-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                    <span class="lhx-proof-card-verify">{{ 'lander.social.verified' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
-                  </div>
-                  <blockquote class="lhx-proof-card-quote">{{ 'lander.social.q3' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</blockquote>
-                  <footer class="lhx-proof-card-attr">
-                    <span class="lhx-proof-card-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #9ab8d1, #5a7896);">P</span>
-                    <span class="lhx-proof-card-name">Pedro C.</span>
-                  </footer>
-                </article>
-                <article class="lhx-proof-card" role="group" aria-roledescription="slide" aria-label="Review 4 of 6">
-                  <div class="lhx-proof-card-top">
-                    <div class="lhx-proof-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                    <span class="lhx-proof-card-verify">{{ 'lander.social.verified' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
-                  </div>
-                  <blockquote class="lhx-proof-card-quote">{{ 'lander.social.q4' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</blockquote>
-                  <footer class="lhx-proof-card-attr">
-                    <span class="lhx-proof-card-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #94fca9, #4fb36a);">M</span>
-                    <span class="lhx-proof-card-name">Michelle K.</span>
-                  </footer>
-                </article>
-                <article class="lhx-proof-card" role="group" aria-roledescription="slide" aria-label="Review 5 of 6">
-                  <div class="lhx-proof-card-top">
-                    <div class="lhx-proof-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                    <span class="lhx-proof-card-verify">{{ 'lander.social.verified' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
-                  </div>
-                  <blockquote class="lhx-proof-card-quote">{{ 'lander.social.q5' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</blockquote>
-                  <footer class="lhx-proof-card-attr">
-                    <span class="lhx-proof-card-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #d4a5b8, #8a5d7a);">T</span>
-                    <span class="lhx-proof-card-name">Thomas B.</span>
-                  </footer>
-                </article>
-                <article class="lhx-proof-card" role="group" aria-roledescription="slide" aria-label="Review 6 of 6">
-                  <div class="lhx-proof-card-top">
-                    <div class="lhx-proof-card-stars" aria-label="5 out of 5 stars">★★★★★</div>
-                    <span class="lhx-proof-card-verify">{{ 'lander.social.verified' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</span>
-                  </div>
-                  <blockquote class="lhx-proof-card-quote">{{ 'lander.social.q6' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}</blockquote>
-                  <footer class="lhx-proof-card-attr">
-                    <span class="lhx-proof-card-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #b9c9a6, #6e8a52);">A</span>
-                    <span class="lhx-proof-card-name">Anna K.</span>
-                  </footer>
-                </article>
+              {%- endfor -%}
             </div>
           </div>
         </div>
 
         <div class="lhx-proof-controls">
           <div class="lhx-proof-progress" aria-live="polite" aria-atomic="true">
-            <strong data-proof-progress>1</strong> {{ 'lander.social.of_n_verified' | t | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&amp;', '&' }}
+            <strong data-proof-progress>1</strong> of {{ reviews.size }} verified
           </div>
           <div class="lhx-proof-nav" aria-hidden="false">
             <button class="lhx-proof-btn lhx-proof-btn--prev" type="button" data-proof-prev aria-label="Previous review">
@@ -119,6 +74,7 @@
 
       </div>
     </section>
+  {%- endif -%}
 </div>
 
 {% stylesheet %}

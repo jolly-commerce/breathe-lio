@@ -8,12 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "404": {
-    "general": {
-      "title": "Sayfa bulunamadı",
-      "continue_shopping": "Alışverişe devam edin"
-    }
-  },
   "general": {
     "page": "{{ page }}. Sayfa",
     "home": "Ana Sayfa",
@@ -22,7 +16,7 @@
       "pagination": "Sayfalarda gezinme",
       "go_to_page": "{{ index }}. sayfaya git",
       "go_to_item": "{{ index }} ögesine git",
-      "item_nth_of_count": "{{ index }}/{{ count }}. öge",
+      "item_nth_of_count": "{{ index }}\/{{ count }}. öge",
       "drag": "Sürükle",
       "close": "Kapat",
       "next": "İleri",
@@ -42,7 +36,7 @@
       "share_email": "E-posta ile paylaş"
     },
     "rating": {
-      "info": "{{ rating_value }}/{{ rating_max }} yıldız"
+      "info": "{{ rating_value }}\/{{ rating_max }} yıldız"
     },
     "newsletter": {
       "email": "E-posta",
@@ -93,6 +87,7 @@
       "sold_out_button": "Tükendi",
       "unavailable_button": "Mevcut değil",
       "added_to_cart": "Sepetinize eklendi!",
+      "added_to_cart_with_title": "{{ product_title }} sepete eklendi.",
       "sold_out_badge": "Tükendi",
       "on_sale_badge": "İndirimde",
       "discount_badge_html": "{{ savings }} tasarruf edin",
@@ -101,22 +96,12 @@
       "view_in_space": "Kendi alanınızda görüntüleyin",
       "taxes_included": "Vergi dahil.",
       "taxes_excluded": "Vergi hariç.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Gönderi ücreti</a> ödeme sırasında hesaplanır",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Gönderi ücreti<\/a> ödeme sırasında hesaplanır",
       "size_chart": "Beden tablosu",
       "available_colors_count": {
         "one": "{{ count }} renk mevcut",
         "other": "{{ count }} renk mevcut"
-      },
-      "single": "Single",
-      "packs": "Packs",
-      "adding": "Adding...",
-      "added": "Added!",
-      "error": "Error",
-      "select_variant": "Select a variant",
-      "no_pack_variants": "No pack variants available",
-      "up_to_weeks": "up to {{ weeks }} weeks",
-      "weeks": "weeks",
-      "discount": "discount"
+      }
     },
     "gallery": {
       "close": "Galeriyi kapat",
@@ -333,9 +318,7 @@
       "title": "Sepet",
       "empty": "Sepetiniz boş",
       "item_count": {
-        "other": "{{ count }} ürün",
-        "zero": "{{ count }} items",
-        "one": "{{ count }} item"
+        "other": "{{ count }} ürün"
       },
       "continue_shopping": "Alışverişe devam edin",
       "weight": "Ağırlık",
@@ -348,9 +331,9 @@
       "view_cart": "Sepeti görüntüle",
       "checkout": "Ödeme yap",
       "we_accept": "Kabul ettiklerimiz:",
-      "taxes_and_shipping_policy_at_checkout_html": "Vergiler ve <a href=\"{{ link }}\" class=\"link\">gönderi ücreti</a> ödeme sırasında hesaplanır",
+      "taxes_and_shipping_policy_at_checkout_html": "Vergiler ve <a href=\"{{ link }}\" class=\"link\">gönderi ücreti<\/a> ödeme sırasında hesaplanır",
       "taxes_included_but_shipping_at_checkout": "Vergi dahildir ve gönderi ücreti ödeme sırasında hesaplanır",
-      "taxes_included_and_shipping_policy_html": "Vergi dahildir. <a href=\"{{ link }}\" class=\"link\">Gönderi ücreti</a> ödeme sırasında hesaplanır.",
+      "taxes_included_and_shipping_policy_html": "Vergi dahildir. <a href=\"{{ link }}\" class=\"link\">Gönderi ücreti<\/a> ödeme sırasında hesaplanır.",
       "taxes_and_shipping_at_checkout": "Vergiler ve gönderi ücreti ödeme sırasında hesaplanır"
     },
     "order": {
@@ -377,6 +360,10 @@
       "one_result": "Adresiniz için bir gönderi seçeneği bulunuyor:",
       "multiple_results": "Adresiniz için birden çok gönderi seçeneği bulunuyor:",
       "error": "Gönderi seçenekleri getirilirken bir veya daha fazla hata oluştu:"
+    },
+    "discount": {
+      "label": "İndirim Kodu",
+      "error": "Geçerli bir indirim kodu girin"
     }
   },
   "404": {
@@ -393,7 +380,7 @@
       "products": "Ürünler",
       "suggestions": "Öneriler",
       "collections": "Koleksiyonlar",
-      "posts": "Blog gönderileri",
+      "articles": "Blog gönderileri",
       "pages": "Sayfalar",
       "clear": "Temizle",
       "view_all": "Tümünü görüntüle",
@@ -416,7 +403,7 @@
     },
     "issued": {
       "remaining_amount": "Kalan miktar",
-      "out_of_html": "/{{ initial_value }}",
+      "out_of_html": "\/{{ initial_value }}",
       "redeem_instructions": "Ödeme sırasında hediye kartınızı kullanmak için şu kodu girin:",
       "code": "Hediye kartı kodu",
       "expires_on": "{{ expires_on }} tarihinde süresi doluyor",
@@ -448,7 +435,7 @@
   },
   "apps": {
     "shopify_reviews": {
-      "review_info": "Bu ürün {{ rating_value }}/{{ rating_max }} yıldız aldı.",
+      "review_info": "Bu ürün {{ rating_value }}\/{{ rating_max }} yıldız aldı.",
       "leave_review": "Değerlendirme yazın",
       "review_count": {
         "zero": "Bu ürünün henüz değerlendirmesi yok.",
@@ -456,30 +443,5 @@
         "other": "{{ count }} değerlendirme aldı."
       }
     }
-  },
-  "bundle_pack": {
-    "button_select": "Seç",
-    "button_add": "Ekle",
-    "button_add_to_cart": "Sepete ekle",
-    "button_adding_to_cart": "Sepete ekleniyor...",
-    "summary_select_your_lio": "Lio'nuzu seçin",
-    "selected_label": "Seçildi",
-    "tap_to_add": "+'ya dokunarak birden fazla lezzet ekleyin",
-    "optional_label": "İsteğe bağlı",
-    "info_money_back": "30 günde bırakamadınız mı? Para iadesi!",
-    "info_shipping": "Ücretsiz ve hızlı kargo",
-    "success_added": "Başarıyla sepete eklendi!",
-    "error_failed_add": "Sepete eklenemedi",
-    "error_network": "Ağ hatası. Lütfen tekrar deneyin.",
-    "select_minimum_flavors": "En az {count} aroma seçin",
-    "selected_cigarette": "Lio",
-    "selected_flavors": "Aromalar",
-    "selected_accessories": "Aksesuarlar",
-    "total_price": "Toplam",
-    "savoury": "Ecstasy",
-    "throat_hit": "Provozası",
-    "sweetness": "Ecstasy",
-    "select_flavor": "Aroma seçin",
-    "close": "Kapat"
   }
 }

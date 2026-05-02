@@ -10,11 +10,33 @@
 {
   "sections": {
     "main": {
-      "type": "main-not-found",
+      "type": "lio-404",
+      "blocks": {
+        "shop": {
+          "type": "link",
+          "settings": {
+            "label": "shop the ritual",
+            "link": "/collections/all"
+          }
+        },
+        "refills": {
+          "type": "link",
+          "settings": {
+            "label": "get refills",
+            "link": "/collections/cores"
+          }
+        },
+        "how": {
+          "type": "link",
+          "settings": {
+            "label": "see how Lio works",
+            "link": "/pages/how-it-works"
+          }
+        }
+      },
+      "block_order": ["shop", "refills", "how"],
       "settings": {}
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["main"]
 }

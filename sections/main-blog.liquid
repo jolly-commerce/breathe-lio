@@ -72,7 +72,7 @@
 
         {%- if section.settings.show_tags and blog.all_tags.size > 0 -%}
           <div class="scroll-area bleed sm:unbleed justify-items-center">
-            <div class="blog-filter-list">
+            <div class="nav-categories">
               <ul class="h-stack bold text-base" role="tablist">
                 <li role="tab" aria-selected="{% if current_tags == blank %}true{% else %}false{% endif %}">
                   <a href="{{ blog.url }}" class="{% if current_tags == blank %}selected{% endif %}">{{ 'blog.general.all_posts' | t }}</a>

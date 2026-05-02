@@ -96,7 +96,7 @@
       "view_in_space": "Veja em seu ambiente",
       "taxes_included": "Tributo incluído.",
       "taxes_excluded": "Tributo excluído.",
-      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Frete</a> calculado no checkout",
+      "shipping_policy_html": "<a href=\"{{ link }}\" class=\"link\">Frete<\/a> calculado no checkout",
       "size_chart": "Guia de medidas",
       "available_colors_count": {
         "one": "{{ count }} cor disponível",
@@ -443,40 +443,6 @@
         "one": "Recebeu {{ count }} avaliação.",
         "other": "Recebeu {{ count }} avaliações."
       }
-    }
-  },
-  "lander": {
-    "announce": "Nós inventamos o Ar Aromatizado. Patenteado e fabricado em Amsterdã desde 2018.",
-    "nav": {
-      "what_it_is": "O que é",
-      "how": "Como funciona",
-      "flavors": "Sabores",
-      "evidence": "Provas Lio",
-      "faq": "FAQ"
-    },
-    "cta": {
-      "build_kit": "Montar meu kit",
-      "pick_device": "Escolher um dispositivo",
-      "see_how": "Ver como funciona"
-    },
-    "geo": {
-      "from": "De",
-      "to": "para",
-      "free": "Frete grátis",
-      "working_days": "dias úteis"
-    },
-    "cred": {
-      "invented_title": "Nós inventamos.",
-      "invented_meta": "A categoria — Ar Aromatizado",
-      "first_title": "Primeiros na Europa.",
-      "first_meta": "Desde 2018 — Amsterdã",
-      "patented_title": "Somos patenteados.",
-      "patented_meta": "Patente UE EP3784213",
-      "family_title": "Um negócio familiar.",
-      "family_meta": "Feito à mão — ainda"
-    },
-    "loader": {
-      "text": "Carregando"
     }
   }
 }

@@ -9,120 +9,50 @@
  */
 {
   "current": {
-    "page_width": 1400,
+    "lio_mint": "#a3f7ba",
+    "page_width": 1360,
     "section_vertical_spacing": "medium",
-    "button_border_radius": 4,
-    "input_border_radius": 0,
-    "block_border_radius": 0,
+    "button_border_radius": 60,
+    "input_border_radius": 8,
+    "block_border_radius": 24,
     "block_shadow_opacity": 10,
-    "block_shadow_horizontal_offset": -14,
     "block_shadow_vertical_offset": 18,
-    "button_style": "fill",
-    "background": "#ffffff",
-    "text_color": "#03261b",
-    "success_color": "#73ffae",
-    "warning_color": "#eded5e",
-    "error_color": "#ff0000",
-    "header_background": "#ffffff",
-    "header_text_color": "#002a15",
-    "footer_background": "#03261b",
-    "footer_text_color": "#f4fcf7",
-    "dialog_background": "#ffffff",
-    "primary_button_background": "#001d06",
-    "primary_button_text_color": "#73ffae",
-    "secondary_button_background": "#001e15",
-    "secondary_button_text_color": "#73ffae",
-    "product_card_text_color": "#1a1a1a",
+    "background": "#fdfefa",
+    "text_color": "#092115",
+    "success_color": "#94fca9",
+    "header_background": "#fbfef9",
+    "header_text_color": "#092115",
+    "footer_background": "#fdfefa",
+    "footer_text_color": "#092115",
+    "primary_button_background": "#a3f7ba",
+    "primary_button_text_color": "#0a2510",
+    "secondary_button_background": "#0a2115",
+    "secondary_button_text_color": "#ffffff",
+    "product_card_text_color": "#94fca9",
     "product_primary_badge_background": "#803cee",
-    "heading_font": "open_sans_n5",
+    "heading_font": "barlow_n7",
     "heading_font_size": "large",
-    "heading_text_transform": "capitalize",
     "heading_letter_spacing": -2,
-    "text_font": "poppins_n4",
-    "text_font_size_mobile": 14,
-    "text_font_size_desktop": 20,
-    "text_font_letter_spacing": 0,
-    "currency_code_enabled": false,
-    "reduce_drawer_animation": true,
-    "reduce_menu_animation": true,
-    "heading_apparition": "fade",
-    "rating-text": "800+ reviews",
-    "card-info": "",
-    "discount_mode": "saving",
+    "text_font": "barlow_n4",
+    "heading_apparition": "split_fade",
     "product_color_display": "swatch",
     "product_info_alignment": "start",
     "cart_type": "drawer",
-    "cart_icon": "shopping_cart",
-    "cart_empty_button_link": "",
-    "cart_show_free_shipping_threshold": false,
-    "cart_free_shipping_threshold": "30",
-    "social_facebook": "#",
-    "social_instagram": "#",
-    "social_tiktok": "#",
-    "favicon": "shopify://shop_images/Logo_Lio_4_1_256x256_crop_center_3_100x_2x_9d4d63e2-7d88-435d-820a-0ed2f1b1c543.png",
+    "cart_icon": "tote_bag",
     "checkout_accent_color": "#f0c417",
     "checkout_button_color": "#1a1a1a",
     "content_for_index": [],
     "blocks": {
-      "1656560654682496077": {
-        "type": "shopify://apps/instant/blocks/instant_core/927e19d9-4e68-41db-99c7-d8debdc1f80d",
-        "disabled": false,
-        "settings": {}
-      },
-      "17198465164502963513": {
-        "type": "shopify://apps/parcel-panel/blocks/app.embed/fc785c3f-90e0-4c98-a20c-7cde9ba5e4b5",
-        "disabled": false,
-        "settings": {}
-      },
       "11532412952436166569": {
         "type": "shopify://apps/loox-reviews/blocks/loox-inject/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
         "disabled": false,
         "settings": {}
-      },
-      "855628211100114053": {
-        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
-        "disabled": false,
-        "settings": {}
-      },
-      "17676059084223943535": {
-        "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
-        "disabled": false,
-        "settings": {}
-      },
-      "1877152918344802950": {
-        "type": "shopify://apps/intelligems-a-b-testing/blocks/intelligems-script/fa83b64c-0c77-4c0c-b4b2-b94b42f5ef19",
-        "disabled": true,
-        "settings": {}
-      },
-      "15557474716127144420": {
-        "type": "shopify://apps/kaching-bundles/blocks/app-embed-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
-        "disabled": false,
-        "settings": {}
-      },
-      "5674012996228588682": {
-        "type": "shopify://apps/cartbot/blocks/cartbot-script-append/f7a44e3b-3901-4412-9d5a-3db0980a9db0",
-        "disabled": false,
-        "settings": {}
-      },
-      "14952540001915115444": {
-        "type": "shopify://apps/upcart-cart-drawer/blocks/app-embed/af3da5fb-f5f7-40ec-8273-41bf50059d4b",
-        "disabled": false,
-        "settings": {}
-      },
-      "6146500278089136509": {
-        "type": "shopify://apps/bm-country-blocker-ip-blocker/blocks/boostmark-blocker/bf9db4b9-be4b-45e1-8127-bbcc07d93e7e",
-        "disabled": false,
-        "settings": {}
-      },
-      "3847134708050210359": {
-        "type": "shopify://apps/transcy/blocks/switcher_embed_block/bce4f1c0-c18c-43b0-b0b2-a1aefaa44573",
-        "disabled": true,
-        "settings": {}
       }
     }
   },
+  "installed_preset_name": "Impact",
   "presets": {
-    "Sound": {
+    "Impact": {
       "section_vertical_spacing": "medium",
       "button_border_radius": 60,
       "input_border_radius": 8,
@@ -152,7 +82,7 @@
       "checkout_accent_color": "#f0c417",
       "checkout_button_color": "#1a1a1a"
     },
-    "Home": {
+    "Cocoon": {
       "section_vertical_spacing": "medium",
       "section_boxed_horizontal_spacing": "large",
       "button_hover_effect": "reverse",
@@ -188,7 +118,7 @@
       "checkout_accent_color": "#3c619e",
       "checkout_button_color": "#3c619e"
     },
-    "Shape": {
+    "Balance": {
       "page_width": 1440,
       "section_vertical_spacing": "small",
       "section_boxed_horizontal_spacing": "medium",
@@ -217,11 +147,5 @@
       "product_color_display": "swatch",
       "product_info_alignment": "center"
     }
-  },
-  "platform_customizations": {
-    "custom_css": [
-      ".test-home002--visible {display: none;}",
-      "[data-block-type=\"variant-v2\"] {display: none;}"
-    ]
   }
 }
