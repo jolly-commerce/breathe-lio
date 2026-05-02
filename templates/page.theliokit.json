@@ -13,19 +13,6 @@
       "type": "lio-bootstrap",
       "settings": {}
     },
-    "lander_header": {
-      "type": "lio-lander-header",
-      "settings": {
-        "announce_bg": "#1f3a2c",
-        "announce_color": "#f5f1eb",
-        "logo_text": "Lio",
-        "logo_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/lio-logo-Photoroom_1.webp?v=1776826288",
-        "show_cart": true,
-        "cta_link": "#shopify-section-main",
-        "show_locale": true,
-        "locale_filter": "NL,AE,GB,BE,IT,DE,IE,US,ES,GR,AU,SA,PT,FR,CZ,RO,DK,AT,HR,CH,PL,HU,CY,FI,CA,SI,LT,SK,LV,BG"
-      }
-    },
     "main": {
       "type": "lio-pdp-builder",
       "blocks": {
@@ -70,27 +57,11 @@
         "compare_title_em": "Lio",
         "compare_sub": "Join the ritual revolution and step away from the substances that own you. The hand, the breath, the pause — without anything addictive."
       }
-    },
-    "lander_footer": {
-      "type": "lio-lander-footer",
-      "settings": {
-        "bg": "#0b2410",
-        "tagline": "Wooden mouth diffusers, made in Amsterdam. 150,000+ habits broken since 2018.",
-        "email": "support@breathelio.com",
-        "whatsapp_number": "971585019168",
-        "trust_1": "90-day money-back",
-        "trust_2": "Free worldwide shipping",
-        "trust_3": "Patented design",
-        "patent": "",
-        "closing_tag": "Replace the ritual."
-      }
     }
   },
   "order": [
     "bootstrap",
-    "lander_header",
     "main",
-    "megapage",
-    "lander_footer"
+    "megapage"
   ]
 }
