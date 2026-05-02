@@ -1,0 +1,121 @@
+{%- comment -%}
+  Section: Lio · Press Marquee
+  Self-contained. CSS scoped to .lio-press. No SVG needed.
+{%- endcomment -%}
+
+<div class="lio-press" id="lio-press-{{ section.id }}">
+  <div class="lio-press__row">
+    <span class="lio-press__label">{{ section.settings.label }}</span>
+    <span class="lio-press__logo lio-press__logo--italic">Men's Health</span>
+    <span class="lio-press__logo lio-press__logo--caps">Forbes</span>
+    <span class="lio-press__logo lio-press__logo--italic">The Telegraph</span>
+    <span class="lio-press__logo lio-press__logo--caps">GQ</span>
+    <span class="lio-press__logo lio-press__logo--italic">Tros Radar</span>
+    <span class="lio-press__logo lio-press__logo--caps">Esquire</span>
+    <span class="lio-press__logo lio-press__logo--italic">Women's Health</span>
+    <span class="lio-press__logo lio-press__logo--caps">Vogue</span>
+    <span class="lio-press__logo lio-press__logo--italic">Vanity Fair</span>
+    {%- comment -%} Duplicate set for seamless loop {%- endcomment -%}
+    <span class="lio-press__label">{{ section.settings.label }}</span>
+    <span class="lio-press__logo lio-press__logo--italic">Men's Health</span>
+    <span class="lio-press__logo lio-press__logo--caps">Forbes</span>
+    <span class="lio-press__logo lio-press__logo--italic">The Telegraph</span>
+    <span class="lio-press__logo lio-press__logo--caps">GQ</span>
+    <span class="lio-press__logo lio-press__logo--italic">Tros Radar</span>
+    <span class="lio-press__logo lio-press__logo--caps">Esquire</span>
+    <span class="lio-press__logo lio-press__logo--italic">Women's Health</span>
+    <span class="lio-press__logo lio-press__logo--caps">Vogue</span>
+    <span class="lio-press__logo lio-press__logo--italic">Vanity Fair</span>
+  </div>
+</div>
+
+{% stylesheet %}
+  .lio-press {
+    --lp-forest: var(--lio-forest, #0b2410);
+    --lp-chalk:  var(--lio-chalk, #fcfefb);
+    --lp-f-10:   var(--lio-f-10, rgba(11, 36, 16, 0.10));
+    --lp-f-14:   var(--lio-f-14, rgba(11, 36, 16, 0.14));
+    --lp-f-55:   var(--lio-f-55, rgba(11, 36, 16, 0.55));
+
+    border-top: 1px solid var(--lp-f-10);
+    border-bottom: 1px solid var(--lp-f-10);
+    background: var(--lp-chalk);
+    padding: 22px 0;
+    overflow: hidden;
+    position: relative;
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .lio-press::before,
+  .lio-press::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .lio-press::before { left: 0; background: linear-gradient(to right, var(--lp-chalk), transparent); }
+  .lio-press::after  { right: 0; background: linear-gradient(to left, var(--lp-chalk), transparent); }
+
+  .lio-press__row {
+    display: flex;
+    gap: 72px;
+    align-items: center;
+    animation: lio-press-marquee 45s linear infinite;
+    width: max-content;
+  }
+  .lio-press__row:hover { animation-play-state: paused; }
+
+  @keyframes lio-press-marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .lio-press__label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lp-f-55);
+    font-weight: 600;
+    padding-right: 64px;
+    border-right: 1px solid var(--lp-f-14);
+    white-space: nowrap;
+  }
+  .lio-press__logo {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--lp-forest);
+    letter-spacing: -0.025em;
+    white-space: nowrap;
+    opacity: 0.55;
+    transition: opacity 0.2s;
+    cursor: default;
+  }
+  .lio-press__logo:hover { opacity: 1; }
+  .lio-press__logo--italic { font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+  .lio-press__logo--caps   { font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; font-size: 13px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lio-press__row { animation: none; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Lio · Press Marquee",
+  "tag": "section",
+  "class": "section-lio-press",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label text",
+      "default": "As seen in"
+    }
+  ],
+  "presets": [
+    { "name": "Lio · Press Marquee" }
+  ]
+}
+{% endschema %}

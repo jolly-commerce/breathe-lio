@@ -8,16 +8,16 @@
  * ------------------------------------------------------------
  */
 {
-  "name": "Footer 1",
-  "type": "footer",
   "sections": {
-    "instant-FwU08Hd6XP50g2C3": {
-      "type": "instant-FwU08Hd6XP50g2C3",
-      "custom_css": [],
-      "settings": {}
+    "main": {
+      "type": "lio-science-v2",
+      "settings": {
+        "cta_label": "Try Lio — €39",
+        "cta_link": "/products/lio"
+      }
     }
   },
   "order": [
-    "instant-FwU08Hd6XP50g2C3"
+    "main"
   ]
 }

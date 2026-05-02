@@ -1,0 +1,239 @@
+{%- comment -%}
+  Section: Lio · Use Case Grid — "When you'd reach for it"
+  8 moment-based cards. CSS scoped to .lio-use-case. No SVG.
+  Strategic purpose: helps visitors project themselves into the product's use.
+  Every card is a scene, not a feature.
+{%- endcomment -%}
+
+<section class="lio-use-case" id="lio-use-case-{{ section.id }}">
+
+  <div class="lio-use-case__head">
+    <span class="lio-use-case__eyebrow">When you'd reach for it</span>
+    <h2>Same pause.<br><span class="lio-use-case__soft">Different story.</span></h2>
+    <p>The old ritual had a time, a place, a trigger. So does Lio. Here's where 100,000+ people now reach for it instead.</p>
+  </div>
+
+  <div class="lio-use-case__grid">
+
+    <div class="lio-use-case__card">
+      <div class="lio-use-case__moment">After dinner</div>
+      <h3>The step outside you used to take.</h3>
+      <p>Same pause at the end of the meal. Same breath. Cinnamon core in your pocket, not a lighter.</p>
+    </div>
+
+    <div class="lio-use-case__card lio-use-case__card--dark">
+      <div class="lio-use-case__moment">Stressful call</div>
+      <h3>Your hands need somewhere to be.</h3>
+      <p>The jaw clench. The desk tap. The phantom reach. Lio handles the hands and the breath at once. Black Pepper, sharp and grounding.</p>
+    </div>
+
+    <div class="lio-use-case__card">
+      <div class="lio-use-case__moment">Morning commute</div>
+      <h3>The window that used to come down.</h3>
+      <p>Same motion leaving the house. Same ritual before the day starts. The routine stays. The cigarette doesn't.</p>
+    </div>
+
+    <div class="lio-use-case__card">
+      <div class="lio-use-case__moment">3pm craving</div>
+      <h3>Same time. Every single day.</h3>
+      <p>The afternoon slump that's been arriving on schedule for years. Peppermint core. Thirty seconds. The craving passes — every time.</p>
+    </div>
+
+    <div class="lio-use-case__card">
+      <div class="lio-use-case__moment">Long flight</div>
+      <h3>Anywhere you breathe is fine.</h3>
+      <p>No vapor, no restrictions, no side-eye from the row behind. Lio emits nothing — it runs entirely on your own breath.</p>
+    </div>
+
+    <div class="lio-use-case__card">
+      <div class="lio-use-case__moment">Before a meeting</div>
+      <h3>The five minutes that used to clear your head.</h3>
+      <p>Black Pepper, one slow breath before you walk in. The clarity is still there. The smoke isn't.</p>
+    </div>
+
+    <div class="lio-use-case__card">
+      <div class="lio-use-case__moment">After a workout</div>
+      <h3>The cool-down that used to end differently.</h3>
+      <p>Eucalyptus hits differently after a run. The ritual reward stays — earned, clean, already in your gym bag.</p>
+    </div>
+
+    <div class="lio-use-case__card">
+      <div class="lio-use-case__moment">Evening wind-down</div>
+      <h3>The last one people said they'd never replace.</h3>
+      <p>They were wrong. The late-night reach is just a pattern. Patterns route differently when you give them somewhere better to go.</p>
+    </div>
+
+  </div>
+
+</section>
+
+{% stylesheet %}
+  .lio-use-case {
+    --luc-forest: var(--lio-forest, #0b2410);
+    --luc-chalk:  var(--lio-chalk, #fcfefb);
+    --luc-mint:   var(--lio-mint, #94fca9);
+    --luc-f-06:   var(--lio-f-06, rgba(11, 36, 16, 0.06));
+    --luc-f-10:   var(--lio-f-10, rgba(11, 36, 16, 0.10));
+    --luc-f-55:   var(--lio-f-55, rgba(11, 36, 16, 0.55));
+    --luc-f-72:   var(--lio-f-72, rgba(11, 36, 16, 0.72));
+    --luc-c-12:   var(--lio-c-12, rgba(252, 254, 251, 0.12));
+    --luc-c-75:   var(--lio-c-75, rgba(252, 254, 251, 0.75));
+    --luc-ease:   var(--lio-ease, cubic-bezier(0.22, 1, 0.36, 1));
+    --luc-shadow: 0 8px 24px rgba(11, 36, 16, 0.08), 0 32px 64px rgba(11, 36, 16, 0.06);
+
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 104px 40px 80px;
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+  }
+
+  .lio-use-case__head {
+    max-width: 720px;
+    margin: 0 auto 56px;
+    text-align: center;
+  }
+
+  .lio-use-case__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--luc-f-55);
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .lio-use-case__eyebrow::before {
+    content: "";
+    width: 22px; height: 1px;
+    background: var(--luc-forest);
+  }
+
+  .lio-use-case__head h2 {
+    font-weight: 900;
+    font-size: clamp(44px, 5.6vw, 80px);
+    line-height: 0.93;
+    letter-spacing: -0.045em;
+    color: var(--luc-forest);
+    margin: 0 0 20px;
+  }
+  .lio-use-case__soft { font-weight: 300; }
+
+  .lio-use-case__head p {
+    font-size: 17px;
+    color: var(--luc-f-55);
+    line-height: 1.55;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .lio-use-case__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .lio-use-case__card {
+    background: #f3f6f0;
+    border: 1px solid var(--luc-f-10);
+    border-radius: 22px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.35s var(--luc-ease),
+                border-color 0.35s var(--luc-ease),
+                background 0.35s var(--luc-ease),
+                box-shadow 0.35s var(--luc-ease);
+    position: relative;
+    overflow: hidden;
+  }
+  .lio-use-case__card::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%; height: 3px;
+    background: var(--luc-mint);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.45s var(--luc-ease);
+  }
+  .lio-use-case__card:hover {
+    transform: translateY(-5px);
+    border-color: var(--luc-forest);
+    background: var(--luc-chalk);
+    box-shadow: var(--luc-shadow);
+  }
+  .lio-use-case__card:hover::after { transform: scaleX(1); }
+
+  .lio-use-case__card--dark {
+    background: var(--luc-forest);
+    border-color: var(--luc-forest);
+  }
+  .lio-use-case__card--dark:hover {
+    background: #122e18;
+    border-color: var(--luc-mint);
+  }
+  .lio-use-case__card--dark::after { background: var(--luc-mint); }
+
+  .lio-use-case__moment {
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--luc-f-55);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .lio-use-case__moment::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--luc-mint);
+    flex-shrink: 0;
+  }
+  .lio-use-case__card--dark .lio-use-case__moment { color: var(--luc-c-75); }
+
+  .lio-use-case__card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--luc-forest);
+    margin: 2px 0 0;
+  }
+  .lio-use-case__card--dark h3 { color: var(--luc-chalk); }
+
+  .lio-use-case__card p {
+    font-size: 14px;
+    color: var(--luc-f-72);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .lio-use-case__card--dark p { color: var(--luc-c-75); }
+
+  @media (max-width: 1100px) {
+    .lio-use-case__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .lio-use-case { padding: 72px 20px 56px; }
+    .lio-use-case__grid { grid-template-columns: 1fr; gap: 10px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Lio · Use Case",
+  "tag": "section",
+  "class": "section-lio-use-case",
+  "settings": [],
+  "presets": [
+    { "name": "Lio · Use Case" }
+  ]
+}
+{% endschema %}

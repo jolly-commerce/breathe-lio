@@ -1,0 +1,984 @@
+{%- comment -%}
+  Section: Lio · Range (2026).
+  New-customer "Journey Pack" + returning-customer "Refills" parallel cards,
+  followed by a flavor-cores swiper with progress bar. Every copy string is
+  a schema setting; every flavor card is a block. Fully editable in the
+  Shopify editor and Translate & Adapt-ready.
+  Scoped under .lio-range-2026 / .lrx-* to avoid CSS collisions.
+{%- endcomment -%}
+
+{%- liquid
+  assign s = section.settings
+  assign cores = section.blocks | where: 'type', 'core'
+-%}
+
+<section class="lio-range-2026" data-lrx>
+  <div class="lrx-inner">
+
+    {%- comment -%} =========== HEADER =========== {%- endcomment -%}
+    <header class="lrx-head">
+      <div class="lrx-head-copy">
+        {%- if s.eyebrow != blank -%}<div class="lrx-eyebrow">{{ s.eyebrow }}</div>{%- endif -%}
+        <h2 class="lrx-h2">
+          {%- if s.title_a != blank -%}{{ s.title_a }}{%- endif -%}
+          {%- if s.title_italic != blank -%}<span class="lrx-italic">{{ s.title_italic }}</span>{%- endif -%}
+          <br>
+          {%- if s.title_b != blank -%}{{ s.title_b }}{%- endif -%}
+          {%- if s.title_script != blank -%}<span class="lrx-script">{{ s.title_script }}</span>{%- endif -%}
+        </h2>
+        {%- if s.lede != blank -%}<p class="lrx-lede">{{ s.lede }}</p>{%- endif -%}
+      </div>
+    </header>
+
+    {%- comment -%} =========== PARALLEL HERO =========== {%- endcomment -%}
+    <div class="lrx-parallel" id="refills">
+
+      <a href="{{ s.p_link | default: '#offer' }}" class="lrx-card lrx-card--primary">
+        <div class="lrx-card-tag">
+          <span class="lrx-tag-dot"></span>
+          <span>{{ s.p_tag | default: 'New here' }}</span>
+        </div>
+        <div class="lrx-card-body">
+          {%- if s.p_badge != blank -%}
+            <div class="lrx-card-badge">
+              {%- if s.p_badge_pulse -%}<span class="lrx-pulse-dot" aria-hidden="true"></span>{%- endif -%}
+              <span>{{ s.p_badge }}</span>
+            </div>
+          {%- endif -%}
+          <div>
+            <h3 class="lrx-card-title">
+              {%- if s.p_title_pre != blank -%}{{ s.p_title_pre }}<br>{%- endif -%}
+              {%- if s.p_title_italic != blank -%}<span class="lrx-italic">{{ s.p_title_italic }}</span>{%- endif -%}
+            </h3>
+            {%- if s.p_tagline != blank -%}<p class="lrx-card-tagline">{{ s.p_tagline }}</p>{%- endif -%}
+            <div class="lrx-card-foot">
+              {%- if s.p_price != blank or s.p_strike != blank -%}
+                <span class="lrx-card-price">
+                  {{ s.p_price }}
+                  {%- if s.p_strike != blank -%}<span class="lrx-card-strike">{{ s.p_strike }}</span>{%- endif -%}
+                </span>
+              {%- endif -%}
+              <span class="lrx-card-cta">
+                {{ s.p_cta | default: 'Shop the pack' }}
+                <span class="lrx-card-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 16 16"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="lrx-card-visual lrx-card-visual--device" aria-hidden="true">
+          {%- if s.p_image != blank -%}
+            {{ s.p_image | image_url: width: 600 | image_tag: widths: '200,300,400,500,600', sizes: '180px', loading: 'lazy', alt: '', class: 'lrx-card-visual-img' }}
+          {%- else -%}
+            <span class="lrx-device"></span>
+          {%- endif -%}
+        </div>
+      </a>
+
+      <a href="{{ s.s_link | default: '#refills-cores' }}" class="lrx-card lrx-card--secondary">
+        <div class="lrx-card-tag lrx-card-tag--light">
+          <span class="lrx-tag-dot"></span>
+          <span>{{ s.s_tag | default: 'Already have Lio?' }}</span>
+        </div>
+        <div class="lrx-card-body">
+          {%- if s.s_badge != blank -%}
+            <div class="lrx-card-badge lrx-card-badge--light">{{ s.s_badge }}</div>
+          {%- endif -%}
+          <div>
+            <h3 class="lrx-card-title">
+              {%- if s.s_title_pre != blank -%}{{ s.s_title_pre }}<br>{%- endif -%}
+              {%- if s.s_title_italic != blank -%}<span class="lrx-italic">{{ s.s_title_italic }}</span>{%- endif -%}
+            </h3>
+            {%- if s.s_tagline != blank -%}<p class="lrx-card-tagline lrx-card-tagline--light">{{ s.s_tagline }}</p>{%- endif -%}
+            <div class="lrx-card-foot">
+              {%- if s.s_price != blank -%}
+                <span class="lrx-card-price lrx-card-price--light">
+                  {%- if s.s_price_prefix != blank -%}{{ s.s_price_prefix }} {%- endif -%}
+                  <span class="lrx-card-price-amount">{{ s.s_price }}</span>
+                  {%- if s.s_unit != blank -%}<span class="lrx-card-unit">{{ s.s_unit }}</span>{%- endif -%}
+                </span>
+              {%- endif -%}
+              <span class="lrx-card-cta lrx-card-cta--light">
+                {{ s.s_cta | default: 'Browse flavors' }}
+                <span class="lrx-card-arrow lrx-card-arrow--light" aria-hidden="true">
+                  <svg viewBox="0 0 16 16"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="lrx-card-visual lrx-card-visual--cores" aria-hidden="true">
+          {%- if s.s_image != blank -%}
+            {{ s.s_image | image_url: width: 600 | image_tag: widths: '200,300,400,500,600', sizes: '180px', loading: 'lazy', alt: '', class: 'lrx-card-visual-img' }}
+          {%- else -%}
+            <span class="lrx-core-pill lrx-core--mint"></span>
+            <span class="lrx-core-pill lrx-core--cinnamon"></span>
+            <span class="lrx-core-pill lrx-core--fruity"></span>
+          {%- endif -%}
+        </div>
+      </a>
+
+    </div>
+
+    {%- comment -%} =========== FLAVOR CORES SWIPER =========== {%- endcomment -%}
+    <div class="lrx-sub-head" id="refills-cores">
+      <div>
+        {%- if s.c_eyebrow != blank -%}<div class="lrx-eyebrow">{{ s.c_eyebrow }}</div>{%- endif -%}
+        <h3 class="lrx-sub-h2">
+          {%- if s.c_title_pre != blank -%}{{ s.c_title_pre }} {%- endif -%}
+          {%- if s.c_title_italic != blank -%}<span class="lrx-italic">{{ s.c_title_italic }}</span>{%- endif -%}
+        </h3>
+      </div>
+      <div class="lrx-ctrls">
+        <button type="button" class="lrx-nav lrx-nav--prev" data-lrx-prev aria-label="{{ s.prev_label | default: 'Previous' }}" disabled>
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="lrx-nav lrx-nav--next" data-lrx-next aria-label="{{ s.next_label | default: 'Next' }}">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="lrx-swiper-wrap">
+      <div class="lrx-swiper" data-lrx-track>
+        {%- for block in cores -%}
+          {%- liquid
+            assign link = block.settings.link | default: '#offer'
+            assign color = block.settings.core_color | default: 'mint'
+          -%}
+          <a href="{{ link }}" class="lrx-slide" {{ block.shopify_attributes }}>
+            {%- if block.settings.badge != blank -%}
+              <span class="lrx-slide-badge lrx-slide-badge--{{ block.settings.badge_variant | default: 'fav' }}">{{ block.settings.badge }}</span>
+            {%- endif -%}
+            <div class="lrx-slide-visual">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 600 | image_tag: widths: '200,300,400,500,600', sizes: '220px', loading: 'lazy', alt: block.settings.name | default: '', class: 'lrx-slide-img' }}
+              {%- else -%}
+                <span class="lrx-slide-core lrx-slide-core--{{ color }}"
+                  {%- if color == 'custom' and block.settings.core_from != blank and block.settings.core_to != blank -%}
+                    style="background: linear-gradient(135deg, {{ block.settings.core_from }}, {{ block.settings.core_to }});"
+                  {%- endif -%}
+                  aria-hidden="true"></span>
+              {%- endif -%}
+            </div>
+            <div class="lrx-slide-body">
+              {%- if block.settings.cat != blank -%}<div class="lrx-slide-cat">{{ block.settings.cat }}</div>{%- endif -%}
+              {%- if block.settings.name != blank -%}<h4 class="lrx-slide-name">{{ block.settings.name }}</h4>{%- endif -%}
+              {%- if block.settings.desc != blank -%}<p class="lrx-slide-desc">{{ block.settings.desc }}</p>{%- endif -%}
+              <div class="lrx-slide-foot">
+                {%- if block.settings.price != blank -%}<div class="lrx-slide-price">{{ block.settings.price }}</div>{%- endif -%}
+                <span class="lrx-slide-add" aria-label="{{ s.shop_label | default: 'Shop' }} {{ block.settings.name }}">
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        {%- endfor -%}
+
+        {%- if s.sa_show -%}
+          <a href="{{ s.sa_link | default: '/collections/all' }}" class="lrx-slide lrx-slide--shopall">
+            {%- if s.sa_eyebrow != blank -%}<div class="lrx-shopall-eyebrow">{{ s.sa_eyebrow }}</div>{%- endif -%}
+            <div>
+              <h4 class="lrx-shopall-title">
+                {%- if s.sa_title_pre != blank -%}{{ s.sa_title_pre }}<br>{%- endif -%}
+                {%- if s.sa_title_italic != blank -%}<span class="lrx-italic">{{ s.sa_title_italic }}</span>{%- endif -%}
+              </h4>
+              {%- if s.sa_desc != blank -%}<p class="lrx-shopall-desc">{{ s.sa_desc }}</p>{%- endif -%}
+            </div>
+            <div class="lrx-shopall-foot">
+              {{ s.sa_cta | default: 'See all' }}
+              <span class="lrx-shopall-arrow" aria-hidden="true">
+                <svg viewBox="0 0 16 16"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+          </a>
+        {%- endif -%}
+      </div>
+
+      <div class="lrx-progress" aria-hidden="true">
+        <div class="lrx-progress-bar" data-lrx-progress></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% stylesheet %}
+  .lio-range-2026 {
+    --forest:    #0b2410;
+    --cream:     #fcfefb;
+    --bone:      #f4f7f2;
+    --mint:      #94fca9;
+    --mint-soft: #cdfee1;
+    --walnut-1:  #6f4a2e;
+    --walnut-2:  #3a2512;
+    --cream-muted: rgba(252, 254, 251, 0.85);
+    --cream-soft:  rgba(252, 254, 251, 0.68);
+    --f-06:   rgba(11, 36, 16, 0.06);
+    --f-10:   rgba(11, 36, 16, 0.10);
+    --f-14:   rgba(11, 36, 16, 0.14);
+    --f-40:   rgba(11, 36, 16, 0.40);
+    --f-55:   rgba(11, 36, 16, 0.55);
+    --f-72:   rgba(11, 36, 16, 0.72);
+    --lrx-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    display: block;
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    color: var(--forest);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+    background: var(--cream);
+    padding: 64px 20px;
+    overflow: clip;
+  }
+  .lio-range-2026 *, .lio-range-2026 *::before, .lio-range-2026 *::after { box-sizing: border-box; }
+  .lio-range-2026 a { color: inherit; text-decoration: none; }
+
+  .lio-range-2026 .lrx-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Italic + script helpers */
+  .lio-range-2026 .lrx-italic {
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: -0.035em;
+  }
+  .lio-range-2026 .lrx-script {
+    font-family: "freight-display-pro", Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+
+  /* ============ HEADER ============ */
+  .lio-range-2026 .lrx-head {
+    margin-bottom: 28px;
+  }
+  .lio-range-2026 .lrx-head-copy {
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .lio-range-2026 .lrx-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--f-55);
+  }
+  .lio-range-2026 .lrx-eyebrow::before {
+    content: "";
+    width: 22px; height: 1px;
+    background: var(--forest);
+  }
+  .lio-range-2026 .lrx-h2 {
+    font-weight: 900;
+    font-size: clamp(30px, 7vw, 56px);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    margin: 0;
+    color: var(--forest);
+  }
+  .lio-range-2026 .lrx-lede {
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--f-72);
+    margin: 4px 0 0;
+    max-width: 560px;
+  }
+
+  /* ============ PARALLEL HERO ============ */
+  .lio-range-2026 .lrx-parallel {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 28px 0 56px;
+  }
+
+  .lio-range-2026 .lrx-card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    min-height: 320px;
+    transition: transform 0.3s var(--lrx-ease), box-shadow 0.3s var(--lrx-ease);
+    isolation: isolate;
+  }
+  .lio-range-2026 .lrx-card:hover {
+    transform: translateY(-3px);
+  }
+  .lio-range-2026 .lrx-card--primary {
+    background: var(--forest);
+    color: var(--cream);
+  }
+  .lio-range-2026 .lrx-card--primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(500px circle at 85% 10%, rgba(148, 252, 169, 0.14) 0%, transparent 55%),
+      radial-gradient(400px circle at 15% 110%, rgba(148, 252, 169, 0.08) 0%, transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .lio-range-2026 .lrx-card--secondary {
+    background: var(--bone);
+    color: var(--forest);
+    border: 1px solid var(--f-10);
+  }
+  .lio-range-2026 .lrx-card-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    padding: 6px 12px 6px 10px;
+    border-radius: 999px;
+    background: rgba(148, 252, 169, 0.14);
+    color: var(--mint);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+  }
+  .lio-range-2026 .lrx-card-tag--light {
+    background: rgba(11, 36, 16, 0.06);
+    color: var(--forest);
+  }
+  .lio-range-2026 .lrx-tag-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+  .lio-range-2026 .lrx-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 16px;
+    position: relative;
+    z-index: 2;
+  }
+  .lio-range-2026 .lrx-card-badge {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--mint);
+    color: var(--forest);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .lio-range-2026 .lrx-card-badge--light {
+    background: var(--forest);
+    color: var(--mint);
+  }
+  .lio-range-2026 .lrx-pulse-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--forest);
+    animation: lrx-pulse 2.4s ease-in-out infinite;
+  }
+  .lio-range-2026 .lrx-card-badge--light .lrx-pulse-dot { background: var(--mint); }
+  @keyframes lrx-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(11, 36, 16, 0.5); }
+    50%      { box-shadow: 0 0 0 6px rgba(11, 36, 16, 0); }
+  }
+
+  .lio-range-2026 .lrx-card-title {
+    font-size: clamp(26px, 6.2vw, 40px);
+    font-weight: 900;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    margin: 0 0 12px;
+  }
+  .lio-range-2026 .lrx-card-tagline {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--cream-muted);
+    margin: 0 0 20px;
+    max-width: 380px;
+  }
+  .lio-range-2026 .lrx-card-tagline--light { color: var(--f-72); }
+
+  .lio-range-2026 .lrx-card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .lio-range-2026 .lrx-card-price {
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: var(--mint);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .lio-range-2026 .lrx-card-price--light { color: var(--forest); font-size: 15px; font-weight: 700; letter-spacing: -0.015em; }
+  .lio-range-2026 .lrx-card-price-amount { font-size: 22px; font-weight: 900; color: var(--forest); letter-spacing: -0.02em; }
+  .lio-range-2026 .lrx-card-strike {
+    font-size: 15px;
+    color: var(--cream-soft);
+    text-decoration: line-through;
+    font-weight: 500;
+  }
+  .lio-range-2026 .lrx-card-unit { color: var(--f-55); font-size: 13px; font-weight: 500; margin-left: 4px; }
+
+  .lio-range-2026 .lrx-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--cream);
+    border-bottom: 1px solid rgba(252, 254, 251, 0.35);
+    padding-bottom: 3px;
+  }
+  .lio-range-2026 .lrx-card-cta--light {
+    color: var(--forest);
+    border-bottom-color: var(--f-14);
+  }
+  .lio-range-2026 .lrx-card-arrow {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--mint);
+    color: var(--forest);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.25s var(--lrx-ease);
+  }
+  .lio-range-2026 .lrx-card-arrow--light { background: var(--forest); color: var(--mint); }
+  .lio-range-2026 .lrx-card-arrow svg { width: 12px; height: 12px; }
+  .lio-range-2026 .lrx-card:hover .lrx-card-arrow { transform: translateX(3px); }
+
+  /* Card visuals */
+  .lio-range-2026 .lrx-card-visual {
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .lio-range-2026 .lrx-card-visual-img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.25));
+  }
+  .lio-range-2026 .lrx-device {
+    width: 56px;
+    height: 180px;
+    border-radius: 14px;
+    background: linear-gradient(145deg, var(--walnut-1) 0%, var(--walnut-2) 100%);
+    box-shadow:
+      inset 0 2px 0 rgba(255, 255, 255, 0.16),
+      inset 0 -3px 8px rgba(0, 0, 0, 0.35),
+      0 16px 32px rgba(0, 0, 0, 0.28);
+    transform: rotate(-8deg);
+    margin-right: 8px;
+  }
+  .lio-range-2026 .lrx-card-visual--cores { gap: 6px; align-items: flex-end; padding-bottom: 8px; padding-right: 12px; }
+  .lio-range-2026 .lrx-core-pill {
+    width: 24px;
+    height: 64px;
+    border-radius: 999px;
+    box-shadow: 0 8px 20px rgba(11, 36, 16, 0.14);
+    flex-shrink: 0;
+  }
+  .lio-range-2026 .lrx-core--mint     { background: linear-gradient(135deg, #94fca9, #4fb36a); height: 76px; }
+  .lio-range-2026 .lrx-core--cinnamon { background: linear-gradient(135deg, #e4a872, #8c5a2e); height: 64px; }
+  .lio-range-2026 .lrx-core--fruity   { background: linear-gradient(135deg, #ee8ba7, #b34d75); height: 52px; }
+  .lio-range-2026 .lrx-core--mixed    { background: linear-gradient(135deg, #94fca9 0%, #ee8ba7 50%, #e4a872 100%); }
+
+  /* ============ FLAVOR CORES SWIPER ============ */
+  .lio-range-2026 .lrx-sub-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .lio-range-2026 .lrx-sub-head > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .lio-range-2026 .lrx-sub-h2 {
+    font-weight: 900;
+    font-size: clamp(22px, 4.4vw, 34px);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    margin: 0;
+    color: var(--forest);
+  }
+  .lio-range-2026 .lrx-ctrls {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .lio-range-2026 .lrx-nav {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--f-14);
+    background: var(--cream);
+    color: var(--forest);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s var(--lrx-ease), color 0.2s var(--lrx-ease), border-color 0.2s var(--lrx-ease), opacity 0.2s var(--lrx-ease);
+  }
+  .lio-range-2026 .lrx-nav:hover:not(:disabled) {
+    background: var(--forest);
+    color: var(--mint);
+    border-color: var(--forest);
+  }
+  .lio-range-2026 .lrx-nav:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+  .lio-range-2026 .lrx-nav svg { width: 14px; height: 14px; }
+  .lio-range-2026 .lrx-nav--prev svg { transform: rotate(180deg); }
+
+  /* Swiper */
+  .lio-range-2026 .lrx-swiper-wrap { position: relative; }
+  .lio-range-2026 .lrx-swiper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior-x: contain;
+    padding: 4px 0 16px;
+  }
+  .lio-range-2026 .lrx-swiper::-webkit-scrollbar { display: none; }
+
+  .lio-range-2026 .lrx-slide {
+    flex: 0 0 260px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid var(--f-10);
+    background: var(--cream);
+    position: relative;
+    transition: transform 0.25s var(--lrx-ease), box-shadow 0.25s var(--lrx-ease), border-color 0.25s var(--lrx-ease);
+    min-height: 320px;
+  }
+  .lio-range-2026 .lrx-slide:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(11, 36, 16, 0.08);
+    border-color: var(--f-14);
+  }
+
+  .lio-range-2026 .lrx-slide-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1;
+    z-index: 2;
+  }
+  .lio-range-2026 .lrx-slide-badge--fav  { background: var(--forest); color: var(--mint); }
+  .lio-range-2026 .lrx-slide-badge--new  { background: var(--mint);   color: var(--forest); }
+  .lio-range-2026 .lrx-slide-badge--soft { background: var(--bone);   color: var(--forest); border: 1px solid var(--f-10); }
+
+  .lio-range-2026 .lrx-slide-visual {
+    aspect-ratio: 1 / 1;
+    background: var(--bone);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .lio-range-2026 .lrx-slide-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .lio-range-2026 .lrx-slide-core {
+    width: 38px;
+    height: 110px;
+    border-radius: 999px;
+    box-shadow: 0 10px 24px rgba(11, 36, 16, 0.12);
+  }
+  .lio-range-2026 .lrx-slide-core--mint     { background: linear-gradient(135deg, #94fca9, #4fb36a); }
+  .lio-range-2026 .lrx-slide-core--cinnamon { background: linear-gradient(135deg, #e4a872, #8c5a2e); }
+  .lio-range-2026 .lrx-slide-core--fruity   { background: linear-gradient(135deg, #ee8ba7, #b34d75); }
+  .lio-range-2026 .lrx-slide-core--mixed    { background: linear-gradient(135deg, #94fca9 0%, #ee8ba7 50%, #e4a872 100%); }
+
+  .lio-range-2026 .lrx-slide-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+  .lio-range-2026 .lrx-slide-cat {
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--f-55);
+  }
+  .lio-range-2026 .lrx-slide-name {
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    margin: 0;
+    color: var(--forest);
+  }
+  .lio-range-2026 .lrx-slide-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--f-72);
+    margin: 2px 0 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .lio-range-2026 .lrx-slide-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--f-06);
+  }
+  .lio-range-2026 .lrx-slide-price {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--forest);
+    letter-spacing: -0.015em;
+  }
+  .lio-range-2026 .lrx-slide-add {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--mint);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.25s var(--lrx-ease), background 0.25s var(--lrx-ease);
+  }
+  .lio-range-2026 .lrx-slide-add svg { width: 13px; height: 13px; }
+  .lio-range-2026 .lrx-slide:hover .lrx-slide-add {
+    background: var(--mint);
+    color: var(--forest);
+    transform: translateX(3px);
+  }
+
+  /* Shop-all terminator */
+  .lio-range-2026 .lrx-slide--shopall {
+    background: var(--forest);
+    color: var(--cream);
+    border-color: var(--forest);
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .lio-range-2026 .lrx-slide--shopall:hover {
+    border-color: var(--forest);
+    box-shadow: 0 16px 36px rgba(11, 36, 16, 0.22);
+  }
+  .lio-range-2026 .lrx-shopall-eyebrow {
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--mint);
+  }
+  .lio-range-2026 .lrx-shopall-title {
+    font-size: clamp(30px, 5.2vw, 40px);
+    font-weight: 900;
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    margin: 8px 0 12px;
+    color: var(--cream);
+  }
+  .lio-range-2026 .lrx-shopall-desc {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--cream-muted);
+    margin: 0;
+  }
+  .lio-range-2026 .lrx-shopall-foot {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--mint);
+  }
+  .lio-range-2026 .lrx-shopall-arrow {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--mint);
+    color: var(--forest);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s var(--lrx-ease);
+  }
+  .lio-range-2026 .lrx-shopall-arrow svg { width: 13px; height: 13px; }
+  .lio-range-2026 .lrx-slide--shopall:hover .lrx-shopall-arrow { transform: translateX(3px); }
+
+  /* Progress bar */
+  .lio-range-2026 .lrx-progress {
+    height: 3px;
+    border-radius: 2px;
+    background: var(--f-06);
+    overflow: hidden;
+    margin-top: 4px;
+    max-width: 420px;
+  }
+  .lio-range-2026 .lrx-progress-bar {
+    height: 100%;
+    width: 20%;
+    background: var(--forest);
+    border-radius: 2px;
+    transition: width 0.22s var(--lrx-ease);
+  }
+
+  /* Responsive */
+  @media (min-width: 720px) {
+    .lio-range-2026 { padding: 88px 32px; }
+    .lio-range-2026 .lrx-parallel {
+      grid-template-columns: 1.15fr 1fr;
+      gap: 18px;
+      margin: 36px 0 72px;
+    }
+    .lio-range-2026 .lrx-card {
+      padding: 28px;
+      min-height: 380px;
+    }
+    .lio-range-2026 .lrx-card-visual {
+      width: 200px; height: 200px;
+      right: -10px; bottom: 10px;
+    }
+    .lio-range-2026 .lrx-slide { flex: 0 0 280px; padding: 22px; }
+    .lio-range-2026 .lrx-swiper { gap: 18px; }
+    .lio-range-2026 .lrx-device { height: 220px; width: 68px; }
+  }
+  @media (min-width: 1024px) {
+    .lio-range-2026 { padding: 112px 48px; }
+    .lio-range-2026 .lrx-h2 { font-size: clamp(36px, 4.4vw, 58px); }
+    .lio-range-2026 .lrx-card-title { font-size: clamp(30px, 3.4vw, 44px); }
+    .lio-range-2026 .lrx-slide { flex: 0 0 300px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lio-range-2026 .lrx-card,
+    .lio-range-2026 .lrx-card-arrow,
+    .lio-range-2026 .lrx-slide,
+    .lio-range-2026 .lrx-slide-add,
+    .lio-range-2026 .lrx-shopall-arrow,
+    .lio-range-2026 .lrx-progress-bar,
+    .lio-range-2026 .lrx-pulse-dot,
+    .lio-range-2026 .lrx-nav { transition: none !important; animation: none !important; }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  (function() {
+    document.querySelectorAll('[data-lrx]').forEach(function(root) {
+      var track = root.querySelector('[data-lrx-track]');
+      var prev = root.querySelector('[data-lrx-prev]');
+      var next = root.querySelector('[data-lrx-next]');
+      var bar = root.querySelector('[data-lrx-progress]');
+      if (!track) return;
+
+      function step() {
+        var slide = track.querySelector('.lrx-slide');
+        var gap = parseInt(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 0, 10) || 14;
+        return slide ? slide.getBoundingClientRect().width + gap : 260;
+      }
+
+      function update() {
+        var max = track.scrollWidth - track.clientWidth;
+        if (max <= 1) {
+          if (prev) prev.disabled = true;
+          if (next) next.disabled = true;
+          if (bar) bar.style.width = '100%';
+          return;
+        }
+        if (prev) prev.disabled = track.scrollLeft <= 1;
+        if (next) next.disabled = track.scrollLeft >= max - 1;
+        if (bar) {
+          var pct = Math.min(Math.max(track.scrollLeft / max, 0), 1);
+          var visible = track.clientWidth / track.scrollWidth;
+          var barPct = Math.max(visible * 100, 20);
+          var startPct = pct * (100 - barPct);
+          bar.style.width = barPct + '%';
+          bar.style.transform = 'translateX(' + (startPct / barPct * 100) + '%)';
+        }
+      }
+
+      if (prev) prev.addEventListener('click', function() { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+      if (next) next.addEventListener('click', function() { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+
+      var raf;
+      track.addEventListener('scroll', function() {
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(update);
+      }, { passive: true });
+      window.addEventListener('resize', function() {
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(update);
+      });
+
+      update();
+
+      track.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight') { e.preventDefault(); track.scrollBy({ left: step(), behavior: 'smooth' }); }
+        else if (e.key === 'ArrowLeft') { e.preventDefault(); track.scrollBy({ left: -step(), behavior: 'smooth' }); }
+      });
+    });
+  })();
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Lio · Range",
+  "tag": "section",
+  "class": "section-lio-range",
+  "settings": [
+    { "type": "header", "content": "Section header" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The whole range" },
+    { "type": "text", "id": "title_a", "label": "Title — line 1 before italic", "default": "The walnut is " },
+    { "type": "text", "id": "title_italic", "label": "Title — italic word", "default": "forever." },
+    { "type": "text", "id": "title_b", "label": "Title — line 2 before script", "default": "The " },
+    { "type": "text", "id": "title_script", "label": "Title — script phrase", "default": "flavors rotate." },
+    { "type": "textarea", "id": "lede", "label": "Lede paragraph", "default": "Start with the Journey Pack. Restock cores as you go. One device, a lifetime of rituals." },
+
+    { "type": "header", "content": "Primary card (new customers)" },
+    { "type": "image_picker", "id": "p_image", "label": "Image (optional — overrides walnut visual)" },
+    { "type": "text", "id": "p_tag", "label": "Tag", "default": "New here" },
+    { "type": "text", "id": "p_badge", "label": "Badge", "default": "150,000+ sold" },
+    { "type": "checkbox", "id": "p_badge_pulse", "label": "Badge pulse dot", "default": true },
+    { "type": "text", "id": "p_title_pre", "label": "Title — before italic", "default": "Start with the" },
+    { "type": "text", "id": "p_title_italic", "label": "Title — italic phrase", "default": "Journey Pack" },
+    { "type": "textarea", "id": "p_tagline", "label": "Tagline", "default": "Walnut device, thirty days of cores, ritual guide. One-time €39. 30-day money-back." },
+    { "type": "text", "id": "p_price", "label": "Price", "default": "€39" },
+    { "type": "text", "id": "p_strike", "label": "Strike-through price (optional)", "default": "€58" },
+    { "type": "text", "id": "p_cta", "label": "CTA label", "default": "Shop the pack" },
+    { "type": "url", "id": "p_link", "label": "Link" },
+
+    { "type": "header", "content": "Secondary card (returning customers)" },
+    { "type": "image_picker", "id": "s_image", "label": "Image (optional — overrides cores visual)" },
+    { "type": "text", "id": "s_tag", "label": "Tag", "default": "Already have Lio?" },
+    { "type": "text", "id": "s_badge", "label": "Badge", "default": "Subscribe & save 25%" },
+    { "type": "text", "id": "s_title_pre", "label": "Title — before italic", "default": "Shop the" },
+    { "type": "text", "id": "s_title_italic", "label": "Title — italic phrase", "default": "Refills." },
+    { "type": "textarea", "id": "s_tagline", "label": "Tagline", "default": "Flavor cores from €12/month on subscription. Pause or cancel any time." },
+    { "type": "text", "id": "s_price_prefix", "label": "Price prefix", "default": "From" },
+    { "type": "text", "id": "s_price", "label": "Price amount", "default": "€12" },
+    { "type": "text", "id": "s_unit", "label": "Price unit", "default": "/month" },
+    { "type": "text", "id": "s_cta", "label": "CTA label", "default": "Browse flavors" },
+    { "type": "url", "id": "s_link", "label": "Link" },
+
+    { "type": "header", "content": "Flavor cores sub-header" },
+    { "type": "text", "id": "c_eyebrow", "label": "Eyebrow", "default": "The flavor cores" },
+    { "type": "text", "id": "c_title_pre", "label": "Title — before italic", "default": "Four flavors." },
+    { "type": "text", "id": "c_title_italic", "label": "Title — italic", "default": "Pick yours." },
+    { "type": "text", "id": "shop_label", "label": "Card 'Shop' aria-label (accessibility)", "default": "Shop" },
+
+    { "type": "header", "content": "Shop-all terminator card" },
+    { "type": "checkbox", "id": "sa_show", "label": "Show Shop-all card at end of slider", "default": true },
+    { "type": "text", "id": "sa_eyebrow", "label": "Eyebrow", "default": "Everything" },
+    { "type": "text", "id": "sa_title_pre", "label": "Title — before italic", "default": "Shop" },
+    { "type": "text", "id": "sa_title_italic", "label": "Title — italic", "default": "all." },
+    { "type": "text", "id": "sa_desc", "label": "Description", "default": "Bundles, subscription savings, and everything we make." },
+    { "type": "text", "id": "sa_cta", "label": "CTA label", "default": "See all" },
+    { "type": "url", "id": "sa_link", "label": "Link" },
+
+    { "type": "header", "content": "Accessibility" },
+    { "type": "text", "id": "prev_label", "label": "Previous button aria-label", "default": "Previous" },
+    { "type": "text", "id": "next_label", "label": "Next button aria-label", "default": "Next" }
+  ],
+  "blocks": [
+    {
+      "type": "core",
+      "name": "Flavor core",
+      "limit": 12,
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image (optional — overrides core pill)" },
+        { "type": "text", "id": "cat", "label": "Category label", "default": "Refill · 3-pack" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Flavor name" },
+        { "type": "text", "id": "desc", "label": "Description" },
+        { "type": "text", "id": "price", "label": "Price", "default": "€17" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "text", "id": "badge", "label": "Badge (optional)" },
+        { "type": "select", "id": "badge_variant", "label": "Badge style", "default": "fav", "options": [
+          { "value": "fav",  "label": "Fan favorite (forest)" },
+          { "value": "new",  "label": "New (mint)" },
+          { "value": "soft", "label": "Sampler (soft)" }
+        ] },
+        { "type": "select", "id": "core_color", "label": "Core colour", "default": "mint", "options": [
+          { "value": "mint",     "label": "Minty (green)" },
+          { "value": "cinnamon", "label": "Cinnamon (brown)" },
+          { "value": "fruity",   "label": "Fruity (pink)" },
+          { "value": "mixed",    "label": "Mixed (multicolour)" },
+          { "value": "custom",   "label": "Custom gradient" }
+        ] },
+        { "type": "color", "id": "core_from", "label": "Custom gradient start", "default": "#94fca9" },
+        { "type": "color", "id": "core_to",   "label": "Custom gradient end",   "default": "#4fb36a" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lio · Range",
+      "blocks": [
+        { "type": "core", "settings": { "name": "Minty",    "cat": "Refill · 3-pack", "desc": "Peppermint, eucalyptus. Cool, clean, clarifying.", "price": "€17", "badge": "Fan favorite", "badge_variant": "fav",  "core_color": "mint",     "link": "/products/minty-cores" } },
+        { "type": "core", "settings": { "name": "Cinnamon", "cat": "Refill · 3-pack", "desc": "Ceylon cinnamon, a hint of vanilla. Warm, grounding.", "price": "€17",                                   "core_color": "cinnamon", "link": "/products/cinnamon-cores" } },
+        { "type": "core", "settings": { "name": "Fruity",   "cat": "Refill · 3-pack", "desc": "Red berries, stone fruit. Bright, never sweet.",       "price": "€17", "badge": "New",          "badge_variant": "new",  "core_color": "fruity",   "link": "/products/fruity-cores" } },
+        { "type": "core", "settings": { "name": "Mixed",    "cat": "Refill · 3-pack", "desc": "One of each. For the ones still deciding.",            "price": "€17", "badge": "Sampler",      "badge_variant": "soft", "core_color": "mixed",    "link": "/products/mixed-cores" } }
+      ]
+    }
+  ],
+  "enabled_on": { "templates": ["index", "page"] }
+}
+{% endschema %}

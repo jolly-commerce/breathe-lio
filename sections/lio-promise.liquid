@@ -1,0 +1,158 @@
+{%- comment -%}
+  Section: Lio · Promise Strip
+  4-column grid of brand promises. CSS scoped to .lio-promise.
+{%- endcomment -%}
+
+<div class="lio-promise" id="lio-promise-{{ section.id }}">
+  <div class="lio-promise__item">
+    <div class="lio-promise__num">01</div>
+    <div class="lio-promise__icon">
+      <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 6 C 14 14, 10 22, 22 38 C 34 22, 30 14, 22 6 Z"/>
+        <path d="M22 18 L 22 30"/>
+        <path d="M18 22 L 22 18 L 26 22"/>
+      </svg>
+    </div>
+    <div class="lio-promise__title">100% natural</div>
+    <div class="lio-promise__desc">Plant-based essential oils. No synthetics, no nicotine, ever.</div>
+    <div class="lio-promise__underline"></div>
+  </div>
+
+  <div class="lio-promise__item">
+    <div class="lio-promise__num">02</div>
+    <div class="lio-promise__icon">
+      <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="22" cy="22" r="16"/>
+        <path d="M14 28 C 17 30, 27 30, 30 28"/>
+        <circle cx="16.5" cy="19" r="1.2" fill="currentColor"/>
+        <circle cx="27.5" cy="19" r="1.2" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="lio-promise__title">No side effects</div>
+    <div class="lio-promise__desc">Zero withdrawal, zero toxins, zero drama.</div>
+    <div class="lio-promise__underline"></div>
+  </div>
+
+  <div class="lio-promise__item">
+    <div class="lio-promise__num">03</div>
+    <div class="lio-promise__icon">
+      <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 6 L 22 18 L 32 24 L 22 30 L 22 38"/>
+        <circle cx="22" cy="22" r="16"/>
+      </svg>
+    </div>
+    <div class="lio-promise__title">Doctor-reviewed</div>
+    <div class="lio-promise__desc">Endorsed by clinicians in behavioral health.</div>
+    <div class="lio-promise__underline"></div>
+  </div>
+
+  <div class="lio-promise__item">
+    <div class="lio-promise__num">04</div>
+    <div class="lio-promise__icon">
+      <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="22" cy="22" r="16"/>
+        <path d="M22 12 L 22 22 L 29 26"/>
+      </svg>
+    </div>
+    <div class="lio-promise__title">10+ days per core</div>
+    <div class="lio-promise__desc">One-third the cost of the habit you're replacing.</div>
+    <div class="lio-promise__underline"></div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .lio-promise {
+    --lpr-forest: var(--lio-forest, #0b2410);
+    --lpr-chalk:  var(--lio-chalk, #fcfefb);
+    --lpr-mint:   var(--lio-mint, #94fca9);
+    --lpr-f-10:   var(--lio-f-10, rgba(11, 36, 16, 0.10));
+    --lpr-f-40:   var(--lio-f-40, rgba(11, 36, 16, 0.40));
+    --lpr-f-55:   var(--lio-f-55, rgba(11, 36, 16, 0.55));
+    --lpr-ease:   var(--lio-ease, cubic-bezier(0.22, 1, 0.36, 1));
+
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 64px 40px 32px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .lio-promise__item {
+    padding: 8px 32px 8px 0;
+    border-right: 1px solid var(--lpr-f-10);
+    text-align: left;
+    position: relative;
+    transition: padding 0.3s var(--lpr-ease);
+  }
+  .lio-promise__item:last-child { border-right: none; }
+  .lio-promise__item + .lio-promise__item { padding-left: 32px; }
+  .lio-promise__item:hover { padding-top: 0; padding-bottom: 16px; }
+
+  .lio-promise__num {
+    font-size: 11px;
+    color: var(--lpr-f-40);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    margin-bottom: 18px;
+  }
+  .lio-promise__icon {
+    width: 44px; height: 44px;
+    margin-bottom: 18px;
+    color: var(--lpr-forest);
+    transition: transform 0.4s var(--lpr-ease);
+  }
+  .lio-promise__item:hover .lio-promise__icon { transform: rotate(-8deg) scale(1.08); }
+  .lio-promise__icon svg { width: 100%; height: 100%; }
+
+  .lio-promise__title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--lpr-forest);
+    margin-bottom: 8px;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+  .lio-promise__desc {
+    font-size: 13px;
+    color: var(--lpr-f-55);
+    line-height: 1.5;
+    max-width: 240px;
+  }
+  .lio-promise__underline {
+    margin-top: 16px;
+    width: 28px;
+    height: 2px;
+    background: var(--lpr-forest);
+    transition: width 0.4s var(--lpr-ease), background 0.3s;
+  }
+  .lio-promise__item:hover .lio-promise__underline { width: 56px; background: var(--lpr-mint); }
+
+  @media (max-width: 900px) {
+    .lio-promise {
+      grid-template-columns: 1fr 1fr;
+      padding: 48px 20px 24px;
+      gap: 8px;
+    }
+    .lio-promise__item {
+      padding: 20px 16px;
+      border-right: none;
+      border-bottom: 1px solid var(--lpr-f-10);
+    }
+    .lio-promise__item + .lio-promise__item { padding-left: 16px; }
+    .lio-promise__item:nth-last-child(-n+2) { border-bottom: none; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Lio · Promise Strip",
+  "tag": "section",
+  "class": "section-lio-promise",
+  "settings": [],
+  "presets": [
+    { "name": "Lio · Promise Strip" }
+  ]
+}
+{% endschema %}

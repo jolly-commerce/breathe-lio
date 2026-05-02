@@ -1,0 +1,50 @@
+/* ==========================================================================
+   LIO — BRAND TOKENS
+
+   Reads color settings from the Shopify theme customizer and exposes them
+   as CSS custom properties available to any .lio-* section.
+
+   This file contains ONLY :root variable declarations — no class selectors,
+   no element selectors, nothing that can touch Impact's own styles.
+
+   CSS variables have zero selector surface area: they exist if referenced,
+   and are invisible otherwise. Impossible to "leak" or break anything.
+   ========================================================================== */
+
+:root {
+  /* Core palette (from theme customizer → Lio · Brand colors) */
+  --lio-forest: {{ settings.lio_forest | default: '#0b2410' }};
+  --lio-chalk:  {{ settings.lio_chalk  | default: '#fcfefb' }};
+  --lio-mint:   {{ settings.lio_mint   | default: '#94fca9' }};
+
+  /* Derived alphas of forest (ink on light backgrounds) */
+  --lio-f-06: {{ settings.lio_forest.rgb | default: '11, 36, 16' }};
+  --lio-f-10: rgba(var(--lio-f-06), 0.10);
+  --lio-f-14: rgba(var(--lio-f-06), 0.14);
+  --lio-f-22: rgba(var(--lio-f-06), 0.22);
+  --lio-f-40: rgba(var(--lio-f-06), 0.40);
+  --lio-f-55: rgba(var(--lio-f-06), 0.55);
+  --lio-f-72: rgba(var(--lio-f-06), 0.72);
+
+  /* Derived alphas of chalk (light on dark backgrounds) */
+  --lio-c-rgb: {{ settings.lio_chalk.rgb | default: '252, 254, 251' }};
+  --lio-c-06: rgba(var(--lio-c-rgb), 0.06);
+  --lio-c-12: rgba(var(--lio-c-rgb), 0.12);
+  --lio-c-22: rgba(var(--lio-c-rgb), 0.22);
+  --lio-c-55: rgba(var(--lio-c-rgb), 0.55);
+  --lio-c-75: rgba(var(--lio-c-rgb), 0.75);
+  --lio-c-88: rgba(var(--lio-c-rgb), 0.88);
+
+  /* Derived alphas of mint (accent glows) */
+  --lio-m-rgb: {{ settings.lio_mint.rgb | default: '148, 252, 169' }};
+  --lio-m-18: rgba(var(--lio-m-rgb), 0.18);
+  --lio-m-35: rgba(var(--lio-m-rgb), 0.35);
+
+  /* Motion + elevation — shared tokens, not customizable */
+  --lio-ease:       cubic-bezier(0.22, 1, 0.36, 1);
+  --lio-ease-swift: cubic-bezier(0.55, 0, 0.1, 1);
+
+  --lio-shadow-1:    0 1px 2px rgba(var(--lio-f-06), 0.04), 0 8px 24px rgba(var(--lio-f-06), 0.06);
+  --lio-shadow-2:    0 8px 24px rgba(var(--lio-f-06), 0.09), 0 32px 64px rgba(var(--lio-f-06), 0.12);
+  --lio-shadow-mint: 0 0 0 1px var(--lio-mint), 0 18px 48px rgba(var(--lio-m-rgb), 0.28);
+}

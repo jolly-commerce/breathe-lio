@@ -287,12 +287,7 @@
       ],
       "name": "Ecom FAQ",
       "settings": {
-        "padding_top": 32,
-        "padding_top_desktop": 40,
-        "padding_bottom": 32,
-        "padding_bottom_desktop": 40,
-        "title": "You asked we",
-        "high-title": "answered"
+        "title": "You asked we"
       }
     },
     "custom_newsletter_DXfjmx": {

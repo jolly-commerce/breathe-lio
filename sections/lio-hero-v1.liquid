@@ -1,0 +1,855 @@
+{%- comment -%}
+  Section: Lio · Hero v1 — mobile-first flow, tablet 4-col trust grid,
+  desktop two-column. Includes social proof chip, hero visual with patent
+  badge, headline, trust grid (blocks), three-tier CTAs, inline review,
+  and mobile sticky ATC.
+{%- endcomment -%}
+
+{%- liquid
+  if section.settings.hero_image != blank
+    assign hero_src = section.settings.hero_image | image_url: width: 1400
+  else
+    assign hero_src = section.settings.hero_image_url
+  endif
+
+  assign is_returning = false
+  if customer or customer.orders_count > 0
+    assign is_returning = true
+  endif
+-%}
+
+<section class="lio-hero" id="lio-hero-{{ section.id }}">
+
+  {%- if section.settings.show_chip -%}
+    <div class="lio-hero__chip reveal">
+      {%- assign has_av = false -%}
+      {%- for i in (1..3) -%}
+        {%- assign pick = 'avatar_' | append: i -%}
+        {%- assign urlk = 'avatar_' | append: i | append: '_url' -%}
+        {%- if section.settings[pick] != blank or section.settings[urlk] != blank -%}{%- assign has_av = true -%}{%- endif -%}
+      {%- endfor -%}
+      {%- if has_av -%}
+        <span class="lio-hero__avatars">
+          {%- for i in (1..3) -%}
+            {%- assign pick = 'avatar_' | append: i -%}
+            {%- assign urlk = 'avatar_' | append: i | append: '_url' -%}
+            {%- if section.settings[pick] != blank -%}
+              <img src="{{ section.settings[pick] | image_url: width: 64 }}" alt="" loading="lazy" width="22" height="22">
+            {%- elsif section.settings[urlk] != blank -%}
+              <img src="{{ section.settings[urlk] }}" alt="" loading="lazy" width="22" height="22">
+            {%- endif -%}
+          {%- endfor -%}
+        </span>
+      {%- endif -%}
+      <span class="lio-hero__stars">★★★★★</span>
+      <strong>{{ section.settings.chip_score }}</strong>
+      <span class="lio-hero__chip-text">· {{ 'sections.lio_hero.chip_count' | t }}</span>
+    </div>
+  {%- endif -%}
+
+  <div class="lio-hero__visual reveal">
+    {%- if hero_src != blank -%}
+      {%- liquid
+        assign hero_w = 1400
+        assign hero_h = 1512
+        if section.settings.hero_image != blank
+          assign hero_w = section.settings.hero_image.width
+          assign hero_h = section.settings.hero_image.height
+        endif
+      -%}
+      <img src="{{ hero_src }}"
+           alt="{{ section.settings.hero_image_alt | escape }}"
+           width="{{ hero_w }}" height="{{ hero_h }}"
+           loading="eager" fetchpriority="high">
+    {%- endif -%}
+
+    {%- if section.settings.show_patent_badge -%}
+      <div class="lio-hero__badge">
+        <span class="lio-hero__badge-dot" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </span>
+        {{ 'sections.lio_hero.patent_label' | t }}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="lio-hero__headline reveal">
+    <h1>
+      {{ 'sections.lio_hero.headline_pre' | t }}
+      <span class="lio-hero__marker">{{ 'sections.lio_hero.headline_marker' | t }}</span><br>
+      <span class="lio-hero__soft">{{ 'sections.lio_hero.headline_soft' | t }}</span>
+      {{ 'sections.lio_hero.headline_end' | t }}
+    </h1>
+    <p class="lio-hero__sub">{{ 'sections.lio_hero.subhead' | t }}</p>
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="lio-hero__trust reveal">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'trust_cell' -%}
+          {%- assign cell_idx = forloop.index -%}
+          {%- assign cell_label_key = 'sections.lio_hero.cell_' | append: cell_idx | append: '_label' -%}
+          {%- assign cell_claim_key = 'sections.lio_hero.cell_' | append: cell_idx | append: '_claim' -%}
+          <div class="lio-hero__cell {% if block.settings.featured %}lio-hero__cell--featured{% endif %}" {{ block.shopify_attributes }}>
+            <div class="lio-hero__cell-icon">
+              {%- case block.settings.icon -%}
+                {%- when 'star' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 5 5.6.8-4 3.9 1 5.6-5-2.6-5 2.6 1-5.6-4-3.9 5.6-.8z"/></svg>
+                {%- when 'flask' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.5L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-8.5V2"/><line x1="8" y1="2" x2="16" y2="2"/></svg>
+                {%- when 'zero' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 11c.2-2.7 2.5-5 5.6-5s5.4 2.3 5.6 5M6 16h12M7 20h10"/><line x1="12" y1="2" x2="12" y2="4"/></svg>
+                {%- when 'plant' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
+                {%- when 'leaf' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-7 7-11 17-11-1 12-5 18-10 18z"/><path d="M2 22c2-5 7-10 15-12"/></svg>
+                {%- when 'shield' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v7c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V5z"/></svg>
+                {%- when 'check' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                {%- when 'drop' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s7 7 7 13a7 7 0 0 1-14 0c0-6 7-13 7-13z"/></svg>
+              {%- endcase -%}
+              {%- if block.settings.featured -%}
+                <span class="lio-hero__cell-seal" aria-hidden="true"></span>
+              {%- endif -%}
+            </div>
+            <div class="lio-hero__cell-body">
+              <span class="lio-hero__cell-label">{{ cell_label_key | t }}</span>
+              <span class="lio-hero__cell-claim">{{ cell_claim_key | t }}</span>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  <div class="lio-hero__cta reveal">
+    <a href="{{ section.settings.cta_primary_link | default: '#' }}" class="lio-hero__btn">
+      {{ 'sections.lio_hero.cta_primary_label' | t }}
+      <span class="lio-hero__btn-arrow" aria-hidden="true">→</span>
+    </a>
+
+    {%- if section.settings.show_refill -%}
+      <a href="{{ section.settings.refill_link | default: '/collections/cores' }}" class="lio-hero__refill">
+        <span class="lio-hero__refill-dot" aria-hidden="true"></span>
+        {%- if is_returning -%}
+          {{ 'sections.lio_hero.refill_warm_label' | t }}
+        {%- else -%}
+          {{ 'sections.lio_hero.refill_cold_label' | t }}
+        {%- endif -%}
+        <span class="lio-hero__refill-arrow" aria-hidden="true">→</span>
+      </a>
+    {%- endif -%}
+
+    {%- if section.settings.show_secondary -%}
+      <a href="{{ section.settings.cta_secondary_link | default: '#how' }}" class="lio-hero__ghost">
+        <span class="lio-hero__play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+        <span class="lio-hero__ghost-label">{{ 'sections.lio_hero.cta_secondary_label' | t }}</span>
+      </a>
+    {%- endif -%}
+  </div>
+
+  {%- if section.settings.show_review -%}
+    {%- assign rev_src = section.settings.review_avatar_url -%}
+    {%- if section.settings.review_avatar != blank -%}
+      {%- assign rev_src = section.settings.review_avatar | image_url: width: 96 -%}
+    {%- endif -%}
+    <div class="lio-hero__review reveal">
+      {%- if rev_src != blank -%}
+        <img class="lio-hero__review-avatar" src="{{ rev_src }}" alt="" loading="lazy" width="44" height="44">
+      {%- endif -%}
+      <div class="lio-hero__review-body">
+        <div class="lio-hero__review-stars">★★★★★</div>
+        <div class="lio-hero__review-text">"{{ 'sections.lio_hero.review_text' | t }}"</div>
+        <div class="lio-hero__review-name">
+          {{ 'sections.lio_hero.review_name' | t }}
+          {%- if section.settings.review_verified -%}
+            <span class="lio-hero__verified">{{ 'sections.lio_hero.review_verified_label' | t }}</span>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+</section>
+
+{%- if section.settings.show_sticky -%}
+  <div class="lio-hero-sticky">
+    <div class="lio-hero-sticky__meta">
+      <span class="lio-hero-sticky__eyebrow">{{ 'sections.lio_hero.sticky_eyebrow' | t }}</span>
+      <span class="lio-hero-sticky__price">{{ 'sections.lio_hero.sticky_price' | t }}</span>
+    </div>
+    <a href="{{ section.settings.sticky_link | default: section.settings.cta_primary_link | default: '#' }}" class="lio-hero__btn lio-hero-sticky__btn">
+      {{ 'sections.lio_hero.sticky_label' | t }}
+      <span class="lio-hero__btn-arrow" aria-hidden="true">→</span>
+    </a>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .lio-hero {
+    --forest: var(--lio-forest, #0b2410);
+    --chalk:  var(--lio-chalk, #fcfefb);
+    --mint:   var(--lio-mint, #94fca9);
+    --f-04: rgba(11, 36, 16, 0.04);
+    --f-06: rgba(11, 36, 16, 0.06);
+    --f-08: rgba(11, 36, 16, 0.08);
+    --f-10: rgba(11, 36, 16, 0.10);
+    --f-14: rgba(11, 36, 16, 0.14);
+    --f-40: rgba(11, 36, 16, 0.40);
+    --f-55: rgba(11, 36, 16, 0.55);
+    --f-72: rgba(11, 36, 16, 0.72);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --shadow-soft: 0 2px 8px rgba(11, 36, 16, 0.04), 0 16px 40px rgba(11, 36, 16, 0.08);
+
+    position: relative;
+    padding: 16px 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    color: var(--forest);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+  }
+
+  /* Marker highlight (scoped) */
+  .lio-hero__marker {
+    position: relative;
+    display: inline-block;
+    padding: 0 0.08em;
+    isolation: isolate;
+  }
+  .lio-hero__marker::before {
+    content: "";
+    position: absolute;
+    inset: 0.16em 0 0.12em 0;
+    background: var(--mint);
+    z-index: -1;
+    border-radius: 4px;
+  }
+
+  /* Social proof chip — hidden on mobile, shown from tablet up */
+  .lio-hero__chip {
+    display: none;
+    align-self: flex-start;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px 5px 5px;
+    border-radius: 999px;
+    border: 1px solid var(--f-08);
+    background: var(--chalk);
+    font-size: 12px;
+    color: var(--forest);
+    font-weight: 500;
+  }
+  .lio-hero__avatars { display: inline-flex; flex-shrink: 0; }
+  .lio-hero__avatars img {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--chalk);
+    margin-left: -7px;
+    background: var(--f-06);
+  }
+  .lio-hero__avatars img:first-child { margin-left: 0; }
+  .lio-hero__stars { color: #f5a623; letter-spacing: 1px; font-size: 11px; }
+  .lio-hero__chip strong { font-weight: 700; }
+  .lio-hero__chip-text { color: var(--f-72); }
+
+  /* Visual */
+  .lio-hero__visual {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--forest);
+    box-shadow: var(--shadow-soft);
+  }
+  .lio-hero__visual img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    display: block;
+  }
+  .lio-hero__badge {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: rgba(252, 254, 251, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--forest);
+    padding: 6px 11px 6px 7px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 3;
+    border: 1px solid rgba(252, 254, 251, 0.4);
+  }
+  .lio-hero__badge-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--mint);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .lio-hero__badge-dot svg { width: 9px; height: 9px; color: var(--forest); stroke-width: 3.5; }
+
+  /* Headline */
+  .lio-hero__headline h1 {
+    font-weight: 900;
+    font-size: clamp(36px, 9.5vw, 52px);
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+    color: var(--forest);
+    margin: 0 0 14px;
+  }
+  .lio-hero__soft { font-weight: 300; letter-spacing: -0.04em; }
+  .lio-hero__sub {
+    font-size: 15.5px;
+    line-height: 1.45;
+    color: var(--f-72);
+    font-weight: 400;
+    margin: 0;
+  }
+
+  /* Trust grid */
+  .lio-hero__trust {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 6px;
+    background: var(--f-04);
+    border: 1px solid var(--f-08);
+    border-radius: 16px;
+  }
+  .lio-hero__cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--chalk);
+    border-radius: 11px;
+    position: relative;
+    min-width: 0;
+  }
+  .lio-hero__cell--featured {
+    background: var(--forest);
+    color: var(--chalk);
+  }
+  .lio-hero__cell-icon {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    background: var(--f-06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .lio-hero__cell--featured .lio-hero__cell-icon { background: rgba(148, 252, 169, 0.15); }
+  .lio-hero__cell-icon svg {
+    width: 14px; height: 14px;
+    color: var(--forest);
+    stroke-width: 2.2;
+  }
+  .lio-hero__cell--featured .lio-hero__cell-icon svg { color: var(--mint); }
+  .lio-hero__cell-seal {
+    position: absolute;
+    top: -2px; right: -2px;
+    width: 8px; height: 8px;
+    background: var(--mint);
+    border: 2px solid var(--chalk);
+    border-radius: 50%;
+  }
+  .lio-hero__cell--featured .lio-hero__cell-seal { border-color: var(--forest); }
+  .lio-hero__cell-body {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    min-width: 0;
+  }
+  .lio-hero__cell-label {
+    font-size: 9px;
+    color: var(--f-55);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2px;
+    overflow-wrap: break-word;
+    line-height: 1.15;
+  }
+  .lio-hero__cell--featured .lio-hero__cell-label { color: rgba(148, 252, 169, 0.8); }
+  .lio-hero__cell-claim {
+    font-size: clamp(11.5px, 3vw, 13px);
+    color: var(--forest);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  .lio-hero__cell--featured .lio-hero__cell-claim { color: var(--chalk); }
+
+  /* CTA block */
+  .lio-hero__cta {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 8px;
+  }
+  .lio-hero__btn {
+    background: var(--mint);
+    color: var(--forest);
+    padding: 20px 22px 20px 28px;
+    border: none;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.35s var(--ease);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    width: 100%;
+    box-shadow:
+      0 1px 2px rgba(11, 36, 16, 0.06),
+      0 8px 20px rgba(11, 36, 16, 0.10);
+  }
+  .lio-hero__btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--forest);
+    transform: translateY(101%);
+    transition: transform 0.4s var(--ease);
+    z-index: -1;
+  }
+  .lio-hero__btn:active { transform: scale(0.98); box-shadow: 0 1px 2px rgba(11, 36, 16, 0.08); }
+  .lio-hero__btn:hover { color: var(--mint); }
+  .lio-hero__btn:hover::after { transform: translateY(0); }
+  .lio-hero__btn-arrow {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--mint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.35s var(--ease);
+    flex-shrink: 0;
+  }
+  .lio-hero__btn:hover .lio-hero__btn-arrow {
+    background: var(--mint);
+    color: var(--forest);
+    transform: translateX(2px);
+  }
+
+  /* Refill path */
+  .lio-hero__refill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 18px 12px 14px;
+    background: var(--chalk);
+    border: 1px solid var(--f-10);
+    border-radius: 999px;
+    font-size: 13.5px;
+    color: var(--f-72);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.25s var(--ease);
+    letter-spacing: -0.005em;
+  }
+  .lio-hero__refill-dot {
+    width: 8px; height: 8px;
+    background: var(--mint);
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .lio-hero__refill-dot::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: var(--mint);
+    opacity: 0.3;
+    animation: lio-hero-ping 2.4s ease-in-out infinite;
+  }
+  @keyframes lio-hero-ping {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50%      { transform: scale(1.6); opacity: 0; }
+  }
+  .lio-hero__refill-arrow { font-weight: 700; color: var(--forest); transition: transform 0.25s var(--ease); }
+  .lio-hero__refill:hover,
+  .lio-hero__refill:active { background: var(--f-04); border-color: var(--f-14); }
+  .lio-hero__refill:hover .lio-hero__refill-arrow { transform: translateX(2px); }
+
+  /* Secondary ghost */
+  .lio-hero__ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 16px;
+    color: var(--f-55);
+    background: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.25s var(--ease);
+    align-self: center;
+  }
+  .lio-hero__play {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--f-08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.25s var(--ease);
+  }
+  .lio-hero__play svg { width: 7px; height: 7px; color: var(--forest); margin-left: 1px; }
+  .lio-hero__ghost:hover { color: var(--forest); }
+  .lio-hero__ghost:hover .lio-hero__play { background: var(--forest); }
+  .lio-hero__ghost:hover .lio-hero__play svg { color: var(--mint); }
+  .lio-hero__ghost-label {
+    text-decoration: underline;
+    text-decoration-color: var(--f-14);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.25s var(--ease);
+  }
+  .lio-hero__ghost:hover .lio-hero__ghost-label { text-decoration-color: var(--forest); }
+
+  /* Inline review */
+  .lio-hero__review {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 14px 14px 12px;
+    background: var(--chalk);
+    border: 1px solid var(--f-08);
+    border-radius: 14px;
+    margin-top: 4px;
+  }
+  .lio-hero__review-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--chalk);
+    background: var(--f-06);
+  }
+  .lio-hero__review-body { flex: 1; min-width: 0; }
+  .lio-hero__review-stars {
+    color: #f5a623;
+    font-size: 10.5px;
+    letter-spacing: 1.5px;
+    margin-bottom: 3px;
+    line-height: 1;
+  }
+  .lio-hero__review-text {
+    font-size: 13.5px;
+    line-height: 1.35;
+    color: var(--forest);
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+  .lio-hero__review-name {
+    font-size: 11px;
+    color: var(--f-55);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .lio-hero__verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--f-72);
+    font-weight: 600;
+  }
+  .lio-hero__verified::before {
+    content: "";
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--mint);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b2410' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6L9 17l-5-5'/></svg>");
+    background-size: 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /* Reveal */
+  .lio-hero .reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: lio-hero-rise 0.9s var(--ease) forwards;
+  }
+  .lio-hero .reveal:nth-child(2) { animation-delay: 0.08s; }
+  .lio-hero .reveal:nth-child(3) { animation-delay: 0.14s; }
+  .lio-hero .reveal:nth-child(4) { animation-delay: 0.20s; }
+  .lio-hero .reveal:nth-child(5) { animation-delay: 0.26s; }
+  .lio-hero .reveal:nth-child(6) { animation-delay: 0.32s; }
+  @keyframes lio-hero-rise { to { opacity: 1; transform: translateY(0); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lio-hero .reveal { animation: none; opacity: 1; transform: none; }
+    .lio-hero__refill-dot::after { animation: none; }
+  }
+
+  /* ===== Mobile sticky ATC ===== */
+  .lio-hero-sticky {
+    display: flex;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(252, 254, 251, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(11, 36, 16, 0.08);
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom)) 14px;
+    z-index: 40;
+    box-shadow: 0 -4px 20px rgba(11, 36, 16, 0.06);
+    gap: 12px;
+    align-items: center;
+    font-family: "sofia-pro", -apple-system, sans-serif;
+    color: var(--lio-forest, #0b2410);
+  }
+  .lio-hero-sticky__meta {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    flex-shrink: 0;
+  }
+  .lio-hero-sticky__eyebrow {
+    font-size: 9.5px;
+    color: rgba(11, 36, 16, 0.55);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .lio-hero-sticky__price {
+    font-size: 17px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+  .lio-hero-sticky__btn {
+    padding: 13px 16px;
+    font-size: 14px;
+    gap: 10px;
+    width: auto;
+    flex: 1;
+  }
+  .lio-hero-sticky__btn .lio-hero__btn-arrow {
+    width: 22px; height: 22px; font-size: 11px;
+  }
+  body:has(.lio-hero-sticky) { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+
+  /* ===== Tablet (≥768px) ===== */
+  @media (min-width: 768px) {
+    .lio-hero__chip { display: inline-flex; }
+    .lio-hero { padding: 24px 24px 32px; gap: 24px; }
+    .lio-hero__visual { aspect-ratio: 16 / 10; border-radius: 22px; }
+    .lio-hero__headline h1 { font-size: clamp(48px, 7vw, 68px); margin-bottom: 16px; }
+    .lio-hero__sub { font-size: 17px; max-width: 580px; }
+
+    .lio-hero__trust { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .lio-hero__cell { padding: 12px 14px; }
+    .lio-hero__cell-icon { width: 32px; height: 32px; }
+    .lio-hero__cell-icon svg { width: 16px; height: 16px; }
+    .lio-hero__cell-claim { font-size: 14px; }
+
+    .lio-hero__cta {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "primary refill"
+        "secondary secondary";
+      align-items: center;
+      gap: 12px 16px;
+    }
+    .lio-hero__btn { grid-area: primary; width: auto; }
+    .lio-hero__refill { grid-area: refill; }
+    .lio-hero__ghost { grid-area: secondary; padding: 6px 16px; }
+
+    .lio-hero__review { padding: 16px 18px; max-width: 600px; }
+
+    .lio-hero-sticky { display: none; }
+    body:has(.lio-hero-sticky) { padding-bottom: 0; }
+  }
+
+  /* ===== Desktop (≥1024px) ===== */
+  @media (min-width: 1024px) {
+    .lio-hero {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 56px 40px 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "chip    visual"
+        "head    visual"
+        "trust   visual"
+        "cta     visual"
+        "review  visual";
+      gap: 16px 72px;
+      align-items: start;
+    }
+    .lio-hero__chip { grid-area: chip; align-self: start; margin-bottom: 8px; }
+    .lio-hero__headline { grid-area: head; }
+    .lio-hero__visual {
+      grid-area: visual;
+      aspect-ratio: 1 / 1.05;
+      border-radius: 24px;
+      align-self: center;
+      height: 100%;
+    }
+    .lio-hero__trust { grid-area: trust; grid-template-columns: repeat(2, 1fr); margin-top: 12px; }
+    .lio-hero__cta { grid-area: cta; margin-top: 16px; }
+    .lio-hero__review { grid-area: review; margin-top: 8px; align-self: start; }
+
+    .lio-hero__headline h1 { font-size: clamp(56px, 5.5vw, 76px); margin-bottom: 20px; }
+    .lio-hero__sub { font-size: 17.5px; }
+
+    .lio-hero__cell { padding: 14px 16px; }
+    .lio-hero__cell-icon { width: 34px; height: 34px; border-radius: 10px; }
+    .lio-hero__cell-icon svg { width: 16px; height: 16px; }
+    .lio-hero__cell-claim { font-size: 14px; }
+
+    .lio-hero__review { padding: 16px 18px; }
+    .lio-hero__review-avatar { width: 44px; height: 44px; }
+    .lio-hero__review-text { font-size: 14px; }
+  }
+
+  @media (min-width: 1200px) {
+    .lio-hero__headline h1 { font-size: 80px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Lio · Hero",
+  "tag": "section",
+  "class": "section-lio-hero",
+  "settings": [
+    { "type": "header", "content": "Social proof chip" },
+    { "type": "checkbox", "id": "show_chip", "label": "Show chip", "default": true },
+    { "type": "image_picker", "id": "avatar_1", "label": "Avatar 1" },
+    { "type": "text", "id": "avatar_1_url", "label": "Avatar 1 URL (fallback)", "default": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&fit=crop&crop=faces" },
+    { "type": "image_picker", "id": "avatar_2", "label": "Avatar 2" },
+    { "type": "text", "id": "avatar_2_url", "label": "Avatar 2 URL (fallback)", "default": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=64&h=64&fit=crop&crop=faces" },
+    { "type": "image_picker", "id": "avatar_3", "label": "Avatar 3" },
+    { "type": "text", "id": "avatar_3_url", "label": "Avatar 3 URL (fallback)", "default": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=64&h=64&fit=crop&crop=faces" },
+    { "type": "text", "id": "chip_score", "label": "Score", "default": "4.6" },
+    { "type": "text", "id": "chip_count", "label": "Count", "default": "7,300+ reviews" },
+
+    { "type": "header", "content": "Visual" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "text", "id": "hero_image_url", "label": "Fallback image URL", "default": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_22_2026_12_14_47_PM.webp?v=1776831311" },
+    { "type": "text", "id": "hero_image_alt", "label": "Alt text", "default": "Lio wooden diffuser" },
+    { "type": "checkbox", "id": "show_patent_badge", "label": "Show patent badge", "default": true },
+    { "type": "text", "id": "patent_label", "label": "Patent badge text", "default": "Patented design" },
+
+    { "type": "header", "content": "Headline" },
+    { "type": "text", "id": "headline_pre", "label": "Line 1 — prefix", "default": "Keep the" },
+    { "type": "text", "id": "headline_marker", "label": "Line 1 — highlighted word", "default": "ritual." },
+    { "type": "text", "id": "headline_soft", "label": "Line 2 — soft prefix", "default": "Drop the" },
+    { "type": "text", "id": "headline_end", "label": "Line 2 — end", "default": "substance." },
+    { "type": "textarea", "id": "subhead", "label": "Subhead", "default": "A wooden diffuser for the hand-to-mouth habit. Breathe in natural flavored air — nothing to light, nothing to charge." },
+
+    { "type": "header", "content": "Primary CTA" },
+    { "type": "text", "id": "cta_primary_label", "label": "Label", "default": "Start your ritual" },
+    { "type": "url", "id": "cta_primary_link", "label": "Link" },
+
+    { "type": "header", "content": "Refill path (returning customers)" },
+    { "type": "checkbox", "id": "show_refill", "label": "Show refill shortcut", "default": true },
+    { "type": "text", "id": "refill_cold_label", "label": "Label (cold / anonymous)", "default": "Already have a Lio? Shop refills" },
+    { "type": "text", "id": "refill_warm_label", "label": "Label (logged-in)", "default": "Welcome back — shop refills" },
+    { "type": "url", "id": "refill_link", "label": "Link" },
+
+    { "type": "header", "content": "Secondary CTA" },
+    { "type": "checkbox", "id": "show_secondary", "label": "Show secondary CTA", "default": true },
+    { "type": "text", "id": "cta_secondary_label", "label": "Label", "default": "See how Lio works" },
+    { "type": "url", "id": "cta_secondary_link", "label": "Link" },
+
+    { "type": "header", "content": "Inline review card" },
+    { "type": "checkbox", "id": "show_review", "label": "Show review card", "default": true },
+    { "type": "image_picker", "id": "review_avatar", "label": "Avatar" },
+    { "type": "text", "id": "review_avatar_url", "label": "Avatar URL (fallback)", "default": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=96&h=96&fit=crop&crop=faces" },
+    { "type": "textarea", "id": "review_text", "label": "Review text", "default": "From 15 a day to zero in three weeks." },
+    { "type": "text", "id": "review_name", "label": "Name / location", "default": "Marieke V. · Amsterdam" },
+    { "type": "checkbox", "id": "review_verified", "label": "Show verified badge", "default": true },
+
+    { "type": "header", "content": "Mobile sticky ATC" },
+    { "type": "checkbox", "id": "show_sticky", "label": "Show sticky bar (mobile only)", "default": true },
+    { "type": "text", "id": "sticky_eyebrow", "label": "Eyebrow", "default": "From" },
+    { "type": "text", "id": "sticky_price", "label": "Price", "default": "€27" },
+    { "type": "text", "id": "sticky_label", "label": "Button label", "default": "Start your ritual" },
+    { "type": "url", "id": "sticky_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "trust_cell",
+      "name": "Trust cell",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "star",   "label": "Star (patent)" },
+            { "value": "flask",  "label": "Flask (lab)" },
+            { "value": "zero",   "label": "Zero (0% / mouth)" },
+            { "value": "plant",  "label": "Plant / sun" },
+            { "value": "leaf",   "label": "Leaf" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "check",  "label": "Check" },
+            { "value": "drop",   "label": "Drop" }
+          ],
+          "default": "star"
+        },
+        { "type": "text", "id": "label", "label": "Label (eyebrow)", "default": "Patented" },
+        { "type": "text", "id": "claim", "label": "Claim", "default": "Design & tech" },
+        { "type": "checkbox", "id": "featured", "label": "Featured (forest background)", "default": false }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Lio · Hero",
+      "blocks": [
+        { "type": "trust_cell", "settings": { "icon": "star",   "label": "Patented",    "claim": "Design & tech",     "featured": true } },
+        { "type": "trust_cell", "settings": { "icon": "flask",  "label": "Lab-tested",  "claim": "3rd-party safety",  "featured": true } },
+        { "type": "trust_cell", "settings": { "icon": "zero",   "label": "0%",          "claim": "Nicotine & vapor",  "featured": false } },
+        { "type": "trust_cell", "settings": { "icon": "plant",  "label": "Plant-based", "claim": "Essential oils",    "featured": false } }
+      ]
+    }
+  ]
+}
+{% endschema %}

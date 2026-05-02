@@ -1,0 +1,146 @@
+{%- comment -%}
+  Section: Lio · Final CTA — mint-background closing panel with quiz CTA.
+  CSS scoped to .lio-final-cta. No SVG.
+{%- endcomment -%}
+
+<section class="lio-final-cta" id="lio-final-cta-{{ section.id }}">
+  <div class="lio-final-cta__inner">
+    <span class="lio-final-cta__eyebrow">Not sure where to start?</span>
+    <h2>60 seconds.<br>5 questions.<br><span class="lio-final-cta__soft">Your blend.</span></h2>
+    <p>Tell us the triggers, the moments, the situations. We'll match you to the exact core and starter for your life — nothing generic, nothing guessed.</p>
+    <a href="{{ section.settings.quiz_url | default: '/quiz' }}" class="lio-final-cta__btn">
+      Take the quiz
+      <span class="lio-final-cta__btn-arrow">→</span>
+    </a>
+    <div class="lio-final-cta__meta">
+      <span>60 seconds</span>
+      <span>No email required</span>
+      <span>60-day money-back guarantee</span>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .lio-final-cta {
+    --lfc-forest: var(--lio-forest, #0b2410);
+    --lfc-chalk:  var(--lio-chalk, #fcfefb);
+    --lfc-mint:   var(--lio-mint, #94fca9);
+    --lfc-ease:   var(--lio-ease, cubic-bezier(0.22, 1, 0.36, 1));
+
+    background: var(--lfc-mint);
+    color: var(--lfc-forest);
+    padding: 120px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+  }
+
+  .lio-final-cta__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .lio-final-cta__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--lfc-forest);
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+  .lio-final-cta__eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--lfc-forest); }
+
+  .lio-final-cta__inner h2 {
+    font-weight: 900;
+    font-size: clamp(48px, 6.8vw, 96px);
+    line-height: 0.92;
+    letter-spacing: -0.05em;
+    margin: 0 0 26px;
+    color: var(--lfc-forest);
+  }
+  .lio-final-cta__soft { font-weight: 300; }
+
+  .lio-final-cta__inner p {
+    font-size: 17px;
+    color: var(--lfc-forest);
+    opacity: 0.78;
+    margin: 0 auto 36px;
+    max-width: 560px;
+    line-height: 1.6;
+  }
+
+  .lio-final-cta__btn {
+    background: var(--lfc-forest);
+    color: var(--lfc-mint);
+    padding: 19px 28px 19px 32px;
+    border: none;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.3s var(--lfc-ease);
+    font-family: inherit;
+  }
+  .lio-final-cta__btn:hover { background: var(--lfc-chalk); color: var(--lfc-forest); }
+  .lio-final-cta__btn-arrow {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--lfc-mint);
+    color: var(--lfc-forest);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    transition: all 0.3s var(--lfc-ease);
+    flex-shrink: 0;
+  }
+  .lio-final-cta__btn:hover .lio-final-cta__btn-arrow {
+    background: var(--lfc-forest);
+    color: var(--lfc-mint);
+    transform: translateX(3px);
+  }
+
+  .lio-final-cta__meta {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 26px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--lfc-forest);
+    opacity: 0.72;
+    font-weight: 500;
+  }
+  .lio-final-cta__meta span { display: inline-flex; align-items: center; gap: 8px; }
+  .lio-final-cta__meta span::before {
+    content: "";
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--lfc-forest);
+  }
+
+  @media (max-width: 960px) { .lio-final-cta { padding: 72px 20px; } }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Lio · Final CTA",
+  "tag": "section",
+  "class": "section-lio-final-cta",
+  "settings": [
+    { "type": "url", "id": "quiz_url", "label": "Quiz URL" }
+  ],
+  "presets": [
+    { "name": "Lio · Final CTA" }
+  ]
+}
+{% endschema %}

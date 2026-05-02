@@ -1,0 +1,274 @@
+{%- comment -%}
+  Section: Lio · Reviews Wall — asymmetric 12-col grid of verified reviews.
+  CSS scoped to .lio-reviews. No SVG.
+{%- endcomment -%}
+
+<section class="lio-reviews" id="lio-reviews-{{ section.id }}">
+
+  <div class="lio-reviews__head">
+    <div>
+      <span class="lio-reviews__eyebrow">Verified reviews</span>
+      <h2>150.000+<br><span class="lio-reviews__hl">Habits broken.</span></h2>
+    </div>
+    <div class="lio-reviews__score">
+      <div class="lio-reviews__score-stars">★★★★★</div>
+      <div class="lio-reviews__score-num">4.6<span class="lio-reviews__out">/5</span></div>
+      <div class="lio-reviews__score-meta">From 7,300+ reviews</div>
+    </div>
+  </div>
+
+  <div class="lio-reviews__grid">
+
+    <div class="lio-reviews__card lio-reviews__card--wide">
+      <div class="lio-reviews__stars">★★★★★</div>
+      <div class="lio-reviews__title">First thing that actually stuck.</div>
+      <p class="lio-reviews__body">Smoked for 14 years. Tried patches, Champix, vaping — all of it. Got Lio because my sister pushed me into it. Haven't touched a cigarette in three months. Not a miracle — nothing else gave my hand somewhere to go.</p>
+      <div class="lio-reviews__sep"></div>
+      <div class="lio-reviews__attr">
+        <div class="lio-reviews__avatar">MJ</div>
+        <div>
+          <div class="lio-reviews__name">Mark J.</div>
+          <div class="lio-reviews__meta"><span class="lio-reviews__verify">Verified buyer</span> · UK</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lio-reviews__card lio-reviews__card--dark">
+      <div class="lio-reviews__stars">★★★★★</div>
+      <div class="lio-reviews__title">Replaced the after-dinner cigarette.</div>
+      <p class="lio-reviews__body">"Social smoker" for 8 years — code for one every night after dinner. The Cinnamon core has taken its place entirely. Same ritual, same pause, zero smell.</p>
+      <div class="lio-reviews__sep"></div>
+      <div class="lio-reviews__attr">
+        <div class="lio-reviews__avatar">SR</div>
+        <div>
+          <div class="lio-reviews__name">Sofia R.</div>
+          <div class="lio-reviews__meta"><span class="lio-reviews__verify">Verified buyer</span> · Italy</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lio-reviews__card lio-reviews__card--slim">
+      <div class="lio-reviews__stars">★★★★★</div>
+      <div class="lio-reviews__title">Fixed my nail biting.</div>
+      <p class="lio-reviews__body">I've never smoked. Lifelong nail biter — Sweet Orange core solved it in six weeks. My nails are nice for the first time since I was a child.</p>
+      <div class="lio-reviews__sep"></div>
+      <div class="lio-reviews__attr">
+        <div class="lio-reviews__avatar">EL</div>
+        <div>
+          <div class="lio-reviews__name">Emma L.</div>
+          <div class="lio-reviews__meta"><span class="lio-reviews__verify">Verified</span> · NL</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lio-reviews__card lio-reviews__card--slim">
+      <div class="lio-reviews__stars">★★★★★</div>
+      <div class="lio-reviews__title">Skeptical until I tried it.</div>
+      <p class="lio-reviews__body">Thought it'd be a placebo fidget toy. Six weeks in and I've cut my vape use by 70%. Can't explain it — it just works.</p>
+      <div class="lio-reviews__sep"></div>
+      <div class="lio-reviews__attr">
+        <div class="lio-reviews__avatar">TK</div>
+        <div>
+          <div class="lio-reviews__name">Tom K.</div>
+          <div class="lio-reviews__meta"><span class="lio-reviews__verify">Verified</span> · DE</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lio-reviews__card lio-reviews__card--wide">
+      <div class="lio-reviews__stars">★★★★★</div>
+      <div class="lio-reviews__title">My therapist recommended it.</div>
+      <p class="lio-reviews__body">I have high-functioning anxiety and used to stress-eat through entire afternoons. My therapist mentioned Lio almost in passing during a session and I ordered the Plus set that night. It's been three months. My eating is back to normal and I reach for Lio maybe four times a day now.</p>
+      <div class="lio-reviews__sep"></div>
+      <div class="lio-reviews__attr">
+        <div class="lio-reviews__avatar">AC</div>
+        <div>
+          <div class="lio-reviews__name">Alice C.</div>
+          <div class="lio-reviews__meta"><span class="lio-reviews__verify">Verified buyer</span> · France</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lio-reviews__card">
+      <div class="lio-reviews__stars">★★★★★</div>
+      <div class="lio-reviews__title">Better than nicotine pouches.</div>
+      <p class="lio-reviews__body">Was on pouches for two years after I quit vaping. They worked but my gums were wrecked. Switched to Lio cold turkey — haven't looked back. Eucalyptus in the morning, peppermint all day.</p>
+      <div class="lio-reviews__sep"></div>
+      <div class="lio-reviews__attr">
+        <div class="lio-reviews__avatar">JB</div>
+        <div>
+          <div class="lio-reviews__name">Johan B.</div>
+          <div class="lio-reviews__meta"><span class="lio-reviews__verify">Verified</span> · Sweden</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% stylesheet %}
+  .lio-reviews {
+    --lr-forest: var(--lio-forest, #0b2410);
+    --lr-chalk:  var(--lio-chalk, #fcfefb);
+    --lr-mint:   var(--lio-mint, #94fca9);
+    --lr-f-10:   var(--lio-f-10, rgba(11, 36, 16, 0.10));
+    --lr-f-55:   var(--lio-f-55, rgba(11, 36, 16, 0.55));
+    --lr-f-72:   var(--lio-f-72, rgba(11, 36, 16, 0.72));
+    --lr-c-12:   var(--lio-c-12, rgba(252, 254, 251, 0.12));
+    --lr-c-55:   var(--lio-c-55, rgba(252, 254, 251, 0.55));
+    --lr-c-75:   var(--lio-c-75, rgba(252, 254, 251, 0.75));
+    --lr-shadow-1: var(--lio-shadow-1, 0 1px 2px rgba(11,36,16,0.04), 0 8px 24px rgba(11,36,16,0.06));
+    --lr-ease:   var(--lio-ease, cubic-bezier(0.22, 1, 0.36, 1));
+
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 120px 40px 80px;
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+  }
+
+  .lio-reviews__head {
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+    gap: 40px;
+    align-items: end;
+    margin-bottom: 48px;
+  }
+  .lio-reviews__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--lr-f-55);
+    margin-bottom: 22px;
+  }
+  .lio-reviews__eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--lr-forest); }
+  .lio-reviews__head h2 {
+    font-weight: 900;
+    font-size: clamp(40px, 5.4vw, 76px);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    color: var(--lr-forest);
+    margin: 0;
+  }
+  .lio-reviews__hl {
+    background-image: linear-gradient(to top, var(--lr-mint) 0, var(--lr-mint) 34%, transparent 34.01%);
+    padding: 0 0.04em;
+  }
+
+  .lio-reviews__score {
+    background: var(--lr-forest);
+    color: var(--lr-chalk);
+    border-radius: 22px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .lio-reviews__score-stars { color: var(--lr-mint); letter-spacing: 4px; font-size: 18px; margin-bottom: 6px; }
+  .lio-reviews__score-num   { font-weight: 900; font-size: 44px; line-height: 1; letter-spacing: -0.04em; }
+  .lio-reviews__out         { font-size: 18px; color: var(--lr-c-55); font-weight: 400; letter-spacing: 0; }
+  .lio-reviews__score-meta  { font-size: 12px; color: var(--lr-c-55); letter-spacing: 0.14em; text-transform: uppercase; margin-top: 4px; }
+
+  .lio-reviews__grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 14px;
+  }
+
+  .lio-reviews__card {
+    background: var(--lr-chalk);
+    border: 1px solid var(--lr-f-10);
+    border-radius: 20px;
+    padding: 26px 24px;
+    transition: all 0.3s var(--lr-ease);
+    display: flex;
+    flex-direction: column;
+    grid-column: span 4;
+  }
+  .lio-reviews__card:hover {
+    transform: translateY(-3px);
+    border-color: var(--lr-forest);
+    box-shadow: var(--lr-shadow-1);
+  }
+  .lio-reviews__card--wide { grid-column: span 5; }
+  .lio-reviews__card--slim { grid-column: span 3; }
+  .lio-reviews__card--dark {
+    background: var(--lr-forest);
+    color: var(--lr-chalk);
+    border-color: var(--lr-forest);
+    grid-column: span 4;
+  }
+
+  .lio-reviews__stars { letter-spacing: 3px; font-size: 13px; color: var(--lr-forest); margin-bottom: 12px; }
+  .lio-reviews__card--dark .lio-reviews__stars { color: var(--lr-mint); }
+
+  .lio-reviews__title {
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: var(--lr-forest);
+  }
+  .lio-reviews__card--dark .lio-reviews__title { color: var(--lr-chalk); }
+
+  .lio-reviews__body {
+    font-size: 14px;
+    color: var(--lr-f-72);
+    line-height: 1.6;
+    margin: 0;
+    padding-bottom: 20px;
+    flex: 1;
+  }
+  .lio-reviews__card--dark .lio-reviews__body { color: var(--lr-c-75); }
+
+  .lio-reviews__sep { height: 1px; background: var(--lr-f-10); margin-bottom: 14px; }
+  .lio-reviews__card--dark .lio-reviews__sep { background: var(--lr-c-12); }
+
+  .lio-reviews__attr  { display: flex; align-items: center; gap: 12px; }
+  .lio-reviews__avatar {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--lr-mint);
+    color: var(--lr-forest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  .lio-reviews__name   { font-size: 13px; font-weight: 700; color: var(--lr-forest); }
+  .lio-reviews__card--dark .lio-reviews__name { color: var(--lr-chalk); }
+  .lio-reviews__meta   { font-size: 11px; color: var(--lr-f-55); margin-top: 2px; }
+  .lio-reviews__card--dark .lio-reviews__meta { color: var(--lr-c-55); }
+  .lio-reviews__verify { color: var(--lr-forest); font-weight: 600; }
+  .lio-reviews__card--dark .lio-reviews__verify { color: var(--lr-mint); }
+
+  @media (max-width: 960px) {
+    .lio-reviews { padding: 72px 20px 48px; }
+    .lio-reviews__head { grid-template-columns: 1fr; }
+    .lio-reviews__grid { grid-template-columns: 1fr; gap: 12px; }
+    .lio-reviews__card,
+    .lio-reviews__card--wide,
+    .lio-reviews__card--slim,
+    .lio-reviews__card--dark { grid-column: span 1; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Lio · Reviews",
+  "tag": "section",
+  "class": "section-lio-reviews",
+  "settings": [],
+  "presets": [
+    { "name": "Lio · Reviews" }
+  ]
+}
+{% endschema %}

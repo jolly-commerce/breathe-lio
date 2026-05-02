@@ -1,0 +1,500 @@
+{%- comment -%}
+  Section: Lio · Shop — 3 product tier cards.
+  SVG product illustrations namespaced to section.id.
+  CSS scoped to .lio-shop.
+{%- endcomment -%}
+
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <symbol id="lio-shop-original-{{ section.id }}" viewBox="0 0 400 400">
+      <rect x="80" y="180" width="200" height="48" rx="24" fill="#0b2410" stroke="#0b2410" stroke-width="2"/>
+      <rect x="278" y="192" width="24" height="24" rx="8" fill="#94fca9"/>
+      <circle cx="180" cy="204" r="32" fill="#0b2410" stroke="#94fca9" stroke-width="2"/>
+      <circle cx="180" cy="204" r="12" fill="#94fca9"/>
+      <rect x="115" y="240" width="80" height="110" rx="8" fill="#94fca9" opacity="0.9"/>
+      <rect x="125" y="258" width="60" height="3" rx="1.5" fill="#0b2410"/>
+      <rect x="125" y="268" width="44" height="3" rx="1.5" fill="#0b2410" opacity="0.6"/>
+      <circle cx="155" cy="310" r="22" fill="none" stroke="#0b2410" stroke-width="2"/>
+      <circle cx="155" cy="310" r="8" fill="#0b2410"/>
+      <rect x="200" y="240" width="80" height="16" rx="8" fill="#0b2410"/>
+    </symbol>
+
+    <symbol id="lio-shop-plus-{{ section.id }}" viewBox="0 0 400 400">
+      <rect x="80" y="120" width="200" height="44" rx="22" fill="#94fca9" stroke="#94fca9" stroke-width="2"/>
+      <rect x="278" y="130" width="24" height="24" rx="8" fill="#0b2410"/>
+      <circle cx="180" cy="142" r="28" fill="#0b2410"/>
+      <circle cx="180" cy="142" r="10" fill="#94fca9"/>
+      <g transform="translate(200 260)">
+        <rect x="-120" y="-50" width="40" height="100" rx="6" fill="#94fca9" transform="rotate(-12)"/>
+        <rect x="-50" y="-55" width="40" height="100" rx="6" fill="#94fca9" transform="rotate(-4)"/>
+        <rect x="10" y="-55" width="40" height="100" rx="6" fill="#94fca9" transform="rotate(4)"/>
+        <rect x="80" y="-50" width="40" height="100" rx="6" fill="#94fca9" transform="rotate(12)"/>
+      </g>
+    </symbol>
+
+    <symbol id="lio-shop-pro-{{ section.id }}" viewBox="0 0 400 400">
+      <circle cx="200" cy="200" r="60" fill="#94fca9"/>
+      <circle cx="200" cy="200" r="48" fill="#0b2410"/>
+      <circle cx="200" cy="200" r="18" fill="#94fca9"/>
+      <circle cx="200" cy="200" r="6" fill="#0b2410"/>
+      <rect x="190" y="70" width="20" height="60" rx="6" fill="#94fca9"/>
+      <circle cx="200" cy="85" r="5" fill="#0b2410"/>
+      <rect x="280" y="190" width="60" height="20" rx="6" fill="#94fca9"/>
+      <circle cx="325" cy="200" r="5" fill="#0b2410"/>
+      <rect x="190" y="270" width="20" height="60" rx="6" fill="#94fca9"/>
+      <circle cx="200" cy="315" r="5" fill="#0b2410"/>
+      <rect x="60" y="190" width="60" height="20" rx="6" fill="#94fca9"/>
+      <circle cx="75" cy="200" r="5" fill="#0b2410"/>
+      <path d="M 200 108 A 92 92 0 0 1 292 200" fill="none" stroke="#94fca9" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.6"/>
+      <path d="M 292 200 A 92 92 0 0 1 200 292" fill="none" stroke="#94fca9" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.6"/>
+      <path d="M 200 292 A 92 92 0 0 1 108 200" fill="none" stroke="#94fca9" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.6"/>
+      <path d="M 108 200 A 92 92 0 0 1 200 108" fill="none" stroke="#94fca9" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.6"/>
+    </symbol>
+  </defs>
+</svg>
+
+<section class="lio-shop" id="lio-shop-{{ section.id }}">
+
+  <div class="lio-shop__head">
+    <div class="lio-shop__head-left">
+      <span class="lio-shop__eyebrow">Shop Lio</span>
+      <h2>Pick your<br><span class="lio-shop__soft">ritual</span><br>starter.</h2>
+    </div>
+    <div class="lio-shop__head-right">
+      <p>Every set ships with a 60-day money-back guarantee. Even after you've opened the box and used a core. If the ritual doesn't shift for you, send it back.</p>
+      <a href="{{ section.settings.all_url | default: '/collections/all' }}">See the full range →</a>
+    </div>
+  </div>
+
+  <div class="lio-shop__grid">
+
+    {%- comment -%} Card 1: Lio Original {%- endcomment -%}
+    <div class="lio-shop__card">
+      <div class="lio-shop__media">
+        <span class="lio-shop__pill">New to Lio</span>
+        <svg viewBox="0 0 400 400" aria-hidden="true">
+          <use href="#lio-shop-original-{{ section.id }}"/>
+        </svg>
+      </div>
+      <div class="lio-shop__body">
+        <div class="lio-shop__sub">Device + 1 core</div>
+        <h3 class="lio-shop__title">Lio <span class="lio-shop__soft">Original</span></h3>
+        <p class="lio-shop__desc">The cleanest way to start. One precision-milled device, one flavor core — about ten days of use. Most people know within a week.</p>
+        <ul class="lio-shop__list">
+          <li>1× Lio device (Olive or Walnut)</li>
+          <li>1× Flavor core of your choice</li>
+          <li>Habit-replacement starter guide</li>
+          <li>60-day money-back guarantee</li>
+        </ul>
+        <div class="lio-shop__price-row">
+          <div class="lio-shop__price">€27</div>
+          <div class="lio-shop__was">€35</div>
+          <div class="lio-shop__save">Save €8</div>
+        </div>
+        <a href="{{ section.settings.original_url | default: '/products/lio-original' }}" class="lio-shop__btn">Start with Lio <span class="lio-shop__btn-arrow">→</span></a>
+      </div>
+    </div>
+
+    {%- comment -%} Card 2: Lio Plus (featured) {%- endcomment -%}
+    <div class="lio-shop__card lio-shop__card--featured">
+      <div class="lio-shop__media">
+        <span class="lio-shop__pill">Most popular</span>
+        <svg viewBox="0 0 400 400" aria-hidden="true">
+          <use href="#lio-shop-plus-{{ section.id }}"/>
+        </svg>
+      </div>
+      <div class="lio-shop__body">
+        <div class="lio-shop__sub">Device + 4 cores</div>
+        <h3 class="lio-shop__title">Lio <span class="lio-shop__soft">Plus</span></h3>
+        <p class="lio-shop__desc">One blend for every moment the old ritual used to hit — the morning pull, the 3pm craving, the anxious spiral, the wind-down. The full system, ready to go.</p>
+        <ul class="lio-shop__list">
+          <li>1× Lio Plus device</li>
+          <li>4× Signature flavor cores</li>
+          <li>40+ days of daily use</li>
+          <li>Carry case + priority shipping</li>
+          <li>60-day money-back guarantee</li>
+        </ul>
+        <div class="lio-shop__price-row">
+          <div class="lio-shop__price">€89</div>
+          <div class="lio-shop__was">€127</div>
+          <div class="lio-shop__save">Save €38</div>
+        </div>
+        <a href="{{ section.settings.plus_url | default: '/products/lio-plus' }}" class="lio-shop__btn">Build my ritual <span class="lio-shop__btn-arrow">→</span></a>
+      </div>
+    </div>
+
+    {%- comment -%} Card 3: Lio Pro {%- endcomment -%}
+    <div class="lio-shop__card">
+      <div class="lio-shop__media">
+        <span class="lio-shop__pill">Best value</span>
+        <svg viewBox="0 0 400 400" aria-hidden="true">
+          <use href="#lio-shop-pro-{{ section.id }}"/>
+        </svg>
+      </div>
+      <div class="lio-shop__body">
+        <div class="lio-shop__sub">Subscribe &amp; save · Monthly</div>
+        <h3 class="lio-shop__title">Lio <span class="lio-shop__soft">Pro</span></h3>
+        <p class="lio-shop__desc">A free device on month one. 20% off forever. New rotating blends monthly. Skip, swap or cancel in one click.</p>
+        <ul class="lio-shop__list">
+          <li>Free Lio device on month 1</li>
+          <li>4 rotating cores per month</li>
+          <li>Swap, skip or double up anytime</li>
+          <li>Loyalty price drop at month 3</li>
+          <li>Cancel in one click, no fees</li>
+        </ul>
+        <div class="lio-shop__price-row">
+          <div class="lio-shop__price">€21<span class="lio-shop__dec">.60</span></div>
+          <div class="lio-shop__was">€27</div>
+          <div class="lio-shop__save">20% off</div>
+        </div>
+        <a href="{{ section.settings.pro_url | default: '/club' }}" class="lio-shop__btn">Join Lio Pro <span class="lio-shop__btn-arrow">→</span></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="lio-shop__quiz-strip">
+    <div class="lio-shop__quiz-left">
+      <span class="lio-shop__quiz-label">Not sure which option fits your situation?</span>
+      <span class="lio-shop__quiz-sub">Answer 5 questions — we'll match you to the right starter.</span>
+    </div>
+    <a href="{{ section.settings.quiz_url | default: '/quiz' }}" class="lio-shop__quiz-btn">
+      Take the 60-second quiz
+      <span class="lio-shop__quiz-arrow">→</span>
+    </a>
+  </div>
+
+</section>
+
+{% stylesheet %}
+  .lio-shop {
+    --ls-forest:     var(--lio-forest, #0b2410);
+    --ls-forest-lift: #122e18;
+    --ls-chalk:      var(--lio-chalk, #fcfefb);
+    --ls-mint:       var(--lio-mint, #94fca9);
+    --ls-f-10:       var(--lio-f-10, rgba(11, 36, 16, 0.10));
+    --ls-f-55:       var(--lio-f-55, rgba(11, 36, 16, 0.55));
+    --ls-f-72:       var(--lio-f-72, rgba(11, 36, 16, 0.72));
+    --ls-m-18:       var(--lio-m-18, rgba(148, 252, 169, 0.18));
+    --ls-c-12:       var(--lio-c-12, rgba(252, 254, 251, 0.12));
+    --ls-c-55:       var(--lio-c-55, rgba(252, 254, 251, 0.55));
+    --ls-c-75:       var(--lio-c-75, rgba(252, 254, 251, 0.75));
+    --ls-c-88:       var(--lio-c-88, rgba(252, 254, 251, 0.88));
+    --ls-shadow-2:   var(--lio-shadow-2, 0 8px 24px rgba(11,36,16,0.09), 0 32px 64px rgba(11,36,16,0.12));
+    --ls-shadow-mint: var(--lio-shadow-mint, 0 0 0 1px #94fca9, 0 18px 48px rgba(148,252,169,0.28));
+    --ls-ease:       var(--lio-ease, cubic-bezier(0.22, 1, 0.36, 1));
+
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 112px 40px 72px;
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+  }
+
+  .lio-shop__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .lio-shop__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ls-f-55);
+    margin-bottom: 22px;
+  }
+  .lio-shop__eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--ls-forest); }
+  .lio-shop__head h2 {
+    font-weight: 900;
+    font-size: clamp(40px, 5.4vw, 76px);
+    line-height: 0.94;
+    letter-spacing: -0.045em;
+    max-width: 720px;
+    color: var(--ls-forest);
+    margin: 0;
+  }
+  .lio-shop__soft { font-weight: 300; }
+  .lio-shop__head-right p {
+    font-size: 15px;
+    color: var(--ls-f-72);
+    max-width: 320px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+    text-align: right;
+  }
+  .lio-shop__head-right a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ls-forest);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--ls-forest);
+    float: right;
+    transition: gap 0.25s var(--ls-ease);
+  }
+  .lio-shop__head-right a:hover { gap: 16px; }
+
+  .lio-shop__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .lio-shop__card {
+    background: var(--ls-chalk);
+    border: 1px solid var(--ls-f-10);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.4s var(--ls-ease);
+    display: flex;
+    flex-direction: column;
+  }
+  .lio-shop__card:hover {
+    transform: translateY(-6px);
+    border-color: var(--ls-forest);
+    box-shadow: var(--ls-shadow-2);
+  }
+  .lio-shop__card--featured {
+    background: var(--ls-forest);
+    color: var(--ls-chalk);
+    border-color: var(--ls-forest);
+  }
+  .lio-shop__card--featured:hover { box-shadow: var(--ls-shadow-mint); }
+
+  .lio-shop__media {
+    aspect-ratio: 4/3.2;
+    background: radial-gradient(100% 70% at 50% 35%, var(--ls-m-18) 0%, transparent 60%), #f3f6f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--ls-f-10);
+  }
+  .lio-shop__card--featured .lio-shop__media {
+    background: radial-gradient(100% 70% at 50% 35%, rgba(148, 252, 169, 0.22) 0%, transparent 60%), var(--ls-forest-lift);
+    border-bottom-color: var(--ls-c-12);
+  }
+  .lio-shop__media svg {
+    width: 72%; height: 72%;
+    transition: transform 0.5s var(--ls-ease);
+    filter: drop-shadow(0 20px 40px rgba(11, 36, 16, 0.18));
+  }
+  .lio-shop__card:hover .lio-shop__media svg { transform: scale(1.05) translateY(-4px); }
+
+  .lio-shop__pill {
+    position: absolute;
+    top: 16px; left: 16px;
+    padding: 6px 12px;
+    background: var(--ls-forest);
+    color: var(--ls-chalk);
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .lio-shop__card--featured .lio-shop__pill { background: var(--ls-mint); color: var(--ls-forest); }
+
+  .lio-shop__body {
+    padding: 26px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .lio-shop__sub {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ls-f-55);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .lio-shop__card--featured .lio-shop__sub { color: var(--ls-mint); }
+
+  .lio-shop__title {
+    font-weight: 900;
+    font-size: 30px;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 12px;
+    color: var(--ls-forest);
+  }
+  .lio-shop__card--featured .lio-shop__title { color: var(--ls-chalk); }
+
+  .lio-shop__desc {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ls-f-72);
+    margin-bottom: 20px;
+    min-height: 66px;
+  }
+  .lio-shop__card--featured .lio-shop__desc { color: var(--ls-c-75); }
+
+  .lio-shop__list { list-style: none; margin: 0 0 24px; padding: 0; flex: 1; }
+  .lio-shop__list li {
+    font-size: 13px;
+    color: var(--ls-forest);
+    padding: 9px 0 9px 24px;
+    position: relative;
+    border-bottom: 1px solid var(--ls-f-10);
+    line-height: 1.5;
+  }
+  .lio-shop__card--featured .lio-shop__list li { color: var(--ls-c-88); border-color: var(--ls-c-12); }
+  .lio-shop__list li:last-child { border-bottom: none; }
+  .lio-shop__list li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 13px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--ls-mint);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b2410' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6L9 17l-5-5'/></svg>");
+    background-size: 9px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .lio-shop__price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .lio-shop__price {
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--ls-forest);
+  }
+  .lio-shop__card--featured .lio-shop__price { color: var(--ls-chalk); }
+  .lio-shop__dec { font-size: 22px; opacity: 0.55; font-weight: 400; letter-spacing: 0; }
+  .lio-shop__was {
+    font-size: 15px;
+    color: var(--ls-f-55);
+    text-decoration: line-through;
+    font-weight: 500;
+  }
+  .lio-shop__card--featured .lio-shop__was { color: var(--ls-c-55); }
+  .lio-shop__save {
+    margin-left: auto;
+    padding: 5px 11px;
+    background: var(--ls-mint);
+    color: var(--ls-forest);
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .lio-shop__btn {
+    width: 100%;
+    background: var(--ls-forest);
+    color: var(--ls-chalk);
+    padding: 17px 20px;
+    border: none;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s var(--ls-ease);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: inherit;
+  }
+  .lio-shop__btn:hover { background: var(--ls-mint); color: var(--ls-forest); }
+  .lio-shop__card--featured .lio-shop__btn { background: var(--ls-mint); color: var(--ls-forest); }
+  .lio-shop__card--featured .lio-shop__btn:hover { background: var(--ls-chalk); color: var(--ls-forest); }
+  .lio-shop__btn-arrow { transition: transform 0.25s var(--ls-ease); }
+  .lio-shop__btn:hover .lio-shop__btn-arrow { transform: translateX(4px); }
+
+  .lio-shop__quiz-strip {
+    margin-top: 24px;
+    padding: 26px 32px;
+    background: #f3f6f0;
+    border: 1px solid var(--ls-f-10);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .lio-shop__quiz-left { display: flex; flex-direction: column; gap: 4px; }
+  .lio-shop__quiz-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ls-forest);
+    letter-spacing: -0.015em;
+  }
+  .lio-shop__quiz-sub {
+    font-size: 13px;
+    color: var(--ls-f-55);
+  }
+  .lio-shop__quiz-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 20px 13px 24px;
+    background: var(--ls-forest);
+    color: var(--ls-chalk);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.25s var(--ls-ease), color 0.25s;
+    font-family: inherit;
+  }
+  .lio-shop__quiz-btn:hover { background: var(--ls-mint); color: var(--ls-forest); }
+  .lio-shop__quiz-arrow { transition: transform 0.25s var(--ls-ease); }
+  .lio-shop__quiz-btn:hover .lio-shop__quiz-arrow { transform: translateX(4px); }
+
+  @media (max-width: 960px) {
+    .lio-shop { padding: 80px 20px 40px; }
+    .lio-shop__grid { grid-template-columns: 1fr; gap: 14px; }
+    .lio-shop__head { flex-direction: column; align-items: flex-start; }
+    .lio-shop__head-right p,
+    .lio-shop__head-right a { text-align: left; float: none; }
+    .lio-shop__quiz-strip { flex-direction: column; align-items: flex-start; }
+    .lio-shop__quiz-btn { width: 100%; justify-content: center; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Lio · Shop",
+  "tag": "section",
+  "class": "section-lio-shop",
+  "settings": [
+    { "type": "url", "id": "original_url", "label": "Lio Original product URL" },
+    { "type": "url", "id": "plus_url",     "label": "Lio Plus product URL" },
+    { "type": "url", "id": "pro_url",      "label": "Lio Pro / Club URL" },
+    { "type": "url", "id": "all_url",      "label": "\"See full range\" URL" },
+    { "type": "url", "id": "quiz_url",     "label": "Quiz URL (used in \"Not sure?\" strip)" }
+  ],
+  "presets": [
+    { "name": "Lio · Shop" }
+  ]
+}
+{% endschema %}

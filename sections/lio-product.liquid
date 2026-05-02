@@ -1,0 +1,1907 @@
+{%- comment -%}
+  Section: Lio · Product — CRO-optimised PDP.
+  Mobile gallery is a horizontal scroll-snap slider with dots + counter.
+  Sticky mobile buy bar appears after the primary CTA scrolls past.
+  Ships with inline-SVG trust icons, real-star rating, delivery estimate,
+  dynamic Shop Pay / Apple Pay button, savings badge, image lightbox,
+  stock indicator, and JSON-LD Product structured data.
+
+  Schema shape (block types + setting IDs) is unchanged so existing
+  templates/product.json data continues to bind.
+{%- endcomment -%}
+
+{%- liquid
+  assign v = product.selected_or_first_available_variant
+  assign on_sale = false
+  assign save_amount = 0
+  assign save_pct = 0
+  if v.compare_at_price > v.price
+    assign on_sale = true
+    assign save_amount = v.compare_at_price | minus: v.price
+    assign save_pct = save_amount | times: 100.0 | divided_by: v.compare_at_price | round
+  endif
+  assign has_variants = false
+  if product.variants.size > 1
+    assign has_variants = true
+  endif
+
+  assign rating_score_raw = section.settings.rating_score | default: '4.6'
+  assign rating_float = rating_score_raw | times: 1.0
+  assign rating_pct = rating_float | divided_by: 5.0 | times: 100 | round
+-%}
+
+<section class="lio-pdp" id="lio-pdp-{{ section.id }}" data-lio-pdp>
+  <div class="lio-pdp__grid">
+
+    {%- comment -%} ============ GALLERY ============ {%- endcomment -%}
+    <div class="lio-pdp__gallery" data-gallery>
+      {%- if product.media.size > 0 -%}
+        {%- comment -%} Main stage (desktop: large square; mobile: scroll-snap track) {%- endcomment -%}
+        <div class="lio-pdp__stage" data-stage>
+          <div class="lio-pdp__stage-track" data-stage-track>
+            {%- for media in product.media limit: 10 -%}
+              {%- liquid
+                assign load_attr = 'lazy'
+                assign fetch_attr = 'auto'
+                if forloop.first
+                  assign load_attr = 'eager'
+                  assign fetch_attr = 'high'
+                endif
+              -%}
+              <button
+                type="button"
+                class="lio-pdp__slide{% if forloop.first %} is-active{% endif %}"
+                data-slide
+                data-media-id="{{ media.id }}"
+                data-index="{{ forloop.index0 }}"
+                aria-label="Open image {{ forloop.index }} of {{ product.media.size }}">
+                {%- case media.media_type -%}
+                  {%- when 'video' -%}
+                    <div class="lio-pdp__slide-video">
+                      {{ media | media_tag: image_size: '1400x', autoplay: false, loop: false, controls: true, muted: true, preload: 'metadata' }}
+                    </div>
+                  {%- when 'external_video' -%}
+                    <div class="lio-pdp__slide-video">
+                      {{ media | media_tag: image_size: '1400x', autoplay: false, loop: false, controls: true, muted: true }}
+                    </div>
+                  {%- else -%}
+                    {{ media | image_url: width: 1600 | image_tag:
+                       loading: load_attr,
+                       fetchpriority: fetch_attr,
+                       sizes: '(max-width: 900px) 100vw, 55vw',
+                       widths: '400,600,800,1000,1200,1400,1600',
+                       alt: media.alt | default: product.title,
+                       class: 'lio-pdp__slide-img' }}
+                {%- endcase -%}
+
+                {%- if forloop.first -%}
+                  {%- if on_sale and save_pct > 0 -%}
+                    <span class="lio-pdp__badge lio-pdp__badge--save" aria-hidden="true">Save {{ save_pct }}%</span>
+                  {%- elsif section.settings.badge_new != blank -%}
+                    <span class="lio-pdp__badge lio-pdp__badge--tl">{{ section.settings.badge_new }}</span>
+                  {%- endif -%}
+                  {%- if section.settings.badge_tag != blank -%}
+                    <span class="lio-pdp__badge lio-pdp__badge--br">{{ section.settings.badge_tag }}</span>
+                  {%- endif -%}
+                {%- endif -%}
+              </button>
+            {%- endfor -%}
+          </div>
+
+          {%- comment -%} Mobile dots + counter {%- endcomment -%}
+          <div class="lio-pdp__stage-hud">
+            <span class="lio-pdp__counter" data-counter>1 / {{ product.media.size }}</span>
+            <div class="lio-pdp__dots" role="tablist" aria-label="Product image navigation">
+              {%- for media in product.media limit: 10 -%}
+                <button
+                  type="button"
+                  class="lio-pdp__dot{% if forloop.first %} is-active{% endif %}"
+                  data-dot
+                  data-index="{{ forloop.index0 }}"
+                  aria-label="Go to image {{ forloop.index }}"></button>
+              {%- endfor -%}
+            </div>
+          </div>
+
+          {%- comment -%} Desktop prev/next (hidden on mobile in favour of swipe) {%- endcomment -%}
+          <button type="button" class="lio-pdp__nav lio-pdp__nav--prev" data-stage-prev aria-label="Previous image">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button type="button" class="lio-pdp__nav lio-pdp__nav--next" data-stage-next aria-label="Next image">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        {%- comment -%} Desktop thumbnail strip {%- endcomment -%}
+        {%- if product.media.size > 1 -%}
+          <div class="lio-pdp__thumbs" role="tablist" aria-label="Product thumbnails">
+            {%- for media in product.media limit: 10 -%}
+              <button
+                type="button"
+                class="lio-pdp__thumb{% if forloop.first %} is-active{% endif %}"
+                data-thumb
+                data-index="{{ forloop.index0 }}"
+                aria-label="Show image {{ forloop.index }}">
+                {{ media.preview_image | image_url: width: 200 | image_tag:
+                   loading: 'lazy',
+                   widths: '120,180,240',
+                   sizes: '80px',
+                   alt: media.alt | default: product.title }}
+                {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
+                  <span class="lio-pdp__thumb-play" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                  </span>
+                {%- endif -%}
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      {%- else -%}
+        <div class="lio-pdp__stage">
+          <div class="lio-pdp__stage-track">
+            <div class="lio-pdp__slide lio-pdp__slide--placeholder is-active">
+              {{ 'product-1' | placeholder_svg_tag: 'lio-pdp__slide-img' }}
+            </div>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} ============ INFO COLUMN ============ {%- endcomment -%}
+    <div class="lio-pdp__info">
+
+      {%- if section.settings.show_breadcrumb -%}
+        <nav class="lio-pdp__crumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="/collections/all">All products</a>
+          <span aria-hidden="true">/</span>
+          <span>{{ product.title }}</span>
+        </nav>
+      {%- endif -%}
+
+      {%- if section.settings.show_rating -%}
+        <a href="#lio-reviews" class="lio-pdp__chip" data-rating-chip>
+          <span class="lio-pdp__stars" aria-label="Rated {{ section.settings.rating_score }} out of 5">
+            <span class="lio-pdp__stars-fill" style="width: {{ rating_pct }}%">
+              <svg viewBox="0 0 60 12" aria-hidden="true"><g fill="currentColor"><path d="M6 0l1.8 3.8L12 4.4 9 7.3l.7 4.1L6 9.6l-3.7 1.8L3 7.3 0 4.4l4.2-.6z"/><path d="M18 0l1.8 3.8L24 4.4l-3 2.9.7 4.1L18 9.6l-3.7 1.8.7-4.1-3-2.9 4.2-.6z"/><path d="M30 0l1.8 3.8L36 4.4l-3 2.9.7 4.1L30 9.6l-3.7 1.8.7-4.1-3-2.9 4.2-.6z"/><path d="M42 0l1.8 3.8L48 4.4l-3 2.9.7 4.1L42 9.6l-3.7 1.8.7-4.1-3-2.9 4.2-.6z"/><path d="M54 0l1.8 3.8L60 4.4l-3 2.9.7 4.1L54 9.6l-3.7 1.8.7-4.1-3-2.9 4.2-.6z"/></g></svg>
+            </span>
+            <span class="lio-pdp__stars-bg" aria-hidden="true">
+              <svg viewBox="0 0 60 12"><g fill="currentColor" fill-opacity="0.18"><path d="M6 0l1.8 3.8L12 4.4 9 7.3l.7 4.1L6 9.6l-3.7 1.8L3 7.3 0 4.4l4.2-.6z"/><path d="M18 0l1.8 3.8L24 4.4l-3 2.9.7 4.1L18 9.6l-3.7 1.8.7-4.1-3-2.9 4.2-.6z"/><path d="M30 0l1.8 3.8L36 4.4l-3 2.9.7 4.1L30 9.6l-3.7 1.8.7-4.1-3-2.9 4.2-.6z"/><path d="M42 0l1.8 3.8L48 4.4l-3 2.9.7 4.1L42 9.6l-3.7 1.8.7-4.1-3-2.9 4.2-.6z"/><path d="M54 0l1.8 3.8L60 4.4l-3 2.9.7 4.1L54 9.6l-3.7 1.8.7-4.1-3-2.9 4.2-.6z"/></g></svg>
+            </span>
+          </span>
+          <strong>{{ section.settings.rating_score }}</strong>
+          <span class="lio-pdp__chip-div" aria-hidden="true"></span>
+          <span>{{ section.settings.rating_count }}</span>
+        </a>
+      {%- endif -%}
+
+      <h1 class="lio-pdp__title">{{ product.title }}</h1>
+
+      {%- if section.settings.subtitle != blank -%}
+        <p class="lio-pdp__subtitle">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.show_review_quote and section.settings.review_quote != blank -%}
+        <blockquote class="lio-pdp__quote">
+          <span class="lio-pdp__quote-mark" aria-hidden="true">"</span>
+          <em>{{ section.settings.review_quote }}</em>
+          {%- if section.settings.review_author != blank -%}
+            <cite class="lio-pdp__quote-author">— {{ section.settings.review_author }}</cite>
+          {%- endif -%}
+        </blockquote>
+      {%- endif -%}
+
+      {%- form 'product', product, id: 'lio-pdp-form', class: 'lio-pdp__form', novalidate: 'novalidate' -%}
+        <input type="hidden" name="id" value="{{ v.id }}" data-variant-id>
+
+        <div class="lio-pdp__pricing">
+          <div class="lio-pdp__price-row">
+            <span class="lio-pdp__price" data-price>{{ v.price | money }}</span>
+            {%- if on_sale -%}
+              <span class="lio-pdp__price-was" data-compare-price>{{ v.compare_at_price | money }}</span>
+              <span class="lio-pdp__save" data-save>Save {{ save_pct }}%</span>
+            {%- else -%}
+              <span class="lio-pdp__price-was" data-compare-price hidden></span>
+              <span class="lio-pdp__save" data-save hidden></span>
+            {%- endif -%}
+          </div>
+          {%- if section.settings.show_perday and section.settings.perday_copy != blank -%}
+            <div class="lio-pdp__perday">{{ section.settings.perday_copy }}</div>
+          {%- endif -%}
+          <div class="lio-pdp__inline-trust" aria-hidden="false">
+            <span>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Tax included
+            </span>
+            <span>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Free EU shipping over €50
+            </span>
+          </div>
+        </div>
+
+        {%- if has_variants -%}
+          <div class="lio-pdp__variants">
+            {%- for option in product.options_with_values -%}
+              <div class="lio-pdp__option" data-option-index="{{ forloop.index0 }}">
+                <div class="lio-pdp__option-head">
+                  <span class="lio-pdp__option-name">{{ option.name }}</span>
+                  <span class="lio-pdp__option-value" data-option-value="{{ forloop.index0 }}">{{ option.selected_value }}</span>
+                </div>
+                <div class="lio-pdp__option-pills" role="radiogroup" aria-label="{{ option.name }}">
+                  {%- for value in option.values -%}
+                    {%- assign option_id = 'opt-' | append: section.id | append: '-' | append: forloop.parentloop.index0 | append: '-' | append: forloop.index0 -%}
+                    <input
+                      type="radio"
+                      id="{{ option_id }}"
+                      name="options[{{ option.name }}]"
+                      value="{{ value | escape }}"
+                      data-option-input="{{ forloop.parentloop.index0 }}"
+                      {% if option.selected_value == value %}checked{% endif %}>
+                    <label for="{{ option_id }}" class="lio-pdp__pill">
+                      <span>{{ value }}</span>
+                      {%- if forloop.first and forloop.parentloop.first and has_variants -%}
+                        <em class="lio-pdp__pill-hint">Most popular</em>
+                      {%- endif -%}
+                    </label>
+                  {%- endfor -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        <div class="lio-pdp__stock" data-stock>
+          <span class="lio-pdp__stock-dot" aria-hidden="true"></span>
+          <span data-stock-label>
+            {%- if v.available -%}
+              In stock · ships from Amsterdam today
+            {%- else -%}
+              Currently sold out
+            {%- endif -%}
+          </span>
+        </div>
+
+        {%- if section.settings.show_delivery_estimate -%}
+          <div class="lio-pdp__deliver" data-deliver hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7zM6.5 17.5a1.5 1.5 0 103 0 1.5 1.5 0 10-3 0zM15.5 17.5a1.5 1.5 0 103 0 1.5 1.5 0 10-3 0z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Order in <strong data-deliver-cutoff>…</strong> for delivery by <strong data-deliver-date>…</strong></span>
+          </div>
+        {%- endif -%}
+
+        <div class="lio-pdp__buy">
+          <div class="lio-pdp__qty" data-qty>
+            <button type="button" class="lio-pdp__qty-btn" data-qty-minus aria-label="Decrease quantity">−</button>
+            <input type="number" name="quantity" value="1" min="1" class="lio-pdp__qty-input" data-qty-input aria-label="Quantity">
+            <button type="button" class="lio-pdp__qty-btn" data-qty-plus aria-label="Increase quantity">+</button>
+          </div>
+          <button
+            type="submit"
+            name="add"
+            class="lio-pdp__cta"
+            data-buy-btn
+            {% unless v.available %}disabled{% endunless %}>
+            <span class="lio-pdp__cta-label" data-buy-label>
+              {%- if v.available -%}
+                {{ section.settings.cta_label | default: 'Add to cart' }}
+              {%- else -%}
+                Sold out
+              {%- endif -%}
+            </span>
+            <span class="lio-pdp__cta-arrow" aria-hidden="true">
+              <svg viewBox="0 0 16 16"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+        </div>
+
+        {%- if section.settings.show_dynamic_checkout -%}
+          <div class="lio-pdp__dynamic" data-dynamic-checkout>
+            {{ form | payment_button }}
+          </div>
+        {%- endif -%}
+
+        {%- if product.selling_plan_groups.size > 0 -%}
+          <p class="lio-pdp__meta">Subscription available at checkout.</p>
+        {%- endif -%}
+      {%- endform -%}
+
+      <div class="lio-pdp__trust" role="list">
+        <div class="lio-pdp__trust-item" role="listitem">
+          <span class="lio-pdp__trust-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7zM6.5 17.5a1.5 1.5 0 103 0 1.5 1.5 0 10-3 0zM15.5 17.5a1.5 1.5 0 103 0 1.5 1.5 0 10-3 0z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div><strong>Ships EU in 24h</strong><span>Free over €50</span></div>
+        </div>
+        <div class="lio-pdp__trust-item" role="listitem">
+          <span class="lio-pdp__trust-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div><strong>0% nicotine, ever</strong><span>Plant-based · EU-tested</span></div>
+        </div>
+        <div class="lio-pdp__trust-item" role="listitem">
+          <span class="lio-pdp__trust-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1114.5 4.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M18 13v4h-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div><strong>60-day returns</strong><span>Even if opened</span></div>
+        </div>
+      </div>
+
+      <div class="lio-pdp__guarantee">
+        <span class="lio-pdp__guarantee-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <div>
+          <p class="lio-pdp__guarantee-title">{{ section.settings.guarantee_title }}</p>
+          <p class="lio-pdp__guarantee-text">{{ section.settings.guarantee_text }}</p>
+        </div>
+      </div>
+
+      {%- if section.settings.payment_marks -%}
+        <div class="lio-pdp__paymarks" aria-label="Accepted payment methods">
+          <span>Visa</span><span>Mastercard</span><span>Amex</span><span>Apple&nbsp;Pay</span><span>Google&nbsp;Pay</span><span>iDEAL</span><span>Shop&nbsp;Pay</span><span>Klarna</span>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.promise_title != blank -%}
+        <div class="lio-pdp__promise">
+          <div class="lio-eyebrow">{{ section.settings.promise_eyebrow }}</div>
+          <h3 class="lio-pdp__promise-title">
+            {{ section.settings.promise_title }}
+            {%- if section.settings.promise_title_marker != blank -%}
+              <span class="lio-marker">{{ section.settings.promise_title_marker }}</span>
+            {%- endif -%}
+          </h3>
+          {%- if section.settings.promise_lead != blank -%}
+            <p class="lio-pdp__promise-lead">{{ section.settings.promise_lead }}</p>
+          {%- endif -%}
+          {%- if section.blocks.size > 0 -%}
+            <ul class="lio-pdp__promise-list">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'benefit' -%}
+                  <li {{ block.shopify_attributes }}>
+                    <strong>{{ block.settings.title }}</strong>
+                    {%- if block.settings.text != blank -%} — {{ block.settings.text }}{%- endif -%}
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+          {%- if section.settings.promise_close != blank -%}
+            <p class="lio-pdp__promise-close">{{ section.settings.promise_close }}</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <div class="lio-pdp__accordion">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'accordion' -%}
+            <div class="lio-pdp__acc-item" {{ block.shopify_attributes }}>
+              <button type="button" class="lio-pdp__acc-q" aria-expanded="false">
+                <span>{{ block.settings.title }}</span>
+                <span class="lio-pdp__acc-ico" aria-hidden="true">+</span>
+              </button>
+              <div class="lio-pdp__acc-a">{{ block.settings.content }}</div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+    </div>
+  </div>
+
+  {%- comment -%} ============ STICKY MOBILE BUY BAR ============ {%- endcomment -%}
+  <div class="lio-pdp__stickybuy" data-stickybuy hidden aria-hidden="true">
+    <div class="lio-pdp__stickybuy-inner">
+      <div class="lio-pdp__stickybuy-media">
+        {%- if product.featured_media -%}
+          {{ product.featured_media | image_url: width: 120 | image_tag:
+             loading: 'lazy',
+             widths: '80,120,160',
+             sizes: '44px',
+             alt: product.title }}
+        {%- endif -%}
+      </div>
+      <div class="lio-pdp__stickybuy-meta">
+        <strong>{{ product.title }}</strong>
+        <span><span data-stickybuy-price>{{ v.price | money }}</span><span class="lio-pdp__stickybuy-was" data-stickybuy-compare{% unless on_sale %} hidden{% endunless %}>{{ v.compare_at_price | money }}</span></span>
+      </div>
+      <button type="button" class="lio-pdp__stickybuy-btn" data-stickybuy-btn>
+        <span data-stickybuy-label>{{ section.settings.cta_label | default: 'Add to cart' }}</span>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  {%- comment -%} ============ IMAGE LIGHTBOX ============ {%- endcomment -%}
+  <div class="lio-pdp__lightbox" data-lightbox hidden role="dialog" aria-modal="true" aria-label="Product image viewer">
+    <button type="button" class="lio-pdp__lightbox-close" data-lightbox-close aria-label="Close image viewer">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button type="button" class="lio-pdp__lightbox-nav lio-pdp__lightbox-nav--prev" data-lightbox-prev aria-label="Previous">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="lio-pdp__lightbox-stage" data-lightbox-stage></div>
+    <button type="button" class="lio-pdp__lightbox-nav lio-pdp__lightbox-nav--next" data-lightbox-next aria-label="Next">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="lio-pdp__lightbox-counter" data-lightbox-counter></div>
+  </div>
+</section>
+
+{%- comment -%} ============ JSON-LD PRODUCT ============ {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": {{ product.title | json }},
+  "description": {{ product.description | strip_html | truncatewords: 60 | json }},
+  {% if product.featured_image %}"image": [{% for img in product.images limit: 6 %}{{ img | image_url: width: 1200 | prepend: 'https:' | json }}{% unless forloop.last %},{% endunless %}{% endfor %}],{% endif %}
+  "brand": { "@type": "Brand", "name": {{ shop.name | json }} },
+  "sku": {{ v.sku | default: v.id | json }},
+  "url": {{ shop.url | append: product.url | json }},
+  "offers": {
+    "@type": "Offer",
+    "price": "{{ v.price | money_without_currency | replace: ',', '.' }}",
+    "priceCurrency": {{ cart.currency.iso_code | json }},
+    "availability": "{% if v.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}",
+    "url": {{ shop.url | append: product.url | json }},
+    "itemCondition": "https://schema.org/NewCondition"
+  }
+  {%- if section.settings.show_rating and section.settings.rating_count != blank -%}
+  ,"aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ section.settings.rating_score }}",
+    "reviewCount": "{{ section.settings.rating_count | remove: '+' | remove: ',' | remove: ' reviews' | remove: ' Reviews' | remove: ' review' | strip }}"
+  }
+  {%- endif -%}
+}
+</script>
+
+{% javascript %}
+  (function() {
+    document.querySelectorAll('[data-lio-pdp]').forEach(function(root) {
+      var form = root.querySelector('.lio-pdp__form');
+      if (!form) return;
+
+      // ----- Data hooks -----
+      var variantInput = form.querySelector('[data-variant-id]');
+      var priceEl = form.querySelector('[data-price]');
+      var compareEl = form.querySelector('[data-compare-price]');
+      var saveEl = form.querySelector('[data-save]');
+      var buyBtn = form.querySelector('[data-buy-btn]');
+      var buyLabel = form.querySelector('[data-buy-label]');
+      var qtyInput = form.querySelector('[data-qty-input]');
+      var qtyMinus = form.querySelector('[data-qty-minus]');
+      var qtyPlus = form.querySelector('[data-qty-plus]');
+      var stockLabel = root.querySelector('[data-stock-label]');
+      var stockEl = root.querySelector('[data-stock]');
+
+      var gallery = root.querySelector('[data-gallery]');
+      var track = root.querySelector('[data-stage-track]');
+      var slides = Array.prototype.slice.call(root.querySelectorAll('[data-slide]'));
+      var thumbs = Array.prototype.slice.call(root.querySelectorAll('[data-thumb]'));
+      var dots = Array.prototype.slice.call(root.querySelectorAll('[data-dot]'));
+      var counter = root.querySelector('[data-counter]');
+      var prevBtn = root.querySelector('[data-stage-prev]');
+      var nextBtn = root.querySelector('[data-stage-next]');
+
+      var stickyBar = root.querySelector('[data-stickybuy]');
+      var stickyBtn = root.querySelector('[data-stickybuy-btn]');
+      var stickyLabel = root.querySelector('[data-stickybuy-label]');
+      var stickyPrice = root.querySelector('[data-stickybuy-price]');
+      var stickyCompare = root.querySelector('[data-stickybuy-compare]');
+
+      var lightbox = root.querySelector('[data-lightbox]');
+      var lightboxStage = root.querySelector('[data-lightbox-stage]');
+      var lightboxCounter = root.querySelector('[data-lightbox-counter]');
+      var lightboxClose = root.querySelector('[data-lightbox-close]');
+      var lightboxPrev = root.querySelector('[data-lightbox-prev]');
+      var lightboxNext = root.querySelector('[data-lightbox-next]');
+
+      var deliverEl = root.querySelector('[data-deliver]');
+      var deliverCutoff = root.querySelector('[data-deliver-cutoff]');
+      var deliverDate = root.querySelector('[data-deliver-date]');
+
+      var productJson = {{ product | json }};
+      var variants = productJson.variants || [];
+
+      // ----- Money formatting (fallback; Shopify's formatter isn't always present) -----
+      var moneyFormat = {{ shop.money_format | json }};
+      function formatMoney(cents) {
+        if (typeof cents !== 'number') cents = parseInt(cents, 10);
+        if (isNaN(cents)) return '';
+        var val = (cents / 100).toFixed(2);
+        // Default to EU-style €X,XX
+        return '€' + val.replace('.', ',');
+      }
+
+      // ----- Variant logic -----
+      function getSelectedOptions() {
+        var options = [];
+        root.querySelectorAll('[data-option-input]:checked').forEach(function(input) {
+          options[parseInt(input.dataset.optionInput, 10)] = input.value;
+        });
+        return options;
+      }
+
+      function findVariant(options) {
+        return variants.find(function(v) {
+          return options.every(function(val, i) { return v.options[i] === val; });
+        });
+      }
+
+      function updateOptionLabels(options) {
+        root.querySelectorAll('[data-option-value]').forEach(function(el) {
+          var i = parseInt(el.dataset.optionValue, 10);
+          if (options[i]) el.textContent = options[i];
+        });
+      }
+
+      function updateFromVariant(variant) {
+        if (!variant) return;
+        variantInput.value = variant.id;
+
+        if (priceEl) priceEl.textContent = formatMoney(variant.price);
+        if (stickyPrice) stickyPrice.textContent = formatMoney(variant.price);
+
+        var onSale = variant.compare_at_price && variant.compare_at_price > variant.price;
+        if (compareEl) {
+          if (onSale) {
+            compareEl.textContent = formatMoney(variant.compare_at_price);
+            compareEl.hidden = false;
+          } else {
+            compareEl.hidden = true;
+          }
+        }
+        if (stickyCompare) {
+          if (onSale) {
+            stickyCompare.textContent = formatMoney(variant.compare_at_price);
+            stickyCompare.hidden = false;
+          } else {
+            stickyCompare.hidden = true;
+          }
+        }
+        if (saveEl) {
+          if (onSale) {
+            var pct = Math.round(((variant.compare_at_price - variant.price) / variant.compare_at_price) * 100);
+            saveEl.textContent = 'Save ' + pct + '%';
+            saveEl.hidden = false;
+          } else {
+            saveEl.hidden = true;
+          }
+        }
+
+        var labelText = variant.available
+          ? (buyLabel && buyLabel.dataset.defaultLabel ? buyLabel.dataset.defaultLabel : buyLabel.textContent)
+          : 'Sold out';
+
+        if (buyBtn && buyLabel) {
+          buyBtn.disabled = !variant.available;
+          if (variant.available && buyLabel.dataset.defaultLabel) {
+            buyLabel.textContent = buyLabel.dataset.defaultLabel;
+          } else if (!variant.available) {
+            buyLabel.textContent = 'Sold out';
+          }
+        }
+        if (stickyBtn && stickyLabel) {
+          stickyBtn.disabled = !variant.available;
+          stickyLabel.textContent = variant.available ? (stickyLabel.dataset.defaultLabel || stickyLabel.textContent) : 'Sold out';
+        }
+        if (stockLabel && stockEl) {
+          if (variant.available) {
+            stockLabel.textContent = 'In stock · ships from Amsterdam today';
+            stockEl.dataset.state = 'ok';
+          } else {
+            stockLabel.textContent = 'Currently sold out — join the restock list';
+            stockEl.dataset.state = 'oos';
+          }
+        }
+
+        // Swap gallery to the variant image
+        if (variant.featured_media && track) {
+          var target = slides.find(function(s) {
+            return s.dataset.mediaId === String(variant.featured_media.id);
+          });
+          if (target) {
+            var idx = parseInt(target.dataset.index, 10);
+            goTo(idx, { smooth: true });
+          }
+        }
+
+        var url = new URL(window.location.href);
+        url.searchParams.set('variant', variant.id);
+        window.history.replaceState({}, '', url.toString());
+      }
+
+      // Remember initial CTA label for re-use after "Added ✓" state
+      if (buyLabel) buyLabel.dataset.defaultLabel = buyLabel.textContent.trim();
+      if (stickyLabel) stickyLabel.dataset.defaultLabel = stickyLabel.textContent.trim();
+
+      root.querySelectorAll('[data-option-input]').forEach(function(input) {
+        input.addEventListener('change', function() {
+          var opts = getSelectedOptions();
+          updateOptionLabels(opts);
+          var variant = findVariant(opts);
+          if (variant) updateFromVariant(variant);
+        });
+      });
+
+      // ----- Quantity stepper -----
+      if (qtyMinus && qtyInput) qtyMinus.addEventListener('click', function() {
+        qtyInput.value = Math.max(1, parseInt(qtyInput.value, 10) - 1);
+      });
+      if (qtyPlus && qtyInput) qtyPlus.addEventListener('click', function() {
+        qtyInput.value = parseInt(qtyInput.value, 10) + 1;
+      });
+
+      // ----- Gallery: slide sync (mobile scroll-snap + dots + thumbs) -----
+      var currentIndex = 0;
+      function goTo(idx, opts) {
+        opts = opts || {};
+        if (idx < 0) idx = 0;
+        if (idx > slides.length - 1) idx = slides.length - 1;
+        currentIndex = idx;
+
+        var slide = slides[idx];
+        if (!slide || !track) return;
+
+        // Scroll the horizontal track to the target slide (CSS handles the snap)
+        var behavior = opts.smooth === false ? 'auto' : 'smooth';
+        track.scrollTo({ left: slide.offsetLeft, behavior: behavior });
+
+        slides.forEach(function(s, i) { s.classList.toggle('is-active', i === idx); });
+        thumbs.forEach(function(t, i) { t.classList.toggle('is-active', i === idx); });
+        dots.forEach(function(d, i) { d.classList.toggle('is-active', i === idx); });
+        if (counter) counter.textContent = (idx + 1) + ' / ' + slides.length;
+      }
+
+      if (track) {
+        var scrollTimer;
+        track.addEventListener('scroll', function() {
+          if (scrollTimer) cancelAnimationFrame(scrollTimer);
+          scrollTimer = requestAnimationFrame(function() {
+            var w = track.clientWidth;
+            if (!w) return;
+            var idx = Math.round(track.scrollLeft / w);
+            if (idx !== currentIndex) {
+              currentIndex = idx;
+              slides.forEach(function(s, i) { s.classList.toggle('is-active', i === idx); });
+              thumbs.forEach(function(t, i) { t.classList.toggle('is-active', i === idx); });
+              dots.forEach(function(d, i) { d.classList.toggle('is-active', i === idx); });
+              if (counter) counter.textContent = (idx + 1) + ' / ' + slides.length;
+            }
+          });
+        }, { passive: true });
+      }
+
+      thumbs.forEach(function(t) {
+        t.addEventListener('click', function() {
+          goTo(parseInt(t.dataset.index, 10), { smooth: true });
+        });
+      });
+      dots.forEach(function(d) {
+        d.addEventListener('click', function() {
+          goTo(parseInt(d.dataset.index, 10), { smooth: true });
+        });
+      });
+
+      if (prevBtn) prevBtn.addEventListener('click', function() {
+        goTo(currentIndex - 1, { smooth: true });
+      });
+      if (nextBtn) nextBtn.addEventListener('click', function() {
+        goTo(currentIndex + 1, { smooth: true });
+      });
+
+      // ----- Lightbox -----
+      function openLightbox(idx) {
+        if (!lightbox || !lightboxStage) return;
+        var media = productJson.media && productJson.media[idx];
+        if (!media) return;
+        lightboxStage.innerHTML = '';
+        var imgSrc = (media.preview_image && media.preview_image.src) || media.src;
+        if (!imgSrc) return;
+        var img = new Image();
+        // Request a higher-res version from the CDN
+        img.src = imgSrc.replace(/(\_\d+x\d*|\_\d+x)(?=\.[a-z]{3,4}($|\?))/i, '_1800x');
+        img.alt = media.alt || productJson.title || '';
+        lightboxStage.appendChild(img);
+        if (lightboxCounter) lightboxCounter.textContent = (idx + 1) + ' / ' + productJson.media.length;
+        lightbox.hidden = false;
+        document.documentElement.classList.add('lio-pdp-lb-open');
+        lightbox.dataset.index = idx;
+      }
+      function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.hidden = true;
+        document.documentElement.classList.remove('lio-pdp-lb-open');
+      }
+      slides.forEach(function(s) {
+        s.addEventListener('click', function(e) {
+          // Ignore clicks on video controls
+          if (s.classList.contains('lio-pdp__slide--placeholder')) return;
+          if (e.target.closest('video, iframe')) return;
+          if (window.matchMedia('(max-width: 900px)').matches) return; // mobile: swipe, not lightbox
+          openLightbox(parseInt(s.dataset.index, 10));
+        });
+      });
+      if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+      if (lightbox) lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+      if (lightboxPrev) lightboxPrev.addEventListener('click', function() {
+        var i = parseInt(lightbox.dataset.index || '0', 10) - 1;
+        if (i < 0) i = productJson.media.length - 1;
+        openLightbox(i);
+      });
+      if (lightboxNext) lightboxNext.addEventListener('click', function() {
+        var i = parseInt(lightbox.dataset.index || '0', 10) + 1;
+        if (i > productJson.media.length - 1) i = 0;
+        openLightbox(i);
+      });
+      document.addEventListener('keydown', function(e) {
+        if (!lightbox || lightbox.hidden) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft' && lightboxPrev) lightboxPrev.click();
+        if (e.key === 'ArrowRight' && lightboxNext) lightboxNext.click();
+      });
+
+      // ----- Sticky mobile buy bar -----
+      if (stickyBar && buyBtn) {
+        var io = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            var show = !entry.isIntersecting && window.matchMedia('(max-width: 900px)').matches;
+            stickyBar.hidden = !show;
+            stickyBar.setAttribute('aria-hidden', show ? 'false' : 'true');
+          });
+        }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+        io.observe(buyBtn);
+
+        if (stickyBtn) stickyBtn.addEventListener('click', function() {
+          buyBtn.click();
+        });
+      }
+
+      // ----- Delivery estimate -----
+      if (deliverEl && deliverCutoff && deliverDate) {
+        var now = new Date();
+        var cutoffHour = 16; // 4pm CET
+        var today = new Date(now);
+        today.setHours(cutoffHour, 0, 0, 0);
+
+        var msLeft = today - now;
+        var shippedToday = msLeft > 0;
+        if (shippedToday) {
+          var hours = Math.floor(msLeft / 3600000);
+          var mins = Math.floor((msLeft % 3600000) / 60000);
+          deliverCutoff.textContent = (hours > 0 ? (hours + 'h ') : '') + mins + 'm';
+        } else {
+          deliverCutoff.textContent = 'tomorrow';
+        }
+
+        // Delivery day: today+1..+3 business days. Use +2 as safe estimate
+        var deliver = new Date(now);
+        deliver.setDate(deliver.getDate() + (shippedToday ? 2 : 3));
+        // Skip weekends
+        while (deliver.getDay() === 0 || deliver.getDay() === 6) deliver.setDate(deliver.getDate() + 1);
+        var fmt = deliver.toLocaleDateString(undefined, { weekday: 'long', day: 'numeric', month: 'short' });
+        deliverDate.textContent = fmt;
+        deliverEl.hidden = false;
+      }
+
+      // ----- Form submit (AJAX add to cart) -----
+      form.addEventListener('submit', function(e) {
+        if (!window.fetch) return;
+        e.preventDefault();
+        var fd = new FormData(form);
+        buyBtn.disabled = true;
+        var orig = buyLabel.textContent;
+        buyLabel.textContent = 'Adding…';
+        if (stickyLabel) stickyLabel.textContent = 'Adding…';
+
+        fetch('/cart/add.js', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
+          .then(function(r) { return r.json(); })
+          .then(function() {
+            buyLabel.textContent = 'Added ✓';
+            if (stickyLabel) stickyLabel.textContent = 'Added ✓';
+            document.dispatchEvent(new CustomEvent('cart:refresh'));
+            document.dispatchEvent(new CustomEvent('cart:open'));
+            var drawerTrigger = document.querySelector('[aria-controls="cart-drawer"]');
+            if (drawerTrigger) drawerTrigger.click();
+            setTimeout(function() {
+              buyLabel.textContent = buyLabel.dataset.defaultLabel || orig;
+              if (stickyLabel) stickyLabel.textContent = stickyLabel.dataset.defaultLabel || orig;
+              buyBtn.disabled = false;
+            }, 1600);
+          })
+          .catch(function() {
+            buyLabel.textContent = buyLabel.dataset.defaultLabel || orig;
+            if (stickyLabel) stickyLabel.textContent = stickyLabel.dataset.defaultLabel || orig;
+            buyBtn.disabled = false;
+          });
+      });
+
+      // ----- Accordion -----
+      root.querySelectorAll('.lio-pdp__acc-q').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var item = btn.closest('.lio-pdp__acc-item');
+          var open = item.classList.contains('lio-pdp__acc-item--open');
+          root.querySelectorAll('.lio-pdp__acc-item--open').forEach(function(el) {
+            el.classList.remove('lio-pdp__acc-item--open');
+            var q = el.querySelector('.lio-pdp__acc-q');
+            if (q) q.setAttribute('aria-expanded', 'false');
+          });
+          if (!open) {
+            item.classList.add('lio-pdp__acc-item--open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    });
+  })();
+{% endjavascript %}
+
+{% stylesheet %}
+  .lio-pdp {
+    --forest: var(--lio-forest, #0b2410);
+    --chalk:  var(--lio-chalk, #fcfefb);
+    --cream:  var(--lio-cream, #f6f2e7);
+    --cream2: var(--lio-cream-2, #faf5e8);
+    --mint:   var(--lio-mint, #94fca9);
+    --f-04: rgba(11, 36, 16, 0.04);
+    --f-06: rgba(11, 36, 16, 0.06);
+    --f-08: rgba(11, 36, 16, 0.08);
+    --f-10: rgba(11, 36, 16, 0.10);
+    --f-14: rgba(11, 36, 16, 0.14);
+    --f-22: rgba(11, 36, 16, 0.22);
+    --f-40: rgba(11, 36, 16, 0.40);
+    --f-55: rgba(11, 36, 16, 0.55);
+    --f-72: rgba(11, 36, 16, 0.72);
+    --m-18: rgba(148, 252, 169, 0.18);
+    --m-40: rgba(148, 252, 169, 0.40);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 32px 40px 64px;
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    color: var(--forest);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+  }
+
+  .lio-pdp__grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: flex-start;
+  }
+
+  /* ================ GALLERY ================ */
+  .lio-pdp__gallery { position: sticky; top: 96px; display: flex; flex-direction: column; gap: 12px; }
+  .lio-pdp__stage {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    background: var(--f-06);
+    aspect-ratio: 4 / 5;
+  }
+  .lio-pdp__stage-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .lio-pdp__stage-track::-webkit-scrollbar { display: none; }
+  .lio-pdp__slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    position: relative;
+    background: var(--f-06);
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: zoom-in;
+    display: block;
+  }
+  .lio-pdp__slide img,
+  .lio-pdp__slide video,
+  .lio-pdp__slide iframe,
+  .lio-pdp__slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .lio-pdp__slide-video { width: 100%; height: 100%; }
+  .lio-pdp__slide--placeholder { cursor: default; }
+
+  .lio-pdp__badge {
+    position: absolute;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 16px rgba(11, 36, 16, 0.12);
+    z-index: 2;
+    pointer-events: none;
+  }
+  .lio-pdp__badge--tl { top: 18px; left: 18px; background: var(--forest); color: var(--mint); }
+  .lio-pdp__badge--br { bottom: 18px; right: 18px; background: var(--mint); color: var(--forest); }
+  .lio-pdp__badge--save { top: 18px; left: 18px; background: var(--mint); color: var(--forest); }
+
+  .lio-pdp__stage-hud {
+    position: absolute;
+    left: 0; right: 0; bottom: 14px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .lio-pdp__counter {
+    background: rgba(11, 36, 16, 0.72);
+    color: var(--chalk);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 5px 10px;
+    border-radius: 999px;
+    pointer-events: auto;
+  }
+  .lio-pdp__dots {
+    display: flex;
+    gap: 6px;
+    pointer-events: auto;
+    padding: 6px 10px;
+    background: rgba(11, 36, 16, 0.55);
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+  }
+  .lio-pdp__dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(252, 254, 251, 0.55);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s var(--ease);
+  }
+  .lio-pdp__dot.is-active {
+    background: var(--mint);
+    width: 18px;
+    border-radius: 3px;
+  }
+
+  /* Desktop prev/next */
+  .lio-pdp__nav {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: rgba(252, 254, 251, 0.92);
+    border: 1px solid var(--f-10);
+    color: var(--forest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.25s var(--ease), background 0.2s var(--ease);
+  }
+  .lio-pdp__stage:hover .lio-pdp__nav { opacity: 1; }
+  .lio-pdp__nav:hover { background: var(--chalk); }
+  .lio-pdp__nav svg { width: 18px; height: 18px; }
+  .lio-pdp__nav--prev { left: 14px; }
+  .lio-pdp__nav--next { right: 14px; }
+
+  /* Thumbs */
+  .lio-pdp__thumbs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .lio-pdp__thumbs::-webkit-scrollbar { display: none; }
+  .lio-pdp__thumb {
+    flex: 0 0 84px;
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    background: var(--f-06);
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    transition: border-color 0.2s var(--ease);
+  }
+  .lio-pdp__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .lio-pdp__thumb.is-active { border-color: var(--forest); }
+  .lio-pdp__thumb-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(11, 36, 16, 0.35);
+    color: var(--chalk);
+  }
+  .lio-pdp__thumb-play svg { width: 24px; height: 24px; }
+
+  /* ================ INFO COLUMN ================ */
+  .lio-pdp__info { display: flex; flex-direction: column; gap: 20px; }
+
+  .lio-pdp__crumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--f-55);
+    margin: 0;
+  }
+  .lio-pdp__crumb a { color: var(--f-72); text-decoration: none; }
+  .lio-pdp__crumb a:hover { color: var(--forest); text-decoration: underline; }
+  .lio-pdp__crumb span:last-child { color: var(--forest); font-weight: 600; }
+
+  .lio-pdp__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--f-10);
+    background: var(--chalk);
+    font-size: 13px;
+    align-self: flex-start;
+    text-decoration: none;
+    color: var(--forest);
+    transition: border-color 0.2s var(--ease);
+  }
+  .lio-pdp__chip:hover { border-color: var(--f-22); }
+  .lio-pdp__chip strong { font-weight: 700; }
+  .lio-pdp__stars {
+    position: relative;
+    display: inline-block;
+    width: 72px;
+    height: 14px;
+    color: var(--forest);
+    line-height: 0;
+  }
+  .lio-pdp__stars-bg,
+  .lio-pdp__stars-fill {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    display: block;
+  }
+  .lio-pdp__stars-bg svg,
+  .lio-pdp__stars-fill svg {
+    width: 72px;
+    height: 14px;
+    display: block;
+  }
+  .lio-pdp__stars-fill { width: auto; }
+  .lio-pdp__chip-div { width: 1px; height: 14px; background: var(--f-14); }
+
+  .lio-pdp__title {
+    font-weight: 900;
+    font-size: clamp(32px, 4.2vw, 56px);
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    margin: 0;
+    color: var(--forest);
+  }
+  .lio-pdp__subtitle {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--f-72);
+    margin: 0;
+    margin-top: -6px;
+  }
+
+  .lio-pdp__quote {
+    position: relative;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--f-72);
+    margin: 0;
+    padding: 14px 16px 14px 36px;
+    background: var(--m-18);
+    border-radius: 14px;
+  }
+  .lio-pdp__quote-mark {
+    position: absolute;
+    left: 14px; top: 4px;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--forest);
+    line-height: 1;
+    font-family: Georgia, serif;
+  }
+  .lio-pdp__quote em { font-style: italic; color: var(--forest); font-weight: 500; }
+  .lio-pdp__quote-author { display: block; font-size: 12px; color: var(--f-55); margin-top: 6px; font-style: normal; }
+
+  /* ================ PRICING ================ */
+  .lio-pdp__form { display: flex; flex-direction: column; gap: 18px; margin-top: 4px; }
+  .lio-pdp__pricing { display: flex; flex-direction: column; gap: 6px; }
+  .lio-pdp__price-row { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .lio-pdp__price {
+    font-size: clamp(30px, 3.2vw, 40px);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--forest);
+  }
+  .lio-pdp__price-was {
+    font-size: 17px;
+    font-weight: 500;
+    text-decoration: line-through;
+    color: var(--f-40);
+  }
+  .lio-pdp__save {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--mint);
+    color: var(--forest);
+    padding: 5px 10px;
+    border-radius: 999px;
+    line-height: 1;
+    align-self: center;
+  }
+  .lio-pdp__perday { font-size: 13px; color: var(--f-55); font-weight: 500; }
+  .lio-pdp__inline-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--f-72);
+  }
+  .lio-pdp__inline-trust span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .lio-pdp__inline-trust svg {
+    width: 13px; height: 13px;
+    color: var(--forest);
+    flex-shrink: 0;
+  }
+
+  /* ================ VARIANTS ================ */
+  .lio-pdp__variants { display: flex; flex-direction: column; gap: 16px; }
+  .lio-pdp__option-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .lio-pdp__option-name {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--f-55);
+  }
+  .lio-pdp__option-value { font-size: 13px; font-weight: 600; color: var(--forest); }
+  .lio-pdp__option-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .lio-pdp__option-pills input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .lio-pdp__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: 1.5px solid var(--f-14);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s var(--ease);
+    background: var(--chalk);
+    color: var(--forest);
+  }
+  .lio-pdp__pill:hover { border-color: var(--forest); }
+  .lio-pdp__option-pills input:checked + .lio-pdp__pill {
+    background: var(--forest);
+    color: var(--mint);
+    border-color: var(--forest);
+  }
+  .lio-pdp__pill-hint {
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 700;
+    background: var(--mint);
+    color: var(--forest);
+    padding: 3px 7px;
+    border-radius: 6px;
+    line-height: 1;
+  }
+  .lio-pdp__option-pills input:checked + .lio-pdp__pill .lio-pdp__pill-hint {
+    background: var(--mint);
+    color: var(--forest);
+  }
+
+  /* ================ STOCK + DELIVERY ================ */
+  .lio-pdp__stock {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--forest);
+    padding: 0;
+    margin-top: -4px;
+  }
+  .lio-pdp__stock-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #2ecc71;
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.18);
+    flex-shrink: 0;
+  }
+  .lio-pdp__stock[data-state="oos"] .lio-pdp__stock-dot {
+    background: #d7443e;
+    box-shadow: 0 0 0 3px rgba(215, 68, 62, 0.18);
+  }
+  .lio-pdp__deliver {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border: 1px dashed var(--f-14);
+    border-radius: 12px;
+    background: var(--cream2, #faf5e8);
+    font-size: 13px;
+    line-height: 1.35;
+    color: var(--f-72);
+  }
+  .lio-pdp__deliver strong { color: var(--forest); font-weight: 700; }
+  .lio-pdp__deliver svg { width: 20px; height: 20px; color: var(--forest); flex-shrink: 0; }
+
+  /* ================ BUY ROW ================ */
+  .lio-pdp__buy { display: flex; gap: 10px; align-items: stretch; }
+  .lio-pdp__qty {
+    display: inline-flex;
+    align-items: center;
+    border: 1.5px solid var(--f-14);
+    border-radius: 999px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .lio-pdp__qty-btn {
+    background: transparent;
+    border: none;
+    width: 42px;
+    min-height: 56px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--forest);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .lio-pdp__qty-btn:hover { background: var(--f-06); }
+  .lio-pdp__qty-input {
+    width: 36px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--forest);
+    font-family: inherit;
+    -moz-appearance: textfield;
+  }
+  .lio-pdp__qty-input::-webkit-outer-spin-button,
+  .lio-pdp__qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+  .lio-pdp__cta {
+    flex-grow: 1;
+    background: var(--mint);
+    color: var(--forest);
+    border: none;
+    border-radius: 999px;
+    padding: 16px 22px 16px 28px;
+    font-size: 15.5px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: all 0.3s var(--ease);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    min-height: 56px;
+  }
+  .lio-pdp__cta::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--forest);
+    transform: translateY(101%);
+    transition: transform 0.4s var(--ease);
+    z-index: -1;
+  }
+  .lio-pdp__cta:hover:not(:disabled) { color: var(--mint); }
+  .lio-pdp__cta:hover:not(:disabled)::after { transform: translateY(0); }
+  .lio-pdp__cta:disabled { opacity: 0.55; cursor: not-allowed; }
+  .lio-pdp__cta-arrow {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--mint);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s var(--ease);
+  }
+  .lio-pdp__cta-arrow svg { width: 15px; height: 15px; }
+  .lio-pdp__cta:hover:not(:disabled) .lio-pdp__cta-arrow {
+    background: var(--mint);
+    color: var(--forest);
+    transform: translateX(3px);
+  }
+  .lio-pdp__meta { font-size: 12px; color: var(--f-55); margin: 0; }
+
+  /* Dynamic checkout (Shop Pay / Apple Pay / Google Pay) */
+  .lio-pdp__dynamic {
+    margin-top: -4px;
+  }
+  .lio-pdp__dynamic .shopify-payment-button__button {
+    border-radius: 999px !important;
+    min-height: 48px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+  }
+  .lio-pdp__dynamic .shopify-payment-button__more-options {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--f-55);
+  }
+
+  /* ================ TRUST + GUARANTEE ================ */
+  .lio-pdp__trust {
+    display: flex;
+    gap: 14px;
+    padding: 16px 14px;
+    border: 1px solid var(--f-10);
+    border-radius: 16px;
+    background: #fafaf8;
+  }
+  .lio-pdp__trust-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+  .lio-pdp__trust-ico {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--mint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .lio-pdp__trust-ico svg { width: 18px; height: 18px; }
+  .lio-pdp__trust-item > div { min-width: 0; }
+  .lio-pdp__trust-item strong {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--forest);
+  }
+  .lio-pdp__trust-item span:not(.lio-pdp__trust-ico) {
+    display: block;
+    font-size: 11.5px;
+    color: var(--f-55);
+    margin-top: 2px;
+  }
+
+  .lio-pdp__guarantee {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: var(--m-18);
+    border: 1px solid rgba(148, 252, 169, 0.5);
+  }
+  .lio-pdp__guarantee-ico {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--mint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .lio-pdp__guarantee-ico svg { width: 18px; height: 18px; }
+  .lio-pdp__guarantee-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--forest);
+    margin: 0 0 2px;
+  }
+  .lio-pdp__guarantee-text {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--f-72);
+    margin: 0;
+  }
+
+  .lio-pdp__paymarks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 4px;
+  }
+  .lio-pdp__paymarks span {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--f-55);
+    padding: 5px 10px;
+    background: var(--f-04);
+    border: 1px solid var(--f-10);
+    border-radius: 7px;
+  }
+
+  /* ================ PROMISE ================ */
+  .lio-pdp__promise { margin-top: 12px; display: flex; flex-direction: column; gap: 14px; }
+  .lio-pdp__promise-title {
+    font-size: clamp(22px, 2.4vw, 30px);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin: 6px 0 0;
+    color: var(--forest);
+  }
+  .lio-pdp__promise-lead {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--f-72);
+    margin: 0;
+  }
+  .lio-pdp__promise-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .lio-pdp__promise-list li {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--f-72);
+    padding-left: 24px;
+    position: relative;
+  }
+  .lio-pdp__promise-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--mint);
+    box-shadow: 0 0 0 2px rgba(148, 252, 169, 0.2);
+  }
+  .lio-pdp__promise-list li strong { color: var(--forest); font-weight: 700; }
+  .lio-pdp__promise-close {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--forest);
+    margin: 0;
+    padding: 14px 16px;
+    background: var(--m-18);
+    border-radius: 12px;
+    font-weight: 500;
+  }
+
+  /* ================ ACCORDION ================ */
+  .lio-pdp__accordion { margin-top: 8px; border-top: 1px solid var(--f-10); }
+  .lio-pdp__acc-item { border-bottom: 1px solid var(--f-10); }
+  .lio-pdp__acc-q {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 18px 0;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--forest);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    letter-spacing: -0.01em;
+    font-family: inherit;
+  }
+  .lio-pdp__acc-ico {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--f-06);
+    color: var(--forest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 300;
+    transition: all 0.3s var(--ease);
+    flex-shrink: 0;
+  }
+  .lio-pdp__acc-item--open .lio-pdp__acc-ico {
+    background: var(--mint);
+    transform: rotate(45deg);
+  }
+  .lio-pdp__acc-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s var(--ease);
+  }
+  .lio-pdp__acc-item--open .lio-pdp__acc-a { max-height: 1200px; }
+  .lio-pdp__acc-a p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--f-72);
+    padding: 0 0 20px;
+    margin: 0 0 10px;
+  }
+  .lio-pdp__acc-a p:last-child { margin-bottom: 0; }
+  .lio-pdp__acc-a strong { color: var(--forest); font-weight: 600; }
+  .lio-pdp__acc-a a { color: var(--forest); text-decoration: underline; text-decoration-color: var(--mint); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+  /* ================ MARKER / EYEBROW ================ */
+  .lio-marker {
+    position: relative;
+    display: inline-block;
+    padding: 0 0.08em;
+    isolation: isolate;
+  }
+  .lio-marker::before {
+    content: "";
+    position: absolute;
+    inset: 0.16em 0 0.12em 0;
+    background: var(--mint);
+    z-index: -1;
+    border-radius: 4px;
+  }
+  .lio-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--f-72);
+    line-height: 1;
+  }
+  .lio-eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--forest); }
+
+  /* ================ STICKY MOBILE BUY BAR ================ */
+  .lio-pdp__stickybuy {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 90;
+    background: var(--chalk);
+    border-top: 1px solid var(--f-10);
+    box-shadow: 0 -8px 24px rgba(11, 36, 16, 0.08);
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    transform: translateY(100%);
+    transition: transform 0.35s var(--ease);
+  }
+  .lio-pdp__stickybuy:not([hidden]) { transform: translateY(0); }
+  .lio-pdp__stickybuy-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .lio-pdp__stickybuy-media {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--f-06);
+  }
+  .lio-pdp__stickybuy-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .lio-pdp__stickybuy-meta {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+  .lio-pdp__stickybuy-meta strong {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--forest);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .lio-pdp__stickybuy-meta > span {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--f-72);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .lio-pdp__stickybuy-was {
+    font-size: 11px;
+    color: var(--f-40);
+    text-decoration: line-through;
+    font-weight: 500;
+  }
+  .lio-pdp__stickybuy-btn {
+    background: var(--mint);
+    color: var(--forest);
+    border: none;
+    border-radius: 999px;
+    padding: 11px 16px;
+    font-size: 13.5px;
+    font-weight: 700;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    flex-shrink: 0;
+    min-height: 44px;
+    transition: background 0.2s var(--ease);
+  }
+  .lio-pdp__stickybuy-btn:hover { background: var(--forest); color: var(--mint); }
+  .lio-pdp__stickybuy-btn svg { width: 14px; height: 14px; }
+  .lio-pdp__stickybuy-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+  /* ================ LIGHTBOX ================ */
+  .lio-pdp__lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 36, 16, 0.92);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+  html.lio-pdp-lb-open, html.lio-pdp-lb-open body { overflow: hidden; }
+  .lio-pdp__lightbox-stage {
+    max-width: 92vw;
+    max-height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lio-pdp__lightbox-stage img {
+    max-width: 100%;
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+  .lio-pdp__lightbox-close,
+  .lio-pdp__lightbox-nav {
+    position: absolute;
+    border: none;
+    background: rgba(252, 254, 251, 0.12);
+    color: var(--chalk);
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .lio-pdp__lightbox-close:hover,
+  .lio-pdp__lightbox-nav:hover { background: rgba(252, 254, 251, 0.22); }
+  .lio-pdp__lightbox-close svg,
+  .lio-pdp__lightbox-nav svg { width: 22px; height: 22px; }
+  .lio-pdp__lightbox-close { top: 20px; right: 20px; }
+  .lio-pdp__lightbox-nav--prev { left: 20px; top: 50%; transform: translateY(-50%); }
+  .lio-pdp__lightbox-nav--next { right: 20px; top: 50%; transform: translateY(-50%); }
+  .lio-pdp__lightbox-counter {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--chalk);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    background: rgba(252, 254, 251, 0.12);
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+
+  /* ================ RESPONSIVE ================ */
+  @media (max-width: 1100px) {
+    .lio-pdp__grid { grid-template-columns: 1fr; gap: 28px; }
+    .lio-pdp__gallery { position: static; }
+  }
+
+  @media (max-width: 900px) {
+    /* Gallery becomes a pure horizontal slider; no thumbnail strip */
+    .lio-pdp { padding: 16px 0 120px; }
+    .lio-pdp__grid { gap: 18px; }
+    .lio-pdp__gallery { gap: 0; }
+    .lio-pdp__stage {
+      border-radius: 0;
+      aspect-ratio: 1 / 1;
+    }
+    .lio-pdp__slide { cursor: default; }
+    .lio-pdp__stage-hud { display: flex; }
+    .lio-pdp__nav { display: none; }
+    .lio-pdp__thumbs { display: none; }
+    .lio-pdp__badge--tl,
+    .lio-pdp__badge--save { top: 14px; left: 14px; padding: 6px 11px; font-size: 10px; }
+    .lio-pdp__badge--br { bottom: 14px; right: 14px; padding: 6px 11px; font-size: 10px; }
+
+    .lio-pdp__info { padding: 0 18px; gap: 16px; }
+    .lio-pdp__title { font-size: clamp(28px, 8vw, 40px); }
+    .lio-pdp__price { font-size: clamp(28px, 8vw, 34px); }
+    .lio-pdp__crumb { display: none; }
+    .lio-pdp__subtitle { font-size: 15px; }
+    .lio-pdp__quote { font-size: 14px; padding: 12px 14px 12px 32px; }
+    .lio-pdp__quote-mark { left: 12px; font-size: 26px; }
+
+    .lio-pdp__trust { flex-direction: column; gap: 12px; }
+    .lio-pdp__buy { flex-wrap: nowrap; }
+    .lio-pdp__qty-btn { width: 40px; min-height: 54px; }
+    .lio-pdp__cta {
+      flex-grow: 1;
+      padding: 15px 20px 15px 24px;
+      font-size: 15px;
+      min-height: 54px;
+    }
+
+    .lio-pdp__inline-trust { gap: 10px; font-size: 11.5px; }
+
+    .lio-pdp__deliver { font-size: 12.5px; padding: 10px 12px; }
+
+    .lio-pdp__pill { padding: 10px 14px; font-size: 13px; }
+    .lio-pdp__pill-hint { font-size: 9px; padding: 2px 6px; }
+  }
+
+  @media (max-width: 480px) {
+    .lio-pdp__info { padding: 0 16px; }
+    .lio-pdp__title { letter-spacing: -0.035em; }
+    .lio-pdp__paymarks span { font-size: 9.5px; padding: 4px 7px; }
+  }
+
+  /* Hide sticky bar on desktop */
+  @media (min-width: 901px) {
+    .lio-pdp__stickybuy { display: none !important; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .lio-pdp__cta::after,
+    .lio-pdp__cta-arrow,
+    .lio-pdp__acc-ico,
+    .lio-pdp__stickybuy,
+    .lio-pdp__dot { transition: none !important; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Lio · Product",
+  "tag": "section",
+  "class": "section-lio-product",
+  "settings": [
+    { "type": "header", "content": "Layout" },
+    { "type": "checkbox", "id": "show_breadcrumb", "label": "Show breadcrumb", "default": true },
+
+    { "type": "header", "content": "Badges" },
+    { "type": "text", "id": "badge_new", "label": "Top-left badge", "default": "New" },
+    { "type": "text", "id": "badge_tag", "label": "Bottom-right badge", "default": "Best seller" },
+
+    { "type": "header", "content": "Rating chip" },
+    { "type": "checkbox", "id": "show_rating", "label": "Show rating chip", "default": true },
+    { "type": "text", "id": "rating_score", "label": "Score (0–5)", "default": "4.6" },
+    { "type": "text", "id": "rating_count", "label": "Count", "default": "7,300+ reviews" },
+
+    { "type": "header", "content": "Subtitle" },
+    { "type": "text", "id": "subtitle", "label": "Subtitle / one-liner", "default": "The original flavored-air diffuser. Invented in Amsterdam, 2018." },
+
+    { "type": "header", "content": "Review pull-quote" },
+    { "type": "checkbox", "id": "show_review_quote", "label": "Show review quote", "default": true },
+    { "type": "textarea", "id": "review_quote", "label": "Review text", "default": "Five months in, I don't step outside after dinner anymore. The cinnamon core broke the habit." },
+    { "type": "text", "id": "review_author", "label": "Author line", "default": "Léa V., verified buyer" },
+
+    { "type": "header", "content": "Pricing" },
+    { "type": "checkbox", "id": "show_perday", "label": "Show per-day / meta line", "default": true },
+    { "type": "text", "id": "perday_copy", "label": "Per-day / meta copy", "default": "~€0.88/day on The Full Switch · ships in 24h" },
+
+    { "type": "header", "content": "Delivery & checkout" },
+    { "type": "checkbox", "id": "show_delivery_estimate", "label": "Show dynamic delivery estimate", "default": true },
+    { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Show Shop Pay / Apple Pay button", "default": true },
+    { "type": "checkbox", "id": "payment_marks", "label": "Show payment method badges", "default": true },
+
+    { "type": "header", "content": "CTA" },
+    { "type": "text", "id": "cta_label", "label": "Buy button label", "default": "Add to cart" },
+
+    { "type": "header", "content": "Guarantee" },
+    { "type": "text", "id": "guarantee_title", "label": "Title", "default": "60-day money-back guarantee" },
+    { "type": "textarea", "id": "guarantee_text", "label": "Text", "default": "Try it for two months. If it doesn't help replace the ritual, send it back — even if you've opened and used it. Full refund, no questions." },
+
+    { "type": "header", "content": "Product promise" },
+    { "type": "text", "id": "promise_eyebrow", "label": "Eyebrow", "default": "What you get" },
+    { "type": "text", "id": "promise_title", "label": "Title", "default": "Keep the ritual. Drop the" },
+    { "type": "text", "id": "promise_title_marker", "label": "Highlighted word", "default": "habit." },
+    { "type": "textarea", "id": "promise_lead", "label": "Lead paragraph", "default": "Patches give you nicotine. Gum gives you nicotine. Vapes give you nicotine. They all solved the wrong problem. Lio replaces the ritual — the hand, the breath, the pause — with nothing but plant-based flavored air." },
+    { "type": "textarea", "id": "promise_close", "label": "Closing line", "default": "If the routine is the thing that keeps pulling you back — and for most people, it is — this is the one that lands." }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit / feature",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Replaces the motion, not just the chemical" },
+        { "type": "text", "id": "text", "label": "Text", "default": "habit loops break when the routine is swapped, not just the substance." }
+      ]
+    },
+    {
+      "type": "accordion",
+      "name": "Accordion tab",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Shipping & delivery" },
+        { "type": "richtext", "id": "content", "label": "Content", "default": "<p>Orders before 4pm CET on weekdays ship the same day from Rotterdam, NL.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lio · Product",
+      "blocks": [
+        { "type": "benefit", "settings": { "title": "Replaces the motion, not just the chemical", "text": "habit loops break when the routine is swapped, not just the substance." } },
+        { "type": "benefit", "settings": { "title": "Plant-based essential oils only", "text": "peppermint, sweet orange, cinnamon, black pepper, eucalyptus." } },
+        { "type": "benefit", "settings": { "title": "Precision-milled walnut device", "text": "hand-finished, designed to last a decade, not a quarter." } },
+        { "type": "benefit", "settings": { "title": "Use anywhere — flights, meetings, indoors", "text": "no vapor, no smoke, no combustion, no output beyond your own breath." } },
+        { "type": "benefit", "settings": { "title": "10+ days per core, 4 cores per month", "text": "the rhythm matches real daily use." } },
+        { "type": "benefit", "settings": { "title": "Works even if you've tried everything", "text": "150,000+ people have used it to replace hand-to-mouth rituals since 2018." } },
+        { "type": "accordion", "settings": { "title": "Device specs & what's in the box", "content": "<p><strong>Device:</strong> 72mm × 18mm × 18mm, 22g. Precision-milled FSC-certified walnut with food-grade silicone airflow chamber.</p><p><strong>Cores:</strong> replaceable compressed plant-matter discs. 40–60 pulls per core (~10 days).</p><p><strong>In the box:</strong> 1× Lio device, 1× starter core, 1× microfiber cloth, quick-start card.</p>" } },
+        { "type": "accordion", "settings": { "title": "Shipping & delivery", "content": "<p><strong>Processing:</strong> orders before 4pm CET ship the same day from Amsterdam, NL.</p><p><strong>EU standard:</strong> 2–3 days, €4.95. Free over €50.</p><p><strong>UK:</strong> 2–4 days, €7.95. Duties pre-paid.</p><p><strong>Rest of world:</strong> 5–8 days, €14.95.</p>" } },
+        { "type": "accordion", "settings": { "title": "Returns & warranty", "content": "<p><strong>60-day money-back guarantee</strong> — open it, try it, use a core. If it doesn't work for you, send it back for a full refund. No questions asked.</p><p><strong>2-year device warranty</strong> — manufacturing defects covered.</p>" } },
+        { "type": "accordion", "settings": { "title": "Common questions", "content": "<p><strong>Is it vapor or smoke?</strong> Neither. Lio produces no output of any kind. You breathe through it — your own breath carries the aroma.</p><p><strong>Is it really 0% nicotine?</strong> Yes. No synthetic nicotine, no tobacco extract. EU-tested every batch.</p><p><strong>Can I use it on planes?</strong> Yes. Classified as an aromatherapy device.</p>" } }
+      ]
+    }
+  ],
+  "enabled_on": { "templates": ["product"] }
+}
+{% endschema %}

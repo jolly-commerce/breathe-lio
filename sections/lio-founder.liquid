@@ -1,0 +1,140 @@
+{%- comment -%}
+  Section: Lio · Founder Letter
+  Quote-mark SVG namespaced to section.id. CSS scoped to .lio-founder.
+{%- endcomment -%}
+
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <symbol id="lio-founder-quote-{{ section.id }}" viewBox="0 0 72 54">
+      <path d="M 0 54 L 0 28 Q 0 0 24 0 L 24 12 Q 14 12 12 28 L 24 28 L 24 54 Z M 40 54 L 40 28 Q 40 0 64 0 L 64 12 Q 54 12 52 28 L 64 28 L 64 54 Z" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<section class="lio-founder" id="lio-founder-{{ section.id }}">
+  <div class="lio-founder__inner">
+    <div class="lio-founder__quote-mark">
+      <svg aria-hidden="true"><use href="#lio-founder-quote-{{ section.id }}"/></svg>
+    </div>
+    <span class="lio-founder__eyebrow">A note from the founder</span>
+    <h2>I built Lio because nothing else worked on me.</h2>
+    <p>I tried to quit for years. Patches, gum, cold turkey, apps, books, bets with friends. What I found was that the problem wasn't nicotine — it was the reaching. The 200 times a day my hand went to my mouth, unconsciously, on autopilot. That's what I couldn't break.</p>
+    <p>So we built something that replaced the ritual. Not a pharmaceutical, not a shortcut, not a half-measure. Just the same motion, the same breath, the same small moment of pause — made of natural essential oils, with nothing in it you wouldn't want in your body.</p>
+    <p>Over 100,000 people have used Lio since. Some quit smoking. Some quit vaping. Some stopped biting their nails, or stress-eating, or fidgeting in meetings. The point was never the thing they were quitting. The point was giving the ritual somewhere better to go.</p>
+    <div class="lio-founder__sig">
+      <div class="lio-founder__sig-avatar">MvL</div>
+      <div>
+        <div class="lio-founder__sig-name">Mees van Lier</div>
+        <div class="lio-founder__sig-title">Founder, Lio® · Writing from Bali</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .lio-founder {
+    --lfo-forest: var(--lio-forest, #0b2410);
+    --lfo-chalk:  var(--lio-chalk, #fcfefb);
+    --lfo-mint:   var(--lio-mint, #94fca9);
+    --lfo-f-10:   var(--lio-f-10, rgba(11, 36, 16, 0.10));
+    --lfo-f-55:   var(--lio-f-55, rgba(11, 36, 16, 0.55));
+    --lfo-f-72:   var(--lio-f-72, rgba(11, 36, 16, 0.72));
+
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 64px 40px 80px;
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+  }
+
+  .lio-founder__inner {
+    background: #f3f6f0;
+    border: 1px solid var(--lfo-f-10);
+    border-radius: 28px;
+    padding: 56px;
+    position: relative;
+  }
+
+  .lio-founder__quote-mark {
+    position: absolute;
+    top: 28px; left: 44px;
+    width: 60px; height: 50px;
+    color: var(--lfo-mint);
+    opacity: 0.6;
+  }
+  .lio-founder__quote-mark svg { width: 100%; height: 100%; }
+
+  .lio-founder__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--lfo-f-55);
+    margin-bottom: 22px;
+    margin-top: 24px;
+  }
+  .lio-founder__eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--lfo-forest); }
+
+  .lio-founder__inner h2 {
+    font-weight: 900;
+    font-size: clamp(26px, 2.8vw, 36px);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: var(--lfo-forest);
+    margin-bottom: 24px;
+    max-width: 740px;
+  }
+  .lio-founder__inner p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--lfo-f-72);
+    margin-bottom: 16px;
+    max-width: 720px;
+  }
+
+  .lio-founder__sig {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--lfo-f-10);
+  }
+  .lio-founder__sig-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--lfo-forest);
+    color: var(--lfo-mint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .lio-founder__sig-name  { font-weight: 700; color: var(--lfo-forest); font-size: 15px; }
+  .lio-founder__sig-title { font-size: 13px; color: var(--lfo-f-55); margin-top: 2px; }
+
+  @media (max-width: 960px) {
+    .lio-founder { padding: 32px 20px 56px; }
+    .lio-founder__inner { padding: 48px 28px 40px; }
+    .lio-founder__quote-mark { top: 20px; left: 20px; width: 44px; height: 36px; }
+    .lio-founder__eyebrow { margin-top: 32px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Lio · Founder",
+  "tag": "section",
+  "class": "section-lio-founder",
+  "settings": [],
+  "presets": [
+    { "name": "Lio · Founder" }
+  ]
+}
+{% endschema %}

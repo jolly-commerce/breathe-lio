@@ -1,0 +1,774 @@
+{%- comment -%}
+  Section: Lio · Footer.
+  Fully editable, translatable, mobile-first footer in the Lio brand
+  language (forest surface, cream type, mint accents, editorial hierarchy).
+  Menu columns are blocks; every text string is a schema setting so
+  merchants can translate per market via Shopify Translate & Adapt.
+{%- endcomment -%}
+
+<div class="lio-footer-2026">
+
+  {%- if section.settings.show_trust and section.blocks.size > 0 -%}
+    {%- assign trust_items = section.blocks | where: 'type', 'trust' -%}
+    {%- if trust_items.size > 0 -%}
+      <div class="lfx-trust" role="list">
+        {%- for block in trust_items -%}
+          <div class="lfx-trust-item" role="listitem" {{ block.shopify_attributes }}>
+            <span class="lfx-trust-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                {%- case block.settings.icon -%}
+                  {%- when 'ship' -%}
+                    <path d="M3 7h11v8H3zM14 10h4l3 3v2h-7zM6.5 17.5a1.5 1.5 0 103 0 1.5 1.5 0 10-3 0zM15.5 17.5a1.5 1.5 0 103 0 1.5 1.5 0 10-3 0z"/>
+                  {%- when 'shield' -%}
+                    <path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/>
+                  {%- when 'return' -%}
+                    <path d="M4 12a8 8 0 1114.5 4.7"/><path d="M18 13v4h-4"/>
+                  {%- when 'leaf' -%}
+                    <path d="M11 20A7 7 0 014 13c0-7 7-11 17-11-1 12-5 18-10 18z"/><path d="M2 22c2-5 7-10 15-12"/>
+                  {%- when 'star' -%}
+                    <path d="M12 2l2.4 5 5.6.8-4 3.9 1 5.6-5-2.6-5 2.6 1-5.6-4-3.9 5.6-.8z"/>
+                  {%- else -%}
+                    <path d="M20 6L9 17l-5-5"/>
+                {%- endcase -%}
+              </svg>
+            </span>
+            <div>
+              <strong>{{ block.settings.title }}</strong>
+              {%- if block.settings.sub != blank -%}<span>{{ block.settings.sub }}</span>{%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+
+  <footer class="lfx-main" role="contentinfo">
+    <div class="lfx-inner">
+
+      <div class="lfx-top">
+        <div class="lfx-brand">
+          {%- if section.settings.brand_logo != blank -%}
+            {{ section.settings.brand_logo | image_url: width: 400 | image_tag:
+               widths: '120,180,240,320,400',
+               sizes: '(min-width: 820px) 160px, 120px',
+               loading: 'lazy',
+               alt: section.settings.brand_wordmark | default: shop.name,
+               class: 'lfx-brand-logo-img' }}
+          {%- elsif section.settings.brand_wordmark != blank -%}
+            <div class="lfx-brand-logo">{{ section.settings.brand_wordmark }}{%- if section.settings.brand_reg -%}<sup>®</sup>{%- endif -%}</div>
+          {%- endif -%}
+
+          {%- if section.settings.brand_tagline != blank -%}
+            <p class="lfx-brand-tagline">{{ section.settings.brand_tagline }}</p>
+          {%- endif -%}
+
+          {%- if section.settings.show_social -%}
+            <div class="lfx-social" aria-label="{{ section.settings.social_aria | default: 'Social media' }}">
+              {%- if section.settings.instagram_url != blank -%}
+                <a href="{{ section.settings.instagram_url }}" aria-label="Instagram" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <rect x="3" y="3" width="18" height="18" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                  </svg>
+                </a>
+              {%- endif -%}
+              {%- if section.settings.tiktok_url != blank -%}
+                <a href="{{ section.settings.tiktok_url }}" aria-label="TikTok" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+                    <path d="M14 3v12a3 3 0 11-3-3v-4a7 7 0 107 7V8.5a7 7 0 004 1.5V6a4 4 0 01-4-3z"/>
+                  </svg>
+                </a>
+              {%- endif -%}
+              {%- if section.settings.facebook_url != blank -%}
+                <a href="{{ section.settings.facebook_url }}" aria-label="Facebook" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+                    <path d="M13 22v-9h3l1-3h-4V8a1.5 1.5 0 011.5-1.5H17V3h-3A4 4 0 0010 7v3H7v3h3v9z"/>
+                  </svg>
+                </a>
+              {%- endif -%}
+              {%- if section.settings.youtube_url != blank -%}
+                <a href="{{ section.settings.youtube_url }}" aria-label="YouTube" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+                    <rect x="3" y="6" width="18" height="12" rx="3"/>
+                    <path d="M10 9.5v5l5-2.5z" fill="currentColor" stroke="none"/>
+                  </svg>
+                </a>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="lfx-columns">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'menu' -%}
+              <div class="lfx-col" {{ block.shopify_attributes }}>
+                {%- if block.settings.title != blank -%}
+                  <h3 class="lfx-col-title">{{ block.settings.title }}</h3>
+                {%- endif -%}
+                {%- assign menu = linklists[block.settings.menu] -%}
+                {%- if menu and menu.links.size > 0 -%}
+                  <ul class="lfx-col-list">
+                    {%- for link in menu.links -%}
+                      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                    {%- endfor -%}
+                  </ul>
+                {%- elsif block.settings.links_html != blank -%}
+                  <div class="lfx-col-rich">{{ block.settings.links_html }}</div>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        {%- if section.settings.show_newsletter -%}
+          <div class="lfx-news">
+            {%- if section.settings.newsletter_eyebrow != blank -%}
+              <span class="lfx-news-eyebrow">{{ section.settings.newsletter_eyebrow }}</span>
+            {%- endif -%}
+            {%- if section.settings.newsletter_title != blank -%}
+              <h3 class="lfx-news-title">{{ section.settings.newsletter_title }}</h3>
+            {%- endif -%}
+            {%- if section.settings.newsletter_sub != blank -%}
+              <p class="lfx-news-sub">{{ section.settings.newsletter_sub }}</p>
+            {%- endif -%}
+
+            {%- form 'customer', class: 'lfx-news-form' -%}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              {%- if form.posted_successfully? -%}
+                <p class="lfx-news-success">{{ section.settings.newsletter_success | default: 'Thanks. Check your inbox.' }}</p>
+              {%- else -%}
+                <label class="u-visually-hidden" for="lfx-news-email-{{ section.id }}">{{ section.settings.newsletter_placeholder | default: 'Email address' }}</label>
+                <div class="lfx-news-row">
+                  <input
+                    type="email"
+                    id="lfx-news-email-{{ section.id }}"
+                    name="contact[email]"
+                    class="lfx-news-input"
+                    placeholder="{{ section.settings.newsletter_placeholder | default: 'you@mail.com' }}"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autocomplete="email"
+                    required>
+                  <button type="submit" class="lfx-news-btn">
+                    {{ section.settings.newsletter_cta | default: 'Join' }}
+                    <span aria-hidden="true">
+                      <svg viewBox="0 0 16 16"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                  </button>
+                </div>
+                {%- if form.errors -%}
+                  <p class="lfx-news-error">{{ form.errors.messages.email }}</p>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endform -%}
+
+            {%- if section.settings.newsletter_note != blank -%}
+              <small class="lfx-news-note">{{ section.settings.newsletter_note }}</small>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.payment_marks != blank -%}
+        <div class="lfx-pay" aria-label="{{ section.settings.payment_aria | default: 'Accepted payment methods' }}">
+          {%- assign marks = section.settings.payment_marks | split: ',' -%}
+          {%- for mark in marks -%}
+            <span>{{ mark | strip }}</span>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- liquid
+        assign year_token = '{' | append: 'year' | append: '}'
+        assign current_year = 'now' | date: '%Y'
+      -%}
+      <div class="lfx-legal">
+        <div class="lfx-legal-left">
+          {%- if section.settings.copyright != blank -%}
+            <span>{{ section.settings.copyright | replace: year_token, current_year }}</span>
+          {%- endif -%}
+          {%- if section.settings.legal_1_label != blank -%}
+            <a href="{{ section.settings.legal_1_url | default: '#' }}">{{ section.settings.legal_1_label }}</a>
+          {%- endif -%}
+          {%- if section.settings.legal_2_label != blank -%}
+            <a href="{{ section.settings.legal_2_url | default: '#' }}">{{ section.settings.legal_2_label }}</a>
+          {%- endif -%}
+          {%- if section.settings.legal_3_label != blank -%}
+            <a href="{{ section.settings.legal_3_url | default: '#' }}">{{ section.settings.legal_3_label }}</a>
+          {%- endif -%}
+        </div>
+        <div class="lfx-legal-right">
+          {%- if section.settings.show_locale_selector and localization.available_languages.size > 1 -%}
+            <form method="post" action="/localization" class="lfx-selector" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
+              <input type="hidden" name="_method" value="put">
+              <input type="hidden" name="return_to" value="{{ request.path }}">
+              <label class="u-visually-hidden" for="lfx-loc-{{ section.id }}">{{ section.settings.language_aria | default: 'Language' }}</label>
+              <select name="locale_code" id="lfx-loc-{{ section.id }}" onchange="this.form.submit()">
+                {%- for lang in localization.available_languages -%}
+                  <option value="{{ lang.iso_code }}" lang="{{ lang.iso_code }}" {% if lang.iso_code == localization.language.iso_code %}selected{% endif %}>{{ lang.endonym_name | capitalize }}</option>
+                {%- endfor -%}
+              </select>
+            </form>
+          {%- endif -%}
+          {%- if section.settings.show_country_selector and localization.available_countries.size > 1 -%}
+            <form method="post" action="/localization" class="lfx-selector" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
+              <input type="hidden" name="_method" value="put">
+              <input type="hidden" name="return_to" value="{{ request.path }}">
+              <label class="u-visually-hidden" for="lfx-ctry-{{ section.id }}">{{ section.settings.country_aria | default: 'Country/region' }}</label>
+              <select name="country_code" id="lfx-ctry-{{ section.id }}" onchange="this.form.submit()">
+                {%- for country in localization.available_countries -%}
+                  <option value="{{ country.iso_code }}" {% if country.iso_code == localization.country.iso_code %}selected{% endif %}>{{ country.name }}{%- if country.currency.iso_code != localization.country.currency.iso_code or forloop.length > 1 -%} ({{ country.currency.iso_code }} {{ country.currency.symbol }}){%- endif -%}</option>
+                {%- endfor -%}
+              </select>
+            </form>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- if section.settings.address != blank -%}
+        <p class="lfx-address">{{ section.settings.address }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.compliance != blank -%}
+        <p class="lfx-compliance">{{ section.settings.compliance }}</p>
+      {%- endif -%}
+    </div>
+  </footer>
+</div>
+
+{% stylesheet %}
+  .lio-footer-2026 {
+    --forest: #0b2410;
+    --forest-deep: #071a0b;
+    --cream:  #fcfefb;
+    --cream-muted: rgba(246, 242, 231, 0.7);
+    --cream-soft: rgba(246, 242, 231, 0.55);
+    --cream-dim: rgba(246, 242, 231, 0.35);
+    --mint:   #94fca9;
+    --mint-soft: rgba(148, 252, 169, 0.14);
+    --lfx-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    color: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+  }
+  .lio-footer-2026 *, .lio-footer-2026 *::before, .lio-footer-2026 *::after { box-sizing: border-box; }
+  .lio-footer-2026 a { color: inherit; text-decoration: none; }
+  .lio-footer-2026 .u-visually-hidden {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  /* Trust strip above the main footer */
+  .lio-footer-2026 .lfx-trust {
+    background: var(--cream);
+    color: var(--forest);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 28px 20px;
+    border-top: 1px solid rgba(11, 36, 16, 0.06);
+    border-bottom: 1px solid rgba(11, 36, 16, 0.06);
+  }
+  .lio-footer-2026 .lfx-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+  }
+  .lio-footer-2026 .lfx-trust-ico {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--mint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .lio-footer-2026 .lfx-trust-ico svg { width: 20px; height: 20px; }
+  .lio-footer-2026 .lfx-trust-item strong {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+    color: var(--forest);
+  }
+  .lio-footer-2026 .lfx-trust-item span {
+    display: block;
+    font-size: 12px;
+    color: rgba(11, 36, 16, 0.55);
+    margin-top: 2px;
+  }
+
+  /* Main footer — forest surface */
+  .lio-footer-2026 .lfx-main {
+    background: var(--forest);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+    padding: 64px 0 0;
+  }
+  .lio-footer-2026 .lfx-main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(700px circle at 10% 0%, rgba(148, 252, 169, 0.08) 0%, transparent 55%),
+      radial-gradient(500px circle at 90% 100%, rgba(148, 252, 169, 0.06) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .lio-footer-2026 .lfx-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .lio-footer-2026 .lfx-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 44px;
+    padding-bottom: 56px;
+  }
+
+  /* Brand block */
+  .lio-footer-2026 .lfx-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 420px;
+  }
+  .lio-footer-2026 .lfx-brand-logo {
+    font-size: 44px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--cream);
+  }
+  .lio-footer-2026 .lfx-brand-logo sup {
+    font-size: 0.32em;
+    top: -1.3em;
+    margin-left: 2px;
+    color: var(--mint);
+    font-weight: 800;
+  }
+  .lio-footer-2026 .lfx-brand-logo-img { max-width: 160px; height: auto; }
+  .lio-footer-2026 .lfx-brand-tagline {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--cream-muted);
+    margin: 0;
+    max-width: 380px;
+  }
+  .lio-footer-2026 .lfx-brand-tagline strong { color: var(--cream); font-weight: 700; }
+
+  /* Social */
+  .lio-footer-2026 .lfx-social {
+    display: inline-flex;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .lio-footer-2026 .lfx-social a {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(148, 252, 169, 0.22);
+    color: var(--cream);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s var(--lfx-ease), color 0.2s var(--lfx-ease), border-color 0.2s var(--lfx-ease);
+  }
+  .lio-footer-2026 .lfx-social a:hover {
+    background: var(--mint);
+    color: var(--forest);
+    border-color: var(--mint);
+  }
+  .lio-footer-2026 .lfx-social svg { width: 16px; height: 16px; }
+
+  /* Link columns */
+  .lio-footer-2026 .lfx-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 24px;
+  }
+  .lio-footer-2026 .lfx-col { min-width: 0; }
+  .lio-footer-2026 .lfx-col-title {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--cream-soft);
+    margin: 0 0 14px;
+  }
+  .lio-footer-2026 .lfx-col-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .lio-footer-2026 .lfx-col-list a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cream-muted);
+    transition: color 0.2s var(--lfx-ease), transform 0.2s var(--lfx-ease);
+  }
+  .lio-footer-2026 .lfx-col-list a:hover {
+    color: var(--mint);
+    transform: translateX(2px);
+  }
+  .lio-footer-2026 .lfx-col-rich {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--cream-muted);
+  }
+  .lio-footer-2026 .lfx-col-rich a { color: var(--cream); text-decoration: underline; text-decoration-color: var(--cream-dim); }
+
+  /* Newsletter card */
+  .lio-footer-2026 .lfx-news {
+    background: rgba(148, 252, 169, 0.06);
+    border: 1px solid rgba(148, 252, 169, 0.18);
+    border-radius: 22px;
+    padding: 26px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .lio-footer-2026 .lfx-news-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--mint);
+  }
+  .lio-footer-2026 .lfx-news-eyebrow::before {
+    content: "";
+    width: 22px; height: 1px;
+    background: var(--mint);
+  }
+  .lio-footer-2026 .lfx-news-title {
+    font-size: clamp(20px, 2vw, 24px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0;
+    color: var(--cream);
+  }
+  .lio-footer-2026 .lfx-news-sub {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--cream-muted);
+    margin: 0;
+  }
+  .lio-footer-2026 .lfx-news-form { margin-top: 6px; }
+  .lio-footer-2026 .lfx-news-row {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+    background: var(--cream);
+    border-radius: 999px;
+    padding: 5px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
+  .lio-footer-2026 .lfx-news-input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--forest);
+    outline: none;
+  }
+  .lio-footer-2026 .lfx-news-input::placeholder { color: rgba(11, 36, 16, 0.4); }
+  .lio-footer-2026 .lfx-news-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--forest);
+    color: var(--mint);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 0.2s var(--lfx-ease);
+  }
+  .lio-footer-2026 .lfx-news-btn svg { width: 14px; height: 14px; }
+  .lio-footer-2026 .lfx-news-btn:hover { transform: translateX(2px); }
+  .lio-footer-2026 .lfx-news-btn:active { transform: translateX(2px) scale(0.98); }
+  .lio-footer-2026 .lfx-news-success {
+    font-size: 13.5px;
+    color: var(--mint);
+    margin: 0;
+    font-weight: 600;
+  }
+  .lio-footer-2026 .lfx-news-error {
+    font-size: 12px;
+    color: #ffb4b4;
+    margin: 6px 0 0;
+  }
+  .lio-footer-2026 .lfx-news-note {
+    font-size: 11.5px;
+    color: var(--cream-soft);
+    margin-top: 4px;
+  }
+
+  /* Payment marks row */
+  .lio-footer-2026 .lfx-pay {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 22px 0 18px;
+    border-top: 1px solid rgba(148, 252, 169, 0.14);
+  }
+  .lio-footer-2026 .lfx-pay span {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cream-muted);
+    padding: 5px 10px;
+    background: rgba(246, 242, 231, 0.05);
+    border: 1px solid rgba(148, 252, 169, 0.14);
+    border-radius: 7px;
+  }
+
+  /* Legal band */
+  .lio-footer-2026 .lfx-legal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(148, 252, 169, 0.14);
+  }
+  .lio-footer-2026 .lfx-legal-left,
+  .lio-footer-2026 .lfx-legal-right {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--cream-soft);
+  }
+  .lio-footer-2026 .lfx-legal-left a {
+    color: var(--cream-muted);
+    transition: color 0.2s var(--lfx-ease);
+  }
+  .lio-footer-2026 .lfx-legal-left a:hover { color: var(--mint); }
+
+  /* Locale / country selector — styled native select */
+  .lio-footer-2026 .lfx-selector {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+  .lio-footer-2026 .lfx-selector::after {
+    content: "";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-30%) rotate(45deg);
+    width: 6px; height: 6px;
+    border-right: 1.5px solid var(--cream-muted);
+    border-bottom: 1.5px solid var(--cream-muted);
+    pointer-events: none;
+  }
+  .lio-footer-2026 .lfx-selector select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    border: 1px solid rgba(148, 252, 169, 0.22);
+    border-radius: 999px;
+    color: var(--cream);
+    padding: 7px 30px 7px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s var(--lfx-ease), background 0.2s var(--lfx-ease);
+  }
+  .lio-footer-2026 .lfx-selector select:hover { border-color: var(--mint); }
+  .lio-footer-2026 .lfx-selector select option {
+    color: var(--forest);
+    background: var(--cream);
+  }
+
+  .lio-footer-2026 .lfx-address {
+    font-size: 12px;
+    color: var(--cream-soft);
+    padding: 14px 0;
+    margin: 0;
+    border-top: 1px solid rgba(148, 252, 169, 0.08);
+    line-height: 1.55;
+  }
+  .lio-footer-2026 .lfx-compliance {
+    font-size: 11.5px;
+    line-height: 1.65;
+    color: var(--cream-dim);
+    padding: 16px 0 28px;
+    margin: 0;
+    border-top: 1px solid rgba(148, 252, 169, 0.08);
+  }
+
+  /* Responsive */
+  @media (min-width: 640px) {
+    .lio-footer-2026 .lfx-trust {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 28px;
+      padding: 32px 32px;
+    }
+    .lio-footer-2026 .lfx-columns {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (min-width: 820px) {
+    .lio-footer-2026 .lfx-trust {
+      grid-template-columns: repeat(4, 1fr);
+      padding: 36px 48px;
+    }
+    .lio-footer-2026 .lfx-main { padding: 88px 0 0; }
+    .lio-footer-2026 .lfx-inner { padding: 0 48px; }
+    .lio-footer-2026 .lfx-top {
+      grid-template-columns: 1.2fr 2fr 1.4fr;
+      gap: 56px;
+      padding-bottom: 72px;
+    }
+    .lio-footer-2026 .lfx-brand-logo { font-size: 52px; }
+  }
+  @media (min-width: 1100px) {
+    .lio-footer-2026 .lfx-columns {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lio-footer-2026 .lfx-col-list a,
+    .lio-footer-2026 .lfx-social a,
+    .lio-footer-2026 .lfx-news-btn,
+    .lio-footer-2026 .lfx-selector select { transition: none !important; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Lio · Footer",
+  "tag": "footer",
+  "class": "section-lio-footer",
+  "settings": [
+    { "type": "header", "content": "Trust strip (above footer)" },
+    { "type": "checkbox", "id": "show_trust", "label": "Show trust strip", "default": true },
+
+    { "type": "header", "content": "Brand" },
+    { "type": "image_picker", "id": "brand_logo", "label": "Logo (optional — overrides wordmark)" },
+    { "type": "text", "id": "brand_wordmark", "label": "Wordmark (used if no logo image)", "default": "Lio" },
+    { "type": "checkbox", "id": "brand_reg", "label": "Show ® mark after wordmark", "default": true },
+    { "type": "textarea", "id": "brand_tagline", "label": "Brand paragraph", "default": "The original flavored-air diffuser. <strong>Invented in Amsterdam, 2018.</strong> Still family-owned, still hand-finished, still the one every imitation is based on." },
+
+    { "type": "header", "content": "Social" },
+    { "type": "checkbox", "id": "show_social", "label": "Show social icons", "default": true },
+    { "type": "text", "id": "social_aria", "label": "Social region aria-label", "default": "Lio on social media" },
+    { "type": "url", "id": "instagram_url", "label": "Instagram URL" },
+    { "type": "url", "id": "tiktok_url", "label": "TikTok URL" },
+    { "type": "url", "id": "facebook_url", "label": "Facebook URL" },
+    { "type": "url", "id": "youtube_url", "label": "YouTube URL" },
+
+    { "type": "header", "content": "Newsletter" },
+    { "type": "checkbox", "id": "show_newsletter", "label": "Show newsletter", "default": true },
+    { "type": "text", "id": "newsletter_eyebrow", "label": "Eyebrow", "default": "From Amsterdam" },
+    { "type": "text", "id": "newsletter_title", "label": "Title", "default": "A letter, every other Sunday." },
+    { "type": "textarea", "id": "newsletter_sub", "label": "Sub", "default": "Stories from the workshop, new flavor drops, and the occasional early access. No spam — ever." },
+    { "type": "text", "id": "newsletter_placeholder", "label": "Input placeholder", "default": "you@mail.com" },
+    { "type": "text", "id": "newsletter_cta", "label": "Button label", "default": "Join" },
+    { "type": "text", "id": "newsletter_success", "label": "Success message", "default": "Thanks. Check your inbox." },
+    { "type": "text", "id": "newsletter_note", "label": "Fine print under form", "default": "By subscribing you agree to our privacy policy." },
+
+    { "type": "header", "content": "Payment marks" },
+    { "type": "text", "id": "payment_marks", "label": "Comma-separated (e.g. Visa, Mastercard, Shop Pay, iDEAL)", "default": "Visa, Mastercard, Amex, Apple Pay, Google Pay, iDEAL, Shop Pay, Klarna" },
+    { "type": "text", "id": "payment_aria", "label": "Row aria-label", "default": "Accepted payment methods" },
+
+    { "type": "header", "content": "Localization selectors" },
+    { "type": "checkbox", "id": "show_locale_selector", "label": "Show language selector", "default": true },
+    { "type": "checkbox", "id": "show_country_selector", "label": "Show country/region selector", "default": true },
+    { "type": "text", "id": "language_aria", "label": "Language label", "default": "Language" },
+    { "type": "text", "id": "country_aria", "label": "Country/region label", "default": "Country/region" },
+
+    { "type": "header", "content": "Legal band" },
+    { "type": "text", "id": "copyright", "label": "Copyright line (use {year} for the current year)", "default": "© {year} Lio · VanLierGroup FZCO" },
+    { "type": "text", "id": "legal_1_label", "label": "Legal link 1 — label", "default": "Privacy policy" },
+    { "type": "url", "id": "legal_1_url", "label": "Legal link 1 — URL" },
+    { "type": "text", "id": "legal_2_label", "label": "Legal link 2 — label", "default": "Terms & conditions" },
+    { "type": "url", "id": "legal_2_url", "label": "Legal link 2 — URL" },
+    { "type": "text", "id": "legal_3_label", "label": "Legal link 3 — label", "default": "Cookie settings" },
+    { "type": "url", "id": "legal_3_url", "label": "Legal link 3 — URL" },
+
+    { "type": "header", "content": "Address & compliance" },
+    { "type": "textarea", "id": "address", "label": "Company address", "default": "European rep: Fresh@Work BV · Jelle Zijlstraweg 128, 1689 ZX Zwaag, NL" },
+    { "type": "richtext", "id": "compliance", "label": "Compliance disclaimer", "default": "<p>Lio is a wellness and aromatherapy device designed for sensory satisfaction through natural ritual replacement. It is not a medical device, a smoking cessation aid, or a therapeutic treatment. Lio is not intended to diagnose, treat, cure, or prevent any disease, medical condition, or substance dependence. No health claims are made about this product. Individual experiences may vary.</p>" }
+  ],
+  "blocks": [
+    {
+      "type": "trust",
+      "name": "Trust strip item",
+      "limit": 6,
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "default": "ship", "options": [
+          { "value": "ship", "label": "Truck (shipping)" },
+          { "value": "shield", "label": "Shield (guarantee)" },
+          { "value": "return", "label": "Arrow (returns)" },
+          { "value": "leaf", "label": "Leaf (natural)" },
+          { "value": "star", "label": "Star (rating)" },
+          { "value": "check", "label": "Check" }
+        ] },
+        { "type": "text", "id": "title", "label": "Title", "default": "Free EU shipping" },
+        { "type": "text", "id": "sub", "label": "Subtitle", "default": "Over €50" }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "Menu column",
+      "limit": 6,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Column title", "default": "Shop" },
+        { "type": "link_list", "id": "menu", "label": "Menu (from Navigation)" },
+        { "type": "html", "id": "links_html", "label": "Custom HTML (used if no menu picked)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lio · Footer",
+      "blocks": [
+        { "type": "trust", "settings": { "icon": "ship",   "title": "Ships from Amsterdam",    "sub": "Same-day before 4pm CET" } },
+        { "type": "trust", "settings": { "icon": "check",  "title": "Free EU shipping",        "sub": "Over €50" } },
+        { "type": "trust", "settings": { "icon": "return", "title": "60-day returns",          "sub": "Even if opened" } },
+        { "type": "trust", "settings": { "icon": "leaf",   "title": "0% nicotine, ever",       "sub": "Plant-based · EU-tested" } },
+
+        { "type": "menu", "settings": { "title": "Shop",    "links_html": "<ul><li><a href=\"/collections/first-month-packs\">First-month packs</a></li><li><a href=\"/collections/diffusers\">Diffusers</a></li><li><a href=\"/collections/cores\">Refill flavors</a></li><li><a href=\"/collections/accessories\">Accessories</a></li><li><a href=\"/collections/cores-club\">The Cores Club</a></li></ul>" } },
+        { "type": "menu", "settings": { "title": "Learn",   "links_html": "<ul><li><a href=\"/pages/how-it-works\">How Lio works</a></li><li><a href=\"/pages/ingredients\">Ingredients</a></li><li><a href=\"/pages/reviews\">Reviews</a></li><li><a href=\"/pages/about\">Our story</a></li><li><a href=\"/pages/wholesale\">Wholesale</a></li></ul>" } },
+        { "type": "menu", "settings": { "title": "Support", "links_html": "<ul><li><a href=\"/pages/faq\">FAQ</a></li><li><a href=\"/account/orders\">Track your order</a></li><li><a href=\"/pages/contact\">Contact us</a></li><li><a href=\"/policies/refund-policy\">Refund policy</a></li><li><a href=\"/policies/shipping-policy\">Shipping</a></li></ul>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

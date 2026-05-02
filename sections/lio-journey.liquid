@@ -1,0 +1,281 @@
+{%- comment -%}
+  Section: Lio · Journey — 90-day ritual replacement timeline.
+  Horizontally scrollable on tablet/mobile. CSS scoped to .lio-journey. No SVG.
+{%- endcomment -%}
+
+<section class="lio-journey" id="lio-journey-{{ section.id }}">
+  <div class="lio-journey__head">
+    <span class="lio-journey__eyebrow">The ritual replacement timeline</span>
+    <h2>What <span class="lio-journey__soft">actually happens</span><br>in the first 90 days.</h2>
+    <p>Built from behavioral-science research (Duhigg's habit loop, Duke &amp; Pittsburgh craving studies) and feedback from 100,000+ customers. Your timeline won't be identical — but it'll rhyme.</p>
+  </div>
+
+  <div class="lio-journey__rail">
+
+    <div class="lio-journey__card">
+      <div class="lio-journey__phase">Phase 1 · Danger zone</div>
+      <div class="lio-journey__days">
+        <span class="lio-journey__day-label">Day</span>
+        <span class="lio-journey__day-range">01 <span class="lio-journey__dash">–</span> 03</span>
+      </div>
+      <h3>Lighter than expected.</h3>
+      <p>If you're coming from a vape, your first pull will feel soft. That's the point — you're not chasing a hit, you're retraining a pattern. This is where most people almost give up.</p>
+      <ul>
+        <li>The craving still wins sometimes — normal</li>
+        <li>Your hand starts to find Lio before you decide to</li>
+        <li>Trust the subtlety. The work is happening.</li>
+      </ul>
+    </div>
+
+    <div class="lio-journey__card">
+      <div class="lio-journey__phase">Phase 2 · The reach</div>
+      <div class="lio-journey__days">
+        <span class="lio-journey__day-label">Day</span>
+        <span class="lio-journey__day-range">04 <span class="lio-journey__dash">–</span> 10</span>
+      </div>
+      <h3>The motion rewires.</h3>
+      <p>The hand-to-mouth motor pattern starts routing to Lio instead of your old trigger. Flavor begins registering as a reward signal. Most people finish their first core in this window.</p>
+      <ul>
+        <li>Breath feels clearer within the first week</li>
+        <li>You reach for Lio automatically a few times a day</li>
+        <li>Taste and smell start coming back</li>
+      </ul>
+    </div>
+
+    <div class="lio-journey__card">
+      <div class="lio-journey__phase">Phase 3 · The swap sticks</div>
+      <div class="lio-journey__days">
+        <span class="lio-journey__day-label">Day</span>
+        <span class="lio-journey__day-range">11 <span class="lio-journey__dash">–</span> 21</span>
+      </div>
+      <h3>Cravings lose specificity.</h3>
+      <p>Around three weeks in, something shifts. The craving still comes — but it no longer demands the cigarette, the vape, the nail, the snack. It just asks for the pause. Lio delivers it.</p>
+      <ul>
+        <li>Sleep quality lifts for most ex-smokers</li>
+        <li>You'll know which 2–3 blends actually work for you</li>
+        <li>The old habit starts feeling optional, not inevitable</li>
+      </ul>
+    </div>
+
+    <div class="lio-journey__card">
+      <div class="lio-journey__phase">Phase 4 · The new normal</div>
+      <div class="lio-journey__days">
+        <span class="lio-journey__day-label">Day</span>
+        <span class="lio-journey__day-range">22 <span class="lio-journey__dash">–</span> 30</span>
+      </div>
+      <h3>Identity starts shifting.</h3>
+      <p>You stop thinking of yourself as "someone trying to quit." The new routine is the routine. Many people forget about the old habit for hours at a time — then whole days.</p>
+      <ul>
+        <li>Daily Lio use often drops to 3–5 times, not 30</li>
+        <li>Most customers cross the "I don't need this today" line here</li>
+        <li>You'll save €40–80 vs. the old habit this month alone</li>
+      </ul>
+    </div>
+
+    <div class="lio-journey__card">
+      <div class="lio-journey__phase">Phase 5 · Rewired</div>
+      <div class="lio-journey__days">
+        <span class="lio-journey__day-label">Day</span>
+        <span class="lio-journey__day-range">30 <span class="lio-journey__dash">–</span> 90</span>
+      </div>
+      <h3>The old ritual feels foreign.</h3>
+      <p>By month three, the neural pathway has rewired. Lio fades into the background — from "the thing helping me quit" to "the thing I grab when I need a breath." No relapse cliff. No white-knuckling.</p>
+      <ul>
+        <li>Pro loyalty price drops at month 3 — €2–4/month saved</li>
+        <li>Most people now use 2–3 cores/month, not 4</li>
+        <li>You've saved €200+ vs. the old habit. And you're done.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+{% stylesheet %}
+  .lio-journey {
+    --lj-forest: var(--lio-forest, #0b2410);
+    --lj-chalk:  var(--lio-chalk, #fcfefb);
+    --lj-mint:   var(--lio-mint, #94fca9);
+    --lj-f-10:   var(--lio-f-10, rgba(11, 36, 16, 0.10));
+    --lj-f-14:   var(--lio-f-14, rgba(11, 36, 16, 0.14));
+    --lj-f-55:   var(--lio-f-55, rgba(11, 36, 16, 0.55));
+    --lj-f-72:   var(--lio-f-72, rgba(11, 36, 16, 0.72));
+    --lj-shadow-1: var(--lio-shadow-1, 0 1px 2px rgba(11,36,16,0.04), 0 8px 24px rgba(11,36,16,0.06));
+    --lj-ease:   var(--lio-ease, cubic-bezier(0.22, 1, 0.36, 1));
+
+    background: #f3f6f0;
+    padding: 104px 40px;
+    border-top: 1px solid var(--lj-f-10);
+    border-bottom: 1px solid var(--lj-f-10);
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+  }
+
+  .lio-journey__head {
+    max-width: 780px;
+    margin: 0 auto 56px;
+    text-align: center;
+  }
+  .lio-journey__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--lj-f-55);
+    justify-content: center;
+    margin-bottom: 22px;
+  }
+  .lio-journey__eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--lj-forest); }
+  .lio-journey__head h2 {
+    font-weight: 900;
+    font-size: clamp(40px, 5.4vw, 72px);
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+    color: var(--lj-forest);
+    margin-bottom: 20px;
+  }
+  .lio-journey__soft { font-weight: 300; }
+  .lio-journey__head p {
+    font-size: 16px;
+    color: var(--lj-f-72);
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .lio-journey__rail {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+  }
+
+  .lio-journey__card {
+    background: var(--lj-chalk);
+    border: 1px solid var(--lj-f-10);
+    border-radius: 24px;
+    padding: 28px 22px;
+    transition: all 0.35s var(--lj-ease);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+  }
+  .lio-journey__card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--lj-mint);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s var(--lj-ease);
+  }
+  .lio-journey__card:hover {
+    transform: translateY(-4px);
+    border-color: var(--lj-forest);
+    box-shadow: var(--lj-shadow-1);
+  }
+  .lio-journey__card:hover::before { transform: scaleX(1); }
+
+  .lio-journey__phase {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lj-f-55);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .lio-journey__days {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 18px;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+  }
+  .lio-journey__day-label {
+    font-size: 13px;
+    color: var(--lj-f-55);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding-right: 4px;
+    border-right: 1px solid var(--lj-f-14);
+  }
+  .lio-journey__day-range { font-size: 56px; color: var(--lj-forest); }
+  .lio-journey__dash     { color: var(--lj-mint); font-weight: 900; display: inline-block; padding: 0 0.04em; }
+
+  .lio-journey__card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+    color: var(--lj-forest);
+  }
+  .lio-journey__card > p {
+    font-size: 14px;
+    color: var(--lj-f-72);
+    line-height: 1.6;
+    margin: 0 0 20px;
+  }
+  .lio-journey__card ul {
+    list-style: none;
+    border-top: 1px solid var(--lj-f-10);
+    padding: 16px 0 0;
+    margin: auto 0 0;
+  }
+  .lio-journey__card li {
+    font-size: 13px;
+    color: var(--lj-forest);
+    padding: 6px 0 6px 20px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .lio-journey__card li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 12px;
+    width: 12px; height: 2px;
+    background: var(--lj-mint);
+  }
+
+  @media (max-width: 1180px) {
+    .lio-journey__rail {
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(280px, 1fr);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 0 20px 8px;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+    .lio-journey__card { scroll-snap-align: start; }
+  }
+  @media (max-width: 960px) {
+    .lio-journey { padding: 72px 20px; }
+    .lio-journey__rail { grid-auto-columns: minmax(260px, 82vw); }
+    .lio-journey__day-range { font-size: 44px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Lio · Journey",
+  "tag": "section",
+  "class": "section-lio-journey",
+  "settings": [],
+  "presets": [
+    { "name": "Lio · Journey" }
+  ]
+}
+{% endschema %}
