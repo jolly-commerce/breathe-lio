@@ -9,126 +9,6 @@
 {%- endcomment -%}
 
 {{ 'lio-pdp-builder.css' | asset_url | stylesheet_tag }}
-
-{%- comment -%} ============ NEW GALLERY STYLES (12-slide scroll-snap) ============ {%- endcomment -%}
-<style>
-  .lio-gallery-main { position: relative; isolation: isolate; }
-  .lio-gal-track {
-    position: absolute; inset: 0;
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; -ms-overflow-style: none;
-    overscroll-behavior-x: contain;
-    z-index: 0;
-  }
-  .lio-gal-track::-webkit-scrollbar { display: none; }
-  .lio-gal-slide {
-    flex: 0 0 100%; width: 100%; height: 100%;
-    scroll-snap-align: start; scroll-snap-stop: always;
-    margin: 0; position: relative;
-    background: rgba(11,36,16,0.04);
-  }
-  .lio-gal-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .lio-gal-img.is-placeholder {
-    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px;
-    background: linear-gradient(135deg, #f4f7f2, #f8faf6);
-    color: rgba(11,36,16,0.22);
-    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700;
-  }
-  .lio-gal-img.is-placeholder svg { width: 56px; height: 56px; }
-
-  .lio-gal-arrow {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    z-index: 4;
-    width: 40px; height: 40px;
-    border-radius: 50%; border: 0;
-    background: rgba(252,254,251,0.92);
-    color: #0b2410;
-    cursor: pointer;
-    display: inline-flex; align-items: center; justify-content: center;
-    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-    box-shadow: 0 2px 10px rgba(11,36,16,0.10);
-    transition: background 0.15s, opacity 0.2s, transform 0.15s;
-  }
-  .lio-gal-arrow:hover { background: #fcfefb; transform: translateY(-50%) scale(1.05); }
-  .lio-gal-arrow.is-disabled { opacity: 0; pointer-events: none; }
-  .lio-gal-arrow svg { width: 14px; height: 14px; }
-  .lio-gal-arrow--prev { left: 14px; }
-  .lio-gal-arrow--next { right: 14px; }
-
-  .lio-gal-counter {
-    position: absolute; bottom: 16px; right: 16px; z-index: 3;
-    background: rgba(11,36,16,0.84);
-    color: #fcfefb;
-    padding: 6px 12px;
-    border-radius: 999px;
-    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
-    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-    display: inline-flex; align-items: center; gap: 4px;
-  }
-  .lio-gal-counter-sep { opacity: 0.5; }
-
-  .lio-gal-dots {
-    display: flex; gap: 6px;
-    justify-content: center;
-    padding: 12px 0 10px;
-    flex-wrap: wrap;
-  }
-  .lio-gal-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: rgba(11,36,16,0.16);
-    border: 0; padding: 0;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .lio-gal-dot:hover { background: rgba(11,36,16,0.40); }
-  .lio-gal-dot.is-active { background: #0b2410; transform: scale(1.4); }
-
-  .lio-gal-thumbs {
-    display: flex; gap: 6px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; -ms-overflow-style: none;
-    padding-bottom: 4px;
-    scroll-behavior: smooth;
-    scroll-padding-inline: 6px;
-  }
-  .lio-gal-thumbs::-webkit-scrollbar { display: none; }
-  .lio-gal-thumb {
-    flex: 0 0 calc((100% - 6px * 5) / 6);
-    aspect-ratio: 1 / 1;
-    border-radius: 10px;
-    overflow: hidden;
-    background: #f8faf6;
-    border: 2px solid rgba(11,36,16,0.08);
-    cursor: pointer; padding: 0;
-    transition: border-color 0.15s, transform 0.15s;
-    scroll-snap-align: start;
-    position: relative;
-  }
-  .lio-gal-thumb:hover { transform: translateY(-1px); border-color: rgba(11,36,16,0.22); }
-  .lio-gal-thumb.is-active { border-color: #0b2410; }
-  .lio-gal-thumb-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .lio-gal-thumb-placeholder {
-    width: 100%; height: 100%;
-    display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(135deg, #f4f7f2, #f8faf6);
-    color: rgba(11,36,16,0.22);
-  }
-  .lio-gal-thumb-placeholder svg { width: 18px; height: 18px; }
-
-  @media (max-width: 600px) {
-    .lio-gal-thumb { flex: 0 0 calc((100% - 6px * 4) / 5); border-radius: 8px; }
-    .lio-gal-arrow { width: 36px; height: 36px; }
-    .lio-gal-counter { font-size: 10px; padding: 5px 10px; bottom: 12px; right: 12px; }
-  }
-</style>
 <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
 {%- liquid
@@ -162,49 +42,16 @@
     {%- comment -%} ============ GALLERY ============ {%- endcomment -%}
     <div class="lio-gallery">
       <div class="lio-gallery-main" id="lio-gallery-main">
-
-        {%- comment -%} 12-slide scroll-snap track {%- endcomment -%}
-        <div class="lio-gal-track" id="lio-gal-track" role="list" aria-label="Product images" tabindex="0">
-          {%- for i in (1..12) -%}
-            {%- assign img_key = 'gallery_image_' | append: i -%}
-            {%- assign img = section.settings[img_key] -%}
-            <figure class="lio-gal-slide" role="listitem">
-              {%- if img -%}
-                <img class="lio-gal-img"
-                     src="{{ img | image_url: width: 1200 }}"
-                     srcset="{{ img | image_url: width: 600 }} 600w, {{ img | image_url: width: 900 }} 900w, {{ img | image_url: width: 1200 }} 1200w, {{ img | image_url: width: 1800 }} 1800w"
-                     sizes="(max-width: 980px) 100vw, 540px"
-                     alt="{{ section.settings.heading | default: 'Lio kit' | strip_html | escape }} — image {{ i }}"
-                     width="1200" height="1200"
-                     {%- if forloop.first %} fetchpriority="high" loading="eager"{% else %} loading="lazy"{%- endif -%}
-                     decoding="async">
-              {%- else -%}
-                <span class="lio-gal-img is-placeholder" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="m3 17 6-6 5 5 3-3 4 4"/>
-                  </svg>
-                  <span>Image {{ i }}</span>
-                </span>
-              {%- endif -%}
-            </figure>
-          {%- endfor -%}
-        </div>
-
-        {%- comment -%} Overlay arrow controls {%- endcomment -%}
-        <button type="button" class="lio-gal-arrow lio-gal-arrow--prev is-disabled" data-gal-prev aria-label="Previous image">
-          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 3-4 4 4 4"/></svg>
-        </button>
-        <button type="button" class="lio-gal-arrow lio-gal-arrow--next" data-gal-next aria-label="Next image">
-          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 3 4 4-4 4"/></svg>
-        </button>
-
-        {%- comment -%} Slide counter {%- endcomment -%}
-        <div class="lio-gal-counter" aria-hidden="true">
-          <span id="lio-gal-counter-current">1</span>
-          <span class="lio-gal-counter-sep">/</span>
-          <span id="lio-gal-counter-total">12</span>
-        </div>
-
+        <img id="lio-gallery-hero" class="hero"
+          {% if hero_default %}
+            src="{{ hero_default | image_url: width: 1200 }}"
+            srcset="{{ hero_default | image_url: width: 600 }} 600w, {{ hero_default | image_url: width: 900 }} 900w, {{ hero_default | image_url: width: 1200 }} 1200w, {{ hero_default | image_url: width: 1800 }} 1800w"
+            sizes="(max-width: 980px) 100vw, 540px"
+          {% endif %}
+          alt="{{ section.settings.heading | default: 'Lio kit' | strip_html | escape }}"
+          width="1200" height="1200"
+          fetchpriority="high"
+          decoding="async">
         {%- if section.settings.gallery_pin_number != blank -%}
           <div class="lio-gallery-pin">
             <div class="lio-gallery-pin-num">{{ section.settings.gallery_pin_number }}</div>
@@ -322,23 +169,16 @@
         {%- endif -%}
       </div>
 
-      {%- comment -%} Dot navigation row {%- endcomment -%}
-      <div class="lio-gal-dots" id="lio-gal-dots" role="tablist" aria-label="Slide navigation"></div>
-
-      {%- comment -%} Thumbnail strip — 12 thumbs, scrollable on mobile, click to jump to slide {%- endcomment -%}
-      <div class="lio-gal-thumbs" id="lio-gal-thumbs" role="tablist" aria-label="Product images">
-        {%- for i in (1..12) -%}
+      <div class="lio-gallery-thumbs" id="lio-gallery-thumbs">
+        {%- for i in (1..5) -%}
           {%- assign img_key = 'gallery_image_' | append: i -%}
           {%- assign img = section.settings[img_key] -%}
-          <button type="button" class="lio-gal-thumb{% if forloop.first %} is-active{% endif %}" data-gal-thumb="{{ forloop.index0 }}" aria-label="Image {{ i }}"{% if forloop.first %} aria-selected="true"{% endif %}>
-            {%- if img -%}
-              <img class="lio-gal-thumb-img" src="{{ img | image_url: width: 160 }}" alt="" loading="lazy" decoding="async" width="80" height="80">
-            {%- else -%}
-              <span class="lio-gal-thumb-placeholder" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="m3 17 6-6 5 5 3-3 4 4"/></svg>
-              </span>
-            {%- endif -%}
-          </button>
+          {%- if img -%}
+            {%- assign img_url = img | image_url: width: 1200 -%}
+            <button type="button" class="lio-gallery-thumb{% if forloop.first %} is-active{% endif %}" data-img="{{ img_url }}" aria-label="View image {{ i }}">
+              <img src="{{ img | image_url: width: 240 }}" alt="" loading="lazy" decoding="async" width="240" height="240">
+            </button>
+          {%- endif -%}
         {%- endfor -%}
       </div>
     </div>
@@ -964,119 +804,12 @@
 
 <script src="{{ 'lio-pdp-builder.js' | asset_url }}" defer></script>
 
-<script>
-/* ============================================================
-   GALLERY SLIDER — 12 slides, arrows, dots, counter, thumb sync
-   ============================================================ */
-(function () {
-  function initGallery() {
-    var track  = document.getElementById('lio-gal-track');
-    if (!track) return;
-    var slides = track.querySelectorAll('.lio-gal-slide');
-    if (!slides.length) return;
-    var prev      = document.querySelector('[data-gal-prev]');
-    var next      = document.querySelector('[data-gal-next]');
-    var dotsWrap  = document.getElementById('lio-gal-dots');
-    var thumbs    = document.querySelectorAll('.lio-gal-thumb');
-    var thumbStrip= document.getElementById('lio-gal-thumbs');
-    var counterC  = document.getElementById('lio-gal-counter-current');
-    var counterT  = document.getElementById('lio-gal-counter-total');
-    var current = 0;
-    if (counterT) counterT.textContent = String(slides.length);
-
-    if (dotsWrap) {
-      dotsWrap.innerHTML = '';
-      for (var i = 0; i < slides.length; i++) {
-        var b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'lio-gal-dot' + (i === 0 ? ' is-active' : '');
-        b.setAttribute('aria-label', 'Image ' + (i + 1));
-        b.dataset.idx = i;
-        (function (idx) { b.addEventListener('click', function () { goTo(idx); }); })(i);
-        dotsWrap.appendChild(b);
-      }
-    }
-    var dots = dotsWrap ? dotsWrap.querySelectorAll('.lio-gal-dot') : [];
-
-    function setActive (i) {
-      i = Math.max(0, Math.min(slides.length - 1, i));
-      current = i;
-      dots.forEach(function (d, idx) { d.classList.toggle('is-active', idx === i); });
-      thumbs.forEach(function (t, idx) {
-        var on = idx === i;
-        t.classList.toggle('is-active', on);
-        t.setAttribute('aria-selected', on ? 'true' : 'false');
-      });
-      if (prev) prev.classList.toggle('is-disabled', i === 0);
-      if (next) next.classList.toggle('is-disabled', i === slides.length - 1);
-      if (counterC) counterC.textContent = String(i + 1);
-      if (thumbStrip && thumbs[i]) {
-        var stripRect = thumbStrip.getBoundingClientRect();
-        var thumbRect = thumbs[i].getBoundingClientRect();
-        if (thumbRect.left < stripRect.left || thumbRect.right > stripRect.right) {
-          var delta = (thumbRect.left - stripRect.left) - (stripRect.width - thumbRect.width) / 2;
-          thumbStrip.scrollBy({ left: delta, behavior: 'smooth' });
-        }
-      }
-    }
-    function goTo (i) {
-      i = Math.max(0, Math.min(slides.length - 1, i));
-      var target = slides[i];
-      if (!target) return;
-      track.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
-    }
-
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        var best = null, bestRatio = 0;
-        entries.forEach(function (e) {
-          if (e.isIntersecting && e.intersectionRatio > bestRatio) {
-            bestRatio = e.intersectionRatio;
-            best = e.target;
-          }
-        });
-        if (best) {
-          var idx = Array.prototype.indexOf.call(slides, best);
-          if (idx !== -1 && idx !== current) setActive(idx);
-        }
-      }, { root: track, threshold: [0.5, 0.75, 0.95] });
-      slides.forEach(function (s) { io.observe(s); });
-    } else {
-      var scrollTimer;
-      track.addEventListener('scroll', function () {
-        clearTimeout(scrollTimer);
-        scrollTimer = setTimeout(function () {
-          var i = Math.round(track.scrollLeft / track.clientWidth);
-          if (i !== current) setActive(i);
-        }, 80);
-      });
-    }
-
-    if (prev) prev.addEventListener('click', function () { goTo(current - 1); });
-    if (next) next.addEventListener('click', function () { goTo(current + 1); });
-    thumbs.forEach(function (t, idx) { t.addEventListener('click', function () { goTo(idx); }); });
-
-    track.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(current - 1); }
-      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
-    });
-
-    setActive(0);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initGallery);
-  } else {
-    initGallery();
-  }
-})();
-</script>
-
 {% schema %}
 {
   "name": "Lio PDP Builder",
   "tag": "section",
   "class": "lio-pdp-builder-wrap",
-  "enabled_on": { "templates": ["product", "page"] },
+  "enabled_on": { "templates": ["product"] },
   "settings": [
     { "type": "header", "content": "Header copy" },
     { "type": "text",   "id": "announcement_text",  "label": "Announcement bar",  "default": "Free EU shipping on €65+ · 90-day promise" },
