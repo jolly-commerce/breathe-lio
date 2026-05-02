@@ -1,0 +1,244 @@
+{%- comment -%}
+  Section: Lio · Social Proof — grid of social proof signals
+  (Instagram, UGC, awards, as-seen-in, stockists, testimonials).
+{%- endcomment -%}
+
+<section class="lio-psp" id="lio-psp-{{ section.id }}">
+  <div class="lio-psp__head">
+    <span class="lio-psp__eyebrow">{{ section.settings.eyebrow }}</span>
+    <h2>{{ section.settings.heading }} <span class="lio-psp__soft">{{ section.settings.heading_soft }}</span></h2>
+  </div>
+
+  <div class="lio-psp__grid">
+    {%- for block in section.blocks -%}
+      <div class="lio-psp__card lio-psp__card--{{ block.settings.variant }}" {{ block.shopify_attributes }}>
+        {%- if block.settings.badge != blank -%}
+          <span class="lio-psp__badge">{{ block.settings.badge }}</span>
+        {%- endif -%}
+        <div class="lio-psp__icon" aria-hidden="true">{{ block.settings.symbol }}</div>
+        <div class="lio-psp__content">
+          <p class="lio-psp__title">{{ block.settings.title }}</p>
+          <p class="lio-psp__text">{{ block.settings.text }}</p>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .lio-psp {
+    --lp-forest: var(--lio-forest, #0b2410);
+    --lp-chalk:  var(--lio-chalk, #fcfefb);
+    --lp-mint:   var(--lio-mint, #94fca9);
+    --lp-f-10:   rgba(11, 36, 16, 0.10);
+    --lp-f-55:   rgba(11, 36, 16, 0.55);
+    --lp-f-72:   rgba(11, 36, 16, 0.72);
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+  }
+  .lio-psp__head { text-align: center; margin-bottom: 48px; }
+  .lio-psp__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--lp-f-55);
+    margin-bottom: 16px;
+  }
+  .lio-psp__eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--lp-forest); }
+  .lio-psp__head h2 {
+    font-weight: 900;
+    font-size: clamp(36px, 4.6vw, 56px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--lp-forest);
+    margin: 0;
+  }
+  .lio-psp__soft { font-weight: 300; }
+
+  .lio-psp__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .lio-psp__card {
+    background: var(--lp-chalk);
+    border: 1px solid var(--lp-f-10);
+    border-radius: 20px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .lio-psp__card:hover {
+    border-color: var(--lp-forest);
+    transform: translateY(-3px);
+  }
+  .lio-psp__card--dark {
+    background: var(--lp-forest);
+    border-color: var(--lp-forest);
+    color: var(--lp-chalk);
+  }
+  .lio-psp__card--mint {
+    background: var(--lp-mint);
+    border-color: var(--lp-mint);
+  }
+  .lio-psp__badge {
+    position: absolute;
+    top: 16px; right: 16px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: var(--lp-mint);
+    color: var(--lp-forest);
+  }
+  .lio-psp__card--dark .lio-psp__badge { background: var(--lp-mint); color: var(--lp-forest); }
+  .lio-psp__icon {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--lp-forest);
+    color: var(--lp-mint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .lio-psp__card--dark .lio-psp__icon { background: var(--lp-mint); color: var(--lp-forest); }
+  .lio-psp__card--mint .lio-psp__icon { background: var(--lp-forest); color: var(--lp-mint); }
+  .lio-psp__title {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 6px;
+  }
+  .lio-psp__card--dark .lio-psp__title { color: var(--lp-chalk); }
+  .lio-psp__text {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--lp-f-72);
+    margin: 0;
+  }
+  .lio-psp__card--dark .lio-psp__text { color: rgba(252, 254, 251, 0.7); }
+
+  @media (max-width: 960px) {
+    .lio-psp { padding: 60px 20px; }
+    .lio-psp__grid { grid-template-columns: 1fr; gap: 12px; }
+  }
+  @media (min-width: 961px) and (max-width: 1149px) {
+    .lio-psp__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Lio · Social Proof",
+  "tag": "section",
+  "class": "section-lio-product-social-proof",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Trusted & recognized" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "You're not the" },
+    { "type": "text", "id": "heading_soft", "label": "Heading (soft)", "default": "first to switch." }
+  ],
+  "blocks": [
+    {
+      "type": "proof",
+      "name": "Proof card",
+      "settings": [
+        { "type": "text", "id": "symbol", "label": "Symbol", "default": "★" },
+        { "type": "text", "id": "title", "label": "Title", "default": "100,000+ rituals replaced" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Since 2022 — real people, real trigger moments, real habits replaced." },
+        {
+          "type": "select",
+          "id": "variant",
+          "label": "Style",
+          "options": [
+            { "value": "light", "label": "Light (chalk)" },
+            { "value": "dark", "label": "Dark (forest)" },
+            { "value": "mint", "label": "Mint" }
+          ],
+          "default": "light"
+        },
+        { "type": "text", "id": "badge", "label": "Badge (optional)" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Lio · Social Proof",
+      "blocks": [
+        {
+          "type": "proof",
+          "settings": {
+            "symbol": "★",
+            "title": "100,000+ rituals replaced",
+            "text": "Since 2022, over 100,000 people have used Lio to replace a hand-to-mouth habit without nicotine.",
+            "variant": "light"
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "symbol": "◉",
+            "title": "Featured everywhere",
+            "text": "Monocle · Dezeen · Wallpaper* · Vogue · Wired — and a dozen quit-smoking publications you've never heard of.",
+            "variant": "dark",
+            "badge": "As seen in"
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "symbol": "◆",
+            "title": "Designed in Amsterdam",
+            "text": "Precision-milled walnut. Food-grade essential oils. Made in the EU by a small team that answers their own emails.",
+            "variant": "mint"
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "symbol": "⌂",
+            "title": "Stocked in 40+ cities",
+            "text": "From Selfridges London to concept stores in Tokyo, Seoul, and Copenhagen. Find a stockist near you.",
+            "variant": "light"
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "symbol": "✦",
+            "title": "Best of 2026",
+            "text": "Best Behavioral Wellness Product 2026 — independent jury award, no sponsorships.",
+            "variant": "light",
+            "badge": "Award"
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "symbol": "♥",
+            "title": "4.9/5 across 7,300 reviews",
+            "text": "Verified buyers only. No incentives, no gifts, no pay-for-play. The reviews are real.",
+            "variant": "light"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

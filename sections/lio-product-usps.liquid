@@ -1,0 +1,211 @@
+{%- comment -%}
+  Section: Lio · Company USPs — 4 objection-buster cards
+  (Customer support, Product differentiator, Delivery, Warranty).
+{%- endcomment -%}
+
+<section class="lio-pusp" id="lio-pusp-{{ section.id }}">
+  <div class="lio-pusp__head">
+    <span class="lio-pusp__eyebrow">{{ section.settings.eyebrow }}</span>
+    <h2>{{ section.settings.heading }} <span class="lio-pusp__soft">{{ section.settings.heading_soft }}</span></h2>
+  </div>
+
+  <div class="lio-pusp__grid">
+    {%- for block in section.blocks -%}
+      <div class="lio-pusp__card" {{ block.shopify_attributes }}>
+        <div class="lio-pusp__top">
+          <span class="lio-pusp__label">USP · {{ forloop.index }}</span>
+          <span class="lio-pusp__tag">{{ block.settings.kind }}</span>
+        </div>
+        <p class="lio-pusp__title">{{ block.settings.title }}</p>
+        <p class="lio-pusp__text">{{ block.settings.text }}</p>
+        {%- if block.settings.link_label != blank -%}
+          <a href="{{ block.settings.link | default: '#' }}" class="lio-pusp__link">
+            {{ block.settings.link_label }} <span aria-hidden="true">→</span>
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .lio-pusp {
+    --lp-forest: var(--lio-forest, #0b2410);
+    --lp-chalk:  var(--lio-chalk, #fcfefb);
+    --lp-mint:   var(--lio-mint, #94fca9);
+    --lp-f-10:   rgba(11, 36, 16, 0.10);
+    --lp-f-55:   rgba(11, 36, 16, 0.55);
+    --lp-f-72:   rgba(11, 36, 16, 0.72);
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+  }
+  .lio-pusp__head { text-align: center; margin-bottom: 48px; }
+  .lio-pusp__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--lp-f-55);
+    margin-bottom: 16px;
+  }
+  .lio-pusp__eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--lp-forest); }
+  .lio-pusp__head h2 {
+    font-weight: 900;
+    font-size: clamp(36px, 4.6vw, 56px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--lp-forest);
+    margin: 0;
+  }
+  .lio-pusp__soft { font-weight: 300; }
+
+  .lio-pusp__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .lio-pusp__card {
+    background: var(--lp-chalk);
+    border: 1px solid var(--lp-f-10);
+    border-radius: 20px;
+    padding: 28px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .lio-pusp__card:hover { border-color: var(--lp-forest); transform: translateY(-3px); }
+  .lio-pusp__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+  .lio-pusp__label {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--lp-f-55);
+  }
+  .lio-pusp__tag {
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--lp-mint);
+    color: var(--lp-forest);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .lio-pusp__title {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    margin: 0;
+    color: var(--lp-forest);
+  }
+  .lio-pusp__text {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--lp-f-72);
+    margin: 0;
+    flex-grow: 1;
+  }
+  .lio-pusp__link {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--lp-forest);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.25s ease;
+    margin-top: auto;
+  }
+  .lio-pusp__link:hover { gap: 10px; }
+
+  @media (max-width: 960px) {
+    .lio-pusp { padding: 60px 20px; }
+    .lio-pusp__grid { grid-template-columns: 1fr; gap: 12px; }
+  }
+  @media (min-width: 961px) and (max-width: 1149px) {
+    .lio-pusp__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Lio · Company USPs",
+  "tag": "section",
+  "class": "section-lio-company-usps",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why buy from us" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "A small team" },
+    { "type": "text", "id": "heading_soft", "label": "Heading (soft)", "default": "who obsesses." }
+  ],
+  "blocks": [
+    {
+      "type": "usp",
+      "name": "USP card",
+      "settings": [
+        { "type": "text", "id": "kind", "label": "Kind", "default": "Support" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Real humans, 2-hour replies" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Email support@breathelio.com and you'll hear back from the actual team within 2 hours during EU business days." },
+        { "type": "text", "id": "link_label", "label": "Link label" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Lio · Company USPs",
+      "blocks": [
+        {
+          "type": "usp",
+          "settings": {
+            "kind": "Support",
+            "title": "Real humans, 2-hour replies",
+            "text": "support@breathelio.com reaches the actual team. Replies within 2 hours during EU business days. No tickets, no chatbots."
+          }
+        },
+        {
+          "type": "usp",
+          "settings": {
+            "kind": "Difference",
+            "title": "Designed in Amsterdam, made in EU",
+            "text": "Precision-milled walnut, food-grade essential oils, assembled in small batches. Not a white-label product from Alibaba."
+          }
+        },
+        {
+          "type": "usp",
+          "settings": {
+            "kind": "Delivery",
+            "title": "Ships from Rotterdam in 24h",
+            "text": "Order before 4pm CET on weekdays and it ships the same day. 2-3 days to most of Europe. Free over €50."
+          }
+        },
+        {
+          "type": "usp",
+          "settings": {
+            "kind": "Guarantee",
+            "title": "60-day money-back, no questions",
+            "text": "Try it for two months. If it doesn't help replace the habit, send it back — even if you've used it. We'll refund everything."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

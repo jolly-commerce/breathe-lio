@@ -1,0 +1,277 @@
+{%- comment -%}
+  Section: Lio · Product Reviews — testimonial grid with star rating, customer avatars.
+  Designed for product pages. Placeholder for Judge.me / Yotpo integration.
+{%- endcomment -%}
+
+<section class="lio-prev" id="lio-prev-{{ section.id }}">
+  <div class="lio-prev__head">
+    <span class="lio-prev__eyebrow">Real people · Real reviews</span>
+    <h2>
+      {{ section.settings.heading_pre }}
+      <span class="lio-prev__score">{{ section.settings.score }}</span>
+      {{ section.settings.heading_post }}
+    </h2>
+    <p class="lio-prev__sub">{{ section.settings.sub }}</p>
+  </div>
+
+  <div class="lio-prev__grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'review' -%}
+        <article class="lio-prev__card" {{ block.shopify_attributes }}>
+          <div class="lio-prev__stars" aria-hidden="true">★★★★★</div>
+          <p class="lio-prev__quote">"{{ block.settings.quote }}"</p>
+          <div class="lio-prev__author">
+            <div class="lio-prev__avatar">{{ block.settings.initials }}</div>
+            <div>
+              <strong>{{ block.settings.name }}</strong>
+              <span>{{ block.settings.meta }}</span>
+            </div>
+          </div>
+          {%- if block.settings.verified -%}
+            <span class="lio-prev__verified">✓ Verified buyer</span>
+          {%- endif -%}
+        </article>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  {%- if section.settings.cta_label != blank -%}
+    <div class="lio-prev__foot">
+      <a href="{{ section.settings.cta_link | default: '#' }}" class="lio-prev__btn">
+        {{ section.settings.cta_label }}
+        <span class="lio-prev__btn-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  {%- endif -%}
+</section>
+
+{% stylesheet %}
+  .lio-prev {
+    --lp-forest: var(--lio-forest, #0b2410);
+    --lp-chalk:  var(--lio-chalk, #fcfefb);
+    --lp-mint:   var(--lio-mint, #94fca9);
+    --lp-f-10:   rgba(11, 36, 16, 0.10);
+    --lp-f-55:   rgba(11, 36, 16, 0.55);
+    --lp-f-72:   rgba(11, 36, 16, 0.72);
+    --lp-ease:   cubic-bezier(0.22, 1, 0.36, 1);
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+  }
+  .lio-prev__head { text-align: center; margin-bottom: 48px; }
+  .lio-prev__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--lp-f-55);
+    margin-bottom: 16px;
+  }
+  .lio-prev__eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--lp-forest); }
+  .lio-prev__head h2 {
+    font-weight: 900;
+    font-size: clamp(36px, 4.6vw, 56px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--lp-forest);
+    margin: 0 0 16px;
+  }
+  .lio-prev__score { color: var(--lp-forest); position: relative; padding: 0 4px; }
+  .lio-prev__score::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 4px;
+    height: 14px;
+    background: var(--lp-mint);
+    z-index: -1;
+    border-radius: 4px;
+  }
+  .lio-prev__sub {
+    color: var(--lp-f-72);
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .lio-prev__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .lio-prev__card {
+    background: var(--lp-chalk);
+    border: 1px solid var(--lp-f-10);
+    border-radius: 20px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: border-color 0.3s var(--lp-ease), transform 0.3s var(--lp-ease);
+  }
+  .lio-prev__card:hover {
+    border-color: var(--lp-forest);
+    transform: translateY(-3px);
+  }
+  .lio-prev__stars {
+    color: var(--lp-forest);
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+  .lio-prev__quote {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--lp-forest);
+    margin: 0;
+    font-weight: 500;
+    flex-grow: 1;
+  }
+  .lio-prev__author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--lp-f-10);
+  }
+  .lio-prev__author strong {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--lp-forest);
+  }
+  .lio-prev__author span {
+    display: block;
+    font-size: 12px;
+    color: var(--lp-f-55);
+  }
+  .lio-prev__avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--lp-forest);
+    color: var(--lp-mint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  .lio-prev__verified {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lp-forest);
+    font-weight: 600;
+    align-self: flex-start;
+  }
+  .lio-prev__foot { text-align: center; margin-top: 40px; }
+  .lio-prev__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px 16px 26px;
+    background: var(--lp-forest);
+    color: var(--lp-mint);
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .lio-prev__btn:hover { background: var(--lp-mint); color: var(--lp-forest); }
+  .lio-prev__btn-arrow {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--lp-mint);
+    color: var(--lp-forest);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: all 0.2s ease;
+  }
+  .lio-prev__btn:hover .lio-prev__btn-arrow {
+    background: var(--lp-forest);
+    color: var(--lp-mint);
+    transform: translateX(2px);
+  }
+
+  @media (max-width: 960px) {
+    .lio-prev { padding: 60px 20px; }
+    .lio-prev__grid { grid-template-columns: 1fr; gap: 14px; }
+  }
+  @media (min-width: 961px) and (max-width: 1149px) {
+    .lio-prev__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Lio · Product Reviews",
+  "tag": "section",
+  "class": "section-lio-product-reviews",
+  "settings": [
+    { "type": "text", "id": "heading_pre", "label": "Heading (before score)", "default": "Rated" },
+    { "type": "text", "id": "score", "label": "Score", "default": "4.9/5" },
+    { "type": "text", "id": "heading_post", "label": "Heading (after score)", "default": "by real users." },
+    { "type": "textarea", "id": "sub", "label": "Subhead", "default": "We don't pay for reviews. We don't incentivize them. Here's what people actually said." },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Read all reviews" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review card",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Review text", "default": "Honestly didn't expect it to work. Five weeks in and I haven't touched a vape once. The peppermint core is incredible." },
+        { "type": "text", "id": "name", "label": "Name", "default": "Sarah K." },
+        { "type": "text", "id": "initials", "label": "Initials", "default": "SK" },
+        { "type": "text", "id": "meta", "label": "Meta line", "default": "Berlin, Germany · 5 weeks in" },
+        { "type": "checkbox", "id": "verified", "label": "Verified buyer badge", "default": true }
+      ]
+    }
+  ],
+  "max_blocks": 9,
+  "presets": [
+    {
+      "name": "Lio · Product Reviews",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "quote": "I've tried patches, gum, nicotine pouches — nothing touched the ritual part. Lio did. The cinnamon core after dinner is the one that broke the habit for me.",
+            "name": "Marco T.",
+            "initials": "MT",
+            "meta": "Milan, Italy · 3 months in"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "Honestly didn't expect it to work. Five weeks in and I haven't touched a vape once. The peppermint core is incredible — feels like a reset every time.",
+            "name": "Sarah K.",
+            "initials": "SK",
+            "meta": "Berlin, Germany · 5 weeks in"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "The build quality is unreal for the price. Feels like a €200 object. The fact that it actually helped me quit vaping is just a bonus at this point.",
+            "name": "Emma L.",
+            "initials": "EL",
+            "meta": "Amsterdam, Netherlands · 6 months in"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
