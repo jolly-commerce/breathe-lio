@@ -2093,25 +2093,30 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
         </span>
-        <span><strong>{{ section.settings.rating_text | default: '4.6 / 5' }}</strong></span>
+        <span><strong>4.6 / 5</strong></span>
         <span class="pipe" aria-hidden="true"></span>
-        <span>{{ section.settings.trust_meta | default: '3,086 verified reviews · Built in Italy' }}</span>
+        <span>3,086 verified reviews &middot; Built in Italy</span>
       </div>
 
-      <h1 class="lio-pdp-h1">{{ section.settings.h1 | default: 'TheLioKit' }}</h1>
+      <h1 class="lio-pdp-h1">TheLioKit</h1>
 
       <div class="lio-pdp-sub">
-        <p>{{ section.settings.subheading | default: 'One device. Your flavors. Delivered the rhythm you want.' }}</p>
+        <p>One device. Your flavors. Delivered the rhythm you want.</p>
       </div>
 
       <div class="lio-pdp-bullet-row">
-        {%- assign bullet_list = section.settings.bullets | default: 'Wooden, refillable diffuser|0 nicotine, 0 tobacco|Ships in 24h' | split: '|' -%}
-        {%- for b in bullet_list -%}
         <span class="lio-pdp-bullet">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          {{ b | strip }}
+          Wooden, refillable diffuser
         </span>
-        {%- endfor -%}
+        <span class="lio-pdp-bullet">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          0 nicotine, 0 tobacco
+        </span>
+        <span class="lio-pdp-bullet">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Ships in 24h
+        </span>
       </div>
 
       <!-- ============= STEP 1 — DEVICE ============= -->
@@ -2136,23 +2141,22 @@
 
         <div class="lio-device-options" id="lio-device-options">
           <button type="button" class="lio-device-card" data-device="plus" aria-pressed="false">
-            {%- if section.settings.device_plus_flag != blank -%}<span class="lio-device-card-flag">{{ section.settings.device_plus_flag }}</span>{%- endif -%}
-            <span class="lio-device-card-img"{% if section.settings.device_plus_image %} style="background-image:url({{ section.settings.device_plus_image | image_url: width: 200 }});background-size:contain"{% endif %}></span>
-            <span class="lio-device-card-name">{{ section.settings.device_plus_name | default: 'Lio Plus' }}</span>
-            <span class="lio-device-card-tag">{{ section.settings.device_plus_tag | default: 'Best for solo rituals' }}</span>
+            <span class="lio-device-card-flag">Most popular</span>
+            <span class="lio-device-card-img"></span>
+            <span class="lio-device-card-name">Lio Plus</span>
+            <span class="lio-device-card-tag">Best for solo rituals</span>
             <span class="lio-device-card-price">
-              <span class="lio-device-card-price-sub">€{{ section.settings.device_plus_otp_price | default: '29.95' }}</span>
+              <span class="lio-device-card-price-sub">€29.95</span>
             </span>
             <span class="lio-device-card-radio" aria-hidden="true"></span>
           </button>
 
           <button type="button" class="lio-device-card" data-device="pro" aria-pressed="false">
-            {%- if section.settings.device_pro_flag != blank -%}<span class="lio-device-card-flag">{{ section.settings.device_pro_flag }}</span>{%- endif -%}
-            <span class="lio-device-card-img"{% if section.settings.device_pro_image %} style="background-image:url({{ section.settings.device_pro_image | image_url: width: 200 }});background-size:contain"{% endif %}></span>
-            <span class="lio-device-card-name">{{ section.settings.device_pro_name | default: 'Lio Pro' }}</span>
-            <span class="lio-device-card-tag">{{ section.settings.device_pro_tag | default: 'Best for couples & evenings' }}</span>
+            <span class="lio-device-card-img"></span>
+            <span class="lio-device-card-name">Lio Pro</span>
+            <span class="lio-device-card-tag">Best for couples &amp; evenings</span>
             <span class="lio-device-card-price">
-              <span class="lio-device-card-price-sub">€{{ section.settings.device_pro_otp_price | default: '79.95' }}</span>
+              <span class="lio-device-card-price-sub">€79.95</span>
             </span>
             <span class="lio-device-card-radio" aria-hidden="true"></span>
           </button>
@@ -2242,36 +2246,125 @@
           </div>
 
           <div class="lio-flavor-list-block">            <ul class="lio-flavor-list" id="lio-flavor-list" role="list">
-              {%- for block in section.blocks -%}
-                {%- if block.type == 'flavor' -%}
-                  {%- assign fkey = block.settings.key | default: 'flavor' -%}
-                  {%- assign fname = block.settings.name | default: 'Flavor' -%}
-                  {%- assign ftag = block.settings.tag -%}
-                  {%- assign fcallout = block.settings.callout -%}
-                  {%- assign fcallout_style = block.settings.callout_style | default: 'strong' -%}
-              <li class="lio-flavor" data-flavor="{{ fkey }}">
-                <button type="button" class="lio-flavor-row" data-flavor-open="{{ fkey }}" aria-haspopup="dialog" aria-label="View {{ fname }} details">
+              <li class="lio-flavor" data-flavor="minty-magic">
+                <button type="button" class="lio-flavor-row" data-flavor-open="minty-magic" aria-haspopup="dialog" aria-label="View Minty Magic details">
                   <span class="lio-flavor-swatch">
-                    {%- if block.settings.image -%}
-                    <img src="{{ block.settings.image | image_url: width: 120 }}" alt="" loading="lazy" width="60" height="60" decoding="async">
-                    {%- endif -%}
+                    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Minty_Magic_9b8680d4-2bbf-4c62-a118-57026a52ad21.png" alt="" loading="lazy" width="60" height="60" decoding="async">
                   </span>
                   <span class="lio-flavor-info">
-                    <span class="lio-flavor-name">{{ fname }}{%- if fcallout != blank -%}<span class="lio-flavor-callout{% if fcallout_style == 'soft' %} is-soft{% endif %}">{{ fcallout }}</span>{%- endif -%}</span>
-                    {%- if ftag != blank -%}<span class="lio-flavor-tag">{{ ftag }}</span>{%- endif -%}
+                    <span class="lio-flavor-name">Minty Magic<span class="lio-flavor-callout">Bestseller</span></span>
+                    <span class="lio-flavor-tag">Fresh &middot; Cooling &middot; Clean</span>
                   </span>
                   <span class="lio-flavor-chev" aria-hidden="true">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
                   </span>
                 </button>
                 <div class="lio-stepper">
-                  <button type="button" data-action="dec" data-flavor="{{ fkey }}" disabled aria-label="Decrease {{ fname }}">&minus;</button>
-                  <output data-out="{{ fkey }}">0</output>
-                  <button type="button" data-action="inc" data-flavor="{{ fkey }}" aria-label="Increase {{ fname }}">+</button>
+                  <button type="button" data-action="dec" data-flavor="minty-magic" disabled aria-label="Decrease Minty Magic">&minus;</button>
+                  <output data-out="minty-magic">0</output>
+                  <button type="button" data-action="inc" data-flavor="minty-magic" aria-label="Increase Minty Magic">+</button>
                 </div>
               </li>
-                {%- endif -%}
-              {%- endfor -%}
+
+              <li class="lio-flavor" data-flavor="peppery-mint">
+                <button type="button" class="lio-flavor-row" data-flavor-open="peppery-mint" aria-haspopup="dialog" aria-label="View Peppery Mint details">
+                  <span class="lio-flavor-swatch">
+                    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Cold_Turkey_6f4148b7-321d-4a5e-a923-1dce7a693c3e.png" alt="" loading="lazy" width="60" height="60" decoding="async">
+                  </span>
+                  <span class="lio-flavor-info">
+                    <span class="lio-flavor-name">Peppery Mint<span class="lio-flavor-callout">Strongest</span></span>
+                    <span class="lio-flavor-tag">Mint &middot; Spicy &middot; Intense</span>
+                  </span>
+                  <span class="lio-flavor-chev" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  </span>
+                </button>
+                <div class="lio-stepper">
+                  <button type="button" data-action="dec" data-flavor="peppery-mint" disabled aria-label="Decrease Peppery Mint">&minus;</button>
+                  <output data-out="peppery-mint">0</output>
+                  <button type="button" data-action="inc" data-flavor="peppery-mint" aria-label="Increase Peppery Mint">+</button>
+                </div>
+              </li>
+
+              <li class="lio-flavor" data-flavor="cinnamon-spice">
+                <button type="button" class="lio-flavor-row" data-flavor-open="cinnamon-spice" aria-haspopup="dialog" aria-label="View Cinnamon Spice details">
+                  <span class="lio-flavor-swatch">
+                    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Cinnamon_Spice_90440616-1cda-44ad-a674-eef9fd1f789d.png" alt="" loading="lazy" width="60" height="60" decoding="async">
+                  </span>
+                  <span class="lio-flavor-info">
+                    <span class="lio-flavor-name">Cinnamon Spice</span>
+                    <span class="lio-flavor-tag">Warm &middot; Spiced &middot; Smooth</span>
+                  </span>
+                  <span class="lio-flavor-chev" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  </span>
+                </button>
+                <div class="lio-stepper">
+                  <button type="button" data-action="dec" data-flavor="cinnamon-spice" disabled aria-label="Decrease Cinnamon Spice">&minus;</button>
+                  <output data-out="cinnamon-spice">0</output>
+                  <button type="button" data-action="inc" data-flavor="cinnamon-spice" aria-label="Increase Cinnamon Spice">+</button>
+                </div>
+              </li>
+
+              <li class="lio-flavor" data-flavor="razzy-berry">
+                <button type="button" class="lio-flavor-row" data-flavor-open="razzy-berry" aria-haspopup="dialog" aria-label="View Razzy Berry details">
+                  <span class="lio-flavor-swatch">
+                    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/RazzyBerry.png" alt="" loading="lazy" width="60" height="60" decoding="async">
+                  </span>
+                  <span class="lio-flavor-info">
+                    <span class="lio-flavor-name">Razzy Berry<span class="lio-flavor-callout is-soft">Mild</span></span>
+                    <span class="lio-flavor-tag">Fruity &middot; Light &middot; Sweet</span>
+                  </span>
+                  <span class="lio-flavor-chev" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  </span>
+                </button>
+                <div class="lio-stepper">
+                  <button type="button" data-action="dec" data-flavor="razzy-berry" disabled aria-label="Decrease Razzy Berry">&minus;</button>
+                  <output data-out="razzy-berry">0</output>
+                  <button type="button" data-action="inc" data-flavor="razzy-berry" aria-label="Increase Razzy Berry">+</button>
+                </div>
+              </li>
+
+              <li class="lio-flavor" data-flavor="mango-passion">
+                <button type="button" class="lio-flavor-row" data-flavor-open="mango-passion" aria-haspopup="dialog" aria-label="View Mango Passion details">
+                  <span class="lio-flavor-swatch">
+                    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Mango_Passion_e70f3b91-cb5d-40a8-908a-46ecd57c73db.png" alt="" loading="lazy" width="60" height="60" decoding="async">
+                  </span>
+                  <span class="lio-flavor-info">
+                    <span class="lio-flavor-name">Mango Passion<span class="lio-flavor-callout is-soft">Mild</span></span>
+                    <span class="lio-flavor-tag">Tropical &middot; Juicy &middot; Soft</span>
+                  </span>
+                  <span class="lio-flavor-chev" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  </span>
+                </button>
+                <div class="lio-stepper">
+                  <button type="button" data-action="dec" data-flavor="mango-passion" disabled aria-label="Decrease Mango Passion">&minus;</button>
+                  <output data-out="mango-passion">0</output>
+                  <button type="button" data-action="inc" data-flavor="mango-passion" aria-label="Increase Mango Passion">+</button>
+                </div>
+              </li>
+
+              <li class="lio-flavor" data-flavor="ohh-my-orange">
+                <button type="button" class="lio-flavor-row" data-flavor-open="ohh-my-orange" aria-haspopup="dialog" aria-label="View Ohh My Orange details">
+                  <span class="lio-flavor-swatch">
+                    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Ohh_My_Orange_2602fc26-c4f9-4d4a-8107-8be6ebeec089.png" alt="" loading="lazy" width="60" height="60" decoding="async">
+                  </span>
+                  <span class="lio-flavor-info">
+                    <span class="lio-flavor-name">Ohh My Orange</span>
+                    <span class="lio-flavor-tag">Zesty &middot; Sweet &middot; Citrus</span>
+                  </span>
+                  <span class="lio-flavor-chev" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  </span>
+                </button>
+                <div class="lio-stepper">
+                  <button type="button" data-action="dec" data-flavor="ohh-my-orange" disabled aria-label="Decrease Ohh My Orange">&minus;</button>
+                  <output data-out="ohh-my-orange">0</output>
+                  <button type="button" data-action="inc" data-flavor="ohh-my-orange" aria-label="Increase Ohh My Orange">+</button>
+                </div>
+              </li>
             </ul>
           </div>
 
@@ -2294,17 +2387,24 @@
           </span>
         </summary>
         <div class="lio-addons-row" id="lio-addons-row">
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'addon' -%}
-              {%- assign akey = block.settings.key | default: 'addon' -%}
-          <button type="button" class="lio-addon" data-addon="{{ akey }}" data-price="{{ block.settings.price | default: '0' }}" aria-pressed="false">
-            <span class="lio-addon-img"><span class="lio-addon-img-emoji" aria-hidden="true">{{ block.settings.emoji | default: '✦' }}</span></span>
-            <span class="lio-addon-name">{{ block.settings.name | default: 'Add-on' }}</span>
-            <span class="lio-addon-price">€{{ block.settings.price | default: '0' }}</span>
+          <button type="button" class="lio-addon" data-addon="wood-stand" data-price="14.95" aria-pressed="false">
+            <span class="lio-addon-img"><span class="lio-addon-img-emoji" aria-hidden="true">🪵</span></span>
+            <span class="lio-addon-name">Walnut display stand</span>
+            <span class="lio-addon-price">€14.95</span>
             <span class="lio-addon-check" aria-hidden="true"></span>
           </button>
-            {%- endif -%}
-          {%- endfor -%}
+          <button type="button" class="lio-addon" data-addon="travel-pouch" data-price="9.95" aria-pressed="false">
+            <span class="lio-addon-img"><span class="lio-addon-img-emoji" aria-hidden="true">👜</span></span>
+            <span class="lio-addon-name">Travel pouch</span>
+            <span class="lio-addon-price">€9.95</span>
+            <span class="lio-addon-check" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="lio-addon" data-addon="cleaning-kit" data-price="6.95" aria-pressed="false">
+            <span class="lio-addon-img"><span class="lio-addon-img-emoji" aria-hidden="true">🧽</span></span>
+            <span class="lio-addon-name">Care &amp; cleaning kit</span>
+            <span class="lio-addon-price">€6.95</span>
+            <span class="lio-addon-check" aria-hidden="true"></span>
+          </button>
         </div>
       </details>
 
@@ -2594,20 +2694,6 @@
   </div>
 
   <script id="lio-pdp-config" type="application/json">
-    {%- liquid
-      assign sub_pct = section.settings.subscribe_discount_pct | default: 15
-      assign plan_id = section.settings.loop_selling_plan_id
-      assign plus_otp = section.settings.device_plus_otp_price | default: '29.95'
-      assign plus_sub = section.settings.device_plus_sub_price | default: '29.95'
-      assign pro_otp  = section.settings.device_pro_otp_price  | default: '79.95'
-      assign pro_sub  = section.settings.device_pro_sub_price  | default: '79.95'
-      assign plus_name = section.settings.device_plus_name | default: 'Lio Plus'
-      assign pro_name  = section.settings.device_pro_name  | default: 'Lio Pro'
-      assign plus_olive = section.settings.device_plus_olive_vid
-      assign plus_walnut = section.settings.device_plus_walnut_vid
-      assign pro_olive   = section.settings.device_pro_olive_vid
-      assign pro_walnut  = section.settings.device_pro_walnut_vid
-    -%}
     {
       "currency": "EUR",
       "cart_url": "/cart",
@@ -2619,67 +2705,24 @@
       "totals_empty_partial": "Pick {n} more to see your total",
       "partner_discount_pct": 25,
       "bestseller_discount_pct": 10,
-      "subscribe_discount_pct": {{ sub_pct }},
-      "selling_plan_id": {% if plan_id != blank %}{{ plan_id | json }}{% else %}null{% endif %},
       "wood_olive_label": "Olive",
       "wood_walnut_label": "Walnut",
       "devices": {
-        "plus": {
-          "otp": {{ plus_otp | times: 1.0 }},
-          "sub": {{ plus_sub | times: 1.0 }},
-          "name": {{ plus_name | json }},
-          "vid_olive":  {% if plus_olive  != blank %}{{ plus_olive  | json }}{% else %}null{% endif %},
-          "vid_walnut": {% if plus_walnut != blank %}{{ plus_walnut | json }}{% else %}null{% endif %}
-        },
-        "pro": {
-          "otp": {{ pro_otp | times: 1.0 }},
-          "sub": {{ pro_sub | times: 1.0 }},
-          "name": {{ pro_name | json }},
-          "vid_olive":  {% if pro_olive  != blank %}{{ pro_olive  | json }}{% else %}null{% endif %},
-          "vid_walnut": {% if pro_walnut != blank %}{{ pro_walnut | json }}{% else %}null{% endif %}
-        }
+        "plus": { "otp": 29.95, "sub": 29.95, "name": "Lio Plus" },
+        "pro":  { "otp": 79.95, "sub": 79.95, "name": "Lio Pro"  }
       },
       "flavors": {
-        {%- assign flav_first = true -%}
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'flavor' -%}
-            {%- unless flav_first %},{% endunless -%}
-            {%- assign flav_first = false -%}
-            {%- assign fkey = block.settings.key | default: 'flavor' -%}
-            {%- assign fvid = block.settings.vid -%}
-            {%- if fvid == blank and block.settings.product != blank -%}
-              {%- assign fvid = block.settings.product.selected_or_first_available_variant.id -%}
-            {%- endif -%}
-            {{ fkey | json }}: {
-              "name":    {{ block.settings.name    | default: 'Flavor' | json }},
-              "tag":     {{ block.settings.tag     | default: '' | json }},
-              "callout": {{ block.settings.callout | default: '' | json }},
-              "image":   {%- if block.settings.image -%}{{ block.settings.image | image_url: width: 600 | json }}{%- else -%}""{%- endif -%},
-              "desc":    {{ block.settings.desc    | default: '' | json }},
-              "vid":     {% if fvid != blank %}{{ fvid | json }}{% else %}null{% endif %}
-            }
-          {%- endif -%}
-        {%- endfor -%}
+        "minty-magic":    { "name": "Minty Magic",    "callout": "Bestseller", "tag": "Fresh · Cooling · Clean",   "image": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Minty_Magic_9b8680d4-2bbf-4c62-a118-57026a52ad21.png", "desc": "Cool, clean menthol — the easiest entry point. Most first-time buyers start here." },
+        "peppery-mint":   { "name": "Peppery Mint",   "callout": "Strongest",  "tag": "Mint · Spicy · Intense",     "image": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Cold_Turkey_6f4148b7-321d-4a5e-a923-1dce7a693c3e.png", "desc": "The boldest hit. Deep mint with a peppery finish — for the moments your old craving fights back hardest." },
+        "cinnamon-spice": { "name": "Cinnamon Spice", "callout": "",           "tag": "Warm · Spiced · Smooth",     "image": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Cinnamon_Spice_90440616-1cda-44ad-a674-eef9fd1f789d.png", "desc": "Warm cinnamon with a touch of clove. Comforting, never sweet. A favorite for evenings." },
+        "razzy-berry":    { "name": "Razzy Berry",    "callout": "Mild",       "tag": "Fruity · Light · Sweet",     "image": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/RazzyBerry.png", "desc": "Light, fruit-forward and friendly. Great as a daytime swap when you want the ritual without the intensity." },
+        "mango-passion":  { "name": "Mango Passion",  "callout": "Mild",       "tag": "Tropical · Juicy · Soft",    "image": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Mango_Passion_e70f3b91-cb5d-40a8-908a-46ecd57c73db.png", "desc": "Ripe mango with passionfruit lift. Smooth, easy, slightly sweet — without being candy." },
+        "ohh-my-orange":  { "name": "Ohh My Orange",  "callout": "",           "tag": "Zesty · Sweet · Citrus",     "image": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Ohh_My_Orange_2602fc26-c4f9-4d4a-8107-8be6ebeec089.png", "desc": "Bright sweet orange with a citrus zest. Sunny, clean, awake — the morning flavor." }
       },
       "addons": {
-        {%- assign addon_first = true -%}
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'addon' -%}
-            {%- unless addon_first %},{% endunless -%}
-            {%- assign addon_first = false -%}
-            {%- assign akey = block.settings.key | default: 'addon' -%}
-            {%- assign avid = block.settings.vid -%}
-            {%- if avid == blank and block.settings.product != blank -%}
-              {%- assign avid = block.settings.product.selected_or_first_available_variant.id -%}
-            {%- endif -%}
-            {{ akey | json }}: {
-              "name":  {{ block.settings.name  | default: 'Add-on' | json }},
-              "emoji": {{ block.settings.emoji | default: '✦' | json }},
-              "price": {{ block.settings.price | default: '0' | times: 1.0 }},
-              "vid":   {% if avid != blank %}{{ avid | json }}{% else %}null{% endif %}
-            }
-          {%- endif -%}
-        {%- endfor -%}
+        "wood-stand":   { "price": 14.95 },
+        "travel-pouch": { "price": 9.95 },
+        "cleaning-kit": { "price": 6.95 }
       }
     }
   </script>
@@ -3223,75 +3266,9 @@
     }
   }
 
-  function buildCartItems() {
-    var items = [];
-    if (state.device && CONFIG.devices && CONFIG.devices[state.device]) {
-      var d = CONFIG.devices[state.device];
-      var primaryVid = state.woodPrimary === 'walnut' ? d.vid_walnut : d.vid_olive;
-      if (primaryVid) items.push({ id: parseInt(primaryVid, 10), quantity: 1 });
-      if (state.quitTogether) {
-        var secVid = state.woodSecondary === 'walnut' ? d.vid_walnut : d.vid_olive;
-        if (secVid) items.push({ id: parseInt(secVid, 10), quantity: 1 });
-      }
-    }
-    Object.keys(state.flavors).forEach(function (k) {
-      var qty = state.flavors[k] || 0;
-      if (qty <= 0) return;
-      var f = CONFIG.flavors && CONFIG.flavors[k];
-      if (!f || !f.vid) return;
-      var item = { id: parseInt(f.vid, 10), quantity: qty };
-      if (state.rhythm === 'sub' && CONFIG.selling_plan_id) {
-        item.selling_plan = parseInt(CONFIG.selling_plan_id, 10);
-      }
-      items.push(item);
-    });
-    Object.keys(state.addons).forEach(function (k) {
-      if (!state.addons[k]) return;
-      var a = CONFIG.addons && CONFIG.addons[k];
-      if (!a || !a.vid) return;
-      items.push({ id: parseInt(a.vid, 10), quantity: 1 });
-    });
-    return items;
-  }
-
-  function submitToCart(btn) {
-    var items = buildCartItems();
-    if (!items.length) {
-      window.location.href = (CONFIG.cart_url || '/cart');
-      return;
-    }
-    if (btn) {
-      btn.disabled = true;
-      var lbl = btn.querySelector('span');
-      if (lbl) lbl.textContent = 'Adding...';
-    }
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ items: items })
-    })
-    .then(function (r) { return r.json().then(function (b) { return { ok: r.ok, body: b }; }); })
-    .then(function (res) {
-      if (!res.ok) {
-        console.warn('Cart add failed', res.body);
-        if (btn) {
-          btn.disabled = false;
-          var lbl = btn.querySelector('span');
-          if (lbl) lbl.textContent = 'Try again';
-        }
-        return;
-      }
-      window.location.href = (CONFIG.cart_url || '/cart');
-    })
-    .catch(function (err) {
-      console.warn('Cart add error', err);
-      window.location.href = (CONFIG.cart_url || '/cart');
-    });
-  }
-
   if (els.cta) els.cta.addEventListener('click', function () {
     if (els.cta.disabled) return;
-    submitToCart(els.cta);
+    window.location.href = (CONFIG.cart_url || '/cart');
   });
   if (els.stickyBtn) els.stickyBtn.addEventListener('click', function () {
     var stickyState = els.sticky ? els.sticky.getAttribute('data-state') : '';
@@ -3302,7 +3279,8 @@
       var flavorStep = document.getElementById('lio-step-flavors') || document.querySelector('[data-step="flavors"]');
       if (flavorStep) flavorStep.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } else {
-      submitToCart(els.stickyBtn);
+      var cta = document.getElementById('lio-cta');
+      if (cta) cta.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   });
 
@@ -3390,79 +3368,22 @@
   "enabled_on": { "templates": ["product", "page"] },
   "settings": [
     { "type": "header", "content": "Header copy" },
-    { "type": "text",     "id": "h1",            "label": "H1 heading", "default": "TheLioKit" },
-    { "type": "text",     "id": "subheading",    "label": "Sub-heading", "default": "One device. Your flavors. Delivered the rhythm you want." },
-    { "type": "text",     "id": "rating_text",   "label": "Rating", "default": "4.6 / 5" },
-    { "type": "text",     "id": "trust_meta",    "label": "Trust meta", "default": "3,086 verified reviews · Built in Italy" },
-    { "type": "textarea", "id": "bullets",       "label": "Bullets (pipe-separated)", "default": "Wooden, refillable diffuser|0 nicotine, 0 tobacco|Ships in 24h" },
-
-    { "type": "header", "content": "Subscription" },
-    { "type": "text",   "id": "loop_selling_plan_id", "label": "Selling plan ID (Loop/Recharge)", "info": "Numeric ID of the auto-refill selling plan. Applied to FLAVOR cores only when subscribe is selected." },
-    { "type": "number", "id": "subscribe_discount_pct", "label": "Subscribe discount %", "default": 15 },
-
-    { "type": "header", "content": "Device 1 — Plus" },
-    { "type": "product",      "id": "device_plus_product",     "label": "Plus product (Shopify)" },
-    { "type": "text",         "id": "device_plus_olive_vid",   "label": "Plus · Olive variant ID", "info": "Numeric variant ID for the Olive wood finish." },
-    { "type": "text",         "id": "device_plus_walnut_vid",  "label": "Plus · Walnut variant ID" },
-    { "type": "text",         "id": "device_plus_name",        "label": "Display name", "default": "Lio Plus" },
-    { "type": "text",         "id": "device_plus_tag",         "label": "Tagline",  "default": "Best for solo rituals" },
-    { "type": "text",         "id": "device_plus_flag",        "label": "Flag",     "default": "Most popular" },
-    { "type": "image_picker", "id": "device_plus_image",       "label": "Image" },
-    { "type": "text",         "id": "device_plus_otp_price",   "label": "One-time price (€)", "default": "29.95" },
-    { "type": "text",         "id": "device_plus_sub_price",   "label": "Subscribe price (€)", "default": "29.95" },
-
-    { "type": "header", "content": "Device 2 — Pro" },
-    { "type": "product",      "id": "device_pro_product",      "label": "Pro product (Shopify)" },
-    { "type": "text",         "id": "device_pro_olive_vid",    "label": "Pro · Olive variant ID" },
-    { "type": "text",         "id": "device_pro_walnut_vid",   "label": "Pro · Walnut variant ID" },
-    { "type": "text",         "id": "device_pro_name",         "label": "Display name", "default": "Lio Pro" },
-    { "type": "text",         "id": "device_pro_tag",          "label": "Tagline",  "default": "Best for couples & evenings" },
-    { "type": "text",         "id": "device_pro_flag",         "label": "Flag" },
-    { "type": "image_picker", "id": "device_pro_image",        "label": "Image" },
-    { "type": "text",         "id": "device_pro_otp_price",    "label": "One-time price (€)", "default": "79.95" },
-    { "type": "text",         "id": "device_pro_sub_price",    "label": "Subscribe price (€)", "default": "79.95" }
+    { "type": "text",   "id": "announcement_text",  "label": "Announcement bar",  "default": "Free EU shipping on €65+ · 90-day promise" },
+    { "type": "richtext", "id": "breadcrumbs_text", "label": "Breadcrumbs",        "default": "<p>Home / Shop / Build your kit</p>" },
+    { "type": "text",     "id": "rating_text",      "label": "Rating",             "default": "4.9 / 5" },
+    { "type": "text",     "id": "trust_meta",       "label": "Trust meta",         "default": "150,000+ customers · Founded Amsterdam, 2018" },
+    { "type": "inline_richtext", "id": "heading",   "label": "Heading",            "default": "Build your <i>perfect</i> kit." },
+    { "type": "richtext", "id": "subheading",       "label": "Sub-heading",        "default": "<p>One device. Your flavors. Delivered the rhythm you want.</p>" },
+    { "type": "textarea", "id": "bullets",          "label": "Bullets (pipe-separated)", "default": "Wooden, refillable diffuser|0 nicotine, 0 tobacco|Ships in 24h" }
   ],
   "blocks": [
-    {
-      "type": "flavor",
-      "name": "Flavor",
-      "limit": 12,
-      "settings": [
-        { "type": "text",         "id": "key",      "label": "Key (slug)", "info": "lowercase + dashes, e.g. minty-magic. Used as data attribute.", "default": "minty-magic" },
-        { "type": "product",      "id": "product",  "label": "Shopify product" },
-        { "type": "text",         "id": "vid",      "label": "Variant ID override", "info": "Optional. Leave blank to use product's first variant." },
-        { "type": "text",         "id": "name",     "label": "Display name", "default": "Minty Magic" },
-        { "type": "text",         "id": "tag",      "label": "Tag line", "default": "Fresh · Cooling · Clean" },
-        { "type": "text",         "id": "callout",  "label": "Callout (Bestseller / Strongest / Mild / blank)" },
-        { "type": "select",       "id": "callout_style", "label": "Callout style", "default": "strong",
-          "options": [
-            { "value": "strong", "label": "Strong (mint)" },
-            { "value": "soft",   "label": "Soft (mint-soft)" }
-          ] },
-        { "type": "image_picker", "id": "image",    "label": "Swatch image" },
-        { "type": "textarea",     "id": "desc",     "label": "Modal description" }
-      ]
-    },
-    {
-      "type": "addon",
-      "name": "Add-on",
-      "limit": 6,
-      "settings": [
-        { "type": "text",    "id": "key",      "label": "Key (slug)", "default": "wood-stand" },
-        { "type": "product", "id": "product",  "label": "Shopify product" },
-        { "type": "text",    "id": "vid",      "label": "Variant ID override" },
-        { "type": "text",    "id": "name",     "label": "Display name", "default": "Walnut display stand" },
-        { "type": "text",    "id": "emoji",    "label": "Emoji", "default": "🪵" },
-        { "type": "text",    "id": "price",    "label": "Price (€)", "default": "14.95" }
-      ]
-    },
     {
       "type": "trust_item",
       "name": "Trust strip item",
       "limit": 6,
       "settings": [
         { "type": "image_picker", "id": "icon", "label": "Icon" },
-        { "type": "text", "id": "label", "label": "Label", "default": "Free worldwide shipping" }
+        { "type": "text", "id": "label", "label": "Label", "default": "Free EU shipping" }
       ]
     },
     {
@@ -3479,7 +3400,8 @@
       "name": "Evidence point",
       "limit": 8,
       "settings": [
-        { "type": "select", "id": "icon", "label": "Icon", "default": "check",
+        {
+          "type": "select", "id": "icon", "label": "Icon", "default": "check",
           "options": [
             { "value": "check",  "label": "Check" },
             { "value": "shield", "label": "Shield" },
@@ -3497,16 +3419,7 @@
     {
       "name": "Lio PDP Builder",
       "blocks": [
-        { "type": "flavor", "settings": { "key": "minty-magic",    "name": "Minty Magic",    "tag": "Fresh · Cooling · Clean",   "callout": "Bestseller", "callout_style": "strong" } },
-        { "type": "flavor", "settings": { "key": "peppery-mint",   "name": "Peppery Mint",   "tag": "Mint · Spicy · Intense",     "callout": "Strongest",  "callout_style": "strong" } },
-        { "type": "flavor", "settings": { "key": "cinnamon-spice", "name": "Cinnamon Spice", "tag": "Warm · Spiced · Smooth" } },
-        { "type": "flavor", "settings": { "key": "razzy-berry",    "name": "Razzy Berry",    "tag": "Fruity · Light · Sweet",     "callout": "Mild",       "callout_style": "soft" } },
-        { "type": "flavor", "settings": { "key": "mango-passion",  "name": "Mango Passion",  "tag": "Tropical · Juicy · Soft",    "callout": "Mild",       "callout_style": "soft" } },
-        { "type": "flavor", "settings": { "key": "ohh-my-orange",  "name": "Ohh My Orange",  "tag": "Zesty · Sweet · Citrus" } },
-        { "type": "addon",  "settings": { "key": "wood-stand",   "name": "Walnut display stand", "emoji": "🪵", "price": "14.95" } },
-        { "type": "addon",  "settings": { "key": "travel-pouch", "name": "Travel pouch",         "emoji": "👜", "price": "9.95"  } },
-        { "type": "addon",  "settings": { "key": "cleaning-kit", "name": "Care & cleaning kit",  "emoji": "🧽", "price": "6.95"  } },
-        { "type": "trust_item", "settings": { "label": "Free worldwide shipping" } },
+        { "type": "trust_item", "settings": { "label": "Free EU shipping" } },
         { "type": "trust_item", "settings": { "label": "90-day promise" } },
         { "type": "trust_item", "settings": { "label": "Pause anytime" } },
         { "type": "trust_item", "settings": { "label": "Founded 2018" } }

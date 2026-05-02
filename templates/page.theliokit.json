@@ -20,7 +20,6 @@
         "announce_color": "#f5f1eb",
         "logo_text": "Lio",
         "logo_image_url": "https://cdn.shopify.com/s/files/1/0659/6676/8379/files/lio-logo-Photoroom_1.webp?v=1776826288",
-        "logo_link": "",
         "show_cart": true,
         "cta_link": "#shopify-section-main",
         "show_locale": true,
@@ -30,226 +29,22 @@
     "main": {
       "type": "lio-pdp-builder",
       "blocks": {
-        "flav_minty": {
-          "type": "flavor",
-          "settings": {
-            "key": "minty-magic",
-            "product": "",
-            "vid": "",
-            "name": "Minty Magic",
-            "tag": "Fresh · Cooling · Clean",
-            "callout": "Bestseller",
-            "callout_style": "strong",
-            "desc": ""
-          }
-        },
-        "flav_peppery": {
-          "type": "flavor",
-          "settings": {
-            "key": "peppery-mint",
-            "product": "",
-            "vid": "",
-            "name": "Peppery Mint",
-            "tag": "Mint · Spicy · Intense",
-            "callout": "Strongest",
-            "callout_style": "strong",
-            "desc": ""
-          }
-        },
-        "flav_cinnamon": {
-          "type": "flavor",
-          "settings": {
-            "key": "cinnamon-spice",
-            "product": "",
-            "vid": "",
-            "name": "Cinnamon Spice",
-            "tag": "Warm · Spiced · Smooth",
-            "callout": "",
-            "callout_style": "strong",
-            "desc": ""
-          }
-        },
-        "flav_razzy": {
-          "type": "flavor",
-          "settings": {
-            "key": "razzy-berry",
-            "product": "",
-            "vid": "",
-            "name": "Razzy Berry",
-            "tag": "Fruity · Light · Sweet",
-            "callout": "Mild",
-            "callout_style": "soft",
-            "desc": ""
-          }
-        },
-        "flav_mango": {
-          "type": "flavor",
-          "settings": {
-            "key": "mango-passion",
-            "product": "",
-            "vid": "",
-            "name": "Mango Passion",
-            "tag": "Tropical · Juicy · Soft",
-            "callout": "Mild",
-            "callout_style": "soft",
-            "desc": ""
-          }
-        },
-        "flav_orange": {
-          "type": "flavor",
-          "settings": {
-            "key": "ohh-my-orange",
-            "product": "",
-            "vid": "",
-            "name": "Ohh My Orange",
-            "tag": "Zesty · Sweet · Citrus",
-            "callout": "",
-            "callout_style": "strong",
-            "desc": ""
-          }
-        },
-        "addon_stand": {
-          "type": "addon",
-          "settings": {
-            "key": "wood-stand",
-            "product": "",
-            "vid": "",
-            "name": "Walnut display stand",
-            "emoji": "🪵",
-            "price": "14.95"
-          }
-        },
-        "addon_pouch": {
-          "type": "addon",
-          "settings": {
-            "key": "travel-pouch",
-            "product": "",
-            "vid": "",
-            "name": "Travel pouch",
-            "emoji": "👜",
-            "price": "9.95"
-          }
-        },
-        "addon_clean": {
-          "type": "addon",
-          "settings": {
-            "key": "cleaning-kit",
-            "product": "",
-            "vid": "",
-            "name": "Care & cleaning kit",
-            "emoji": "🧽",
-            "price": "6.95"
-          }
-        },
-        "trust_shipping": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Free worldwide shipping"
-          }
-        },
-        "trust_promise": {
-          "type": "trust_item",
-          "settings": {
-            "label": "90-day promise"
-          }
-        },
-        "trust_pause": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Pause anytime"
-          }
-        },
-        "trust_founded": {
-          "type": "trust_item",
-          "settings": {
-            "label": "Founded 2018"
-          }
-        },
-        "faq_vape": {
-          "type": "faq_question",
-          "settings": {
-            "q": "Is this a vape?",
-            "a": "<p>No. A wooden aromatherapy diffuser. No battery, no coil, no liquid, no heating element. You breathe ordinary air through a wooden mouthpiece — the plant-oil core at the end gives it flavor and a cool menthol sensation. Nothing is heated, nothing is combusted.</p>"
-          }
-        },
-        "faq_feel": {
-          "type": "faq_question",
-          "settings": {
-            "q": "Will it feel like what I'm used to?",
-            "a": "<p>Partly. The menthol cores give a real <strong>cool throat hit</strong> on the inhale — the physical sensation is there. What's not there is the nicotine kick. Think of it as the feeling without the substance.</p>"
-          }
-        },
-        "faq_lasts": {
-          "type": "faq_question",
-          "settings": {
-            "q": "How long does one core last?",
-            "a": "<p>Around <strong>7–10 days for a light user, 3–5 days if you use it heavily.</strong> The flavor is strongest the first day and gradually fades — when you can barely smell it before inhaling, swap it. The wooden body stays with you; only the core changes.</p>"
-          }
-        },
-        "faq_inside": {
-          "type": "faq_question",
-          "settings": {
-            "q": "What's actually in the cores?",
-            "a": "<p>Medical-grade polyester fiber infused with <strong>food-safe plant essential oils</strong> — peppermint, cinnamon, mango, orange, depending on the variant. No synthetic aromas, no solvents, no propylene glycol. Third-party tested, every batch.</p>"
-          }
-        },
-        "faq_refund": {
-          "type": "faq_question",
-          "settings": {
-            "q": "What if it doesn't work for me?",
-            "a": "<p>Try it for <strong>90 days</strong>. Use it the way it's meant to be used — every time you'd reach for your old habit. If the ritual doesn't land, <strong>full refund, used or not.</strong> No 'must be sealed' fine print, no restocking fee.</p>"
-          }
-        },
-        "faq_ship": {
-          "type": "faq_question",
-          "settings": {
-            "q": "How fast does it arrive?",
-            "a": "<p>Shipped from the Netherlands. <strong>2–3 working days across Europe, 4–8 days outside.</strong> Free worldwide, no minimum. Tracking link by email the moment it leaves the warehouse.</p>"
-          }
-        },
-        "ev_clean": {
-          "type": "evidence_point",
-          "settings": {
-            "icon": "shield",
-            "title": "Independently tested by TNO",
-            "source": "Netherlands Organisation for Applied Scientific Research"
-          }
-        },
-        "ev_plant": {
-          "type": "evidence_point",
-          "settings": {
-            "icon": "beaker",
-            "title": "No combustion · no heating · no vapor",
-            "source": "TNO toxicological assessment"
-          }
-        },
-        "ev_patent": {
-          "type": "evidence_point",
-          "settings": {
-            "icon": "doc",
-            "title": "≥ 10× below DNEL safety thresholds",
-            "source": "European reference values · TNO 2024"
-          }
-        },
-        "ev_outcome": {
-          "type": "evidence_point",
-          "settings": {
-            "icon": "chart",
-            "title": "Zero CMR-classified substances",
-            "source": "Dutch Ministry SZW classification"
-          }
-        }
+        "trust_shipping": { "type": "trust_item",   "settings": { "label": "Free worldwide shipping" } },
+        "trust_promise":  { "type": "trust_item",   "settings": { "label": "90-day promise" } },
+        "trust_pause":    { "type": "trust_item",   "settings": { "label": "Pause anytime" } },
+        "trust_founded":  { "type": "trust_item",   "settings": { "label": "Founded 2018" } },
+        "faq_vape":       { "type": "faq_question", "settings": { "q": "Is this a vape?", "a": "<p>No. A wooden aromatherapy diffuser. No battery, no coil, no liquid, no heating element. You breathe ordinary air through a wooden mouthpiece — the plant-oil core at the end gives it flavor and a cool menthol sensation. Nothing is heated, nothing is combusted.</p>" } },
+        "faq_feel":       { "type": "faq_question", "settings": { "q": "Will it feel like what I'm used to?", "a": "<p>Partly. The menthol cores give a real <strong>cool throat hit</strong> on the inhale — the physical sensation is there. What's not there is the nicotine kick. Think of it as the feeling without the substance.</p>" } },
+        "faq_lasts":      { "type": "faq_question", "settings": { "q": "How long does one core last?", "a": "<p>Around <strong>7–10 days for a light user, 3–5 days if you use it heavily.</strong> The flavor is strongest the first day and gradually fades — when you can barely smell it before inhaling, swap it. The wooden body stays with you; only the core changes.</p>" } },
+        "faq_inside":     { "type": "faq_question", "settings": { "q": "What's actually in the cores?", "a": "<p>Medical-grade polyester fiber infused with <strong>food-safe plant essential oils</strong> — peppermint, cinnamon, mango, orange, depending on the variant. No synthetic aromas, no solvents, no propylene glycol. Third-party tested, every batch.</p>" } },
+        "faq_refund":     { "type": "faq_question", "settings": { "q": "What if it doesn't work for me?", "a": "<p>Try it for <strong>90 days</strong>. Use it the way it's meant to be used — every time you'd reach for your old habit. If the ritual doesn't land, <strong>full refund, used or not.</strong> No 'must be sealed' fine print, no restocking fee.</p>" } },
+        "faq_ship":       { "type": "faq_question", "settings": { "q": "How fast does it arrive?", "a": "<p>Shipped from the Netherlands. <strong>2–3 working days across Europe, 4–8 days outside.</strong> Free worldwide, no minimum. Tracking link by email the moment it leaves the warehouse.</p>" } },
+        "ev_clean":       { "type": "evidence_point", "settings": { "icon": "shield", "title": "Independently tested by TNO", "source": "Netherlands Organisation for Applied Scientific Research" } },
+        "ev_plant":       { "type": "evidence_point", "settings": { "icon": "beaker", "title": "No combustion · no heating · no vapor", "source": "TNO toxicological assessment" } },
+        "ev_patent":      { "type": "evidence_point", "settings": { "icon": "doc",    "title": "≥ 10× below DNEL safety thresholds", "source": "European reference values · TNO 2024" } },
+        "ev_outcome":     { "type": "evidence_point", "settings": { "icon": "chart",  "title": "Zero CMR-classified substances", "source": "Dutch Ministry SZW classification" } }
       },
       "block_order": [
-        "flav_minty",
-        "flav_peppery",
-        "flav_cinnamon",
-        "flav_razzy",
-        "flav_mango",
-        "flav_orange",
-        "addon_stand",
-        "addon_pouch",
-        "addon_clean",
         "trust_shipping",
         "trust_promise",
         "trust_pause",
@@ -265,32 +60,7 @@
         "ev_patent",
         "ev_outcome"
       ],
-      "settings": {
-        "h1": "TheLioKit",
-        "subheading": "One device. Your flavors. Delivered the rhythm you want.",
-        "rating_text": "4.6 / 5",
-        "trust_meta": "3,086 verified reviews · Built in Italy",
-        "bullets": "Wooden, refillable diffuser|0 nicotine, 0 tobacco|Ships in 24h",
-        "loop_selling_plan_id": "",
-        "subscribe_discount_pct": 15,
-        "device_plus_product": "lio-plus-olive",
-        "device_plus_olive_vid": "",
-        "device_plus_walnut_vid": "",
-        "device_plus_name": "Lio Plus",
-        "device_plus_tag": "Best for solo rituals",
-        "device_plus_flag": "Most popular",
-        "device_plus_image": "shopify://shop_images/ChatGPT_Image_Apr_26_2026_07_08_56_PM_4_-Photoroom.png",
-        "device_plus_otp_price": "29.95",
-        "device_plus_sub_price": "29.95",
-        "device_pro_product": "",
-        "device_pro_olive_vid": "",
-        "device_pro_walnut_vid": "",
-        "device_pro_name": "Lio Pro",
-        "device_pro_tag": "Best for couples & evenings",
-        "device_pro_flag": "",
-        "device_pro_otp_price": "79.95",
-        "device_pro_sub_price": "79.95"
-      }
+      "settings": {}
     },
     "megapage": {
       "type": "lio-megapage",
