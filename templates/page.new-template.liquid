@@ -1,0 +1,1702 @@
+{% layout none %}
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0b2410">
+<title>Lio — Find your fit</title>
+
+<link rel="preconnect" href="https://use.typekit.net">
+<link rel="stylesheet" href="https://use.typekit.net/xhz7hhk.css">
+
+<style>
+  :root {
+    --forest:    #0b2410;
+    --forest-2:  #14361b;
+    --white:     #ffffff;
+    --cream:     #fcfefb;
+    --cream-2:   #f4f7f2;
+    --cream-3:   #ebf0e6;
+    --mint:      #94fca9;
+    --mint-soft: #cdfee1;
+    --warn:      #a86a1a;
+    --warn-soft: rgba(255, 180, 80, 0.15);
+    --honest:    #fff7c2;
+    --f-04: rgba(11, 36, 16, 0.04);
+    --f-06: rgba(11, 36, 16, 0.06);
+    --f-08: rgba(11, 36, 16, 0.08);
+    --f-10: rgba(11, 36, 16, 0.10);
+    --f-14: rgba(11, 36, 16, 0.14);
+    --f-22: rgba(11, 36, 16, 0.22);
+    --f-40: rgba(11, 36, 16, 0.40);
+    --f-55: rgba(11, 36, 16, 0.55);
+    --f-72: rgba(11, 36, 16, 0.72);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  ::selection { background: var(--mint); color: var(--forest); }
+  html, body { background: var(--cream); }
+  body {
+    font-family: "sofia-pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    color: var(--forest);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    letter-spacing: -0.005em;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  img, svg { max-width: 100%; display: block; }
+  button { font-family: inherit; cursor: pointer; }
+  a { color: inherit; text-decoration: none; }
+  .italic-word { font-style: italic; font-weight: 300; }
+
+  .circle { position: relative; display: inline-block; padding: 0 0.02em; isolation: isolate; }
+  .circle svg {
+    position: absolute; left: 0; right: 0; bottom: -0.08em;
+    width: 100%; height: 0.22em; z-index: -1; pointer-events: none; overflow: visible;
+  }
+  .circle svg path { fill: none; stroke: var(--mint); stroke-width: 10; stroke-linecap: round; }
+
+  /* ANNOUNCEMENT */
+  .announcement {
+    background: var(--forest); color: var(--cream);
+    text-align: center; padding: 11px 16px;
+    font-size: 13px; letter-spacing: 0.01em; font-weight: 500;
+    position: sticky; top: 0; z-index: 60;
+  }
+  .announcement strong { font-weight: 600; color: var(--mint); }
+
+  /* TOP BAR */
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--f-06);
+    background: var(--cream);
+    position: sticky; top: 38px; z-index: 50;
+  }
+  .topbar-logo { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+  .topbar-right {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 12px; color: var(--f-55); font-weight: 500;
+  }
+  .topbar-secure { display: inline-flex; align-items: center; gap: 5px; }
+  .topbar-secure svg { width: 13px; height: 13px; }
+
+  /* PROGRESS */
+  .progress {
+    background: var(--cream);
+    padding: 14px 20px 18px;
+    border-bottom: 1px solid var(--f-06);
+    position: sticky; top: 92px; z-index: 40;
+  }
+  .progress-row {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 9px;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--f-55);
+  }
+  .progress-row strong { color: var(--forest); font-weight: 600; }
+  .progress-track {
+    height: 6px; background: var(--cream-3);
+    border-radius: 99px; overflow: hidden; position: relative;
+  }
+  .progress-fill {
+    height: 100%; background: var(--forest);
+    border-radius: 99px;
+    transition: width 0.5s var(--ease);
+    width: 12%; position: relative;
+  }
+  .progress-fill::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(148, 252, 169, 0.4), transparent);
+    animation: shimmer 2.5s infinite;
+  }
+  @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+  /* STAGE */
+  .stage {
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 28px 20px 120px;
+    min-height: calc(100dvh - 200px);
+    position: relative;
+  }
+  .step { display: none; animation: fade-up 0.45s var(--ease); }
+  .step.is-active { display: block; }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--forest);
+    background: var(--mint-soft);
+    padding: 6px 11px;
+    border-radius: 99px;
+    margin-bottom: 18px;
+  }
+  .step-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--forest); }
+  .step-h {
+    font-size: clamp(28px, 6.5vw, 38px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 12px;
+  }
+  .step-sub {
+    font-size: 16px;
+    color: var(--f-72);
+    margin-bottom: 28px;
+    line-height: 1.5;
+    max-width: 480px;
+  }
+
+  /* QUIZ OPTIONS */
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option {
+    display: flex; align-items: center;
+    gap: 14px;
+    padding: 18px 18px;
+    background: var(--white);
+    border: 1.5px solid var(--f-08);
+    border-radius: 16px;
+    text-align: left;
+    width: 100%;
+    transition: all 0.18s var(--ease);
+    min-height: 64px;
+    color: var(--forest);
+    position: relative;
+  }
+  .option:hover {
+    border-color: var(--f-22);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px var(--f-06);
+  }
+  .option.is-selected {
+    border-color: var(--forest);
+    background: var(--forest);
+    color: var(--cream);
+  }
+  .option-radio {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 1.5px solid var(--f-22);
+    display: grid; place-items: center;
+    transition: all 0.2s var(--ease);
+  }
+  .option.is-selected .option-radio { border-color: var(--mint); background: var(--mint); }
+  .option-radio::after {
+    content: ''; width: 8px; height: 8px;
+    border-radius: 50%; background: var(--forest);
+    transform: scale(0);
+    transition: transform 0.2s var(--ease-spring);
+  }
+  .option.is-selected .option-radio::after { transform: scale(1); }
+  .option-body { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+  .option-label {
+    font-size: 16px; font-weight: 500;
+    letter-spacing: -0.01em; line-height: 1.3;
+  }
+  .option-hint {
+    font-size: 13px; color: var(--f-55);
+    font-weight: 400;
+  }
+  .option.is-selected .option-hint { color: rgba(252, 254, 251, 0.65); }
+  .option-emoji {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    background: var(--cream-2);
+    border-radius: 10px;
+    display: grid; place-items: center;
+    font-size: 18px;
+  }
+  .option.is-selected .option-emoji { background: var(--forest-2); }
+  .option:hover .option-emoji {
+    transform: scale(1.08) rotate(-3deg);
+    transition: transform 0.2s var(--ease-spring);
+  }
+
+  /* CTA */
+  .cta-row { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 8px;
+    padding: 18px 28px;
+    background: var(--forest);
+    color: var(--cream);
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    transition: all 0.18s var(--ease);
+    width: 100%;
+    min-height: 56px;
+  }
+  .cta:hover:not(:disabled) {
+    background: var(--forest-2);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 28px rgba(11, 36, 16, 0.2);
+  }
+  .cta:disabled { opacity: 0.4; cursor: not-allowed; }
+  .cta-arrow { transition: transform 0.18s var(--ease); }
+  .cta:hover:not(:disabled) .cta-arrow { transform: translateX(3px); }
+  .cta-back {
+    background: transparent; color: var(--f-72);
+    border: none; font-size: 14px; font-weight: 500;
+    padding: 10px; align-self: center;
+    text-decoration: underline;
+    text-decoration-color: var(--f-22);
+    text-underline-offset: 4px;
+  }
+  .cta-back:hover { color: var(--forest); text-decoration-color: var(--forest); }
+
+  /* TRUST STRIP */
+  .trust-strip {
+    margin-top: 22px;
+    padding-top: 22px;
+    border-top: 1px solid var(--f-06);
+    display: flex; align-items: center; justify-content: center;
+    gap: 18px; flex-wrap: wrap;
+    font-size: 12px;
+    color: var(--f-55); font-weight: 500;
+  }
+  .trust-strip-item { display: inline-flex; align-items: center; gap: 6px; }
+  .trust-strip-item svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* HONESTY NOTE */
+  .honesty-note {
+    margin-top: 22px;
+    padding: 14px 16px;
+    background: var(--honest);
+    border-radius: 12px;
+    font-size: 13px;
+    color: var(--forest);
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .honesty-note svg { flex-shrink: 0; width: 16px; height: 16px; margin-top: 2px; }
+  .honesty-note strong { font-weight: 700; }
+
+  /* QUALIFIER WARNING */
+  .qualifier-banner {
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: var(--warn-soft);
+    border-radius: 12px;
+    font-size: 13px;
+    color: var(--forest);
+    line-height: 1.5;
+    display: none;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .qualifier-banner.is-shown { display: flex; }
+  .qualifier-banner svg { flex-shrink: 0; width: 16px; height: 16px; margin-top: 2px; color: var(--warn); }
+
+  /* LOADING */
+  .processing { text-align: center; padding: 40px 0 20px; }
+  .processing-spinner {
+    width: 64px; height: 64px;
+    margin: 0 auto 24px;
+    border: 3px solid var(--cream-3);
+    border-top-color: var(--forest);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .processing-status {
+    display: flex; flex-direction: column;
+    gap: 10px; max-width: 360px; margin: 0 auto;
+  }
+  .processing-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 14px;
+    background: var(--white);
+    border: 1px solid var(--f-08);
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--f-55);
+    opacity: 0.3;
+    transition: opacity 0.4s var(--ease), color 0.4s var(--ease);
+    text-align: left;
+  }
+  .processing-row.is-done { opacity: 1; color: var(--forest); }
+  .processing-row.is-done .processing-check { background: var(--mint); }
+  .processing-row.is-done .processing-check svg { opacity: 1; transform: scale(1); }
+  .processing-check {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--cream-3);
+    display: grid; place-items: center;
+    transition: background 0.4s var(--ease);
+  }
+  .processing-check svg {
+    width: 12px; height: 12px;
+    color: var(--forest);
+    opacity: 0;
+    transform: scale(0.6);
+    transition: all 0.3s var(--ease-spring);
+  }
+
+  /* RESULT / OFFER */
+  .result-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--forest);
+    background: var(--mint-soft);
+    padding: 6px 12px;
+    border-radius: 99px;
+    margin-bottom: 16px;
+  }
+  .result-h {
+    font-size: clamp(30px, 7vw, 42px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.028em;
+    margin-bottom: 14px;
+  }
+  .result-sub {
+    font-size: 15.5px;
+    color: var(--f-72);
+    line-height: 1.55;
+    margin-bottom: 20px;
+    max-width: 520px;
+  }
+  .result-proof-row {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 9px 14px;
+    background: var(--white);
+    border: 1px solid var(--f-08);
+    border-radius: 99px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: var(--forest);
+    line-height: 1;
+  }
+  .result-proof-stars { display: inline-flex; gap: 1px; color: #f4a020; }
+  .result-proof-stars svg { width: 14px; height: 14px; }
+  .result-proof-text strong { font-weight: 700; }
+  .result-proof-text small { color: var(--f-55); font-size: 11px; }
+
+  /* PROOF STRIP */
+  .proof-strip {
+    margin-bottom: 22px;
+    padding: 16px 18px;
+    background: var(--cream-2);
+    border-left: 3px solid var(--mint);
+    border-radius: 0 12px 12px 0;
+  }
+  .proof-strip-quote { font-size: 14px; color: var(--forest); line-height: 1.55; }
+  .proof-strip-attr {
+    margin-top: 8px; font-size: 11.5px; color: var(--f-55);
+    font-weight: 500; display: flex; align-items: center; gap: 8px;
+  }
+  .proof-strip-stars { display: inline-flex; gap: 1px; color: #f4a020; }
+  .proof-strip-stars svg { width: 11px; height: 11px; }
+  .proof-strip-verified { display: inline-flex; align-items: center; gap: 4px; color: var(--f-55); }
+  .proof-strip-verified svg { width: 11px; height: 11px; }
+
+  /* PLAN CARD */
+  .plan-block {
+    margin-top: 8px;
+    background: var(--white);
+    border: 1.5px solid var(--f-08);
+    border-radius: 18px;
+    padding: 18px 18px;
+    margin-bottom: 14px;
+  }
+  .plan-block-title {
+    font-size: 12.5px; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--f-55); margin-bottom: 14px;
+  }
+  .plan-cards { display: flex; flex-direction: column; gap: 10px; }
+  .plan-card {
+    background: var(--white);
+    border: 1.5px solid var(--f-08);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all 0.18s var(--ease);
+    cursor: pointer;
+  }
+  .plan-card:hover { border-color: var(--f-22); }
+  .plan-card.is-selected {
+    border-color: var(--forest);
+    background: var(--cream);
+    box-shadow: 0 2px 12px rgba(11, 36, 16, 0.06);
+  }
+  .plan-card-eyebrow {
+    display: block; width: 100%;
+    padding: 7px 12px;
+    background: var(--forest);
+    color: var(--honest);
+    text-align: center;
+    font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.08em; line-height: 1.2;
+    text-transform: uppercase;
+  }
+  .plan-card-body { padding: 14px 14px 12px; }
+  .plan-card-row { display: flex; align-items: flex-start; gap: 12px; }
+  .plan-card-radio {
+    flex-shrink: 0; width: 18px; height: 18px;
+    border: 1.5px solid var(--f-22);
+    border-radius: 50%; background: var(--white);
+    margin-top: 3px; position: relative;
+    transition: border-color 0.18s var(--ease);
+  }
+  .plan-card.is-selected .plan-card-radio { border-color: var(--forest); }
+  .plan-card.is-selected .plan-card-radio::after {
+    content: ''; position: absolute; inset: 3px;
+    border-radius: 50%; background: var(--forest);
+  }
+  .plan-card-info { flex: 1; min-width: 0; }
+  .plan-card-title { font-size: 15.5px; font-weight: 700; color: var(--forest); line-height: 1.25; letter-spacing: -0.005em; }
+  .plan-card-cadence { font-size: 12.5px; color: var(--f-55); margin-top: 4px; line-height: 1.35; }
+  .plan-card-price-wrap { text-align: right; flex-shrink: 0; }
+  .plan-card-price-row { display: flex; align-items: baseline; justify-content: flex-end; gap: 6px; }
+  .plan-card-price { font-size: 18px; font-weight: 700; color: var(--forest); line-height: 1; letter-spacing: -0.01em; }
+  .plan-card-compare-at { font-size: 12.5px; color: var(--f-55); text-decoration: line-through; font-weight: 600; }
+  .plan-card-perday { font-size: 11px; color: var(--f-55); margin-top: 4px; }
+  .plan-card.is-selected .plan-card-perday { color: var(--forest); font-weight: 600; }
+
+  .plan-card-included {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--f-08);
+    display: none;
+  }
+  .plan-card.is-selected .plan-card-included.show-when-selected { display: block; }
+
+  .plan-card-free-device {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 14px; margin-bottom: 12px;
+    background: var(--mint-soft);
+    border-radius: 12px;
+    border: 1px solid var(--mint);
+  }
+  .plan-card-free-device-icon {
+    flex-shrink: 0; width: 36px; height: 36px;
+    border-radius: 10px; background: var(--mint);
+    display: grid; place-items: center; color: var(--forest);
+  }
+  .plan-card-free-device-icon svg { width: 20px; height: 20px; }
+  .plan-card-free-device-body { flex: 1; min-width: 0; }
+  .plan-card-free-device-title { font-size: 14px; font-weight: 700; color: var(--forest); letter-spacing: -0.01em; line-height: 1.25; }
+  .plan-card-free-device-sub { font-size: 11.5px; color: var(--f-72); line-height: 1.35; margin-top: 2px; }
+  .plan-card-free-device-flag {
+    flex-shrink: 0;
+    background: var(--forest); color: var(--honest);
+    padding: 4px 8px; border-radius: 6px;
+    font-size: 9.5px; font-weight: 800;
+    letter-spacing: 0.06em; text-transform: uppercase; line-height: 1;
+  }
+  .plan-card-included-label { font-size: 10.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--f-55); margin-bottom: 12px; }
+  .plan-card-included-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 9px; }
+  .plan-card-included-list li { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; line-height: 1.4; color: var(--forest); }
+  .plan-card-included-check { flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%; background: var(--mint); display: grid; place-items: center; margin-top: 1px; }
+  .plan-card-included-check svg { width: 11px; height: 11px; color: var(--forest); }
+  .plan-card-included-body { flex: 1; }
+  .plan-card-included-title { font-weight: 600; letter-spacing: -0.005em; }
+  .plan-card-included-sub { font-size: 12px; color: var(--f-55); margin-top: 1px; line-height: 1.4; }
+
+  .plan-card[data-plan="onetime"] { background: var(--cream-2); }
+  .plan-card[data-plan="onetime"].is-selected { background: var(--white); }
+  .plan-card-onetime-note { font-size: 11.5px; color: var(--f-55); margin-top: 8px; margin-left: 30px; line-height: 1.4; }
+
+  /* CHECKOUT CTA */
+  .checkout-cta {
+    width: 100%;
+    background: var(--forest); color: var(--cream);
+    border: none; border-radius: 14px;
+    padding: 18px 24px;
+    font-family: inherit; font-size: 16px; font-weight: 600; letter-spacing: -0.01em;
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    transition: all 0.18s var(--ease); cursor: pointer;
+    margin-top: 14px;
+  }
+  .checkout-cta:hover { background: var(--forest-2); transform: translateY(-1px); box-shadow: 0 10px 28px rgba(11, 36, 16, 0.2); }
+  .checkout-cta-main { font-size: 16px; font-weight: 600; }
+  .checkout-cta-price { font-size: 12.5px; font-weight: 400; opacity: 0.75; }
+
+  /* Trust bar */
+  .im8-trust-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 16px 0 22px; }
+  .im8-trust-bar__item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 12px 6px; background: var(--white); border: 1px solid var(--f-08); border-radius: 12px; }
+  .im8-trust-bar__icon { width: 40px; height: 40px; border-radius: 11px; background: var(--cream); border: 1px solid var(--f-08); display: flex; align-items: center; justify-content: center; color: var(--forest); flex-shrink: 0; }
+  .im8-trust-bar__icon svg { width: 20px; height: 20px; }
+  .im8-trust-bar__title { font-size: 12.5px; font-weight: 700; color: var(--forest); line-height: 1.2; }
+  .im8-trust-bar__sub { font-size: 10.5px; color: var(--f-55); line-height: 1.25; }
+  @media (max-width: 380px) {
+    .im8-trust-bar { gap: 5px; }
+    .im8-trust-bar__item { padding: 10px 4px; gap: 6px; }
+    .im8-trust-bar__icon { width: 34px; height: 34px; }
+    .im8-trust-bar__icon svg { width: 17px; height: 17px; }
+    .im8-trust-bar__title { font-size: 11.5px; }
+    .im8-trust-bar__sub { font-size: 9.5px; }
+  }
+
+  /* PRODUCT VIEWER */
+  .product-viewer { margin: 0 -20px 22px; background: linear-gradient(180deg, var(--cream-3) 0%, var(--cream-2) 100%); border-radius: 0; padding: 0 0 18px; overflow: hidden; border-top: 1px solid var(--f-08); border-bottom: 1px solid var(--f-08); }
+  .product-viewer-stage { position: relative; width: 100%; aspect-ratio: 1 / 1; margin: 0 0 12px; background: var(--white); }
+  .product-viewer-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 16px; opacity: 0; transition: opacity 0.25s var(--ease); }
+  .product-viewer-img.is-active { opacity: 1; }
+  .product-viewer-thumbs { display: flex; gap: 8px; padding: 0 20px 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .product-viewer-thumbs::-webkit-scrollbar { display: none; }
+  .product-viewer-thumb { flex-shrink: 0; width: 56px; height: 56px; border-radius: 10px; border: 1.5px solid var(--f-08); background: var(--white); padding: 0; cursor: pointer; overflow: hidden; transition: all 0.18s var(--ease); position: relative; }
+  .product-viewer-thumb:hover { border-color: var(--f-22); transform: translateY(-1px); }
+  .product-viewer-thumb.is-active { border-color: var(--forest); box-shadow: 0 2px 8px rgba(11, 36, 16, 0.15); }
+  .product-viewer-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .product-viewer-thumb[data-thumb-type="color"] img { object-fit: contain; padding: 4px; }
+  .product-viewer-caption { text-align: center; padding: 0 20px; font-size: 13px; font-weight: 600; color: var(--forest); letter-spacing: -0.005em; margin-bottom: 4px; }
+  .product-viewer-color-name { color: var(--forest); text-transform: capitalize; }
+  .product-viewer-meta { text-align: center; padding: 0 20px; font-size: 11px; color: var(--f-55); margin-bottom: 16px; font-style: italic; }
+
+  .color-selector { display: flex; align-items: center; justify-content: center; padding: 0 20px; gap: 12px; }
+  .color-swatch { background: var(--white); border: 1.5px solid var(--f-14); border-radius: 12px; padding: 8px 14px 8px 8px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.18s var(--ease); font-family: inherit; }
+  .color-swatch:hover { border-color: var(--f-40); transform: translateY(-1px); }
+  .color-swatch.is-selected { border-color: var(--forest); background: var(--white); box-shadow: 0 2px 12px rgba(11, 36, 16, 0.08); }
+  .color-swatch-circle { width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0; box-shadow: inset 0 0 0 1px rgba(11, 36, 16, 0.12), 0 1px 3px rgba(11, 36, 16, 0.15); transition: transform 0.18s var(--ease-spring); }
+  .color-swatch.is-selected .color-swatch-circle { transform: scale(1.05); box-shadow: inset 0 0 0 1.5px var(--forest), 0 0 0 3px var(--white), 0 0 0 4.5px var(--forest), 0 2px 6px rgba(11, 36, 16, 0.2); }
+  .color-swatch-circle--olive { background: linear-gradient(135deg, #7a8b4a 0%, #5d6b34 100%); }
+  .color-swatch-circle--walnut { background: linear-gradient(135deg, #6e4a2e 0%, #4a2f1c 100%); }
+  .color-swatch-label { font-size: 13.5px; font-weight: 600; color: var(--forest); letter-spacing: -0.005em; }
+  .color-swatch.is-selected .color-swatch-label { color: var(--forest); }
+
+  /* HOW IT WORKS */
+  .howitworks { margin: 6px 0 22px; }
+  .howitworks-title { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--f-55); margin-bottom: 14px; text-align: center; }
+  .howitworks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .howitworks-step { background: var(--white); border: 1px solid var(--f-08); border-radius: 14px; padding: 16px 10px 14px; text-align: center; position: relative; }
+  .howitworks-icon { width: 44px; height: 44px; margin: 0 auto 10px; border-radius: 12px; background: var(--mint-soft); display: grid; place-items: center; color: var(--forest); }
+  .howitworks-icon svg { width: 22px; height: 22px; }
+  .howitworks-num { position: absolute; top: 8px; right: 10px; font-size: 10px; font-weight: 700; color: var(--f-40); letter-spacing: 0.05em; }
+  .howitworks-step-title { font-size: 13px; font-weight: 700; color: var(--forest); margin-bottom: 4px; letter-spacing: -0.005em; }
+  .howitworks-step-sub { font-size: 11.5px; color: var(--f-55); line-height: 1.35; }
+  @media (max-width: 380px) {
+    .howitworks-step { padding: 12px 6px 10px; }
+    .howitworks-icon { width: 38px; height: 38px; }
+    .howitworks-icon svg { width: 19px; height: 19px; }
+    .howitworks-step-title { font-size: 12px; }
+    .howitworks-step-sub { font-size: 10.5px; }
+  }
+
+  /* GUARANTEE STRIP */
+  .guarantee-strip { margin: 14px 0 18px; background: var(--white); border: 1.5px solid var(--mint); border-radius: 14px; padding: 14px 16px; display: flex; align-items: center; gap: 14px; }
+  .guarantee-strip-icon { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; background: var(--mint); display: grid; place-items: center; color: var(--forest); }
+  .guarantee-strip-icon svg { width: 22px; height: 22px; }
+  .guarantee-strip-body { flex: 1; min-width: 0; }
+  .guarantee-strip-title { font-size: 14px; font-weight: 700; color: var(--forest); line-height: 1.25; margin-bottom: 2px; }
+  .guarantee-strip-sub { font-size: 12px; color: var(--f-72); line-height: 1.4; }
+
+  /* FAQ */
+  .faq { margin: 8px 0 22px; }
+  .faq-title { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--f-55); margin-bottom: 12px; text-align: center; }
+  .faq-item { background: var(--white); border: 1px solid var(--f-08); border-radius: 12px; margin-bottom: 8px; overflow: hidden; transition: border-color 0.18s var(--ease); }
+  .faq-item.is-open { border-color: var(--f-22); }
+  .faq-q { width: 100%; background: transparent; border: none; padding: 14px 16px; font-family: inherit; font-size: 14px; font-weight: 600; color: var(--forest); text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; letter-spacing: -0.005em; }
+  .faq-q-toggle { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--cream-2); display: grid; place-items: center; color: var(--forest); transition: transform 0.2s var(--ease), background 0.2s var(--ease); }
+  .faq-item.is-open .faq-q-toggle { transform: rotate(45deg); background: var(--mint); }
+  .faq-q-toggle svg { width: 12px; height: 12px; }
+  .faq-a { padding: 0 16px; max-height: 0; overflow: hidden; transition: max-height 0.3s var(--ease), padding 0.3s var(--ease); font-size: 13px; color: var(--f-72); line-height: 1.55; }
+  .faq-item.is-open .faq-a { padding: 0 16px 14px; max-height: 240px; }
+  .faq-a strong { color: var(--forest); font-weight: 600; }
+
+  /* 20/80 BIG IDEA */
+  .bigidea { margin: 8px 0 28px; padding: 24px 20px; background: var(--forest); color: var(--cream); border-radius: 18px; }
+  .bigidea-title { font-size: clamp(20px, 5vw, 26px); font-weight: 500; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .bigidea-title em { color: var(--mint); font-style: normal; font-weight: 600; }
+  .bigidea-lead { font-size: 13.5px; color: rgba(252, 254, 251, 0.72); line-height: 1.5; margin-bottom: 18px; }
+  .bigidea-split { display: flex; border-radius: 12px; overflow: hidden; margin-bottom: 14px; height: 56px; }
+  .bigidea-split-20 { width: 20%; background: rgba(252, 254, 251, 0.18); display: grid; place-items: center; font-size: 18px; font-weight: 700; color: var(--cream); letter-spacing: -0.01em; }
+  .bigidea-split-80 { width: 80%; background: var(--mint); display: grid; place-items: center; font-size: 18px; font-weight: 700; color: var(--forest); letter-spacing: -0.01em; }
+  .bigidea-rows { display: flex; flex-direction: column; gap: 12px; }
+  .bigidea-row { display: grid; grid-template-columns: 60px 1fr; gap: 14px; align-items: flex-start; padding: 12px 14px; background: rgba(252, 254, 251, 0.06); border-radius: 10px; }
+  .bigidea-row-pct { font-size: 22px; font-weight: 700; color: var(--mint); letter-spacing: -0.02em; line-height: 1; }
+  .bigidea-row-label { font-size: 13px; font-weight: 700; color: var(--cream); margin-bottom: 3px; letter-spacing: -0.005em; }
+  .bigidea-row-sub { font-size: 12px; color: rgba(252, 254, 251, 0.7); line-height: 1.4; }
+  .bigidea-payoff { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(252, 254, 251, 0.12); font-size: 14px; line-height: 1.55; color: var(--cream); }
+  .bigidea-payoff strong { font-weight: 700; color: var(--mint); }
+
+  /* COMPARE */
+  .compare { margin: 8px 0 28px; }
+  .compare-title { font-size: clamp(20px, 5vw, 26px); font-weight: 500; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 8px; color: var(--forest); }
+  .compare-title em { color: var(--forest); font-style: italic; font-weight: 300; }
+  .compare-lead { font-size: 13.5px; color: var(--f-72); line-height: 1.5; margin-bottom: 16px; }
+  .compare-table { background: var(--white); border: 1.5px solid var(--f-08); border-radius: 16px; overflow: hidden; }
+  .compare-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; border-bottom: 1px solid var(--f-08); }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row-head { background: var(--cream-2); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--f-55); }
+  .compare-cell { padding: 14px 12px; font-size: 13px; line-height: 1.4; color: var(--forest); border-right: 1px solid var(--f-08); display: flex; align-items: center; }
+  .compare-cell:last-child { border-right: none; }
+  .compare-cell-feature { font-weight: 600; background: var(--cream); }
+  .compare-cell-other { color: var(--f-55); }
+  .compare-cell-lio { color: var(--forest); font-weight: 600; background: var(--mint-soft); }
+  .compare-icon { display: inline-flex; align-items: center; gap: 4px; }
+  .compare-icon svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .compare-x { color: #a33b3b; }
+  .compare-check { color: var(--forest); }
+  @media (max-width: 480px) {
+    .compare-row { grid-template-columns: 1.3fr 1fr 1fr; }
+    .compare-cell { padding: 12px 8px; font-size: 12px; }
+    .compare-cell-feature { font-size: 12.5px; }
+  }
+
+  /* TIMELINE */
+  .timeline-sec { margin: 8px 0 28px; }
+  .timeline-title { font-size: clamp(20px, 5vw, 26px); font-weight: 500; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 8px; color: var(--forest); }
+  .timeline-title em { color: var(--forest); font-style: italic; font-weight: 300; }
+  .timeline-lead { font-size: 13.5px; color: var(--f-72); line-height: 1.5; margin-bottom: 18px; }
+  .timeline-rows { display: flex; flex-direction: column; gap: 12px; }
+  .timeline-row { background: var(--white); border: 1.5px solid var(--f-08); border-radius: 14px; padding: 16px 16px; display: grid; grid-template-columns: 72px 1fr; gap: 14px; align-items: flex-start; position: relative; }
+  .timeline-row::before { content: ''; position: absolute; left: 52px; top: 100%; width: 2px; height: 12px; background: var(--mint); }
+  .timeline-row:last-child::before { display: none; }
+  .timeline-day { background: var(--forest); color: var(--cream); border-radius: 10px; padding: 8px 0; text-align: center; line-height: 1.1; }
+  .timeline-day-num { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--mint); display: block; }
+  .timeline-day-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(252, 254, 251, 0.7); display: block; margin-top: 2px; }
+  .timeline-body { min-width: 0; }
+  .timeline-h { font-size: 15px; font-weight: 700; color: var(--forest); letter-spacing: -0.01em; margin-bottom: 4px; }
+  .timeline-sub { font-size: 13px; color: var(--f-72); line-height: 1.5; }
+  .timeline-pill { display: inline-block; margin-top: 8px; padding: 3px 9px; background: var(--mint-soft); color: var(--forest); border-radius: 99px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* FOUNDER */
+  .founder { margin: 22px 0 26px; padding: 24px 20px; background: var(--white); border: 1.5px solid var(--f-08); border-radius: 18px; }
+  .founder-portrait { width: 100%; max-width: 220px; aspect-ratio: 4/5; margin: 0 auto 18px; background: linear-gradient(155deg, var(--cream-3) 0%, var(--cream-2) 100%); border-radius: 14px; position: relative; overflow: hidden; border: 1px solid var(--f-08); box-shadow: 0 12px 28px -12px rgba(11, 36, 16, 0.18); }
+  .founder-portrait-figure { position: absolute; inset: 0; background-image: url('https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_Apr_20_2026_10_54_52_AM_1.webp?v=1776661269'); background-size: cover; background-position: center 30%; background-repeat: no-repeat; }
+  .founder-portrait-stamp { position: absolute; right: -6px; top: 18px; transform: rotate(8deg); background: var(--mint); color: var(--forest); padding: 8px 12px; border-radius: 6px; border: 1.5px solid var(--forest); font-size: 9px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.2; text-align: center; }
+  .founder-portrait-sig { position: absolute; left: 16px; bottom: 14px; background: var(--cream); color: var(--forest); padding: 6px 11px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.02em; box-shadow: 0 4px 12px rgba(11, 36, 16, 0.1); border: 1.2px solid var(--forest); }
+  .founder-portrait-sig span { font-weight: 500; color: var(--f-55); margin-left: 4px; }
+  .founder-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--f-55); margin-bottom: 8px; text-align: center; }
+  .founder-h { font-size: clamp(19px, 4.6vw, 23px); font-weight: 500; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 14px; color: var(--forest); }
+  .founder-h em { font-style: italic; font-weight: 300; }
+  .founder p { font-size: 13.5px; color: var(--forest); line-height: 1.6; margin-bottom: 11px; }
+  .founder p strong { font-weight: 700; color: var(--forest); }
+  .founder-tried { margin-top: 16px; padding: 14px 16px; background: var(--cream-2); border-radius: 10px; }
+  .founder-tried-title { font-size: 12.5px; font-weight: 700; color: var(--forest); margin-bottom: 8px; letter-spacing: -0.005em; }
+  .founder-tried-list { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; list-style: none; padding: 0; margin: 0; }
+  .founder-tried-list li { font-size: 12px; color: var(--f-72); line-height: 1.4; display: flex; align-items: center; gap: 6px; }
+  .founder-tried-list li::before { content: '✕'; color: #a33b3b; font-weight: 700; font-size: 11px; }
+
+  /* HONEST INOCULATION */
+  .inoc { margin: 8px 0 28px; }
+  .inoc-title { font-size: clamp(20px, 5vw, 26px); font-weight: 500; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 18px; color: var(--forest); }
+  .inoc-title em { font-style: italic; font-weight: 300; }
+  .inoc-list { display: flex; flex-direction: column; gap: 10px; }
+  .inoc-item { background: var(--white); border: 1.5px solid var(--f-08); border-radius: 14px; padding: 16px 18px; display: grid; grid-template-columns: 32px 1fr; gap: 14px; align-items: flex-start; }
+  .inoc-num { font-size: 13px; font-weight: 700; color: var(--forest); background: var(--mint-soft); width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; letter-spacing: -0.01em; }
+  .inoc-body { font-size: 13.5px; color: var(--forest); line-height: 1.55; padding-top: 4px; }
+  .inoc-body strong { font-weight: 700; display: block; margin-bottom: 3px; }
+  .inoc-body em { font-style: italic; color: var(--f-72); }
+
+  /* STICKY BOTTOM CTA */
+  .sticky-cta { position: fixed; left: 0; right: 0; bottom: 0; background: var(--cream); border-top: 1px solid var(--f-08); box-shadow: 0 -4px 24px rgba(11, 36, 16, 0.06); padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); z-index: 70; display: flex; align-items: center; gap: 12px; transform: translateY(100%); transition: transform 0.3s var(--ease); }
+  .sticky-cta.is-visible { transform: translateY(0); }
+  .sticky-cta-info { flex: 1; min-width: 0; line-height: 1.2; }
+  .sticky-cta-price-row { display: flex; align-items: baseline; gap: 6px; }
+  .sticky-cta-price { font-size: 18px; font-weight: 700; color: var(--forest); letter-spacing: -0.01em; }
+  .sticky-cta-compare { font-size: 12px; color: var(--f-55); text-decoration: line-through; font-weight: 600; }
+  .sticky-cta-meta { font-size: 10.5px; color: var(--f-55); font-weight: 500; margin-top: 2px; letter-spacing: -0.005em; }
+  .sticky-cta-btn { background: var(--forest); color: var(--cream); border: none; border-radius: 12px; padding: 13px 18px; font-family: inherit; font-size: 14px; font-weight: 700; letter-spacing: -0.005em; cursor: pointer; flex-shrink: 0; transition: all 0.18s var(--ease); display: inline-flex; align-items: center; gap: 6px; }
+  .sticky-cta-btn:hover { background: var(--forest-2); transform: translateY(-1px); }
+  .sticky-cta-btn svg { width: 14px; height: 14px; }
+  body.has-sticky-bar { padding-bottom: 72px; }
+
+  /* SECTION DIVIDERS */
+  .section-block { margin: 26px 0; padding-top: 26px; border-top: 1px solid var(--f-08); }
+  .section-block:first-of-type { border-top: none; padding-top: 8px; }
+  .section-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--f-55); margin-bottom: 14px; }
+  .section-eyebrow-num { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: var(--mint-soft); color: var(--forest); font-size: 10.5px; font-weight: 800; letter-spacing: 0; }
+  .below-fold { margin-top: 30px; padding-top: 26px; border-top: 6px solid var(--cream-3); margin-left: -20px; margin-right: -20px; padding-left: 20px; padding-right: 20px; }
+  .below-fold-intro { text-align: center; margin-bottom: 8px; }
+  .below-fold-intro-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--f-55); margin-bottom: 8px; }
+  .below-fold-intro-eyebrow::before, .below-fold-intro-eyebrow::after { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--f-22); }
+  .below-fold-intro-h { font-size: 18px; font-weight: 500; color: var(--forest); letter-spacing: -0.015em; }
+
+  /* FOOTER FINEPRINT */
+  .footer-fineprint { margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--f-06); font-size: 11.5px; color: var(--f-55); line-height: 1.6; text-align: center; }
+  .footer-fineprint a { text-decoration: underline; text-decoration-color: var(--f-22); color: var(--f-72); }
+  .footer-fineprint a:hover { color: var(--forest); }
+</style>
+</head>
+<body>
+
+<div class="announcement">
+  <strong>40% OFF FOREVER</strong> · Free Lio Plus device with every order
+</div>
+
+<div class="topbar">
+  <div class="topbar-logo">Lio</div>
+  <div class="topbar-right">
+    <span class="topbar-secure">30 sec · 3 questions</span>
+  </div>
+</div>
+
+<div class="progress">
+  <div class="progress-row">
+    <span>Step <strong id="stepNum">1</strong> of 3</span>
+    <span><strong id="stepPct">33%</strong> complete</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="progressFill" style="width: 33%"></div>
+  </div>
+</div>
+
+<main class="stage">
+
+  <!-- STEP 1 — URGE FREQUENCY -->
+  <section class="step is-active" data-step="1">
+    <h2 class="step-h">How often do you smoke or vape?</h2>
+    <p class="step-sub">Quick check — we'll match you to the right Lio plan in 30 seconds.</p>
+
+    <div class="options" data-question="frequency">
+      <button class="option" data-value="constant">
+        <span class="option-emoji">🔥</span>
+        <span class="option-body">
+          <span class="option-label">All the time</span>
+          <span class="option-hint">More than 10 times a day</span>
+        </span>
+        <span class="option-radio"></span>
+      </button>
+      <button class="option" data-value="often">
+        <span class="option-emoji">⚡</span>
+        <span class="option-body">
+          <span class="option-label">Often</span>
+          <span class="option-hint">5–10 times a day</span>
+        </span>
+        <span class="option-radio"></span>
+      </button>
+      <button class="option" data-value="sometimes">
+        <span class="option-emoji">🌱</span>
+        <span class="option-body">
+          <span class="option-label">Sometimes</span>
+          <span class="option-hint">A few times a day</span>
+        </span>
+        <span class="option-radio"></span>
+      </button>
+      <button class="option" data-value="rarely">
+        <span class="option-emoji">🍃</span>
+        <span class="option-body">
+          <span class="option-label">Rarely</span>
+          <span class="option-hint">Once a day or less</span>
+        </span>
+        <span class="option-radio"></span>
+      </button>
+    </div>
+
+    <div class="cta-row">
+      <button class="cta" id="next1" disabled>
+        Continue
+        <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16">
+          <path d="M5 12h14M13 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- STEP 2 — TRIGGER TIMING -->
+  <section class="step" data-step="2">
+    <h2 class="step-h">When do you crave it most?</h2>
+    <p class="step-sub">Pick the strongest moment — it tells us when you'll reach for Lio.</p>
+
+    <div class="options" data-question="trigger">
+      <button class="option" data-value="morning">
+        <span class="option-emoji">☀️</span>
+        <span class="option-body">
+          <span class="option-label">Morning</span>
+          <span class="option-hint">First coffee, first cigarette</span>
+        </span>
+        <span class="option-radio"></span>
+      </button>
+      <button class="option" data-value="day">
+        <span class="option-emoji">🍽️</span>
+        <span class="option-body">
+          <span class="option-label">During the day</span>
+          <span class="option-hint">After meals, on breaks</span>
+        </span>
+        <span class="option-radio"></span>
+      </button>
+      <button class="option" data-value="evening">
+        <span class="option-emoji">🌙</span>
+        <span class="option-body">
+          <span class="option-label">Evenings</span>
+          <span class="option-hint">Wind-down, after dinner, drinks</span>
+        </span>
+        <span class="option-radio"></span>
+      </button>
+      <button class="option" data-value="anytime">
+        <span class="option-emoji">⚡</span>
+        <span class="option-body">
+          <span class="option-label">Anytime, all day</span>
+          <span class="option-hint">No specific pattern</span>
+        </span>
+        <span class="option-radio"></span>
+      </button>
+    </div>
+
+    <div class="cta-row">
+      <button class="cta" id="next2" disabled>
+        Continue
+        <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16">
+          <path d="M5 12h14M13 5l7 7-7 7"/>
+        </svg>
+      </button>
+      <button class="cta-back" data-back="1">← Back</button>
+    </div>
+  </section>
+
+  <!-- STEP 3 — EXPECTATION -->
+  <section class="step" data-step="3">
+    <h2 class="step-h">What would success look like?</h2>
+    <p class="step-sub">Last one — this is how we personalise your plan.</p>
+
+    <div class="options" data-question="expectation">
+      <button class="option" data-value="replace_ritual">
+        <span class="option-emoji">🪷</span>
+        <span class="option-body">
+          <span class="option-label">Break the habit, hand and breath</span>
+          <span class="option-hint">Keep the ritual, drop the smoke</span>
+        </span>
+        <span class="option-radio"></span>
+      </button>
+      <button class="option" data-value="cut_down">
+        <span class="option-emoji">📉</span>
+        <span class="option-body">
+          <span class="option-label">Cut down gradually</span>
+          <span class="option-hint">Step down without going cold</span>
+        </span>
+        <span class="option-radio"></span>
+      </button>
+      <button class="option" data-value="calm_breath">
+        <span class="option-emoji">🌬️</span>
+        <span class="option-body">
+          <span class="option-label">A calmer moment when stressed</span>
+          <span class="option-hint">A pause, not a puff</span>
+        </span>
+        <span class="option-radio"></span>
+      </button>
+      <button class="option" data-value="full_replacement">
+        <span class="option-emoji">🔁</span>
+        <span class="option-body">
+          <span class="option-label">A full swap for my vape or cig</span>
+          <span class="option-hint">Same routine, different tool</span>
+        </span>
+        <span class="option-radio"></span>
+      </button>
+    </div>
+
+    <div class="qualifier-banner" id="fullReplaceWarning">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 8v4M12 16h.01"/>
+      </svg>
+      <span>
+        Quick note — Lio is nicotine-free, so it handles the <strong>ritual side</strong> of quitting (the hand, the breath, the pause). It works best paired with a nicotine step-down for the first 2–3 weeks. Tap continue and we'll show you how.
+      </span>
+    </div>
+
+    <div class="cta-row">
+      <button class="cta" id="next3" disabled>
+        See my plan
+        <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16">
+          <path d="M5 12h14M13 5l7 7-7 7"/>
+        </svg>
+      </button>
+      <button class="cta-back" data-back="2">← Back</button>
+    </div>
+  </section>
+
+  <!-- STEP 4 — PROCESSING -->
+  <section class="step" data-step="4">
+    <div class="processing">
+      <div class="processing-spinner"></div>
+      <h2 class="step-h" style="text-align: center; margin-bottom: 12px;">Building your plan…</h2>
+      <p class="step-sub" style="text-align: center; margin: 0 auto 28px;">Matching your answers to 800+ verified customer outcomes.</p>
+      <div class="processing-status">
+        <div class="processing-row" data-proc="1">
+          <span class="processing-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>
+          </span>
+          <span>Mapping your trigger pattern</span>
+        </div>
+        <div class="processing-row" data-proc="2">
+          <span class="processing-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>
+          </span>
+          <span>Matching against verified customer outcomes</span>
+        </div>
+        <div class="processing-row" data-proc="3">
+          <span class="processing-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>
+          </span>
+          <span>Building your starter plan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 5 — RESULT / OFFER -->
+  <section class="step" data-step="5">
+
+    <span class="result-eyebrow">
+      <span class="step-eyebrow-dot"></span>
+      <span id="resultEyebrow">Your plan · built for your routine</span>
+    </span>
+
+    <h1 class="result-h" id="resultHeadline">Break the hand-to-mouth habit.</h1>
+    <p class="result-sub" id="resultSub">
+      80% of the habit is the hand, the breath, the pause. Lio handles that part — so the chemistry can fade on its own.
+    </p>
+
+    <div class="result-proof-row">
+      <span class="result-proof-stars">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.2 4.7 1.5 7-6.3-3.6-6.3 3.6 1.5-7L2 9.4l7-.9z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.2 4.7 1.5 7-6.3-3.6-6.3 3.6 1.5-7L2 9.4l7-.9z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.2 4.7 1.5 7-6.3-3.6-6.3 3.6 1.5-7L2 9.4l7-.9z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.2 4.7 1.5 7-6.3-3.6-6.3 3.6 1.5-7L2 9.4l7-.9z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.2 4.7 1.5 7-6.3-3.6-6.3 3.6 1.5-7L2 9.4l7-.9z"/></svg>
+      </span>
+      <span class="result-proof-text">
+        <strong>800+ 5-star reviews</strong> · <small>verified buyers</small>
+      </span>
+    </div>
+
+    <div class="product-viewer">
+
+      <div class="product-viewer-stage">
+        <img
+          class="product-viewer-img is-active"
+          data-slide="0"
+          id="productImgMain"
+          src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Screenshot_2026-05-15_at_1.33.07_PM_1.webp?v=1778860660"
+          alt="Lio Plus in Olive — sustainable wood finish, fits in pocket"
+          loading="eager">
+        <img class="product-viewer-img" data-slide="1" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/WhatsApp_Image_2026-05-15_at_19.12.24_1.webp?v=1778865270" alt="Lio Plus in hand — pocketable wooden diffuser" loading="lazy">
+        <img class="product-viewer-img" data-slide="2" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/WhatsApp_Image_2026-05-15_at_19.12.24.webp?v=1778865269" alt="Lio Plus in use — slow inhale, no smoke" loading="lazy">
+        <img class="product-viewer-img" data-slide="3" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/WhatsApp_Image_2026-05-15_at_19.10.24.webp?v=1778865269" alt="Lio Plus detail — wood grain finish" loading="lazy">
+        <img class="product-viewer-img" data-slide="4" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/WhatsApp_Image_2026-05-15_at_19.09.43.webp?v=1778865269" alt="Lio Plus lifestyle shot" loading="lazy">
+      </div>
+
+      <div class="product-viewer-thumbs" role="tablist" aria-label="Product gallery">
+        <button type="button" class="product-viewer-thumb is-active" data-thumb="0" data-thumb-type="color" aria-label="Main product shot">
+          <img id="productThumbMain" src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Screenshot_2026-05-15_at_1.33.07_PM_1.webp?v=1778860660" alt="">
+        </button>
+        <button type="button" class="product-viewer-thumb" data-thumb="1" aria-label="In hand">
+          <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/WhatsApp_Image_2026-05-15_at_19.12.24_1.webp?v=1778865270" alt="">
+        </button>
+        <button type="button" class="product-viewer-thumb" data-thumb="2" aria-label="In use">
+          <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/WhatsApp_Image_2026-05-15_at_19.12.24.webp?v=1778865269" alt="">
+        </button>
+        <button type="button" class="product-viewer-thumb" data-thumb="3" aria-label="Detail">
+          <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/WhatsApp_Image_2026-05-15_at_19.10.24.webp?v=1778865269" alt="">
+        </button>
+        <button type="button" class="product-viewer-thumb" data-thumb="4" aria-label="Lifestyle">
+          <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/WhatsApp_Image_2026-05-15_at_19.09.43.webp?v=1778865269" alt="">
+        </button>
+      </div>
+
+      <div class="product-viewer-caption">
+        The Lio+ · <span class="product-viewer-color-name" id="colorName">Olive</span>
+      </div>
+      <div class="product-viewer-meta">Choose your finish</div>
+
+      <div class="color-selector" role="radiogroup" aria-label="Lio Plus color">
+        <button type="button" class="color-swatch is-selected" data-color="olive" data-color-img="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Screenshot_2026-05-15_at_1.33.07_PM_1.webp?v=1778860660" role="radio" aria-checked="true">
+          <span class="color-swatch-circle color-swatch-circle--olive" aria-hidden="true"></span>
+          <span class="color-swatch-label">Olive</span>
+        </button>
+        <button type="button" class="color-swatch" data-color="walnut" data-color-img="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Screenshot_2026-05-15_at_1.33.07_PM_2.webp?v=1778860660" role="radio" aria-checked="false">
+          <span class="color-swatch-circle color-swatch-circle--walnut" aria-hidden="true"></span>
+          <span class="color-swatch-label">Walnut</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="plan-block">
+      <div class="plan-block-title">Choose your plan</div>
+      <div class="plan-cards">
+
+        <div class="plan-card is-selected" data-plan="subscription">
+          <div class="plan-card-eyebrow">40% OFF FOREVER · FREE LIO PLUS DEVICE</div>
+          <div class="plan-card-body">
+            <div class="plan-card-row">
+              <div class="plan-card-radio"></div>
+              <div class="plan-card-info">
+                <div class="plan-card-title">Subscribe &amp; Save</div>
+                <div class="plan-card-cadence">Ships every 4 weeks · skip or cancel anytime</div>
+              </div>
+              <div class="plan-card-price-wrap">
+                <div class="plan-card-price-row">
+                  <span class="plan-card-compare-at">€49</span>
+                  <span class="plan-card-price">€29</span>
+                </div>
+                <div class="plan-card-perday">per month · 40% off forever</div>
+              </div>
+            </div>
+
+            <div class="plan-card-included show-when-selected">
+
+              <div class="plan-card-free-device">
+                <div class="plan-card-free-device-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M20 12V8a2 2 0 00-1-1.7L13 3a2 2 0 00-2 0L5 6.3A2 2 0 004 8v8a2 2 0 001 1.7l6 3.5a2 2 0 002 0l6-3.5a2 2 0 001-1.7z"/>
+                    <path d="M12 22V12M20 7.5L12 12 4 7.5"/>
+                  </svg>
+                </div>
+                <div class="plan-card-free-device-body">
+                  <div class="plan-card-free-device-title">FREE Lio Plus device</div>
+                  <div class="plan-card-free-device-sub">€49 value · yours to keep, even if you cancel</div>
+                </div>
+                <div class="plan-card-free-device-flag">Included</div>
+              </div>
+
+              <div class="plan-card-included-label">What's also included</div>
+              <ul class="plan-card-included-list">
+                <li>
+                  <span class="plan-card-included-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                  <span class="plan-card-included-body"><span class="plan-card-included-title">30 cores — enough for one a day</span></span>
+                </li>
+                <li>
+                  <span class="plan-card-included-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                  <span class="plan-card-included-body"><span class="plan-card-included-title">WhatsApp coach for your first 30 days</span></span>
+                </li>
+                <li>
+                  <span class="plan-card-included-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                  <span class="plan-card-included-body"><span class="plan-card-included-title">90-day money-back, no questions</span></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="plan-card" data-plan="onetime">
+          <div class="plan-card-body">
+            <div class="plan-card-row">
+              <div class="plan-card-radio"></div>
+              <div class="plan-card-info">
+                <div class="plan-card-title">One-time purchase</div>
+                <div class="plan-card-cadence">Just the device + cores · no plan</div>
+              </div>
+              <div class="plan-card-price-wrap">
+                <div class="plan-card-price-row">
+                  <span class="plan-card-price">€49</span>
+                </div>
+                <div class="plan-card-perday">one-time</div>
+              </div>
+            </div>
+            <div class="plan-card-onetime-note">Just the basics. No free Lio+, no coach.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="checkout-cta" id="checkoutBtn">
+        <span class="checkout-cta-main" id="ctaLabel">Get my free Lio+</span>
+        <span class="checkout-cta-price" id="ctaPrice">€29/month · 40% off forever · cancel anytime</span>
+      </button>
+
+      <div class="guarantee-strip">
+        <div class="guarantee-strip-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="guarantee-strip-body">
+          <div class="guarantee-strip-title">Try Lio for 90 days. Risk-free.</div>
+          <div class="guarantee-strip-sub">Don't love it? Send it back — every cent refunded, no questions, no calls.</div>
+        </div>
+      </div>
+
+      <div class="im8-trust-bar">
+        <div class="im8-trust-bar__item">
+          <div class="im8-trust-bar__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <div class="im8-trust-bar__title">90-Day Refund</div>
+          <div class="im8-trust-bar__sub">No questions asked</div>
+        </div>
+        <div class="im8-trust-bar__item">
+          <div class="im8-trust-bar__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </div>
+          <div class="im8-trust-bar__title">Free EU Shipping</div>
+          <div class="im8-trust-bar__sub">2–4 business days</div>
+        </div>
+        <div class="im8-trust-bar__item">
+          <div class="im8-trust-bar__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="im8-trust-bar__title">Cancel Anytime</div>
+          <div class="im8-trust-bar__sub">One click, no calls</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="below-fold">
+      <div class="below-fold-intro">
+        <div class="below-fold-intro-eyebrow">Want the full story?</div>
+        <div class="below-fold-intro-h">Here's why we built Lio, and what to expect.</div>
+      </div>
+
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-eyebrow-num">01</span>
+        Why nothing else has worked
+      </div>
+    <section class="bigidea">
+      <h2 class="bigidea-title">The chemistry is the easy half. <em>The reach is the half nobody fixed.</em></h2>
+      <p class="bigidea-lead">The nicotine clears your bloodstream in 72 hours. By Day 14 you have no chemical addiction left. You're still smoking. Here's why.</p>
+
+      <div class="bigidea-split">
+        <div class="bigidea-split-20">20%</div>
+        <div class="bigidea-split-80">80%</div>
+      </div>
+
+      <div class="bigidea-rows">
+        <div class="bigidea-row">
+          <div class="bigidea-row-pct">20%</div>
+          <div>
+            <div class="bigidea-row-label">The chemistry</div>
+            <div class="bigidea-row-sub">Clears in 14 days. Patches and gum handle this part.</div>
+          </div>
+        </div>
+        <div class="bigidea-row">
+          <div class="bigidea-row-pct">80%</div>
+          <div>
+            <div class="bigidea-row-label">The reach</div>
+            <div class="bigidea-row-sub">Hand to mouth, ~200× a day for 20 years. Coffee → hand up. Stressed → hand up. Traffic → hand up. By the time your brain notices, the cigarette is in your mouth.</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="bigidea-payoff">No patch in the world fixes the reach. <strong>Lio is the product that does.</strong></p>
+    </section>
+    </div>
+
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-eyebrow-num">02</span>
+        How you'll use it
+      </div>
+    <section class="howitworks">
+      <div class="howitworks-title">How you'll use it</div>
+      <div class="howitworks-grid">
+        <div class="howitworks-step">
+          <span class="howitworks-num">01</span>
+          <div class="howitworks-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 3v8M9 7h8M5 21l4-4M19 21l-4-4M12 13v8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="howitworks-step-title">The urge hits</div>
+          <div class="howitworks-step-sub">Coffee, drinks, after a meal, stress</div>
+        </div>
+        <div class="howitworks-step">
+          <span class="howitworks-num">02</span>
+          <div class="howitworks-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h6l2-3 4 6 2-3h2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="howitworks-step-title">Reach for Lio</div>
+          <div class="howitworks-step-sub">Slow inhale, 5 seconds, exhale</div>
+        </div>
+        <div class="howitworks-step">
+          <span class="howitworks-num">03</span>
+          <div class="howitworks-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="howitworks-step-title">Urge passes</div>
+          <div class="howitworks-step-sub">No smoke, no nicotine, no smell</div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-eyebrow-num">03</span>
+        How Lio compares
+      </div>
+    <section class="compare">
+      <h2 class="compare-title">Pound for pound, <em>which one actually changes the habit?</em></h2>
+      <p class="compare-lead">Lio vs. the things you've already tried — on what actually predicts whether you stay quit.</p>
+
+      <div class="compare-table">
+        <div class="compare-row compare-row-head">
+          <div class="compare-cell compare-cell-feature">What it does</div>
+          <div class="compare-cell">Patches · Gum · Vapes</div>
+          <div class="compare-cell">Lio</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-cell-feature">Replaces the hand-to-mouth gesture</div>
+          <div class="compare-cell compare-cell-other"><span class="compare-icon compare-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6l-12 12"/></svg></span>No</div>
+          <div class="compare-cell compare-cell-lio"><span class="compare-icon compare-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></span>Yes</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-cell-feature">Replaces the inhale ritual</div>
+          <div class="compare-cell compare-cell-other"><span class="compare-icon compare-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6l-12 12"/></svg></span>Patches &amp; gum: no</div>
+          <div class="compare-cell compare-cell-lio"><span class="compare-icon compare-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></span>Yes</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-cell-feature">Contains nicotine</div>
+          <div class="compare-cell compare-cell-other">Yes — still addictive</div>
+          <div class="compare-cell compare-cell-lio">Zero. None.</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-cell-feature">Needs charging or batteries</div>
+          <div class="compare-cell compare-cell-other">Vapes: yes</div>
+          <div class="compare-cell compare-cell-lio">Never</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell compare-cell-feature">Designed to taper off</div>
+          <div class="compare-cell compare-cell-other">Keeps you on the product</div>
+          <div class="compare-cell compare-cell-lio">Use less over time</div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-eyebrow-num">04</span>
+        What to expect
+      </div>
+    <section class="timeline-sec">
+      <h2 class="timeline-title">What to expect <em>over the next 90 days.</em></h2>
+      <p class="timeline-lead">Your timeline will vary — but the shape is consistent across verified customers.</p>
+
+      <div class="timeline-rows">
+        <div class="timeline-row">
+          <div class="timeline-day"><span class="timeline-day-num">30</span><span class="timeline-day-label">Days</span></div>
+          <div class="timeline-body">
+            <div class="timeline-h">The swap clicks.</div>
+            <div class="timeline-sub">Your hand reaches for Lio without you thinking about it. The "I need one" thought still arrives — but the answer is a different object. Sleep and breath start coming back.</div>
+            <span class="timeline-pill">Reflex rewired</span>
+          </div>
+        </div>
+
+        <div class="timeline-row">
+          <div class="timeline-day"><span class="timeline-day-num">60</span><span class="timeline-day-label">Days</span></div>
+          <div class="timeline-body">
+            <div class="timeline-h">Nicotine fully out.</div>
+            <div class="timeline-sub">Your receptors are clean. The chemical part is over — what's left is just the habit. Most users report this is when the smell of a cigarette goes from "tempting" to "off-putting" for the first time in years.</div>
+            <span class="timeline-pill">Body reset</span>
+          </div>
+        </div>
+
+        <div class="timeline-row">
+          <div class="timeline-day"><span class="timeline-day-num">90</span><span class="timeline-day-label">Days</span></div>
+          <div class="timeline-body">
+            <div class="timeline-h">Lio becomes optional.</div>
+            <div class="timeline-sub">You reach for it less. Some keep it as a tool for stressful days, like coffee. Others put it on the shelf. Either way — the loop is broken. You went from fighting cravings to choosing what you do with them.</div>
+            <span class="timeline-pill">Choice, not craving</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-eyebrow-num">05</span>
+        Real buyers, real stories
+      </div>
+    <div class="proof-strip">
+      <div class="proof-strip-quote" id="proofQuote">"I smoked for years and then moved on to vaping, but it was just as bad a habit. I started using Lio two months ago and I haven't touched a cigarette since."</div>
+      <div class="proof-strip-attr">
+        <span class="proof-strip-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.2 4.7 1.5 7-6.3-3.6-6.3 3.6 1.5-7L2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.2 4.7 1.5 7-6.3-3.6-6.3 3.6 1.5-7L2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.2 4.7 1.5 7-6.3-3.6-6.3 3.6 1.5-7L2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.2 4.7 1.5 7-6.3-3.6-6.3 3.6 1.5-7L2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.2 4.7 1.5 7-6.3-3.6-6.3 3.6 1.5-7L2 9.4l7-.9z"/></svg>
+        </span>
+        <span id="proofAttr">Sarah Collins</span>
+        <span class="proof-strip-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Verified buyer</span>
+      </div>
+    </div>
+
+    <div class="proof-strip">
+      <div class="proof-strip-quote">"I am 60 and smoked since I was a teenager. I tried many times to stop but always failed. With Lio I finally managed. It has been 7 weeks now without cigarettes. My wife says the house smells clean again."</div>
+      <div class="proof-strip-attr">
+        <span class="proof-strip-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.2 4.7 1.5 7-6.3-3.6-6.3 3.6 1.5-7L2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.2 4.7 1.5 7-6.3-3.6-6.3 3.6 1.5-7L2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.2 4.7 1.5 7-6.3-3.6-6.3 3.6 1.5-7L2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.2 4.7 1.5 7-6.3-3.6-6.3 3.6 1.5-7L2 9.4l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5.2 4.7 1.5 7-6.3-3.6-6.3 3.6 1.5-7L2 9.4l7-.9z"/></svg>
+        </span>
+        <span>Karel W.</span>
+        <span class="proof-strip-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Verified buyer</span>
+      </div>
+    </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-eyebrow-num">06</span>
+        Common questions
+      </div>
+    <section class="faq">
+      <div class="faq-title">Quick questions</div>
+
+      <div class="faq-item">
+        <button class="faq-q" data-faq="1">
+          <span>Is there really no nicotine in this?</span>
+          <span class="faq-q-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><strong>Zero nicotine. Zero tobacco. Zero smoke.</strong> Lio is an aromatherapy diffuser — the cores contain food-grade flavor oils and natural extracts. Nothing is burned and nothing is vaporised. That's why you can use Lio on a plane, in an office, indoors, around kids — anywhere a cigarette or vape would get you a fine or a glare.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" data-faq="2">
+          <span>How long does one core last?</span>
+          <span class="faq-q-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><strong>About a day of normal use.</strong> One core gives you ~80–100 inhales — roughly what most ex-smokers need to get through a day. The subscription ships 30 cores every 4 weeks, so you've always got one in rotation.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" data-faq="3">
+          <span>What if I want to cancel?</span>
+          <span class="faq-q-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a"><strong>One click in your account. No call, no form, no "are you sure" gauntlet.</strong> You can also skip a shipment, pause for a month, or change your delivery date — all from the same page. Plus you've got 90 days from delivery to get a full refund if you're not happy, even if you've used the device.</div>
+      </div>
+    </section>
+    </div>
+
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-eyebrow-num">07</span>
+        Two things we won't tell you
+      </div>
+    <section class="inoc">
+      <h2 class="inoc-title">Two things the ad <em>won't</em> tell you.</h2>
+      <div class="inoc-list">
+        <div class="inoc-item">
+          <div class="inoc-num">01</div>
+          <div class="inoc-body">
+            <strong>This isn't a vape.</strong>
+            No throat hit. No buzz. No nicotine. If that's what you want, buy a vape. Lio is what you use when you're done with that.
+          </div>
+        </div>
+        <div class="inoc-item">
+          <div class="inoc-num">02</div>
+          <div class="inoc-body">
+            <strong>It doesn't work for everyone.</strong>
+            Some people quit by Day 5. Others find it's not their tool. That's what the 90-day money-back is for — try it, decide, send it back if it isn't right.
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <div class="section-block">
+      <div class="section-eyebrow">
+        <span class="section-eyebrow-num">08</span>
+        Why we built this
+      </div>
+    <section class="founder">
+      <div class="founder-portrait" role="img" aria-label="Portrait of Mees van Lier, founder of Lio">
+        <div class="founder-portrait-figure"></div>
+        <div class="founder-portrait-stamp">Founder<br/>Lio</div>
+        <div class="founder-portrait-sig">Mees van Lier <span>· Amsterdam</span></div>
+      </div>
+
+      <div class="founder-eyebrow">Why we built this</div>
+      <h2 class="founder-h">Hey, I'm <em>Mees</em> — and I built Lio because nobody else was solving the part that actually matters.</h2>
+
+      <p>Like most people, I grew up around smokers.</p>
+      <p>I watched the New Year's promises. The patches in the kitchen drawer. The cough that came back every winter.</p>
+      <p>And I watched how hard the people I love tried to stop — and how often the products on the shelf let them down.</p>
+      <p><strong>If willpower worked, they'd have quit a thousand times. So would yours.</strong></p>
+      <p>The reason it doesn't work isn't a character flaw. It's that every patch, every gum, every vape is solving the wrong problem.</p>
+      <p>Here's what nobody in the quit industry will tell you: <strong>80% of smoking isn't nicotine.</strong> It's the hand, the breath, the pause built into your day.</p>
+      <p>Patches chase the chemical. Nobody was building anything that replaced the <em>movement</em>. So we did.</p>
+      <p><strong>Today my father runs Lio's fulfillment from a warehouse outside Amsterdam. And the people using it are the most loyal customers we've ever had.</strong></p>
+
+      <div class="founder-tried">
+        <div class="founder-tried-title">What fails most smokers — every single time:</div>
+        <ul class="founder-tried-list">
+          <li>Patches</li>
+          <li>Nicotine gum</li>
+          <li>Vape pens</li>
+          <li>Cold turkey</li>
+          <li>Hypnotherapy</li>
+          <li>Champix + counselling</li>
+          <li>"Quit smoking" apps</li>
+          <li>Switching to rollies</li>
+        </ul>
+      </div>
+    </section>
+    </div>
+    </div>
+
+    <div class="footer-fineprint">
+      Lio is a nicotine-free aromatherapy diffuser. It is not a medical device and is not intended to diagnose, treat, or cure any condition.<br>
+      Sold by VanLierGroup FZCO · EU fulfilment by Fresh@Work BV · <a href="#">Terms</a> · <a href="#">Refund policy</a> · <a href="#">Contact us</a>
+    </div>
+
+  </section>
+
+</main>
+
+<script>
+(function() {
+  'use strict';
+
+  const state = {
+    step: 1,
+    answers: { frequency: null, trigger: null, expectation: null },
+    plan: 'subscription',
+    color: 'olive'
+  };
+
+  const stepEls = document.querySelectorAll('.step');
+  const stepNumEl = document.getElementById('stepNum');
+  const stepPctEl = document.getElementById('stepPct');
+  const progressFill = document.getElementById('progressFill');
+  const TOTAL_STEPS = 3;
+
+  function showStep(n) {
+    stepEls.forEach(s => s.classList.remove('is-active'));
+    const target = document.querySelector(`[data-step="${n}"]`);
+    if (target) target.classList.add('is-active');
+    state.step = n;
+
+    const progressEl = document.querySelector('.progress');
+    if (n <= TOTAL_STEPS) {
+      progressEl.style.display = '';
+      const pct = Math.round((n / TOTAL_STEPS) * 100);
+      stepNumEl.textContent = n;
+      stepPctEl.textContent = pct + '%';
+      progressFill.style.width = pct + '%';
+    } else {
+      progressEl.style.display = 'none';
+    }
+
+    const stickyBar = document.querySelector('.sticky-cta');
+    if (stickyBar) {
+      stickyBar.classList.toggle('is-visible', n === 5);
+      document.body.classList.toggle('has-sticky-bar', n === 5);
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.querySelectorAll('[data-question]').forEach(group => {
+    const question = group.dataset.question;
+    group.addEventListener('click', e => {
+      const opt = e.target.closest('.option');
+      if (!opt) return;
+      group.querySelectorAll('.option').forEach(o => o.classList.remove('is-selected'));
+      opt.classList.add('is-selected');
+      state.answers[question] = opt.dataset.value;
+
+      const stepNum = parseInt(opt.closest('.step').dataset.step, 10);
+      const nextBtn = document.getElementById('next' + stepNum);
+      if (nextBtn) nextBtn.disabled = false;
+
+      let shouldAutoAdvance = true;
+      if (question === 'expectation') {
+        const warn = document.getElementById('fullReplaceWarning');
+        if (opt.dataset.value === 'full_replacement') {
+          warn.classList.add('is-shown');
+          shouldAutoAdvance = false;
+        } else {
+          warn.classList.remove('is-shown');
+        }
+      }
+
+      if (shouldAutoAdvance) {
+        setTimeout(() => {
+          if (stepNum < 3) {
+            showStep(stepNum + 1);
+          } else if (stepNum === 3) {
+            showStep(4);
+            runProcessing();
+          }
+        }, 320);
+      }
+    });
+  });
+
+  document.getElementById('next1').addEventListener('click', () => showStep(2));
+  document.getElementById('next2').addEventListener('click', () => showStep(3));
+  document.getElementById('next3').addEventListener('click', () => { showStep(4); runProcessing(); });
+
+  document.querySelectorAll('[data-back]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = parseInt(btn.dataset.back, 10);
+      showStep(target);
+    });
+  });
+
+  function runProcessing() {
+    const rows = document.querySelectorAll('.processing-row');
+    rows.forEach(r => r.classList.remove('is-done'));
+    let i = 0;
+    const tick = () => {
+      if (i < rows.length) {
+        rows[i].classList.add('is-done');
+        i++;
+        setTimeout(tick, 700);
+      } else {
+        setTimeout(() => { routeToResult(); }, 600);
+      }
+    };
+    setTimeout(tick, 400);
+  }
+
+  function routeToResult() {
+    personalizeResult();
+    showStep(5);
+  }
+
+  function personalizeResult() {
+    const a = state.answers;
+    const headline = document.getElementById('resultHeadline');
+    const sub = document.getElementById('resultSub');
+    const eyebrow = document.getElementById('resultEyebrow');
+
+    if (a.expectation === 'calm_breath') {
+      eyebrow.textContent = 'Built for your stress moments';
+      headline.innerHTML = 'A slower breath, when you need one.';
+      sub.innerHTML = 'Lio turns the hand-to-mouth moment into a deliberate, calming pause. No smoke, no nicotine — just the reset.';
+    } else if (a.expectation === 'cut_down') {
+      eyebrow.textContent = 'Built for cutting down';
+      headline.innerHTML = 'Cut down without going cold.';
+      sub.innerHTML = 'Every time you reach for Lio instead, that\'s one fewer cigarette. Most users halve their intake within 2–3 weeks.';
+    } else if (a.expectation === 'replace_ritual') {
+      eyebrow.textContent = 'Built for breaking the habit';
+      headline.innerHTML = 'Break the hand-to-mouth habit.';
+      sub.innerHTML = '80% of the habit is the hand, the breath, the pause. Lio handles that part — so the chemistry can fade on its own.';
+    } else {
+      eyebrow.textContent = 'Built for your swap';
+      headline.innerHTML = 'Your ritual tool for the swap.';
+      sub.innerHTML = 'Lio handles the hand, the breath, the pause. Pair it with whatever you\'re using for the nicotine side.';
+    }
+  }
+
+  function updateCtaCopy() {
+    const ctaLabel = document.getElementById('ctaLabel');
+    const ctaPrice = document.getElementById('ctaPrice');
+    const stickyLabel = document.getElementById('stickyCtaLabel');
+    const stickyPrice = document.getElementById('stickyPrice');
+    const stickyCompare = document.getElementById('stickyCompare');
+    const stickyCadence = document.getElementById('stickyCadence');
+    const stickyMeta = document.getElementById('stickyMeta');
+
+    if (state.plan === 'subscription') {
+      ctaLabel.textContent = 'Get my free Lio+';
+      ctaPrice.textContent = '€29/month · 40% off forever · cancel anytime';
+      if (stickyLabel) stickyLabel.textContent = 'Get my free Lio+';
+      if (stickyPrice) stickyPrice.textContent = '€29';
+      if (stickyCompare) { stickyCompare.textContent = '€49'; stickyCompare.style.display = ''; }
+      if (stickyCadence) stickyCadence.textContent = '/month';
+      if (stickyMeta) stickyMeta.textContent = '40% off forever · free Lio+ device';
+    } else {
+      ctaLabel.textContent = 'Send me my Lio';
+      ctaPrice.textContent = '€49 one-time · no subscription, no extras';
+      if (stickyLabel) stickyLabel.textContent = 'Send me my Lio';
+      if (stickyPrice) stickyPrice.textContent = '€49';
+      if (stickyCompare) stickyCompare.style.display = 'none';
+      if (stickyCadence) stickyCadence.textContent = 'one-time';
+      if (stickyMeta) stickyMeta.textContent = 'No subscription, no extras';
+    }
+  }
+
+  document.querySelectorAll('.plan-card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('is-selected'));
+      card.classList.add('is-selected');
+      state.plan = card.dataset.plan;
+      updateCtaCopy();
+    });
+  });
+
+  function activateSlide(slideIdx) {
+    document.querySelectorAll('.product-viewer-img').forEach(img => {
+      img.classList.toggle('is-active', img.dataset.slide === String(slideIdx));
+    });
+    document.querySelectorAll('.product-viewer-thumb').forEach(t => {
+      t.classList.toggle('is-active', t.dataset.thumb === String(slideIdx));
+    });
+  }
+
+  document.querySelectorAll('.product-viewer-thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => activateSlide(thumb.dataset.thumb));
+  });
+
+  document.querySelectorAll('.color-swatch').forEach(swatch => {
+    swatch.addEventListener('click', () => {
+      const color = swatch.dataset.color;
+      const newImgSrc = swatch.dataset.colorImg;
+      state.color = color;
+
+      document.querySelectorAll('.color-swatch').forEach(s => {
+        const isSelected = s.dataset.color === color;
+        s.classList.toggle('is-selected', isSelected);
+        s.setAttribute('aria-checked', isSelected ? 'true' : 'false');
+      });
+
+      const mainImg = document.getElementById('productImgMain');
+      const mainThumbImg = document.getElementById('productThumbMain');
+      if (mainImg && newImgSrc) mainImg.src = newImgSrc;
+      if (mainThumbImg && newImgSrc) mainThumbImg.src = newImgSrc;
+
+      activateSlide(0);
+
+      const colorNameEl = document.getElementById('colorName');
+      if (colorNameEl) colorNameEl.textContent = color.charAt(0).toUpperCase() + color.slice(1);
+    });
+  });
+
+  function handleCheckout() {
+    console.log('Checkout', { plan: state.plan, color: state.color, answers: state.answers });
+    alert('✓ Checkout (' + state.plan + ' · ' + state.color + ')\n\nIn production, this routes to Shopify with the selected variant + answer attributes attached as line item properties.');
+  }
+  document.getElementById('checkoutBtn').addEventListener('click', handleCheckout);
+  const stickyBtn = document.getElementById('stickyCtaBtn');
+  if (stickyBtn) stickyBtn.addEventListener('click', handleCheckout);
+
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq-item.is-open').forEach(i => i.classList.remove('is-open'));
+      if (!wasOpen) item.classList.add('is-open');
+    });
+  });
+
+})();
+</script>
+
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-info">
+    <div class="sticky-cta-price-row">
+      <span class="sticky-cta-compare" id="stickyCompare">€49</span>
+      <span class="sticky-cta-price" id="stickyPrice">€29</span>
+      <span class="sticky-cta-meta" id="stickyCadence" style="font-size: 11px;">/month</span>
+    </div>
+    <div class="sticky-cta-meta" id="stickyMeta">40% off forever · free Lio+ device</div>
+  </div>
+  <button class="sticky-cta-btn" id="stickyCtaBtn">
+    <span id="stickyCtaLabel">Get my free Lio+</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  </button>
+</div>
+
+</body>
+</html>
