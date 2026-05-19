@@ -1,0 +1,2368 @@
+{% layout none %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lio â You miss the ritual, not the nicotine | Nicotine-free wooden diffuser</title>
+<link rel="stylesheet" href="https://use.typekit.net/xhz7hhk.css">
+<style>
+/* ============================================================
+   LIO â COLD-TRAFFIC LANDING PAGE  Â·  GrÃ¼ns-faithful build
+   Above-fold buy box Â· big type Â· cream bands Â· scannable
+   Branding tokens from lio-pdp(6)
+   ============================================================ */
+:root{
+  --forest:#0b2410;
+  --forest-soft:#143820;
+  --mint:#94fca9;
+  --mint-deep:#6ee589;
+  --mint-soft:#daece3;
+  --chalk:#fcfefb;
+  --cream:#eef5ef;
+  --cream-deep:#e3efe6;
+  --chalk-dim:#e7ebe3;
+  --paper:#efece2;
+  --accent:#6ee589;
+  --accent-deep:#4dd16f;
+  --ink:#0b2410;
+  --ink-60:rgba(11,36,16,.62);
+  --ink-40:rgba(11,36,16,.4);
+  --border:rgba(11,36,16,.14);
+  --border-strong:rgba(11,36,16,.34);
+  --shadow-md:0 4px 14px rgba(11,36,16,.08),0 2px 4px rgba(11,36,16,.04);
+  --shadow-lg:0 22px 54px rgba(11,36,16,.16),0 8px 18px rgba(11,36,16,.07);
+  --shadow-cta:0 5px 0 var(--forest);
+  --radius-sm:8px;
+  --radius-md:14px;
+  --radius-card:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+section[id]{scroll-margin-top:18px;}
+body{
+  font-family:"sofia-pro",-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--cream);color:var(--ink);
+  -webkit-font-smoothing:antialiased;line-height:1.4;overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+
+.grain{
+  position:fixed;inset:0;pointer-events:none;z-index:1;
+  opacity:.26;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.043 0 0 0 0 0.141 0 0 0 0 0.063 0 0 0 0.42 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+.wrap{max-width:1300px;margin:0 auto;padding:0 5%;position:relative;z-index:2;}
+
+/* ---------- atoms ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--accent);border:1.5px solid var(--forest);color:var(--forest);
+  font-size:12px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;
+  padding:7px 15px;border-radius:999px;
+}
+.eyebrow .pdot{
+  width:7px;height:7px;border-radius:50%;background:var(--forest);
+  animation:pulse 1.7s ease-in-out infinite;
+}
+.eyebrow.mint{background:var(--mint);}
+.eyebrow.dark{background:var(--forest-soft);border-color:var(--mint-deep);color:var(--mint);}
+.eyebrow.dark .pdot{background:var(--mint-deep);}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.55);opacity:.35;}}
+
+.circle-mark{position:relative;display:inline-block;}
+.circle-mark svg{
+  position:absolute;left:-6%;top:-13%;width:112%;height:130%;
+  pointer-events:none;stroke:var(--mint-deep);stroke-width:4;fill:none;
+}
+
+.stars{display:inline-flex;gap:2px;}
+.stars svg{width:17px;height:17px;}
+
+.btn-cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--mint);color:var(--forest);
+  border:3px solid var(--forest);border-radius:999px;padding:21px 36px;
+  font-size:clamp(15px,1.5vw,19px);
+  font-weight:900;letter-spacing:.03em;text-transform:uppercase;
+  box-shadow:var(--shadow-cta);
+  transition:transform .13s ease,box-shadow .13s ease;
+}
+.btn-cta:hover{transform:translateY(2px);box-shadow:0 3px 0 var(--forest);}
+.btn-cta:active{transform:translateY(5px);box-shadow:0 0 0 var(--forest);}
+.btn-cta.huge{padding:24px 40px;width:100%;max-width:480px;}
+
+.kicker-row{display:flex;justify-content:center;margin-bottom:16px;}
+h2.big{
+  font-size:clamp(32px,5vw,58px);
+  font-weight:900;letter-spacing:-.04em;line-height:.98;
+  color:var(--forest);text-align:center;
+}
+.sub{
+  font-size:clamp(15px,1.7vw,19px);color:var(--ink-60);line-height:1.5;
+  text-align:center;max-width:600px;margin:16px auto 0;font-weight:500;
+}
+
+/* ---------- urgency bar ---------- */
+.urgency{
+  background:var(--accent);color:var(--forest);
+  text-align:center;padding:9px 5%;
+  font-size:13px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;
+  display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+  border-bottom:2px solid var(--forest);
+}
+.urgency .u-clock{
+  background:var(--forest);color:var(--accent);
+  padding:3px 9px;border-radius:6px;font-variant-numeric:tabular-nums;letter-spacing:.06em;
+}
+
+/* ---------- nav ---------- */
+nav.nav{
+  background:var(--cream);padding:15px 5%;
+  border-bottom:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  position:relative;z-index:50;
+}
+.nav-logo{display:flex;align-items:center;}
+.nav-logo img{height:30px;width:auto;display:block;}
+.nav-menu{
+  display:flex;align-items:center;gap:22px;
+}
+.nav-menu a{
+  font-size:13px;font-weight:800;color:var(--forest);
+  text-decoration:none;letter-spacing:-.01em;transition:color .14s ease;
+}
+.nav-menu a:hover{color:var(--mint-deep);}
+.nav-cta{
+  background:var(--forest);color:var(--mint);
+  font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.05em;
+  padding:10px 18px;border-radius:999px;
+}
+.nav-right{display:flex;align-items:center;gap:12px;}
+/* hamburger */
+.nav-burger{
+  display:none;width:38px;height:38px;border-radius:10px;
+  background:var(--forest);border:none;cursor:pointer;
+  flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0;
+}
+.nav-burger span{display:block;width:17px;height:2.4px;border-radius:2px;background:var(--mint);}
+/* mobile menu overlay */
+.mobile-menu{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(11,36,16,.55);
+  opacity:0;visibility:hidden;transition:opacity .2s ease;
+}
+.mobile-menu.open{opacity:1;visibility:visible;}
+.mm-panel{
+  position:absolute;top:0;right:0;height:100%;width:min(82vw,330px);
+  background:var(--cream);box-shadow:-8px 0 30px rgba(11,36,16,.2);
+  transform:translateX(100%);transition:transform .24s ease;
+  display:flex;flex-direction:column;padding:22px 22px 26px;overflow-y:auto;
+}
+.mobile-menu.open .mm-panel{transform:translateX(0);}
+.mm-close{
+  align-self:flex-end;width:38px;height:38px;border:none;background:none;
+  font-size:30px;line-height:1;color:var(--forest);cursor:pointer;margin-bottom:8px;
+}
+.mm-links{display:flex;flex-direction:column;}
+.mm-links a{
+  font-size:16px;font-weight:800;color:var(--forest);text-decoration:none;
+  padding:13px 4px;border-bottom:1.5px solid var(--border);letter-spacing:-.01em;
+}
+.mm-links a:active{color:var(--mint-deep);}
+.mm-cta{
+  margin-top:18px;text-align:center;
+  background:var(--forest);color:var(--mint);
+  font-size:14px;font-weight:900;text-transform:uppercase;letter-spacing:.04em;
+  padding:15px;border-radius:999px;text-decoration:none;
+}
+@media (max-width:760px){
+  .nav-menu{display:none;}
+  .nav-burger{display:flex;}
+}
+@media (max-width:420px){
+  .nav-cta{padding:9px 14px;font-size:11px;}
+}
+
+/* ---------- hero ---------- */
+.hero{padding:52px 0 72px;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+@media (max-width:940px){.hero-grid{grid-template-columns:1fr;gap:30px;}}
+
+/* ---------- PDP-style hero ---------- */
+.hero-grid{align-items:start;}
+.pdp-gallery{position:sticky;top:24px;}
+.pdp-gallery .bb-stage{
+  aspect-ratio:1/1;width:100%;margin-bottom:10px;
+  border-radius:var(--radius-card);
+}
+.pdp-panel{margin:0;}
+.pdp-panel .bb-body{padding:20px;}
+h1.pdp-title{
+  font-size:clamp(28px,3.6vw,40px);
+  font-weight:900;letter-spacing:-.035em;line-height:1.06;
+  color:var(--forest);margin:16px 0 14px;
+}
+.pdp-desc{
+  font-size:15px;font-weight:600;color:var(--ink-60);
+  line-height:1.6;margin:0 0 22px;
+}
+.bb-rating{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:700;color:var(--ink-60);margin-bottom:18px;}
+.hero-benefits{display:flex;flex-direction:column;gap:11px;margin:0 0 28px;}
+.hero-benefits li{
+  display:flex;gap:11px;align-items:center;
+  font-size:14.5px;font-weight:600;color:#0b0d0b;
+  line-height:1.35;
+}
+.hero-benefits li .hbi{
+  flex-shrink:0;width:30px;height:30px;border-radius:8px;
+  background:var(--chalk-warm,var(--chalk-dim));border:1.5px solid var(--border-strong);
+  display:flex;align-items:center;justify-content:center;font-size:15px;
+}
+@media (max-width:940px){
+  .pdp-gallery{position:relative;top:0;max-width:480px;margin:0 auto;}
+}
+@media (max-width:600px){
+  .pdp-panel .bb-body{padding:16px 14px;}
+  h1.pdp-title{font-size:clamp(25px,7vw,32px);margin:12px 0 12px;}
+  .pdp-desc{font-size:14px;margin-bottom:18px;}
+  .hero-benefits{gap:9px;margin-bottom:22px;}
+  .hero-benefits li{font-size:13.5px;}
+  .pdp-gallery .bb-stage{margin-bottom:8px;}
+  /* how-it-works: cap image so cards aren't giant squares */
+  .how-card .hi-img{aspect-ratio:16/10;max-height:220px;margin:14px 0;}
+  .how-card{padding:20px 18px;}
+  .how-card .ht{font-size:18px;}
+}
+
+/* ---------- buy box ---------- */
+.buybox{
+  background:var(--chalk);
+  border:3px solid var(--forest);border-radius:var(--radius-card);
+  box-shadow:var(--shadow-lg);overflow:hidden;
+}
+.bb-banner{
+  background:var(--forest);color:var(--mint);
+  text-align:center;padding:10px 16px;
+  font-size:12px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;
+}
+.bb-banner strong{color:var(--accent);}
+.bb-body{padding:22px 22px 24px;}
+
+.bb-stage{
+  position:relative;width:100%;aspect-ratio:1/1;
+  background:var(--chalk-dim);border:2px dashed var(--border-strong);
+  border-radius:var(--radius-md);overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;margin-bottom:8px;
+}
+.bb-stage::before{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,var(--chalk-dim) 0 13px,var(--paper) 13px 26px);
+  opacity:.55;
+}
+.bb-stage-ico{
+  position:relative;z-index:1;font-size:56px;opacity:.5;
+}
+.bb-stage-label{
+  position:relative;z-index:1;text-align:center;
+}
+.bb-stage-label .ph-badge{
+  display:inline-block;margin-bottom:5px;
+  background:var(--forest);color:var(--chalk);
+  font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;
+  padding:4px 10px;border-radius:999px;
+}
+.bb-stage-label .pl{
+  display:block;font-size:10.5px;font-weight:800;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--ink-40);
+}
+.bb-sticker{
+  position:absolute;top:12px;right:12px;z-index:3;
+  width:78px;height:78px;border-radius:50%;
+  background:var(--accent);border:2.5px solid var(--forest);
+  box-shadow:var(--shadow-md);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transform:rotate(-10deg);text-align:center;
+}
+.bb-sticker .s1{font-size:8px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--forest-soft);}
+.bb-sticker .s2{font-size:21px;font-weight:900;letter-spacing:-.04em;color:var(--forest);line-height:.9;}
+.bb-sticker .s3{font-size:7.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--forest-soft);}
+.bb-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:18px;}
+.bb-thumb{
+  aspect-ratio:1/1;
+  background:repeating-linear-gradient(45deg,var(--chalk-dim) 0 7px,var(--paper) 7px 14px);
+  border:1.5px solid var(--border-strong);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  transition:all .14s ease;
+}
+.bb-thumb.active{border:2.5px solid var(--forest);box-shadow:0 2px 0 var(--mint-deep);}
+
+.bb-title{font-size:24px;font-weight:900;letter-spacing:-.035em;color:var(--forest);line-height:1.05;margin-bottom:4px;}
+.bb-rating{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:var(--ink-60);margin-bottom:18px;}
+.bb-rating .stars svg{width:14px;height:14px;}
+
+.bb-step-label{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:900;color:var(--forest);
+  text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;
+}
+.bb-step-num{
+  width:20px;height:20px;flex-shrink:0;
+  background:var(--forest);color:var(--mint);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;
+}
+.bb-step{margin-bottom:22px;}
+
+.wood-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.wood-card{
+  position:relative;
+  border:2px solid var(--border-strong);border-radius:var(--radius-sm);
+  background:var(--chalk);padding:11px;cursor:pointer;
+  display:flex;align-items:center;gap:10px;transition:all .15s ease;
+}
+.wood-card:hover{border-color:var(--forest);}
+.wood-card.sel{border-color:var(--forest);background:var(--mint-soft);box-shadow:0 3px 0 var(--mint-deep);}
+.wood-sw{width:36px;height:36px;flex-shrink:0;border-radius:50%;border:2px solid var(--forest);}
+.wood-sw.olive{background:radial-gradient(circle at 35% 30%,#b9a36a,#8a7440 70%);}
+.wood-sw.walnut{background:radial-gradient(circle at 35% 30%,#6b4a2e,#3a2616 70%);}
+.wood-nm{font-size:13.5px;font-weight:900;color:var(--forest);line-height:1.1;}
+.wood-sb{font-size:10.5px;color:var(--ink-60);font-weight:600;}
+
+/* ---- complete-system value block ---- */
+/* ---- compact in-card included list ---- */
+.plan-incl{
+  margin-top:11px;padding-top:11px;
+  border-top:1px dashed var(--border-strong);
+}
+.plan-incl .pi-head{
+  font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-40);margin-bottom:7px;
+}
+.plan-incl ul{display:flex;flex-direction:column;gap:5px;}
+.plan-incl li{
+  display:flex;gap:7px;align-items:center;
+  font-size:11.5px;font-weight:700;color:var(--forest);line-height:1.25;
+}
+.plan-incl li::before{
+  content:"â";flex-shrink:0;width:14px;height:14px;border-radius:50%;
+  background:var(--mint);color:var(--forest);border:1px solid var(--forest);
+  display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:900;
+}
+.plan-incl li.no::before{
+  content:"â";background:transparent;color:var(--ink-40);border-color:var(--border-strong);
+}
+.plan-incl li.no{color:var(--ink-40);text-decoration:line-through;text-decoration-thickness:1px;}
+.plan-incl li .pi-name{flex:1;min-width:0;}
+.pi-list{display:flex;flex-direction:column;gap:8px;padding-top:2px;}
+.pi-list li{
+  display:flex;align-items:center;gap:9px;
+  font-size:13px;font-weight:600;color:var(--ink);line-height:1.35;
+  list-style:none;
+}
+.pi-list li::before{
+  content:"";flex-shrink:0;width:18px;height:18px;border-radius:50%;
+  background:var(--mint);border:1.5px solid var(--forest);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Cpath d='M5 9l2.6 2.6L13 6' stroke='%230b2410' stroke-width='2.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.plan-incl li .pi-price{
+  flex-shrink:0;font-weight:900;color:var(--ink-60);font-variant-numeric:tabular-nums;
+}
+.plan-incl li .pi-price.free{
+  color:var(--forest);background:var(--mint);
+  font-size:8.5px;letter-spacing:.04em;text-transform:uppercase;
+  padding:1px 6px;border-radius:999px;border:1px solid var(--forest);
+}
+.plan-incl li.no .pi-price{color:var(--ink-40);}
+.plan-incl .pi-total{
+  display:flex;align-items:baseline;justify-content:space-between;
+  margin-top:8px;padding-top:7px;border-top:1px dashed var(--border-strong);
+  font-size:10px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:var(--forest);
+}
+.plan-incl .pi-total .pt-val{font-size:13px;color:var(--ink-40);text-decoration:line-through;}
+/* in-card list only shows for the selected plan */
+.plan .plan-incl{display:none;}
+.plan.sel .plan-incl{display:block;}
+
+/* success-rate ribbon on the 90-day card */
+.plan-success{
+  display:flex;align-items:center;gap:7px;margin-top:9px;
+  background:var(--forest);color:var(--chalk);
+  border-radius:8px;padding:8px 11px;
+}
+.plan-success .ps-pct{
+  font-size:18px;font-weight:900;color:var(--mint);
+  letter-spacing:-.03em;flex-shrink:0;
+}
+.plan-success .ps-txt{font-size:11px;font-weight:700;line-height:1.25;}
+
+.plan-stack{display:flex;flex-direction:column;gap:11px;}
+.why90{
+  margin-top:12px;padding:11px 13px;
+  background:var(--mint-soft);border:1.5px solid var(--border-strong);
+  border-radius:var(--radius-sm);
+}
+.why90 .w9-h{
+  font-size:11px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--forest);margin-bottom:5px;
+}
+.why90 .w9-b{font-size:11.5px;font-weight:600;color:var(--ink-60);line-height:1.45;}
+
+/* compact wood toggle â de-emphasised, after the offer */
+.wood-pick{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  margin-top:18px;padding-top:18px;margin-bottom:20px;border-top:1px dashed var(--border-strong);
+}
+.wood-pick .wp-label{
+  font-size:11px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--ink-60);
+}
+.wood-pick .wp-opts{display:flex;gap:7px;}
+.wood-chip{
+  display:flex;align-items:center;gap:7px;cursor:pointer;
+  border:1.5px solid var(--border-strong);border-radius:999px;
+  padding:5px 11px 5px 6px;transition:all .14s ease;
+}
+.wood-chip:hover{border-color:var(--forest);}
+.wood-chip.sel{border-color:var(--forest);background:var(--mint-soft);}
+.wood-chip .wc-sw{
+  width:18px;height:18px;border-radius:50%;border:1.5px solid var(--forest);flex-shrink:0;
+}
+.wood-chip .wc-sw.olive{background:radial-gradient(circle at 35% 30%,#b9a36a,#8a7440 70%);}
+.wood-chip .wc-sw.walnut{background:radial-gradient(circle at 35% 30%,#6b4a2e,#3a2616 70%);}
+.wood-chip .wc-nm{font-size:12px;font-weight:800;color:var(--forest);}
+
+.plan{
+  position:relative;
+  border:2px solid var(--border-strong);border-radius:var(--radius-md);
+  background:var(--chalk);padding:14px;cursor:pointer;transition:all .15s ease;
+}
+.plan:hover{border-color:var(--forest);}
+.plan.sel{border-color:var(--forest);background:var(--mint-soft);box-shadow:0 4px 0 var(--mint-deep);}
+.plan.feat{margin-top:8px;}
+.plan-badge{
+  position:absolute;top:-10px;left:14px;
+  background:var(--accent);color:var(--forest);border:1.5px solid var(--forest);
+  font-size:9px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 10px;border-radius:999px;white-space:nowrap;
+}
+.plan-row{display:flex;align-items:center;gap:10px;}
+.plan-radio{
+  width:22px;height:22px;flex-shrink:0;
+  border:2px solid var(--border-strong);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;transition:all .15s ease;
+}
+.plan.sel .plan-radio{border-color:var(--forest);background:var(--forest);}
+.plan.sel .plan-radio::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--mint);}
+.plan-mid{flex:1;min-width:0;}
+.plan-nm{font-size:16px;font-weight:900;color:var(--forest);letter-spacing:-.02em;line-height:1.1;}
+.plan-tag{font-size:11.5px;color:var(--ink-60);font-weight:700;margin-top:1px;}
+.plan-pr{text-align:right;flex-shrink:0;}
+.plan-pr .was{display:block;font-size:12px;font-weight:700;color:var(--ink-40);text-decoration:line-through;line-height:1;}
+.plan-pr .now{font-size:25px;font-weight:900;color:var(--forest);letter-spacing:-.04em;line-height:1;}
+.plan-pr .now .c{font-size:.6em;vertical-align:4px;}
+.plan-pr .ot{display:block;font-size:9px;font-weight:800;color:var(--ink-60);text-transform:uppercase;letter-spacing:.04em;margin-top:2px;}
+.plan-save{
+  display:inline-block;margin-top:8px;
+  background:var(--accent);color:var(--forest);border:1.5px solid var(--forest);
+  font-size:10px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;
+  padding:3px 9px;border-radius:999px;
+}
+.plan-feats{display:none;margin-top:11px;padding-top:11px;border-top:1px dashed var(--border-strong);flex-direction:column;gap:6px;}
+.plan.sel .plan-feats{display:flex;}
+.plan-feats li{
+  display:flex;gap:8px;align-items:flex-start;
+  font-size:12px;font-weight:700;color:var(--forest);line-height:1.35;
+}
+.plan-feats li::before{
+  content:"â";flex-shrink:0;width:16px;height:16px;border-radius:50%;
+  background:var(--mint);color:var(--forest);border:1.5px solid var(--forest);
+  display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;
+}
+.kit-note{
+  margin-top:9px;padding:9px 11px;
+  background:var(--forest);color:var(--chalk);border-radius:6px;
+  display:flex;align-items:center;gap:9px;font-size:11px;line-height:1.35;
+}
+.kit-note .kn{
+  width:24px;height:24px;flex-shrink:0;border-radius:50%;
+  background:var(--mint);color:var(--forest);
+  display:flex;align-items:center;justify-content:center;font-size:12px;
+}
+.kit-note strong{color:var(--mint);}
+
+.bb-atc{
+  width:100%;margin-top:16px;
+  background:var(--mint);color:var(--forest);
+  border:3px solid var(--forest);border-radius:999px;padding:18px 20px;
+  font-size:16px;font-weight:900;letter-spacing:.03em;text-transform:uppercase;
+  box-shadow:var(--shadow-cta);
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  transition:transform .13s ease,box-shadow .13s ease;
+}
+.bb-atc:hover{transform:translateY(2px);box-shadow:0 3px 0 var(--forest);}
+.bb-atc:active{transform:translateY(5px);box-shadow:0 0 0 var(--forest);}
+.bb-reassure{
+  display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+  margin-top:13px;font-size:11px;font-weight:800;color:var(--ink-60);
+}
+.bb-reassure span{display:flex;align-items:center;gap:5px;}
+.bb-reassure .rd{width:5px;height:5px;border-radius:50%;background:var(--mint-deep);}
+
+/* ---------- second buy box (standalone, post-proof) ---------- */
+.buy2{background:var(--cream-deep);padding:66px 0;border-top:1.5px solid var(--border);border-bottom:1.5px solid var(--border);}
+.buy2-grid{
+  display:grid;grid-template-columns:45fr 55fr;gap:32px;
+  align-items:start;margin-top:42px;
+}
+.buy2-gallery{position:sticky;top:24px;}
+.buy2-gallery .bb-stage{aspect-ratio:1/1;margin-bottom:10px;}
+.buy2-gallery .bb-thumbs{margin-bottom:0;}
+@media (max-width:880px){
+  .buy2-grid{grid-template-columns:1fr;gap:24px;}
+  .buy2-gallery{position:relative;top:0;max-width:480px;margin:0 auto;}
+}
+
+/* ---------- trust marquee ---------- */
+.logostrip{
+  background:var(--forest);overflow:hidden;
+  border-top:2.5px solid var(--mint-deep);border-bottom:2.5px solid var(--mint-deep);
+}
+.logostrip-track{display:flex;white-space:nowrap;animation:marquee 24s linear infinite;}
+.logostrip-track:hover{animation-play-state:paused;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.logostrip-item{
+  display:inline-flex;align-items:center;gap:13px;padding:15px 34px;
+  font-size:15px;font-weight:900;letter-spacing:-.01em;color:var(--mint);flex-shrink:0;
+}
+.logostrip-item .ld{width:6px;height:6px;border-radius:50%;background:var(--accent);}
+.logostrip-item em{font-style:normal;font-weight:600;color:rgba(252,254,251,.55);}
+
+/* ---------- problem ---------- */
+.problem{background:var(--forest);color:var(--chalk);padding:66px 0;position:relative;z-index:2;}
+.problem h2.big{color:var(--chalk);}
+.problem .sub{color:rgba(252,254,251,.66);}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px;}
+@media (max-width:780px){.stat-grid{grid-template-columns:1fr;}}
+.stat{
+  border:2.5px solid var(--mint-deep);border-radius:var(--radius-card);
+  background:var(--forest-soft);padding:34px 24px;text-align:center;
+}
+.stat .n{font-size:clamp(54px,7vw,82px);font-weight:900;letter-spacing:-.05em;color:var(--mint);line-height:.9;}
+.stat .n .u{font-size:.45em;vertical-align:.4em;}
+.stat .l{font-size:14.5px;font-weight:600;color:rgba(252,254,251,.74);line-height:1.45;margin-top:12px;}
+.stat .c{font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-top:12px;}
+
+/* ---------- how ---------- */
+.how{background:var(--cream);padding:66px 0;}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px;}
+.how-grid.cols4{grid-template-columns:repeat(4,1fr);}
+@media (max-width:980px){.how-grid.cols4{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:780px){.how-grid{grid-template-columns:1fr;}}
+.how-card{
+  background:var(--chalk);border:2.5px solid var(--forest);
+  border-radius:var(--radius-card);padding:30px 24px 26px;position:relative;
+  box-shadow:0 6px 0 var(--mint-deep);
+}
+.how-card .hn{
+  position:absolute;top:-17px;left:24px;
+  width:38px;height:38px;border-radius:50%;
+  background:var(--accent);color:var(--forest);border:2.5px solid var(--forest);
+  display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;
+}
+.how-card .hi{
+  width:66px;height:66px;border-radius:16px;
+  background:var(--mint);border:2.5px solid var(--forest);
+  display:flex;align-items:center;justify-content:center;font-size:32px;margin:14px 0 16px;
+}
+.how-card .hi-img{
+  width:100%;aspect-ratio:1/1;border-radius:14px;overflow:hidden;
+  border:2.5px solid var(--forest);background:var(--cream);
+  margin:18px 0 18px;box-shadow:0 4px 0 var(--mint-deep);
+}
+.how-card .hi-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.how-card .ht{font-size:20px;font-weight:900;color:var(--forest);letter-spacing:-.025em;margin-bottom:8px;}
+.how-card .hb{font-size:14.5px;color:var(--ink-60);font-weight:500;line-height:1.5;}
+
+/* ---------- reviews ---------- */
+.reviews{background:var(--cream-deep);padding:66px 0;border-top:1.5px solid var(--border);border-bottom:1.5px solid var(--border);}
+.rev-track{display:flex;gap:16px;margin-top:42px;overflow-x:auto;padding:6px 5% 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
+.rev-track::-webkit-scrollbar{height:6px;}
+.rev-track::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:99px;}
+.rev-card{
+  scroll-snap-align:start;flex:0 0 318px;
+  background:var(--chalk);border:2.5px solid var(--forest);
+  border-radius:var(--radius-card);padding:24px;
+  display:flex;flex-direction:column;gap:11px;box-shadow:0 5px 0 var(--mint-deep);
+}
+.rev-card .rstars svg{width:15px;height:15px;}
+.rev-photo{
+  position:relative;width:100%;aspect-ratio:1/1;
+  background:repeating-linear-gradient(45deg,var(--chalk-dim) 0 14px,var(--paper) 14px 28px);
+  border:2px dashed var(--border-strong);border-radius:var(--radius-md);
+  display:flex;align-items:center;justify-content:center;margin-bottom:4px;
+}
+.rev-photo .rp-tag{text-align:center;}
+.rev-photo .rp-i{font-size:28px;opacity:.5;}
+.rev-photo .ph-badge{
+  display:inline-block;margin:7px 0 4px;
+  background:var(--forest);color:var(--chalk);
+  font-size:8px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;
+  padding:3px 8px;border-radius:999px;
+}
+.rev-photo .rp-l{font-size:9px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-40);}
+.rev-photo.has-img{border-style:solid;border-color:var(--forest);overflow:hidden;}
+.rev-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.rev-card .rh{font-size:17px;font-weight:900;color:var(--forest);letter-spacing:-.025em;line-height:1.2;}
+.rev-card .rb{font-size:13.5px;color:var(--ink-60);font-weight:500;line-height:1.5;flex:1;}
+.rev-card .rf{display:flex;align-items:center;justify-content:space-between;border-top:1.5px solid var(--border);padding-top:12px;}
+.rev-card .rn{font-size:13px;font-weight:900;color:var(--forest);}
+.rev-card .rt{
+  font-size:10px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--forest);background:var(--accent);border:1.5px solid var(--forest);
+  padding:3px 9px;border-radius:999px;
+}
+.rev-hint{text-align:center;font-size:12px;font-weight:700;color:var(--ink-40);margin-top:14px;}
+
+/* ---------- comparison: Lio vs 3 competitors (5-col) ---------- */
+.uvt{background:var(--cream);padding:66px 0;}
+.uvt-table{
+  margin-top:42px;border:3px solid var(--forest);
+  border-radius:var(--radius-card);overflow:hidden;background:var(--chalk);box-shadow:var(--shadow-md);
+}
+.uvt-row{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr 1fr;border-bottom:1.5px solid var(--border);}
+.uvt-row:last-child{border-bottom:none;}
+.uvt-cell{
+  padding:14px 10px;display:flex;align-items:center;
+  font-size:13px;font-weight:700;color:var(--forest);text-align:left;
+}
+.uvt-cell.us{background:var(--mint-soft);justify-content:center;border-left:1.5px solid var(--forest);border-right:1.5px solid var(--forest);}
+.uvt-cell.them{justify-content:center;color:var(--ink-60);}
+/* header row */
+.uvt-row.head{border-bottom:2.5px solid var(--forest);}
+.uvt-row.head .uvt-cell{flex-direction:column;gap:8px;padding:16px 8px 14px;justify-content:flex-end;}
+.uvt-row.head .uvt-cell.feat{justify-content:flex-end;}
+.uvt-prod-img{
+  width:58px;height:58px;border-radius:12px;
+  background:repeating-linear-gradient(45deg,var(--chalk-dim) 0 10px,var(--paper) 10px 20px);
+  border:2px solid var(--border-strong);
+  display:flex;align-items:center;justify-content:center;font-size:26px;
+}
+.uvt-row.head .uvt-cell.us .uvt-prod-img{border-color:var(--forest);background:var(--mint);}
+.uvt-prod-name{font-size:13.5px;font-weight:900;letter-spacing:-.02em;text-align:center;line-height:1.15;}
+.uvt-row.head .uvt-cell.us .uvt-prod-name{color:var(--forest);}
+.uvt-row.head .uvt-cell.them .uvt-prod-name{color:var(--ink-60);}
+/* price row */
+.uvt-row.price .uvt-cell{padding:13px 8px;justify-content:center;font-weight:900;}
+.uvt-row.price .uvt-cell.feat{justify-content:flex-start;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-40);}
+.uvt-price{font-size:19px;font-weight:900;letter-spacing:-.03em;color:var(--forest);}
+.uvt-row.price .uvt-cell.them .uvt-price{color:var(--ink-60);}
+/* feature label cells */
+.uvt-cell.feat{font-size:12.5px;font-weight:800;color:var(--ink);line-height:1.3;}
+/* marks */
+.uvt-tick,.uvt-cross,.uvt-warn{
+  width:26px;height:26px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.uvt-tick{background:var(--mint);border:2px solid var(--forest);}
+.uvt-tick::after{content:"";width:26px;height:26px;display:block;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cpath d='M7 13l4 4 8-8' stroke='%230b2410' stroke-width='2.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");}
+.uvt-cross{background:var(--chalk-dim);border:2px solid var(--border-strong);}
+.uvt-cross::after{content:"";width:26px;height:26px;display:block;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cpath d='M9 9l8 8M17 9l-8 8' stroke='%23a8a8a8' stroke-width='2.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");}
+.uvt-warn{background:#fdf0d4;border:2px solid #e0b33a;}
+.uvt-warn::after{content:"";width:26px;height:26px;display:block;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cpath d='M13 7v7M13 17.5v.5' stroke='%23a8791a' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");}
+/* mobile â horizontal swipe slider */
+@media (max-width:720px){
+  .uvt-scroll{
+    overflow-x:auto;-webkit-overflow-scrolling:touch;
+    border-radius:var(--radius-card);
+    scroll-snap-type:x proximity;
+  }
+  .uvt-scroll .uvt-table{margin-top:0;min-width:560px;}
+  .uvt-row{grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;}
+  .uvt-cell{padding:11px 8px;font-size:11.5px;}
+  .uvt-cell.feat{font-size:11.5px;}
+  .uvt-prod-img{width:42px;height:42px;font-size:19px;}
+  .uvt-prod-name{font-size:11px;}
+  .uvt-price{font-size:14px;}
+  .uvt-tick,.uvt-cross,.uvt-warn,
+  .uvt-tick::after,.uvt-cross::after,.uvt-warn::after{width:21px;height:21px;}
+  .uvt-swipe-hint{
+    display:block;text-align:center;font-size:11px;font-weight:700;
+    color:var(--ink-40);margin-top:12px;letter-spacing:.02em;
+  }
+}
+.uvt-swipe-hint{display:none;}
+
+/* ---------- founder ---------- */
+.founder{background:var(--forest);color:var(--chalk);position:relative;z-index:2;}
+.founder-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;}
+@media (max-width:880px){.founder-grid{grid-template-columns:1fr;}}
+.founder-vis{
+  background:var(--forest-soft);min-height:440px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.founder-vis::before{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,rgba(148,252,169,.07) 0 18px,transparent 18px 36px);
+}
+.founder-portrait{
+  position:relative;z-index:1;width:78%;max-width:340px;aspect-ratio:4/5;
+  border-radius:var(--radius-card);
+  background:repeating-linear-gradient(45deg,rgba(252,254,251,.07) 0 18px,transparent 18px 36px),var(--forest-soft);
+  border:2.5px dashed rgba(148,252,169,.5);
+  display:flex;align-items:center;justify-content:center;
+}
+.founder-portrait .fp-tag{text-align:center;}
+.founder-portrait .fp-i{font-size:42px;opacity:.55;}
+.founder-portrait .ph-badge.ph-badge-light{
+  display:inline-block;margin:9px 0 5px;
+  background:var(--mint);color:var(--forest);
+  font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;
+  padding:4px 10px;border-radius:999px;
+}
+.founder-portrait .fp-l{
+  font-size:10px;font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;color:rgba(252,254,251,.4);
+}
+.founder-portrait.has-img{border-style:solid;border-color:var(--mint);overflow:hidden;}
+.founder-portrait img{width:100%;height:100%;object-fit:cover;display:block;}
+.founder-txt{padding:64px 8% 64px 6%;display:flex;flex-direction:column;justify-content:center;}
+@media (max-width:880px){.founder-txt{padding:48px 8%;}}
+.founder-txt .eyebrow{margin-bottom:20px;align-self:flex-start;}
+.founder-q{font-size:clamp(22px,2.8vw,32px);font-weight:900;letter-spacing:-.03em;line-height:1.18;color:var(--chalk);margin-bottom:18px;}
+.founder-q .y{color:var(--accent);}
+.founder-b{font-size:15.5px;color:rgba(252,254,251,.72);line-height:1.55;margin-bottom:22px;}
+.founder-sig .fn{font-size:15px;font-weight:900;color:var(--mint);}
+.founder-sig .fr{font-size:12px;font-weight:700;color:rgba(252,254,251,.55);}
+
+/* ---------- guarantee ---------- */
+.guar{background:var(--forest);padding:66px 0;border-top:2.5px solid var(--mint-deep);border-bottom:2.5px solid var(--mint-deep);}
+.guar-inner{text-align:center;}
+.guar-seal{
+  width:104px;height:104px;border-radius:50%;
+  background:var(--mint);border:3px solid var(--mint-deep);
+  display:flex;align-items:center;justify-content:center;font-size:48px;margin:0 auto 22px;
+}
+.guar h2{font-size:clamp(30px,4.4vw,52px);font-weight:900;letter-spacing:-.04em;color:var(--chalk);line-height:.98;margin-bottom:14px;}
+.guar p{font-size:clamp(15px,1.8vw,19px);color:rgba(252,254,251,.78);font-weight:600;line-height:1.5;max-width:600px;margin:0 auto 28px;}
+.guar p strong{font-weight:900;color:var(--mint);}
+
+/* ---------- timeline (90-day reset) ---------- */
+.tline{background:var(--cream);padding:66px 0;}
+.tline-track{max-width:760px;margin:46px auto 0;position:relative;}
+.tline-track::before{content:"";position:absolute;left:27px;top:14px;bottom:14px;width:3px;background:var(--mint-deep);border-radius:3px;}
+.tline-step{position:relative;padding:0 0 30px 78px;}
+.tline-step:last-child{padding-bottom:0;}
+.tline-dot{
+  position:absolute;left:0;top:0;width:56px;height:56px;border-radius:50%;
+  background:var(--accent);border:3px solid var(--forest);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;box-shadow:0 5px 0 var(--mint-deep);z-index:2;
+}
+.tline-card{
+  background:var(--chalk);border:2.5px solid var(--forest);
+  border-radius:var(--radius-md);padding:20px 22px;box-shadow:0 5px 0 var(--mint-deep);
+}
+.tline-k{font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--mint-deep);}
+.tline-t{font-size:18px;font-weight:900;color:var(--forest);margin-top:4px;letter-spacing:-.01em;}
+.tline-b{font-size:14px;font-weight:600;color:var(--ink-60);line-height:1.5;margin-top:6px;}
+
+/* ---------- myth busting ---------- */
+.myth{background:var(--forest);color:var(--chalk);padding:66px 0;}
+.myth h2.big{color:var(--chalk);}
+.myth .sub{color:rgba(252,254,251,.66);}
+.myth-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px;}
+@media (max-width:780px){.myth-grid{grid-template-columns:1fr;}}
+.myth-card{
+  background:var(--forest-soft);border:2.5px solid var(--mint-deep);
+  border-radius:var(--radius-card);padding:26px 24px;
+}
+.myth-x{
+  font-size:12px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;
+  color:#ff9b8a;display:flex;align-items:center;gap:7px;
+}
+.myth-q{font-size:18px;font-weight:900;color:var(--chalk);margin:8px 0 12px;letter-spacing:-.01em;}
+.myth-a{
+  font-size:11px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--mint);display:flex;align-items:center;gap:7px;
+}
+.myth-b{font-size:14px;font-weight:600;color:rgba(252,254,251,.78);line-height:1.55;margin-top:7px;}
+
+/* ---------- science deep-dive ---------- */
+.sci{background:var(--cream-deep);padding:66px 0;border-top:1.5px solid var(--border);border-bottom:1.5px solid var(--border);}
+.sci-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
+@media (max-width:780px){.sci-grid{grid-template-columns:1fr;}}
+.sci-card{
+  background:var(--chalk);border:2.5px solid var(--forest);
+  border-radius:var(--radius-card);padding:28px 24px;box-shadow:0 6px 0 var(--mint-deep);
+}
+.sci-ico{
+  width:50px;height:50px;border-radius:13px;background:var(--cream-deep);
+  border:2.5px solid var(--forest);display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin-bottom:14px;
+}
+.sci-t{font-size:18px;font-weight:900;color:var(--forest);letter-spacing:-.01em;}
+.sci-b{font-size:14px;font-weight:600;color:var(--ink-60);line-height:1.55;margin-top:7px;}
+.sci-stat{font-size:11px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:var(--mint-deep);margin-top:12px;}
+
+/* ---------- value stack ---------- */
+.vstack{display:flex;flex-direction:column;gap:2px;}
+.vstack-row{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:14px 18px;background:var(--chalk);
+  border:2px solid var(--forest);border-radius:var(--radius-md);
+}
+.vstack-row .vs-n{font-size:14.5px;font-weight:700;color:var(--forest);}
+.vstack-row .vs-p{font-size:15px;font-weight:900;color:var(--forest);white-space:nowrap;}
+.vstack-row .vs-p s{color:var(--ink-40);}
+.vstack-row.total{background:var(--cream-deep);}
+.vstack-row.total .vs-n,.vstack-row.total .vs-p{color:var(--ink-60);}
+.vstack-row.today{
+  background:var(--forest);border-color:var(--forest);
+}
+.vstack-row.today .vs-n,.vstack-row.today .vs-p{color:var(--mint);font-size:17px;}
+
+/* ---------- faq ---------- */
+.faq{background:var(--cream);padding:66px 0;}
+.faq-list{max-width:780px;margin:42px auto 0;display:flex;flex-direction:column;gap:12px;}
+.faq-item{border:2.5px solid var(--forest);border-radius:var(--radius-md);background:var(--chalk);overflow:hidden;}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:21px 22px;text-align:left;
+  font-size:clamp(15px,1.8vw,18px);font-weight:900;color:var(--forest);letter-spacing:-.02em;
+}
+.faq-tog{
+  width:30px;height:30px;flex-shrink:0;border-radius:50%;
+  background:var(--mint);border:2px solid var(--forest);color:var(--forest);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:900;transition:transform .25s ease;
+}
+.faq-item.open .faq-tog{transform:rotate(45deg);background:var(--accent);}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease;}
+.faq-item.open .faq-a{grid-template-rows:1fr;}
+.faq-a-in{overflow:hidden;min-height:0;}
+.faq-a p{padding:0 22px 21px;font-size:14.5px;color:var(--ink-60);font-weight:500;line-height:1.55;}
+
+/* ---------- final ---------- */
+.final{background:var(--forest);color:var(--chalk);padding:78px 0;text-align:center;position:relative;z-index:2;}
+.final .eyebrow{margin-bottom:22px;}
+.final h2{font-size:clamp(34px,5.4vw,64px);font-weight:900;letter-spacing:-.045em;line-height:.97;color:var(--chalk);max-width:760px;margin:0 auto 16px;}
+.final h2 .y{color:var(--mint);}
+.final p{font-size:clamp(15px,1.8vw,19px);color:rgba(252,254,251,.7);font-weight:500;line-height:1.5;max-width:540px;margin:0 auto 30px;}
+.final .btn-cta{margin:0 auto;}
+.final-trust{margin-top:24px;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;font-size:12.5px;font-weight:800;color:rgba(252,254,251,.62);}
+.final-trust span{display:flex;align-items:center;gap:7px;}
+.final-trust .fd{width:6px;height:6px;border-radius:50%;background:var(--accent);}
+
+/* ---------- 5 reasons (Mother's Earth alternating-row structure) ---------- */
+.reasons{padding:74px 0;background:var(--cream);}
+.reasons .wrap{text-align:center;}
+.reasons-rows{display:flex;flex-direction:column;gap:34px;margin-top:46px;text-align:left;}
+.reason-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  background:var(--chalk);border:2.5px solid var(--forest);
+  border-radius:var(--radius-card);overflow:hidden;
+}
+.reason-row.flip .reason-media{order:2;}
+.reason-row.flip .reason-content{order:1;}
+.reason-media{
+  position:relative;min-height:340px;
+  background:repeating-linear-gradient(45deg,var(--chalk-dim) 0 16px,var(--paper) 16px 32px);
+  display:flex;align-items:center;justify-content:center;
+}
+.reason-media img{width:100%;height:100%;object-fit:cover;display:block;}
+.reason-media .rm-ph{text-align:center;padding:20px;}
+.reason-media .rm-i{font-size:42px;opacity:.45;}
+.reason-media .ph-badge{
+  display:inline-block;margin:10px 0 4px;
+  background:var(--forest);color:var(--chalk);
+  font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;
+  padding:4px 11px;border-radius:999px;
+}
+.reason-media .rm-l{font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-40);}
+.reason-num{
+  position:absolute;top:18px;left:18px;z-index:2;
+  width:54px;height:54px;border-radius:50%;
+  background:var(--forest);color:var(--mint);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;font-weight:900;letter-spacing:-.03em;
+  border:3px solid var(--chalk);box-shadow:0 4px 0 var(--mint-deep);
+}
+.reason-content{padding:38px 38px 34px;display:flex;flex-direction:column;justify-content:center;}
+.reason-t{
+  font-size:clamp(22px,2.6vw,30px);font-weight:900;color:var(--forest);
+  letter-spacing:-.03em;line-height:1.1;margin-bottom:8px;
+}
+.reason-sub{
+  font-size:14px;font-weight:700;color:var(--ink-60);
+  line-height:1.4;margin-bottom:18px;
+}
+.reason-pts{display:flex;flex-direction:column;gap:11px;margin-bottom:18px;}
+.reason-pts li{
+  display:flex;gap:11px;align-items:flex-start;
+  font-size:15px;font-weight:600;color:var(--ink);line-height:1.4;
+}
+.reason-pts li::before{
+  content:"";flex-shrink:0;width:22px;height:22px;border-radius:50%;
+  background:var(--mint);border:2px solid var(--forest);margin-top:1px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Cpath d='M6 11l3.5 3.5L16 7' stroke='%230b2410' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.reason-take{
+  font-size:14.5px;font-weight:900;color:var(--forest);
+  line-height:1.35;margin-bottom:20px;
+  padding:11px 14px;background:var(--mint-soft);
+  border-left:3px solid var(--mint-deep);border-radius:6px;
+}
+.reason-cta{
+  display:inline-flex;align-items:center;gap:9px;align-self:flex-start;
+  background:var(--forest);color:var(--mint);
+  font-size:13px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;
+  padding:15px 28px;border-radius:999px;text-decoration:none;
+  transition:transform .14s ease;
+}
+.reason-cta:hover{transform:translateY(-2px);}
+.reasons-cta{
+  display:inline-flex;align-items:center;gap:8px;margin-top:42px;
+  background:var(--forest);color:var(--mint);
+  font-size:14px;font-weight:900;letter-spacing:.02em;text-transform:uppercase;
+  padding:16px 34px;border-radius:999px;text-decoration:none;
+  transition:transform .14s ease;
+}
+.reasons-cta:hover{transform:translateY(-2px);}
+@media (max-width:820px){
+  .reason-row{grid-template-columns:1fr;}
+  .reason-row.flip .reason-media{order:1;}
+  .reason-row.flip .reason-content{order:2;}
+  .reason-media{min-height:240px;}
+  .reason-content{padding:28px 24px;}
+}
+
+/* ---------- footer ---------- */
+footer{background:var(--forest);color:rgba(252,254,251,.5);padding:32px 5% 40px;border-top:1.5px solid var(--forest-soft);}
+.footer-in{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.footer-logo{display:flex;align-items:center;}
+.footer-logo img{height:26px;width:auto;display:block;}
+.footer-note{font-size:11.5px;line-height:1.6;max-width:580px;}
+.footer-legal{max-width:1300px;margin:24px auto 0;font-size:10.5px;line-height:1.6;color:rgba(252,254,251,.34);border-top:1.5px solid var(--forest-soft);padding-top:18px;}
+
+/* ---------- sticky ---------- */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;
+  background:var(--forest);border-top:2.5px solid var(--accent);
+  transform:translateY(110%);transition:transform .34s cubic-bezier(.2,.7,.2,1);
+}
+.sticky.show{transform:translateY(0);}
+.sticky-in{max-width:1300px;margin:0 auto;padding:12px 5%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.sticky-meta{display:flex;flex-direction:column;gap:1px;min-width:0;}
+.sticky-meta .t{font-size:11px;font-weight:800;color:var(--mint);display:flex;align-items:center;gap:7px;}
+.sticky-meta .b{font-size:15px;font-weight:900;color:var(--chalk);letter-spacing:-.02em;}
+.sticky-meta .b s{color:rgba(252,254,251,.4);font-weight:700;}
+.sticky-meta .b em{font-style:normal;color:var(--accent);}
+.sticky .btn-cta{padding:14px 26px;flex-shrink:0;}
+@media (max-width:600px){.sticky-meta .b{font-size:13px;}.sticky .btn-cta{padding:13px 18px;font-size:12px;}}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ============================================================
+   IMAGE-LED SCANNABLE COMPONENTS (GrÃ¼ns-style)
+   ============================================================ */
+/* labeled photo slot â where real Lio photography goes */
+.photo{
+  position:relative;background:var(--chalk-dim);
+  border:2.5px dashed var(--border-strong);border-radius:var(--radius-card);
+  overflow:hidden;display:flex;align-items:center;justify-content:center;
+}
+.photo::before{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,var(--chalk-dim) 0 18px,var(--paper) 18px 36px);
+  opacity:.55;
+}
+.photo .photo-tag{
+  position:relative;z-index:1;text-align:center;padding:18px;
+}
+.photo .photo-tag .pi{font-size:46px;line-height:1;opacity:.5;}
+.photo .photo-tag .ph-badge{
+  display:inline-block;margin:9px 0 5px;
+  background:var(--forest);color:var(--chalk);
+  font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;
+  padding:4px 10px;border-radius:999px;
+}
+.photo .photo-tag .pl{
+  font-size:10.5px;font-weight:800;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--ink-40);line-height:1.35;
+}
+.photo .photo-cap{
+  position:absolute;left:14px;bottom:14px;z-index:2;
+  background:var(--forest);color:var(--chalk);
+  font-size:11px;font-weight:800;letter-spacing:.03em;
+  padding:7px 13px;border-radius:999px;
+}
+.photo .photo-cap.mint{background:var(--mint);color:var(--forest);}
+.photo.has-img{border-style:solid;border-color:var(--forest);background:var(--forest);}
+.photo.has-img::before{display:none;}
+.photo img{
+  position:relative;z-index:1;
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+
+/* horizontal filmstrip scroller */
+.strip{
+  display:flex;gap:14px;overflow-x:auto;padding:4px 5% 16px;
+  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+}
+.strip::-webkit-scrollbar{height:6px;}
+.strip::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:99px;}
+.strip-card{
+  scroll-snap-align:start;flex:0 0 230px;
+}
+.strip-card .photo{aspect-ratio:3/4;margin-bottom:11px;}
+.strip-card .sc-step{
+  display:inline-block;background:var(--forest);color:var(--mint);
+  font-size:10px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;
+  padding:3px 9px;border-radius:999px;margin-bottom:6px;
+}
+.strip-card .sc-t{font-size:17px;font-weight:900;color:var(--forest);letter-spacing:-.025em;line-height:1.15;}
+.strip-card .sc-b{font-size:13px;color:var(--ink-60);font-weight:500;line-height:1.4;margin-top:3px;}
+
+/* alternating image+text row */
+.vrow{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+  margin-top:34px;
+}
+.vrow + .vrow{margin-top:26px;}
+.vrow.flip .vrow-photo{order:2;}
+.vrow .photo{aspect-ratio:4/3;}
+.vrow-txt .vr-k{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--mint);border:1.5px solid var(--forest);color:var(--forest);
+  font-size:10px;font-weight:900;letter-spacing:.07em;text-transform:uppercase;
+  padding:5px 11px;border-radius:999px;margin-bottom:12px;
+}
+.vrow-txt .vr-t{
+  font-size:clamp(22px,2.8vw,30px);font-weight:900;letter-spacing:-.035em;
+  line-height:1.05;color:var(--forest);margin-bottom:9px;
+}
+.vrow-txt .vr-b{font-size:14.5px;color:var(--ink-60);font-weight:500;line-height:1.5;}
+@media (max-width:780px){
+  .vrow{grid-template-columns:1fr;gap:18px;}
+  .vrow.flip .vrow-photo{order:0;}
+}
+
+/* visual grid (stats / proof tiles) */
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:38px;}
+@media (max-width:780px){.vgrid{grid-template-columns:1fr;}}
+.vtile{
+  border:2.5px solid var(--forest);border-radius:var(--radius-card);
+  overflow:hidden;background:var(--chalk);
+}
+.vtile .photo{aspect-ratio:5/3;border:none;border-bottom:2.5px dashed var(--border-strong);border-radius:0;}
+.vtile-body{padding:18px 18px 20px;text-align:center;}
+.vtile-body .vt-n{
+  font-size:clamp(38px,5vw,52px);font-weight:900;letter-spacing:-.05em;
+  color:var(--forest);line-height:.9;
+}
+.vtile-body .vt-n .u{font-size:.42em;vertical-align:.4em;}
+.vtile-body .vt-l{font-size:13px;font-weight:600;color:var(--ink-60);line-height:1.4;margin-top:8px;}
+
+/* ---- founder story (expanded narrative) ---- */
+.story-body{margin-top:22px;display:flex;flex-direction:column;gap:15px;}
+.story-body p{font-size:16px;line-height:1.65;color:var(--ink);}
+.story-body em{font-style:italic;color:var(--forest);font-weight:600;}
+.story-sign{display:flex;align-items:center;gap:14px;margin-top:26px;}
+.story-sign .ss-line{width:44px;height:2px;background:var(--mint-deep);flex-shrink:0;}
+.story-sign .ss-txt{display:flex;flex-direction:column;line-height:1.3;}
+.story-sign .ss-txt strong{font-size:15px;color:var(--forest);}
+.story-sign .ss-txt span{font-size:12.5px;color:var(--ink-60);}
+
+/* ---- offer recap / risk reversal ---- */
+.recap-card{
+  margin-top:26px;background:var(--cream);border:1.5px solid var(--border);
+  border-radius:20px;padding:26px;box-shadow:0 14px 40px -22px rgba(11,36,16,.4);
+}
+.recap-list{list-style:none;display:flex;flex-direction:column;gap:0;}
+.recap-list li{
+  display:flex;align-items:center;gap:12px;padding:12px 0;
+  border-bottom:1px solid var(--border);font-size:14.5px;
+}
+.recap-list li:last-child{border-bottom:none;}
+.recap-list .rk-i{font-size:19px;flex-shrink:0;width:24px;text-align:center;}
+.recap-list .rk-t{flex:1;font-weight:600;color:var(--forest);min-width:0;}
+.recap-list .rk-v{font-weight:700;color:var(--ink-60);white-space:nowrap;}
+.recap-total{margin-top:16px;padding-top:16px;border-top:2px solid var(--forest);}
+.recap-total .rt-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;}
+.recap-total .rt-row span:first-child{font-size:13.5px;font-weight:600;color:var(--ink-60);}
+.recap-total .rt-was{font-size:14px;color:var(--ink-40);text-decoration:line-through;}
+.recap-total .rt-row.big span:first-child{font-size:16px;font-weight:800;color:var(--forest);}
+.recap-total .rt-now{font-size:30px;font-weight:900;color:var(--forest);letter-spacing:-.03em;}
+.recap-total .rt-save{
+  margin-top:6px;font-size:12.5px;font-weight:700;color:var(--mint-deep);
+  background:var(--mint-soft,#e7fbe9);border-radius:8px;padding:7px 11px;text-align:center;
+}
+.recap-guar{
+  display:flex;gap:12px;align-items:flex-start;margin:18px 0;
+  background:var(--cream-deep);border-radius:13px;padding:14px;
+}
+.recap-guar .rg-seal{font-size:24px;flex-shrink:0;}
+.recap-guar .rg-txt{font-size:13px;line-height:1.5;color:var(--ink);}
+.recap-guar .rg-txt strong{color:var(--forest);}
+.recap-card .btn-cta{width:100%;}
+
+/* ---------- cost of not quitting ---------- */
+.cost{background:var(--forest);color:var(--chalk);padding:66px 0;}
+.cost h2.big{color:var(--chalk);}
+.cost .sub{color:rgba(252,254,251,.66);}
+.cost-chart{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  max-width:780px;margin:46px auto 0;align-items:end;
+}
+.cost-bar{display:flex;flex-direction:column;align-items:center;gap:0;}
+.cost-bar .cb-fill{
+  width:100%;border-radius:14px 14px 0 0;border:2.5px solid var(--mint-deep);
+  border-bottom:none;display:flex;align-items:flex-start;justify-content:center;
+  padding-top:16px;
+}
+.cost-bar.smoke .cb-fill{background:#5a2a26;height:240px;}
+.cost-bar.vape .cb-fill{background:#4a4327;height:130px;}
+.cost-bar.lio .cb-fill{background:var(--forest-soft);border-color:var(--mint);height:50px;}
+.cost-bar .cb-amt{font-size:clamp(20px,2.6vw,28px);font-weight:900;letter-spacing:-.03em;color:var(--chalk);}
+.cost-bar.lio .cb-amt{color:var(--mint);}
+.cost-bar .cb-base{
+  width:100%;background:var(--forest-soft);border:2.5px solid var(--mint-deep);
+  border-radius:0 0 14px 14px;padding:13px 10px;text-align:center;
+}
+.cost-bar.lio .cb-base{border-color:var(--mint);}
+.cost-bar .cb-name{font-size:14px;font-weight:900;letter-spacing:-.01em;color:var(--chalk);}
+.cost-bar .cb-note{font-size:11px;font-weight:600;color:rgba(252,254,251,.6);margin-top:3px;line-height:1.35;}
+.cost-bar.lio .cb-note{color:var(--mint);}
+.cost-src{font-size:11px;font-weight:600;color:rgba(252,254,251,.42);text-align:center;margin-top:22px;line-height:1.5;}
+@media (max-width:600px){
+  .cost-chart{gap:10px;}
+  .cost-bar.smoke .cb-fill{height:180px;}
+  .cost-bar.vape .cb-fill{height:100px;}
+  .cost-bar.lio .cb-fill{height:40px;}
+  .cost-bar .cb-name{font-size:12px;}
+}
+
+/* ---------- science / why it works ---------- */
+.whyworks{background:var(--cream-deep);padding:66px 0;border-top:1.5px solid var(--border);border-bottom:1.5px solid var(--border);}
+.ww-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px;}
+@media (max-width:780px){.ww-grid{grid-template-columns:1fr;}}
+.ww-card{
+  background:var(--chalk);border:2.5px solid var(--forest);
+  border-radius:var(--radius-card);padding:26px 24px;box-shadow:0 6px 0 var(--mint-deep);
+  display:flex;flex-direction:column;
+}
+.ww-card .ww-t{font-size:18px;font-weight:900;color:var(--forest);letter-spacing:-.02em;margin-bottom:9px;}
+.ww-card .ww-b{font-size:15.5px;font-weight:600;color:var(--ink);line-height:1.6;}
+.ww-card .ww-q{
+  font-size:10.5px;font-weight:500;color:var(--ink-40);line-height:1.45;font-style:italic;
+  border-top:1px solid var(--border);padding-top:11px;
+  margin-top:auto;
+}
+.ww-card .ww-q .ww-qlabel{
+  display:block;font-style:normal;font-weight:800;font-size:8.5px;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--ink-40);margin-bottom:4px;
+}
+.ww-card .ww-cite{font-size:9.5px;font-weight:700;color:var(--ink-40);letter-spacing:.02em;margin-top:5px;}
+.ww-foot{
+  max-width:680px;margin:30px auto 0;text-align:center;
+  font-size:12.5px;font-weight:600;color:var(--ink-60);line-height:1.6;
+}
+.ww-foot strong{color:var(--forest);font-weight:900;}
+.ww-refs{font-size:10.5px;color:var(--ink-40);margin-top:14px;line-height:1.6;}
+
+/* ---------- perfect grab â use-case strip ---------- */
+.grab{background:var(--cream);padding:64px 0;}
+.grab .wrap{text-align:center;}
+.grab-row{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:42px;
+}
+.grab-card{
+  background:var(--chalk);border:2.5px solid var(--forest);
+  border-radius:var(--radius-card);padding:26px 14px;
+  box-shadow:0 5px 0 var(--mint-deep);
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+}
+.grab-card .gc-i{
+  width:54px;height:54px;border-radius:13px;
+  background:var(--mint);border:2.5px solid var(--forest);
+  display:flex;align-items:center;justify-content:center;font-size:26px;
+}
+.grab-card .gc-t{font-size:14px;font-weight:900;color:var(--forest);letter-spacing:-.02em;line-height:1.25;}
+@media (max-width:780px){
+  .grab-row{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:420px){
+  .grab-row{grid-template-columns:1fr 1fr;gap:10px;}
+  .grab-card{padding:20px 10px;}
+}
+
+/* ============ CONSOLIDATED RESPONSIVE â tablet / phone / small phone ============ */
+
+/* tablet & down */
+@media (max-width:760px){
+  .wrap{padding:0 22px;}
+  section.hero,.problem,.uvt,.reasons,.how,.reviews,.founder,.guar,.faq,.myth,.sci,.tline,.final,.buy2{padding-top:46px;padding-bottom:46px;}
+  .logostrip-item{padding:13px 22px;font-size:13px;gap:10px;}
+  h2.big{font-size:clamp(26px,7vw,40px);}
+  .sub{font-size:15px;}
+}
+
+/* phone */
+@media (max-width:600px){
+  .wrap{padding:0 18px;}
+  h1.hero-h1{font-size:clamp(34px,10.5vw,46px);}
+  .hero-grid{gap:24px;}
+  .hero-rating{flex-wrap:wrap;}
+  .hero-benefits li{font-size:14px;}
+
+  /* buy box */
+  .bb-body{padding:18px 16px 20px;}
+  .bb-title{font-size:21px;}
+  .bb-thumbs{gap:5px;}
+  .plan{padding:14px 13px;}
+  .plan-nm{font-size:15px;}
+  .plan-pr .now{font-size:22px;}
+  .plan-incl li{font-size:12px;}
+  .bb-atc{font-size:15px;padding:16px;}
+  .why90{padding:13px 14px;}
+
+  /* comparison table â keep 5 cols but shrink hard */
+  .uvt-row{grid-template-columns:1.15fr .65fr .65fr .65fr .65fr .65fr;}
+  .uvt-cell{padding:9px 4px;font-size:10.5px;}
+  .uvt-cell.feat{font-size:10.5px;}
+  .uvt-prod-img{width:40px;height:40px;font-size:17px;}
+  .uvt-prod-name{font-size:10px;}
+  .uvt-price{font-size:13px;}
+  .uvt-price small{font-size:7.5px;}
+  .uvt-tick,.uvt-cross,.uvt-tick::after,.uvt-cross::after{width:19px;height:19px;}
+
+  /* reason rows already stack at 820px â tighten padding */
+  .reason-content{padding:24px 20px;}
+  .reason-t{font-size:clamp(20px,6vw,26px);}
+  .reason-sub{font-size:13.5px;}
+  .reason-pts li{font-size:14px;}
+  .reason-take{font-size:13.5px;}
+  .reason-media{min-height:200px;}
+  .reason-num{width:44px;height:44px;font-size:18px;top:12px;left:12px;}
+
+  /* steps / cards */
+  .how-card,.sci-card,.myth-card,.bcard{padding:22px 18px;}
+  .stat{padding:26px 20px;}
+  .stat .n{font-size:clamp(48px,16vw,64px);}
+
+  /* reviews */
+  .rev-card{padding:20px 18px;}
+
+  /* sticky bar */
+  .sticky-in{padding:10px 16px;gap:10px;}
+  .sticky-meta .b{font-size:12.5px;}
+  .sticky .btn-cta{padding:12px 16px;font-size:11.5px;}
+
+  /* CTAs wrap cleanly */
+  .reasons-cta,.reason-cta,.btn-cta{white-space:normal;text-align:center;}
+
+  /* timeline */
+  .tline-step{padding-left:64px;}
+  .tline-dot{width:46px;height:46px;font-size:18px;}
+  .tline-track::before{left:22px;}
+
+  /* footer */
+  .footer-in{flex-direction:column;align-items:flex-start;gap:14px;}
+}
+
+/* small phone */
+@media (max-width:380px){
+  .wrap{padding:0 14px;}
+  h1.hero-h1{font-size:32px;}
+  h2.big{font-size:24px;}
+  .bb-body{padding:16px 13px 18px;}
+  .bb-title{font-size:19px;}
+  .uvt-cell{padding:7px 2px;font-size:9.5px;}
+  .uvt-prod-img{width:34px;height:34px;font-size:14px;}
+  .uvt-price{font-size:11.5px;}
+  .uvt-tick,.uvt-cross,.uvt-tick::after,.uvt-cross::after{width:16px;height:16px;}
+  .logostrip-item{padding:11px 16px;font-size:12px;}
+}
+
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<!-- URGENCY BAR -->
+<div class="urgency">
+  <span>ð¥ Spring Reset Sale â Save up to â¬58 on the 90-Day Supply Pack</span>
+  <span class="u-clock" id="clock">23:59:59</span>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">
+    <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/lio-logo-Photoroom_1.png?v=1776153564" alt="Lio">
+  </div>
+  <div class="nav-menu">
+    <a href="#how">How it works</a>
+    <a href="#compare">Compare</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <div class="nav-right">
+    <a href="#buy" class="nav-cta">Shop Now</a>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mm-panel">
+    <button class="mm-close" id="mmClose" aria-label="Close menu">Ã</button>
+    <nav class="mm-links">
+      <a href="#buy">The product</a>
+      <a href="#compare">Compare</a>
+      <a href="#grab">When cravings hit</a>
+      <a href="#reasons">Why switch</a>
+      <a href="#how">How it works</a>
+      <a href="#mechanism">The mechanism</a>
+      <a href="#timeline">Your 90 days</a>
+      <a href="#cost">The real cost</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#science">Why it works</a>
+      <a href="#guarantee">Guarantee</a>
+      <a href="#myths">Myths</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#buy" class="mm-cta">Shop Now â</a>
+  </div>
+</div>
+
+<!-- HERO â PDP layout: gallery left, purchase panel right -->
+<section class="hero" id="buy">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <!-- LEFT: product gallery -->
+      <div class="pdp-gallery">
+        <div class="bb-stage">
+          <div class="bb-sticker">
+            <span class="s1">90-Day</span>
+            <span class="s2">Reset</span>
+            <span class="s3">Guarantee</span>
+          </div>
+          <div class="bb-stage-ico js-stageIco">ðªµ</div>
+          <div class="bb-stage-label"><span class="ph-badge">Photo here</span><span class="pl js-stageLabel">Lio Plus device â 1:1 hero shot</span></div>
+        </div>
+        <div class="bb-thumbs">
+          <button class="bb-thumb active" data-ico="ðªµ" data-label="Lio Plus device â 1:1 hero shot">ðªµ</button>
+          <button class="bb-thumb" data-ico="â" data-label="In-hand â 1:1 lifestyle">â</button>
+          <button class="bb-thumb" data-ico="ð¿" data-label="Flavour cores â 1:1">ð¿</button>
+          <button class="bb-thumb" data-ico="ð¦" data-label="Welcome Kit â 1:1">ð¦</button>
+        </div>
+      </div>
+
+      <!-- RIGHT: purchase panel -->
+      <div class="buybox pdp-panel">
+        <div class="bb-body">
+
+          <div class="eyebrow"><span class="pdot"></span>Nicotine-free in 90 days</div>
+          <h1 class="bb-title pdp-title">Quit nicotine without fighting the craving.</h1>
+          <div class="bb-rating">
+            <span class="stars" data-stars></span>
+            <strong style="color:var(--forest);">4.8/5</strong> Â· 3,140 reviews Â· 150,000+ switched
+          </div>
+          <p class="pdp-desc">The Lio Plus is a hand-finished wooden diffuser that feeds the hand-to-mouth ritual â 0&nbsp;mg nicotine, nothing burning. â Satisfies the ritual, not the addiction.</p>
+          <ul class="hero-benefits">
+            <li><span class="hbi">ð­</span>No nicotine, no vapour, nothing burning</li>
+            <li><span class="hbi">âï¸</span>A cool hit of mint on every breath</li>
+            <li><span class="hbi">ð</span>Use it discreetly anywhere â desk, car, flights</li>
+          </ul>
+
+          <div class="bb-step">
+
+            <div class="plan-stack">
+
+              <div class="plan" data-plan="30"
+                   data-cta="Add to cart"
+                   data-price="â¬49" data-was="â¬89" data-save="â¬40"
+                   data-name="30-Day Supply Pack" data-guar="30-day">
+                <div class="plan-row">
+                  <div class="plan-radio"></div>
+                  <div class="plan-mid">
+                    <div class="plan-nm">30-Day Supply Pack</div>
+                    <div class="plan-tag">A simple way to try Lio</div>
+                  </div>
+                  <div class="plan-pr">
+                    <span class="was">â¬89</span>
+                    <span class="now"><span class="c">â¬</span>49</span>
+                    <span class="ot">One-time</span>
+                  </div>
+                </div>
+                <div class="plan-incl">
+                  <ul class="pi-list">
+                    <li>Lio device + carry case</li>
+                    <li>30-day flavour supply</li>
+                    <li>Free shipping</li>
+                    <li>30-day money-back guarantee</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="plan feat sel" data-plan="90"
+                   data-cta="Add to cart"
+                   data-price="â¬87" data-was="â¬145" data-save="â¬58"
+                   data-name="90-Day Supply Pack" data-guar="90-day">
+                <span class="plan-badge">â Most popular</span>
+                <div class="plan-row">
+                  <div class="plan-radio"></div>
+                  <div class="plan-mid">
+                    <div class="plan-nm">90-Day Supply Pack</div>
+                    <div class="plan-tag">Be nicotine-free in 90 days â or your money back</div>
+                  </div>
+                  <div class="plan-pr">
+                    <span class="was">â¬145</span>
+                    <span class="now"><span class="c">â¬</span>87</span>
+                    <span class="ot">One-time</span>
+                  </div>
+                </div>
+                <div class="plan-incl">
+                  <ul class="pi-list">
+                    <li>Lio device + carry case</li>
+                    <li>90-day flavour supply</li>
+                    <li>WhatsApp Quit Coach</li>
+                    <li>Free shipping</li>
+                    <li>90-day money-back guarantee</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="wood-pick">
+            <span class="wp-label">Wood finish</span>
+            <div class="wp-opts">
+              <div class="wood-chip sel" data-wood="Olive"><span class="wc-sw olive"></span><span class="wc-nm">Olive</span></div>
+              <div class="wood-chip" data-wood="Walnut"><span class="wc-sw walnut"></span><span class="wc-nm">Walnut</span></div>
+            </div>
+          </div>
+
+          <button class="bb-atc js-atc">
+            <span class="js-atcText">Add to cart Â· â¬87</span><span>â</span>
+          </button>
+          <div class="bb-reassure">
+            <span><span class="rd"></span><span class="js-guar">90-day</span> money-back</span>
+            <span><span class="rd"></span>Free shipping</span>
+            <span><span class="rd"></span>One-time payment</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ TRUST MARQUEE (Lio component) ============ -->
+<div class="logostrip">
+  <div class="logostrip-track" id="logoTrack">
+    <span class="logostrip-item"><span class="ld"></span>HAND-FINISHED IN AMSTERDAM</span>
+    <span class="logostrip-item"><span class="ld"></span>NICOTINE-FREE <em>Â· always</em></span>
+    <span class="logostrip-item"><span class="ld"></span>150,000+ PEOPLE SWITCHED</span>
+    <span class="logostrip-item"><span class="ld"></span>4.8â Â· 3,140 REVIEWS</span>
+    <span class="logostrip-item"><span class="ld"></span>SHIPS UK Â· EU Â· UAE</span>
+    <span class="logostrip-item"><span class="ld"></span>30-DAY MONEY-BACK GUARANTEE</span>
+  </div>
+</div>
+
+<!-- ============ WHY 150,000+ CHOOSE LIO â comparison ============ -->
+<section class="uvt" id="compare">
+  <div class="wrap reveal">
+    <div class="kicker-row"><div class="eyebrow"><span class="pdot"></span>Why people choose Lio</div></div>
+    <h2 class="big">Why 150,000+ people choose Lio<br>over cigarettes, vapes &amp; patches</h2>
+    <p class="sub">One honest look at how Lio compares to the habit you're leaving behind.</p>
+    <div class="uvt-scroll">
+      <div class="uvt-table">
+
+      <div class="uvt-row head">
+        <div class="uvt-cell feat">&nbsp;</div>
+        <div class="uvt-cell us">
+          <div class="uvt-prod-img">ðªµ</div>
+          <div class="uvt-prod-name">Lio</div>
+        </div>
+        <div class="uvt-cell them">
+          <div class="uvt-prod-img">ð¬</div>
+          <div class="uvt-prod-name">Cigarettes</div>
+        </div>
+        <div class="uvt-cell them">
+          <div class="uvt-prod-img">ð¨</div>
+          <div class="uvt-prod-name">Vapes</div>
+        </div>
+        <div class="uvt-cell them">
+          <div class="uvt-prod-img">ð©¹</div>
+          <div class="uvt-prod-name">Patches / Gum</div>
+        </div>
+      </div>
+
+      <div class="uvt-row price">
+        <div class="uvt-cell feat">Cost per day</div>
+        <div class="uvt-cell us"><div class="uvt-price">â¬0,97</div></div>
+        <div class="uvt-cell them"><div class="uvt-price">â¬8+</div></div>
+        <div class="uvt-cell them"><div class="uvt-price">â¬4+</div></div>
+        <div class="uvt-cell them"><div class="uvt-price">â¬2â3</div></div>
+      </div>
+
+      <div class="uvt-row">
+        <div class="uvt-cell feat">Replaces hand-to-mouth ritual</div>
+        <div class="uvt-cell us"><span class="uvt-tick"></span></div>
+        <div class="uvt-cell them"><span class="uvt-tick"></span></div>
+        <div class="uvt-cell them"><span class="uvt-tick"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+      </div>
+      <div class="uvt-row">
+        <div class="uvt-cell feat">0 mg nicotine</div>
+        <div class="uvt-cell us"><span class="uvt-tick"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+      </div>
+      <div class="uvt-row">
+        <div class="uvt-cell feat">No smoke or vapour</div>
+        <div class="uvt-cell us"><span class="uvt-tick"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+        <div class="uvt-cell them"><span class="uvt-tick"></span></div>
+      </div>
+      <div class="uvt-row">
+        <div class="uvt-cell feat">Helps break nicotine dependency</div>
+        <div class="uvt-cell us"><span class="uvt-tick"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+        <div class="uvt-cell them"><span class="uvt-warn"></span></div>
+      </div>
+      <div class="uvt-row">
+        <div class="uvt-cell feat">No batteries or charging</div>
+        <div class="uvt-cell us"><span class="uvt-tick"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+        <div class="uvt-cell them"><span class="uvt-tick"></span></div>
+      </div>
+      <div class="uvt-row">
+        <div class="uvt-cell feat">No chemicals inhaled</div>
+        <div class="uvt-cell us"><span class="uvt-tick"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+        <div class="uvt-cell them"><span class="uvt-tick"></span></div>
+      </div>
+      <div class="uvt-row">
+        <div class="uvt-cell feat">One-time purchase</div>
+        <div class="uvt-cell us"><span class="uvt-tick"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+      </div>
+      <div class="uvt-row">
+        <div class="uvt-cell feat">Discreet in public</div>
+        <div class="uvt-cell us"><span class="uvt-tick"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+        <div class="uvt-cell them"><span class="uvt-warn"></span></div>
+        <div class="uvt-cell them"><span class="uvt-tick"></span></div>
+      </div>
+      <div class="uvt-row">
+        <div class="uvt-cell feat">90-day money-back guarantee</div>
+        <div class="uvt-cell us"><span class="uvt-tick"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+        <div class="uvt-cell them"><span class="uvt-cross"></span></div>
+      </div>
+
+    </div>
+    </div>
+    <p class="uvt-swipe-hint">â swipe to compare â</p>
+    <div style="text-align:center;margin-top:30px">
+      <a href="#buy" class="reasons-cta">Try Lio risk-free <span>â</span></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PERFECT GRAB â use-case strip ============ -->
+<section class="grab" id="grab">
+  <div class="wrap reveal">
+    <div class="kicker-row"><div class="eyebrow"><span class="pdot"></span>When cravings hit</div></div>
+    <h2 class="big">The perfect grab, the moment a craving hits.</h2>
+    <div class="grab-row">
+      <div class="grab-card">
+        <div class="gc-i">ð½ï¸</div>
+        <div class="gc-t">After meals</div>
+      </div>
+      <div class="grab-card">
+        <div class="gc-i">ð®âð¨</div>
+        <div class="gc-t">During stress</div>
+      </div>
+      <div class="grab-card">
+        <div class="gc-i">ð</div>
+        <div class="gc-t">Driving</div>
+      </div>
+      <div class="grab-card">
+        <div class="gc-i">â</div>
+        <div class="gc-t">On breaks</div>
+      </div>
+      <div class="grab-card">
+        <div class="gc-i">ð¥</div>
+        <div class="gc-t">Social events</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ 5 REASONS â alternating rows (ME exact structure) ============ -->
+<section class="reasons" id="reasons">
+  <div class="wrap reveal">
+    <div class="kicker-row"><div class="eyebrow"><span class="pdot"></span>Why people switch</div></div>
+    <h2 class="big">6 reasons 150,000+ people made the switch</h2>
+
+    <div class="reasons-rows">
+
+      <!-- 01 â image left -->
+      <div class="reason-row">
+        <div class="reason-media">
+          <div class="reason-num">01</div>
+          <div class="rm-ph"><div class="rm-i">â</div><div class="ph-badge">Photo here</div><div class="rm-l">Hand lifting Lio to mouth, mid-draw</div></div>
+        </div>
+        <div class="reason-content">
+          <div class="reason-t">Your hand reaches before your brain decides</div>
+          <div class="reason-sub">That reflex is 80% of the habit â not the nicotine.</div>
+          <ul class="reason-pts">
+            <li>Same hold, same lift, same draw your body knows</li>
+            <li>Calms the urge now â not in an hour</li>
+            <li>Works at the desk, in the car, mid-conversation</li>
+          </ul>
+          <div class="reason-take">â Lio gives the reach somewhere to go</div>
+          <a href="#buy" class="reason-cta">Get Lio <span>â</span></a>
+        </div>
+      </div>
+
+      <!-- 02 â image right -->
+      <div class="reason-row flip">
+        <div class="reason-media">
+          <div class="reason-num">02</div>
+          <div class="rm-ph"><div class="rm-i">ð­</div><div class="ph-badge">Photo here</div><div class="rm-l">Plant-based cores laid out, nothing hidden</div></div>
+        </div>
+        <div class="reason-content">
+          <div class="reason-t">Nothing inside can hook you again</div>
+          <div class="reason-sub">Zero nicotine, zero tobacco â none at all.</div>
+          <ul class="reason-pts">
+            <li>0 mg nicotine â no "low dose," no slow weaning</li>
+            <li>Nothing burns, nothing goes into your lungs</li>
+            <li>Plant-based cores â nothing hidden inside</li>
+          </ul>
+          <div class="reason-take">â You can't get re-hooked on Lio</div>
+          <a href="#buy" class="reason-cta">Get Lio <span>â</span></a>
+        </div>
+      </div>
+
+      <!-- 03 â image left -->
+      <div class="reason-row">
+        <div class="reason-media">
+          <div class="reason-num">03</div>
+          <div class="rm-ph"><div class="rm-i">ðªµ</div><div class="ph-badge">Photo here</div><div class="rm-l">Product hero, olive vs walnut wood grain</div></div>
+        </div>
+        <div class="reason-content">
+          <div class="reason-t">Real wood â so it feels like a ritual, not a crutch</div>
+          <div class="reason-sub">Hand-finished, not one more plastic disposable.</div>
+          <ul class="reason-pts">
+            <li>Holding wood feels grown-up â not desperate</li>
+            <li>Warm and weighted â it feels good in the hand</li>
+            <li>Built to last for years, not days</li>
+          </ul>
+          <div class="reason-take">â An object you keep, not burn through</div>
+          <a href="#buy" class="reason-cta">Get Lio <span>â</span></a>
+        </div>
+      </div>
+
+      <!-- 04 â image right -->
+      <div class="reason-row flip">
+        <div class="reason-media">
+          <div class="reason-num">04</div>
+          <div class="rm-ph"><div class="rm-i">ð¸</div><div class="ph-badge">Photo here</div><div class="rm-l">Lio next to a crossed-out pack of cigarettes / vape</div></div>
+        </div>
+        <div class="reason-content">
+          <div class="reason-t">One payment. The old habit costs â¬8+ a day.</div>
+          <div class="reason-sub">Pay once â then it's yours, with nothing to keep buying.</div>
+          <ul class="reason-pts">
+            <li>From â¬0,97 a day against â¬8â12 on the old habit</li>
+            <li>One-time purchase â no recurring charges, ever</li>
+            <li>Free shipping across the UK, EU &amp; UAE</li>
+          </ul>
+          <div class="reason-take">â It pays for itself in a few weeks</div>
+          <a href="#buy" class="reason-cta">Get Lio <span>â</span></a>
+        </div>
+      </div>
+
+      <!-- 05 â image left -->
+      <div class="reason-row">
+        <div class="reason-media">
+          <div class="reason-num">05</div>
+          <div class="rm-ph"><div class="rm-i">âï¸</div><div class="ph-badge">Photo here</div><div class="rm-l">POV, Lio in hand on a plane tray table</div></div>
+        </div>
+        <div class="reason-content">
+          <div class="reason-t">For the moments you can't vape</div>
+          <div class="reason-sub">A flight, a meeting, a hospital â the times it usually wins.</div>
+          <ul class="reason-pts">
+            <li>The moment you can't vape is the moment to reach for Lio</li>
+            <li>Pocket-sized â no battery, no vapour, no smoke</li>
+            <li>Nothing to charge, hide, or explain at security</li>
+          </ul>
+          <div class="reason-take">â Built for the moments you're trapped</div>
+          <a href="#buy" class="reason-cta">Get Lio <span>â</span></a>
+        </div>
+      </div>
+
+      <!-- 06 â image right -->
+      <div class="reason-row flip">
+        <div class="reason-media">
+          <div class="reason-num">06</div>
+          <div class="rm-ph"><div class="rm-i">âï¸</div><div class="ph-badge">Photo here</div><div class="rm-l">Satisfied exhale / core clicking in</div></div>
+        </div>
+        <div class="reason-content">
+          <div class="reason-t">A cool draw that finishes the urge</div>
+          <div class="reason-sub">A refreshing hit â nothing harsh going in.</div>
+          <ul class="reason-pts">
+            <li>Cool, fresh hit at the back of the throat</li>
+            <li>No heat, no vapour, no smoke</li>
+            <li>Clean plant-based flavour the second you reach</li>
+          </ul>
+          <div class="reason-take">â Your brain marks it "done" â the urge passes</div>
+          <a href="#buy" class="reason-cta">Get Lio <span>â</span></a>
+        </div>
+      </div>
+
+    </div>
+
+
+    <a href="#buy" class="reasons-cta">Get nicotine-free in 90 days <span>â</span></a>
+  </div>
+</section>
+
+
+<!-- ============ HOW IT WORKS (real product images) ============ -->
+<section class="how" id="how">
+  <div class="wrap reveal">
+    <div class="kicker-row"><div class="eyebrow mint"><span class="pdot"></span>How it works</div></div>
+    <h2 class="big">Three steps. That's it.</h2>
+  </div>
+  <div class="how-grid wrap">
+    <div class="how-card">
+      <div class="hn">1</div>
+      <div class="hi-img"><img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_May_18_2026_09_24_59_PM_2.webp?v=1779132763" alt="Inserting a Lio flavour core" loading="lazy"></div>
+      <div class="ht">Insert the flavour core</div>
+      <div class="hb">Pick your flavour and click the core into your Lio. One core lasts two to three days. It's made from medical-grade material.</div>
+    </div>
+    <div class="how-card">
+      <div class="hn">2</div>
+      <div class="hi-img"><img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_May_18_2026_09_24_59_PM_1.webp?v=1779132763" alt="Inserting a Lio FlowDot" loading="lazy"></div>
+      <div class="ht">Insert the FlowDot</div>
+      <div class="hb">Add one of the two FlowDots that come with your order. It holds the core in place and lets you set the airflow you like.</div>
+    </div>
+    <div class="how-card">
+      <div class="hn">3</div>
+      <div class="hi-img"><img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/ChatGPT_Image_May_18_2026_09_24_59_PM_3.webp?v=1779132753" alt="Lio ready to use" loading="lazy"></div>
+      <div class="ht">Ready to use</div>
+      <div class="hb">That's it â your Lio is ready. Now you can start fighting cravings, with no nicotine.</div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============ THE SCIENCE â mechanism deep-dive ============ -->
+<section class="sci" id="mechanism">
+  <div class="wrap reveal">
+    <div class="kicker-row"><div class="eyebrow"><span class="pdot"></span>The mechanism</div></div>
+    <h2 class="big">You miss the ritual. Not the nicotine.</h2>
+    <p class="sub">A habit is a loop: a trigger, an action, a reward. You can't erase the loop. But you can change the action in the middle. That's how Lio works.</p>
+    <div class="sci-grid">
+      <div class="sci-card">
+        <div class="sci-ico">ð¯</div>
+        <div class="sci-t">The cue stays</div>
+        <div class="sci-b">Coffee. The car. The break after a meal. These triggers are built in. You can't fight them off â and you don't have to.</div>
+        <div class="sci-stat">Step 1 Â· the trigger</div>
+      </div>
+      <div class="sci-card">
+        <div class="sci-ico">ð</div>
+        <div class="sci-t">The routine gets swapped</div>
+        <div class="sci-b">Lio steps into the same routine. Same hold. Same lift. Same draw. But with no nicotine and nothing burning.</div>
+        <div class="sci-stat">Step 2 Â· the swap</div>
+      </div>
+      <div class="sci-card">
+        <div class="sci-ico">â</div>
+        <div class="sci-t">The reward still lands</div>
+        <div class="sci-b">A cool, fresh draw finishes the loop, so your brain marks it "done." Over 90 days, the old habit stops being called on.</div>
+        <div class="sci-stat">Step 3 Â· the reset</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE 90-DAY RESET TIMELINE ============ -->
+<section class="tline" id="timeline">
+  <div class="wrap reveal">
+    <div class="kicker-row"><div class="eyebrow mint"><span class="pdot"></span>What to expect</div></div>
+    <h2 class="big">Your 90-day reset, week by week.</h2>
+    <p class="sub">No cold-turkey shock. Just a slow, easy switch from the old habit to a new one.</p>
+    <div class="tline-track">
+      <div class="tline-step">
+        <div class="tline-dot">ð¦</div>
+        <div class="tline-card">
+          <div class="tline-k">Day 1â3</div>
+          <div class="tline-t">The hand-off begins</div>
+          <div class="tline-b">Lio arrives. Every time the old urge hits, you reach for the device instead. Nicotine clears your body within days â the ritual carries you through.</div>
+        </div>
+      </div>
+      <div class="tline-step">
+        <div class="tline-dot">ð¿</div>
+        <div class="tline-card">
+          <div class="tline-k">Week 1â2</div>
+          <div class="tline-t">The reach gets automatic</div>
+          <div class="tline-b">Your hand starts going to Lio without a decision. Your WhatsApp Quit Coach checks in on the trickier moments â mornings, drives, social settings.</div>
+        </div>
+      </div>
+      <div class="tline-step">
+        <div class="tline-dot">âï¸</div>
+        <div class="tline-card">
+          <div class="tline-k">Week 3â6</div>
+          <div class="tline-t">The pull weakens</div>
+          <div class="tline-b">The cue still fires, but it no longer drags you toward the old habit. Most switchers say this is where it stops feeling like willpower.</div>
+        </div>
+      </div>
+      <div class="tline-step">
+        <div class="tline-dot">ðªµ</div>
+        <div class="tline-card">
+          <div class="tline-k">Day 60â90</div>
+          <div class="tline-t">The reset holds</div>
+          <div class="tline-b">Lio becomes just a calm habit of its own â or something you reach for less and less. Either way, the old loop no longer runs the day.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COST OF NOT QUITTING ============ -->
+<section class="cost" id="cost">
+  <div class="wrap reveal">
+    <div class="kicker-row"><div class="eyebrow mint"><span class="pdot"></span>The real maths</div></div>
+    <h2 class="big">Staying hooked is the expensive option.</h2>
+    <p class="sub">A year of the old habit costs hundreds. Lio is one payment â then it's yours.</p>
+    <div class="cost-chart">
+      <div class="cost-bar smoke">
+        <div class="cb-fill"><span class="cb-amt">â¬2,600+</span></div>
+        <div class="cb-base">
+          <div class="cb-name">Smoking</div>
+          <div class="cb-note">A pack a day â every year</div>
+        </div>
+      </div>
+      <div class="cost-bar vape">
+        <div class="cb-fill"><span class="cb-amt">â¬600+</span></div>
+        <div class="cb-base">
+          <div class="cb-name">Vaping</div>
+          <div class="cb-note">Liquid &amp; coils â every year</div>
+        </div>
+      </div>
+      <div class="cost-bar lio">
+        <div class="cb-fill"><span class="cb-amt">â¬49</span></div>
+        <div class="cb-base">
+          <div class="cb-name">Lio</div>
+          <div class="cb-note">One-time â and no nicotine</div>
+        </div>
+      </div>
+    </div>
+    <p class="cost-src">Smoking based on an EU average pack price of roughly â¬7.30 (far higher in the UK &amp; Ireland); vaping based on published average spend on liquid, coils and devices. Smoking and vaping figures are yearly costs. Lio is a one-time price (30-Day Supply Pack) â with no nicotine and nothing to keep buying. Your own numbers will vary; these are typical estimates.</p>
+    <div style="text-align:center;margin-top:26px">
+      <a href="#buy" class="btn-cta">Start saving â get Lio <span>â</span></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ LOVED BY â short proof strip (ME "Loved By") ============ -->
+<section class="reviews" id="reviews">
+  <div class="wrap reveal">
+    <div class="kicker-row"><div class="eyebrow"><span class="pdot"></span>Loved by switchers</div></div>
+    <h2 class="big">150,000+ switched to Lio's flavoured air.</h2>
+    <p class="sub">It's not about willpower. It's a better habit. Here's what changed.</p>
+  </div>
+  <div class="rev-track">
+    <div class="rev-card">
+      <div class="rev-photo"><div class="rp-tag"><div class="rp-i">â</div><div class="ph-badge">Photo here</div><div class="rp-l">Customer photo</div></div></div>
+      <span class="stars rstars" data-stars></span>
+      <div class="rh">My hands finally had something to do</div>
+      <div class="rb">Every patch fixed the craving but not the fidget. With Lio my hands and mouth are busy â that's the part that always pulled me back. Three weeks in, habit-free.</div>
+      <div class="rf"><span class="rn">Daan V.</span><span class="rt">Day 23</span></div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-photo"><div class="rp-tag"><div class="rp-i">ð¿</div><div class="ph-badge">Photo here</div><div class="rp-l">Customer photo</div></div></div>
+      <span class="stars rstars" data-stars></span>
+      <div class="rh">The ritual, not the substance</div>
+      <div class="rb">So much of the habit was just the routine â stepping outside, the draw, the pause. Lio gives me all of that, clean. My breaks feel the same. My lungs don't.</div>
+      <div class="rf"><span class="rn">Sophie K.</span><span class="rt">Day 41</span></div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-photo"><div class="rp-tag"><div class="rp-i">ðªµ</div><div class="ph-badge">Photo here</div><div class="rp-l">Customer photo</div></div></div>
+      <span class="stars rstars" data-stars></span>
+      <div class="rh">Broke the cycle without the cravings</div>
+      <div class="rb">I switched to other devices, then got stuck. Lio was the off-ramp. The wood feels good, the mint core is genuinely nice, and there's nothing keeping me hooked.</div>
+      <div class="rf"><span class="rn">Marco T.</span><span class="rt">Day 67</span></div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-photo"><div class="rp-tag"><div class="rp-i">ð¦</div><div class="ph-badge">Photo here</div><div class="rp-l">Customer photo</div></div></div>
+      <span class="stars rstars" data-stars></span>
+      <div class="rh">Made it through the full 90 days</div>
+      <div class="rb">The Welcome Kit booklet kept me honest and the WhatsApp coach checked in on the hard days. Past the reset now and I don't miss it. Best â¬87 I've spent on myself.</div>
+      <div class="rf"><span class="rn">Anneke R.</span><span class="rt">Completed</span></div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-photo"><div class="rp-tag"><div class="rp-i">ð¼</div><div class="ph-badge">Photo here</div><div class="rp-l">Customer photo</div></div></div>
+      <span class="stars rstars" data-stars></span>
+      <div class="rh">No more chewing pens at my desk</div>
+      <div class="rb">My oral fixation never went away after I dropped the habit. Lio gave that restless habit a proper home. Discreet enough for work, and the cinnamon core is my favourite.</div>
+      <div class="rf"><span class="rn">Lena B.</span><span class="rt">Day 30</span></div>
+    </div>
+  </div>
+  <div class="rev-hint">â swipe to read more â</div>
+</section>
+
+
+<!-- ============ FOUNDER / MISSION (ME "Mother & Son on a mission") ============ -->
+<section class="founder" id="story">
+  <div class="founder-grid">
+    <div class="founder-vis">
+      <div class="founder-portrait">
+        <div class="fp-tag"><div class="fp-i">ð¤</div><div class="ph-badge ph-badge-light">Photo here</div><div class="fp-l">Founder portrait â workshop</div></div>
+      </div>
+    </div>
+    <div class="founder-txt">
+      <div class="eyebrow dark"><span class="pdot"></span>A family on a mission</div>
+      <div class="founder-q">"We kept seeing people drop the chemical and still <span class="y">lose the fight to the routine.</span> So we built the object the routine needed."</div>
+      <p class="founder-b">Lio started in 2022 as a family project â a father who ships the orders, a son who was sure the habit was never just about nicotine. Patches dealt with the chemical, but his hands still wanted something to do. So we spent two years hand-finishing the object that ritual needed. Nicotine-free. Tobacco-free. Just wood. Today 150,000+ people have made the switch with us.</p>
+      <div class="founder-sig">
+        <div class="fn">Mees van Lier &amp; the Lio Team</div>
+        <div class="fr">Amsterdam Â· Est. 2022</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ THE SCIENCE / WHY IT WORKS â research-based ============ -->
+<section class="whyworks" id="science">
+  <div class="wrap reveal">
+    <div class="kicker-row"><div class="eyebrow"><span class="pdot"></span>Why it works</div></div>
+    <h2 class="big">The habit is half the addiction.</h2>
+    <p class="sub">Lio isn't a guess. It's built on what quit-smoking research already shows about how the habit holds on.</p>
+    <div class="ww-grid">
+      <div class="ww-card">
+        <div class="ww-t">The ritual is real</div>
+        <div class="ww-b">The hand-to-mouth move is the "routine" in the cueâroutineâreward habit loop. It can calm you on its own â even with no nicotine at all.</div>
+        <div class="ww-q"><span class="ww-qlabel">From the research</span>"The act of smoking is not solely driven by nicotine dependence, but also involves behavioral and sensorimotor components."</div>
+        <div class="ww-cite">â Frontiers in Public Health, 2025</div>
+      </div>
+      <div class="ww-card">
+        <div class="ww-t">The gap most quit aids leave</div>
+        <div class="ww-b">Patches and gum give you the chemical. But the physical ritual is left with nothing to do. Researchers say that ritual is a big reason people slip back. That's the gap Lio fills.</div>
+        <div class="ww-q"><span class="ww-qlabel">From the research</span>"Current tools focus predominantly on biochemical and withdrawal dimensions, neglecting behavioral rituals that may play a pivotal role in relapse risk."</div>
+        <div class="ww-cite">â Frontiers in Public Health, 2025</div>
+      </div>
+      <div class="ww-card">
+        <div class="ww-t">Built on the habit loop</div>
+        <div class="ww-b">Lio gives that old routine a safe object to hold. Same trigger. Same move. No nicotine. So the loop can slowly come undone.</div>
+        <div class="ww-q"><span class="ww-qlabel">From the research</span>"The hand-to-mouth action of smoking, through associative learning, can become a deeply entrenched habit."</div>
+        <div class="ww-cite">â Dr Lynne Dawkins, University of East London</div>
+      </div>
+    </div>
+    <div class="ww-foot">
+      <strong>To be clear:</strong> Lio is a habit tool, not a medicine. It hasn't run medical trials and makes no health claims. It works on one well-known idea: a big part of the smoking habit is the ritual â and that ritual needs a new home.
+      <div class="ww-refs">Sources: "Smoking-related gestures and anxiety," Frontiers in Public Health (2025); "Personalized and adaptive interventions for smoking cessation" (2024). The quote from Dr Dawkins describes the behavioural phenomenon and is not an endorsement of Lio.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ 30-DAY GUARANTEE (ME guarantee block) ============ -->
+<section class="guar" id="guarantee">
+  <div class="wrap reveal">
+    <div class="guar-inner">
+      <div class="guar-seal">ð¡ï¸</div>
+      <h2>Be nicotine-free in 90 days â or your money back</h2>
+      <p>Use the 90-Day Supply Pack every day for 90 days. If you're not nicotine-free, email us and we'll refund every cent â device included. No forms, no return shipping to argue over, no fine print. <strong>Trying the 30-Day Supply Pack instead? It's covered by a 30-day money-back guarantee on the same terms.</strong> The risk is entirely ours.</p>
+      <a href="#buy" class="btn-cta">Try it risk-free <span>â</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MYTH BUSTING â objection handling ============ -->
+<section class="myth" id="myths">
+  <div class="wrap reveal">
+    <div class="kicker-row"><div class="eyebrow mint"><span class="pdot"></span>Straight answers</div></div>
+    <h2 class="big">What people get wrong about Lio.</h2>
+    <p class="sub">The honest answers â before you decide.</p>
+    <div class="myth-grid">
+      <div class="myth-card">
+        <div class="myth-x">â The myth</div>
+        <div class="myth-q">"It's just a vape with no nicotine."</div>
+        <div class="myth-a">â The truth</div>
+        <div class="myth-b">There's no battery, no heat, and no e-liquid. Nothing goes into your lungs. Lio is a wooden diffuser â you draw plant-based flavour, not vapour.</div>
+      </div>
+      <div class="myth-card">
+        <div class="myth-x">â The myth</div>
+        <div class="myth-q">"If there's no nicotine, it can't help."</div>
+        <div class="myth-a">â The truth</div>
+        <div class="myth-b">Nicotine is only part of the habit. About 80% is the physical ritual. That's the part patches and gum miss. Lio gives the ritual a place to go.</div>
+      </div>
+      <div class="myth-card">
+        <div class="myth-x">â The myth</div>
+        <div class="myth-q">"I'll just get hooked on Lio instead."</div>
+        <div class="myth-a">â The truth</div>
+        <div class="myth-b">There's nothing addictive inside a Lio core. No nicotine. No tobacco. Use it to get through the first 90 days. After that, use it as much or as little as you want.</div>
+      </div>
+      <div class="myth-card">
+        <div class="myth-x">â The myth</div>
+        <div class="myth-q">"â¬87 is a lot for a quit aid."</div>
+        <div class="myth-a">â The truth</div>
+        <div class="myth-b">You pay once. There's no monthly plan. The old habit costs â¬2â4 a day. The Lio system pays for itself in just a few weeks.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ (ME FAQ section) ============ -->
+<section class="faq" id="faq">
+  <div class="wrap reveal">
+    <div class="kicker-row"><div class="eyebrow mint"><span class="pdot"></span>Before you start</div></div>
+    <h2 class="big">Frequently asked questions.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Is Lio really 100% nicotine-free?<span class="faq-tog">+</span></button>
+        <div class="faq-a"><div class="faq-a-in"><p>Yes â completely. Lio contains no nicotine and no tobacco, with nothing burning and nothing inhaled into your lungs. The flavour cores are clean and plant-based.</p><p>Lio works on the habit side of quitting. About 80% of why quitting is hard is the hand-to-mouth ritual. Lio gives that ritual somewhere to go â instead of giving you another chemical. There is genuinely nothing inside a Lio core that can keep you dependent, so you can use it for as long as it helps.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How is Lio different from a patch, gum, or a vape?<span class="faq-tog">+</span></button>
+        <div class="faq-a"><div class="faq-a-in"><p>Good question. Patches and gum give you the chemical. But they leave your hands and mouth with nothing to do. So the urge to <em>reach</em> never goes away. Nicotine-free vapes keep the ritual, but they heat liquid into a mist you breathe in â and many still have nicotine.</p><p>Lio does neither. It keeps the ritual â the hold, the lift, the draw â and removes the chemical entirely. No battery, no heat, no e-liquid, no vapour. It's a habit tool made from real wood, not a chemical product.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What's inside the 90-Day Supply Pack?<span class="faq-tog">+</span></button>
+        <div class="faq-a"><div class="faq-a-in"><p>Everything the 90-day reset needs: your Lio Device Plus, a 90-day supply of plant-based flavour cores (4 bags), the full WhatsApp Quit Coach, Flow Dots, a carry case, and free shipping.</p><p>That's â¬145 of value for â¬87 â a one-time payment, with nothing recurring.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">When will I notice a difference?<span class="faq-tog">+</span></button>
+        <div class="faq-a"><div class="faq-a-in"><p>It's different for everyone. Nicotine leaves your body in about 3 to 4 days. But the habit takes longer, because your body has done the same move thousands of times.</p><p>Most switchers tell us the urge to reach for the old habit feels noticeably weaker within the first few weeks. Using Lio consistently every day across the full 90 days is what makes the reset hold on its own.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Won't I just get hooked on Lio instead?<span class="faq-tog">+</span></button>
+        <div class="faq-a"><div class="faq-a-in"><p>No â there's nothing addictive inside a Lio core. No nicotine, no tobacco, nothing that can hook you.</p><p>Think of Lio as a bridge: it carries you through the 90-day reset by giving the ritual somewhere harmless to go. After that, you can keep using it as a calm habit of its own, or reach for it less and less. Either way, you're in control â not the chemical.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Where do you ship, and how fast?<span class="faq-tog">+</span></button>
+        <div class="faq-a"><div class="faq-a-in"><p>We ship free across the UK, the EU and the UAE from our Netherlands warehouse. Most orders ship within 24 hours and arrive in a few working days. You'll get tracking as soon as it's on the way.</p><p>Lio is a one-time purchase â no subscription, no recurring charges.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I try it risk-free?<span class="faq-tog">+</span></button>
+        <div class="faq-a"><div class="faq-a-in"><p>Yes. Because we believe in the product, the 90-Day Supply Pack is covered by our 90-day money-back guarantee.</p><p>Use Lio every day in your own routine. If it doesn't feel right â even after the full 90 days â simply email us and we'll refund you in full, device included. No forms, no hassle, no questions.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">I've seen other quit products. How are you different?<span class="faq-tog">+</span></button>
+        <div class="faq-a"><div class="faq-a-in"><p>Most quit products treat smoking and vaping as just a nicotine problem. We don't. Lio was built on one simple idea. About 80% of the habit is the ritual â the physical act. That's the part nearly everything else ignores.</p><p>We're a family business that spent two years hand-finishing the object that ritual actually needed. No nicotine, no tobacco, no disposables. Just real wood, clean plant-based cores, and a 90-day system designed to make the change stick.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SECOND BUY BOX â post-proof conversion point -->
+<section class="buy2" id="buy2">
+  <div class="wrap reveal">
+    <div class="kicker-row"><div class="eyebrow"><span class="pdot"></span>Ready when you are</div></div>
+    <h2 class="big">Start your 90-day reset.</h2>
+    <p class="sub">One complete system. One-time payment. Free shipping â UK, EU &amp; UAE.</p>
+
+    <div class="buy2-grid">
+
+      <!-- LEFT: gallery -->
+      <div class="buy2-gallery">
+        <div class="bb-stage">
+          <div class="bb-sticker">
+            <span class="s1">90-Day</span>
+            <span class="s2">Reset</span>
+            <span class="s3">Guarantee</span>
+          </div>
+          <div class="bb-stage-ico js-stageIco">ðªµ</div>
+          <div class="bb-stage-label"><span class="ph-badge">Photo here</span><span class="pl js-stageLabel">Lio Plus device â 1:1 hero shot</span></div>
+        </div>
+        <div class="bb-thumbs">
+          <button class="bb-thumb active" data-ico="ðªµ" data-label="Lio Plus device â 1:1 hero shot">ðªµ</button>
+          <button class="bb-thumb" data-ico="â" data-label="In-hand â 1:1 lifestyle">â</button>
+          <button class="bb-thumb" data-ico="ð¿" data-label="Flavour cores â 1:1">ð¿</button>
+          <button class="bb-thumb" data-ico="ð¦" data-label="Welcome Kit â 1:1">ð¦</button>
+        </div>
+      </div>
+
+      <!-- RIGHT: offer -->
+      <div class="buybox">
+        <div class="bb-banner">ð¥ <strong>Spring Reset Sale</strong> â Save â¬58 on the 90-Day Supply Pack</div>
+        <div class="bb-body">
+
+          <div class="bb-title">The Lio Journey Pack</div>
+          <div class="bb-rating">
+            <span class="stars" data-stars></span>
+            <strong style="color:var(--forest);">4.8/5</strong> Â· 3,140 reviews
+          </div>
+
+          <div class="bb-step">
+
+                        <div class="plan-stack">
+
+              <div class="plan" data-plan="30"
+                   data-cta="Add to cart"
+                   data-price="â¬49" data-was="â¬89" data-save="â¬40"
+                   data-name="30-Day Supply Pack" data-guar="30-day">
+                <div class="plan-row">
+                  <div class="plan-radio"></div>
+                  <div class="plan-mid">
+                    <div class="plan-nm">30-Day Supply Pack</div>
+                    <div class="plan-tag">A simple way to try Lio</div>
+                  </div>
+                  <div class="plan-pr">
+                    <span class="was">â¬89</span>
+                    <span class="now"><span class="c">â¬</span>49</span>
+                    <span class="ot">One-time</span>
+                  </div>
+                </div>
+                <div class="plan-incl">
+                  <ul class="pi-list">
+                    <li>Lio device + carry case</li>
+                    <li>30-day flavour supply</li>
+                    <li>Free shipping</li>
+                    <li>30-day money-back guarantee</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="plan feat sel" data-plan="90"
+                   data-cta="Add to cart"
+                   data-price="â¬87" data-was="â¬145" data-save="â¬58"
+                   data-name="90-Day Supply Pack" data-guar="90-day">
+                <span class="plan-badge">â Most popular</span>
+                <div class="plan-row">
+                  <div class="plan-radio"></div>
+                  <div class="plan-mid">
+                    <div class="plan-nm">90-Day Supply Pack</div>
+                    <div class="plan-tag">Be nicotine-free in 90 days â or your money back</div>
+                  </div>
+                  <div class="plan-pr">
+                    <span class="was">â¬145</span>
+                    <span class="now"><span class="c">â¬</span>87</span>
+                    <span class="ot">One-time</span>
+                  </div>
+                </div>
+                <div class="plan-incl">
+                  <ul class="pi-list">
+                    <li>Lio device + carry case</li>
+                    <li>90-day flavour supply</li>
+                    <li>WhatsApp Quit Coach</li>
+                    <li>Free shipping</li>
+                    <li>90-day money-back guarantee</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="wood-pick">
+            <span class="wp-label">Wood finish</span>
+            <div class="wp-opts">
+              <div class="wood-chip sel" data-wood="Olive"><span class="wc-sw olive"></span><span class="wc-nm">Olive</span></div>
+              <div class="wood-chip" data-wood="Walnut"><span class="wc-sw walnut"></span><span class="wc-nm">Walnut</span></div>
+            </div>
+          </div>
+
+        <button class="bb-atc js-atc">
+          <span class="js-atcText">Add to cart Â· â¬87</span><span>â</span>
+        </button>
+        <div class="bb-reassure">
+          <span><span class="rd"></span><span class="js-guar">90-day</span> money-back</span>
+          <span><span class="rd"></span>Free shipping</span>
+          <span><span class="rd"></span>One-time payment</span>
+        </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap reveal">
+    <div class="eyebrow"><span class="pdot"></span>Your reset starts today</div>
+    <h2>Keep the ritual. <span class="y">Drop the nicotine.</span></h2>
+    <p>150,000+ people stopped fighting the reach and redirected it instead â with a piece of wood, not a patch and not willpower alone.</p>
+    <a href="#buy2" class="btn-cta huge">Be nicotine-free in 90 days Â· â¬87 <span>â</span></a>
+    <div class="final-trust">
+      <span><span class="fd"></span>90-day guarantee</span>
+      <span><span class="fd"></span>Free shipping</span>
+      <span><span class="fd"></span>No subscription</span>
+      <span><span class="fd"></span>4.8â Â· 3,140 reviews</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-in">
+    <div class="footer-logo">
+      <img src="https://cdn.shopify.com/s/files/1/0659/6676/8379/files/Logo_Lio2_2_2_2_1_3_3.png?v=1737337257" alt="Lio">
+    </div>
+    <div class="footer-note">Lio is a hand-finished wooden mouth diffuser and a behavioural lifestyle tool. It contains no nicotine and no tobacco. Lio is not a cessation or therapeutic product and makes no medical claims.</div>
+  </div>
+  <div class="footer-legal">Â© 2026 Lio. Built in Amsterdam. All rights reserved. Â· Lio addresses the behavioural, hand-to-mouth dimension of everyday habits. It is not intended to diagnose, treat, cure or prevent any disease or addiction. Individual experiences vary; reviews reflect individual opinions and are not a guarantee of results.</div>
+</footer>
+
+<!-- STICKY CTA -->
+<div class="sticky" id="sticky">
+  <div class="sticky-in">
+    <div class="sticky-meta">
+      <div class="t"><span class="stars" data-stars-mini></span> 4.8 Â· 150,000+ switched</div>
+      <div class="b" id="stickyPrice"><s>â¬145</s> <em>â¬87</em> Â· 90-Day Supply Pack</div>
+    </div>
+    <a href="#buy" class="btn-cta">Shop Now <span>â</span></a>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var s='<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#0b2410"/></svg>';
+    var sm='<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#94fca9"/></svg>';
+    document.querySelectorAll('[data-stars]').forEach(function(el){el.innerHTML=s.repeat(5);});
+    document.querySelectorAll('[data-stars-mini]').forEach(function(el){el.innerHTML=sm.repeat(5);el.style.transform='scale(.78)';el.style.transformOrigin='left center';});
+  })();
+
+  (function(){
+    var clock=document.getElementById('clock');
+    var end=localStorage.getItem('lioOfferEnd');
+    var now=Date.now();
+    if(!end||+end<now){end=now+24*60*60*1000;localStorage.setItem('lioOfferEnd',end);}
+    function tick(){
+      var d=Math.max(0,+end-Date.now());
+      var h=Math.floor(d/3.6e6),m=Math.floor(d%3.6e6/6e4),sec=Math.floor(d%6e4/1e3);
+      clock.textContent=[h,m,sec].map(function(x){return String(x).padStart(2,'0');}).join(':');
+      if(d<=0){end=Date.now()+24*60*60*1000;localStorage.setItem('lioOfferEnd',end);}
+    }
+    tick();setInterval(tick,1000);
+  })();
+
+  (function(){var t=document.getElementById('logoTrack');t.innerHTML+=t.innerHTML;})();
+
+  /* ---- per-buybox logic: each .buybox is fully self-contained ---- */
+  (function(){
+    var lbl={'90':'90-Day Supply Pack','30':'30-Day Supply Pack'};
+    var sp=document.getElementById('stickyPrice');
+
+    function syncSticky(plan){
+      sp.innerHTML='<s>'+plan.dataset.was+'</s> <em>'+plan.dataset.price+'</em> Â· '+lbl[plan.dataset.plan];
+    }
+
+    document.querySelectorAll('.buybox').forEach(function(box){
+      var thumbs=box.querySelectorAll('.bb-thumb');
+      var ico=box.querySelector('.js-stageIco');
+      var lab=box.querySelector('.js-stageLabel');
+      var woods=box.querySelectorAll('.wood-chip');
+      var plans=box.querySelectorAll('.plan');
+      var atcText=box.querySelector('.js-atcText');
+
+      thumbs.forEach(function(t){
+        t.addEventListener('click',function(){
+          thumbs.forEach(function(x){x.classList.remove('active');});
+          t.classList.add('active');
+          ico.textContent=t.dataset.ico;
+          lab.textContent=t.dataset.label;
+        });
+      });
+
+      woods.forEach(function(w){
+        w.addEventListener('click',function(){
+          woods.forEach(function(x){x.classList.remove('sel');});
+          w.classList.add('sel');
+        });
+      });
+
+      plans.forEach(function(p){
+        p.addEventListener('click',function(){
+          plans.forEach(function(x){x.classList.remove('sel');});
+          p.classList.add('sel');
+          atcText.textContent=p.dataset.cta+' Â· '+p.dataset.price;
+          var g=box.querySelector('.js-guar');
+          if(g&&p.dataset.guar){g.textContent=p.dataset.guar;}
+          syncSticky(p);
+        });
+      });
+    });
+  })();
+
+  (function(){
+    document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){
+      var it=q.parentElement,op=it.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+      if(!op)it.classList.add('open');
+    });});
+  })();
+
+  /* mobile menu */
+  (function(){
+    var burger=document.getElementById('navBurger');
+    var menu=document.getElementById('mobileMenu');
+    var closeBtn=document.getElementById('mmClose');
+    if(!burger||!menu)return;
+    function open(){menu.classList.add('open');menu.setAttribute('aria-hidden','false');burger.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+    function close(){menu.classList.remove('open');menu.setAttribute('aria-hidden','true');burger.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+    burger.addEventListener('click',open);
+    closeBtn.addEventListener('click',close);
+    menu.addEventListener('click',function(e){if(e.target===menu)close();});
+    menu.querySelectorAll('.mm-links a, .mm-cta').forEach(function(a){
+      a.addEventListener('click',close);
+    });
+  })();
+
+  /* sticky hides while EITHER buy box is in view */
+  (function(){
+    var st=document.getElementById('sticky');
+    var boxes=[document.getElementById('buy'),document.getElementById('buy2')];
+    function chk(){
+      var anyVisible=boxes.some(function(b){
+        var r=b.getBoundingClientRect();
+        return r.bottom>120 && r.top<innerHeight-80;
+      });
+      var nearFooter=(innerHeight+scrollY)>(document.body.offsetHeight-540);
+      if(!anyVisible&&!nearFooter)st.classList.add('show');else st.classList.remove('show');
+    }
+    addEventListener('scroll',chk,{passive:true});addEventListener('resize',chk);chk();
+  })();
+
+  (function(){
+    var io=new IntersectionObserver(function(e){e.forEach(function(x){
+      if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}
+    });},{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  })();
+</script>
+</body>
+</html>
